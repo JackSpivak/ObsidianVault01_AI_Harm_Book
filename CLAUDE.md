@@ -48,3 +48,14 @@ Detailed operating rules live in `.claude/rules/` and load automatically.
 - When a decision is made in discussion, offer to record it in `Decisions_Log.md`.
 - When a new fact is established (name, date, rule of the world), offer to add it to
   `Canon_and_Continuity.md`.
+
+## Note creation rules
+- When creating any note from conversation content (ideas, research, characters, world building), include two sections: 
+	- Summary (your paraphrase) and 
+	- Original wording immediately below it, containing:
+		- the exact words from the conversation that the summary is based on, copied verbatim
+		- attribution - attributed to me or to you. 
+		- source - name and location of the session or conversation within which the idea emerged
+		- external references - documents or other external 
+- Never reconstruct or polish the quotes.
+- If you can't locate the exact wording, say so.
