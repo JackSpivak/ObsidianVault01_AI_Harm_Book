@@ -39,7 +39,7 @@ created: 2026-10-29
 **External references:** None. No outside documents or sources shaped this exchange.
 
 ## Why it matters to the book
-- Not assessed. The user set the book context aside for this exchange (an Obsidian integration test).
+- Not assessed. The user set the book context aside for this exchange (the first Obsidian integration test).
 
 ## Open questions
 - Which single analogy, or combination, carries the idea best?
