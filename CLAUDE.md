@@ -56,6 +56,6 @@ Detailed operating rules live in `.claude/rules/` and load automatically.
 		- the exact words from the conversation that the summary is based on, copied verbatim
 		- attribution - attributed to me or to you. 
 		- source - name and location of the session or conversation within which the idea emerged
-		- external references - documents or other external 
+		- external references - documents or other external references that contributed significant context, data, ideas, quotes or foundational principles that are important to the idea
 - Never reconstruct or polish the quotes.
 - If you can't locate the exact wording, say so.

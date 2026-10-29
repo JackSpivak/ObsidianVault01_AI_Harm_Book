@@ -8,9 +8,10 @@ created: {{date:YYYY-MM-DD}}
 
 # {{title}}
 
-## The idea
+## The idea - Summary
 -
-
+## The idea - Original wording
+-
 ## Why it matters to the book
 -
 
