@@ -12,6 +12,9 @@ created: {{date:YYYY-MM-DD}}
 -
 ## The idea - Original wording
 -
+
+## Real-world examples
+-
 ## Why it matters to the book
 -
 

@@ -38,12 +38,18 @@ created: 2026-10-29
 
 **External references:** None. No outside documents or sources shaped this exchange.
 
+## Real-world examples
+- [[Wajir Peace and Development Committee]] (Kenya, 1993 to present): bottom-up, local peace committees and a rapid response team using customary dispute resolution. Rated "Lasting" impact by the Better Evidence Project. Fits the **agriculture** analogy: permanent upkeep.
+- [[Schuman Declaration]] (1950): top-down, pooling French and German coal and steel so war would be "materially impossible." Led to the ECSC and eventually the EU. Fits the **construction** analogy: a load-bearing structure built by design.
+- Together they support the "build like an engineer, tend like a farmer" frame. Sources and verification status are in each linked note.
+
 ## Why it matters to the book
 - Not assessed. The user set the book context aside for this exchange (the first Obsidian integration test).
 
 ## Open questions
 - Which single analogy, or combination, carries the idea best?
-- Is there real-world evidence of peace that was built deliberately and lasted? (Needs research; nothing cited yet.)
+- Are there more real-world examples of peace built deliberately that lasted, especially cases that failed and why?
 
 ## Related
-- 
+- [[Wajir Peace and Development Committee]]
+- [[Schuman Declaration]]
