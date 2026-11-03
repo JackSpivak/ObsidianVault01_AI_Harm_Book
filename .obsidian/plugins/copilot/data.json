@@ -57,7 +57,7 @@
   "enableAutonomousAgent": true,
   "enableCustomPromptTemplating": true,
   "enableSelfHostMode": false,
-  "enableMiyo": false,
+  "enableMiyo": true,
   "enableMiyoSearchSkill": true,
   "miyoSearchAll": false,
   "miyoExtraSearchFolders": [],
