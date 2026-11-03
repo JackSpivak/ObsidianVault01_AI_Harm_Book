@@ -13,6 +13,19 @@ verified: true
 
 # Schuman Declaration
 
+## What it is (explainer)
+The Schuman Declaration was a proposal made by France on 9 May 1950, five years after the Second World War ended. It was presented by Robert Schuman, then French foreign minister.
+
+**The problem it addressed:** France and Germany had fought each other repeatedly. Coal and steel were the raw materials of modern war. Any country controlling them could rearm.
+
+**The idea:** instead of each country controlling its own coal and steel, put French and German production under one shared authority, the European Coal and Steel Community (ECSC). Other European countries could join. If neither country controlled its own war materials alone, preparing for war against the other would become impractical.
+
+**The stated aim:** to make war between France and Germany "not merely unthinkable, but materially impossible." The point was a structural barrier, not just goodwill.
+
+**What came of it:** the ECSC launched with six founding members, including France and West Germany. The EU describes it as the first of a series of supranational European institutions that led to today's European Union. 9 May is now celebrated as Europe Day. *(unverified: not stated on the EU page checked)*
+
+**Why it matters here:** it is a clear historical case of peace designed on purpose, by building shared interests into economic structures (see [[Peace Can Be Built Intentionally]]).
+
 ## Summary
 - On 9 May 1950, French foreign minister Robert Schuman proposed pooling French and German coal and steel production under a European Coal and Steel Community (ECSC).
 - The explicit goal was to make war between France and Germany "not merely unthinkable, but materially impossible."
@@ -53,6 +66,14 @@ verified: true
 > **Unverified:** I believe the ECSC treaty was the Treaty of Paris, signed in 1951. The EU page I checked doesn't give the date.
 >
 > **Analogy fit:** construction. Pooled coal and steel became a load-bearing wall. It also shows design intent: the declaration explicitly set out to make war physically hard, not just undesirable.
+
+**Attribution:** user (request for the explainer section)
+**Source:** Copilot chat, junktest_project, 2026-11-03
+> create a note about schuman explaining what it is
+
+> yes expand the existing note with an explainer
+
+The explainer text is Claude's paraphrase of the facts already in this note. It has no separate verbatim conversation source.
 
 **External references:** see Sources below.
 
