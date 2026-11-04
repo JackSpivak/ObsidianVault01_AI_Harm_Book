@@ -6,7 +6,7 @@ sessionId: "d91a2cee-3df0-432e-8007-5318188bf350"
 topic: "websearch for Sarah Barab"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":39224,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":35215,"cacheWriteTokens":4004,"updatedAt":1793829249762}'
+usage: '{"usedTokens":45078,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":44438,"cacheWriteTokens":630,"updatedAt":1793830010445}'
 ---
 
 **user**: websearch for Sarah Barab
@@ -102,3 +102,58 @@ Sources:
 - [Kicktraq – Naked Mind](https://www.kicktraq.com/projects/437985816/naked-mind-the-film/) (search snippet only)
 - [SEC – Pennant Management, Inc.](https://www.sec.gov/enforcement-litigation/distributions-harmed-investors/matter-pennant-management-inc-admin-proc-file-no-3-18884) (search snippet only; not linked to Barab)
 [Timestamp: 2026/11/04 14:53:27]
+
+**user**: can you create a skill called deep_person_research
+that includes the functionality of standard claude deep_research and speciefically incliudes
+[Timestamp: 2026/11/04 15:02:59]
+
+**ai**: Your message cuts off after "specifically includes," so I don't know what the skill should cover. What should `deep_person_research` include beyond the standard deep research steps? For example:
+
+- Name-search rules, such as the bare name, "Last, First" form, middle-initial variants, and extended search mode for every search
+- Opening and checking each key page before reporting it, with a list of which pages were opened and which were blocked
+- Separating verified facts from search-snippet claims and from inference
+- Court records, property records, professional registrations, or other specific source types to check
+- A fixed output format, such as a table of every name match with an "opened?" column, plus a sources list
+- Saving the finished result as a research note with the Summary and Original wording sections
+
+Also tell me where to put the skill. I'd suggest the vault's `.claude/skills/` folder, so it applies only to this vault. The alternative is your global `~/.claude/skills/`, so it works in every project. Once you answer, I'll write the skill file.
+[Timestamp: 2026/11/04 15:02:59]
+
+**user**: sorry, i missed this in the skill: Define the multi-layered goal: "Conduct an exhaustive background research brief on [Name]." [1]Specify the boundaries: "Cover their career timeline from 2018 to present day, focusing on their acccomplishments skills offerings and significant events and milestones " [1]Request a structured layout: "Compile this into a comprehensive report featuring an executive summary, a chronological career history, known associations, and full source citations." [1]
+
+please include improved instructions amd put it in global skills
+[Timestamp: 2026/11/04 15:05:40]
+
+**ai**: I created the global skill at `C:\Users\conta\.claude\skills\deep_person_research\SKILL.md`. It applies in every project.
+
+Your three instructions are built in:
+- **Goal:** the skill asks for an exhaustive background brief on the named person.
+- **Scope:** it covers the 2018-to-present career timeline, with accomplishments, skills, offerings, and milestones.
+- **Layout:** the report has an executive summary, a chronological career history, known associations, and full source citations.
+
+I also added the standard deep-research steps and your vault's name-search rules:
+- Every name search runs in extended mode, covering the bare name, "Last, First," and middle-initial variants.
+- Every name match goes into a table before anything is filtered out.
+- Key pages are opened. Blocked pages are listed as blocked, not verified.
+- Each claim is labeled as sourced fact, snippet-only, interpretation, or speculation.
+- Identity links are marked confirmed or unconfirmed.
+- Legal allegations are reported as what a record lists, not as fact.
+- Personal details such as home addresses and masked contact info are left out.
+- Nothing is saved to the vault unless you ask. If you do, it becomes a research note in `02_Ideas Topics Concepts/Research/`.
+
+I haven't run the skill yet, so its behavior is untested. The description tells Claude when to use it, so it should trigger on requests for a deep or background brief on a person. To try it, ask for "a deep person research brief on Sarah Barab."
+[Timestamp: 2026/11/04 15:05:40]
+
+**user**: can i trigger it with a backslash ccommand
+[Timestamp: 2026/11/04 15:06:48]
+
+**ai**: Yes. The skill is registered under the name `deep_person_research`, so you can run it as:
+
+```
+/deep_person_research Sarah Barab
+```
+
+Anything after the command name is passed to the skill as its input, so the person's name goes there. Earlier, `/deep_research` didn't run anything because no skill by that name exists here.
+
+I haven't tested the slash command yet, so if it doesn't appear in the menu after you restart or reload, tell me and I'll check the skill file's frontmatter.
+[Timestamp: 2026/11/04 15:06:48]
