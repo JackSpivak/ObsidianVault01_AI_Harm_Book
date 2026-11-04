@@ -6,7 +6,7 @@ sessionId: "696eeeee-0e3b-4466-b02c-c0ca72ed5a79"
 agentLabel: where did i talk about cuisinie
 tags:
   - copilot-conversation
-usage: '{"usedTokens":66864,"contextWindow":1000000,"inputTokens":2,"outputTokens":5,"cacheReadTokens":66331,"cacheWriteTokens":526,"updatedAt":1793817559897}'
+usage: '{"usedTokens":69785,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":68596,"cacheWriteTokens":1179,"updatedAt":1793824246266}'
 lastAccessedAt: 1793810249441
 topic: "where did i talk about cuisinie"
 ---
@@ -160,3 +160,40 @@ Gaps:
 
 The note links to [[Fleet Maull]], which doesn't exist in the vault yet. Should I create that note too?
 [Timestamp: 2026/11/04 11:38:33]
+
+**user**: if you do create the note for fleet maul whAT WILL BE ON IT
+[Timestamp: 2026/11/04 13:30:17]
+
+**ai**: If I create it, the note would be a research note in `02_Ideas Topics Concepts/Research/`, like the Sarah Barab note. Here's what I'd put in it:
+
+**Summary:** Fleet Maull is a prison activist, Buddhist practitioner, and author who leads The Initiation (formerly The Event), the training Sarah Barab co-teaches.
+
+**Facts I've verified from pages I opened:**
+- He has led The Initiation for more than 25 years, and he first encountered The Event while incarcerated in 1996. Source: [Heart Mind Institute, The Initiation](https://www.heartmind.co/initiation)
+- Sarah Barab has apprenticed under him, which links to her note. Source: [Sarah Barab's About page](https://www.sarahbarab.com/about/)
+
+**Facts from search snippets I haven't opened (I'd verify before keeping them):**
+- Author of *Dharma in Hell* and *Radical Responsibility*. Source: [Latest Starters Club transcript](https://latestartersclub.com/transcript86/)
+- Developed Neuro-Somatic Mindfulness and co-founded the National Prison Hospice Association and the Prison Dharma Network. Source: [Middle Way Initiative page](https://www.middlewayinitiative.org/fleet-maull) and a Middle Way Initiative event summary
+
+**Open items:**
+- The spelling: some sources say "Fleet Maull" and your message says "Fleet Maul." The note would use "Maull" and list "Maul" as an alias.
+- Whether he's relevant to the book. The note would have a "How it could be used in the book" section, left blank until we know the connection.
+
+**Links:** [[Sarah Barab]] and a sources section.
+
+I haven't created it. Should I write it now with only the verified facts, or verify the snippet items first?
+[Timestamp: 2026/11/04 13:30:17]
+
+**user**: PLEQASE VCREATE IT
+[Timestamp: 2026/11/04 13:30:37]
+
+**ai**: I created `02_Ideas Topics Concepts/Research/Fleet Maull.md`. It's a research note with a summary, facts with sources, and a sources list. It links to [[Sarah Barab]], and that link now resolves.
+
+The note has three kinds of content:
+- **Verified from pages I opened:** He has led The Initiation for more than 25 years, he first encountered The Event while incarcerated in 1996, and Sarah Barab has apprenticed under him since 2010. His teacher is named as Trungpa Rinpoche.
+- **Marked unverified:** *Dharma in Hell* and *Radical Responsibility*, Neuro-Somatic Mindfulness, and the prison hospice and prison dharma organizations. These came from search snippets I didn't open, so each is flagged.
+- **My interpretation:** A possible link to the book's themes of harm and responsibility. It's labeled as unsourced.
+
+The note uses "Maull" as the main spelling, with "Fleet Maul" as an alias. The "How it could be used in the book" section is blank.
+[Timestamp: 2026/11/04 13:30:37]
