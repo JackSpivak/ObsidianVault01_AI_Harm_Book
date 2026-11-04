@@ -53,7 +53,9 @@ created: 2026-11-04
 - **IMDb:** Lists her as director and writer. *(unverified: IMDb returned 403)*
 - **Social profiles:** Describes her as an astrologer, yoga and meditation instructor, and holistic wellness provider based in New York City ([Facebook](https://www.facebook.com/SarahBarabAstrology/); [Instagram](https://www.instagram.com/sarahbarab/)). *(not opened)*
 - **Business listing:** ZoomInfo lists a small private consumer services business under her name, based in New York, with 1–10 employees ([ZoomInfo](https://www.zoominfo.com/c/sarah-barab/542226733)). *(not opened)*
-- **Lawsuits:** No legal case involving Sarah Barab turned up in the searches. The only close hit was a case involving a different name (Sarah Barbour, Marietta City Schools), which is not included here because the name doesn't match.
+- **Colorado court record (unverified):** A docket listing titled "Barab, Sarah V. Pennant Investment Co Et Al," case number 2024CV030760, General Negligence – Torts, with Sarah Barab as the named party. Attorney listed: Benjamin Michael Wilson. Other named parties include Brenda Feldman and Pendleton Square Condominium Association. Source: [Trellis docket](https://trellis.law/case/8013/2024cv030760/barab-sarah-v-pennant-investment-co-et-al). *(unverified: the Trellis page returned 403 when fetched, so the court, plaintiff/defendant role, and status are from the search summary only. The summary also says the docket shows activity into 2026 but has conflicting dates. Check the Colorado court record directly.)* The user confirmed this is the Colorado case they meant. The user found it using Gemini, and the link was not shared.
+- **Other lawsuit searches:** Searches on Naked Mind Productions, Fleet Maull, The Initiation, and Windhorse turned up no lawsuit.
+- **Earlier note:** No legal case involving Sarah Barab turned up in the first searches. The only close hit was a case involving a different name (Sarah Barbour, Marietta City Schools), which is not included here because the name doesn't match.
 
 ## Sources
 - Heart Mind Institute, "The Initiation": https://www.heartmind.co/initiation

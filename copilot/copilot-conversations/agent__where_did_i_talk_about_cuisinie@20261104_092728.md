@@ -6,7 +6,7 @@ sessionId: "696eeeee-0e3b-4466-b02c-c0ca72ed5a79"
 agentLabel: where did i talk about cuisinie
 tags:
   - copilot-conversation
-usage: '{"usedTokens":81864,"contextWindow":1000000,"inputTokens":2,"outputTokens":4,"cacheReadTokens":81005,"cacheWriteTokens":853,"updatedAt":1793825380186}'
+usage: '{"usedTokens":93486,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":92800,"cacheWriteTokens":676,"updatedAt":1793825900775}'
 lastAccessedAt: 1793810249441
 topic: "where did i talk about cuisinie"
 ---
@@ -239,3 +239,65 @@ I can run a search now for "Sarah Barab" with terms like lawsuit, court, or liti
 
 Her note still lists conflicting locations (New York, and Hawai'i and Boulder in one search summary). The new New York sources add weight to New York, but the note doesn't resolve the conflict.
 [Timestamp: 2026/11/04 13:49:01]
+
+**user**: i know she is currently involved in a lawsuit in coloraado why didnt you find it
+[Timestamp: 2026/11/04 13:50:52]
+
+**ai**: I still can't find it. Three searches for Sarah Barab with Colorado and lawsuit terms returned nothing about her. The results were other people with similar names, the Boulder climate case against oil companies, and an unrelated Colorado docket. I should have searched for "Colorado" in the first place. My earlier lawsuit search used "OR" operators, which this search tool may not handle, and I didn't run a Colorado-specific query until now.
+
+I can't tell whether the case isn't indexed or whether the name appears differently in court records. To find it, I need:
+
+- The **court**, such as a Colorado district court, county court, or federal court.
+- The **full names** of the parties, including whether she's the plaintiff or defendant and whether the name is spelled "Barab" or otherwise.
+- The **approximate year** or case number, if you have it.
+- **Where you saw it**, such as a news article or court docket, so I can link to the source.
+
+If you give me those, I'll search for the case and add it to her note with a source. If I can't find a source, I'll record it as "reported by user, unverified" and leave it out of the factual sections.
+[Timestamp: 2026/11/04 13:50:52]
+
+**user**: i found this using gemini  why don't you find it
+[Timestamp: 2026/11/04 13:53:32]
+
+**ai**: I found a possible match and added it to her note as unverified. It's a Colorado court docket with Sarah Barab as the named party: [Trellis docket 2024CV030760](https://trellis.law/case/8013/2024cv030760/barab-sarah-v-pennant-investment-co-et-al). The case is titled "Barab, Sarah V. Pennant Investment Co Et Al," a General Negligence – Torts case filed in 2024. Other named parties include Pendleton Square Condominium Association and Brenda Feldman.
+
+I couldn't open the page to check it, because Trellis returned 403. The details come from the search summary. I don't know whether she's the plaintiff or defendant, and the case status is unclear: the summary mentions a 2026 mediation notice and an October 2026 entry, but the dates conflict.
+
+Your Gemini result may be this case or a different one. If you can share the Gemini link or the court name, I can check it against the docket. Otherwise, the Colorado Judicial Branch case search would confirm the details.
+[Timestamp: 2026/11/04 13:53:32]
+
+**user**: this is the case. whaT was wrong with my general and even spedcific instruction before that you did not find this how can we work better together
+[Timestamp: 2026/11/04 13:55:49]
+
+**ai**: Your instructions were clear. The problem was how I searched, and I should have said so sooner.
+
+- **I used the wrong kind of query.** My lawsuit searches combined terms with "OR," which this search tool doesn't reliably handle. I should have searched "Sarah Barab" with "Colorado" and court terms separately.
+- **I didn't check court-record sites.** Dockets are usually on sites like Trellis, Justia, or CourtListener, and I only found this one after you pushed on it.
+- **I overstated the negative result.** I said no lawsuit turned up, which I should have phrased as "my searches didn't find one."
+- **I stopped too early.** After one failed search I moved on, when I should have tried other phrasings and sources.
+
+For next time, these would help:
+
+1. **Share the source when you have it.** A link or case number from Gemini would let me check the exact record.
+2. **Tell me to search court-record sites** when a legal question comes up, not just general news.
+3. **Let me know if I'm overreaching.** If you ask for something specific, I'll try two or three phrasings before reporting a result.
+
+I can also update her note to say you confirmed the case and that I couldn't open the docket to verify the details. Should I do that?
+[Timestamp: 2026/11/04 13:55:49]
+
+**user**: yes, i could have been more specific but i was exactly looking for everything available.  i cant be more specific about what i don't know in general.  even now, are there other things i have not asked for about her that are available but you havent found
+[Timestamp: 2026/11/04 13:58:11]
+
+**ai**: I updated the note to say you confirmed the Colorado case, and that I couldn't open the docket to check the details.
+
+I can't know everything that's available, but these areas are still unsearched:
+
+- **Court records:** Other dockets beyond case 2024CV030760, including any in New York, and any she's named in as a defendant. I'd search Justia, CourtListener, and Trellis for each name variant.
+- **Business and nonprofit filings:** Naked Mind Productions and her astrology business in the New York and Colorado state registries.
+- **Property records:** Real estate tied to the Pendleton Square case, if any.
+- **Complaints and reviews:** Better Business Bureau, Yelp, and similar sites.
+- **News coverage:** Local Colorado and New York papers, and coverage of the film or the Initiation.
+- **Publications and appearances:** Podcasts, articles, and talks she has given, and any books or credits beyond the film.
+- **Professional credentials:** Verification for her Core Energetics, meditation, and astrology certifications.
+
+Of these, court records and business filings are the most likely to matter for a legal question. I can run those searches next if you want them, and I'll try more than one phrasing for each.
+[Timestamp: 2026/11/04 13:58:11]
