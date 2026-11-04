@@ -6,7 +6,7 @@ sessionId: "696eeeee-0e3b-4466-b02c-c0ca72ed5a79"
 agentLabel: where did i talk about cuisinie
 tags:
   - copilot-conversation
-usage: '{"usedTokens":106519,"contextWindow":1000000,"inputTokens":2,"outputTokens":2,"cacheReadTokens":104196,"cacheWriteTokens":2319,"updatedAt":1793826362644}'
+usage: '{"usedTokens":110570,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":109954,"cacheWriteTokens":611,"updatedAt":1793827215810}'
 lastAccessedAt: 1793810249441
 topic: "where did i talk about cuisinie"
 ---
@@ -336,3 +336,23 @@ I'll run that method now: bare-name searches, every result listed, and a note on
 
 **Not reached:** The Trellis docket, Kickstarter, IMDb, and ZoomInfo returned 403 errors. The Budart event page failed to load, and the Event Training trainers domain didn't resolve.
 [Timestamp: 2026/11/04 14:04:12]
+
+**user**: how about barab, sarah
+[Timestamp: 2026/11/04 14:18:58]
+
+**ai**: The "Barab, Sarah" and "Barab Sarah" searches returned the same people and pages I'd already found: her Instagram and Facebook, IMDb, the Kickstarter and Kicktraq pages, the Heavily Meditated team pages, and the Trellis docket. I didn't find any new sources.
+
+One new page came up: the Heavily Meditated team page at `heavilymeditatedmovie.com/team/`. I tried to open it and the IMDb full credits page, but you declined both fetches, so I didn't open them. The team page is the likely source for the Naropa degrees, which so far come only from search summaries, so those stay unverified.
+
+I haven't changed the note. If you want the team page or IMDb credits checked, tell me and I'll open them. Otherwise the note already covers everything else from this pass.
+[Timestamp: 2026/11/04 14:18:58]
+
+**user**: why didn't this find the relevant trellis law page?
+[Timestamp: 2026/11/04 14:20:12]
+
+**ai**: The Trellis page did come up in my searches, but not in every one. It appeared for "Sara Barab," "Sarah V. Barab," and "Barab, Sarah." It didn't appear for the bare "Sarah Barab" query I ran first, and I didn't open the page because Trellis returns a 403 error to my fetch tool. So the search engine ranks results differently depending on the exact query, and no single query surfaced everything.
+
+I should have said this plainly in my last summary rather than listing the Trellis docket among pages I'd already covered. The note already includes it, flagged as unverified.
+
+To check the page, you could open the Trellis link in your browser and tell me the court, parties, and status. I can add those details to the note with a source.
+[Timestamp: 2026/11/04 14:20:12]
