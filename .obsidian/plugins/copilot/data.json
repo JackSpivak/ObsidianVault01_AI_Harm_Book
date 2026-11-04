@@ -105,7 +105,6 @@
     "offerFeedbackCards": true,
     "notificationSound": true,
     "notificationSoundId": "piano",
-    "welcomeDismissed": false,
     "skills": {
       "folder": "copilot/skills",
       "builtinPreferences": {
@@ -126,12 +125,6 @@
           ]
         },
         "json-canvas": {
-          "disabledAgents": [
-            "claude",
-            "codex"
-          ]
-        },
-        "obsidian-cli": {
           "disabledAgents": [
             "claude",
             "codex"
