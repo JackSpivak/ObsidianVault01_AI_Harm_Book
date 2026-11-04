@@ -6,7 +6,7 @@ sessionId: "d91a2cee-3df0-432e-8007-5318188bf350"
 topic: "websearch for Sarah Barab"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":33144,"contextWindow":1000000,"inputTokens":2,"outputTokens":4,"cacheReadTokens":30873,"cacheWriteTokens":2265,"updatedAt":1793828931514}'
+usage: '{"usedTokens":39224,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":35215,"cacheWriteTokens":4004,"updatedAt":1793829249762}'
 ---
 
 **user**: websearch for Sarah Barab
@@ -54,3 +54,51 @@ Sources:
 - [Heavily Meditated – Team](http://www.heavilymeditatedmovie.com/team/)
 - [Trellis – Case 2024CV030760](https://trellis.law/case/8013/2024cv030760/barab-sarah-v-pennant-investment-co-et-al)
 [Timestamp: 2026/11/04 14:46:25]
+
+**user**: /deep_research Sarah Barab
+[Timestamp: 2026/11/04 14:53:27]
+
+**ai**: No `deep_research` skill is installed here, so I'll run the research directly: extended-mode searches on the name variants, then open the key pages.I ran the deep research directly, since no `deep_research` skill is installed. Two of the four pages I tried to open returned 403 errors, so some claims below still rest on search summaries.
+
+## Correction to my earlier answer
+
+I said the *Heavily Meditated* team page calls her a certified instructor in her "native New York City." That phrase came from a search summary. The page itself, opened this time, says she teaches privately and in corporate settings in New York City, and doesn't say "native." The page also says *Heavily Meditated* is "Sarah Barab's directorial debut," and I had flagged that as conflicting with her *Naked Mind* credit. I still can't resolve that from what I could open.
+
+## Verified from the opened page (heavilymeditatedmovie.com/the-crew)
+
+- "'Heavily Meditated' is Sarah Barab's directorial debut."
+- "She has studied Buddhism and psychology for over twenty years, receiving her Bachelors and Master's degrees from Naropa, a Buddhist university in Colorado."
+- "Sarah lived in Nepal and India several years where she studied meditation, Buddhist philosophy and Tibetan language."
+- Since 2007 she has trained and co-taught with mindfulness teacher Fleet Maull.
+- After returning to New York she founded Naked Mind Productions, described as a nonprofit that makes mindfulness-themed films.
+- She has taken film crews to eight countries for a documentary on neuroscience, psychology and meditation.
+
+This page is the subject's own material, so treat it as self-description.
+
+## Not verified (pages blocked or only seen as search snippets)
+
+- **Trellis court case (2024CV030760):** The page returned 403, so I haven't seen the docket. Search snippets say the case is in Boulder County, Colorado, with Sarah Barab as plaintiff against Pennant Investment Co et al., and that it is a general negligence and torts suit. Those details are unconfirmed. Boulder is also where Naropa is, but that alone doesn't link her to the suit.
+- **Pennant Management SEC matter:** The search turned up a November 2018 SEC order against Pennant Management, Inc. (over $400,000 in penalties for failed due diligence). Nothing I found names Barab in it, and the entity looks unrelated to "Pennant Investment Co." I wouldn't connect the two.
+- **IMDb (nm5414494):** Returned 403. The credit list (director, writer) comes only from search summaries.
+- **Naked Mind Kickstarter/Kicktraq:** Snippets report about $55,156 raised from 397 backers against a $45,000 goal. Not opened.
+
+## Name-variant searches
+
+- "Sarah Barab" and "Barab, Sarah" in extended mode: same set of results as before, plus a Pinterest profile for "sarah_barab" and a ZoomInfo company page (not opened).
+- Middle-initial variant: I found no middle initial for any of these people. The snippet with "Sarah V. Barab" is just the Trellis caption. The wildcard query "Sarah * Barab" didn't work as a search operator.
+- Unresolved: I can't establish that the filmmaker, the astrologer, and the Colorado plaintiff are the same person.
+
+## Open questions
+
+- Is the Colorado plaintiff the same Sarah Barab? A court-records search on "Sarah V. Barab" plus Boulder County would help, but the Trellis page is blocked.
+- Which film came first, *Naked Mind* or *Heavily Meditated*? The "directorial debut" line needs a dated source.
+
+I haven't written anything to the vault. Do you want me to save this as a research note in `02_Ideas Topics Concepts/Research/`, following the note rules?
+
+Sources:
+- [Heavily Meditated – The Crew](http://www.heavilymeditatedmovie.com/the-crew) (opened)
+- [Trellis – Case 2024CV030760](https://trellis.law/case/8013/2024cv030760/barab-sarah-v-pennant-investment-co-et-al) (search snippet only; page returned 403)
+- [IMDb – Sarah Barab](https://www.imdb.com/name/nm5414494/) (search snippet only; page returned 403)
+- [Kicktraq – Naked Mind](https://www.kicktraq.com/projects/437985816/naked-mind-the-film/) (search snippet only)
+- [SEC – Pennant Management, Inc.](https://www.sec.gov/enforcement-litigation/distributions-harmed-investors/matter-pennant-management-inc-admin-proc-file-no-3-18884) (search snippet only; not linked to Barab)
+[Timestamp: 2026/11/04 14:53:27]
