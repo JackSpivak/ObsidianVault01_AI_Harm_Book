@@ -48,6 +48,34 @@ created: 2026-11-04
 ## How it could be used in the book
 -
 
+## Full pass: every substantive result (bare-name searches, pages opened)
+
+**Films**
+- **Naked Mind:** Creator listed as "Sarah Barab." Kickstarter pledged $55,156 against a $45,000 goal, from 397 backers, over 35 days (Feb 26 – Apr 2). Description: "From the Himalayas to US Neuroscience labs two filmmakers explore the effects of mediation." (Kicktraq: https://www.kicktraq.com/projects/437985816/naked-mind-the-film/)
+- **Naked Mind, co-filmmaker and origins:** "Filmmakers Sarah Barab and Paxton Winters set out to document how Western scientists" work with Eastern meditators. Started as an Earthville Umbrellavator project in 2007 and supported by Earthville until 2013, when location filming was completed. (Earthville: https://earthville.org/projects/archive/naked-mind-documentary-film/)
+- **Naked Mind, 2013 interview (Shambhala Times):** Barab said "Meditation is the direct path to understanding the nature of the mind." Filming locations: "Nepal, India, Bhutan, Thailand, Japan, Poland, Germany and Canada." Planned an outreach program "into prisons, veterans' hospitals, rural high schools and universities." (https://shambhalatimes.org/2013/03/22/naked-mind-the-film/)
+- **Heavily Meditated:** Follows five young men at MacLaren Youth Correctional Facility in Oregon over three years, learning mindfulness. The subjects were "tried as adults under Measure 11," with mandatory minimums and no parole. Barab is director and co-producer. Film page says she "will travel with Fleet Maull, Founder of Prison Mindfulness Institute," for screenings with Q&A. Oregon Youth Authority Director Fairborz Pakseresht committed to screening it "at all youth correctional facilities in Oregon." Trailer dated 10.14.2015. (http://www.heavilymeditatedmovie.com/)
+- **Event:** Naked Mind and Heavily Meditated screenings with Q&A with Barab, listed by Budart, dated 24 Aug 2017. *(unverified: the event page could not be opened)* (https://www.budart.org/event-program/2017/8/24/naked-mind-and-heavily-meditated-film-presentations-and-qa-session-with-sarah-barab)
+- **IMDb:** Lists her as "Sarah Barab" with a director and writer credit for *Naked Mind*. *(unverified: IMDb returns 403)*
+
+**Astrology and coaching (sarahbarab.com)**
+- Bio: "I am a Western astrologer but well versed in Vedic astrology." Works closely with Vedic astrologer Erik Drew. (https://www.sarahbarab.com/faq)
+- Readings "are live, face to face on Zoom." Prices range from $70 (Date Planning) to $360 (Compatibility Reading Plus). Example: Natal Chart Plus 6 month Forecast, $260. (https://www.sarahbarab.com/readings)
+- Coaching: individual sessions $108; couples $125; "No one will be turned away for lack of funds." (https://www.sarahbarab.com/coaching)
+- Astrology since 2001: "I have been giving astrology readings professionally since 2001." (https://www.sarahbarab.com/about/)
+
+**Social and listings**
+- Instagram: "Astrologer. Meditation Teacher. Filmmaker. Public Speaker." (https://www.instagram.com/sarahbarab/)
+- Facebook: page is titled "Sarah Barab Astrology & Wellness," with a New York NY location. (https://www.facebook.com/SarahBarabAstrology/)
+- ZoomInfo: business listing with 1–10 employees. *(unverified: ZoomInfo returned 403)*
+
+**Not reached:** The Event Training trainers page (domain did not resolve, but the Heart Mind page covers the same training). Trellis docket (403). Full ZoomInfo, Kickstarter, and IMDb pages (403).
+
+**Corrections to earlier notes**
+- "Somatic Astrology" is not on her About, FAQ, or Readings pages. It appears only in search summaries. Treat as unverified.
+- The Naropa BA in Buddhist Psychology and MA in Physical Theater came from a search summary. My fetch of her About page did not show it. Treat as unverified.
+- Her readings page lists no years of experience and only Zoom sessions. The "since 2001" date is from her About page.
+
 ## Broader web results (search summaries, mostly not opened)
 - **Naked Mind (film):** A documentary by Sarah Barab on meditation and the mind, listed on [IMDb](https://www.imdb.com/title/tt2522214) and a [Kickstarter campaign](https://www.kickstarter.com/projects/nakedmindfilm/naked-mind-the-film). The summary says the campaign raised $55,156 from 397 backers. *(unverified: Kickstarter and IMDb pages returned 403 when fetched; figures are from the search summary)*
 - **IMDb:** Lists her as director and writer. *(unverified: IMDb returned 403)*

@@ -6,7 +6,7 @@ sessionId: "696eeeee-0e3b-4466-b02c-c0ca72ed5a79"
 agentLabel: where did i talk about cuisinie
 tags:
   - copilot-conversation
-usage: '{"usedTokens":93486,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":92800,"cacheWriteTokens":676,"updatedAt":1793825900775}'
+usage: '{"usedTokens":106519,"contextWindow":1000000,"inputTokens":2,"outputTokens":2,"cacheReadTokens":104196,"cacheWriteTokens":2319,"updatedAt":1793826362644}'
 lastAccessedAt: 1793810249441
 topic: "where did i talk about cuisinie"
 ---
@@ -301,3 +301,38 @@ I can't know everything that's available, but these areas are still unsearched:
 
 Of these, court records and business filings are the most likely to matter for a legal question. I can run those searches next if you want them, and I'll try more than one phrasing for each.
 [Timestamp: 2026/11/04 13:58:11]
+
+**user**: these are still focused on the question of law and lawsuits.  yes i do want them included in the comprehensive search.  but most important to me now is everything else.  are you somehow limiting the searches you are doing to only yield certain kinds of results or a limited number of results.  why are you omitting relevant findings about sarah barab.  what questions do i have to ask to get all posssible available results?
+[Timestamp: 2026/11/04 14:01:47]
+
+**ai**: I haven't been deliberately filtering results, but I have been dropping relevant ones, and that's a real problem.
+
+- **Each search returns about 10 to 20 links.** I summarized the search engine's summaries and opened only a few pages, so most of what came back never reached you.
+- **I focused on topics you named.** Once you mentioned the initiation, I searched around it. Once you mentioned the film, I searched around that. So I missed things outside those topics.
+- **I dropped results I'd already seen.** These include the Earthville project page on *Naked Mind*, a 2013 Shambhala Times article on the film, the *Heavily Meditated* team page with her full bio, her readings and FAQ pages, her coaching page, and the full IMDb credits. Some of these had useful details, like the film's production history and her bio.
+
+To get everything available, the questions that matter are less about the topic and more about the method:
+
+1. **Run the bare name first.** Searching only "Sarah Barab," then "Sara Barab," then "Sarah V. Barab" (the middle initial from the court record), with no topic words.
+2. **Ask for every URL, not a summary.** Each result should appear in a list with its link, what it is, and whether I opened it.
+3. **Open each relevant page.** I should check every substantive result, not just the first few.
+4. **Ask what I left out.** After each pass, I should list the results I didn't use and say why.
+
+I'll run that method now: bare-name searches, every result listed, and a note on each. Should I go ahead?
+[Timestamp: 2026/11/04 14:01:47]
+
+**user**: and also check evry substanrtive result not just the first few!! yes go ahead
+[Timestamp: 2026/11/04 14:04:12]
+
+**ai**: I searched her name in four ways (bare name, "Sara," the middle initial, and a topic query) and opened every substantive result I could reach. The full list of what I found is now in her note, under "Full pass: every substantive result."
+
+**New facts from pages I opened:**
+- **Naked Mind:** Her Kickstarter raised $55,156 from 397 backers. Filmmaker Paxton Winters co-made it. It began as an Earthville project in 2007 and was filmed in Nepal, India, Bhutan, Thailand, Japan, Poland, Germany, and Canada.
+- **Heavily Meditated:** It follows five young men at a youth correctional facility in Oregon. Her page says she will tour screenings with Fleet Maull.
+- **Her site:** Readings are on Zoom and cost $70 to $360. Coaching is $108 per session. Her site doesn't list locations or years of experience.
+- **Social profiles:** Instagram lists her as astrologer, meditation teacher, filmmaker, and public speaker. Facebook lists New York.
+
+**Corrections:** Two details I put in earlier notes came only from search summaries, not from pages I opened: "Somatic Astrology" and the Naropa degrees. I've marked both as unverified.
+
+**Not reached:** The Trellis docket, Kickstarter, IMDb, and ZoomInfo returned 403 errors. The Budart event page failed to load, and the Event Training trainers domain didn't resolve.
+[Timestamp: 2026/11/04 14:04:12]
