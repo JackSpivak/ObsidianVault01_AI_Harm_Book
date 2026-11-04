@@ -6,7 +6,7 @@ sessionId: "58e5300c-b0b9-45c4-83bb-2b3122ed253e"
 topic: "give me all results of a websearch for sarah barab"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":33261,"contextWindow":1000000,"inputTokens":2,"outputTokens":5,"cacheReadTokens":30788,"cacheWriteTokens":2466,"updatedAt":1793828289037}'
+usage: '{"usedTokens":57349,"contextWindow":1000000,"inputTokens":2,"outputTokens":182,"cacheReadTokens":56541,"cacheWriteTokens":624,"updatedAt":1793828751170}'
 ---
 
 **user**: give me all results of a websearch for sarah barab
@@ -60,5 +60,57 @@ No court records or directory listings came up for the exact name. If you know S
 **user**: ok.  we have a problem. in a previous conversation you found extensivew results for Sarah Barab. we just added new search rules. what is the problem?  why are you not finding informatoioon we know is available
 [Timestamp: 2026/11/04 14:40:24]
 
-**ai**: 
+**ai**: You can find information on Sarah Barab, and the vault already holds plenty of it in [[Sarah Barab]]. The search rules didn't cause this; I used them badly. Here's what went wrong:
+
+1. **I didn't check the vault first.** The vault instructions say to search locally before going to the web. I skipped that. The vault note has a 90-line record from the earlier session, and it already contains everything I said I lacked.
+
+2. **I said I didn't know her middle initial, but the vault has it.** The court record in her note is titled "Barab, Sarah V. Pennant Investment Co Et Al". The earlier session also used the spelling **"Sara Barab"**, which you typed. So I should have run "Sara Barab" and "Sarah V. Barab" and didn't.
+
+3. **I treated the name-search rule as the whole job.** Your rule says to run the bare name and its variants. It doesn't say to stop there. In the earlier session, most of the good results came from searches with context words, such as Fleet Maull, The Initiation, Colorado and lawsuit.
+
+4. **This search tool ranks results differently from one query to the next.** In the earlier session, the Trellis docket showed up for "Sara Barab", "Sarah V. Barab" and "Barab, Sarah". It didn't show up for the bare "Sarah Barab". Today, the bare name mostly returned "Sarah Barber" and "Sasha Barab". This time I also used the cheaper "standard" search mode on both queries instead of "extended". So no single query is reliable on its own.
+
+5. **I gave up after two searches.** I came back with "no one by that name", even though the vault proves she's easy to find.
+
+**Proposed fix to your global rule:** add a step before the web search: *"For a person, first check the vault for existing notes and pull known spellings, middle initials and associations. Use those for the variants and for context searches."*
+
+Should I re-run the search properly now? That means "Sara Barab", "Sarah V. Barab", "Barab, Sarah" and context searches (Fleet Maull, astrologer, Naked Mind, Colorado court) in extended mode, compared against the existing note. I can also add the proposed step to your CLAUDE.md if you want it.
 [Timestamp: 2026/11/04 14:40:24]
+
+**user**: i am not interested in finding the results that are already in the vault from the previous conversation.  I am interested to understand why the simple bare name search now does not find anything when it worked just a moment ago in the previous conversatoion
+[Timestamp: 2026/11/04 14:43:17]
+
+**ai**: The cause is the search mode, not the new rules. I just tested it by running the exact same bare query, `Sarah Barab`, twice:
+
+**"Standard" mode** returned the same 16 results as my first search, link for link. Every one is a near-miss name: Sarah Barber, Sarah Baraniuk, Sasha Barab and so on. The tool's summary said: *"The search didn't turn up anyone named 'Sarah Barab.' The closest match is Sasha A. Barab."*
+
+**"Extended" mode** returned 9 results, and every one is her. They include:
+- [Instagram](https://www.instagram.com/sarahbarab/)
+- [Facebook – Sarah Barab Astrology & Wellness](https://www.facebook.com/SarahBarabAstrology/)
+- [IMDb name page](https://www.imdb.com/name/nm5414494/) and [Naked Mind](https://www.imdb.com/title/tt2522214)
+- [ZoomInfo](https://www.zoominfo.com/p/Sarah-Barab/17764227611)
+- [Shambhala Times](https://shambhalatimes.org/2013/03/22/naked-mind-the-film/)
+- [Kicktraq](https://www.kicktraq.com/projects/437985816/naked-mind-the-film/)
+- The Heavily Meditated [crew](http://www.heavilymeditatedmovie.com/the-crew) and [team](http://www.heavilymeditatedmovie.com/team/) pages
+
+I didn't open any of these pages. I'm only reporting what the search returned.
+
+**Why this happens:** "Barab" is a rare surname. The standard search seems to treat it as a typo and match it to spellings it finds more likely, like "Barber", "Barbara" and "Sasha Barab". In this test, standard mode never returned a page about her. Extended mode searches more thoroughly and matched the exact name.
+
+**Why it worked before:** in your earlier conversation, you asked for an "extensive" search, and the log shows I used extended search there. This time I picked standard mode because a bare-name lookup looked simple. The new rules didn't cause this. Nothing in them says which mode to use, so the old search just happened to use the mode that works.
+
+**One limit:** I can't prove what mode every query in the earlier session used, because the saved chat log keeps only my summaries, not the raw search calls. This side-by-side test is the real evidence.
+
+**Fix:** add to your global rule: *"Run all name searches in extended mode."* Should I add that to `C:\Users\conta\.claude\CLAUDE.md`?
+[Timestamp: 2026/11/04 14:43:17]
+
+**user**: yes and to the claude.md for the project
+[Timestamp: 2026/11/04 14:45:31]
+
+**ai**: I added the rule to both files. It tells me to run every person or name search in "extended" mode, never "standard".
+
+- **Global** (`C:\Users\conta\.claude\CLAUDE.md`): it's a new bullet under the existing name-search rule. This version gives the reason too: standard mode treats rare surnames as typos and returns near-miss names instead of the person.
+- **Project** (the vault's `CLAUDE.md`): it's a new bullet under "How to help", just after the Research bullet, with the same reason.
+
+Both take effect in new conversations.
+[Timestamp: 2026/11/04 14:45:31]

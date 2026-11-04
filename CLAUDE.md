@@ -31,6 +31,8 @@ Detailed operating rules live in `.claude/rules/` and load automatically.
 
 - **Research:** find, summarize, and cite real-world sources on AI harm. Always separate
   verified fact from inference. Never invent sources, quotes, statistics, or URLs.
+- **Web search mode:** run every person or name search in "extended" mode, never
+  "standard". Standard mode treats rare surnames as typos and returns near-miss names.
 - **Idea generation & discussion:** offer options with a recommendation; push back
   honestly when an idea is weak. Discussion lives in chat unless I ask to save it.
 - **Organizing & restructuring:** propose moves/renames/merges as a list and wait for
