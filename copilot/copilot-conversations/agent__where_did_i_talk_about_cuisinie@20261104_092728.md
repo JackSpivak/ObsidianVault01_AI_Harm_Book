@@ -143,3 +143,9 @@ Some things that might help me find the source:
 
 If you want a note regardless, I can create one that records only what I could verify and marks the Barab connection as unconfirmed.
 [Timestamp: 2026/11/04 11:09:15]
+
+**user**: i know for a fact that she was a co trainer on staff at the most recent trAINING and is listed on the web site.  may be lisrted as Sarah Barab
+[Timestamp: 2026/11/04 11:38:33]
+
+**ai**: 
+[Timestamp: 2026/11/04 11:38:33]
