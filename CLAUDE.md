@@ -54,7 +54,7 @@ Detailed operating rules live in `.claude/rules/` and load automatically.
 	- Summary (your paraphrase) and 
 	- Original wording immediately below it, containing:
 		- the exact words from the conversation that the summary is based on, copied verbatim
-		- attribution - attributed to me (listed as Claude: followed by a model and version number) or to you. 
+		- attribution for that quote - attributed to me (listed as Claude: followed by a model and version number) or to you. A note can hold quotes from both of us, so each quote carries its own attribution; never one attribution for the whole note. 
 		- source - name and location of the session or conversation within which the idea emerged
 		- external references - documents or other external references that contributed significant context, data, ideas, quotes or foundational principles that are important to the idea
 - Never reconstruct or polish the quotes.
