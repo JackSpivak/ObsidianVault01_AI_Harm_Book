@@ -6,7 +6,7 @@ sessionId: "696eeeee-0e3b-4466-b02c-c0ca72ed5a79"
 agentLabel: where did i talk about cuisinie
 tags:
   - copilot-conversation
-usage: '{"usedTokens":69785,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":68596,"cacheWriteTokens":1179,"updatedAt":1793824246266}'
+usage: '{"usedTokens":81864,"contextWindow":1000000,"inputTokens":2,"outputTokens":4,"cacheReadTokens":81005,"cacheWriteTokens":853,"updatedAt":1793825380186}'
 lastAccessedAt: 1793810249441
 topic: "where did i talk about cuisinie"
 ---
@@ -197,3 +197,45 @@ The note has three kinds of content:
 
 The note uses "Maull" as the main spelling, with "Fleet Maul" as an alias. The "How it could be used in the book" section is blank.
 [Timestamp: 2026/11/04 13:30:37]
+
+**user**: what else is available everywhere else on the web about sarAH. please add to her note
+[Timestamp: 2026/11/04 13:46:55]
+
+**ai**: I added more about Sarah Barab to her note, `02_Ideas Topics Concepts/Research/Sarah Barab.md`. Most of it comes from pages I opened.
+
+**New facts from the film and her site:**
+- She directed and co-produced *Heavily Meditated*, her directorial debut ([crew page](http://www.heavilymeditatedmovie.com/the-crew)).
+- She has a Bachelor's and a Master's from Naropa, and lived in Nepal and India studying meditation and Buddhist philosophy. Her site says she moved to Nepal in 2006.
+- She founded Naked Mind Productions, a nonprofit, after returning to New York.
+- She has been giving astrology readings professionally since 2001, and completed her Core Energetics training in 2013 ([About page](https://www.sarahbarab.com/about/)).
+
+**Conflicts I flagged rather than resolved:**
+- **Start with Maull:** The film page says she has been a student and co-instructor of Maull "since 2007," while her site says 2010 for the apprenticeship. These may be different relationships.
+- **Location:** The sources say New York, but a search summary says Hawai'i and Boulder. I didn't open that summary.
+- **Somatic Astrology:** Only in a search summary, not on her site.
+
+I also added a sources section. The ZoomInfo and Alignable listings are marked as not opened.
+[Timestamp: 2026/11/04 13:46:55]
+
+**user**: why did you not find information about lawsuits
+[Timestamp: 2026/11/04 13:48:06]
+
+**ai**: I didn't search for lawsuits at all, so the absence isn't a finding. My searches covered the initiation training, her role on the team, the film, and her astrology and Core Energetics background. I never ran a query about legal matters, so I can't say whether any exist.
+
+I can run a search now for "Sarah Barab" with terms like lawsuit, court, or litigation, and for Fleet Maull as well. Any result would go in the note with its source, and I'd flag anything I can't confirm. Should I run it?
+[Timestamp: 2026/11/04 13:48:06]
+
+**user**: please run an extensive more general web search without limiting to any particular context
+[Timestamp: 2026/11/04 13:49:01]
+
+**ai**: I ran three broad searches on "Sarah Barab" and added the results to her note in a new section, "Broader web results."
+
+**Lawsuits:** I found none involving her. The only legal hit was a case against Marietta City Schools brought by a different person, Sarah Barbour. I left it out of the note because the name doesn't match.
+
+**Other findings:**
+- ***Naked Mind*:** The search summaries describe a documentary she made about meditation, with a Kickstarter campaign that reportedly raised $55,156 from 397 backers. Her IMDb listing says she's a director and writer. I couldn't open the Kickstarter or IMDb pages (both returned 403), so these figures are unverified.
+- **Social profiles:** Facebook and Instagram describe her as an astrologer, meditation and yoga instructor, and holistic wellness provider in New York City. I didn't open these pages.
+- **Business listing:** ZoomInfo lists a small private consumer services business under her name, based in New York. Also not opened.
+
+Her note still lists conflicting locations (New York, and Hawai'i and Boulder in one search summary). The new New York sources add weight to New York, but the note doesn't resolve the conflict.
+[Timestamp: 2026/11/04 13:49:01]

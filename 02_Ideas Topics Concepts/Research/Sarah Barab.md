@@ -20,7 +20,21 @@ created: 2026-11-04
 - **Apprenticeship:** "since 2010 I have apprenticed under Fleet Maull, (PhD, CMT-P) Dharma teacher." (Sarah Barab's About page: https://www.sarahbarab.com/about/)
 - **Current involvement:** "I assist Fleet twice per year in the Event Training." (same page, no year given)
 - **Event:** The Initiation (formerly The Event) is led by Fleet Maull, PhD, who has led it "for more than 25 years" (same Heart Mind page).
-- **Dates differ by source:** A film site (*Heavily Meditated*) gives 2007 as the start of her work with Maull, and a ZoomInfo profile gives different dates. Her own site gives 2010. Use 2010 unless a primary source says otherwise. *(unverified: 2007 and ZoomInfo dates not checked directly)*
+- **Dates differ by source:** The *Heavily Meditated* crew page says "Since 2007 she has been a student and co-instructor of mindfulness teacher" (the name is cut off in the page text). Her own site gives 2010 for the apprenticeship. These may be different relationships, or one may be a start date for a different role. The note keeps both and doesn't pick one.
+
+## Additional facts (from her sites and the film site)
+- **Film:** Director and Co-Producer of *Heavily Meditated*, her directorial debut. (Heavily Meditated crew page: http://www.heavilymeditatedmovie.com/the-crew)
+- **Background:** Bachelor's and Master's degrees from Naropa, studied Buddhism and psychology for over twenty years, and lived in Nepal and India for several years studying meditation, Buddhist philosophy and Tibetan language. (same crew page). Her own site says she moved to Nepal in 2006. (https://www.sarahbarab.com/about/)
+- **Nonprofit:** Founded Naked Mind Productions after returning to New York. (same crew page)
+- **Certification:** "a certified meditation and core energetics instructor in her native New York City." (same crew page)
+- **Astrology:** "I have been giving astrology readings professionally since 2001." (Sarah Barab's About page)
+- **Core Energetics:** "In 2013 I completed my training in Core Energetics, a somatic therapeutic practice." (Sarah Barab's About page)
+- **Location:** Her profile on the Heartmind page is not specific. A search summary says she is based between Hawai'i and Boulder, Colorado. *(unverified: summary not opened)* Other listings give New York. Her site doesn't say where she is based now.
+
+## Conflicts to check
+- **Astrology start:** Search summaries say she has been an astrologer since 2003 and cite a ZoomInfo listing for 2001. Her own site says 2001. Use 2001 unless another source says otherwise.
+- **Location:** New York (crew page, Alignable listing) vs. Hawai'i and Boulder (search summary). The sources may be out of date.
+- **Somatic Astrology:** Search summary only. Not on her About page.
 
 ## Useful quotes
 > "Sarah Barab is a transformational teacher, astrologer, and retreat guide devoted to deep, embodied healing."
@@ -33,6 +47,19 @@ created: 2026-11-04
 
 ## How it could be used in the book
 -
+
+## Broader web results (search summaries, mostly not opened)
+- **Naked Mind (film):** A documentary by Sarah Barab on meditation and the mind, listed on [IMDb](https://www.imdb.com/title/tt2522214) and a [Kickstarter campaign](https://www.kickstarter.com/projects/nakedmindfilm/naked-mind-the-film). The summary says the campaign raised $55,156 from 397 backers. *(unverified: Kickstarter and IMDb pages returned 403 when fetched; figures are from the search summary)*
+- **IMDb:** Lists her as director and writer. *(unverified: IMDb returned 403)*
+- **Social profiles:** Describes her as an astrologer, yoga and meditation instructor, and holistic wellness provider based in New York City ([Facebook](https://www.facebook.com/SarahBarabAstrology/); [Instagram](https://www.instagram.com/sarahbarab/)). *(not opened)*
+- **Business listing:** ZoomInfo lists a small private consumer services business under her name, based in New York, with 1–10 employees ([ZoomInfo](https://www.zoominfo.com/c/sarah-barab/542226733)). *(not opened)*
+- **Lawsuits:** No legal case involving Sarah Barab turned up in the searches. The only close hit was a case involving a different name (Sarah Barbour, Marietta City Schools), which is not included here because the name doesn't match.
+
+## Sources
+- Heart Mind Institute, "The Initiation": https://www.heartmind.co/initiation
+- Sarah Barab, "About": https://www.sarahbarab.com/about/
+- *Heavily Meditated*, "The Team": http://www.heavilymeditatedmovie.com/the-crew
+- Search-result listings (not opened): ZoomInfo profile (https://www.zoominfo.com/p/Sarah-Barab/17764227611), Alignable listing (https://www.alignable.com/beacon-ny/sarah-barab-astrology-wellness)
 
 ## Related
 - [[Fleet Maull]]
