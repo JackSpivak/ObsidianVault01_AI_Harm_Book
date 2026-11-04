@@ -6,7 +6,7 @@ sessionId: "696eeeee-0e3b-4466-b02c-c0ca72ed5a79"
 agentLabel: where did i talk about cuisinie
 tags:
   - copilot-conversation
-usage: '{"usedTokens":58938,"contextWindow":1000000,"inputTokens":2,"outputTokens":5,"cacheReadTokens":58380,"cacheWriteTokens":551,"updatedAt":1793815789076}'
+usage: '{"usedTokens":66864,"contextWindow":1000000,"inputTokens":2,"outputTokens":5,"cacheReadTokens":66331,"cacheWriteTokens":526,"updatedAt":1793817559897}'
 lastAccessedAt: 1793810249441
 topic: "where did i talk about cuisinie"
 ---
@@ -147,5 +147,16 @@ If you want a note regardless, I can create one that records only what I could v
 **user**: i know for a fact that she was a co trainer on staff at the most recent trAINING and is listed on the web site.  may be lisrted as Sarah Barab
 [Timestamp: 2026/11/04 11:38:33]
 
-**ai**: 
+**ai**: I created the note at `02_Ideas Topics Concepts/Research/Sarah Barab.md`. Your information checks out: The Initiation page lists her as a **Co-trainer** under its Training Team heading.
+
+What the sources support:
+- **Role:** [Heart Mind Institute, The Initiation](https://www.heartmind.co/initiation) lists her as co-trainer. It describes her as a transformational teacher and retreat guide, and says she has spent over a decade apprenticing with Fleet Maull.
+- **Apprenticeship:** [Sarah Barab's About page](https://www.sarahbarab.com/about/) says she has apprenticed under Maull since 2010, assists him twice a year in The Event Training, and has co-facilitated other trainings with him.
+- **Event:** The Initiation (formerly The Event) is led by Maull. The page lists the 2026 event as 23–27 September 2026 at Windhorse Hill Retreat Center in Deerfield, MA.
+
+Gaps:
+- The page doesn't say she's on the 2026 event team specifically, only that she's on the Training Team.
+- Start dates differ across sources: 2010 on her own site, 2007 on a film site, and different dates on a ZoomInfo profile. The note uses 2010 and flags the others as unverified.
+
+The note links to [[Fleet Maull]], which doesn't exist in the vault yet. Should I create that note too?
 [Timestamp: 2026/11/04 11:38:33]
