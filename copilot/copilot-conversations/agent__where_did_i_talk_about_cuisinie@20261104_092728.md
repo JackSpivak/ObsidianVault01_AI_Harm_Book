@@ -6,7 +6,7 @@ sessionId: "696eeeee-0e3b-4466-b02c-c0ca72ed5a79"
 agentLabel: where did i talk about cuisinie
 tags:
   - copilot-conversation
-usage: '{"usedTokens":113529,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":112867,"cacheWriteTokens":657,"updatedAt":1793827818904}'
+usage: '{"usedTokens":115843,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":115353,"cacheWriteTokens":485,"updatedAt":1793828138156}'
 lastAccessedAt: 1793810249441
 topic: "where did i talk about cuisinie"
 ---
@@ -404,3 +404,37 @@ I can't tell from here exactly how the Copilot plugin loads instructions. This s
 
 I'd put the rule in the user-level file and keep the vault's research rules as they are. Should I create `C:\Users\conta\.claude\CLAUDE.md` with the two search rules? If the file already exists, I'll append to it instead of overwriting.
 [Timestamp: 2026/11/04 14:30:15]
+
+**user**: please do add these
+[Timestamp: 2026/11/04 14:31:09]
+
+**ai**: I created `C:\Users\conta\.claude\CLAUDE.md` with the two search rules. The file didn't exist before, so nothing was overwritten.
+
+The file applies in every project, but it only takes effect in sessions that load it. Open a new session and check whether the rules show up before relying on them. I didn't add a memory entry, since the global file covers the same point.
+[Timestamp: 2026/11/04 14:31:09]
+
+**user**: if the global file covers the same point, why were these rules not originally applied in this discussion?  or do you mean something else?
+[Timestamp: 2026/11/04 14:32:40]
+
+**ai**: The rules weren't applied earlier because the file didn't exist until I created it a moment ago. Before that, nothing told me to re-read tool output or to run the name variants, so I had no instructions on this point.
+
+I also don't know whether this session will pick up the new file. Instructions like these are usually loaded when a session starts, so the rules probably apply starting with a new session, not this one. That's why I meant that the file covers the same point: it has the same content, but it isn't active here yet.
+[Timestamp: 2026/11/04 14:32:40]
+
+**user**: WHAT global file did you just create a moment ago? i thought we were just editing the claude.md file?
+[Timestamp: 2026/11/04 14:34:04]
+
+**ai**: I created a new file at `C:\Users\conta\.claude\CLAUDE.md`. It's a separate user-level file, not the vault's `CLAUDE.md`, which is `ObsidianVault01_AI_Harm_Book\CLAUDE.md`. Earlier I only edited the vault's file, to the attribution rule.
+
+The new file contains just the two search rules, and it applies to every Claude Code project on your computer. I made that choice because you asked for the most global place, but I should have confirmed the file path with you first.
+
+Do you want to keep the global file, move the rules into the vault's `CLAUDE.md` instead, or delete the global file?
+[Timestamp: 2026/11/04 14:34:04]
+
+**user**: no. this is good.  if i ask for another similar search now shouiled i see this new rule applied?  or do I have to open a new session?
+[Timestamp: 2026/11/04 14:35:36]
+
+**ai**: Open a new session to be sure. Instructions like this are usually loaded when a session starts, so this conversation probably won't pick up the new file, even though I'll try to follow the rules anyway.
+
+In a new session, you can check it works by asking for a name search. The answer should quote the matching result line, name the query it came from, and say whether each match was opened and verified. If it doesn't do that, the file isn't loading and we'll need to look into it.
+[Timestamp: 2026/11/04 14:35:36]
