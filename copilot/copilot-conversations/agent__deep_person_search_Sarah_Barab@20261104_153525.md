@@ -6,7 +6,7 @@ sessionId: "6999568b-c706-4440-b49c-69ccd014f321"
 topic: "/deep_person_search Sarah Barab"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":126683,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":123355,"cacheWriteTokens":3323,"updatedAt":1793901035215}'
+usage: '{"usedTokens":157446,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":152640,"cacheWriteTokens":4801,"updatedAt":1793901675670}'
 lastAccessedAt: 1793897333246
 ---
 
@@ -714,5 +714,38 @@ Maull would also make a strong **reference profile**. His path from smuggler to 
 **user**: please open all of the sites, pages and documents you found, digest and add them to this search. then generate a character note based on fleet
 [Timestamp: 2026/11/05 10:52:45]
 
-**ai**: I'll open every remaining page, in parallel batches.
+**ai**: I'll open every remaining page, in parallel batches.I've opened everything I could reach. Now I'll update the research note, then create the character note.I opened all 23 pages from the search, plus two already in the note. Eighteen opened, five failed. I've rebuilt the [[Fleet Maull]] research note and created a mentor character, [[Corwin Hale]].
+
+**Pages that failed:**
+- **Blocked:** PRWeb and Good Men Project (403).
+- **Down:** both Amazon pages (503).
+- **Missing:** Restorative Justice on the Rise (404).
+- **Empty:** Encyclopedia of Buddhism returned no content.
+
+The Sounds True podcast page redirected, and I opened the new address.
+
+## Research note: [[Fleet Maull]] (rewritten)
+The note keeps all its earlier facts. New material, all from pages I opened:
+- **Early life:** a Midwestern Catholic childhood, high school class of 1968, and expatriate years in Peru. He earned a Naropa master's in psychology before his arrest.
+- **Prison years in detail:** sentenced under the kingpin statute, he taught school and led 12-Step work. He completed his PhD coursework and helped start the first US prison hospice (1987, per Nova).
+- **After release:** started consulting within six months, and nearly went back to prison after sleeping through a parole officer's call. His summits began in 2020.
+- **Reach figures (his own claims):** 150,000+ prisoners through Path of Freedom, 3,000+ officers trained, and 2 million people reached by the summits. He has also led 20 years of Auschwitz bearing-witness retreats.
+- **Voice:** a dedicated section quotes him directly, e.g. "my life's mission is to rid society of blame and shame," "Chaos is good news."
+- **Conflicts recorded:** five different sentence-length figures, the hospice start date, and a book-title discrepancy (*Mindful C.O.* vs *The Resilient C.O.*).
+- **Left out on purpose:** the family details he mentions in interviews.
+
+## Character note: [[Corwin Hale]]
+Corwin is a teacher in his mid-seventies and Noa's mentor. He follows the shape of Maull's story: a long prison term, practice as survival, movements founded from his cell, and a late-life business empire. **His crime and secrets are invented and deliberately differ from Maull's:**
+- **Crime (fictional):** in the early 1990s he ran an automated credit-scoring scheme built on stolen financial records. It decided who got loans, and he served 13 years for it. That makes him an early ancestor of algorithmic gatekeeping and ties him straight into the book's AI-harm theme.
+- **Shadow circumstances:**
+  - A co-conspirator took extra time to protect him.
+  - A journalist is investigating his platform's AI "readiness scoring" of students.
+  - He handled an abuse allegation inside his lineage privately.
+- **Deep fear:** that he never changed, only rebranded, and that his platform is the old scheme all over again.
+- **Voice:** built from patterns in Maull's own words: plain stories, hardship reframed as training, dharma mixed with business talk, and aphorisms. All the sample lines are newly written.
+- **Self-introduction:** the public version is a keynote ("the most useful thing I own"). The private version, alone in the meditation hall, names what he's never owned.
+
+Every inner-life item is labelled [inferred] or [imagined]. Age, Arc and Appears in are still blank for you.
+
+**Possible follow-up:** Noa's reference table still lists "Fleet Maull" as her mentor archetype. I can update her note to name [[Corwin Hale]] as her mentor and work in Corwin's co-conspirator secret, which "possibly Noa" knows. Would you like that?
 [Timestamp: 2026/11/05 10:52:45]
