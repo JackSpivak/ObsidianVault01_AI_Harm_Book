@@ -44,6 +44,12 @@ circumstances, and Contradictions.
 - `[canon]`: the author has decided it. Only the author promotes items to canon.
 - Never present an inferred or imagined trait as a fact about the real person.
 
+**In their own words: self-introduction:** write it only after the Voice section is drafted,
+and match that voice exactly (register, tics, vocabulary). The public and private versions
+should differ in revealing ways. The private one may touch fears, contradictions and shadow
+circumstances the public one hides. Label it [imagined]. Never reuse a reference person's own
+sentences; echo the patterns only.
+
 **Superpowers:** name the meta-capability (e.g. "translates between worlds"). List the skills,
 abilities and knowledge underneath it, and give the cost or shadow side.
 

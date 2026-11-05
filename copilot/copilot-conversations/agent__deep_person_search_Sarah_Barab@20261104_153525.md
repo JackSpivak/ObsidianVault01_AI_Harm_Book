@@ -6,7 +6,7 @@ sessionId: "6999568b-c706-4440-b49c-69ccd014f321"
 topic: "/deep_person_search Sarah Barab"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":97264,"contextWindow":1000000,"inputTokens":2,"outputTokens":707,"cacheReadTokens":96212,"cacheWriteTokens":343,"updatedAt":1793898356610}'
+usage: '{"usedTokens":108269,"contextWindow":1000000,"inputTokens":2,"outputTokens":404,"cacheReadTokens":106978,"cacheWriteTokens":885,"updatedAt":1793900006117}'
 lastAccessedAt: 1793897333246
 ---
 
@@ -523,3 +523,45 @@ The names are placeholders. Each note has a callout saying so, and renaming insi
 
 Next, you could go through either note and mark the items you want as [canon]. When you do, I'll offer to add them to `Canon_and_Continuity.md`. If you'd like a second reference person for either character to deepen the composite, I can research one.
 [Timestamp: 2026/11/05 10:03:53]
+
+**user**: are you able to open and read website language that Sara Barab is likely to have created herself and generate some content that could flesh oiut the voice section?
+[Timestamp: 2026/11/05 10:30:19]
+
+**ai**: I read four pages Sarah Barab appears to have written herself (About, FAQ, Coaching and Readings on sarahbarab.com) and used them to fill the Voice section of [[Noa Kessler]]. All four opened. I'm assuming she wrote them because they're in the first person, though the site doesn't say so.
+
+**What her writing showed:**
+- **Tone:** earnest, warm and unhurried, with almost no humour. The warmth comes from small words like "wonderful" and "please".
+- **Credibility:** she builds it through lineage. She names her teachers and her training ("at the request of my teacher, Khachab Rinpoche").
+- **Vocabulary:** she blends three kinds in one breath: spiritual (sacred, karmic), somatic (body, blockages) and clinical (psyche, unconscious material).
+- **Sentences:** she likes triads ("spirit, mind, and body") and medium-long sentences.
+- **Stance:** she reassures and never pushes: "a holistic container for whatever work you feel inspired to do," "No one will be turned away for lack of funds."
+- **Astrology:** she frames it as recognition, not prediction: a chart helps you "clarify aspects of yourself you already know."
+
+**What I added to Noa's Voice section:**
+- **Patterns (professional register):** the features above. Each is labelled [inferred: [[Sarah Barab]]] and names the page it came from.
+- **Private register:** shorter sentences, swearing she hides from students, a dry humour she keeps out of her public writing. She slips into Tibetan or Nepali, and when frightened she gets *more* formal. These are all [imagined]. The contrast with her public voice gives you something to dramatise.
+- **Verbal tics:** she asks "Where do you feel that?" instead of "How do you feel?", leaves long pauses before answering, and never says "AI", only "the machine".
+- **Four newly written sample lines:** one each to a student, a skeptical neuroscientist, Elias (off-duty and furious about her cloned voice), and a young man in a youth facility.
+
+**On copying:** none of the sample lines reuse her sentences. I copied her rhythm and stance, not her words, which keeps Noa a composite rather than an imitation.
+
+Should I do the same for [[Elias Rourke]]? His sites have less first-person text, but the Yale interview has good spoken quotes I could work from.
+[Timestamp: 2026/11/05 10:30:19]
+
+**user**: can you add a character template section: How this character would describe/introduce themselves (in the character's own voice as defined in this note)
+[Timestamp: 2026/11/05 10:33:09]
+
+**ai**: I've added a new section, **"In their own words: self-introduction,"** to `00_Claude_Admin/Templates/Character.md`. It comes right after Voice, because it has to be written in that voice. It has four parts:
+- **Public introduction:** how they present themselves to a stranger, an audience or a camera.
+- **Private version:** how they'd describe themselves to someone they trust, or to themselves at 3 a.m.
+- **What they always mention** and **what they never mention:** the gap between the two is often where the character shows.
+
+A callout says to label the text [imagined] until you make it [canon].
+
+I also added guidance to `.claude/rules/character-development.md`:
+- Write this section only after Voice is drafted, and match that voice exactly: register, tics and vocabulary.
+- Make the public and private versions differ in revealing ways. The private one can touch fears, contradictions and the shadow circumstances the public one hides.
+- Never reuse a reference person's actual sentences, only their patterns.
+
+Existing notes don't have the section yet. Should I add it to [[Noa Kessler]] and write her two introductions? Her Voice section is complete, so it's a good test. I can then do [[Elias Rourke]] once his Voice section is filled.
+[Timestamp: 2026/11/05 10:33:09]

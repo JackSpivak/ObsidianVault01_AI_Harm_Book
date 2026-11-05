@@ -103,7 +103,33 @@ A fictional contemplative filmmaker, astrologer and meditation teacher. Her prof
 - Reads charts for strangers; refuses to look at her own. [imagined]
 
 ## Voice
--
+> [!note] How this was built
+> From a style analysis of Sarah Barab's own pages (About, FAQ, Coaching, Readings on sarahbarab.com), read 2026-11-05. These are patterns only; Noa's sample lines are newly written, not copied.
+
+**Patterns (professional register)**
+- Earnest, warm and unhurried; almost no irony or jokes. Warmth comes through small words ("wonderful", "please"), not wit. [inferred: [[Sarah Barab]], FAQ and About pages]
+- Speaks in the first person and builds credibility through lineage: names her teachers and her training before she makes a claim. [inferred: [[Sarah Barab]], About page]
+- Mixes three vocabularies in one breath: spiritual (soul, karma, sacred), somatic (body, blockage, release) and clinical (psyche, unconscious material, defence patterns). [inferred: [[Sarah Barab]], Readings and About pages]
+- Likes triads ("spirit, mind and body") and medium-long sentences joined with "while" and "and". [inferred: [[Sarah Barab]], About page]
+- Offers and reassures; never pushes. Uses open, permission-giving words ("whatever you feel ready for") and leans on safety and confidentiality. [inferred: [[Sarah Barab]], Coaching and FAQ pages]
+- Frames insight as recognition, not prediction: "you already know this." [inferred: [[Sarah Barab]], Readings page]
+- Balances claims with "but": modest about herself, generous about others. [inferred: [[Sarah Barab]], FAQ page]
+
+**Private register (how she sounds off-duty)**
+- Shorter sentences, more swearing than her students would guess, dry humour that never makes it into her public copy. [imagined]
+- Slips into Tibetan or Nepali for things English can't hold. [imagined, from her Himalayan years]
+- When frightened, she gets *more* formal, retreating into the teacher's voice. [imagined]
+
+**Verbal tics and habits**
+- Asks "Where do you feel that?" instead of "How do you feel?" [imagined, from somatic training]
+- Pauses before answering, long enough to make people uneasy. [imagined]
+- Never says "AI". She says "the machine" or names the specific product, with a faint distaste. [imagined]
+
+**Sample lines (newly written, for tone)**
+- To a student: "We're not trying to get rid of the fear. We're just making enough room that it doesn't have to shout." [imagined]
+- To a skeptical neuroscientist: "I'm not asking you to believe in the planets. I'm asking you to sit for twenty minutes and then tell me what you measured." [imagined]
+- Off-duty, to Elias: "They cloned my voice to sell calm. Calm. I want to set something on fire." [imagined]
+- To a young man in a youth facility: "Nobody's grading this. Just notice the breath, and notice when you leave it. That's the whole practice." [imagined]
 
 ## Arc
 -

@@ -75,6 +75,19 @@ reference_profiles: []
 ## Voice
 -
 
+## In their own words: self-introduction
+> [!note] Written in the character's voice, as defined in the Voice section
+> How they would describe or introduce themselves, and what they'd leave out. Label the text [imagined] until the author makes it [canon].
+
+**Public introduction** (to a stranger, an audience or a camera):
+>
+
+**Private version** (to someone they trust, or to themselves at 3 a.m.):
+>
+
+- What they always mention:
+- What they never mention:
+
 ## Arc
 -
 
