@@ -6,7 +6,7 @@ sessionId: "6999568b-c706-4440-b49c-69ccd014f321"
 topic: "/deep_person_search Sarah Barab"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":59548,"contextWindow":1000000,"inputTokens":2,"outputTokens":9,"cacheReadTokens":59186,"cacheWriteTokens":351,"updatedAt":1793832563168}'
+usage: '{"usedTokens":68522,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":67454,"cacheWriteTokens":1058,"updatedAt":1793832870348}'
 ---
 
 **user**: /deep_person_search Sarah Barab
@@ -231,3 +231,154 @@ From what I could find online, his music and capoeira work doesn't appear under 
 
 With any of those I can run targeted searches and rebuild the timeline.
 [Timestamp: 2026/11/04 15:48:44]
+
+**user**: how can i see the results formatted as the deep persson search skill including the new results
+[Timestamp: 2026/11/04 15:52:03]
+
+**ai**: # Research brief: Michael Ramsey (filmmaker), updated
+
+## 1. Executive summary
+**Michael Ramsey is a common name**, and the results include several unrelated people who share it. Your "filmmaker" qualifier points most strongly to **Michael J. Ramsey of Boulder, Colorado**. He's a documentary director and cinematographer, and he owns **Spoken Image**, which his own site says he founded in 2003. His work centres on conservation films, Indigenous-led environmental stories, and campaigns for NGOs and mission-driven companies. He directed *Moving the Giants* (2015) and co-directed *Our Story: The Indigenous Led Fight to Protect Greater Chaco* (screened 2021–22).
+
+I'm highly confident in the core identity. The career before 2015 (freelance work from 2000, then Toyota from 2009 to 2015) rests on aggregator snippets I couldn't verify. You told me he also works as a musician and capoeirista, but **no source I found links Michael Ramsey to music or capoeira**. I found no connection to AI.
+
+## 2. Identity check
+
+| Result | Query | Opened? | Match |
+|---|---|---|---|
+| [DCEFF filmmaker page](https://dceff.org/filmmaker/ramsey-michael/) | filmmaker, "Ramsey, Michael", award, Spoken Image | **Yes** | High |
+| [EFFY Yale interview](http://effy.yale.edu/blog/interview-with-michael-ramsey-of-moving-the-giants) | all film queries | **Yes** | High |
+| [Portrait Web – About](https://portfolio.onportrait.com/portfolio/michael-j-ramsey/about) | filmmaker, "Michael J. Ramsey", musician Boulder | **Yes** | High (his own profile) |
+| [michaeljramsey.com (home)](https://www.michaeljramsey.com/) | Spoken Image early career | **Yes** | High (his own site) |
+| [michaeljramsey.com – Recent](https://www.michaeljramsey.com/single-project) | award query | **Yes** | High (his own site) |
+| [onespokenimage.com](https://onespokenimage.com) | linked from Portrait Web | Opened, but no bio text came back | High (his company) |
+| [IMDb nm3045256, "Michael Ramsey (III)"](https://www.imdb.com/name/nm3045256/) | all film queries | Blocked (403) | High by credits; the identity link is only in snippets |
+| [LinkedIn /in/spokenimage](https://www.linkedin.com/in/spokenimage/) | filmmaker, award, middle-initial, musician Boulder, Spoken Image | No | High (the URL matches his company name) |
+| [Portrait Web – Portfolio](https://portfolio.onportrait.com/portfolio/michael-j-ramsey) | musician Boulder | No | High |
+| [RocketReach](https://rocketreach.co/michael-ramsey-email_35150465) | Spoken Image early career | No | Medium (aggregator) |
+| [ContactOut](https://contactout.com/michael-j-ramsey-38695) | Spoken Image early career | No | Medium (aggregator) |
+| [JackTown Ramblers bassist](https://www.jacktownband.com/michael-ramsey) | musician Boulder | No | Low: a musician, but no link to the filmmaker and no location given |
+| [Legacy.com obituary, Durham NC (1949–2021)](https://www.legacy.com/us/obituaries/heraldsun/name/michael-ramsey-obituary?id=11409823) | musician Boulder | No | Excluded (deceased, different person) |
+| [LinkedIn – R.C. Ramsey LLC](https://www.linkedin.com/in/michael-ramsey-7232944/) | Spoken Image early career | No | Excluded (different business) |
+| [Behance – East Orange, NJ designer](https://www.behance.net/mike09e5?locale=en_US) | filmmaker, "Ramsey, Michael" | No | Excluded (different person) |
+| [IMDb nm2114963 (1904–1988)](https://www.imdb.com/name/nm2114963/) | filmmaker, middle-initial | No | Excluded (English writer) |
+| [IMDb nm1624104, "Mike Ramsey (IV)"](https://www.imdb.com/name/nm1624104/) | "Ramsey, Michael" | No | Excluded (1982 TV series *MV3*) |
+| [IMDb nm2985765, "Michael Ramsey (II)"](https://www.imdb.com/name/nm2985765/) | "Ramsey, Michael" | No | Excluded (actor/writer) |
+| [Wikipedia – Michael Ramsey](https://en.wikipedia.org/wiki/Michael_Ramsey) and [disambiguation](https://en.wikipedia.org/wiki/Michael_Ramsey_(disambiguation)) | filmmaker, capoeira | No | Excluded (archbishop and others) |
+| [NewsNation author](https://www.newsnationnow.com/author/michael-ramsey/), [CASSS award (J. Michael Ramsey)](https://www.casss.org/news/casss-announces-j.-michael-ramsey-as-the-2025-recipient-of-the-ce-pharm-award), [UNC faculty](https://aps.unc.edu/faculty-member/ramsey-michael/), [BeyondActiv (STRONG Pilates)](https://beyondactiv.com/events/speakers/michael-ramsey/) | capoeira | No | Excluded (journalist, chemist, Pilates instructor) |
+| [eBay – *Blood and Bone*](https://www.ebay.com/itm/158116626671), [YouTube – Ramsey Dewey on capoeira](https://www.youtube.com/watch?v=5zRv5akCYYs), [Mestre Waldemar](https://en.wikipedia.org/wiki/Mestre_Waldemar) | capoeira | No | Excluded (other names; no Michael Ramsey) |
+| [Greenbelt – Michael Ramsey Prize](https://www.greenbelt.org.uk/artists/michael-ramsey-prize-giving/) | award query | No | Excluded (a theology prize) |
+| Ramsey Denison, Lynne Ramsay, Michael J. Saul, David Ramsey, Bo Ramsey, and others | various | No | Excluded (different names) |
+
+## 3. Chronological career history
+- **2000–2005:** Freelance producer and cinematographer. *Snippet only (RocketReach, ContactOut), unverified.*
+- **Date unknown:** Studied at San Francisco State University. *Snippet only, unverified.* SFSU's logo appears on his Portrait Web page, which is consistent with this (*interpretation*).
+- **2003:** Founds Spoken Image. *Fact (sourced: michaeljramsey.com, which says "Founded by Michael Ramsey in 2003.")* **Conflict:** the same page says "since 2005", and aggregators give 2002.
+- **2009:** Camera and electrical department credit on *The Cove*. *Snippet only (IMDb blocked)*
+- **Feb 2009 to Feb 2015:** Producer and creative director, Advanced Technologies Division, Toyota Motor Sales. *Snippet only (ContactOut), unverified.*
+- **Probably 2014:** *I Heard*, commissioned by the Sierra Club. *Fact (sourced: his site)* His site ties it to the Wilderness Act's 50th anniversary, so I'm inferring 2014 (*interpretation*). His role isn't stated.
+- **2015:** Directs *Moving the Giants* (11 minutes). *Fact (sourced: DCEFF)*
+- **2016:** *Moving the Giants* screens at DCEFF and at Yale EFFY. The Yale interview ran on March 28, 2016. *Fact (sourced)*
+- **2016:** In production on a feature based on Jim Robbins's *The Man Who Planted Trees*. *Fact (sourced)* Whether it was finished is unknown.
+- **Oct 2021 to Aug 2022:** Festival run of *Our Story*, which he co-directed with Daniel Tso and executive produced. *Fact (sourced)*
+- **Present:** Director and documentary DP at Spoken Image and Nautilus Pictures. *Fact (sourced: Portrait Web)*
+- **Music and capoeira:** no dated entries. You reported this work, but I found **no source** for it.
+- **Gaps:** I found nothing before 2000, nothing between 2016 and 2021, and nothing after 2022.
+
+## 4. Accomplishments, skills and offerings
+- **Skills:** Directing, documentary cinematography, producing. *Fact (sourced)*
+- **Offerings:** "Award-winning documentaries, series, and campaigns for NGOs and mission-driven companies." *Fact (sourced: michaeljramsey.com)* He also directs ad campaigns. *Fact (sourced: DCEFF)*
+- **Distribution:** Educational licences for *Our Story* are sold through The Video Project. *Fact (sourced)*
+- **Awards for *Our Story*:** *Fact (sourced, self-reported list)*
+  - Winner at Cannes International Independent Film Festival, Docs Without Borders, Nature Without Borders, and Hollywood International Diversity Film Festival
+  - Audience Award at Durango Independent Film Festival (2022)
+- **Reviews of *Our Story*:** Educational Media Reviews Online rated it "Highly Recommended." *Fact (sourced, quoted on his site)*
+- **"100+ awards" claim:** *Snippet only, unverified*
+- **Music and capoeira:** reported by you; not found in any source.
+
+**Interpretation:** several festivals on the award list are smaller independent events, not the main Cannes or Hollywood festivals.
+
+## 5. Significant events and milestones
+- **2003:** Spoken Image founded. *Fact (sourced; the founding date conflicts across sources)*
+- **2016:** Festival appearances for *Moving the Giants* at DCEFF and Yale EFFY. *Fact (sourced)*
+- **2021–22:** The *Our Story* run reached about 20 venues, including the Maoriland Film Festival in New Zealand (July 2022). The film also appears in the Field Museum's Native Truths exhibit. *Fact (sourced)*
+
+## 6. Known associations
+- **Spoken Image** (founder and owner) and **Nautilus Pictures**. *Fact (sourced)*
+- **Toyota Motor Sales:** employer, 2009–2015. *Snippet only, unverified.*
+- **San Francisco State University:** education. *Snippet only, unverified.*
+- **Daniel Tso** (co-director) and **Brian Daniell** (co-executive producer) of *Our Story*. *Fact (sourced)*
+- ***Our Story* team:** producers Soni Grant, John Hosteen, Hazel James-Tohe, Julia Bernal and Kendra Pinto; narrated by Somáh Haaland, with narration and translation by Louise Benally. *Fact (sourced)*
+- **Daniel Glick:** executive producer of *Moving the Giants*. *Fact (sourced)*
+- **David Milarch and the Archangel Tree Archive:** subjects of *Moving the Giants*. *Fact (sourced)*
+- **Jim Robbins:** author of the book behind his planned feature. *Fact (sourced)*
+- **Sierra Club:** commissioned *I Heard*. *Fact (sourced)*
+- **Logos on Portrait Web** (Yale, CU Boulder, SFSU, Sundance, National Geographic, PBS and others): **unconfirmed**. The page doesn't say what each logo represents.
+
+## 7. Gaps and conflicts
+- **Blocked or not opened:** IMDb was blocked. LinkedIn and the aggregator pages weren't opened. onespokenimage.com returned no usable bio text.
+- **Founding date conflict:** 2003 on his site, "since 2005" on the same page, and 2002 on aggregators.
+- ***The Cove* conflict:** snippets say his LinkedIn lists the film's Academy Award, but IMDb snippets put him in the camera/electrical department. **Interpretation:** he worked on an Oscar-winning film but didn't win the Oscar himself.
+- **Music and capoeira not found:** this work probably isn't published under "Michael Ramsey". Capoeira players usually go by an *apelido* (nickname), and musicians often use band or stage names.
+- **Searches not run:** a court or lawsuit query. With a name this common, any hit would be hard to tie to him.
+- **What would help:** his capoeira group or *apelido*, a band or stage name, a copy of his LinkedIn experience section, earlier film titles, or an IMDb listing you can see.
+
+## 8. Sources
+- **Opened:**
+  - [DCEFF filmmaker page](https://dceff.org/filmmaker/ramsey-michael/)
+  - [EFFY Yale interview](http://effy.yale.edu/blog/interview-with-michael-ramsey-of-moving-the-giants)
+  - [Portrait Web – About](https://portfolio.onportrait.com/portfolio/michael-j-ramsey/about)
+  - [michaeljramsey.com (home)](https://www.michaeljramsey.com/)
+  - [michaeljramsey.com – Recent](https://www.michaeljramsey.com/single-project)
+- **Opened, no usable content:** [onespokenimage.com](https://onespokenimage.com)
+- **Blocked:** [IMDb nm3045256](https://www.imdb.com/name/nm3045256/)
+- **Snippet only:**
+  - [LinkedIn](https://www.linkedin.com/in/spokenimage/)
+  - [Portrait Web – Portfolio](https://portfolio.onportrait.com/portfolio/michael-j-ramsey)
+  - [RocketReach](https://rocketreach.co/michael-ramsey-email_35150465)
+  - [ContactOut](https://contactout.com/michael-j-ramsey-38695)
+  - [JackTown Ramblers](https://www.jacktownband.com/michael-ramsey)
+- **Excluded, snippet only:** every other URL in the identity table.
+
+All seven name searches ran in extended mode: the bare name with "filmmaker", "Ramsey, Michael", "Michael J. Ramsey", an award/festival query, capoeira, musician Boulder, and Spoken Image early career.
+
+**To keep this:** I can save it as a research note in `02_Ideas Topics Concepts/Research/` (for example `Michael J Ramsey.md`), with frontmatter and the Summary and Original wording sections your vault rules require. Do you want me to?
+[Timestamp: 2026/11/04 15:52:03]
+
+**user**: why did we miss the vimeo movie the Cave?
+[Timestamp: 2026/11/04 15:53:52]
+
+**ai**: We missed it for three reasons:
+
+1. **I never searched for it.** All my searches were broad ("filmmaker", "director", "documentary") and none named a title. With a name this common, an older three-minute short doesn't rise to the top. My "award" query also didn't surface its festival wins.
+2. **I never opened his Vimeo page.** I listed vimeo.com/spokenimage under "follow-up options" but didn't fetch it. When I tried just now it showed only a sign-in prompt and no videos, so it wouldn't have helped anyway.
+3. **IMDb, where it's listed, was blocked.** The film is on IMDb ([tt1338565](https://www.imdb.com/title/tt1338565/)), and a search snippet links it to his profile ([nm3045256](https://www.imdb.com/name/nm3045256/)), but that profile returned a 403 error. That gap was a known weakness, and his full filmography was hidden behind it.
+
+## What the film is
+*The Cave: An Adaptation of Plato's Allegory in Clay* (2008):
+- **Premiere:** Boulder International Film Festival, February 16, 2008. *Fact (sourced: [Letterboxd](https://letterboxd.com/film/the-cave-platos-allegory-in-clay/))*
+- **Credits:** Michael Ramsey wrote, produced and directed it. John Grigsby did the claymation and Kristopher Hutson narrates. *Fact (sourced: [Synkroniciti, Aug 7, 2013](https://synkroniciti.com/on-enlightenment-the-cave-an-adaptation-of-platos-allegory-in-clay-by-michael-ramsey-and-john-grigsby/))*
+- **Production:** It runs 3 minutes. The team shot over 4,000 still photographs, lit by candlelight from a real fire. *Fact (sourced: Letterboxd)*
+- **Festivals:** top honours at the USA Film Festival short film competition (2008). It was also selected at, or won awards at, Swansea Life, Indie Memphis, Cinema City, Geneva, Montana Independent, Edmonton and Tupelo (2009). *Fact (sourced: Synkroniciti, a self-reported list)*
+- **Origin:** it was first planned as part of a feature documentary called *Chasing the Shadows*. *Snippet only (IMDb), unverified*
+- **Availability:** there's a release on [Amazon](https://www.amazon.com/Cave-Adaptation-Platos-Allegory-Clay/dp/B007RTY7AG), and the film is on YouTube through Bullhead Entertainment.
+
+**Is it the same Michael Ramsey? Probably yes, but not fully confirmed.**
+- The [Vimeo page for *Moving the Giants*](https://vimeo.com/163280465) reportedly lists the clay *Cave* film as a related upload. *Snippet only*
+- The Boulder premiere fits his Boulder base. *Interpretation*
+- The IMDb snippet ties the film to his profile, but I couldn't open that page.
+
+No source I opened states both films are by the same person.
+
+## How this changes the brief
+- *The Cave* becomes the **earliest dated film credit (2008)**, pushing his verified directing work back seven years from *Moving the Giants* (2015).
+- New association: **John Grigsby** (claymation), plus a possible link to **Bullhead Entertainment**.
+
+## How to catch these in future
+The broad searches won't reliably find a full filmography for a common name. A better approach:
+- Get the complete IMDb credit list, which you can see even though I can't.
+- Open each platform the person uses (Vimeo, YouTube) directly.
+- Search the titles one at a time.
+
+If you know of other titles, send them and I'll check each one. I can also fold *The Cave* into the full report and save it to the vault.
+[Timestamp: 2026/11/04 15:53:52]
