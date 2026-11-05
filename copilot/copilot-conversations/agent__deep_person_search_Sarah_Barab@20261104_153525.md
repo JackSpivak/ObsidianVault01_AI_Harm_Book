@@ -6,7 +6,7 @@ sessionId: "6999568b-c706-4440-b49c-69ccd014f321"
 topic: "/deep_person_search Sarah Barab"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":68522,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":67454,"cacheWriteTokens":1058,"updatedAt":1793832870348}'
+usage: '{"usedTokens":79293,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":77438,"cacheWriteTokens":1850,"updatedAt":1793898193930}'
 lastAccessedAt: 1793897333246
 ---
 
@@ -383,3 +383,116 @@ The broad searches won't reliably find a full filmography for a common name. A b
 
 If you know of other titles, send them and I'll check each one. I can also fold *The Cave* into the full report and save it to the vault.
 [Timestamp: 2026/11/04 15:53:55]
+
+**user**: i am very interested, from a character development perspective and using the obsidian file structure and bookwriting workflow we've created . AND siggnificantly, to use these deep person searches to flesh out charactewr development.. I would want to do this by doing background deep search on real world people with similar backgrounds to my character and infer/imagine/develop/hallucinate personality attributes that my character might have if they were soimilar to the researched person.  I would like.... to have sewveral addirtional, ssections added to the character note template. 1.  Vision/hopes/dreams for a better world, 2.  Desires/wants/needs 3. fears, 4. values,. what does this character care about 5. Superpowers - conceptual  meta super-group to skills, abilities, knowledge.   Natureallly these will be imagined, inferred, elaborated or even halucinated based on the similarity of what is actually known about this character to other characters with similar background, professional experience, cultural and geographic associations
+[Timestamp: 2026/11/05 09:54:02]
+
+**ai**: I've updated `00_Claude_Admin/Templates/Character.md` with your five sections. It only affects new character notes; existing ones aren't touched.
+
+## What changed in the template
+- **Your five new sections:**
+  1. Vision: hopes and dreams for a better world
+  2. Desires, wants and needs, split into conscious wants, unseen needs and private desires
+  3. Fears, split into surface fears and the deep fear the story can threaten
+  4. Values, in priority order, plus the lines they won't cross (and the one they might)
+  5. Superpowers, as a table: the meta-capability, the skills, abilities and knowledge underneath it, and its shadow side or cost
+- **"Wants, fears, contradictions" is split up.** Wants and fears now have their own sections, and "Contradictions" stays as a section of its own.
+- **New "Real-world reference profiles" section.** A table links each researched person's note to the point of similarity and what it informs. There's also a new `reference_profiles:` property in the frontmatter.
+- **New Fixed facts fields:** "Profession / experience" and "Cultural and geographic associations", the dimensions you match reference people on.
+- **An evidence key at the top:** every inner-life item is tagged **[canon]**, **[inferred: Source]** or **[imagined]**. That way an imagined fear never quietly ends up in `Canon_and_Continuity.md`.
+
+## The suggested workflow
+1. **Fill in the character's Fixed facts** (profession, background, culture, geography).
+2. **Pick 2–4 real people with a similar profile** and run `/deep_person_research` on each.
+3. **Save each one as a factual research note** in `02_Ideas Topics Concepts/Research/`, keeping the fact, snippet-only and unconfirmed labels.
+4. **Have me draft the five inner-life sections** in the character note, with each item tagged [inferred: …] or [imagined] and saying which person or pattern it draws on.
+5. **You accept, change or reject items**, and the ones you keep become [canon]. I'd then offer to add them to the canon file.
+
+**One boundary I'd keep:** the made-up material stays in the character note, and the research notes about real people stay factual. Your character can be a composite, like "a Boulder documentary filmmaker with a Buddhist-psychology background", without carrying any one person's identifiable story. In particular, I'd leave out court cases and private life events. That protects the real people and keeps the character your own.
+
+**Try it now?** Sarah Barab and Michael Ramsey are both natural reference profiles: a contemplative filmmaker and an environmental documentarian. Tell me which character they resemble, and I'll save their research notes and draft that character's inner-life sections. Should I also record this workflow in `Decisions_Log.md`?
+[Timestamp: 2026/11/05 09:54:02]
+
+**user**: i like this a lot.  however, i would prefer to include the possible existance of complex or even frightening legal circumstances in the character's perssonaality structure while maintaining a boundary as you suggest for the actual identifiable details of a research target's backiground
+[Timestamp: 2026/11/05 09:57:46]
+
+**ai**: I've updated `00_Claude_Admin/Templates/Character.md` so characters can carry complex or frightening legal circumstances, while real cases stay off-limits.
+
+**The new section, "Legal and shadow circumstances,"** sits between Superpowers and Contradictions. It has:
+- **A table** with four columns:
+  - the fictional circumstance
+  - how it shapes the character's personality (fear, secrecy, resolve, paranoia)
+  - its status (past, ongoing, threatened or hidden)
+  - who knows about it
+- **Two prompts:** what they'd do to keep it buried or to win, and how it collides with their Vision and Values. That's where it starts driving the plot.
+
+**Where the boundary now sits:**
+- **Allowed:** archetypes and general patterns, such as "a negligence suit that drags on for years," "a dispute with a landlord or investor," or "a sealed record they fear will surface." Real research can suggest the *kind* of trouble someone in that world might face.
+- **Not allowed:** a real person's actual case, parties, court, dates or allegations. Those stay in the research note, reported only as what the record shows and whether I opened it.
+- **Changed wording:** the warning in the reference-profiles section now reads "Patterns are fine; particulars are not," replacing the earlier blanket ban on legal history.
+
+**An example of how it works:** Sarah Barab's search found a 2024 Boulder negligence filing that I couldn't open or tie to her. In her research note, that stays an unverified, unconfirmed record. A character inspired by her profile could instead carry an invented lawsuit, with different parties, place and facts, that feeds her fear of losing control over her own story.
+
+Should I record this as a decision in `Decisions_Log.md`, together with the reference-profile workflow?
+[Timestamp: 2026/11/05 09:57:46]
+
+**user**: yes. exactly!
+[Timestamp: 2026/11/05 09:58:43]
+
+**ai**: 
+[Timestamp: 2026/11/05 09:58:43]
+
+**user**: did you make these catagorical section edits to the character template?
+[Timestamp: 2026/11/05 09:59:25]
+
+**ai**: Yes, the edits are in the template file itself, `00_Claude_Admin/Templates/Character.md`. Here's what it contains now:
+
+- **Frontmatter:** a new `reference_profiles: []` property.
+- **Evidence key callout** at the top: [canon], [inferred: Source] and [imagined].
+- **Fixed facts:** new "Profession / experience" and "Cultural and geographic associations" fields.
+- **Real-world reference profiles:** a table plus the "patterns are fine; particulars are not" warning.
+- **Your five sections:**
+  - Vision: hopes and dreams for a better world
+  - Desires, wants and needs
+  - Fears
+  - Values: what they care about
+  - Superpowers (table with a shadow-side column)
+- **Legal and shadow circumstances:** the fictional-only table and two prompts.
+- **Unchanged sections:** Contradictions, Voice, Arc, Appears in and Related. The old combined "Wants, fears, contradictions" section is gone.
+
+I've also recorded both decisions in `00_Claude_Admin/Decisions_Log.md`:
+1. The reference-profile workflow and evidence labels.
+2. Fictional legal circumstances are allowed, built from patterns but never from real cases.
+
+Both log entries link back to [[Character]].
+
+Existing character notes haven't been changed. Only notes created from the template from now on will have the new sections. I can add the sections to existing character notes if you'd like.
+[Timestamp: 2026/11/05 09:59:25]
+
+**user**: i think there might be guidance in claude.md or elsewhere regarding the purpose and creation of a character note. where would this currenrtly live and can you addd the necessary guidance for claude to imagine/infer/develop/hallucinate the necessary content to fill these inferred sections/categories of personality attributes
+[Timestamp: 2026/11/05 10:02:42]
+
+**ai**: There was no character guidance before. Character notes were only touched on in a few general places:
+- **`CLAUDE.md`:** the vault map ("One note per character") and the note creation rules, which require Summary and Original wording sections.
+- **`.claude/rules/obsidian-conventions.md`:** frontmatter, one note per entity, and templates.
+- **`.claude/rules/research-and-editing.md`:** character notes as the second source of truth in continuity checks.
+
+None of these covered how to develop a character's inner life. I've added that guidance in two places:
+
+**1. A new rules file, `.claude/rules/character-development.md`.** Files in that folder load automatically every session. It covers:
+- **Purpose:** what a character note is for, and that its inner-life sections are a workshop until you mark items [canon].
+- **Reference-profile workflow:** I propose 2–4 real people and wait for you to pick. Then I run `/deep_person_research` on each, save factual research notes, link them in the character note, and draft the sections.
+- **How to generate content:** it says plainly that you *want* me to imagine, infer and invent, so I should be generous and specific, not cautious. It also tells me to:
+  - work from each reference person's profession, traditions and places
+  - blend several references, never mapping one person onto the character
+  - deliberately build tensions (wants vs needs, values vs fears, shadow sides of superpowers)
+  - tie traits to the AI-harm theme
+  - give 3–6 concrete, usable items per section, with at least one surprising one
+- **Required labels on every item:** `[inferred: [[Research Note]] — basis]`, `[imagined]` or `[canon]`. Only you can promote an item to canon.
+- **Boundary with real people:** patterns are fine, particulars are not. Legal and shadow circumstances can be frightening, but they must be fictional and built from archetypes.
+- **After drafting:** wait for your feedback, never overwrite your [canon] items, offer canon updates, and follow your note creation rules.
+
+**2. `CLAUDE.md`:** I added one line under "How to help" that points to the new rules file, so it's easy to find.
+
+Do you want to try it on a character? If you have a character note in `04_Characters/`, name it. Or describe a new character and I'll suggest reference people.
+[Timestamp: 2026/11/05 10:02:42]

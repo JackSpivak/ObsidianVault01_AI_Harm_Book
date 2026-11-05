@@ -41,6 +41,8 @@ Detailed operating rules live in `.claude/rules/` and load automatically.
   what changed and why; don't silently rewrite manuscript prose.
 - **Continuity checks:** compare against `Canon_and_Continuity.md`, character notes,
   and the outline. Report conflicts with file links; don't auto-fix the manuscript.
+- **Character development:** build inner lives from real-world reference profiles, with each
+  trait labelled [inferred], [imagined] or [canon]. See `.claude/rules/character-development.md`.
 - **Note hygiene, formatting & linking:** see `.claude/rules/obsidian-conventions.md`.
 
 ## Hard rules
