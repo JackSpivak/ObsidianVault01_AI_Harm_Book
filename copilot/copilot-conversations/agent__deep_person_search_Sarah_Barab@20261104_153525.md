@@ -7,10 +7,11 @@ topic: "/deep_person_search Sarah Barab"
 tags:
   - copilot-conversation
 usage: '{"usedTokens":68522,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":67454,"cacheWriteTokens":1058,"updatedAt":1793832870348}'
+lastAccessedAt: 1793897333246
 ---
 
 **user**: /deep_person_search Sarah Barab
-[Timestamp: 2026/11/04 15:35:25]
+[Timestamp: 2026/11/04 15:35:26]
 
 **ai**: Opening the key pages.# Research brief: Sarah Barab
 
@@ -94,7 +95,7 @@ Almost every search result points to one person. Sarah Barab is a New York City 
 - [ZoomInfo person](https://www.zoominfo.com/p/Sarah-Barab/17764227611), [ZoomInfo company](https://www.zoominfo.com/c/sarah-barab/542226733): snippet only, low reliability
 
 All four name searches ran in extended mode. I haven't saved this to the vault. I can save it as a research note in `02_Ideas Topics Concepts/Research/` if you'd like.
-[Timestamp: 2026/11/04 15:35:25]
+[Timestamp: 2026/11/04 15:35:29]
 
 **user**: /deep_person_research Michael ramsey filmmaker
 [Timestamp: 2026/11/04 15:42:41]
@@ -184,7 +185,7 @@ I found no court records for this person. I didn't run a separate court query; s
 - Excluded, snippet only: [Behance](https://www.behance.net/mike09e5?locale=en_US), [IMDb nm2114963](https://www.imdb.com/name/nm2114963/), [IMDb nm1624104](https://www.imdb.com/name/nm1624104/), [IMDb nm2985765](https://www.imdb.com/name/nm2985765/), [Wikipedia disambiguation](https://en.wikipedia.org/wiki/Michael_Ramsey_(disambiguation)), [Greenbelt](https://www.greenbelt.org.uk/artists/michael-ramsey-prize-giving/)
 
 All four name searches ran in extended mode: the bare name, "Ramsey, Michael", the "Michael J. Ramsey" variant, and a topic query. I haven't saved anything to the vault. I can save this as a research note in `02_Ideas Topics Concepts/Research/` if you'd like.
-[Timestamp: 2026/11/04 15:42:41]
+[Timestamp: 2026/11/04 15:42:45]
 
 **user**: michael has been workiong in the field for many years also as a musician and caporiesta
 
@@ -230,7 +231,7 @@ From what I could find online, his music and capoeira work doesn't appear under 
 - **Projects:** any earlier film titles you know of.
 
 With any of those I can run targeted searches and rebuild the timeline.
-[Timestamp: 2026/11/04 15:48:44]
+[Timestamp: 2026/11/04 15:48:49]
 
 **user**: how can i see the results formatted as the deep persson search skill including the new results
 [Timestamp: 2026/11/04 15:52:03]
@@ -343,7 +344,7 @@ I'm highly confident in the core identity. The career before 2015 (freelance wor
 All seven name searches ran in extended mode: the bare name with "filmmaker", "Ramsey, Michael", "Michael J. Ramsey", an award/festival query, capoeira, musician Boulder, and Spoken Image early career.
 
 **To keep this:** I can save it as a research note in `02_Ideas Topics Concepts/Research/` (for example `Michael J Ramsey.md`), with frontmatter and the Summary and Original wording sections your vault rules require. Do you want me to?
-[Timestamp: 2026/11/04 15:52:03]
+[Timestamp: 2026/11/04 15:52:46]
 
 **user**: why did we miss the vimeo movie the Cave?
 [Timestamp: 2026/11/04 15:53:52]
@@ -381,4 +382,4 @@ The broad searches won't reliably find a full filmography for a common name. A b
 - Search the titles one at a time.
 
 If you know of other titles, send them and I'll check each one. I can also fold *The Cave* into the full report and save it to the vault.
-[Timestamp: 2026/11/04 15:53:52]
+[Timestamp: 2026/11/04 15:53:55]
