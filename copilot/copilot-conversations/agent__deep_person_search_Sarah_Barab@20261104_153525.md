@@ -6,7 +6,7 @@ sessionId: "6999568b-c706-4440-b49c-69ccd014f321"
 topic: "/deep_person_search Sarah Barab"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":220421,"contextWindow":1000000,"inputTokens":2,"outputTokens":5,"cacheReadTokens":212883,"cacheWriteTokens":7531,"updatedAt":1793905783314}'
+usage: '{"usedTokens":237284,"contextWindow":1000000,"inputTokens":2,"outputTokens":724,"cacheReadTokens":229052,"cacheWriteTokens":7506,"updatedAt":1793906868220}'
 lastAccessedAt: 1793897333246
 ---
 
@@ -1583,5 +1583,37 @@ You now have five interlinked characters. Should I draft a relationship map or e
 **user**: /deep_person_research Rensellear resch and generate character note
 [Timestamp: 2026/11/05 12:20:49]
 
-**ai**: 
+**ai**: I've researched Ren Resch and created a research note and a character note.
+
+## Research brief: Ren (Rensselear) Resch
+**The spelling.** The place-name spelling "Rensselaer" found no person. Her business listing spells it "**Rensselear**" Resch, and she publishes as **Ren Resch**. I'm highly confident it's one person: the Alignable listing names "Rensselear Resch, who goes by Ren" as owner of the Boulder business, and it offers the same course her Substack describes.
+
+The searches covered "Rensselaer Resch", combined spelling variants, and "Ren Resch" with "Boulder", all in extended mode. No middle-initial variant appeared.
+
+**Who she is.** I opened five pages:
+- **Work:** Boulder somatic sex educator, iRest Yoga Nidra teacher, coach and writer. Her Substack is *The Enlivened Woman*.
+- **Path:** almost five years in a corporate job, then she quit for spiritual study, taught yoga and meditation, and spent about a year travelling with a teacher. She moved from the East Coast to Colorado after a silent retreat, and kept working remotely for her former employer.
+- **Training:** nearly two decades of somatic training (Somatica, iRest, somatic psychology, human sexuality), plus yoga teacher training in 2006 and iRest Levels I (2007) and II (2013). The 2006–2013 dates come from a search snippet; the iRest page itself now returns 404.
+- **Course:** *Pleasure on Purpose*, an online course for women launched in summer 2017, "shortly before the Me Too movement began." She paused it in 2019 and plans to restart it.
+- **Voice:** "It whispers and you must get really quiet and still to hear it," "I am a devout lover of the Mystery and science," "I quickly realized, or re-membered, that sex is about relationship."
+
+**Left out on purpose:** the family, relationship and fertility details from her personal essays. They're public, but personal.
+
+**Not reached:** thepleasurepractice.com (DNS failure) and the iRest profile (404). The "MS, MA, CSB, RYT" credentials come from a search snippet, with no institutions named.
+
+## Character note: [[Sylvie Darrow]] (placeholder name)
+- **Who she is:** a Boulder somatic educator and essayist who left a corporate job, moved to Colorado after a silent retreat, and runs a course on desire and shame for women. She quietly keeps the corporate job.
+- **AI hook:** an "AI intimacy coach" app trained on her scraped course videos speaks in her cadence. Then AI-generated explicit images of her spread online. That's nonconsensual intimate imagery, a core AI harm.
+- **Deep fear:** losing control of her own body's image, with a synthetic version of her becoming more "real" to strangers than she is.
+- **Central conflict:** she teaches women to be unashamed of their bodies, and her body is now being used to shame her.
+- **Legal and shadow circumstances (fictional):** a possible lawsuit over the deepfakes, a copyright and likeness claim against the app maker, and a moonlighting clause her employer doesn't know she's breaking.
+- **Voice:** two registers drawn from her essays. One is confessional, with CAPITALISED emphasis and closing questions to the reader. The other is mythic ("She", the inner sovereign). Under stress, a crisp corporate voice comes out. All the sample lines are newly written.
+- **Self-introduction:** the public version is a course welcome post. The private version is a 2 a.m. phone note: "I've spent twenty years telling women their bodies belong to them. Mine doesn't, right now."
+- **Links:** she's an ally of [[Noa Kessler]], since both had their likeness taken by AI ("Same theft, different aisle"). She's also linked to the rest of the Boulder circle.
+
+I kept the note frank about her work and the harm, but nothing in it is graphic.
+
+**Notes created:** [[Ren Resch]] in `02_Ideas Topics Concepts/Research/`, with the spelling variants saved as aliases, and [[Sylvie Darrow]] in `04_Characters/`. All their links point to existing notes.
+
+You now have six characters. Two pairs share the same AI harm: Noa and Sylvie (stolen likeness), and Corwin and Theo (systems that score people). An ensemble or relationship note in `06_Outline/` could map those threads. Should I draft one?
 [Timestamp: 2026/11/05 12:20:49]
