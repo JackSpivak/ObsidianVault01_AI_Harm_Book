@@ -23,7 +23,7 @@ reference_profiles: ["[[Sarah Barab]]"]
 A fictional contemplative filmmaker, astrologer and meditation teacher. Her profile is loosely modelled on the documented background of [[Sarah Barab]]: Buddhist-psychology training, years in the Himalayas, documentaries on meditation and incarcerated youth, and an apprenticeship with a prison-mindfulness teacher. Noa is a composite, not a portrait. Her inner life below is drafted for the author to accept, change or reject.
 
 ## Original wording
-- **User:** "yes. i want two character notes based on the two real people in this conversation"
+- **User:** "yes. i want character notes based on the real person in this conversation"
 - **User:** "infer/imagine/develop/hallucinate personality attributes that my character might have if they were soimilar to the researched person."
 - **Claude (Opus 5.5, claude-opus-5-5):** "Sarah Barab is a New York City astrologer, meditation and mindfulness teacher, and documentary filmmaker."
 - **Source:** Obsidian Copilot agent session, 2026-11-04 to 2026-11-05, "deep_person_research" on Sarah Barab, then the character-template discussion. I can't confirm which file in `copilot/copilot-conversations/` holds this exact session.

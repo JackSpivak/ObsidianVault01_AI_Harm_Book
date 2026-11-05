@@ -24,7 +24,7 @@ A fictional Boulder documentary director and cinematographer, also a musician an
 
 ## Original wording
 - **User:** "michael has been workiong in the field for many years also as a musician and caporiesta"
-- **User:** "yes. i want two character notes based on the two real people in this conversation"
+- **User:** "yes. i want character notes based on the real person in this conversation"
 - **Claude (Opus 5.5, claude-opus-5-5):** "Michael J. Ramsey of Boulder, Colorado. He's a documentary director and cinematographer, and he owns the production company Spoken Image."
 - **Source:** Obsidian Copilot agent session, 2026-11-04 to 2026-11-05, "deep_person_research" on Michael Ramsey (filmmaker), then the character-template discussion. I can't confirm which file in `copilot/copilot-conversations/` holds this exact session.
 - **External references:** [[Michael J Ramsey]] research note.
