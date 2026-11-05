@@ -6,7 +6,7 @@ sessionId: "6999568b-c706-4440-b49c-69ccd014f321"
 topic: "/deep_person_search Sarah Barab"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":157446,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":152640,"cacheWriteTokens":4801,"updatedAt":1793901675670}'
+usage: '{"usedTokens":174595,"contextWindow":1000000,"inputTokens":2,"outputTokens":2,"cacheReadTokens":167031,"cacheWriteTokens":7560,"updatedAt":1793903394868}'
 lastAccessedAt: 1793897333246
 ---
 
@@ -749,3 +749,43 @@ Every inner-life item is labelled [inferred] or [imagined]. Age, Arc and Appears
 
 **Possible follow-up:** Noa's reference table still lists "Fleet Maull" as her mentor archetype. I can update her note to name [[Corwin Hale]] as her mentor and work in Corwin's co-conspirator secret, which "possibly Noa" knows. Would you like that?
 [Timestamp: 2026/11/05 10:52:45]
+
+**user**: /deep_person_research Nomali Perera and generate character note
+[Timestamp: 2026/11/05 11:25:43]
+
+**ai**: I've researched Nomali Perera and created two notes: a research note and a character note.
+
+## Research brief: Nomali Perera
+**Identity:** every result for the exact name points to one person, an executive coach in the Integral movement. Confidence is high. I excluded Nimali Perera, a cricket umpire with a different spelling, and other Pereras on Wikipedia. Both name searches ran in extended mode, plus a career/topic query. No middle-initial variant appeared in any result, so I didn't run one.
+
+**Who she is:** an executive coach and leadership facilitator (MA, PCC), associated with both Sri Lanka and the US. I opened seven pages. The main points:
+- **Early to mid 2000s:** early staff member of Ken Wilber's Integral Institute in Boulder. She later co-founded the Boulder Integral Center and ran "hundreds of events" there.
+- **2009:** certified Integral Master Coach, and coaching individuals and teams from that year.
+- **Other work:** trained 125+ senior leaders at Natura Cosméticos in São Paulo; consulted in Brazil and Mexico; worked in higher education in Colorado; created courses for incarcerated communities.
+- **Clients:** Blue Cross Blue Shield, Deloitte, DLA Piper, Ulta Beauty and others.
+- **Talks and discussions:**
+  - Integral European Conference talks (2022, 2023) asking whether the Integral movement is "vanishing"
+  - Integral Life discussions (2021–2026), including one after the 2021 Boulder shooting
+- **Current role:** Executive Director, Organizational Development & Transformation, at E&I Cooperative Services, per Integral Life.
+
+**Conflicts:**
+- **"Dr." title:** one conference page calls her "Dr.", but every bio lists only an MA. I found no doctorate.
+- **Current employer:** sources list E&I Cooperative Services and Neuberg Gore. These may be concurrent roles.
+
+**Not opened:** two ZoomInfo listings, left aside because they mainly show masked contact data.
+
+## Character note: [[Ishani Gunaratne]] (placeholder name)
+- **Who she is:** a Sri Lankan-American executive coach in Boulder with Integral-movement roots, corporate work in Brazil and Mexico, and prison teaching.
+- **AI hook:** her biggest client is the founder-CEO of a frontier AI lab. Her deep fear is that coaching made him "calmer and more effective at doing something catastrophic."
+- **Legal and shadow circumstances (fictional):**
+  - an NDA and non-disparagement clause with the AI lab
+  - a whistleblower's lawyers threatening to subpoena her coaching notes
+  - an old visa-paperwork worry from a Brazilian contract
+- **Core conflict:** confidentiality vs. preventing harm, "the one polarity her method can't hold."
+- **Voice:** built from her first-person conference copy and her bios. She's warm and inclusive ("we"), asks hard questions of her own community, uses map and journey metaphors, and handles frameworks lightly. All the sample lines are newly written.
+- **Self-introduction:** the public version is a workshop opener. The private version is a voice memo: "Did I help him become wise, or just persuasive?"
+
+**Links:** Ishani connects to [[Corwin Hale]] (she asked him for advice about the subpoena), and to [[Noa Kessler]] and [[Elias Rourke]] as part of a shared Boulder circle. All four characters now form a plausible ensemble in Boulder's contemplative world.
+
+Would you like me to sketch how the four characters relate, as an outline or relationship note in `06_Outline/`? I can also record the Boulder ensemble as a decision in canon.
+[Timestamp: 2026/11/05 11:25:43]
