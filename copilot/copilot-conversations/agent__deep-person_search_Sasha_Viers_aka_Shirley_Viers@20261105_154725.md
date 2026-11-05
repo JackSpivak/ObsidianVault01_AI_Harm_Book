@@ -6,7 +6,7 @@ sessionId: "8f690083-2e5e-4467-adbf-53d06316cc4a"
 topic: "/deep-person search Sasha Viers aka Shirley Viers"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":74349,"contextWindow":1000000,"inputTokens":2,"outputTokens":452,"cacheReadTokens":73075,"cacheWriteTokens":820,"updatedAt":1793920604274}'
+usage: '{"usedTokens":79671,"contextWindow":1000000,"inputTokens":2,"outputTokens":546,"cacheReadTokens":78764,"cacheWriteTokens":359,"updatedAt":1793921100571}'
 ---
 
 **user**: /deep-person search Sasha Viers aka Shirley Viers
@@ -181,3 +181,23 @@ I also searched for the exact URL in extended mode, and it isn't in my search in
 
 Either way, I'll leave out contact details and anything personal, as before.
 [Timestamp: 2026/11/05 16:16:13]
+
+**user**: ok the new pdf is in the research folder. please only open sasha viers linkedin
+[Timestamp: 2026/11/05 16:24:07]
+
+**ai**: I read only `(21) Sasha Viers LinkedIn.pdf` and added what it shows to [[Sasha Viers]]. Everything from it is labelled "provided by user", since I couldn't open the live profile myself.
+
+**What the profile shows:**
+- **Headline:** "Pilates, Gyrotonic coach & personal trainer". Location: Lafayette, Colorado.
+- **Owner, Boulder Spirals,** Feb 2011 – Oct 2019. This fills most of the gap in the timeline and dates the end of her ownership.
+- **Independent Contractor, Freelance (self-employment),** Oct 2019 – present.
+- **Education:** New York University, "Bachelor of Fine Arts-BFA, Theatre/Theater", with no dates given.
+
+**Two conflicts, recorded side by side in the note rather than resolved:**
+- **Founding date:** an earlier snippet says she founded the studio in 2010; LinkedIn says Feb 2011. One possibility is that it ran as Dollhouse Pole Studio before the 2011 rename, but that's a guess.
+- **Degree:** LinkedIn says theatre; a snippet from her own site said she trained in dance.
+
+I ignored the "More profiles for you" sidebar, the other people it suggests, and the account banners. I linked the PDF from the Sources section.
+
+**One thing to decide for [[Wren Halloway]]:** her Training line currently says "BFA in dance", based on the earlier snippet. Should I change it to theatre, or keep dance as a fictional choice? A theatre background could suit her performer streak. I haven't changed anything in the character note.
+[Timestamp: 2026/11/05 16:24:07]

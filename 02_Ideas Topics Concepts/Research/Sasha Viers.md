@@ -37,8 +37,10 @@ verified: partial
 - **Before 2010:** gap.
 - **2010:** moves to Colorado and founds Boulder Spirals, "Boulder's first pole dance studio". *(snippet only: sashaspiraling.com, domain now gone)*
 - **By Sept 2011:** co-owns the studio with Melanie Piek. They renamed it from Dollhouse Pole Studio to Boulder Spirals "to tone things down" (article paraphrase). (Boulder Weekly, 27 Sep 2011)
-- **2012–present:** gap; no dated roles.
-- **By Sept 2025:** Yelp lists Boulder Spirals as closed. *(snippet only)*
+- **Feb 2011 – Oct 2019:** "Owner", Boulder Spirals. (LinkedIn PDF) **Conflict:** the founding snippet says 2010; LinkedIn says Feb 2011. The studio may have run as Dollhouse Pole Studio before the 2011 rename.
+- **Oct 2019 – present:** "Independent Contractor", Freelance (self-employment). (LinkedIn PDF)
+- **By Sept 2025:** Yelp lists Boulder Spirals as closed. *(snippet only)* LinkedIn implies her ownership ended in Oct 2019.
+- **Education:** New York University, "Bachelor of Fine Arts-BFA, Theatre/Theater". No dates. (LinkedIn PDF) **Conflict:** a snippet from her own site says she trained in dance in New York.
 - **Date unknown:** trained in dance in New York; BFA from NYU; later certifications in yoga, GYROTONIC® and GYROKINESIS®. *(snippet only: sashaviers.com, page returns 404)*
 - **Present:** listed on the team page of GYROTONIC® Bodhi, Boulder, CO, as "Certified GYROTONIC® Trainer, GYROKINESIS® Trainer, Pilates, Personal Trainer, Yoga". No start date or bio given. (gyrotonicbodhi.com/our-team, opened 2026-11-05)
 - **Date unknown:** "proud graduate of the Kathy Grant Heritage Training taught by Cara Reeser of Pilates Aligned", "continuing her studies in the Gyrotonic Expansion System". *(snippet only, sashaviers.com)*
@@ -78,13 +80,13 @@ verified: partial
 - The alias needs a primary record, such as a Colorado Secretary of State business filing for Boulder Spirals.
 - **Not reached:** sashaviers.com (404), sashaspiraling.com (DNS failure), IMDb (403).
 - Not run: award, lawsuit and court searches.
-- **LinkedIn:** not found. "Sasha Viers" LinkedIn and a site:linkedin.com search (both extended, 2026-11-05) returned no matching profile. LinkedIn pages are often hidden behind a login wall, so this doesn't rule one out. The user later supplied the profile URL (see Sources). Fetching it was blocked, and its contents are not yet recorded.
+- **LinkedIn:** not found. "Sasha Viers" LinkedIn and a site:linkedin.com search (both extended, 2026-11-05) returned no matching profile. LinkedIn pages are often hidden behind a login wall, so this doesn't rule one out. The user later supplied the profile URL (see Sources). Fetching it was blocked; the contents were recorded from the PDF the user saved.
 - The first pass missed GYROTONIC® Bodhi because it ran no employer or LinkedIn queries. Added in a follow-up on 2026-11-05.
 
 ## Sources
 - [Boulder Weekly, Blair Madole, "A new kind of therapy … involving a pole", 27 Sep 2011](https://archives.boulderweekly.com/entertainment/arts-culture/a-new-kind-of-therapy-hellip-involving-a-pole/): opened
 - [GYROTONIC® Bodhi, Our Team](https://gyrotonicbodhi.com/our-team): opened
-- [LinkedIn: sasha-viers-27344159](https://www.linkedin.com/in/sasha-viers-27344159): URL supplied by the user 2026-11-05; blocked (HTTP 999, LinkedIn bot block); not in my search index
+- [LinkedIn: sasha-viers-27344159](https://www.linkedin.com/in/sasha-viers-27344159): direct fetch blocked (HTTP 999). Contents read from a PDF the user saved, [[(21) Sasha Viers LinkedIn.pdf]] (provided by user, 2026-11-05). Headline: "Pilates, Gyrotonic coach & personal trainer"; location: Lafayette, Colorado. Sidebar suggestions and account banners ignored.
 - [GYROTONIC® Bodhi, Teacher Training](https://gyrotonicbodhi.com/teacher-training): snippet only
 - [GYROTONIC®, About](https://www.gyrotonic.com/about/): opened
 - [Wikipedia: Gyrotonic](https://en.wikipedia.org/wiki/Gyrotonic): opened
