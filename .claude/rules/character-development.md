@@ -44,11 +44,30 @@ circumstances, and Contradictions.
 - `[canon]`: the author has decided it. Only the author promotes items to canon.
 - Never present an inferred or imagined trait as a fact about the real person.
 
-**In their own words: self-introduction:** write it only after the Voice section is drafted,
-and match that voice exactly (register, tics, vocabulary). The public and private versions
-should differ in revealing ways. The private one may touch fears, contradictions and shadow
-circumstances the public one hides. Label it [imagined]. Never reuse a reference person's own
-sentences; echo the patterns only.
+**In their own words: self-introduction.** Here Claude writes fiction in the character's
+voice. Invent freely; this is a performance, not a summary.
+- **Prerequisite:** the Voice section must be drafted first. If it's empty, draft Voice (or ask)
+  before writing the introductions.
+- **Sources to draw on:** Voice (register, tics, vocabulary, sentence length), Fixed facts,
+  Vision, Values, Superpowers, Fears, Contradictions, and Legal and shadow circumstances.
+- **Public introduction** (about 80–150 words, first person): how they'd introduce themselves
+  to a stranger, an audience or a camera. Use their professional register. Show what they're
+  proud of and how they want to be seen, including their lineage and credentials if that's
+  their habit. Let one small slip or tell hint at what's underneath.
+- **Private version** (about 80–150 words, first person): to someone they trust, or to
+  themselves at 3 a.m. Use their off-duty register. Let it touch the deep fear, a contradiction,
+  or a shadow circumstance the public version hides. It should feel more true, and more
+  uncomfortable.
+- **Always mention / never mention:** 2–3 items each. The "never" list should connect to Fears
+  or to Legal and shadow circumstances.
+- **Craft:** concrete images over abstractions; at least one line usable verbatim in a scene;
+  tie it to the book's AI-harm theme where it fits naturally.
+- **Boundaries:** label the whole section [imagined]. Never reuse a reference person's actual
+  sentences or slogans; echo their rhythm and stance only. No real person's private details
+  or real cases.
+- **Consistency check:** before saving, confirm nothing contradicts the note's [canon] items.
+  Flag anything that seems to need a change elsewhere in the note; don't silently edit
+  other sections.
 
 **Superpowers:** name the meta-capability (e.g. "translates between worlds"). List the skills,
 abilities and knowledge underneath it, and give the cost or shadow side.

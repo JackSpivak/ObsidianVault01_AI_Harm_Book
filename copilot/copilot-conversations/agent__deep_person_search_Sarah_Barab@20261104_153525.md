@@ -6,7 +6,7 @@ sessionId: "6999568b-c706-4440-b49c-69ccd014f321"
 topic: "/deep_person_search Sarah Barab"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":108269,"contextWindow":1000000,"inputTokens":2,"outputTokens":404,"cacheReadTokens":106978,"cacheWriteTokens":885,"updatedAt":1793900006117}'
+usage: '{"usedTokens":116450,"contextWindow":1000000,"inputTokens":2,"outputTokens":5,"cacheReadTokens":113843,"cacheWriteTokens":2600,"updatedAt":1793900210677}'
 lastAccessedAt: 1793897333246
 ---
 
@@ -565,3 +565,51 @@ I also added guidance to `.claude/rules/character-development.md`:
 
 Existing notes don't have the section yet. Should I add it to [[Noa Kessler]] and write her two introductions? Her Voice section is complete, so it's a good test. I can then do [[Elias Rourke]] once his Voice section is filled.
 [Timestamp: 2026/11/05 10:33:09]
+
+**user**: i think there might be guidance in claude.md or elsewhere regarding the purpose and creation of a character note. where would this currenrtly live and can you add the necessary guidance for claude to imagine/infer/develop/hallucinate the necessary content to fill these this specific section:How this character would describe/introduce themselves (in the character's own voice as defined in this note)
+[Timestamp: 2026/11/05 10:35:24]
+
+**ai**: Guidance for character notes lives in **`.claude/rules/character-development.md`**, the rules file I created earlier this session. Files in that folder load automatically every session. `CLAUDE.md` points to it in one line under "How to help", so both entry points lead to the same place. Before that file existed, character notes were only touched on in general rules: the vault map, the note creation rules in `CLAUDE.md`, and the conventions and continuity rules.
+
+When I added the template section in my last reply, I also gave it a short paragraph in that rules file. I've now expanded it into full instructions for writing the self-introduction:
+- **Fiction is allowed:** it says plainly that this section is fiction in the character's voice, and that I should invent freely. It's a performance, not a summary.
+- **Prerequisite:** Voice must be drafted first, and I draft it or ask if it's empty.
+- **Inputs:** it lists what to draw on: Voice, Fixed facts, Vision, Values, Superpowers, Fears, Contradictions, and Legal and shadow circumstances.
+- **Public introduction** (about 80–150 words, first person, professional register): what they're proud of and how they want to be seen, with one small tell hinting at what's underneath.
+- **Private version** (about 80–150 words, off-duty register): it touches the deep fear, a contradiction or a shadow circumstance, and should feel more true and more uncomfortable.
+- **Always and never mention:** 2–3 items each, with the "never" list tied to Fears or the legal and shadow material.
+- **Craft:** concrete images, at least one line you could use verbatim in a scene, and a link to AI harm where it fits.
+- **Boundaries:** the section is labelled [imagined]. It never reuses a reference person's actual sentences, private details or real cases.
+- **Consistency check:** before saving, I check it against the note's [canon] items and flag any conflict instead of silently editing other sections.
+
+Should I add the section to [[Noa Kessler]] and write her introductions now, following these rules?
+[Timestamp: 2026/11/05 10:35:24]
+
+**user**: yes. also for elias
+[Timestamp: 2026/11/05 10:36:08]
+
+**ai**: Both characters now have the self-introduction section. [[Elias Rourke]] also has a Voice section now, since the rules require Voice before the introductions.
+
+**[[Elias Rourke]]**
+- **New Voice section,** built from the spoken quotes in his 2016 Yale interview:
+  - **Professional register:** casual, understated and hedging ("pretty", "quite a few"). He's self-deprecating about his own work but credits collaborators by name, and he's matter-of-fact about films that didn't change policy.
+  - **Private register:** he thinks in shots and frames, talks in rhythm, slips into capoeira and Portuguese words, and deflects with jokes.
+  - **Tics:** "Here's the thing...", never says "content", and calls AI images "shadows" (a private nod to *The Cave*).
+  - **Three sample lines.**
+- **Public introduction:** a Q&A after a festival screening. He's modest, gives away the credit, and mentions the capoeira roda. One tell: "with real light."
+- **Private version:** 3 a.m. in the edit bay. "Twenty-five years of making people believe things." It touches the hidden drive from the car company and capoeira's lesson about deceiving while still playing fair.
+
+**[[Noa Kessler]]**
+- **Public introduction:** opening a retreat. She leads with her lineage, keeps a warm and unhurried tone, starts from the body, and reassures people the space is safe.
+- **Private version:** a 3 a.m. phone call to Elias. She hears her cloned voice selling subscriptions, and "Maybe it does [help]. So what was I for?" She's angry, can't let go, has the hidden drives, and adds "Don't tell my students."
+
+Both have "always mention" and "never mention" lists tied to their legal and shadow material, and every item is labelled [imagined].
+
+**One thing to check:** two phrases in Noa's public introduction come close to Sarah Barab's own website wording:
+- "a container for whatever you're ready to meet" is close to her "a holistic container for whatever work you feel inspired to do".
+- "confidential and safe" is close to her FAQ wording.
+
+That's nearer to borrowing than the rules intend. I can reword them, for example "a place to meet whatever shows up" and "what's said here stays here".
+
+**Something that emerged:** both private versions are 3 a.m. scenes, and they have the two characters confiding in each other. You may want to decide whether they're friends, collaborators or something more. If you choose, I'll offer to record it in canon.
+[Timestamp: 2026/11/05 10:36:08]

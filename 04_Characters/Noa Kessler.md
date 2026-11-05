@@ -131,6 +131,19 @@ A fictional contemplative filmmaker, astrologer and meditation teacher. Her prof
 - Off-duty, to Elias: "They cloned my voice to sell calm. Calm. I want to set something on fire." [imagined]
 - To a young man in a youth facility: "Nobody's grading this. Just notice the breath, and notice when you leave it. That's the whole practice." [imagined]
 
+## In their own words: self-introduction
+> [!note] Written in the character's voice, as defined in the Voice section
+> Label: [imagined] until the author makes it [canon].
+
+**Public introduction** (opening a weekend retreat):
+> "Welcome. My name is Noa, and I'm grateful you're here. I began studying Buddhist psychology more than twenty years ago, and I lived for some years in Nepal, where my teachers asked me to start sharing what I'd been given. Since then I've taught meditation in studios, in companies and in youth facilities, and I've made films about what happens when people learn to sit with their own minds. This weekend is a container for whatever you're ready to meet. Nothing needs fixing. We'll simply notice, in the body first, and let the rest follow. Please take care of yourselves, and know that this space is confidential and safe." [imagined]
+
+**Private version** (3 a.m., on the phone to [[Elias Rourke]]):
+> "I keep hearing my own voice from strangers' phones. Breathe in, breathe out, my cadence, my pauses, selling a subscription. Twenty years, Eli. Lamas, retreats, those boys in the facility, and a company copied the sound of it in a week. And the worst part? People say it helps them. Maybe it does. So what was I for? I tell everyone to let go. I can't let go of this. I can't let go of the film, I can't let go of the drives I'm hiding. I'm a meditation teacher who wants to sue someone and set the server on fire. Don't tell my students." [imagined]
+
+- What she always mentions: her teachers and lineage; the body; that the space is safe. [imagined, from Voice]
+- What she never mentions: the hidden correctional-facility footage; her money troubles; her anger. [imagined, from Legal and shadow circumstances and Desires]
+
 ## Arc
 -
 

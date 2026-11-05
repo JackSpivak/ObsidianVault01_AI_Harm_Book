@@ -103,7 +103,43 @@ A fictional Boulder documentary director and cinematographer, also a musician an
 - Values shared authorship; can't share credit on his own music. [imagined]
 
 ## Voice
--
+> [!note] How this was built
+> From the spoken quotes in the 2016 Yale EFFY interview with Michael Ramsey (opened 2026-11-04) and his short site copy. These are patterns only; Elias's lines are newly written.
+
+**Patterns (professional register)**
+- Casual, spoken and understated. Hedges with "pretty", "quite a few" and "a little". [inferred: [[Michael J Ramsey]], Yale interview: "pretty visible documentaries", "quite a few awards"]
+- Self-deprecating about his own work ("our little film") while serious about the subject. [inferred: [[Michael J Ramsey]], Yale interview]
+- Plain declaratives on settled questions; doesn't argue, just states. [inferred: [[Michael J Ramsey]], "the debate... has been concluded"]
+- Credits collaborators by name and gives away the clever idea. [inferred: [[Michael J Ramsey]], crediting Daniel Glick with "treequestration"]
+- Honest about failure and impact gaps, in a matter-of-fact tone. [inferred: [[Michael J Ramsey]], "did very little in the way of changing policies"]
+
+**Private register**
+- Thinks in shots and frames: "wide", "push in", "golden hour", "that's a cutaway". [imagined, from cinematography]
+- Talks in rhythm; drums on tables, counts phrases in fours. Capoeira and Portuguese words slip in: *jogo*, *malícia*, *axé*. [imagined, from music and capoeira]
+- Deflects with a joke, a move like a capoeira *esquiva* (dodge); goes quiet when cornered. [imagined]
+
+**Verbal tics and habits**
+- "Here's the thing..." before saying the uncomfortable part. [imagined]
+- Never says "content". Says "footage", "the work" or "a film". [imagined]
+- Calls AI-generated images "shadows", a private joke about the cave that no one else gets. [imagined, from *The Cave*]
+
+**Sample lines (newly written, for tone)**
+- "We made a pretty good film. It won some things. Nothing changed. So, you know, back to work." [imagined]
+- "Light's going in ten. Whatever you're going to say, say it to the mountain, not to me." [imagined]
+- To [[Noa Kessler]]: "They didn't steal your voice. They stole the frame around it. That's worse." [imagined]
+
+## In their own words: self-introduction
+> [!note] Written in the character's voice, as defined in the Voice section
+> Label: [imagined] until the author makes it [canon].
+
+**Public introduction** (Q&A after a festival screening):
+> "Hi. I'm Elias, I run a pretty small shop out of Boulder. Mostly I point cameras at trees and at people who are smarter than me about land. This one, honestly, the credit goes to the families in the film; I was the guy holding the tripod. I've been doing this about twenty-five years. Some ad work, some commercial stuff early on, paid the bills. I also play a little, and I'm in a capoeira roda on Thursdays, which is how I stay humble. Anyway. Thanks for sitting in the dark with us for ninety minutes. That part still matters to me — that we did it together, in a room, with real light." [imagined]
+
+**Private version** (3 a.m., alone in the edit bay):
+> "Twenty-five years of making people believe things. That's the job, if I'm honest. Make the light warm, cut on the breath, push in at the right moment, and they'll feel whatever you need them to feel. I did it for trees. I also did it for a car company, and I know what's on that drive in the closet. Now a kid with a prompt can make the shadows without the fire, and everybody's acting surprised. I'm not surprised. I taught half those tricks. In the roda you're supposed to deceive and still play fair. I'm not sure I ever learned the second part." [imagined]
+
+- What he always mentions: the collaborators; the land; that it was a small crew. [imagined]
+- What he never mentions: the advanced-technology years in any detail; the NDA footage; the song dispute. [imagined, from Legal and shadow circumstances]
 
 ## Arc
 -
