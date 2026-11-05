@@ -38,6 +38,9 @@ This is an idea to design and build a go-kart frame (chassis). Web research give
 - Mount the battery low and central.[^xjd] One paper used a 47:53 front-to-rear weight split.[^rg2]
 - Use a roll bar that runs from the front to above the driver's head.[^diyframe] Electrathon rules also require brakes, a roll bar, and an electrical disconnect.[^electrathon]
 
+### Innovation ideas
+- See [[Go-Kart Frame Innovation Opportunities]].
+
 ### Open questions
 - [ ] Use: fun/yard kart, or a racing class (which rules apply)?
 - [ ] Power: gas or electric?
