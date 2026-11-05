@@ -6,7 +6,7 @@ sessionId: "6999568b-c706-4440-b49c-69ccd014f321"
 topic: "/deep_person_search Sarah Barab"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":79293,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":77438,"cacheWriteTokens":1850,"updatedAt":1793898193930}'
+usage: '{"usedTokens":97264,"contextWindow":1000000,"inputTokens":2,"outputTokens":707,"cacheReadTokens":96212,"cacheWriteTokens":343,"updatedAt":1793898356610}'
 lastAccessedAt: 1793897333246
 ---
 
@@ -496,3 +496,30 @@ None of these covered how to develop a character's inner life. I've added that g
 
 Do you want to try it on a character? If you have a character note in `04_Characters/`, name it. Or describe a new character and I'll suggest reference people.
 [Timestamp: 2026/11/05 10:02:42]
+
+**user**: yes. i want two character notes based on the two real people in this conversation
+[Timestamp: 2026/11/05 10:03:53]
+
+**ai**: Sarah Barab already has a research note, so I'll link to it. Michael Ramsey needs one first, then I'll create both character notes.I've created the two character notes and a research note for Michael Ramsey.
+
+**New character notes:**
+- **[[Noa Kessler]]:** a contemplative filmmaker, astrologer and meditation teacher, based on [[Sarah Barab]].
+- **[[Elias Rourke]]:** a documentary director, cinematographer, musician and capoeirista, based on Michael Ramsey.
+
+The names are placeholders. Each note has a callout saying so, and renaming inside Obsidian updates the links.
+
+**New research note:** [[Michael J Ramsey]] in `02_Ideas Topics Concepts/Research/`. It holds only documented facts, including *The Cave*, and keeps the evidence labels. Your report of his music and capoeira is marked unverified, since no source turned up.
+
+**Updated:** the existing [[Sarah Barab]] research note now links to Noa. I didn't change any of its facts.
+
+**What's in each character note:**
+- All the template sections, plus a Summary and an Original wording section with your quotes and mine, each attributed separately. I couldn't tell which conversation file holds this session, and the notes say so.
+- Every inner-life item is labelled **[inferred: [[source]] — basis]** or **[imagined]**. None is [canon] yet.
+- **Legal and shadow circumstances are fully invented.** Neither character uses the real Colorado negligence case or any detail from it. Noa has a rights dispute with a film subject, hidden prison footage and a deepfake of her meditations. Elias has an NDA covering an autonomous-vehicle test and a fight over who owns his archive.
+- **Each one ties into the book's theme:** Noa's deep fear is that presence can be faked and sold by an AI. Elias's is that he "helped build the cave" of persuasive synthetic images.
+- **Blanks left for you:** Age, Role, Voice, Arc and Appears in. Their relationship to AI and to the harm is only sketched as options.
+
+**Links created:** all of them point to existing notes, so nothing is unresolved.
+
+Next, you could go through either note and mark the items you want as [canon]. When you do, I'll offer to add them to `Canon_and_Continuity.md`. If you'd like a second reference person for either character to deepen the composite, I can research one.
+[Timestamp: 2026/11/05 10:03:53]

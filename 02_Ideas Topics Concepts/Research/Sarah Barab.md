@@ -46,7 +46,7 @@ created: 2026-11-04
 - Her role is a co-trainer, not the lead. Fleet Maull is the lead.
 
 ## How it could be used in the book
--
+- Reference profile for [[Noa Kessler]].
 
 ## Full pass: every substantive result (bare-name searches, pages opened)
 
