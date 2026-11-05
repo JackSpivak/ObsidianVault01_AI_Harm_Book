@@ -38,7 +38,7 @@ reference_profiles: ["[[Sasha Viers]]"]
 - Age / dates: mid-50s [imagined]
 - Background: moved west in her late thirties to start over [imagined]
 - Profession / experience: co-founded a small pole and dance-fitness studio that later closed; now a certified GYROTONIC® and GYROKINESIS® trainer, and a Pilates and personal-training coach, at a fictional studio, **The Coil House** [inferred: [[Sasha Viers]] — studio co-owner turned GYROTONIC trainer; studio name imagined]
-- Training: BFA in dance from a New York conservatory-style program; classical Pilates heritage training; GYROTONIC® and GYROKINESIS® certifications; now a pre-trainer who runs the course for would-be instructors [inferred: [[Sasha Viers]] — NYU BFA (unverified), Pilates heritage training, GYROTONIC pre-trainer role (snippets)]
+- Training: BFA in theatre from a New York university, with serious dance training alongside; classical Pilates heritage training; GYROTONIC® and GYROKINESIS® certifications; now a pre-trainer who runs the course for would-be instructors [inferred: [[Sasha Viers]] — NYU BFA (unverified), Pilates heritage training, GYROTONIC pre-trainer role (snippets)]
 - Cultural and geographic associations: a Front Range college town, wellness-economy culture [inferred: [[Sasha Viers]] — Boulder County]
 - Relationship to AI / the harm: old studio class videos are scraped and recut by a generative "fitness influencer" pipeline; clients bring her AI posture-scores they trust more than her hands [imagined]
 
@@ -61,7 +61,7 @@ GYROTONIC® is a movement system created in the 1980s by Juliu Horvath, a Romani
 - [imagined] She also takes private clients at a second, barn-style Pilates studio outside town, cash only.
 
 ### Her training path
-- [inferred: [[Sasha Viers]] — dance BFA, then Pilates and GYROTONIC certifications] Dance conservatory → injuries and burnout → Pilates heritage lineage → GYROTONIC® Level 1 → GYROKINESIS® → apprenticeship → pre-trainer.
+- [inferred: [[Sasha Viers]] — dance BFA, then Pilates and GYROTONIC certifications] Theatre BFA and dance training in New York → injuries and burnout → Pilates heritage lineage → GYROTONIC® Level 1 → GYROKINESIS® → apprenticeship → pre-trainer.
 - [imagined] She found the tower in her forties, after the studio closed and a hip started locking. One session and she cried on the bench, the "healthy tears" she used to promise other women.
 
 ### How she feels about it

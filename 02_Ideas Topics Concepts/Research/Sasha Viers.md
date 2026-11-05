@@ -40,7 +40,7 @@ verified: partial
 - **Feb 2011 – Oct 2019:** "Owner", Boulder Spirals. (LinkedIn PDF) **Conflict:** the founding snippet says 2010; LinkedIn says Feb 2011. The studio may have run as Dollhouse Pole Studio before the 2011 rename.
 - **Oct 2019 – present:** "Independent Contractor", Freelance (self-employment). (LinkedIn PDF)
 - **By Sept 2025:** Yelp lists Boulder Spirals as closed. *(snippet only)* LinkedIn implies her ownership ended in Oct 2019.
-- **Education:** New York University, "Bachelor of Fine Arts-BFA, Theatre/Theater". No dates. (LinkedIn PDF) **Conflict:** a snippet from her own site says she trained in dance in New York.
+- **Education:** New York University, "Bachelor of Fine Arts-BFA, Theatre/Theater". No dates. (LinkedIn PDF) Consistent with a snippet from her own site saying she trained in dance in New York: a theatre degree alongside dance training.
 - **Date unknown:** trained in dance in New York; BFA from NYU; later certifications in yoga, GYROTONIC® and GYROKINESIS®. *(snippet only: sashaviers.com, page returns 404)*
 - **Present:** listed on the team page of GYROTONIC® Bodhi, Boulder, CO, as "Certified GYROTONIC® Trainer, GYROKINESIS® Trainer, Pilates, Personal Trainer, Yoga". No start date or bio given. (gyrotonicbodhi.com/our-team, opened 2026-11-05)
 - **Date unknown:** "proud graduate of the Kathy Grant Heritage Training taught by Cara Reeser of Pilates Aligned", "continuing her studies in the Gyrotonic Expansion System". *(snippet only, sashaviers.com)*

@@ -6,7 +6,7 @@ sessionId: "8f690083-2e5e-4467-adbf-53d06316cc4a"
 topic: "/deep-person search Sasha Viers aka Shirley Viers"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":79671,"contextWindow":1000000,"inputTokens":2,"outputTokens":546,"cacheReadTokens":78764,"cacheWriteTokens":359,"updatedAt":1793921100571}'
+usage: '{"usedTokens":81043,"contextWindow":1000000,"inputTokens":2,"outputTokens":201,"cacheReadTokens":80549,"cacheWriteTokens":291,"updatedAt":1793921328275}'
 ---
 
 **user**: /deep-person search Sasha Viers aka Shirley Viers
@@ -201,3 +201,14 @@ I ignored the "More profiles for you" sidebar, the other people it suggests, and
 
 **One thing to decide for [[Wren Halloway]]:** her Training line currently says "BFA in dance", based on the earlier snippet. Should I change it to theatre, or keep dance as a fictional choice? A theatre background could suit her performer streak. I haven't changed anything in the character note.
 [Timestamp: 2026/11/05 16:24:07]
+
+**user**: sorry im not seeing the conflict.. says she got bfa in theatre and trained in dance. no? both are possiible
+[Timestamp: 2026/11/05 16:28:32]
+
+**ai**: You're right, that isn't a conflict. A theatre degree and dance training fit together easily, and I was wrong to flag it.
+
+- **[[Sasha Viers]]:** I removed the "Conflict" label. The note now says the two sources are consistent: a theatre degree alongside dance training.
+- **[[Wren Halloway]]:** I changed her Training line and training path to "BFA in theatre from a New York university, with serious dance training alongside". Both are still labelled [inferred].
+
+The founding date is the one real conflict left: a snippet from her old site says 2010, and LinkedIn says Feb 2011.
+[Timestamp: 2026/11/05 16:28:32]
