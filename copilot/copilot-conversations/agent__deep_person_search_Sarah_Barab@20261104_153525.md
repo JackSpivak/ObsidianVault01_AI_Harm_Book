@@ -6,7 +6,7 @@ sessionId: "6999568b-c706-4440-b49c-69ccd014f321"
 topic: "/deep_person_search Sarah Barab"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":116450,"contextWindow":1000000,"inputTokens":2,"outputTokens":5,"cacheReadTokens":113843,"cacheWriteTokens":2600,"updatedAt":1793900210677}'
+usage: '{"usedTokens":126683,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":123355,"cacheWriteTokens":3323,"updatedAt":1793901035215}'
 lastAccessedAt: 1793897333246
 ---
 
@@ -613,3 +613,106 @@ That's nearer to borrowing than the rules intend. I can reword them, for example
 
 **Something that emerged:** both private versions are 3 a.m. scenes, and they have the two characters confiding in each other. You may want to decide whether they're friends, collaborators or something more. If you choose, I'll offer to record it in canon.
 [Timestamp: 2026/11/05 10:36:08]
+
+**user**: /deep_person_research fleet maull
+[Timestamp: 2026/11/05 10:49:22]
+
+**ai**: # Research brief: Fleet Maull
+
+## 1. Executive summary
+Fleet Maull, PhD, is a Buddhist meditation teacher, author and prison reform advocate. He was indicted in 1985 for cocaine trafficking and spent about 14 years in federal prison. While inside, he founded the **Prison Dharma Network** (1989), later renamed the Prison Mindfulness Institute, and the **National Prison Hospice Association** (1991). After his release in 1999, he taught at Naropa University in Boulder (1999–2010). He now runs **Heart Mind Institute** and **Windhorse Seminars & Consulting**, and he wrote *Radical Responsibility* (2019).
+
+He is the mentor of [[Sarah Barab]]. Confidence in his identity is **high**: the name is rare and every source describes the same person. The main open questions are a conflict over his sentence length, his PhD (no institution named), and the founding date of Heart Mind Institute.
+
+## 2. Identity check
+
+| Result | Query | Opened? | Match |
+|---|---|---|---|
+| [fleetmaull.com – About](https://www.fleetmaull.com/about-us) | both name queries | **Yes** | High (his own site) |
+| [PMI – About](https://www.prisonmindfulness.org/about) | biography query | **Yes** | High (his organisation) |
+| [Tricycle – "The Prison Monk" (Spring 2004)](https://tricycle.org/magazine/fleet-maull/) | biography query | **Yes** | High (interview) |
+| [PRWeb – Inc. 5000 release (2024)](https://www.prweb.com/releases/from-prisoner-to-pioneer-fleet-maulls-heart-mind-institute-ranks-no-578-overall-and-leads-in-education-on-2024-inc-5000-list-302221490.html) | biography query | Blocked (403) | High |
+| [PMI – Who We Are](https://www.prisonmindfulness.org/who-we-are) | all | No | High |
+| [MEL Magazine profile](https://melmagazine.com/en-us/story/how-a-former-cocaine-smuggler-became-one-of-the-countrys-most-sought-after-voices-in-prison-reform) | "Maull, Fleet", biography | No | High |
+| [Wikipedia – PMI](https://en.wikipedia.org/wiki/Prison_Mindfulness_Institute), [Encyclopedia of Buddhism – PMI](https://encyclopediaofbuddhism.org/wiki/Prison_Mindfulness_Institute) | biography | No | High |
+| [Tricycle author page](https://tricycle.org/author/fleetmaull/), [Awakin bio](https://www.awakin.org/v2/calls/251/fleet-maull/bio), [Sangha Live](https://sangha.live/teachers/fleet-maull/), [Middle Way Initiative](https://www.middlewayinitiative.org/fleet-maull) | various | No | High |
+| [Heart Mind – Radical Responsibility](https://www.heartmind.co/radicalresponsibility), [Heart Mind – Mindful Self-Acceptance](https://www.heartmind.co/mindfulselfacceptance), [book site](https://www.radicalresponsibilitybook.com/), [Amazon – *Radical Responsibility*](https://www.amazon.com/Radical-Responsibility-Fearlessly-Highest-Unstoppable/dp/1683641698), [Amazon – *Dharma in Hell*](https://www.amazon.com/Dharma-Hell-Prison-Writings-Fleet/dp/0971814317) | books query | No | High |
+| Podcasts and interviews: [Restorative Justice on the Rise](https://restorativejusticeontherise.org/fleet-maull-director-of-the-prison-mindfulness-institute/), [Nova Institute](https://novainstituteforhealth.org/radical-responsibility-and-transformative-service-a-conversation-with-fleet-maull/), [Sounds True](https://resources.soundstrue.com/podcast/fleet-maull-radical-responsibility), [Bridges of Peace](https://bridgesofpeace.com/2022/12/04/how-to-move-beyond-blame-live-your-highest-purpose-and-become-an-unstoppable-force-for-good-episode-97/), [Good Men Project](https://goodmenproject.com/featured-content/fleet-maull-radical-responsibility/), [PMI – Dharma in Hell post](https://www.prisonmindfulness.org/post/dharma-in-hell-with-fleet-maull) | various | No | High |
+
+**Middle-initial variant:** none appeared in any result, so I didn't run that search. No other person named Fleet Maull showed up. I didn't run a separate court-record search. His conviction is documented in his own writing and in interviews, covered below.
+
+## 3. Chronological career history
+- **1981:** Begins teaching mindfulness-awareness meditation. *Fact (sourced: fleetmaull.com)*
+- **Before 1985:** Close senior student and personal attendant of Chögyam Trungpa Rinpoche. *Fact (sourced: fleetmaull.com; Tricycle)*
+- **1985:** Indicted for cocaine trafficking. He's held in a Missouri county jail, then at a maximum-security federal prison in Springfield, Missouri. *Fact (sourced: Tricycle; PMI)*
+  - MEL Magazine reports he was accused of leading a ring that smuggled $24M of cocaine. *Snippet only, unverified*
+- **1985 onward:** Starts a meditation group in the prison chapel and leads it for 14 years. *Fact (sourced: PMI)* In prison he completes the ngöndro practices (over 100,000 prostrations) and takes novice monastic vows. *Fact (sourced: Tricycle)*
+- **1989:** Founds Prison Dharma Network from inside prison. *Fact (sourced: PMI)*
+- **1991:** Founds the National Prison Hospice Association. He volunteers in a prison hospice for 11 years. *Fact (sourced: PMI)*
+- **1996:** His introduction to The Event, while still incarcerated. *Fact (sourced: Heart Mind page, in the existing [[Fleet Maull]] note)*
+- **1997:** Prison Dharma Network joins the Peacemaker Community and becomes a Buddhist Peace Fellowship affiliate. *Fact (sourced: PMI)*
+- **1999 (May, per search snippets):** Released and moves to Boulder. *Fact (sourced: Tricycle says "released early in 1999")* The PMI page dates the organisation's move to Boulder to May 1999.
+- **1999–2010:** Teaches at Naropa University (Socially Engaged Buddhism, Buddhist Psychology, peacemaking courses). *Fact (sourced: fleetmaull.com)*
+- **2000:** *Dharma in Hell: The Prison Writings of Fleet Maull*. *Fact (sourced: fleetmaull.com)*
+- **2003:** Tricycle interview conducted in December, published Spring 2004. *Fact (sourced)*
+- **2010:** The organisation moves to Providence, RI, and is renamed Prison Mindfulness Institute. *Fact (sourced: PMI)* Sarah Barab's apprenticeship with him begins the same year. *Fact (sourced: sarahbarab.com)*
+- **2016:** PMI moves to Windhorse Hill, Deerfield, MA, and he sets up the Engaged Mindfulness Institute. *Fact (sourced: PMI)*
+- **2019:** *Radical Responsibility*. *Fact (sourced: fleetmaull.com)*
+- **2021:** *Mindful C.O.* *Fact (sourced: fleetmaull.com)*
+- **2024:** Heart Mind Institute ranked No. 578 on the Inc. 5000 list. *Snippet only (PRWeb blocked)*
+- **2026:** Leading The Initiation (formerly The Event), 23–27 September, at Windhorse Hill. *Fact (sourced: Heart Mind page, existing note)*
+- **Gaps:** I found nothing before 1981, no date or institution for his PhD, no founding year for Heart Mind Institute, and no date for Windhorse Seminars.
+
+## 4. Accomplishments, skills and offerings
+- **Lineage and titles:** *Fact (sourced: fleetmaull.com)*
+  - Acharya (senior teacher) in Shambhala
+  - Roshi and Dharma successor of Bernie Glassman in the Zen Peacemaker Order
+  - Soto Zen ordination under Maezumi Roshi
+- **Teaching record:** over 100 retreats worldwide, and guest lectures at Harvard Kennedy School, Harvard Medical School, Brown, Emory and others. *Fact (sourced: fleetmaull.com)*
+- **Methods:** *Fact (sourced: fleetmaull.com; Neuro-Somatic Mindfulness is from search snippets)*
+  - Radical Responsibility®
+  - Neuro-Somatic Mindfulness (NSM)™
+  - Mindfulness-Based Emotional Intelligence (MBEI)
+  - Mindfulness-Based Wellness & Resiliency (MBWR) for public safety workers
+- **Offerings:** executive coaching, keynotes, online summits (Heart Mind Institute), and the trainings The Initiation and The Event. *Fact (sourced)*
+- **Certifications:** International Mindfulness Teachers Association teacher and trainer; Council Trainer (Ojai Foundation); senior trainer for The Event Training. *Fact (sourced: fleetmaull.com)*
+- **International reach:** has trained professionals in Canada, Chile, France, the Netherlands, Poland and Rwanda. *Fact (sourced: fleetmaull.com)*
+
+## 5. Significant events and milestones
+- **1985:** Indictment and imprisonment. *Fact (sourced)*
+- **1989 and 1991:** Founds two national movements from inside prison. *Fact (sourced)*
+- **1999:** Release. *Fact (sourced)*
+- **2016:** PMI becomes the first organisation certified by the International Mindfulness Teachers Association. *Fact (sourced: PMI)*
+- **2024:** Inc. 5000 ranking. *Snippet only*
+
+## 6. Known associations
+- **Teachers:** Chögyam Trungpa Rinpoche, Bernie Glassman, Maezumi Roshi, and Thrangu Rinpoche (who gave him the Vajrayogini empowerment). *Fact (sourced)*
+- **Organisations he founded or co-founded:** *Fact (sourced: fleetmaull.com)*
+  - Founded: Prison Dharma Network / Prison Mindfulness Institute, National Prison Hospice Association, Center for Mindfulness in Public Safety, Heart Mind Institute, Windhorse Seminars & Consulting
+  - Co-founded: Engaged Mindfulness Institute, Transforming Justice Initiative, Rwanda Bearing Witness Retreat, Naropa's Center for Contemplative End-of-Life Care
+- **Kate Vita Pires (Crisp):** Prison Dharma Network executive director from 1999. *Fact (sourced: PMI)*
+- **[[Sarah Barab]]:** apprentice since 2010 and co-trainer. *Fact (sourced: her site)* The film site gives 2007 instead.
+- **Daniel Siegel, MD:** listed with *Radical Responsibility* on Amazon, probably as foreword author. *Snippet only; his role is unconfirmed.*
+
+## 7. Gaps and conflicts
+- **Sentence length:** Tricycle (2004) says "twenty-five years without parole", with early release in 1999. Other sources say a "14.5 year sentence". *Interpretation:* 14 to 14.5 years is probably the time he actually served (1985–1999), not the sentence handed down.
+- **Blocked or not opened:** the PRWeb release was blocked. I didn't open the MEL Magazine profile, Wikipedia or the podcasts.
+- **Missing:** the institution and year of his PhD, Heart Mind Institute's founding year, and the court record of his federal case (not searched).
+
+## 8. Sources
+- **Opened:** [fleetmaull.com – About](https://www.fleetmaull.com/about-us), [PMI – About](https://www.prisonmindfulness.org/about), [Tricycle – The Prison Monk](https://tricycle.org/magazine/fleet-maull/)
+- **Blocked:** [PRWeb](https://www.prweb.com/releases/from-prisoner-to-pioneer-fleet-maulls-heart-mind-institute-ranks-no-578-overall-and-leads-in-education-on-2024-inc-5000-list-302221490.html)
+- **Snippet only:** every other URL in the identity table.
+
+All four searches ran in extended mode: "Fleet Maull", "Maull, Fleet", a biography query and a books/methods query.
+
+**Next steps:** the existing [[Fleet Maull]] research note is thin. I can add these findings to it, keeping its current facts and labels and marking the sentence-length conflict.
+
+Maull would also make a strong **reference profile**. His path from smuggler to prison to teacher could feed Noa's mentor figure, or a third character. If you're interested, I can draft a mentor character note from it.
+[Timestamp: 2026/11/05 10:49:22]
+
+**user**: please open all of the sites, pages and documents you found, digest and add them to this search. then generate a character note based on fleet
+[Timestamp: 2026/11/05 10:52:45]
+
+**ai**: I'll open every remaining page, in parallel batches.
+[Timestamp: 2026/11/05 10:52:45]
