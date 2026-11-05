@@ -27,6 +27,7 @@ reference_profiles: ["[[Sasha Viers]]"]
 ## Original wording
 - **User:** "savew this research and make a character noter"
 - **User:** "/deep-person search Sasha Viers aka Shirley Viers"
+- **User:** "you can avoid mentiooning the acttual studio but please include reference to and description of her role, training and feelings about gyrotonics along with a summary descriptoion of gyrtotonics. you can malke up a fictitious studio if appropriate"
 - **Source:** Obsidian Copilot agent session, 2026-11-05 (probably `copilot/copilot-conversations/agent__deep-person_search_Sasha_Viers_aka_Shirley_Viers@20261105_154725.md`, not opened to confirm).
 - **External references:** [[Sasha Viers]] (research note).
 
@@ -36,7 +37,8 @@ reference_profiles: ["[[Sasha Viers]]"]
 ## Fixed facts
 - Age / dates: mid-50s [imagined]
 - Background: moved west in her late thirties to start over [imagined]
-- Profession / experience: co-founded a small pole and dance-fitness studio that later closed; now a Pilates, spiral-movement and personal-training coach [inferred: [[Sasha Viers]] — studio co-owner turned Pilates/GYROTONIC coach]
+- Profession / experience: co-founded a small pole and dance-fitness studio that later closed; now a certified GYROTONIC® and GYROKINESIS® trainer, and a Pilates and personal-training coach, at a fictional studio, **The Coil House** [inferred: [[Sasha Viers]] — studio co-owner turned GYROTONIC trainer; studio name imagined]
+- Training: BFA in dance from a New York conservatory-style program; classical Pilates heritage training; GYROTONIC® and GYROKINESIS® certifications; now a pre-trainer who runs the course for would-be instructors [inferred: [[Sasha Viers]] — NYU BFA (unverified), Pilates heritage training, GYROTONIC pre-trainer role (snippets)]
 - Cultural and geographic associations: a Front Range college town, wellness-economy culture [inferred: [[Sasha Viers]] — Boulder County]
 - Relationship to AI / the harm: old studio class videos are scraped and recut by a generative "fitness influencer" pipeline; clients bring her AI posture-scores they trust more than her hands [imagined]
 
@@ -47,6 +49,28 @@ reference_profiles: ["[[Sasha Viers]]"]
 | Reference (research note) | Point of similarity | What it informs |
 |---|---|---|
 | [[Sasha Viers]] | Co-owned a dance-fitness studio; moved into Pilates and spiral-based movement | Profession, the pivot, the "movement releases emotion" philosophy, studio-partner dynamics |
+
+## GYROTONIC® practice
+
+### What the method is (fact)
+GYROTONIC® is a movement system created in the 1980s by Juliu Horvath, a Romanian dancer, after injuries ended his career. He built it to heal himself. It works the spine in three dimensions through circling, spiralling and undulating movement, timed to the breath. The GYROTONIC® method uses a wooden pulley tower with weighted handles and rotating wheels that "guide, assist and challenge" the mover. Its sister method, GYROKINESIS®, uses only a mat and a stool. Trainers are licensed level by level. Horvath's stated aim is "to be at home in one's body". (Sources: [[Sasha Viers#The GYROTONIC® method (context)]])
+
+### Her role
+- [imagined] Senior trainer at **The Coil House**, a small studio with four towers in a converted print shop, all north light and creaking floorboards. She teaches private sessions on the towers, a Saturday GYROKINESIS® mat class, and the pre-training that readies apprentices for certification.
+- [inferred: [[Sasha Viers]] — pre-trainer role] The apprentices call her "the gatekeeper": she decides who's ready.
+- [imagined] She also takes private clients at a second, barn-style Pilates studio outside town, cash only.
+
+### Her training path
+- [inferred: [[Sasha Viers]] — dance BFA, then Pilates and GYROTONIC certifications] Dance conservatory → injuries and burnout → Pilates heritage lineage → GYROTONIC® Level 1 → GYROKINESIS® → apprenticeship → pre-trainer.
+- [imagined] She found the tower in her forties, after the studio closed and a hip started locking. One session and she cried on the bench, the "healthy tears" she used to promise other women.
+
+### How she feels about it
+- [imagined] It's the first method that matched what she already knew from the pole: the body wants to spiral, not hinge.
+- [imagined] She calls the pole years and the tower years "the same work with different furniture", half as a joke and half as a defence.
+- [imagined] She's devoted to the lineage: a dancer who broke and rebuilt himself. She sees her own story in it.
+- [imagined] She's protective, close to territorial: she hates seeing the method turned into a "Gyro burn" class or an app.
+- [imagined] Private doubt: the licensing ladder feels like the old studio's colored garters, levels and badges, and she isn't sure what she's earning anymore.
+- **AI tie** [imagined]: a startup's motion-capture rig "scores" spirals against a library of ideal trainer data. She suspects some of that data is her apprentices, and maybe her.
 
 ## Vision: hopes and dreams for a better world
 - A world where people trust what they feel in their bodies before a number on a screen [inferred: [[Sasha Viers]] — "un-stuck in their bodies and lives"]
@@ -76,6 +100,7 @@ reference_profiles: ["[[Sasha Viers]]"]
 |---|---|---|
 | Reads stuck emotion in a spine | Pilates, spiral movement, gait and posture reading, touch cueing | Sees people's pain before they've consented to show it, and can't unsee it |
 | Makes a room feel safe enough to cry in | Group facilitation, rebranding taboo, building community | Becomes everyone's container, with nobody holding hers |
+| Teaches the spiral | GYROTONIC®/GYROKINESIS® certification, pre-training apprentices, hands-on cueing at the tower | Gatekeeping hardens into control; she can't let a student surpass her |
 | Reinvents herself | Running a business, pivoting through trends | Never finishes mourning anything |
 
 ## Legal and shadow circumstances
