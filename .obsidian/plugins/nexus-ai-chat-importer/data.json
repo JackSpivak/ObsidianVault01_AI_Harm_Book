@@ -1,9 +1,9 @@
 {
   "settings": {
-    "conversationFolder": "Nexus/Conversations",
-    "reportFolder": "Nexus/Reports",
-    "attachmentFolder": "Nexus/Attachments",
-    "addDatePrefix": false,
+    "conversationFolder": "07_Imported Chat Test",
+    "reportFolder": "00_Claude_Admin/Nexus Chat Imports",
+    "attachmentFolder": "00_Claude_Admin/Nexus Attachment Imports",
+    "addDatePrefix": true,
     "dateFormat": "YYYY-MM-DD",
     "useCustomMessageTimestampFormat": false,
     "messageTimestampFormat": "locale",
