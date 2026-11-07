@@ -10,14 +10,19 @@
     "customIdProperty": "",
     "customIdPropertyOverwrite": false,
     "lastConversationsPerPage": 50,
-    "importCompletionCount": 0,
+    "importCompletionCount": 1,
     "hasShownUpgradeNotice": false,
     "hasSeenClaude132UpgradeNotice": false,
     "hasCompletedUpgrade": false,
     "currentVersion": "1.8.1",
     "previousVersion": "1.8.1"
   },
-  "importedArchives": {},
+  "importedArchives": {
+    "meta:conversations-001.zip:364870:1794010196908": {
+      "fileName": "conversations-001.zip",
+      "date": "2026-11-07T00:16:36.460Z"
+    }
+  },
   "upgradeHistory": {
     "completedUpgrades": {
       "1_8_1": {
