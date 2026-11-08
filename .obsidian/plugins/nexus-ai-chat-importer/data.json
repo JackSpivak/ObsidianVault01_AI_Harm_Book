@@ -10,7 +10,7 @@
     "customIdProperty": "",
     "customIdPropertyOverwrite": false,
     "lastConversationsPerPage": 50,
-    "importCompletionCount": 1,
+    "importCompletionCount": 2,
     "hasShownUpgradeNotice": false,
     "hasSeenClaude132UpgradeNotice": false,
     "hasCompletedUpgrade": false,
@@ -21,6 +21,10 @@
     "meta:conversations-001.zip:364870:1794010196908": {
       "fileName": "conversations-001.zip",
       "date": "2026-11-07T00:16:36.460Z"
+    },
+    "meta:conversations-003.zip:505027:1794121844507": {
+      "fileName": "conversations-003.zip",
+      "date": "2026-11-08T07:12:58.255Z"
     }
   },
   "upgradeHistory": {
