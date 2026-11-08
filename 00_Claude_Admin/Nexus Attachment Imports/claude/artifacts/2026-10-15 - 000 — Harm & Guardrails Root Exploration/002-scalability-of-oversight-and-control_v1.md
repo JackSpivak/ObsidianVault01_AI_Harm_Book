@@ -1,6 +1,6 @@
 ---
 nexus: nexus-ai-chat-importer
-plugin_version: "1.8.1"
+plugin_version: 1.8.1
 provider: claude
 artifact_id: 002-scalability-of-oversight-and-control
 version_uuid: toolu_016BwcoU1wgrTaw7BeN9zqev
@@ -9,7 +9,8 @@ command: create
 conversation_id: 64b2a4a8-7f90-4f04-8155-c5e3ef00900b
 create_time: 2026-11-03T04:14:01.000Z
 format: markdown
-aliases: [002-scalability-of-oversight-and-control, 002-scalability-of-oversight-and-control_v1]
+aliases:
+  - 002-scalability-of-oversight-and-control_v1
 ---
 
 # 002-scalability-of-oversight-and-control (Version 1)

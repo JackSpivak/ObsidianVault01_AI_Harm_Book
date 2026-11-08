@@ -29,15 +29,15 @@ type: index
 
 **Note on this document's history:** this index was originally created as a Claude Doc and contained all bookmark content inline. It has been recreated here as a plain, portable file per the bookmark-index-maintainer skill's own rule (plain files only for canonical content, never a Doc) — prompted directly by a real incident: a third-party Obsidian-import tool silently failed to import the original Doc while successfully importing every other, plain-file artifact. The original Doc is marked superseded and points here.
 
-## [[000 — Harm & Guardrails: Root Exploration]]
+## [[]]
 
 Where the whole exploration started: a taxonomy of harm itself (physical, psychological, economic, reputational, environmental, social/structural, informational, self-regarding), Mill's harm principle, legal harm, the *Gift of the Magi* case study, and AI's own capacity for harm.
 
-## [[001 — Existential Safety Question]]
+## [[001-existential-safety-question_v1]]
 
 Is "existential" risk from AI guardrails a permanent, foundational tradeoff (001a), or an extinction-level technical risk (001b) — and do the two require conflicting governance responses? Revisits territory opened in 000, from a new angle.
 
-## [[002 — Scalability of Oversight and Control]]
+## [[002-scalability-of-oversight-and-control_v1|002-scalability-of-oversight-and-control_v1]]
 
 Can AI systems safely participate in evaluating, proposing, planning, and executing their own safety/alignment governance — or does this create an unresolvable conflict of interest? Tiered: structural defeaters (002.I), operational gaps (002.II), institutional/meta (002.III), plus a standing premise (002-premise).
 

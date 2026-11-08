@@ -1,6 +1,6 @@
 ---
 nexus: nexus-ai-chat-importer
-plugin_version: "1.8.1"
+plugin_version: 1.8.1
 provider: claude
 artifact_id: 001-existential-safety-question
 version_uuid: toolu_01VKZ36iEKdEk43tAzeata9c
@@ -9,7 +9,8 @@ command: create
 conversation_id: 64b2a4a8-7f90-4f04-8155-c5e3ef00900b
 create_time: 2026-11-03T04:14:01.000Z
 format: markdown
-aliases: [001-existential-safety-question, 001-existential-safety-question_v1]
+aliases:
+  - 001-existential-safety-question_v1
 ---
 
 # 001-existential-safety-question (Version 1)
