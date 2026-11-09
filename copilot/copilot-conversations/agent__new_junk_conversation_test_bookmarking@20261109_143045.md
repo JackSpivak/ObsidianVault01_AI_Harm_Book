@@ -2,11 +2,12 @@
 epoch: 1794259845254
 mode: agent
 backendId: claude
-sessionId: "f9eab68b-c5d5-4436-8f57-f8a507c6995c"
-topic: "new junk conversation test bookmarking"
+sessionId: f9eab68b-c5d5-4436-8f57-f8a507c6995c
+topic: new junk conversation test bookmarking
 tags:
   - copilot-conversation
 usage: '{"usedTokens":64288,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":59131,"cacheWriteTokens":5152,"updatedAt":1794260373688}'
+lastAccessedAt: 1794260799216
 ---
 
 **user**: new junk conversation test bookmarking
