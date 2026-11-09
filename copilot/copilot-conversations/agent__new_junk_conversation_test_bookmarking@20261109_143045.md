@@ -6,7 +6,7 @@ sessionId: "f9eab68b-c5d5-4436-8f57-f8a507c6995c"
 topic: "new junk conversation test bookmarking"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":140697,"contextWindow":1000000,"inputTokens":2,"outputTokens":496,"cacheReadTokens":139785,"cacheWriteTokens":414,"updatedAt":1794264040615}'
+usage: '{"usedTokens":142182,"contextWindow":1000000,"inputTokens":4,"outputTokens":2,"cacheReadTokens":0,"cacheWriteTokens":142176,"updatedAt":1794264623383}'
 lastAccessedAt: 1794260799216
 ---
 
@@ -378,3 +378,58 @@ Should I go ahead? And should I keep the original file or delete it?
 
 You may want to tidy up the Nexus imports folder at some point. It holds about ten old versions of the skill (v3 to v12, plus a duplicate v12), which could be confused with the live one. I haven't touched them.
 [Timestamp: 2026/11/09 15:39:58]
+
+**user**: OK. So here's a question. I have not requested a bookmark but I have branched the conversation with this short section on the operational requirements and processes of bookmarking. And how to update correct location of the existing  bookmark skill. I dont want this bookmarked as a branch in the GSH conversation. it was really an off topic aside. . Would the bookmarking skill naturally automate this improperly? Really fair to say
+[Timestamp: 2026/11/09 15:44:04]
+
+**ai**: To be fair to it: **it shouldn't record this aside improperly, but it might suggest bookmarking it when it shouldn't.** Here's why.
+
+**What protects you:**
+- **It can't write without asking.** The skill says to flag a possible branch, propose a placement, and wait for your confirmation before changing the index. At worst you'd get an unwanted suggestion, not an unwanted entry.
+- **It already excludes tangents.** Its "Not bookmark-worthy" rule covers "a tangent that resolves within a few exchanges," which describes this aside.
+- **It ignores passing mentions.** It says not to trigger on a casual use of words like "bookmark" or "index."
+
+**Where it's weak:**
+- **It's told to act unprompted.** The description says "use it proactively, unprompted, when you notice a new branch emerging." That leans toward over-flagging.
+- **Your aside is about the skill itself.** It's full of the words the skill watches for ("bookmark," "index," "reorganize"). The passing-mention rule helps, but whether it applies is a judgment call.
+- **Nothing in it separates subject matter from housekeeping.** It doesn't say "conversations about tools, vault setup or the bookmarking process are never branches." Whether the aside gets left out depends on my judgment in the moment, not a clear rule.
+
+In this conversation it didn't trigger. It became available partway through the aside, and I didn't suggest bookmarking any of it, because it was clearly housekeeping. That's one data point, though, not a guarantee.
+
+**My recommendation:** add one line to the skill's "Not bookmark-worthy" section, something like:
+
+> *Meta/housekeeping discussion — about tools, skills, file locations, vault setup, or the bookmarking process itself — is never a branch of the topic being indexed, even when it uses bookmark/index vocabulary.*
+
+That turns a judgment call into a clear rule. Should I add it?
+[Timestamp: 2026/11/09 15:44:04]
+
+**user**: that might be too specific.  for example what about a musing that really belongs in the AI Harm index or the corporate governance index.  Wouldn't necessarily want new branch here so much as a communication that while this musing qualifies as an idea it more appropriately belongs in a different discussion even though it is not there yet.  would it make sense to offer to update the most appropriate index and make a not in that taxonomy?   Or if no appropriate index but worthy idea, then propose a new conversation and a new index?
+[Timestamp: 2026/11/09 15:50:06]
+
+**ai**: Yes, that makes sense, and it's better than my version. Mine only handled the "leave it out" case. Yours treats it as a routing question: **an idea that's worth keeping but doesn't belong here should go somewhere, not be dropped.** It also fits what the skill already says: it supports multiple indices ("Multiple indices: folder scope") but never says what to do when an idea belongs to a different one.
+
+The skill would then sort every possible branch into one of four outcomes:
+
+1. **Belongs here.** Propose placement in the current index, as it does now.
+2. **Belongs in another existing index.** Say so, name that index, and offer to add a stub there. The stub records where the idea came from ("originated in the GSH conversation") so the trail back isn't lost.
+3. **Worth keeping, but no index fits.** Propose a new conversation and a new index, with this idea as its first item.
+4. **Not an idea at all.** Housekeeping, tooling, vault setup, or a quick clarification gets no bookmark anywhere. You still need this case: today's aside wasn't a misplaced idea, it was admin, and with only the first three outcomes it might get pushed toward an index it doesn't belong in.
+
+**Three cautions:**
+- **Confirm before writing to another index.** Writing to an index that isn't part of the current conversation has more potential for mistakes, so the existing "ask first" rule should apply even more strongly.
+- **Finding the other indices.** The skill would have to find them by exact `canonical_id` matches, as it does now. When I checked, the vault's only clear index was GSH. The AI Governance & Safety index exists only as a Nexus import, and I didn't find a corporate governance index, though the `cg-001` page in the imports hints at one. If routing leans on indices that are only half set up, it will keep asking "which one is canonical?" Setting those up properly would help, but that's a separate task.
+- **Don't let it get chatty.** One short routing note per idea, not repeated reminders.
+
+**Suggested wording** to add as a new section after "Placement conventions":
+
+> ## Routing: right idea, wrong index
+> Before placing a possible branch, ask *which* index it belongs to, not just *where* in the current one.
+> 1. **Fits the current index:** place it here as usual.
+> 2. **Fits a different existing index:** say so briefly, name that index (resolved by `canonical_id`), and offer to add a stub there, noting the conversation it originated in. Don't add a branch here.
+> 3. **Worthy, but no index fits:** propose a new conversation and a new index, with this idea as its first entry.
+> 4. **Not an idea at all** (tooling, skill or vault housekeeping, process asides, quick clarifications): no bookmark anywhere, even if it uses bookmark or index vocabulary.
+>
+> In every case, ask before writing to any index, especially one outside the current conversation.
+
+Should I add this to `SKILL.md`? I'd also bump its version from 1.2 to 1.3.
+[Timestamp: 2026/11/09 15:50:06]
