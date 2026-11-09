@@ -7,14 +7,14 @@ created: 2026-11-09
 source_author: WIRED
 source_title: Underage Workers Are Training AI
 source_date: 2023 (exact date unconfirmed)
-source_url: https://largelanguagelaw.com/underage-workers-are-training-ai/
+source_url: https://www.wired.com/story/artificial-intelligence-data-labeling-children/
 verified: false
 ---
 
 # Underage Workers Training AI (WIRED)
 
-> [!warning] Unverified
-> These notes are based only on reposts and secondary coverage. The wired.com original wasn't retrieved, and the publication date is unconfirmed.
+> [!warning] Still unverified (attempted 2026-11-09)
+> wired.com blocks my fetch tool, so I couldn't open the original. The largelanguagelaw.com repost turned out to be only a short summary. It does **not** contain the survey figures, the worker aged 16, or the age-check details below; those came from other secondary coverage. It confirms only the original URL (above) and this sentence: "Some of these workers are children who have joined platforms as minors, bypassing the checks." **To verify, open the WIRED link yourself.**
 
 ## Summary
 WIRED reported that minors were doing AI data-labeling and content-moderation tasks on gig platforms that feed Microsoft's UHRS work platform, despite rules requiring workers to be over 18.

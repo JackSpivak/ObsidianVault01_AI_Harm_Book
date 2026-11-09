@@ -24,7 +24,7 @@ This is new ground.
 
 ## Related cases
 - [[GSH-005 Shell-Company Data Center Case]]:
-  - **Primary (user):** child labor at slave-labor wages pushes adult breadwinners out of regional jobs, so families can afford less food. This is hunger through lost livelihoods, not through food supply. **Contested by the evidence**: see [[Child Labour and Adult Wages Evidence]].
+  - **Primary (user):** child labor at slave-labor wages pushes adult breadwinners out of regional jobs, so families can afford less food. This is hunger through lost livelihoods, not through food supply. **Partly supported**: a verified NBER paper links child-labor economics to lower calorie intake, by a different route. See [[Child Labour and Adult Wages Evidence]].
   - **Secondary (Claude):** data centers might compete with farming for water, land and power (speculative, unresearched).
 
 ## Summary

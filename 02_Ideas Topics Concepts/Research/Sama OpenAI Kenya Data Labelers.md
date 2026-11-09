@@ -6,28 +6,35 @@ aliases: [Sama Kenya, OpenAI Kenyan labelers]
 created: 2026-11-09
 source_author: Billy Perrigo, TIME
 source_title: "Exclusive: OpenAI Used Kenyan Workers on Less Than $2 Per Hour"
-source_date: 2023-01
+source_date: 2023-01-18
 source_url: https://time.com/6247678/openai-chatgpt-kenya-workers/
-verified: false
+verified: true
 ---
 
 # Sama OpenAI Kenya Data Labelers
 
-> [!warning] Unverified
-> These notes come from web search summaries of TIME's reporting. The full article wasn't opened. The author's name is from memory and needs checking.
+> [!success] Verified 2026-11-09
+> Checked against the TIME article (opened through a web fetch). The author, the date and the figures marked ✓ are confirmed. The quotes come from a fetch summary of the page, so do one final check against the live article before printing them.
 
 ## Summary
 TIME reported that Kenyan workers employed by the outsourcing firm Sama labeled violent and sexual content for OpenAI for about $1.32–$2 an hour.
 
 ## Key facts (with page/section)
-- Take-home pay was about $1.32–$2 an hour, depending on seniority and performance. Junior workers reportedly earned a base of about 21,000 KES (about $170) a month.
-- A secondary source says OpenAI paid Sama $12.50 an hour per worker. (unverified; not seen in TIME's text)
-- OpenAI said Sama was responsible for pay and mental-health support.
-- Sama ended the contract in February 2022, about eight months early. Accounts of why differ.
-- Kenyan content moderators later petitioned the National Assembly for an investigation, and workers have sued Sama.
+- ✓ Take-home pay was about $1.32–$2 an hour, depending on seniority and performance. Junior workers earned a base of 21,000 KES ($170) a month.
+- ✓ OpenAI paid Sama **$12.50 an hour** for the work. That's about 6–9 times what the workers took home.
+- ✓ OpenAI said Sama was responsible for pay and mental-health support.
+- ✓ Sama cancelled all its OpenAI work in February 2022, eight months early. The last labeled data was delivered in March.
+- Kenyan content moderators later petitioned the National Assembly for an investigation, and workers have sued Sama. (unverified; not checked against the originals)
 
 ## Useful quotes
-> None captured. I haven't read the original, so I can't give exact wording.
+All from TIME, Billy Perrigo, 18 Jan 2023:
+> "paid a take-home wage of between around $1.32 and $2 per hour"
+
+> "a basic salary of 21,000 Kenyan shillings ($170) per month"
+
+> "would pay an hourly rate of $12.50 to Sama for the work"
+
+> "Sama was responsible for managing the payment and mental health provisions for employees" (OpenAI spokesperson)
 
 ## My interpretation
 - This is a documented case of **responsibility being pushed down to a subcontractor**, with a large gap between what the client paid and what workers took home. Adults, not children.

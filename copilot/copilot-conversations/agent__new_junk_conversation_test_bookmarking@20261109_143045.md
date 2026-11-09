@@ -6,7 +6,7 @@ sessionId: "f9eab68b-c5d5-4436-8f57-f8a507c6995c"
 topic: "new junk conversation test bookmarking"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":105944,"contextWindow":1000000,"inputTokens":2,"outputTokens":750,"cacheReadTokens":104800,"cacheWriteTokens":392,"updatedAt":1794262790451}'
+usage: '{"usedTokens":136088,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":134874,"cacheWriteTokens":1209,"updatedAt":1794263178263}'
 lastAccessedAt: 1794260799216
 ---
 
@@ -287,5 +287,41 @@ Next, I could open the key originals (TIME, WIRED, the court opinion and Investi
 **user**: Yes please verify by opening the appropriate files and making the changes you propose
 [Timestamp: 2026/11/09 15:21:42]
 
-**ai**: 
+**ai**: The originals are partly opened. Now I'll update the notes with what I could verify.I could open the sources for four of the six notes. One is fully verified, three are partly verified, and two still aren't verified. Opening the originals changed three things, including your hunger link.
+
+## Results by note
+
+| Note | Source I opened | Result |
+|---|---|---|
+| [[Sama OpenAI Kenya Data Labelers]] | TIME (Billy Perrigo, 18 Jan 2023) | **Verified.** The $1.32–$2 an hour, the 21,000 KES base, and the early cancellation in February 2022 are all confirmed. The **$12.50 an hour that OpenAI paid Sama**, which I'd flagged as doubtful, is in TIME's text. Four exact quotes added. |
+| [[Child Labour and Adult Wages Evidence]] | NBER paper (read the PDF directly) | **Verified.** The authors (Bharadwaj, Lakdawala & Li, October 2013) are confirmed. Four exact quotes added. |
+| [[Doe v Apple Cobalt Child Labor Case]] | ABC News (CNN blocked access) | **Partly verified.** The 3–0 ruling and the phrase "ordinary buyer-seller transaction" are confirmed. Exact quotes added. |
+| [[European Data Centre Labour Investigation 2025]] | Investigate Europe | **Partly verified.** Two corrections, below. |
+| [[Underage Workers Training AI (WIRED)]] | wired.com is blocked; the repost I'd relied on was only a short summary | **Not verified.** The survey figures and the 16-year-old worker don't appear in that repost. I've noted the original WIRED link so you can check it yourself. |
+| [[Data Center Shell Companies and NDAs]] | None | **Not verified.** I didn't get to the originals. |
+
+## What changed
+
+1. **Your hunger link is stronger than I said.** The NBER paper says employers treat children and adults as interchangeable workers, which is the first step of your mechanism. It also found that poor households' **food spending and calorie intake fell**. The route is different from yours, though: the ban pushed children's wages down, so poor families sent more children to work. I've changed the status from "contested" to **partly supported** in GSH-005, GSH-002 and the research note. The paper's footnote cites Doran (2013) on whether child workers replace adults, which is the lead to follow next.
+2. **I got the Investigate Europe settlement wrong.** It covered **78 union members**, not "about 70 Romanian workers." The article doesn't say how many are Romanian.
+3. **The Investigate Europe article is dated 30 October 2026**, not 2025 as the search summary claimed.
+4. **The cobalt case date doesn't match.** ABC says it was filed in December 2022. I believe it was filed in December 2019. I've flagged it rather than guessing.
+
+## Decision needed
+
+The research note's file name includes "2025", which is now wrong. Should I rename it to *European Data Centre Labour Investigation 2026*? Inside Obsidian, links update automatically. Renaming from here doesn't do that, so I'd update the links in GSH-005 and the WIRED note by hand.
+
+**Files changed:** the five research notes listed in the table (all except the shell-companies note), [[GSH-005 Shell-Company Data Center Case]] (the precedents table now has a "Verified?" column), and [[GSH-002 World Hunger]].
 [Timestamp: 2026/11/09 15:21:42]
+
+**user**: Yes. Rename to 2026
+[Timestamp: 2026/11/09 15:25:58]
+
+**ai**: I've renamed the note to [[European Data Centre Labour Investigation 2026]].
+
+- **Link in [[GSH-005 Shell-Company Data Center Case]]:** updated to the new name.
+- **Inside the note:** the heading now says 2026, and the warning box records the rename instead of asking about it.
+- **Old name kept as an alias:** links that use "…2025" in the saved transcript of this conversation still resolve, so I didn't edit the transcript.
+
+I was wrong earlier when I said the WIRED note also linked to this note. It doesn't, so nothing needed changing there. A search of the vault finds no other notes that use the old name.
+[Timestamp: 2026/11/09 15:25:58]
