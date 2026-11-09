@@ -1,24 +1,4 @@
 ---
-nexus: nexus-ai-chat-importer
-plugin_version: "1.8.1"
-provider: claude
-artifact_id: SKILL
-version_uuid: toolu_0132dLUf162H91f4BVqiTnki
-version_number: 12
-command: update
-conversation_id: 64b2a4a8-7f90-4f04-8155-c5e3ef00900b
-create_time: 2026-11-08T05:31:00.000Z
-format: markdown
-aliases: [SKILL, SKILL_v12]
----
-
-# SKILL (Version 12)
-
-**Conversation:** [[07_Imported Chat Test/claude/2026/10/2026-10-15 - 000 — Harm & Guardrails Root Exploration|000 — Harm & Guardrails: Root Exploration]]
-
-## Content
-
----
 name: bookmark-index-maintainer
 metadata:
   version: "1.2"

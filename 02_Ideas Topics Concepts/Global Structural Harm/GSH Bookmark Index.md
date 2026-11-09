@@ -9,7 +9,7 @@ created: 2026-11-09
 
 # Global Structural Harm — Bookmark Index
 
-*A living table of contents for exploring how AI harm applies to global structural domains. It describes what has been found. It doesn't limit what can be found next.* Maintained under the bookmark-index-maintainer rules (`.claude/skills/bookmark_skill_v12.md`). Separate from the [[ai-governance-safety-bookmark-index_v1|AI Governance & Safety index]].
+*A living table of contents for exploring how AI harm applies to global structural domains. It describes what has been found. It doesn't limit what can be found next.* Maintained under the bookmark-index-maintainer rules (`.claude/skills/bookmark-index-maintainer/SKILL.md`). Separate from the [[ai-governance-safety-bookmark-index_v1|AI Governance & Safety index]].
 
 ## [[GSH-000 Root Exploration|GSH-000 — Root: AI harm in global structural domains]]
 The root conversation. Includes the three-way framing (AI **causes**, **amplifies**, or **fails to relieve** harm) and the recommendation to treat the four domains as one through-line.
