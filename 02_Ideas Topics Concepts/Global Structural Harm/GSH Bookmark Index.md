@@ -26,6 +26,9 @@ AI's role is reframed as *manipulating* culture and identity: outrage-driven ran
 ### [[GSH-004 Globalization of Child Labor|GSH-004 — Globalization of child labor]]
 Mineral supply chains for hardware and outsourced data-labeling work. This challenges the image of "clean, weightless AI."
 
+### [[GSH-005 Shell-Company Data Center Case|GSH-005 — Shell-company data center case]] *(case, hypothetical)*
+A scenario that cuts across domains: a US AI services company, a shell company, and a data center in India that uses child labor at slave-labor wages. It's the first **case** bookmark; GSH-001 to GSH-004 are domains. Not a verified real-world case.
+
 ## GSH-premise
 **"AI's benefits are concentrated and its costs are pushed out to distant, less visible people."** GSH-001 to GSH-004 all rely on this assumption. Test it; don't assume it. Open weak spot: show what is *specific* to AI (opacity, speed, scale, unaccountable decisions), not just "AI makes existing injustice worse."
 
@@ -34,6 +37,7 @@ Mineral supply chains for hardware and outsourced data-labeling work. This chall
 - GSH-003 links to [[Peace Can Be Built Intentionally]] and [[Schuman Declaration]].
 - GSH-001 drives GSH-002, GSH-003 and GSH-004. It's where the structural cause sits; the other three are where the harm lands.
 - GSH-004 is the most visceral case.
+- GSH-005 links strongly to GSH-001 (value extracted to the parent company) and GSH-004 (child labor at the site of AI infrastructure). It links to GSH-002 mainly through lost livelihoods: child labor pushes adult breadwinners out of jobs, so families can afford less food. A secondary link is data centers competing with farming for water and land (speculative). It also tests the GSH-premise: is the shell company's accountability gap specific to AI?
 
 ## Summary
 This index was created at the user's request as a new, separate index. The originating conversation is the root, and the extracted topics are top-level headings.

@@ -22,6 +22,9 @@ Possible threads: how returns go to capital while wage earners lose jobs; data e
 ## Conceptual territory
 This is new ground, but it overlaps with bookmark 002 in the [[ai-governance-safety-bookmark-index_v1|AI Governance & Safety index]], seen from an economic angle rather than a governance one.
 
+## Related cases
+- [[GSH-005 Shell-Company Data Center Case]]: a hypothetical where value flows to a US parent through a shell company while costs land in India.
+
 ## Summary
 - **Claude:** likely the strongest of the four domains. AI resources are concentrated in a few firms and countries, and value is taken from the Global South.
 

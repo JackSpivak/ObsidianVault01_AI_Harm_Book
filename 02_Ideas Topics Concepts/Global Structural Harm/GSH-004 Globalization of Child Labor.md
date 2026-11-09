@@ -22,6 +22,9 @@ Possible threads: child labor in mineral supply chains for hardware, especially 
 ## Conceptual territory
 New ground. It's a strong candidate for a character who sits inside one of these supply chains.
 
+## Related cases
+- [[GSH-005 Shell-Company Data Center Case]]: moves child labor from mineral and data-labeling supply chains to building and running data centers (hypothetical).
+
 ## Summary
 - **Claude:** the most visceral case. Supply-chain harm makes the hidden human cost of AI visible.
 

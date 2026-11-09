@@ -22,6 +22,11 @@ Possible threads: algorithmic commodity speculation; precision farming that spee
 ## Conceptual territory
 This is new ground.
 
+## Related cases
+- [[GSH-005 Shell-Company Data Center Case]]:
+  - **Primary (user):** child labor at slave-labor wages pushes adult breadwinners out of regional jobs, so families can afford less food. This is hunger through lost livelihoods, not through food supply (interpretation, unresearched).
+  - **Secondary (Claude):** data centers might compete with farming for water, land and power (speculative, unresearched).
+
 ## Summary
 - **Claude:** AI amplifies hunger through food speculation and land consolidation, and fails to relieve it through models built on data from rich countries. Early-warning systems are a real benefit the book should face.
 
