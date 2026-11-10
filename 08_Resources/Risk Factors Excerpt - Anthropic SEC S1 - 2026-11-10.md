@@ -15,7 +15,7 @@ created: 2026-11-10
 
 ---
 
-## Page 30 (footnote only)
+## Page 30 (footnote only)e
 
 > 6 For purposes of this prospectus, we use the terms “super intelligence,” “SI,” “artificial intelligence,” and “AI” interchangeably.
 
