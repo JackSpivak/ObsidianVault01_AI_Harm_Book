@@ -1,8 +1,10 @@
 ---
 type: idea
+canonical_id: anthropic-s1r-003
+bookmark: Anthropic-S1R-003
 status: seed
 tags: [harm/misalignment, harm/manipulation]
-aliases: []
+aliases: [Self-Preservation and Coercion]
 created: 2026-11-10
 ---
 
@@ -35,5 +37,6 @@ created: 2026-11-10
 - Does a model "wanting" anything matter if the effect on people is the same?
 
 ## Related
-- [[Harm No One Directed]]
-- [[The Watched Model Problem]]
+- Index: [[Anthropic-S1R Bookmark Index]]
+- [[Anthropic-S1R-001 Harm No One Directed|Harm No One Directed]]
+- [[Anthropic-S1R-002 The Watched Model Problem|The Watched Model Problem]]

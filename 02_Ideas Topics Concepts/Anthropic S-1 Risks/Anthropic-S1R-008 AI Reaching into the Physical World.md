@@ -1,8 +1,10 @@
 ---
 type: idea
+canonical_id: anthropic-s1r-008
+bookmark: Anthropic-S1R-008
 status: seed
 tags: [harm/physical, harm/biosecurity]
-aliases: []
+aliases: [AI Reaching into the Physical World]
 created: 2026-11-10
 ---
 
@@ -33,5 +35,6 @@ created: 2026-11-10
 - What is the open protocol called, and who is using it? *(to research)*
 
 ## Related
-- [[Harm No One Directed]]
-- [[Oversight at Machine Speed]]
+- Index: [[Anthropic-S1R Bookmark Index]]
+- [[Anthropic-S1R-001 Harm No One Directed|Harm No One Directed]]
+- [[Anthropic-S1R-004 Oversight at Machine Speed|Oversight at Machine Speed]]

@@ -1,8 +1,10 @@
 ---
 type: idea
+canonical_id: anthropic-s1r-006
+bookmark: Anthropic-S1R-006
 status: seed
 tags: [harm/acceleration, theme/oversight]
-aliases: [Recursive AI Development]
+aliases: [Recursive AI Development, Closing the Loop]
 created: 2026-11-10
 ---
 
@@ -35,5 +37,6 @@ created: 2026-11-10
 - What exactly is the RSP "AI R&D capability threshold," and what does meeting it trigger? *(to research; the filing says further reports will follow)*
 
 ## Related
-- [[The Watched Model Problem]]
-- [[Harm Measured as Shareholder Risk]]
+- Index: [[Anthropic-S1R Bookmark Index]]
+- [[Anthropic-S1R-002 The Watched Model Problem|The Watched Model Problem]]
+- [[Anthropic-S1R-009 Harm Measured as Shareholder Risk|Harm Measured as Shareholder Risk]]

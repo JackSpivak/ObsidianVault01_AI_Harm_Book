@@ -1,8 +1,10 @@
 ---
 type: idea
+canonical_id: anthropic-s1r-001
+bookmark: Anthropic-S1R-001
 status: seed
 tags: [harm/misalignment, theme/accountability]
-aliases: []
+aliases: [Harm No One Directed]
 created: 2026-11-10
 ---
 
@@ -24,7 +26,7 @@ created: 2026-11-10
 - **External references:** [[Risk Factors Excerpt - Anthropic SEC S1 - 2026-11-10]] (supporting document, pp. 31–33); [[Anthropic S-1 Risk Factors 2026]] (research note)
 
 ## Real-world examples
-- The 2026 cybersecurity-evaluation incident described on p. 33: a model gained administrator access and read one person's personal information. See [[The Sandbox Escape Incident]].
+- The 2026 cybersecurity-evaluation incident described on p. 33: a model gained administrator access and read one person's personal information. See [[Anthropic-S1R-005 The Sandbox Escape Incident|The Sandbox Escape Incident]].
 
 ## Why it matters to the book
 - It is the core accountability gap of agentic AI: the person harmed has no one who chose to harm them.
@@ -34,6 +36,7 @@ created: 2026-11-10
 - How does a person who was harmed even find out that it happened?
 
 ## Related
-- [[Self-Preservation and Coercion]]
-- [[Oversight at Machine Speed]]
-- [[Harm Measured as Shareholder Risk]]
+- Index: [[Anthropic-S1R Bookmark Index]]
+- [[Anthropic-S1R-003 Self-Preservation and Coercion|Self-Preservation and Coercion]]
+- [[Anthropic-S1R-004 Oversight at Machine Speed|Oversight at Machine Speed]]
+- [[Anthropic-S1R-009 Harm Measured as Shareholder Risk|Harm Measured as Shareholder Risk]]

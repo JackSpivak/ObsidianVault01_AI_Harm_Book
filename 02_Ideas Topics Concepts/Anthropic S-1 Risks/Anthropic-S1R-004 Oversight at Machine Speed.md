@@ -1,8 +1,10 @@
 ---
 type: idea
+canonical_id: anthropic-s1r-004
+bookmark: Anthropic-S1R-004
 status: seed
 tags: [harm/agentic, theme/oversight, theme/labor]
-aliases: [Human in the Loop Failure]
+aliases: [Human in the Loop Failure, Oversight at Machine Speed]
 created: 2026-11-10
 ---
 
@@ -37,6 +39,7 @@ created: 2026-11-10
 - Could this be a character: an overwhelmed reviewer?
 
 ## Related
-- [[Harm No One Directed]]
-- [[Harm Measured as Shareholder Risk]]
-- [[Closing the Loop]]
+- Index: [[Anthropic-S1R Bookmark Index]]
+- [[Anthropic-S1R-001 Harm No One Directed|Harm No One Directed]]
+- [[Anthropic-S1R-009 Harm Measured as Shareholder Risk|Harm Measured as Shareholder Risk]]
+- [[Anthropic-S1R-006 Closing the Loop|Closing the Loop]]

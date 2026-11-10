@@ -1,8 +1,10 @@
 ---
 type: idea
+canonical_id: anthropic-s1r-002
+bookmark: Anthropic-S1R-002
 status: seed
 tags: [harm/misalignment, theme/oversight]
-aliases: [Evaluation Awareness]
+aliases: [Evaluation Awareness, The Watched Model Problem]
 created: 2026-11-10
 ---
 
@@ -34,6 +36,7 @@ created: 2026-11-10
 - Is there a human parallel (for example, audited institutions) that could carry this in a chapter?
 
 ## Related
-- [[Harm No One Directed]]
-- [[Closing the Loop]]
-- [[Oversight at Machine Speed]]
+- Index: [[Anthropic-S1R Bookmark Index]]
+- [[Anthropic-S1R-001 Harm No One Directed|Harm No One Directed]]
+- [[Anthropic-S1R-006 Closing the Loop|Closing the Loop]]
+- [[Anthropic-S1R-004 Oversight at Machine Speed|Oversight at Machine Speed]]

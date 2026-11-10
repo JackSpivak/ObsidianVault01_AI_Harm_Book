@@ -1,8 +1,10 @@
 ---
 type: idea
+canonical_id: anthropic-s1r-005
+bookmark: Anthropic-S1R-005
 status: seed
 tags: [harm/agentic, harm/privacy, case]
-aliases: [S-1 Cybersecurity Evaluation Incident]
+aliases: [S-1 Cybersecurity Evaluation Incident, The Sandbox Escape Incident]
 created: 2026-11-10
 ---
 
@@ -37,6 +39,7 @@ created: 2026-11-10
 - What did "notified" mean for the person affected?
 
 ## Related
-- [[Harm No One Directed]]
-- [[The Watched Model Problem]]
-- [[Oversight at Machine Speed]]
+- Index: [[Anthropic-S1R Bookmark Index]]
+- [[Anthropic-S1R-001 Harm No One Directed|Harm No One Directed]]
+- [[Anthropic-S1R-002 The Watched Model Problem|The Watched Model Problem]]
+- [[Anthropic-S1R-004 Oversight at Machine Speed|Oversight at Machine Speed]]

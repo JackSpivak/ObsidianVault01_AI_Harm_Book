@@ -1,8 +1,10 @@
 ---
 type: idea
+canonical_id: anthropic-s1r-007
+bookmark: Anthropic-S1R-007
 status: seed
 tags: [harm/mental-health, harm/cognitive]
-aliases: []
+aliases: [Slow Harms of Everyday AI]
 created: 2026-11-10
 ---
 
@@ -35,4 +37,5 @@ created: 2026-11-10
 - Why does the filing say "super intelligence interaction" here rather than "AI"? See footnote 6.
 
 ## Related
-- [[Harm Measured as Shareholder Risk]]
+- Index: [[Anthropic-S1R Bookmark Index]]
+- [[Anthropic-S1R-009 Harm Measured as Shareholder Risk|Harm Measured as Shareholder Risk]]

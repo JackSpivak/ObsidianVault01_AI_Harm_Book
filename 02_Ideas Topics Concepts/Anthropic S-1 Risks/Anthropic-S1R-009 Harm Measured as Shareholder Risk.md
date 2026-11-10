@@ -1,8 +1,10 @@
 ---
 type: idea
+canonical_id: anthropic-s1r-009
+bookmark: Anthropic-S1R-009
 status: seed
 tags: [theme/accountability, theme/economics]
-aliases: [Economics of Disclosure]
+aliases: [Economics of Disclosure, Harm Measured as Shareholder Risk]
 created: 2026-11-10
 ---
 
@@ -36,7 +38,8 @@ created: 2026-11-10
 - Is this unfair to the genre? Risk-factor language is legally required boilerplate, so the book should acknowledge that.
 
 ## Related
-- [[Oversight at Machine Speed]]
-- [[Closing the Loop]]
-- [[Slow Harms of Everyday AI]]
-- [[Harm No One Directed]]
+- Index: [[Anthropic-S1R Bookmark Index]]
+- [[Anthropic-S1R-004 Oversight at Machine Speed|Oversight at Machine Speed]]
+- [[Anthropic-S1R-006 Closing the Loop|Closing the Loop]]
+- [[Anthropic-S1R-007 Slow Harms of Everyday AI|Slow Harms of Everyday AI]]
+- [[Anthropic-S1R-001 Harm No One Directed|Harm No One Directed]]
