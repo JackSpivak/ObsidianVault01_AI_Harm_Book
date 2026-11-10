@@ -71,6 +71,7 @@ verified: true
 ## Related
 - [[Risk Factors Excerpt - Anthropic SEC S1 - 2026-11-10]] (verbatim pp. 30–35)
 - [[GSH-000 Root Exploration]]
+- Idea notes drawn from this source: [[Harm No One Directed]], [[The Watched Model Problem]], [[Self-Preservation and Coercion]], [[Oversight at Machine Speed]], [[The Sandbox Escape Incident]], [[Closing the Loop]], [[Slow Harms of Everyday AI]], [[AI Reaching into the Physical World]], [[Harm Measured as Shareholder Risk]]
 
 ## Sources
 - Anthropic, PBC. *Form S-1/A (Amendment No. 2)*, U.S. Securities and Exchange Commission, filed 2026-11-10, "Risk Factors," pp. 30–35. https://www.sec.gov/Archives/edgar/data/2130357/000162828026072484/anthropicpbc-sx1ax2.htm. Downloaded directly from EDGAR on 2026-11-10; quotes checked against that download.
