@@ -9,13 +9,13 @@ aliases: []
 created: {{date:YYYY-MM-DD}}
 ---
 
-# {{New Filing test note}}
+# {{title}}
 
 ## Why this is distinct
--Because I say so
+-
 
 ## Anticipated direction
--thinking about new types of AI Harm
+-
 
 ## Conceptual territory
 -

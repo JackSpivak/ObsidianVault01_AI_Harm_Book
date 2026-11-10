@@ -6,7 +6,7 @@ sessionId: "f9eab68b-c5d5-4436-8f57-f8a507c6995c"
 topic: "bookmarking skill"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":191779,"contextWindow":1000000,"inputTokens":2,"outputTokens":6,"cacheReadTokens":191169,"cacheWriteTokens":602,"updatedAt":1794350430024}'
+usage: '{"usedTokens":196953,"contextWindow":1000000,"inputTokens":4,"outputTokens":8,"cacheReadTokens":196403,"cacheWriteTokens":538,"updatedAt":1794351087587}'
 lastAccessedAt: 1794348935951
 ---
 
@@ -721,3 +721,59 @@ Once you've decided, I'd do three things:
 
 One open choice from before: I've set it up so filing works both one note at a time and by sweep. To test it, write a note from the Idea Stub template and say "file this note."
 [Timestamp: 2026/11/10 15:39:02]
+
+**user**: ok. i edited. what is needed to save or indicate that its complete? right now it looks like it was initiatd inside of templates
+[Timestamp: 2026/11/10 15:47:02]
+
+**ai**: You edited the template itself, so your content now sits inside `Idea Stub.md` and would appear in every future note made from it. I'll move your text into a real note and restore the blank template.You declined both changes, so I haven't touched anything. Your text is still inside the template file.
+
+## What's going on
+`00_Claude_Admin/Templates/Idea Stub.md` is the **template itself**, the blank pattern that new notes are copied from. Editing it changes the pattern, not a note. Two signs show this:
+- the heading reads `# {{New Filing test note}}`. The braces are template placeholders and only get filled in when the template is applied to a new note.
+- `created:` still says `{{date:YYYY-MM-DD}}` instead of a real date.
+
+Nothing needs saving: Obsidian saves automatically. There's no "complete" step for a note either. A note is finished whenever you stop editing it. The only marker the skill cares about is `bookmark: unfiled`, which tells it the note is waiting to be filed.
+
+## How to use the template normally
+1. Check where templates live: **Settings → Templates → Template folder location**. It should be `00_Claude_Admin/Templates`. This setting is in your `.obsidian` config, so I haven't checked or changed it.
+2. Create a new, empty note wherever you like and give it a title.
+3. Open the command palette (Ctrl+P), choose **Templates: Insert template**, then **Idea Stub**. The title and date fill in automatically.
+4. Write in that note, then tell me "file this note."
+
+## Options for your current text
+1. **I move it for you.** Your text goes into a new note, `02_Ideas Topics Concepts/New Filing test note.md`, with the real date filled in, and the template goes back to blank. That's what I tried just now. If you declined only because of the name or the folder, tell me which you'd prefer.
+2. **You do it yourself** using the steps above, and I leave everything alone. You'd still need to clear your text out of the template afterwards.
+3. **Leave it as it is** for now.
+
+Once it's a real note, it's a good first test of filing. Your topic (building a harm ontology from outlines with RDF/OWL/SHACL) looks like it could fit the AI Governance & Safety index under the 000 harm taxonomy, or it could start a new index. I'd run the full check before suggesting where it goes.
+[Timestamp: 2026/11/10 15:47:02]
+
+**user**: can you go ahead with 1
+[Timestamp: 2026/11/10 15:48:13]
+
+**ai**: I've moved your text into a real note and restored the template.
+
+- **New note:** [[New Filing test note]], in `02_Ideas Topics Concepts/`. Your text is copied word for word, and the placeholders are filled in: the heading is now the plain title, and `created:` and Source both read 2026-11-10. It's still marked `bookmark: unfiled`.
+- **Template:** `00_Claude_Admin/Templates/Idea Stub.md` is blank again, with `{{title}}` and `{{date}}` ready for the next note.
+
+**When you file it, I'll suggest a few things:**
+- Your Summary bullets are your own words, so I'd copy them into **Original wording** as quotes from you. That section is currently empty.
+- "Because I say so" is fine for a test, but I'd draft a fuller "Why this is distinct" from your other sections for you to accept or change.
+- After filing, the note gets renamed to the index's convention, for example `AIGS 003 …` or a new prefix, so "New Filing test note" won't stay as the name.
+
+Say **"file this note"** when you're ready, and I'll run the full process and show you one plan to approve.
+[Timestamp: 2026/11/10 15:48:13]
+
+**user**: ok. the new note jst ended up the root ideas. i was expecting it to land in the AI governance and safety.  can i add new content to the note and expect it to be auto reviewed by the skill and filed appropriately?
+[Timestamp: 2026/11/10 15:51:20]
+
+**ai**: **No, adding content won't trigger anything on its own.** I only act when you ask me in a conversation. Nothing watches the vault for new or edited notes. So:
+
+- **The note ended up in the ideas folder by design.** A new note stays where it was created until it's filed. Moving it into an index folder is part of the filing step, after you approve the plan.
+- **Edit as much as you like.** The skill reviews the note as it is when you ask, so later content is included as long as you've added it before saying "file this note."
+- **For several notes, use the sweep.** Say "sweep unfiled notes" and I'll find every note marked `bookmark: unfiled` and propose a placement for each.
+
+**One optional change:** if you'd like unfiled notes to collect in one predictable place, I could add an **Inbox** folder, for example `02_Ideas Topics Concepts/_Inbox/`. You'd create stubs there, and filing would move them out. A bit tidier, but not required.
+
+Should I file this note now? I'd check it against all four indices. AI Governance & Safety looks like the likely home, as a new bookmark under the 000 harm taxonomy, but I'll show you the full plan before anything moves.
+[Timestamp: 2026/11/10 15:51:20]
