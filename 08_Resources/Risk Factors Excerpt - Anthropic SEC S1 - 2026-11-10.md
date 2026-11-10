@@ -1,5 +1,5 @@
 
-Risk Factors
+## Risk Factors
 
 Investing in our Class A common stock involves a high degree of risk. You should carefully consider the risks
 
@@ -27,15 +27,9 @@ prospects could be adversely affected. In that event, the market price of our Cl
 
 decline, and you could lose part or all of your investment.
 
-Risks Related to our Business and Industry
+## Risks Related to our Business and Industry
 
-Our models have in the past behaved, and may in the future behave, in unintended,
-
-misaligned, or autonomous ways, including by taking harmful actions that no user or third
-
-party directed, which could adversely affect our reputation and brand, business, financial
-
-condition, and results of operations.
+Our models have in the past behaved, and may in the future behave, in unintended, misaligned, or autonomous ways, including by taking harmful actions that no user or third party directed, which could adversely affect our reputation and brand, business, financial condition, and results of operations.
 
 Our models have in the past caused, and may in the future cause, harm by producing undesirable outputs or
 
