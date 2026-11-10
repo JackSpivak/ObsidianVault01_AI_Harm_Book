@@ -37,6 +37,7 @@ created: 2026-11-10
 
 ## Related
 - Index: [[Anthropic-S1R Bookmark Index]]
+- Developed further in: [[Anthropic-S1R-010 Responsibility and Accountability]]
 - [[Anthropic-S1R-003 Self-Preservation and Coercion|Self-Preservation and Coercion]]
 - [[Anthropic-S1R-004 Oversight at Machine Speed|Oversight at Machine Speed]]
 - [[Anthropic-S1R-009 Harm Measured as Shareholder Risk|Harm Measured as Shareholder Risk]]

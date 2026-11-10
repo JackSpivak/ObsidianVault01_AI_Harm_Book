@@ -43,6 +43,9 @@ AI controlling lab equipment and robots, open-source safeguards being removed, a
 ### [[Anthropic-S1R-009 Harm Measured as Shareholder Risk|Anthropic-S1R-009 — Harm measured as shareholder risk]]
 The disclosure framing in which every harm ends as "adversely affect our business."
 
+### [[Anthropic-S1R-010 Responsibility and Accountability|Anthropic-S1R-010 — Responsibility and accountability]] *(stub; originates from 001)*
+Who is responsible for harm no one directed, and who would, could or should be held accountable? Planned internal structure: would / could / should.
+
 ## Anthropic-S1R-premise
 A tiered premise. Each layer sits underneath the one before it. Test it; don't assume it. Layers I and III are claims about the document and can be checked against the text. Layer II is a causal argument and needs real-world evidence.
 
@@ -64,6 +67,7 @@ A tiered premise. Each layer sits underneath the one before it. Test it; don't a
 - 002 and 006 are linked: AI evaluating AI, a loop with no outside observer.
 - 003 overlaps with 001. They are kept separate at the author's request.
 - 009 is the framing around all the others. It is essentially premise I-a developed as an idea note; kept as its own bookmark and cross-referenced here.
+- 010 grows out of 001 and runs across 004, 005, 008 and 009. 005 is its main test case. It is linked to premise III-a: when no one names who bears the harm, it's easier to leave unclear who answers for it.
 - Premise I-b is supported by pp. 34–35 ("self-reinforcing or compounding cycle"; a delayed release as a competitive risk).
 - Possible links to the [[GSH Bookmark Index]]: GSH-premise ("benefits concentrated, costs pushed out") parallels S1R premise III-a *(to explore)*.
 
