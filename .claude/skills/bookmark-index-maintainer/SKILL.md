@@ -1,8 +1,8 @@
 ---
 name: bookmark-index-maintainer
 metadata:
-  version: "1.3"
-description: Maintains and extends a numbered "bookmark" taxonomy index (e.g. 001, 002, lettered a/b sub-framings, tiered I/II/III structures, standalone -premise tags) that tracks branches of an ongoing exploration. Use this skill whenever a new tension, question, or subtopic comes up that might not fit the existing index, whenever the user asks to bookmark, track, extend, reorganize, or revisit part of a conversation, or whenever it's worth checking if the current taxonomy still holds. Trigger even without the word "bookmark" — phrases like "this feels like its own thing," "where does this fit," "should we track this separately," or the user clearly opening a new line of inquiry within a tracked exploration should all trigger this skill. Also use it proactively, unprompted, when you notice a new branch emerging that the existing index doesn't cover.
+  version: "1.4"
+description: Maintains and extends a numbered "bookmark" taxonomy index (e.g. 001, 002, lettered a/b sub-framings, tiered I/II/III structures, standalone -premise tags) that tracks branches of an ongoing exploration. Use this skill whenever a new tension, question, or subtopic comes up that might not fit the existing index, whenever the user asks to bookmark, track, extend, reorganize, or revisit part of a conversation, or whenever it's worth checking if the current taxonomy still holds. Trigger even without the word "bookmark" — phrases like "this feels like its own thing," "where does this fit," "should we track this separately," or the user clearly opening a new line of inquiry within a tracked exploration should all trigger this skill. Also use it proactively, unprompted, when you notice a new branch emerging that the existing index doesn't cover. Also use it to file a manually written note into an index ("file this note", "sweep unfiled notes", any note whose bookmark field is "unfiled") and to move a filed note to a better-fitting index ("this belongs elsewhere", "move this note").
 ---
 
 # Bookmark Index Maintainer
@@ -73,6 +73,46 @@ Status moves from `stub` toward more developed values as the page grows, tracked
 ### Dedup before creating
 
 Before creating a new idea or topic page, check whether one already exists for the same concept — same discipline as locating the index itself: exact match on `canonical_id` or a sufficiently distinctive title, never semantic/similarity search for this purpose, ask on ambiguity rather than guessing or silently duplicating. If an existing page covers the same ground from a different angle, prefer linking to it via `revisits` over creating a near-duplicate.
+
+### Filing an existing note (the inverse process)
+
+A note written by hand — ideally from the `Idea Stub` template, marked `bookmark: unfiled` — goes through the same pipeline in reverse: note first, then bookmark. The end state must be indistinguishable from a skill-created stub.
+
+**Triggers:** "file this note" (one note), or "sweep unfiled notes" (every note with `bookmark: unfiled`).
+
+1. **Read the note.** If it lacks the stub sections (Why this is distinct / Anticipated direction / Conceptual territory), draft them from the note's own content and show them — don't invent beyond what the note supports.
+2. **Dedup.** Exact check by `canonical_id` and distinctive title (see "Dedup before creating"). If the idea already has a page, propose linking or merging instead of filing.
+3. **Rank relevance.** Read the master index for each index's scope, then use semantic search to find the closest existing bookmarks. Semantic search is correct *here* — this is a relevance question. Resolving which file is canonical stays exact-match.
+4. **Route** using the Routing section:
+   - Fits one or more indices → propose ID, parent, and any "(also under …)" placements.
+   - Worthy, no index fits → the note becomes `<PREFIX>-000`, the root stub of a new index; propose the prefix and register the index in the master index.
+   - Not a topic idea → case 4a/4b; don't bookmark.
+5. **One confirmation covers everything.** Present the full plan in one message — ID, new file name, destination folder, index entries, master-index change, links to be rewritten. Approval of that plan *is* approval of the rename and move; don't ask again per step. Never execute without it.
+6. **Execute** (see "Rename and move mechanics" below): set `bookmark`, `canonical_id`, `status: stub`; rename to the index's naming convention (`<ID> <Title>.md`); move into the index's folder; add to the index; update the master index if needed.
+
+### Moving a filed note to another index
+
+When a filed note turns out to fit best elsewhere — noticed by the user, or flagged by the skill during routing or the anti-lock-in check:
+
+1. **Propose the move** in one message: old ID → new ID, old → new file name and folder, entries to remove/add in each index, cross-references affected, links to be rewritten. Same single-confirmation rule as filing.
+2. **On approval, execute:**
+   - Assign the new ID in the destination index's convention; set `bookmark:` to it.
+   - Add `moved_from: <old ID>` and the date to frontmatter; add the old ID and old file name to `aliases` so old links and old references still resolve.
+   - **Keep `canonical_id` unchanged** — identity is stable across moves; only the bookmark ID and location change.
+   - Remove the entry from the old index; add it to the new one. If anything in the old index depended on it, replace with a cross-reference to the new location rather than silently dropping it.
+   - Renumbering: never renumber the *other* bookmarks in the old index. Leave the gap; a gap is honest, renumbering breaks every reference to the later items.
+   - If the note had children (sub-items), move them with it and propose new IDs for them in the same plan.
+3. Apply the rename and move mechanics below.
+
+### Rename and move mechanics
+
+Renames and moves done on disk bypass Obsidian's automatic link updating, so the skill must do that work itself:
+
+1. Rename/move the file with a filesystem move (no copy-and-delete).
+2. Find every link to the old name across the vault: `[[Old Name]]`, `[[Old Name|…]]`, `[[Old Name#…]]`. Rewrite them to the new name, preserving display text and heading anchors.
+3. **Exclude historical records from rewriting:** conversation transcripts (e.g. `copilot/copilot-conversations/`) and imported archives (e.g. `Nexus Attachment Imports/`). They record what was true at the time; the alias added to the note keeps their links resolving.
+4. Keep the old file name as an alias (filing and moving alike) as a safety net for links outside the vault.
+5. Verify: re-resolve the note by `canonical_id` (exactly one match), and grep for any remaining links to the old name outside the excluded folders. Report the list of files changed.
 
 ## Locating the canonical index
 
