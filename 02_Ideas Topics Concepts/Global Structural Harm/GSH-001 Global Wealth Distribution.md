@@ -32,5 +32,5 @@ This is new ground, but it overlaps with bookmark 002 in the [[ai-governance-saf
 - **Claude (Opus 5.5, claude-opus-5-5):** "This is probably your strongest domain. Compute, data and talent are concentrated in a few firms and countries. Returns go to capital, while job displacement hits wage earners."
 - **Claude (Opus 5.5, claude-opus-5-5):** "Data extraction: value is taken from users in the Global South, and profits are booked elsewhere."
 - **User:** "global wealth distribution inequities"
-- **Source:** Obsidian Copilot agent session "new junk conversation test bookmarking", 2026-11-09 — [[agent__new_junk_conversation_test_bookmarking@20261109_143045]].
+- **Source:** Obsidian Copilot agent session "new junk conversation test bookmarking", 2026-11-09 — [[agent__new_junk_conversation_test_bookmarking[[agent__new_junk_conversation_test_bookmarking@20261109_143045]]@20261109_143045]].
 - **External references:** none yet (unverified interpretation).
