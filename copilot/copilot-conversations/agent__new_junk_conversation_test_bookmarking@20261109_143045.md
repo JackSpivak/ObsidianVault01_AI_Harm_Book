@@ -3,11 +3,11 @@ epoch: 1794259845254
 mode: agent
 backendId: claude
 sessionId: "f9eab68b-c5d5-4436-8f57-f8a507c6995c"
-topic: "new junk conversation test bookmarking"
+topic: "bookmarking skill"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":145785,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":145267,"cacheWriteTokens":513,"updatedAt":1794332302164}'
-lastAccessedAt: 1794331976428
+usage: '{"usedTokens":158028,"contextWindow":1000000,"inputTokens":2,"outputTokens":7,"cacheReadTokens":154985,"cacheWriteTokens":3034,"updatedAt":1794348133869}'
+lastAccessedAt: 1794347582341
 ---
 
 **user**: new junk conversation test bookmarking
@@ -484,3 +484,85 @@ What those numbers mean:
 
 **On cost:** this is context size, not billing. For what you're actually charged, check your Anthropic or Claude account usage page. Cached tokens are billed differently from fresh input.
 [Timestamp: 2026/11/10 10:38:09]
+
+**user**: ok. another couple bookmark and admin ideas.   for the bookmark skill, does it currently support multi-level index?  Also, can the markdown in the actual resulting index support cascading openable hierarchy of clickable links to individual idea notes?
+[Timestamp: 2026/11/10 14:56:03]
+
+**ai**: ## 1. Does the skill support a multi-level index?
+
+**Partly.** It has three structures built in:
+- **Top-level numbers:** 001, 002, …
+- **Lettered sub-framings:** 001a, 001b, for competing framings of the same question
+- **Tiers with letters inside:** 002.I.a, 002.II.b, for subtopics where some are upstream of others
+
+That gives up to **three levels**: bookmark → tier → item. It also says every confirmed bookmark gets its own page, which by implication includes the sub-items.
+
+What it **doesn't** cover:
+- **Deeper levels.** Nothing says what to do if a tier item branches again, for example 002.I.a.1.
+- **An index of indices.** There's no "master index" listing GSH, AI Governance & Safety and any future ones. It allows several indices but never links them together. That gap also matters for the routing rule we discussed, because routing needs a way to see all the indices.
+
+Both would be small additions to the skill.
+
+## 2. Can the index be a collapsible, clickable hierarchy?
+
+**Yes. Obsidian supports this natively, in three ways:**
+
+**a. Nested bullet lists.** Each level folds with the arrow beside it, and the links stay clickable:
+```markdown
+- [[GSH-000 Root Exploration|GSH-000 — Root]]
+	- [[GSH-001 Global Wealth Distribution|GSH-001 — Wealth]]
+		- [[GSH-005 Shell-Company Data Center Case|GSH-005 — Case]]
+	- [[GSH-004 Globalization of Child Labor|GSH-004 — Child labor]]
+```
+
+**b. Headings (H2, H3, H4).** These fold the same way, and each section can hold a link plus a description. Your current GSH index already uses headings, so it's foldable now, just only one level deep.
+
+**c. Collapsible callouts.** A `-` after the callout type makes it start closed, and callouts can be nested:
+```markdown
+> [!abstract]- GSH-001 — Wealth distribution
+> [[GSH-001 Global Wealth Distribution]]
+> > [!example]- Cases
+> > [[GSH-005 Shell-Company Data Center Case]]
+```
+
+**Avoid HTML `<details>` tags.** Obsidian generally doesn't turn `[[wikilinks]]` inside HTML blocks into links, so they wouldn't be clickable.
+
+**My recommendation:** use **nested bullet lists for the hierarchy and headings for major sections**.
+- Lists show cross-links naturally: GSH-005 can appear under both 001 and 004.
+- Lists stay easy to read as plain text, which suits the skill's emphasis on portability.
+- Callouts look nicer, but deep nesting quickly turns into a clutter of `> > >` markers.
+
+One thing to know about folding: headings and lists remember whether they're open or closed on each device, but collapsible callouts start closed every time you open the note.
+
+## Possible next steps
+1. Add the deeper levels and a master index of indices to the skill.
+2. Add the routing section we drafted earlier (cases 1–4 with the 4a/4b split). I haven't added it yet.
+3. Rebuild [[GSH Bookmark Index]] as a nested, collapsible hierarchy.
+
+Should I do all three, and bump the skill to v1.3?
+[Timestamp: 2026/11/10 14:56:03]
+
+**user**: yes.  go ahead with all of this and i like your proposal to not use callouts or html details. please dont
+[Timestamp: 2026/11/10 15:01:03]
+
+**ai**: I've made all three changes, with no callouts or HTML anywhere.
+
+**1. Skill updated to v1.3** (`.claude/skills/bookmark-index-maintainer/SKILL.md`):
+- **Deeper levels:** when a tier item branches again, it gets a number, for example `002.I.a.1`. Past four levels, the skill suggests a bookmark or index of its own instead of going deeper.
+- **Routing:** your cases 1–4, with 4a (process insights recorded in the rules) and 4b (housekeeping, not recorded). The "Not bookmark-worthy" rule now points to the routing check, because "not here" isn't the same as "nowhere."
+- **Index format:** headings for major sections, nested bullet lists for the hierarchy, and every entry a wikilink. An item that belongs under two parents is listed under both and marked "(also under …)". There's an explicit ban on callouts and HTML `<details>`.
+- **Master index:** the skill now keeps an index of indices, found by `canonical_id: master-bookmark-index`.
+
+**2. [[GSH Bookmark Index]] rebuilt** as a collapsible nested list. GSH-000 is at the top, GSH-001 to 004 sit beneath it, and GSH-005 appears under 001, 002 and 004 with "(also under…)" markers. The premise and cross-references are also lists now. The hunger link is updated to "partly supported."
+
+**3. New [[Master Bookmark Index]]** in `00_Claude_Admin/`. It lists three indices:
+- **GSH:** live.
+- **AI Governance & Safety:** import-only. It exists only as a Nexus copy, with its `canonical_id` buried inside the import wrapper.
+- **Corpus Governance (CG-):** planned but not found. The AI Governance index mentions it, but only one imported page (`cg-001`) exists.
+
+**Two things I noticed:**
+- When you said "corporate governance index" earlier, did you mean this **Corpus Governance** index? Its stated scope is how this body of work itself is built and run. That makes it the natural home for 4a process insights, like your research-depth rule.
+- Routing to the AI Governance and Corpus Governance indices won't be reliable until each has a proper canonical file outside the Nexus imports folder. I can set those up when you're ready.
+
+The research-depth rule (open the links even without the word "extensive") still hasn't been written down anywhere. Should I add it to `.claude/rules/research-and-editing.md`?
+[Timestamp: 2026/11/10 15:01:03]
