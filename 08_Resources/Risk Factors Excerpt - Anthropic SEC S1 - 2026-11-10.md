@@ -2,15 +2,15 @@
 type: research
 status: seed
 tags: [source/sec-filing]
-aliases: [Anthropic S-1 Risk Factors pp30-34]
+aliases: [Anthropic S-1 Risk Factors pp30-35]
 created: 2026-11-10
 ---
 
-# Risk Factors Excerpt - Anthropic SEC S-1 (pp. 30–34)
+# Risk Factors Excerpt - Anthropic SEC S-1 (pp. 30–35)
 
 - **Source:** Anthropic, PBC, Form S-1/A (Amendment No. 2), filed with the SEC 2026-11-10
 - **URL:** https://www.sec.gov/Archives/edgar/data/2130357/000162828026072484/anthropicpbc-sx1ax2.htm
-- **Scope:** Printed pages 30–34, copied word for word. Page 30 holds the end of the prospectus summary (a non-GAAP financial table, not reproduced here) and footnote 6, which is quoted below because the risk factors cite it. Risk Factors begins on page 31. The excerpt stops at the end of page 34, partway through the bullet list.
+- **Scope:** Printed pages 30–35, copied word for word. Page 30 holds the end of the prospectus summary (a non-GAAP financial table, not reproduced here) and footnote 6, which is quoted below because the risk factors cite it. Risk Factors begins on page 31. The excerpt stops at the end of page 35, mid-sentence.
 - **Formatting only:** line breaks rejoined, risk headings set in bold, page breaks marked. The wording is unchanged.
 
 ---
@@ -90,6 +90,21 @@ Our success depends in large part on our ability to continuously develop, improv
 - secure and maintain relationships with data providers, licensors, and partners to obtain the diverse, high-quality datasets necessary for world-class model performance;
 - secure and maintain relationships with cloud, ecosystem, and other partners to facilitate the diffusion of Claude;
 
-*[End of page 34. The bullet list continues on page 35, which is not included.]*
+---
+
+## Page 35
+
+- build, operate, and maintain the infrastructure required to deploy frontier models cost-effectively and at scale;
+- translate model capabilities into products that meet evolving customer needs and achieve meaningful adoption;
+- allocate substantial financial resources efficiently across research, infrastructure, and operations; and
+- navigate an evolving, uncertain, and at times divergent global regulatory landscape and engage with legislators, regulators, and other stakeholders to promote the development of regulatory frameworks that we believe are good for society, our customers, and the long-term health of the global economy.
+
+Our failure to achieve any of the foregoing could prevent us from maintaining our competitive position, cause us to fall behind competitors, reduce customer adoption of, or demand for, our models, platform, and applications, and impair our revenue growth. Limitations to our revenue growth could, in turn, constrain our ability to fund the substantial and increasing expenditures required for frontier intelligence development, including investments in compute, model training, data acquisition, and safety and security systems, as well as our ability to attract, retain, and appropriately compensate highly skilled technical and operational personnel in a highly competitive market. Any such constraints could slow our rate of development and innovation, degrade model performance or reliability relative to competitors, limit our participation in industry standards-setting and regulatory processes, and reduce our attractiveness to enterprises and prosumers. These effects could create a self-reinforcing or compounding cycle in which diminished growth limits our capacity to invest in the resources necessary to remain competitive, which in turn could further weaken our ability to sustain or increase our revenue growth, making it increasingly difficult and costly to regain technological leadership and operate at the frontier of AI. Any of the foregoing could adversely affect our business, financial condition, and results of operations.
+
+Our ability to maintain our position at the frontier of AI depends in part on our use of AI systems to accelerate our research processes, a recursive dynamic we refer to as “closing the loop,” in which successive versions of our models assist in building the next, with the goal of compounding capability gains over time. Our models have been and are increasingly becoming critical tools in designing, training, testing, and optimizing next-generation AI systems. If we fail to direct sufficient compute and research efforts to AI-assisted development, or if our competitors more effectively leverage AI to enhance their own innovation cycles, we risk falling progressively further behind as competitors continuously use AI to further enhance their own development capabilities, enabling the creation of increasingly advanced systems at an accelerating pace. As our reliance on our own AI systems to write production code, conduct research, and build subsequent model versions deepens, any systemic flaw, bias, or error in our current models could propagate into the next versions of models and products built using those systems, compounding across successive versions of Claude models in ways that may be difficult to detect or remediate. If we are unable to manage the foregoing risks, our ability to deploy the most advanced, capable, and useful AI models could be adversely affected.
+
+In addition, our increasing use of AI systems to accelerate our own research and development may cause the capabilities of our models to advance more rapidly than our ability to develop, validate, and implement corresponding safety, alignment, and security measures. Much of our evidence regarding the pace of such AI- driven acceleration is derived from lagging indicators, and our ability to forecast or measure the rate at which our capabilities are advancing, including any acceleration attributable to our most recent or unreleased models, is limited. As a result, we have in the past not identified, and may in the future not identify, a significant acceleration in our rate of development until after it has occurred. For example, our use of AI systems has already been accelerating our research and development, and our internal estimates indicate that we may experience a further increase in the rate of progress in AI capabilities. Because the AI research and development capability threshold under our Responsible Scaling Policy applies where we “observe or expect” a specified degree of accelerated progress, we made a determination that we have met this threshold based on what we expect from future models and our overall rate of progress, rather than on what we have observed from current models. We continue to assess the underlying data. We are also evaluating the implications of meeting the AI research and development capability threshold and will release further reports in the future. If our capabilities were to outpace our safety, alignment, and security measures, or if we were unable to anticipate the pace of such advancement, we may be unable to adequately assess or mitigate the resulting risks, which could increase the likelihood of safety incidents, regulatory intervention, or reputational harm, and could adversely affect our
+
+*[End of page 35. The sentence continues on page 36, which is not included.]*
 
 [^6]: For purposes of this prospectus, we use the terms “super intelligence,” “SI,” “artificial intelligence,” and “AI” interchangeably. (Footnote 6, page 30.)
