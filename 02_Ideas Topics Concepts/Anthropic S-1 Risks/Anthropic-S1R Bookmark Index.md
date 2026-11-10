@@ -9,7 +9,7 @@ created: 2026-11-10
 
 # Anthropic S-1 Risk Factors — Bookmark Index
 
-*A living table of contents for exploring the Risk Factors section of Anthropic's S-1 filing. It describes what has been found. It doesn't limit what can be found next.* Maintained under the bookmark-index-maintainer rules (`.claude/skills/bookmark-index-maintainer/SKILL.md`). Separate from the [[GSH Bookmark Index]] and the [[ai-governance-safety-bookmark-index_v1|AI Governance & Safety index]].
+*A living table of contents for exploring the Risk Factors section of Anthropic's S-1 filing. It describes what has been found. It doesn't limit what can be found next.* Maintained under the bookmark-index-maintainer rules (`.claude/skills/bookmark-index-maintainer/SKILL.md`). Separate from the [[GSH Bookmark Index]] and the [[AI Governance & Safety Bookmark Index|AI Governance & Safety index]]. Registered in the [[Master Bookmark Index]].
 
 ## Anthropic-S1R-000 — Root: the source
 The root of this index is the filing itself, not a conversation note:

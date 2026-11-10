@@ -19,7 +19,7 @@ aliases: [ai-governance-safety-bookmark-index, ai-governance-safety-bookmark-ind
 ## Content
 
 ---
-canonical_id: ai-governance-safety-index
+superseded_by: ai-governance-safety-index   # canonical copy: [[AI Governance & Safety Bookmark Index]] (2026-11-10)
 type: index
 ---
 

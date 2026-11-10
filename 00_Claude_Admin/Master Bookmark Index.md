@@ -16,14 +16,18 @@ created: 2026-11-10
 - [[GSH Bookmark Index|Global Structural Harm]]: **live**
 	- `canonical_id: gsh-bookmark-index` · prefix `GSH-`
 	- Scope: AI harm in global structural domains (wealth, hunger, war, child labor) and cases that cut across them.
-- [[ai-governance-safety-bookmark-index_v1|AI Governance & Safety]]: **import-only**
+- [[AI Governance & Safety Bookmark Index|AI Governance & Safety]]: **live** (made canonical 2026-11-10)
 	- `canonical_id: ai-governance-safety-index` · prefix: plain numbers (`000`, `001`, `002`)
 	- Scope: the harm taxonomy, existential safety, scalability of oversight and control.
-	- Only a Nexus import copy exists, in `00_Claude_Admin/Nexus Attachment Imports/`. Its `canonical_id` sits inside the import wrapper, not in the file's own frontmatter. It needs a proper canonical home before routing to it is reliable.
-- **Corpus Governance**: **planned / not found**
-	- prefix `CG-`
-	- Scope: the architecture, conventions and governance of this body of work itself (according to the AI Governance & Safety index).
-	- No index file found in the vault. Only an imported page, `cg-001-corpus-vigilance_v1`, exists. This is a natural home for 4a process and rule insights about the corpus.
+	- The bookmark pages are still Nexus import files. The old import index is marked superseded.
+- [[Corpus Governance Bookmark Index|Corpus Governance]]: **live** (made canonical 2026-11-10)
+	- `canonical_id: corpus-governance-index` · prefix `CG-`
+	- Scope: the architecture, conventions and governance of this body of work itself. Home for 4a process and rule insights.
+	- The CG-001 page is still a Nexus import file.
+- [[Anthropic-S1R Bookmark Index|Anthropic S-1 Risk Factors]]: **live** (registered 2026-11-10)
+	- `canonical_id: anthropic-s1r-bookmark-index` · prefix `Anthropic-S1R-`
+	- Scope: the Risk Factors section of Anthropic's S-1 filing.
+	- Created in a different session, then registered here.
 
 ## Summary
 The master index was created so the routing check in bookmark-index-maintainer v1.3 has one place to find all indices.

@@ -6,8 +6,8 @@ sessionId: "f9eab68b-c5d5-4436-8f57-f8a507c6995c"
 topic: "bookmarking skill"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":158028,"contextWindow":1000000,"inputTokens":2,"outputTokens":7,"cacheReadTokens":154985,"cacheWriteTokens":3034,"updatedAt":1794348133869}'
-lastAccessedAt: 1794347582341
+usage: '{"usedTokens":183935,"contextWindow":1000000,"inputTokens":2,"outputTokens":377,"cacheReadTokens":182722,"cacheWriteTokens":834,"updatedAt":1794349264598}'
+lastAccessedAt: 1794348935951
 ---
 
 **user**: new junk conversation test bookmarking
@@ -566,3 +566,93 @@ Should I do all three, and bump the skill to v1.3?
 
 The research-depth rule (open the links even without the word "extensive") still hasn't been written down anywhere. Should I add it to `.claude/rules/research-and-editing.md`?
 [Timestamp: 2026/11/10 15:01:03]
+
+**user**: can we audit # AI Governance & Safety — Bookmark Index ?  And update if needed. looks like it was created before current version skill
+[Timestamp: 2026/11/10 15:16:35]
+
+**ai**: I've audited the AI Governance & Safety index against skill v1.3. You're right that it predates the current skill, and it falls short on several points. I haven't changed it yet: fixing it properly means deciding where it should live, and the vault rules say to ask before restructuring.
+
+## Audit findings
+
+**Where it lives**
+1. **It only exists as an import copy.** The file sits in `00_Claude_Admin/Nexus Attachment Imports/…`, inside the Nexus wrapper. If you re-import the conversation, any edits could be overwritten.
+2. **Its identity marker is nested.** `canonical_id: ai-governance-safety-index` appears in the body, under `## Content`, not in the file's real frontmatter. An exact search still finds it, but only by accident of how the importer wrapped it.
+
+**Format**
+3. **The hierarchy is flat.** It has one H2 per bookmark (000, 001, 002) and no nested list. None of the sub-items appear in the index, so they can't be reached from it:
+   - 001a and 001b
+   - 002.I.a/b, 002.II.a/b and 002.III.a/b
+   - 002-premise
+4. **The 000 link goes to the raw chat transcript.** It should point to the bookmark page, `000-root-exploration_v1`.
+5. **The Corpus Governance index is named in bold text, not linked.**
+
+**Bookmark pages**
+6. **The 000, 001 and 002 pages are missing the stub frontmatter the skill requires** (`canonical_id`, `type`, `status`, `bookmark`, `territory`). They carry only Nexus metadata. Only `cg-001` has it.
+7. **Sub-items have no pages of their own.** They exist as sections inside the 001 and 002 pages. I think that's fine, because the index can link straight to those sections. It doesn't need ten new notes.
+
+**Cross-references**
+8. **There's no link back to GSH.** GSH-001 points to bookmark 002, but 002 doesn't point back.
+9. **A small item to note, not fix:** the "Scalable alignment" material in 002 is marked "adjacent territory, not yet absorbed into the tiers." That's a candidate for 002.IV or a new bookmark later.
+
+## Proposed fix
+
+**A. Create a canonical index** at `02_Ideas Topics Concepts/AI Governance & Safety/AI Governance & Safety Bookmark Index.md`, alongside the GSH folder. It would have:
+- real frontmatter, with `canonical_id: ai-governance-safety-index`
+- a nested, collapsible hierarchy linking to each existing page, and to sub-items through section links (`[[002-scalability…_v1#Tiered subtopic structure|002.I.a — Deceptive alignment]]`)
+- the premise listed separately
+- a two-way GSH cross-reference and a real link to the Corpus Governance index
+
+**B. Mark the import copy as superseded.** I'd change only its nested `canonical_id` line, to something like `superseded_by: …`, so the exact search finds just one match. Otherwise the skill would find two and stop to ask every time.
+
+**C. Leave the existing pages where they are for now.** Moving them, or adding stub frontmatter to them, means editing imported files, which a re-import could undo. That fits better in a separate cleanup of the import folder.
+
+The Corpus Governance index has the same problems, plus it has no `canonical_id` at all. It could get the same treatment, in this round or later.
+
+## Two other things
+- **I corrected an error in [[Master Bookmark Index]].** I'd listed Corpus Governance as "not found," but the file exists in the imports folder, as `corpus-governance-bookmark-index_v1`. My earlier search only looked for `canonical_id`, which that file doesn't have.
+- **There's a broken link in [[GSH-001 Global Wealth Distribution]].** The Source line on line 35 was changed outside this conversation and now has one link nested inside another: `[[agent__new_junk_conversation_test_bookmarking[[agent__…]]@20261109_143045]]`. That looks accidental. I haven't touched it; should I fix it?
+
+Should I go ahead with A and B, and include Corpus Governance in this round?
+[Timestamp: 2026/11/10 15:16:35]
+
+**user**: yes
+[Timestamp: 2026/11/10 15:17:42]
+
+**ai**: I've finished both fixes. Each index now has exactly one canonical copy.
+
+**New canonical indices**
+- **[[AI Governance & Safety Bookmark Index]]**, in `02_Ideas Topics Concepts/AI Governance & Safety/`:
+  - real frontmatter and a collapsible nested list covering 000 → 001 (a/b) → 002 (I, II, III, each with a/b)
+  - 002-premise listed on its own, and "scalable alignment" listed as an open candidate
+  - cross-references to GSH-001 and CG-001
+- **[[Corpus Governance Bookmark Index]]**, in `02_Ideas Topics Concepts/Corpus Governance/`:
+  - its first `canonical_id`, and CG-000 → CG-001 with its three principles nested underneath
+  - open candidates, including the research-depth rule as a 4a item, and the skill's v1.2 → v1.3 changes
+
+**Other changes**
+- **Old AI Governance import:** its nested `canonical_id` line now reads `superseded_by:`. The Corpus Governance import had no ID, so it needed no change.
+- **[[Master Bookmark Index]]:** both indices are now listed as live and point to the new files.
+- **Links:** the GSH index and GSH-001 now point to the new AI Governance index.
+- **GSH-001 Source line:** I fixed the doubled link.
+
+**Checked:** an exact search finds one match each for `ai-governance-safety-index`, `corpus-governance-index` and `master-bookmark-index`.
+
+**Two limits:**
+- **Sub-item links:** the 001a and 001b entries link to the "Technical Specification & Architecture" heading, because those sub-items are bold text in an imported page, not headings. All the 002 sub-items link to the single "Tiered subtopic structure" heading. Linking each one exactly would mean editing the imported pages, which I left alone as agreed.
+- **Bookmark pages:** they're all still Nexus import files without stub frontmatter. That belongs to a later cleanup of the imports folder.
+
+**Something I didn't expect:** the vault also has an **[[Anthropic-S1R Bookmark Index]]**, in `02_Ideas Topics Concepts/Anthropic S-1 Risks/`, created outside this conversation. It isn't registered in the master index. It also still links to the old import copy of the AI Governance index, so that link now leads to a superseded copy. Should I register it in the master index and update that link?
+[Timestamp: 2026/11/10 15:17:42]
+
+**user**: yes
+[Timestamp: 2026/11/10 15:20:52]
+
+**ai**: I've done both: the S-1 index is registered and its link is fixed.
+
+- **[[Master Bookmark Index]]:** now lists **Anthropic S-1 Risk Factors** as live, with its `canonical_id` (`anthropic-s1r-bookmark-index`), its prefix (`Anthropic-S1R-`) and its scope.
+- **[[Anthropic-S1R Bookmark Index]]:** its link to the AI Governance & Safety index now points to the new canonical copy instead of the superseded import. I also added a "Registered in the Master Bookmark Index" line, matching the other indices. I didn't change anything else in it.
+
+The master index now lists four live indices: GSH, AI Governance & Safety, Corpus Governance and Anthropic S-1.
+
+The S-1 index's ID prefix is longer than the others: `Anthropic-S1R-000`, compared with `GSH-000` and `CG-000`. It works, but a shorter prefix like `S1R-` would be easier to type in links. Renaming it would mean updating every page in that index, so it's best decided now, while the index is new. Tell me if you want to change it.
+[Timestamp: 2026/11/10 15:20:52]

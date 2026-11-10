@@ -30,7 +30,7 @@ Click the arrow beside an item to open or close its branch.
 
 ## Cross-references
 - **GSH-001 drives GSH-002, GSH-003 and GSH-004.** It's where the structural cause sits; the others are where the harm lands.
-- **GSH-001** links to bookmark 002 (concentration of control) in the [[ai-governance-safety-bookmark-index_v1|AI Governance & Safety index]].
+- **GSH-001** links to bookmark 002 (concentration of control) in the [[AI Governance & Safety Bookmark Index|AI Governance & Safety index]].
 - **GSH-003** links to [[Peace Can Be Built Intentionally]] and [[Schuman Declaration]].
 - **GSH-005** links strongly to GSH-001 and GSH-004, and to GSH-002 through lost livelihoods (partly supported) and competition for water and land (speculative). Real-world precedents are in its research table.
 
