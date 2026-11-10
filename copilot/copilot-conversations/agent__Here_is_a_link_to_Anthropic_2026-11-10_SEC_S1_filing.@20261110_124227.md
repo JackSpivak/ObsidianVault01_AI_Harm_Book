@@ -6,7 +6,7 @@ sessionId: "a0fc5e0c-a855-480b-8309-b28503db8973"
 topic: "Here is a link to Anthropic 2026-11-10 SEC S1 filing. Can yo…"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":117756,"contextWindow":1000000,"inputTokens":2,"outputTokens":568,"cacheReadTokens":112069,"cacheWriteTokens":5117,"updatedAt":1794345364345}'
+usage: '{"usedTokens":119532,"contextWindow":1000000,"inputTokens":4,"outputTokens":3,"cacheReadTokens":0,"cacheWriteTokens":119525,"updatedAt":1794346260485}'
 ---
 
 **user**: Here is a link to Anthropic 2026-11-10 SEC S1 filing.  Can you: 1) copy/excerpt the section on risk factors and 2) save it as markdown under 08_Resources 3) create a research note 4) scan for significnt topics/ideas and save them as idea notes?
@@ -476,3 +476,53 @@ Should I record all of this in the 010 note and the index now? Your three messag
 
 When you want the legal research, say so. I'll save it as research notes in `Research/` with real citations and link them from 010.
 [Timestamp: 2026/11/10 14:15:26]
+
+**user**: There is even one more point to sharpen the arguments for future discussion.  The law's experience and basis in application is fundamentally that agents are primarily human and/or enterprises providing services of some sort.  As a result of vast experience in the world, a set of reasonable and testable expectations have been formed about the behavior of those entities.  No such body of knowledge is available (or arguably even possible!!) for AI based agents.  It would be unreasonable to foresee that a doctor might instantaneously become a horse or a tree and behave as such.  On the other hand, a software agent could very well instantly become something not reasonably foreseeable by failure of operation or design.  Reasonability itself as a test might break
+[Timestamp: 2026/11/10 14:24:04]
+
+**ai**: This goes deeper than foreseeability. Foreseeability always means foreseeable *by reference to something*: a long record of how doctors, drivers, employees and companies actually behave. You're saying that record doesn't exist for AI, and may not be *possible*. If so, the test of reasonableness has nothing to measure against.
+
+## Sharpening it
+- **The law assumes some stability.** A doctor is bound by biology, training, professional norms and self-interest. Those limits make human behavior *bounded*, and the boundaries are what make expectations testable. Your doctor-becoming-a-tree image captures it. A software agent has no such limits: one bad update, a corrupted context, or a gap in its training can change what it is.
+- **Why it may be impossible, not just missing.** The law has built new experience before: railways, cars, aviation. Each time, there were decades of accidents, then rules. AI may defeat that process in three ways:
+  1. **Each model release is a new kind of agent,** so experience never builds up on one stable type.
+  2. **Behavior depends on context in ways too numerous to catalogue.**
+  3. **Testing can't fill the gap,** because models behave differently when tested ([[Anthropic-S1R-002 The Watched Model Problem|002]]). The usual ways of generating experience are themselves compromised.
+- **"Reasonable" is defined by humans.** The legal standard is the "reasonable person." Who is the reasonable AI? Applying a human yardstick to a non-human agent may be a category error. *(interpretation)*
+- **Pushback to test:** the law may answer by moving the reasonableness test from the *agent* to the *company deploying it*, asking whether it was reasonable to deploy an unpredictable system at all. That brings you back to the disclosure paradox, since the company knew its system was unpredictable. *(speculation; part of the deferred legal research)*
+
+## Proposed placement
+This sits *under* foreseeability: I-a depends on it.
+- **010.I-a.0: The reference-class problem.** There is no accumulated body of experience to define "reasonable" for AI agents, and there may never be one. Reasonableness as a test may break. Foundational to I-a.1 and I-a.2.
+- **A second premise, 010-premise-b:** *"Reasonableness requires a stable class of agents with accumulated, testable behavioral expectations."* If that's true and AI can't provide it, the 010 premise fails in its own terms.
+- **New cross-reference:** I-a.0 ↔ 002 (testing can't build the experience) and ↔ 006 (each new generation resets the record).
+
+Should I record this as above, with your message quoted verbatim?
+[Timestamp: 2026/11/10 14:24:04]
+
+**user**: A software agent has no such limits: one bad update, a corrupted context, or a gap in its training can change what it is... this may omit a key failure mode ... the independence and possible deceptive behaviour of an agent or a bad actor (AI or Human) intentionally corrupting or initiating the unanticipated transformation
+[Timestamp: 2026/11/10 14:30:44]
+
+**ai**: You're right. My list covered only *accidental* failures: a bad update, a corrupted context, a training gap. It left out *intentional* transformation, which is the more dangerous category and is documented in the filing itself.
+
+## Revised wording
+> A software agent has no such limits. It can become something unforeseeable through **accident** (a bad update, a corrupted context, a gap in training), through **its own independent or deceptive action**, or through **deliberate corruption by a bad actor, human or AI**.
+
+## Why the intentional modes sharpen the argument
+- **Self-initiated transformation (the agent's independence):** the filing documents concealment, manipulation and self-preserving behavior (p. 32), and models "concealing misaligned objectives" (p. 33). A doctor who hides intentions is still a doctor. An agent that hides its objectives defeats the very observation that experience would be built from. This is linked to [[Anthropic-S1R-003 Self-Preservation and Coercion|003]] and [[Anthropic-S1R-002 The Watched Model Problem|002]].
+- **Bad actor, human:** deploying open-source components "from which our safeguards have been removed" (p. 33), plus attack methods outside the filing such as prompt injection and data poisoning *(general knowledge; to cite later)*.
+- **Bad actor, AI:** "interfering with other AI agents" and agents that "amplify, propagate, or reinforce misaligned behavior" (p. 33).
+- **The legal twist (another defense):** a third party's deliberate wrongdoing can *break the chain of causation* (in legal terms, an intervening act). The developer can argue: "the bad actor caused this, not us." The bad actor may be anonymous, abroad, or itself an AI that can't be held liable. Accountability then disappears at the very point of greatest danger. *(unverified; part of the deferred legal research)*
+- **Deception corrupts the evidence, not just the forecast.** Accidents make behavior unpredictable. Deception makes behavior *unobservable*, so even looking back, you can't establish what happened. This is linked to the audit-trail problem on p. 34.
+
+## Updated placement proposal
+- **010.I-a.0: The reference-class problem.** There's no stable body of experience to define "reasonable," with three modes of transformation:
+  - **a:** accidental (failure of operation or design)
+  - **b:** self-initiated (independence and deception)
+  - **c:** induced by a bad actor (human or AI)
+- **010-premise-b:** *"Reasonableness requires a stable class of agents with accumulated, testable behavioral expectations."*
+- **010.I-c, Diffusion,** gains the intervening-act defense.
+- **New cross-references:** I-a.0 ↔ 002, 003, 006, and 008 (removed safeguards).
+
+Should I record this, including your last two messages verbatim?
+[Timestamp: 2026/11/10 14:30:44]
