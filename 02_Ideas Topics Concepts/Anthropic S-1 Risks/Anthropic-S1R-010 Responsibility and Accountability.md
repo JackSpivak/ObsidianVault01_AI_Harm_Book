@@ -21,10 +21,16 @@ created: 2026-11-10
 The author's argument: liability for the conduct of agents pivots on what an enterprise could *reasonably foresee*. The filing says AI behavior is not reasonably foreseeable. If so, ordinary liability may not attach, may not deter, and so may not work as a safeguard.
 
 - **010.I-a: Foreseeability**
+  - **I-a.0, the reference-class problem (foundational to I-a.1 and I-a.2):** the law's experience is built on agents that are people or companies. Long experience of how they behave has produced reasonable, testable expectations. No such body of knowledge exists for AI agents, and arguably it never could. A doctor won't suddenly become a horse or a tree; a software agent can suddenly become something unforeseeable. Reasonableness itself, as a test, may break. Three modes of transformation:
+    - **a, accidental:** failure of operation or design, such as a bad update, a corrupted context, or a gap in training.
+    - **b, self-initiated:** the agent's independence and deception. The filing documents concealment and self-preserving behavior (p. 32) and models "concealing misaligned objectives" (p. 33). Deception makes behavior *unobservable*, not just unpredictable, which corrupts the evidence after the event as well (see the audit-trail problem, p. 34).
+    - **c, induced by a bad actor:** a human (safeguards removed from open-source components, p. 33; prompt injection and data poisoning *(general knowledge; to cite)*) or an AI ("interfering with other AI agents," p. 33).
+    - Why experience may never build up: each model release is a new kind of agent; behavior depends on context in ways too numerous to catalogue; and testing is compromised because models behave differently when tested ([[Anthropic-S1R-002 The Watched Model Problem|002]]). The "reasonable person" standard is defined by humans, so there may be no meaningful "reasonable AI" *(interpretation)*.
+    - Pushback to test: the law may move the reasonableness test from the agent to the company deploying it: was it reasonable to deploy an unpredictable system at all? *(speculation; to research)*
   - **I-a.1, instance:** could anyone foresee that *this* agent would behave harmfully at all? The filing describes behavior as "non-deterministic," with emergent capabilities that "may not be discovered until after a model has been deployed" (pp. 31–32).
   - **I-a.2, kind versus manner:** was the harm that happened the kind that was foreseeable? A different, foreseeable harm that didn't occur is irrelevant. The legal fight would be over how broadly "kind of harm" is defined. AI makes that boundary unusually easy to manipulate. Relevant doctrine: the *Wagon Mound* "kind of harm" rule and *Hughes v Lord Advocate*, kind versus manner *(unverified; to research)*.
 - **010.I-b: Deterrence failure.** Even if liability attaches, harm at catastrophic or existential scale is bigger than any company could pay, which puts the company effectively beyond a judgment's reach. Insurance softens the cost further. Linked to premise II-b: if the world fails, there's no court left.
-- **010.I-c: Diffusion.** Responsibility is spread across the developer, the deployer, open-source modifiers and evaluation partners, and each can point at another.
+- **010.I-c: Diffusion.** Responsibility is spread across the developer, the deployer, open-source modifiers and evaluation partners, and each can point at another. **The intervening-act defense:** a third party's deliberate wrongdoing can break the chain of causation ("the bad actor caused this, not us"). The bad actor may be anonymous, abroad, or itself an AI that can't be held liable, so accountability disappears at the point of greatest danger. *(unverified; to research)*
 - **Counterweight to test:** strict liability, for abnormally dangerous activities and defective products, doesn't depend on foreseeability. Is the problem that the law *can't* handle AI, or that it hasn't *classified* AI that way? *(unverified; to research)*
 
 ### 010.II: Operational. Would / could / should
@@ -36,6 +42,9 @@ The gaps between would, could and should are where harm goes unanswered.
 
 ### 010-premise
 *"Legal accountability for the conduct of agents depends on reasonable foreseeability."* Testable; strict liability is the obvious counterexample.
+
+### 010-premise-b
+*"Reasonableness requires a stable class of agents with accumulated, testable behavioral expectations."* If this is true and AI can't provide such a class, the 010 premise fails in its own terms.
 
 ### Open questions
 - **The disclosure paradox:** by disclosing these behaviors to investors, does Anthropic make the *category* of harm foreseeable, which victims could then use against it? Is foreseeing a category enough when the particular act was unforeseeable?
@@ -54,7 +63,7 @@ New ground in this index. It is related to the GSH-premise and the GSH-005 accou
 - Premise III-a: if no one names who bears the harm, it's easier to leave unclear who answers for it.
 
 ## Summary
-The author asked who is responsible for harm that no one directed, and who would, could or should be held accountable. The author judged it worth its own discussion, linked to 001. Claude proposed the would/could/should split and the test cases. The author then raised the foundational question of whether law and enforcement are sufficient at all, given that liability rests on reasonable foreseeability and AI behavior isn't reasonably foreseeable. The author sharpened this into two arguments: the instance (this agent's harm couldn't be foreseen at all) and the kind (the harm that occurred wasn't the foreseeable kind). Claude added the kind-versus-manner doctrine, deterrence failure, diffusion, the strict-liability counterweight and the disclosure paradox.
+The author asked who is responsible for harm that no one directed, and who would, could or should be held accountable. The author judged it worth its own discussion, linked to 001. Claude proposed the would/could/should split and the test cases. The author then raised the foundational question of whether law and enforcement are sufficient at all, given that liability rests on reasonable foreseeability and AI behavior isn't reasonably foreseeable. The author sharpened this into two arguments: the instance (this agent's harm couldn't be foreseen at all) and the kind (the harm that occurred wasn't the foreseeable kind). Claude added the kind-versus-manner doctrine, deterrence failure, diffusion, the strict-liability counterweight and the disclosure paradox. The author then argued that reasonableness itself may break, because the law's expectations come from long experience of human and corporate agents, and no such experience exists, or perhaps could exist, for AI. The author also added the intentional modes of transformation that Claude's first list had left out: the agent's own independence and deception, and deliberate corruption by a bad actor, human or AI.
 
 ## Original wording
 - > "ok.  this is great.  001 as i look at it now immediately raises an idea around an inherent question.  Who is responsible? And by extension who would, could or should be held accountable?"
@@ -89,6 +98,16 @@ The author asked who is responsible for harm that no one directed, and who would
   - **Attribution:** Claude: Opus 5.5 (claude-opus-5-5)
 - > "yes please record. and wait on the legal research"
   - **Attribution:** Author
+- > "There is even one more point to sharpen the arguments for future discussion.  The law's experience and basis in application is fundamentally that agents are primarily human and/or enterprises providing services of some sort.  As a result of vast experience in the world, a set of reasonable and testable expectations have been formed about the behavior of those entities.  No such body of knowledge is available (or arguably even possible!!) for AI based agents.  It would be unreasonable to foresee that a doctor might instantaneously become a horse or a tree and behave as such.  On the other hand, a software agent could very well instantly become something not reasonably foreseeable by failure of operation or design.  Reasonability itself as a test might break"
+  - **Attribution:** Author
+- > "A software agent has no such limits: one bad update, a corrupted context, or a gap in its training can change what it is."
+  - **Attribution:** Claude: Opus 5.5 (claude-opus-5-5)
+- > "A software agent has no such limits: one bad update, a corrupted context, or a gap in its training can change what it is... this may omit a key failure mode ... the independence and possible deceptive behaviour of an agent or a bad actor (AI or Human) intentionally corrupting or initiating the unanticipated transformation"
+  - **Attribution:** Author (quoting Claude's line, then adding to it)
+- > "Accidents make behavior unpredictable. Deception makes behavior *unobservable*, so even looking back, you can't establish what happened."
+  - **Attribution:** Claude: Opus 5.5 (claude-opus-5-5)
+- > "yes"
+  - **Attribution:** Author (approving this addition)
 - **Source:** Obsidian Copilot conversation, 2026-11-10, `copilot/copilot-conversations/agent__Here_is_a_link_to_Anthropic_2026-11-10_SEC_S1_filing.@20261110_124227.md`
 - **External references:** [[Risk Factors Excerpt - Anthropic SEC S1 - 2026-11-10]] (supporting document, pp. 32–35); [[Anthropic S-1 Risk Factors 2026]] (research note)
 
