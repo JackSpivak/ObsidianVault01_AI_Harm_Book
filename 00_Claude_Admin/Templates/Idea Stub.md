@@ -1,7 +1,7 @@
 ---
 type: idea
 status: stub
-bookmark: unfiled
+bookmark: draft
 canonical_id:
 territory: new
 tags: []

@@ -1,8 +1,8 @@
 ---
 name: bookmark-index-maintainer
 metadata:
-  version: "1.4"
-description: Maintains and extends a numbered "bookmark" taxonomy index (e.g. 001, 002, lettered a/b sub-framings, tiered I/II/III structures, standalone -premise tags) that tracks branches of an ongoing exploration. Use this skill whenever a new tension, question, or subtopic comes up that might not fit the existing index, whenever the user asks to bookmark, track, extend, reorganize, or revisit part of a conversation, or whenever it's worth checking if the current taxonomy still holds. Trigger even without the word "bookmark" — phrases like "this feels like its own thing," "where does this fit," "should we track this separately," or the user clearly opening a new line of inquiry within a tracked exploration should all trigger this skill. Also use it proactively, unprompted, when you notice a new branch emerging that the existing index doesn't cover. Also use it to file a manually written note into an index ("file this note", "sweep unfiled notes", any note whose bookmark field is "unfiled") and to move a filed note to a better-fitting index ("this belongs elsewhere", "move this note").
+  version: "1.5"
+description: Maintains and extends a numbered "bookmark" taxonomy index (e.g. 001, 002, lettered a/b sub-framings, tiered I/II/III structures, standalone -premise tags) that tracks branches of an ongoing exploration. Use this skill whenever a new tension, question, or subtopic comes up that might not fit the existing index, whenever the user asks to bookmark, track, extend, reorganize, or revisit part of a conversation, or whenever it's worth checking if the current taxonomy still holds. Trigger even without the word "bookmark" — phrases like "this feels like its own thing," "where does this fit," "should we track this separately," or the user clearly opening a new line of inquiry within a tracked exploration should all trigger this skill. Also use it proactively, unprompted, when you notice a new branch emerging that the existing index doesn't cover. Also use it to file manually written notes into an index. Match by meaning, not exact words, e.g. "file this note", "sweep unfiled notes", "file notes", "sweep notes", "file uncategorized", "file my new ideas", "process the inbox", or a session-start reminder that notes are ready in _Unfiled Ideas and to move a filed note to a better-fitting index ("this belongs elsewhere", "move this note").
 ---
 
 # Bookmark Index Maintainer
@@ -76,9 +76,17 @@ Before creating a new idea or topic page, check whether one already exists for t
 
 ### Filing an existing note (the inverse process)
 
-A note written by hand — ideally from the `Idea Stub` template, marked `bookmark: unfiled` — goes through the same pipeline in reverse: note first, then bookmark. The end state must be indistinguishable from a skill-created stub.
+A note written by hand — from the `Idea Stub` template, in `02_Ideas Topics Concepts/_Unfiled Ideas/` — goes through the same pipeline in reverse: note first, then bookmark. The end state must be indistinguishable from a skill-created stub.
 
-**Triggers:** "file this note" (one note), or "sweep unfiled notes" (every note with `bookmark: unfiled`).
+**The inbox and the completion marker:**
+- `_Unfiled Ideas/` is the inbox: *where* waiting notes live. Filing moves them out; an empty folder means everything is filed.
+- The `bookmark` field says *whether* a note is done: `draft` (still being written — never file it) → `ready` (author marked it finished — file it). The author flips it; never flip it yourself.
+- A note anywhere in the vault marked `ready` (or the legacy value `unfiled`) also counts, so a stub created outside the inbox isn't lost.
+
+**Triggers** (match by meaning, not exact words):
+- One note — "file this note" with the note attached or named. File it even if it's `draft` when the user explicitly asks, but mention that it was still marked draft.
+- Sweep — "sweep unfiled notes", "file notes", "file uncategorized", etc.: every `ready` note. List `draft` notes in the inbox by name only ("2 drafts left untouched").
+- Session-start reminder — if a hook reports ready notes at the start of a session, mention the count once and offer a sweep; don't start filing unprompted.
 
 1. **Read the note.** If it lacks the stub sections (Why this is distinct / Anticipated direction / Conceptual territory), draft them from the note's own content and show them — don't invent beyond what the note supports.
 2. **Dedup.** Exact check by `canonical_id` and distinctive title (see "Dedup before creating"). If the idea already has a page, propose linking or merging instead of filing.
