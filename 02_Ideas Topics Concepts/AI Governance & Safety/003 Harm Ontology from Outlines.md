@@ -1,15 +1,18 @@
 ---
 type: idea
 status: stub
-bookmark: ready
-canonical_id:
+bookmark: "003"
+canonical_id: aigs-003-harm-ontology
 territory: new
 tags: []
-aliases: []
+aliases: [New Filing test note, "003"]
 created: 2026-11-10
+filed: 2026-11-10
 ---
 
-# New Filing test note
+# 003 — Harm ontology from outlines
+
+Index: [[AI Governance & Safety Bookmark Index]] · Parent: [[000-root-exploration_v1|000 — Harm & Guardrails]]
 
 ## Why this is distinct
 -Because I say so

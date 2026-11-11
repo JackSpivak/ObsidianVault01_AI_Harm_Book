@@ -30,6 +30,7 @@ Click the arrow beside an item to open or close its branch.
 		- [[002-scalability-of-oversight-and-control_v1#Tiered subtopic structure|002.III — Institutional/meta]] *(governance of the governance layer)*
 			- [[002-scalability-of-oversight-and-control_v1#Tiered subtopic structure|002.III.a — Who oversees the oversight infrastructure]]
 			- [[002-scalability-of-oversight-and-control_v1#Tiered subtopic structure|002.III.b — Incentives of the oversight-research ecosystem]]
+	- [[003 Harm Ontology from Outlines|003 — Harm ontology from outlines]]: formalize the 000 harm taxonomy as RDF/OWL/SHACL, generated from markdown outlines and YAML properties. Filed from a manual note, 2026-11-10.
 
 ## Premises
 - [[002-scalability-of-oversight-and-control_v1#Tiered subtopic structure|002-premise]]: **"Verification is easier than generation."** True for maths and code; unproven for value judgments and long-horizon consequences. Several Tier II and III approaches, debate especially, depend on it. Re-check it periodically.
@@ -41,6 +42,7 @@ Click the arrow beside an item to open or close its branch.
 - **001 and 002.II.a:** nominal human authority isn't the same as authority meaningfully exercised (001's autonomy/paternalism thread).
 - **002 and [[GSH Bookmark Index|GSH-001]]:** concentration of control links to [[GSH-001 Global Wealth Distribution]] in the Global Structural Harm index.
 - **002 and [[Corpus Governance Bookmark Index|CG-001]]:** CG-001 is the ground-level face of 002, and a counter-example to 002.II.a: a gap that attentive human oversight caught.
+- **003 and [[Corpus Governance Bookmark Index|Corpus Governance]]:** the tooling side of 003 (reading markdown outlines, storing properties in YAML) is a vault-convention question. Any answer would become a corpus-wide rule.
 
 ## Summary
 The original index was created in the claude.ai "000" conversation and imported through Nexus. It predates bookmark-index-maintainer v1.3. This canonical copy was rebuilt on 2026-11-10 after an audit:

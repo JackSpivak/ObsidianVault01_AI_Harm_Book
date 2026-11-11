@@ -6,7 +6,7 @@ sessionId: "f9eab68b-c5d5-4436-8f57-f8a507c6995c"
 topic: "bookmarking skill"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":313580,"contextWindow":1000000,"inputTokens":4,"outputTokens":5,"cacheReadTokens":312493,"cacheWriteTokens":1078,"updatedAt":1794357036781}'
+usage: '{"usedTokens":318542,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":317066,"cacheWriteTokens":1471,"updatedAt":1794357822558}'
 lastAccessedAt: 1794356243367
 ---
 
@@ -960,3 +960,42 @@ Keep it or drop it? Either way, the rest of the plan stays the same.
 
 **ai**: You'd already filled in Original wording yourself, so I'm leaving it as you wrote it and updating only the frontmatter and heading.
 [Timestamp: 2026/11/10 17:31:22]
+
+**user**: ok.  we seem to have a problem. maybe edge case. the artifacts associatedd with ai governance and safety didnt move to the ideas folder.  I know i asked for an audit. what is needed to move them out of the nexus attacchment imports subfolder?
+[Timestamp: 2026/11/10 17:43:01]
+
+**ai**: I'll add the last two cross-references, then answer your question about the import files.**Filing done.** [[003 Harm Ontology from Outlines]] now sits in `AI Governance & Safety/` with ID 003 and `canonical_id: aigs-003-harm-ontology`. It's listed under 000 in the index and cross-referenced in both the AI Governance & Safety and Corpus Governance indices. Your text is unchanged: you'd already filled in Original wording, so I left it as you wrote it. The only remaining link to the old name is in this chat's transcript, and the alias covers it.
+
+## Why the bookmark pages didn't move
+
+They were left behind on purpose, not by accident. In the audit plan, step C was "leave the existing pages where they are for now," because they're Nexus import files and editing them in place could be undone by a re-import. Only the two **indices** got canonical copies. The four **bookmark pages** they point to are still in the imports folder:
+
+- `000-root-exploration_v1`
+- `001-existential-safety-question_v1`
+- `002-scalability-of-oversight-and-control_v1`
+- `cg-001-corpus-vigilance_v1`
+
+## What moving them would involve
+
+For each page:
+1. **Create a clean canonical copy** in the index's folder:
+   - drop the Nexus wrapper (its metadata, the "(Version 1)" heading and the "Content" section header)
+   - add stub frontmatter: `canonical_id`, `bookmark`, `type`, `status`, `territory`
+   - record where it came from, with a `source:` field linking the original chat
+2. **Rename it to the index convention:**
+   - `000 Harm & Guardrails Root Exploration`
+   - `001 Existential Safety Question`
+   - `002 Scalability of Oversight and Control`
+   - `CG-001 Corpus Vigilance Under Narrow-Task Execution`
+3. **Promote the sub-items to headings** (001a, 001b, 002.I.a, …), so the index links go straight to each one instead of to one shared section. The wording stays the same.
+4. **Rewrite links** in the AI Governance & Safety index (about 15), the Corpus Governance index, 003's parent link and the Master index. Transcripts and imports stay as they are, and each new page carries its old name as an alias.
+5. **Deal with the originals in the imports folder:**
+   - **(a) Mark them superseded and leave them** (recommended). This matches what we did with the indices. If Nexus re-imports, it just recreates files that are already marked as old.
+   - **(b) Move them.** This is tidier now, but a re-import would bring back unmarked copies that look current.
+
+This is a restructuring touching about 10 files, so the vault rules have me ask first. The rest of the imports folder (README, project-organization, platform-mechanics and the 13 old SKILL versions) aren't bookmark pages, so I'd leave them for a separate cleanup.
+
+**Also noticed:** the S-1 index has been moved, from another session, into `AI Governance & Safety/Anthropic S-1 Risks/`. Links to it still work, because Obsidian finds notes by name.
+
+Should I go ahead with steps 1–5 using option (a)? I can also add a short "Migrating imported pages" section to the skill, so future imports are handled the same way.
+[Timestamp: 2026/11/10 17:43:01]

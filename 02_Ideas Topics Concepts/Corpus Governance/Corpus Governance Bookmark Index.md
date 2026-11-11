@@ -31,6 +31,7 @@ These are possible future entries, from the original index's notes and this vaul
 - The research-depth rule: "open the reference links even without the word 'extensive'." Raised as a 4a example on 2026-11-10.
 
 ## Cross-references
+- **AI Governance & Safety 003 ([[003 Harm Ontology from Outlines]]):** whether to store properties in YAML and make outlines machine-readable is a convention question for this index if it becomes a vault-wide rule.
 - **CG-001 and AI Governance & Safety 002:** CG-001 is the ground-level face of 002, and a counter-example to 002.II.a, since the gap was *caught* by human oversight. See [[AI Governance & Safety Bookmark Index]].
 
 ## Summary
