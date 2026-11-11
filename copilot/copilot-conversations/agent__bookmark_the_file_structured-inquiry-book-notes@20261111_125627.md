@@ -6,7 +6,7 @@ sessionId: "90747049-8c51-4828-9f99-970cf41477cf"
 topic: "bookmark the file structured-inquiry-book-notes"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":45490,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":44293,"cacheWriteTokens":1192,"updatedAt":1794427016887}'
+usage: '{"usedTokens":48417,"contextWindow":1000000,"inputTokens":4,"outputTokens":3,"cacheReadTokens":0,"cacheWriteTokens":48410,"updatedAt":1794427631757}'
 ---
 
 **user**: bookmark the file structured-inquiry-book-notes
@@ -31,3 +31,73 @@ usage: '{"usedTokens":45490,"contextWindow":1000000,"inputTokens":2,"outputToken
 
 Which do you want? If it's option 1, should I group closely related items, such as the four councils, into one bookmark with lettered sub-items? Doing that would cut the number of stub pages from about 28 to about 12–15.
 [Timestamp: 2026/11/11 12:56:27]
+
+**user**: is the structure of the stub note any different than the idea note in templates
+[Timestamp: 2026/11/11 13:01:13]
+
+**ai**: Yes. There are two templates, and they're built for different jobs. [[Idea Stub]] is the shape the bookmark skill produces. [[Idea]] is a general note for developing an idea.
+
+**Frontmatter**
+
+| Field | Idea | Idea Stub |
+|---|---|---|
+| `type` | `idea` | `idea` |
+| `status` | `seed` | `stub` |
+| `bookmark` | — | `draft` → `ready` → the bookmark ID |
+| `canonical_id` | — | yes (the exact-match identity key) |
+| `territory` | — | `new` / `revisited` (plus `revisits:` when revisited) |
+| `tags`, `aliases`, `created` | yes | yes |
+
+**Body sections**
+
+| Idea | Idea Stub |
+|---|---|
+| The idea - Summary | Why this is distinct |
+| The idea - Original wording | Anticipated direction |
+| Real-world examples | Conceptual territory |
+| Why it matters to the book | Summary |
+| Open questions | Original wording (with per-quote attribution, Source, External references) |
+| Related | — |
+
+**What this means in practice**
+- **Idea Stub** answers where the idea sits in the taxonomy: why it's distinct, where it's heading, and whether the ground is new. It carries the fields the skill needs to find, file and move the note.
+- **Idea** is about the content: examples, why it matters to the book, open questions and related notes. It has no bookmark fields, so the skill can't resolve or file a note made from it.
+- **Both** include Summary and Original wording, as the note-creation rules in CLAUDE.md require. The Idea Stub version is more complete because it already has slots for attribution, source and external references.
+
+The template is consistent with the skill. It matches the stub spec in the skill and adds `tags`, `aliases` and the Summary and Original wording sections.
+
+One thing to decide: when a stub grows, should it gain the Idea sections (examples, why it matters, open questions) while keeping its bookmark fields? Or should a bookmarked idea always stay in the stub shape? Settling this would also decide whether the template for option 1 is the stub alone or the stub plus Idea sections.
+[Timestamp: 2026/11/11 13:01:13]
+
+**user**: yes. definitely. when a stub idea grows, it should add fields that a currently templated idea fields has.  how would that be triggered?
+[Timestamp: 2026/11/11 13:06:59]
+
+**ai**: I'd use the `status` field as the trigger. You change it, and the sections get added. Here are the options:
+
+**1. You change `status: stub` to `status: developing` (recommended)**
+- Status is already the stub's maturity marker, and the skill says it should progress beyond `stub` as the page grows. Changing it is a deliberate statement that the idea has grown.
+- This follows the same pattern as `bookmark: draft → ready`: you set the field and the skill acts on it, and the skill never changes the field itself.
+- When the skill sees a note with a bookmark ID, `status: developing`, and none of the Idea sections, it appends them below Conceptual territory and leaves your existing content alone:
+  - Real-world examples
+  - Why it matters to the book
+  - Open questions
+  - Related
+- It could run on request ("grow this note"), during a sweep, or from the session-start hook that already reports notes marked ready.
+
+**2. Manual insert inside Obsidian**
+- A small template, say `Idea Growth Sections.md`, holds only those four headings. You insert it with the core Templates command while you're in the note.
+- No AI is needed. The catch is that it doesn't update `status`, so the two can fall out of sync.
+
+**3. The skill notices growth on its own**
+- When the skill sees a stub that has outgrown its three sections, it suggests promoting it.
+- This is useful as a backup, but I wouldn't make it the main trigger. Judging when a note has grown is fuzzy, and the vault's pattern so far is that you decide.
+
+**My recommendation:** make option 1 the rule, keep option 2 as the in-Obsidian shortcut, and let option 3 only *suggest*, never act. Inserting the template by hand doesn't change `status`, so if the skill finds the new sections on a note still marked `stub`, it would offer to update the status.
+
+To put this in place I'd make three edits, and I'll wait for your go-ahead:
+1. **Skill file**: add a "Growing a stub" subsection under *Idea and topic pages* that describes the trigger, the four sections, and the rule never to overwrite existing content.
+2. **Templates**: add `00_Claude_Admin/Templates/Idea Growth Sections.md`.
+3. **Decisions_Log.md**: record that bookmarked ideas grow into the full Idea shape, triggered by `status: developing`.
+
+Should I go ahead with all three? And do you want `developing` as the status name, or something else, like `growing`?
+[Timestamp: 2026/11/11 13:06:59]
