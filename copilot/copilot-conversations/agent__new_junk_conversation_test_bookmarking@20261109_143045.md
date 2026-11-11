@@ -6,7 +6,7 @@ sessionId: "f9eab68b-c5d5-4436-8f57-f8a507c6995c"
 topic: "bookmarking skill"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":312502,"contextWindow":1000000,"inputTokens":2,"outputTokens":7,"cacheReadTokens":310957,"cacheWriteTokens":1536,"updatedAt":1794356830174}'
+usage: '{"usedTokens":313580,"contextWindow":1000000,"inputTokens":4,"outputTokens":5,"cacheReadTokens":312493,"cacheWriteTokens":1078,"updatedAt":1794357036781}'
 lastAccessedAt: 1794356243367
 ---
 
@@ -939,3 +939,24 @@ The first option also tests the start-of-chat reminder: flip it to `ready`, open
 
 Reply **"yes"**, with any changes, and I'll carry out the plan.
 [Timestamp: 2026/11/10 17:26:43]
+
+**user**: one thing first why the cross ref to corpus governance
+[Timestamp: 2026/11/10 17:30:26]
+
+**ai**: I suggested it because your note asks **two different kinds of question**.
+
+1. **"What if we think about really building an ontology"** of harm, and the RDF/OWL/SHACL modeling. That's about the *content*: what harm is and how its categories relate. It belongs in AI Governance & Safety, under 000.
+2. **"should we include properties in YAML?"** and **"Can tools work to ingest markdown style outlines?"** Those are about *how the vault itself is built*: what goes in note frontmatter, and whether our outlines are structured so tools can read them. That's the Corpus Governance index's stated scope ("architecture, structure, conventions, and governance of how this body of work is built"). A decision like "store harm properties in YAML" would become a vault convention that other notes follow.
+
+So the cross-reference marks that **if the tooling question gets answered, the answer is a convention decision**, not only an ontology decision.
+
+That said, it's a judgment call, and it may be premature. If you see YAML and outline-reading as just the *means* to build this one ontology, not a rule for the whole vault, the cross-reference is noise and I'd drop it. It's easy to add later if the conventions question becomes real.
+
+Keep it or drop it? Either way, the rest of the plan stays the same.
+[Timestamp: 2026/11/10 17:30:26]
+
+**user**: perfect.  go ahead with your plan
+[Timestamp: 2026/11/10 17:31:22]
+
+**ai**: You'd already filled in Original wording yourself, so I'm leaving it as you wrote it and updating only the frontmatter and heading.
+[Timestamp: 2026/11/10 17:31:22]

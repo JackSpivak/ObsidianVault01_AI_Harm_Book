@@ -26,6 +26,8 @@ created: 2026-11-10
 - should we include properties in YAML?
 - Can tools work to ingest markdown style outlines?
 ## Original wording
-- **User:** ""
+- **User:** "- OK. What if we think about really building an ontology.  are there tools to make directly from hierarchical outline?
+- should we include properties in YAML?
+- Can tools work to ingest markdown style outlines?"
 - **Source:** written manually in Obsidian, 2026-11-10
 - **External references:**
