@@ -6,7 +6,7 @@ sessionId: "90747049-8c51-4828-9f99-970cf41477cf"
 topic: "bookmark the file structured-inquiry-book-notes"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":48417,"contextWindow":1000000,"inputTokens":4,"outputTokens":3,"cacheReadTokens":0,"cacheWriteTokens":48410,"updatedAt":1794427631757}'
+usage: '{"usedTokens":49580,"contextWindow":1000000,"inputTokens":4,"outputTokens":8,"cacheReadTokens":0,"cacheWriteTokens":49568,"updatedAt":1794428116879}'
 ---
 
 **user**: bookmark the file structured-inquiry-book-notes
@@ -101,3 +101,33 @@ To put this in place I'd make three edits, and I'll wait for your go-ahead:
 
 Should I go ahead with all three? And do you want `developing` as the status name, or something else, like `growing`?
 [Timestamp: 2026/11/11 13:06:59]
+
+**user**: i am prefering that this idea harvesting in general makes idea notes and only new explicitly requested bookmarks creates stubs.  does that distinctio?
+[Timestamp: 2026/11/11 13:15:03]
+
+**ai**: Yes, I think the distinction makes sense (I'm assuming your question was "does that distinction make sense?"). It separates two kinds of note:
+
+- **Idea notes** are captured content. They're cheap, plentiful and not in any index.
+- **Stubs** are bookmarks you asked for. There are fewer of them, and each sits in a taxonomy.
+
+That keeps the indices small, which fits the skill's principle that not everything needs a number.
+
+**What changes:**
+
+1. **Harvesting this file.** Instead of filing ideas into indices, I'd create an Idea note for each idea, or each group of ideas, in `02_Ideas Topics Concepts/`, using the [[Idea]] template. No index entries, no IDs, and no new indices would be needed yet.
+2. **Bookmarking later.** When you explicitly bookmark an existing Idea note, the skill would add the stub fields to it: `bookmark`, `canonical_id`, `territory`, and the three sections (Why this is distinct, Anticipated direction, Conceptual territory). It would then rename and file the note. This is the reverse of the growth step we just discussed.
+3. **The end state is the same either way.** A note that started as a stub and grew, and an Idea note that was later bookmarked, both end up with every section from both templates. I could make that one combined shape.
+
+**One gap to close:** the skill currently tells me to flag possible new branches and propose placements on its own initiative. Under your rule, I'd still mention when an idea looks bookmark-worthy, but I'd create an Idea note or nothing. A stub would only be created when you say "bookmark this."
+
+**Proposed edits** (waiting for your go-ahead):
+1. **Skill file:**
+   - State the rule: harvesting creates Idea notes, and stubs are created only when you explicitly ask for a bookmark.
+   - Add a "Bookmarking an Idea note" step that adds the stub fields and sections to an existing Idea note.
+   - Keep the `status: developing` growth trigger for stubs.
+   - Tone down the proactive behavior so it only suggests.
+2. **Templates:** add `Idea Growth Sections.md`.
+3. **Decisions_Log.md:** record both decisions.
+
+Once that's settled, should I harvest `structured-inquiry-book-notes.md` into Idea notes? If so, I'll first show you the list of proposed notes, grouped (about 12–15), with titles.
+[Timestamp: 2026/11/11 13:15:03]
