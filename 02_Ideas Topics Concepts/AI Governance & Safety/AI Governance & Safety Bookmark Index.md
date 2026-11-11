@@ -11,29 +11,29 @@ created: 2026-11-10
 
 *A living table of contents for an ongoing exploration of harm, safeguards and AI governance. It describes what has been found. It doesn't limit what can be found next.* Maintained under the bookmark-index-maintainer rules (`.claude/skills/bookmark-index-maintainer/SKILL.md`). Registered in the [[Master Bookmark Index]].
 
-This is the canonical copy. It replaces the Nexus import [[ai-governance-safety-bookmark-index_v1]]. The bookmark pages are still Nexus import files; sub-items link to sections within them.
+This is the canonical copy. It replaces the Nexus import [[ai-governance-safety-bookmark-index_v1]]. The bookmark pages were migrated out of the Nexus imports on 2026-11-10 and live in this folder. Sub-items link to block IDs within them (e.g. `#^002-I-a`).
 
 ## Bookmarks
 Click the arrow beside an item to open or close its branch.
 
-- [[000-root-exploration_v1|000 — Harm & Guardrails: Root Exploration]]: the harm taxonomy (physical, psychological, economic, reputational, environmental, social/structural, informational, self-regarding), Mill's harm principle, legal harm, the *Gift of the Magi* case study, AI's own capacity for harm. Source chat: [[2026-10-15 - 000 — Harm & Guardrails Root Exploration]].
-	- [[001-existential-safety-question_v1|001 — Existential safety question]]: is "existential" risk a permanent foundational tradeoff, or an extinction-level technical risk? The two can call for *opposite* governance. Revisits 000 from a new angle.
-		- [[001-existential-safety-question_v1#Technical Specification & Architecture|001a — Foundational-tradeoff framing]]: no guardrail setting is harm-free; governance should be iterative, correctable, transparent, decentralized.
-		- [[001-existential-safety-question_v1#Technical Specification & Architecture|001b — Extinction-level framing]]: irreversible failure modes; governance should be precautionary and gated at the frontier.
-	- [[002-scalability-of-oversight-and-control_v1|002 — Scalability of oversight and control]]: can AI safely take part in its own safety governance, or is that an unresolvable conflict of interest?
-		- [[002-scalability-of-oversight-and-control_v1#Tiered subtopic structure|002.I — Structural defeaters]] *(upstream: if severe, the rest is damage control)*
-			- [[002-scalability-of-oversight-and-control_v1#Tiered subtopic structure|002.I.a — Deceptive alignment / mesa-optimization]]
-			- [[002-scalability-of-oversight-and-control_v1#Tiered subtopic structure|002.I.b — Multi-agent collusion / correlated blind spots]]
-		- [[002-scalability-of-oversight-and-control_v1#Tiered subtopic structure|002.II — Operational gaps]] *(live regardless of Tier I)*
-			- [[002-scalability-of-oversight-and-control_v1#Tiered subtopic structure|002.II.a — Human rubber-stamping / automation bias]]
-			- [[002-scalability-of-oversight-and-control_v1#Tiered subtopic structure|002.II.b — Corrigibility]]
-		- [[002-scalability-of-oversight-and-control_v1#Tiered subtopic structure|002.III — Institutional/meta]] *(governance of the governance layer)*
-			- [[002-scalability-of-oversight-and-control_v1#Tiered subtopic structure|002.III.a — Who oversees the oversight infrastructure]]
-			- [[002-scalability-of-oversight-and-control_v1#Tiered subtopic structure|002.III.b — Incentives of the oversight-research ecosystem]]
+- [[000 Harm & Guardrails Root Exploration|000 — Harm & Guardrails: Root Exploration]]: the harm taxonomy (physical, psychological, economic, reputational, environmental, social/structural, informational, self-regarding), Mill's harm principle, legal harm, the *Gift of the Magi* case study, AI's own capacity for harm. Source chat: [[2026-10-15 - 000 — Harm & Guardrails Root Exploration]].
+	- [[001 Existential Safety Question|001 — Existential safety question]]: is "existential" risk a permanent foundational tradeoff, or an extinction-level technical risk? The two can call for *opposite* governance. Revisits 000 from a new angle.
+		- [[001 Existential Safety Question#^001a|001a — Foundational-tradeoff framing]]: no guardrail setting is harm-free; governance should be iterative, correctable, transparent, decentralized.
+		- [[001 Existential Safety Question#^001b|001b — Extinction-level framing]]: irreversible failure modes; governance should be precautionary and gated at the frontier.
+	- [[002 Scalability of Oversight and Control|002 — Scalability of oversight and control]]: can AI safely take part in its own safety governance, or is that an unresolvable conflict of interest?
+		- [[002 Scalability of Oversight and Control#^002-I|002.I — Structural defeaters]] *(upstream: if severe, the rest is damage control)*
+			- [[002 Scalability of Oversight and Control#^002-I-a|002.I.a — Deceptive alignment / mesa-optimization]]
+			- [[002 Scalability of Oversight and Control#^002-I-b|002.I.b — Multi-agent collusion / correlated blind spots]]
+		- [[002 Scalability of Oversight and Control#^002-II|002.II — Operational gaps]] *(live regardless of Tier I)*
+			- [[002 Scalability of Oversight and Control#^002-II-a|002.II.a — Human rubber-stamping / automation bias]]
+			- [[002 Scalability of Oversight and Control#^002-II-b|002.II.b — Corrigibility]]
+		- [[002 Scalability of Oversight and Control#^002-III|002.III — Institutional/meta]] *(governance of the governance layer)*
+			- [[002 Scalability of Oversight and Control#^002-III-a|002.III.a — Who oversees the oversight infrastructure]]
+			- [[002 Scalability of Oversight and Control#^002-III-b|002.III.b — Incentives of the oversight-research ecosystem]]
 	- [[003 Harm Ontology from Outlines|003 — Harm ontology from outlines]]: formalize the 000 harm taxonomy as RDF/OWL/SHACL, generated from markdown outlines and YAML properties. Filed from a manual note, 2026-11-10.
 
 ## Premises
-- [[002-scalability-of-oversight-and-control_v1#Tiered subtopic structure|002-premise]]: **"Verification is easier than generation."** True for maths and code; unproven for value judgments and long-horizon consequences. Several Tier II and III approaches, debate especially, depend on it. Re-check it periodically.
+- [[002 Scalability of Oversight and Control#^002-premise|002-premise]]: **"Verification is easier than generation."** True for maths and code; unproven for value judgments and long-horizon consequences. Several Tier II and III approaches, debate especially, depend on it. Re-check it periodically.
 
 ## Open candidates
 - **Scalable alignment vs scalable oversight.** Marked in 002 as "adjacent territory, not yet absorbed into the tiers." It could become 002.IV or a new bookmark. Not yet placed.

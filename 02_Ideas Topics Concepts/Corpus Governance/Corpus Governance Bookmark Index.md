@@ -19,7 +19,7 @@ Under the skill's routing rule, this is the natural home for **4a** items: proce
 Click the arrow beside an item to open or close its branch.
 
 - **CG-000 — Root**: started inside the AI-harm exploration (chat "000"), when the conversation's own documentation process became a subject in its own right. Source chat: [[2026-10-15 - 000 — Harm & Guardrails Root Exploration]].
-	- [[cg-001-corpus-vigilance_v1|CG-001 — Corpus vigilance under narrow-task execution]]: when an editor (human or AI) touches part of a living body of work for a narrow task, how far does the obligation to check it against current conventions extend?
+	- [[CG-001 Corpus Vigilance Under Narrow-Task Execution|CG-001 — Corpus vigilance under narrow-task execution]]: when an editor (human or AI) touches part of a living body of work for a narrow task, how far does the obligation to check it against current conventions extend?
 		- Touch-scope discipline (the "boy scout rule"): check what you touch against current conventions.
 		- Bounded blast radius: check what you touch thoroughly; flag, rather than chase, anything nearby.
 		- False-signal cost: a convention that's adopted but not maintained is worse than none.
@@ -40,4 +40,4 @@ The canonical copy was rebuilt on 2026-11-10 from the Nexus import, following an
 ## Original wording
 - **User:** "yes" (approving the proposed fix, with Corpus Governance included)
 - **Source:** Obsidian Copilot agent session "new junk conversation test bookmarking", 2026-11-10 — [[agent__new_junk_conversation_test_bookmarking@20261109_143045]].
-- **External references:** the original import, [[corpus-governance-bookmark-index_v1]], and [[cg-001-corpus-vigilance_v1]].
+- **External references:** the original import, [[corpus-governance-bookmark-index_v1]], and [[CG-001 Corpus Vigilance Under Narrow-Task Execution]].

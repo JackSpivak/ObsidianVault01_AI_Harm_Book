@@ -1,24 +1,20 @@
 ---
-nexus: nexus-ai-chat-importer
-plugin_version: "1.8.1"
-provider: claude
-artifact_id: 000-root-exploration
-version_uuid: toolu_017Pkvchhkz5tpomsHKdpra9
-version_number: 1
-command: create
-conversation_id: 64b2a4a8-7f90-4f04-8155-c5e3ef00900b
-create_time: 2026-11-03T04:14:01.000Z
-format: markdown
-aliases: [000-root-exploration, 000-root-exploration_v1]
+type: idea
+status: developed
+bookmark: "000"
+canonical_id: aigs-000-root-exploration
+territory: new
+tags: []
+aliases: [000-root-exploration_v1, 000-root-exploration]
+created: 2026-11-03
+source: "[[2026-10-15 - 000 — Harm & Guardrails Root Exploration]]"
+source_import: Nexus artifact 000-root-exploration v1
+migrated: 2026-11-10
 ---
 
-# 000-root-exploration (Version 1)
-
-**Conversation:** [[07_Imported Chat Test/claude/2026/10/2026-10-15 - 000 — Harm & Guardrails Root Exploration|000 — Harm & Guardrails: Root Exploration]]
-
-## Content
-
 # 000 — Harm & Guardrails: Root Exploration
+
+Index: [[AI Governance & Safety Bookmark Index]]
 
 ## Context & Requirements
 - Originating goal: explore the meaning of "harm" broadly, then apply that framework to AI safety/guardrails.

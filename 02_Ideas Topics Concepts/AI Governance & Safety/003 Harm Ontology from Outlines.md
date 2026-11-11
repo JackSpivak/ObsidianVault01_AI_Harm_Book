@@ -12,7 +12,7 @@ filed: 2026-11-10
 
 # 003 — Harm ontology from outlines
 
-Index: [[AI Governance & Safety Bookmark Index]] · Parent: [[000-root-exploration_v1|000 — Harm & Guardrails]]
+Index: [[AI Governance & Safety Bookmark Index]] · Parent: [[000 Harm & Guardrails Root Exploration|000 — Harm & Guardrails]]
 
 ## Why this is distinct
 -Because I say so

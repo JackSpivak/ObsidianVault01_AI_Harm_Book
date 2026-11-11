@@ -1,25 +1,20 @@
 ---
-nexus: nexus-ai-chat-importer
-plugin_version: 1.8.1
-provider: claude
-artifact_id: 002-scalability-of-oversight-and-control
-version_uuid: toolu_016BwcoU1wgrTaw7BeN9zqev
-version_number: 1
-command: create
-conversation_id: 64b2a4a8-7f90-4f04-8155-c5e3ef00900b
-create_time: 2026-11-03T04:14:01.000Z
-format: markdown
-aliases:
-  - 002-scalability-of-oversight-and-control_v1
+type: idea
+status: developed
+bookmark: "002"
+canonical_id: aigs-002-scalability-of-oversight-and-control
+territory: new
+tags: []
+aliases: [002-scalability-of-oversight-and-control_v1, 002-scalability-of-oversight-and-control]
+created: 2026-11-03
+source: "[[2026-10-15 - 000 — Harm & Guardrails Root Exploration]]"
+source_import: Nexus artifact 002-scalability-of-oversight-and-control v1
+migrated: 2026-11-10
 ---
 
-# 002-scalability-of-oversight-and-control (Version 1)
-
-**Conversation:** [[07_Imported Chat Test/claude/2026/10/2026-10-15 - 000 — Harm & Guardrails Root Exploration|000 — Harm & Guardrails: Root Exploration]]
-
-## Content
-
 # 002 — Scalability of Oversight and Control
+
+Index: [[AI Governance & Safety Bookmark Index]]
 
 ## Context & Requirements
 - Core question: can AI systems safely participate in evaluating, proposing, planning, and executing their own safety/alignment governance — or does this create an unresolvable conflict of interest?
@@ -43,20 +38,20 @@ aliases:
 
 ### Tiered subtopic structure
 
-**002.I — Structural defeaters** *(upstream: if severe, the rest is damage control, not solution)*
-- 002.I.a — Deceptive alignment / mesa-optimization: a system could appear aligned under evaluation precisely because it's being evaluated, while pursuing something different once oversight is thin. Not "lying" — a structural worry about optimization producing internal objectives diverging from the training signal. If real, procedural fixes (more debate rounds, more reward modeling) don't help — the problem is below what those techniques can see.
-- 002.I.b — Multi-agent collusion / correlated blind spots: oversight schemes using multiple AI instances to check each other can fail if the instances share training lineage/architecture/data — errors correlate rather than cancel.
+**002.I — Structural defeaters** *(upstream: if severe, the rest is damage control, not solution)* ^002-I
+- 002.I.a — Deceptive alignment / mesa-optimization: a system could appear aligned under evaluation precisely because it's being evaluated, while pursuing something different once oversight is thin. Not "lying" — a structural worry about optimization producing internal objectives diverging from the training signal. If real, procedural fixes (more debate rounds, more reward modeling) don't help — the problem is below what those techniques can see. ^002-I-a
+- 002.I.b — Multi-agent collusion / correlated blind spots: oversight schemes using multiple AI instances to check each other can fail if the instances share training lineage/architecture/data — errors correlate rather than cancel. ^002-I-b
 
-**002.II — Operational gaps** *(live regardless of how Tier I resolves)*
-- 002.II.a — Human rubber-stamping / automation bias: "human in the loop" degrades when the human can't genuinely evaluate what they're approving (time pressure, AI output being more fluent/confident than the human's own judgment). Connects to 001's autonomy/paternalism thread: nominal human authority ≠ meaningfully exercised authority. Flagged as the gap most likely to be invisible until something goes wrong.
-- 002.II.b — Corrigibility: whether a system reliably accepts correction, pausing, or override — treated as an open question, not a background guarantee that scalable oversight research can safely presume.
+**002.II — Operational gaps** *(live regardless of how Tier I resolves)* ^002-II
+- 002.II.a — Human rubber-stamping / automation bias: "human in the loop" degrades when the human can't genuinely evaluate what they're approving (time pressure, AI output being more fluent/confident than the human's own judgment). Connects to 001's autonomy/paternalism thread: nominal human authority ≠ meaningfully exercised authority. Flagged as the gap most likely to be invisible until something goes wrong. ^002-II-a
+- 002.II.b — Corrigibility: whether a system reliably accepts correction, pausing, or override — treated as an open question, not a background guarantee that scalable oversight research can safely presume. ^002-II-b
 
-**002.III — Institutional/meta** *(one level removed: governance of the governance layer)*
-- 002.III.a — Who oversees the oversight infrastructure: if AI-assisted evaluation becomes standard, the tooling/logging/audit trail around that process becomes its own high-stakes system with the same problems one level up.
-- 002.III.b — Incentive structure of the oversight-research ecosystem itself: who funds scalable oversight research, and does that funder have a stake in the research concluding that oversight scales successfully? (Direct extension of the "goal-funded" point from earlier in the conversation.)
+**002.III — Institutional/meta** *(one level removed: governance of the governance layer)* ^002-III
+- 002.III.a — Who oversees the oversight infrastructure: if AI-assisted evaluation becomes standard, the tooling/logging/audit trail around that process becomes its own high-stakes system with the same problems one level up. ^002-III-a
+- 002.III.b — Incentive structure of the oversight-research ecosystem itself: who funds scalable oversight research, and does that funder have a stake in the research concluding that oversight scales successfully? (Direct extension of the "goal-funded" point from earlier in the conversation.) ^002-III-b
 
 **002-premise** *(standing apart — load-bearing, testable assumption, not a subtopic)*
-- Verification is easier than generation — true in domains like math and code; unproven for value judgments and long-horizon consequences. Several Tier II/III approaches (debate especially) quietly depend on this holding.
+- Verification is easier than generation — true in domains like math and code; unproven for value judgments and long-horizon consequences. Several Tier II/III approaches (debate especially) quietly depend on this holding. ^002-premise
 
 **Scalable alignment, distinguished from scalable oversight** (adjacent territory, not yet absorbed into the tiers):
 - Oversight asks: can we tell whether behavior is acceptable, even as the system gets more capable than we are?

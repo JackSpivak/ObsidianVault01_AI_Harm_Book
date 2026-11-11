@@ -1,25 +1,20 @@
 ---
-nexus: nexus-ai-chat-importer
-plugin_version: 1.8.1
-provider: claude
-artifact_id: 001-existential-safety-question
-version_uuid: toolu_01VKZ36iEKdEk43tAzeata9c
-version_number: 1
-command: create
-conversation_id: 64b2a4a8-7f90-4f04-8155-c5e3ef00900b
-create_time: 2026-11-03T04:14:01.000Z
-format: markdown
-aliases:
-  - 001-existential-safety-question_v1
+type: idea
+status: developed
+bookmark: "001"
+canonical_id: aigs-001-existential-safety-question
+territory: revisited
+tags: []
+aliases: [001-existential-safety-question_v1, 001-existential-safety-question]
+created: 2026-11-03
+source: "[[2026-10-15 - 000 — Harm & Guardrails Root Exploration]]"
+source_import: Nexus artifact 001-existential-safety-question v1
+migrated: 2026-11-10
 ---
 
-# 001-existential-safety-question (Version 1)
-
-**Conversation:** [[07_Imported Chat Test/claude/2026/10/2026-10-15 - 000 — Harm & Guardrails Root Exploration|000 — Harm & Guardrails: Root Exploration]]
-
-## Content
-
 # 001 — Existential Safety Question
+
+Index: [[AI Governance & Safety Bookmark Index]]
 
 ## Context & Requirements
 - Core question: is "existential" risk from AI guardrails a permanent, foundational tradeoff, or an extinction-level technical risk — and do the two require conflicting governance responses?
@@ -28,12 +23,12 @@ aliases:
 ## Technical Specification & Architecture
 *(conceptual framework)*
 
-**001a — Foundational-tradeoff framing:**
+**001a — Foundational-tradeoff framing:** ^001a
 - No guardrail setting is harm-free.
 - Governance should be iterative, correctable, transparent, and decentralized.
 - Error tolerance: can be wrong and adjust; success = "managed well, with ability to notice and fix mistakes."
 
-**001b — Extinction-level framing:**
+**001b — Extinction-level framing:** ^001b
 - Irreversible failure modes (up to and including loss of human control).
 - Governance should be precautionary, preventive, and gated at the frontier.
 - Error tolerance: near-zero for the specific failure mode — no "adjust course" after an irreversible event.

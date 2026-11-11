@@ -6,7 +6,7 @@ sessionId: "f9eab68b-c5d5-4436-8f57-f8a507c6995c"
 topic: "bookmarking skill"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":318542,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":317066,"cacheWriteTokens":1471,"updatedAt":1794357822558}'
+usage: '{"usedTokens":336848,"contextWindow":1000000,"inputTokens":2,"outputTokens":4,"cacheReadTokens":336150,"cacheWriteTokens":692,"updatedAt":1794358419527}'
 lastAccessedAt: 1794356243367
 ---
 
@@ -999,3 +999,39 @@ This is a restructuring touching about 10 files, so the vault rules have me ask 
 
 Should I go ahead with steps 1–5 using option (a)? I can also add a short "Migrating imported pages" section to the skill, so future imports are handled the same way.
 [Timestamp: 2026/11/10 17:43:01]
+
+**user**: prefer 5b go ahead
+[Timestamp: 2026/11/10 17:50:37]
+
+**ai**: The pages are migrated cleanly. Next, I'll add block IDs to the sub-items so index links can point to each one exactly, then rewrite the links.Now I'll check that the index links point to the new pages and block IDs, and that no stale links remain.The search for block IDs found nothing. That could be a Windows line-ending quirk, so I'll check directly.All 12 block IDs are there. The first search missed them only because of Windows line endings. Last, I'll update the notes that still describe the pages as "still Nexus import files."I've moved the four bookmark pages out of the Nexus imports folder (option 5b). The originals are gone from the imports folder, and every index now points to the new pages.
+
+**Migrated pages**
+
+| Old import file | New page |
+|---|---|
+| `000-root-exploration_v1` | [[000 Harm & Guardrails Root Exploration]], in `AI Governance & Safety/` |
+| `001-existential-safety-question_v1` | [[001 Existential Safety Question]], same folder |
+| `002-scalability-of-oversight-and-control_v1` | [[002 Scalability of Oversight and Control]], same folder |
+| `cg-001-corpus-vigilance_v1` | [[CG-001 Corpus Vigilance Under Narrow-Task Execution]], in `Corpus Governance/` |
+
+**What changed in each page**
+- **Nexus wrapper removed:** its metadata, the "(Version 1)" heading and the "Content" header. A script copied the text across, so none of the wording was retyped.
+- **New frontmatter:** each page has `canonical_id`, `bookmark` and `status: developed`. 001 is marked `territory: revisited`. CG-001 keeps its existing ID, `cg-001-corpus-vigilance`.
+- **Where it came from:** `source:` links the original chat, `source_import:` names the Nexus file, and `created` keeps the original date. Each page has its old file name as an alias, so old links still resolve.
+- **Sub-item links:** 001a/b, the 002 tiers and items, and 002-premise each got a block ID such as `^002-I-a`. Index entries now open the exact item instead of a shared section. All 12 are confirmed.
+
+**Links and descriptions updated**
+- **Links rewritten** in [[AI Governance & Safety Bookmark Index]], [[Corpus Governance Bookmark Index]] and 003's parent link. Transcripts and the remaining imports were left alone.
+- **Descriptions updated** in the AI Governance & Safety index and [[Master Bookmark Index]], which still said the pages were "still Nexus import files."
+- **Checked:** no live note links to the old `_v1` names any more. The only one left is in the superseded import index, and the aliases cover it.
+
+**What happened along the way:** my first migration script failed before changing anything, because Windows PowerShell misread the em dash in the folder name. I re-saved the script with the correct encoding and it ran cleanly.
+
+**Two things to know**
+- **Re-importing:** as we discussed, if Nexus ever re-imports that chat, it will recreate the four `_v1` files in the imports folder with no "superseded" marker. If that happens, delete them; the canonical pages are the ones in `02_Ideas Topics Concepts/`.
+- **Line endings:** the migrated pages use Windows line endings, while most notes use Unix ones. Obsidian doesn't care, but it can show up as whole-file changes in git diffs.
+
+**Still left in the imports folder:** the superseded index files, README, project-organization, platform-mechanics, and SKILL v1–v12, none of which are bookmark pages. That's a separate cleanup whenever you want it.
+
+The offer from earlier still stands: I can add a short "Migrating imported pages" section to the skill so future imports are handled the same way. Want me to?
+[Timestamp: 2026/11/10 17:50:37]

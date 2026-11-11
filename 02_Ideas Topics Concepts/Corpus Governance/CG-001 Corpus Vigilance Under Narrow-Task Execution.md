@@ -1,33 +1,20 @@
 ---
-nexus: nexus-ai-chat-importer
-plugin_version: "1.8.1"
-provider: claude
-artifact_id: cg-001-corpus-vigilance
-version_uuid: toolu_01Qh4RJ5ugHc6GadvLCybKCR
-version_number: 1
-command: create
-conversation_id: 64b2a4a8-7f90-4f04-8155-c5e3ef00900b
-create_time: 2026-11-08T05:31:00.000Z
-format: markdown
-aliases: [cg-001-corpus-vigilance, cg-001-corpus-vigilance_v1]
----
-
-# cg-001-corpus-vigilance (Version 1)
-
-**Conversation:** [[07_Imported Chat Test/claude/2026/10/2026-10-15 - 000 — Harm & Guardrails Root Exploration|000 — Harm & Guardrails: Root Exploration]]
-
-## Content
-
----
-canonical_id: cg-001-corpus-vigilance
 type: idea
 status: developed
 bookmark: CG-001
+canonical_id: cg-001-corpus-vigilance
 territory: new
+tags: []
+aliases: [cg-001-corpus-vigilance_v1, cg-001-corpus-vigilance]
 created: 2026-11-08
+source: "[[2026-10-15 - 000 — Harm & Guardrails Root Exploration]]"
+source_import: Nexus artifact cg-001-corpus-vigilance v1
+migrated: 2026-11-10
 ---
 
 # CG-001 — Corpus Vigilance Under Narrow-Task Execution
+
+Index: [[Corpus Governance Bookmark Index]]
 
 *Core question: when an editor — human or AI — touches part of a living body of work to accomplish a specific, narrow task, what obligation exists to verify the touched material against current standing conventions, and how far should that obligation reasonably extend?*
 

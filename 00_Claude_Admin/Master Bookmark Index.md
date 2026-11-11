@@ -19,11 +19,11 @@ created: 2026-11-10
 - [[AI Governance & Safety Bookmark Index|AI Governance & Safety]]: **live** (made canonical 2026-11-10)
 	- `canonical_id: ai-governance-safety-index` · prefix: plain numbers (`000`, `001`, `002`)
 	- Scope: the harm taxonomy, existential safety, scalability of oversight and control.
-	- The bookmark pages are still Nexus import files. The old import index is marked superseded.
+	- Bookmark pages 000–003 live in `02_Ideas Topics Concepts/AI Governance & Safety/` (000–002 migrated from the Nexus imports on 2026-11-10). The old import index is marked superseded.
 - [[Corpus Governance Bookmark Index|Corpus Governance]]: **live** (made canonical 2026-11-10)
 	- `canonical_id: corpus-governance-index` · prefix `CG-`
 	- Scope: the architecture, conventions and governance of this body of work itself. Home for 4a process and rule insights.
-	- The CG-001 page is still a Nexus import file.
+	- The CG-001 page lives in `02_Ideas Topics Concepts/Corpus Governance/` (migrated from the Nexus imports on 2026-11-10).
 - [[Anthropic-S1R Bookmark Index|Anthropic S-1 Risk Factors]]: **live** (registered 2026-11-10)
 	- `canonical_id: anthropic-s1r-bookmark-index` · prefix `Anthropic-S1R-`
 	- Scope: the Risk Factors section of Anthropic's S-1 filing.
