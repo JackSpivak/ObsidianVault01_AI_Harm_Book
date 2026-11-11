@@ -3,13 +3,13 @@ canonical_id: anthropic-s1r-bookmark-index
 type: index
 status: developing
 tags: [index/bookmarks, source/sec-filing]
-aliases: [Anthropic S-1 Risks Index, S1R Index]
+aliases: [Anthropic-S1R Bookmark Index, Anthropic S-1 Risks Index, S1R Index]
 created: 2026-11-10
 ---
 
 # Anthropic S-1 Risk Factors — Bookmark Index
 
-*A living table of contents for exploring the Risk Factors section of Anthropic's S-1 filing. It describes what has been found. It doesn't limit what can be found next.* Maintained under the bookmark-index-maintainer rules (`.claude/skills/bookmark-index-maintainer/SKILL.md`). Separate from the [[GSH Bookmark Index]] and the [[AI Governance & Safety Bookmark Index|AI Governance & Safety index]]. Registered in the [[Master Bookmark Index]].
+*A living table of contents for exploring the Risk Factors section of Anthropic's S-1 filing. It describes what has been found. It doesn't limit what can be found next.* Maintained under the bookmark-index-maintainer rules (`.claude/skills/bookmark-index-maintainer/SKILL.md`). Separate from the [[_GSH Bookmark Index]] and the [[_AI Governance & Safety Bookmark Index|AI Governance & Safety index]]. Registered in the [[_Master Bookmark Index]].
 
 ## Anthropic-S1R-000 — Root: the source
 The root of this index is the filing itself, not a conversation note:
@@ -76,7 +76,7 @@ A tiered premise. Each layer sits underneath the one before it. Test it; don't a
 - 010.I-b (deterrence failure) is linked to S1R premise II-b: if the world fails, there's no court left.
 - 010's disclosure paradox is linked to 009: the same filing that frames harm as shareholder risk may create foreseeability that victims could use.
 - Premise I-b is supported by pp. 34–35 ("self-reinforcing or compounding cycle"; a delayed release as a competitive risk).
-- Possible links to the [[GSH Bookmark Index]]: GSH-premise ("benefits concentrated, costs pushed out") parallels S1R premise III-a *(to explore)*.
+- Possible links to the [[_GSH Bookmark Index]]: GSH-premise ("benefits concentrated, costs pushed out") parallels S1R premise III-a *(to explore)*.
 
 ## Summary
 The author created this index to track ideas drawn from the Anthropic S-1 Risk Factors section, expecting the exploration to grow. The prefix is Anthropic-S1R. The premise started as Claude's proposed "bottleneck" premise. The author reframed it as a layered premise (stated, implied, unstated), then tightened it, corrected III-a, and changed "risk" to "risk of harm."

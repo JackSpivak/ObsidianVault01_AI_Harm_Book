@@ -1,7 +1,7 @@
 ---
 name: bookmark-index-maintainer
 metadata:
-  version: "1.5"
+  version: "1.6"
 description: Maintains and extends a numbered "bookmark" taxonomy index (e.g. 001, 002, lettered a/b sub-framings, tiered I/II/III structures, standalone -premise tags) that tracks branches of an ongoing exploration. Use this skill whenever a new tension, question, or subtopic comes up that might not fit the existing index, whenever the user asks to bookmark, track, extend, reorganize, or revisit part of a conversation, or whenever it's worth checking if the current taxonomy still holds. Trigger even without the word "bookmark" — phrases like "this feels like its own thing," "where does this fit," "should we track this separately," or the user clearly opening a new line of inquiry within a tracked exploration should all trigger this skill. Also use it proactively, unprompted, when you notice a new branch emerging that the existing index doesn't cover. Also use it to file manually written notes into an index. Match by meaning, not exact words, e.g. "file this note", "sweep unfiled notes", "file notes", "sweep notes", "file uncategorized", "file my new ideas", "process the inbox", or a session-start reminder that notes are ready in _Unfiled Ideas and to move a filed note to a better-fitting index ("this belongs elsewhere", "move this note").
 ---
 
@@ -184,6 +184,8 @@ Before placing a possible branch, ask *which* index it belongs to, not just *whe
 In every case, ask before writing to any index or rule file — especially one outside the current conversation. Keep the routing note to one short line per idea; don't repeat it.
 
 ## Index format (filesystem / Obsidian)
+
+**File naming:** every index file — including the master index — starts with an underscore, `_<Name> Bookmark Index.md` (e.g. `_GSH Bookmark Index.md`, `_Master Bookmark Index.md`), so it sorts to the top of its folder in Obsidian's file explorer. Bookmark pages do not get the underscore; they keep the `<ID> <Title>.md` convention. When creating an index, add the name without the underscore as an alias so plain-name links still resolve.
 
 Render the hierarchy so it's collapsible and every entry is a clickable `[[wikilink]]`:
 

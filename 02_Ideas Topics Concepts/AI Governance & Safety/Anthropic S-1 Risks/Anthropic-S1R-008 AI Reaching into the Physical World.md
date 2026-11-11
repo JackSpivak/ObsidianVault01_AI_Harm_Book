@@ -35,6 +35,6 @@ created: 2026-11-10
 - What is the open protocol called, and who is using it? *(to research)*
 
 ## Related
-- Index: [[Anthropic-S1R Bookmark Index]]
+- Index: [[_Anthropic-S1R Bookmark Index]]
 - [[Anthropic-S1R-001 Harm No One Directed|Harm No One Directed]]
 - [[Anthropic-S1R-004 Oversight at Machine Speed|Oversight at Machine Speed]]

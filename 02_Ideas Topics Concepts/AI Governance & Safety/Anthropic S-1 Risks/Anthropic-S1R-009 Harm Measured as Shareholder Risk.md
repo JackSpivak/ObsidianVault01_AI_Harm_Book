@@ -38,7 +38,7 @@ created: 2026-11-10
 - Is this unfair to the genre? Risk-factor language is legally required boilerplate, so the book should acknowledge that.
 
 ## Related
-- Index: [[Anthropic-S1R Bookmark Index]]
+- Index: [[_Anthropic-S1R Bookmark Index]]
 - [[Anthropic-S1R-004 Oversight at Machine Speed|Oversight at Machine Speed]]
 - [[Anthropic-S1R-006 Closing the Loop|Closing the Loop]]
 - [[Anthropic-S1R-007 Slow Harms of Everyday AI|Slow Harms of Everyday AI]]

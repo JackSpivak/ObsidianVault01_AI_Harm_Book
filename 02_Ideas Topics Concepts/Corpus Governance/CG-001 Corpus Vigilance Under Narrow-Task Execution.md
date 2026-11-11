@@ -14,7 +14,7 @@ migrated: 2026-11-10
 
 # CG-001 — Corpus Vigilance Under Narrow-Task Execution
 
-Index: [[Corpus Governance Bookmark Index]]
+Index: [[_Corpus Governance Bookmark Index]]
 
 *Core question: when an editor — human or AI — touches part of a living body of work to accomplish a specific, narrow task, what obligation exists to verify the touched material against current standing conventions, and how far should that obligation reasonably extend?*
 

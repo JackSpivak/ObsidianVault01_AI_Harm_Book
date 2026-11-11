@@ -11,7 +11,7 @@ created: 2026-11-09
 
 # GSH-002 — World hunger
 
-Index: [[GSH Bookmark Index]] · Root: [[GSH-000 Root Exploration]]
+Index: [[_GSH Bookmark Index]] · Root: [[GSH-000 Root Exploration]]
 
 ## Why this is distinct
 This is where structural harm turns into physical harm. Here, AI's role is mostly to amplify harm or fail to relieve it, and it also offers real benefits, so the domain cuts both ways.

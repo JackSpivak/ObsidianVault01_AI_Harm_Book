@@ -6,7 +6,7 @@ sessionId: "f9eab68b-c5d5-4436-8f57-f8a507c6995c"
 topic: "bookmarking skill"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":336848,"contextWindow":1000000,"inputTokens":2,"outputTokens":4,"cacheReadTokens":336150,"cacheWriteTokens":692,"updatedAt":1794358419527}'
+usage: '{"usedTokens":351012,"contextWindow":1000000,"inputTokens":2,"outputTokens":6,"cacheReadTokens":350359,"cacheWriteTokens":645,"updatedAt":1794359270449}'
 lastAccessedAt: 1794356243367
 ---
 
@@ -1035,3 +1035,44 @@ Should I go ahead with steps 1–5 using option (a)? I can also add a short "Mig
 
 The offer from earlier still stands: I can add a short "Migrating imported pages" section to the skill so future imports are handled the same way. Want me to?
 [Timestamp: 2026/11/10 17:50:37]
+
+**user**: just a little thing more.  please put an underscore in front of the titles of the bookmark indices in the skill and the existing files so that the explorer will sort them to the top
+[Timestamp: 2026/11/10 18:00:10]
+
+**ai**: All five aliases are in place. Now I'll add the naming rule to the skill.All five index files now start with an underscore, so each sorts to the top of its folder in the file explorer.
+
+**Renamed**
+- `_Master Bookmark Index`, in `00_Claude_Admin/`
+- `_GSH Bookmark Index`
+- `_AI Governance & Safety Bookmark Index`
+- `_Corpus Governance Bookmark Index`
+- `_Anthropic-S1R Bookmark Index`
+
+I included the master index because it's an index too. Tell me if you'd rather it kept its old name.
+
+**Links:** I rewrote every link to the indices in 28 notes. That includes the index pages themselves, every GSH and S-1 bookmark page, 000–003, CG-001 and the master index. Each index also keeps its old name as an alias, so the remaining old-name links in the two chat transcripts and the superseded Nexus import still work. A final search found no live note still using an old name.
+
+**Skill v1.6:** the "Index format" section now has a naming rule. Every index file, including the master, starts with `_`, and gets its plain name as an alias when it's created. Bookmark pages don't get the underscore; they keep the `<ID> <Title>` pattern.
+
+The underscore only affects the file name. The headings inside each index are unchanged, and nothing uses file names to find an index (that goes by `canonical_id`).
+[Timestamp: 2026/11/10 18:00:10]
+
+**user**: why has anthropic s-1 risk become a subfolder of AI governance and safety
+[Timestamp: 2026/11/10 18:07:15]
+
+**ai**: I didn't move it, and neither did the S-1 chat, as far as the records show. Here's what I found.
+
+**When it moved:** git's automatic vault backups show the S-1 notes **appearing in `AI Governance & Safety/Anthropic S-1 Risks/` in the 15:32 backup on 2026-11-10**, and disappearing from `02_Ideas Topics Concepts/Anthropic S-1 Risks/` in the same backup.
+
+**Not by me:** at the start of the earlier session where I registered the S-1 index in the master index, I read the index file at its **old** location. None of my commands in this conversation moved that folder; I've only edited text inside the S-1 notes, such as the link fix and the underscore rename.
+
+**Not by the S-1 chat either:** that chat once *suggested* a subfolder, `02_Ideas Topics Concepts/Anthropic S-1 Risks/`, which is where it originally lived. Its saved transcript has no mention of moving it under AI Governance & Safety, and no messages from that time.
+
+**Most likely explanation:** it was dragged in Obsidian's file explorer between about 15:20 and 15:32. Folders sit right next to each other there, so it's easy to drop one inside another by accident. It could also have been moved deliberately. Either way, Obsidian kept all the links working, because note names didn't change.
+
+**Should it stay there?**
+- **Move it back** to `02_Ideas Topics Concepts/Anthropic S-1 Risks/`. This keeps each index in its own top-level folder, matching how the master index treats S-1: as a separate, independent index. **I'd recommend this.**
+- **Keep it nested.** This makes sense only if you see the S-1 risks as a sub-area of AI Governance & Safety. If so, I'd record that in the master index so the folder layout and the index structure agree.
+
+Moving it back is a single folder move, with no link changes needed. Which do you want?
+[Timestamp: 2026/11/10 18:07:15]

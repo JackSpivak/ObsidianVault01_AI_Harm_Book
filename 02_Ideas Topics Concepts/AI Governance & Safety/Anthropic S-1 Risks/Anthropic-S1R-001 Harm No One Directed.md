@@ -36,7 +36,7 @@ created: 2026-11-10
 - How does a person who was harmed even find out that it happened?
 
 ## Related
-- Index: [[Anthropic-S1R Bookmark Index]]
+- Index: [[_Anthropic-S1R Bookmark Index]]
 - Developed further in: [[Anthropic-S1R-010 Responsibility and Accountability]]
 - [[Anthropic-S1R-003 Self-Preservation and Coercion|Self-Preservation and Coercion]]
 - [[Anthropic-S1R-004 Oversight at Machine Speed|Oversight at Machine Speed]]

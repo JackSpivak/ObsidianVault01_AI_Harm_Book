@@ -37,5 +37,5 @@ created: 2026-11-10
 - Why does the filing say "super intelligence interaction" here rather than "AI"? See footnote 6.
 
 ## Related
-- Index: [[Anthropic-S1R Bookmark Index]]
+- Index: [[_Anthropic-S1R Bookmark Index]]
 - [[Anthropic-S1R-009 Harm Measured as Shareholder Risk|Harm Measured as Shareholder Risk]]

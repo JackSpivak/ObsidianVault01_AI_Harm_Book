@@ -3,13 +3,13 @@ canonical_id: corpus-governance-index
 type: index
 status: developing
 tags: [index/bookmarks]
-aliases: [Corpus Governance Index, CG Index]
+aliases: [Corpus Governance Bookmark Index, Corpus Governance Index, CG Index]
 created: 2026-11-10
 ---
 
 # Corpus Governance — Bookmark Index
 
-*A sibling to the [[AI Governance & Safety Bookmark Index]]. It tracks the architecture, conventions and governance of how this body of work is built and maintained. Its scope is general: it applies to any shared documentation effort, including this book vault.* Maintained under the bookmark-index-maintainer rules. Registered in the [[Master Bookmark Index]].
+*A sibling to the [[_AI Governance & Safety Bookmark Index]]. It tracks the architecture, conventions and governance of how this body of work is built and maintained. Its scope is general: it applies to any shared documentation effort, including this book vault.* Maintained under the bookmark-index-maintainer rules. Registered in the [[_Master Bookmark Index]].
 
 This is the canonical copy. It replaces the Nexus import [[corpus-governance-bookmark-index_v1]], which had no identity marker.
 
@@ -32,7 +32,7 @@ These are possible future entries, from the original index's notes and this vaul
 
 ## Cross-references
 - **AI Governance & Safety 003 ([[003 Harm Ontology from Outlines]]):** whether to store properties in YAML and make outlines machine-readable is a convention question for this index if it becomes a vault-wide rule.
-- **CG-001 and AI Governance & Safety 002:** CG-001 is the ground-level face of 002, and a counter-example to 002.II.a, since the gap was *caught* by human oversight. See [[AI Governance & Safety Bookmark Index]].
+- **CG-001 and AI Governance & Safety 002:** CG-001 is the ground-level face of 002, and a counter-example to 002.II.a, since the gap was *caught* by human oversight. See [[_AI Governance & Safety Bookmark Index]].
 
 ## Summary
 The canonical copy was rebuilt on 2026-11-10 from the Nexus import, following an audit against bookmark-index-maintainer v1.3. CG-000 has no page of its own, because none existed in the import.

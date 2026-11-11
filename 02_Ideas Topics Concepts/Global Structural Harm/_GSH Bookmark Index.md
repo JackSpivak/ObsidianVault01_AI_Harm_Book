@@ -3,13 +3,13 @@ canonical_id: gsh-bookmark-index
 type: index
 status: developing
 tags: [index/bookmarks, harm/structural]
-aliases: [Global Structural Harm Index, GSH Index]
+aliases: [GSH Bookmark Index, Global Structural Harm Index, GSH Index]
 created: 2026-11-09
 ---
 
 # Global Structural Harm — Bookmark Index
 
-*A living table of contents for exploring how AI harm applies to global structural domains. It describes what has been found. It doesn't limit what can be found next.* Maintained under the bookmark-index-maintainer rules (`.claude/skills/bookmark-index-maintainer/SKILL.md`). Registered in the [[Master Bookmark Index]].
+*A living table of contents for exploring how AI harm applies to global structural domains. It describes what has been found. It doesn't limit what can be found next.* Maintained under the bookmark-index-maintainer rules (`.claude/skills/bookmark-index-maintainer/SKILL.md`). Registered in the [[_Master Bookmark Index]].
 
 ## Bookmarks
 Click the arrow beside an item to open or close its branch.
@@ -30,7 +30,7 @@ Click the arrow beside an item to open or close its branch.
 
 ## Cross-references
 - **GSH-001 drives GSH-002, GSH-003 and GSH-004.** It's where the structural cause sits; the others are where the harm lands.
-- **GSH-001** links to bookmark 002 (concentration of control) in the [[AI Governance & Safety Bookmark Index|AI Governance & Safety index]].
+- **GSH-001** links to bookmark 002 (concentration of control) in the [[_AI Governance & Safety Bookmark Index|AI Governance & Safety index]].
 - **GSH-003** links to [[Peace Can Be Built Intentionally]] and [[Schuman Declaration]].
 - **GSH-005** links strongly to GSH-001 and GSH-004, and to GSH-002 through lost livelihoods (partly supported) and competition for water and land (speculative). Real-world precedents are in its research table.
 

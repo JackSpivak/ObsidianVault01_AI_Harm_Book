@@ -11,13 +11,13 @@ created: 2026-11-09
 
 # GSH-005 — Shell-company data center case
 
-Index: [[GSH Bookmark Index]] · Root: [[GSH-000 Root Exploration]]
+Index: [[_GSH Bookmark Index]] · Root: [[GSH-000 Root Exploration]]
 
 > [!warning] Hypothetical, not a documented case
 > This is a scenario, not a verified real-world event. No real company, shell company or site has been identified or sourced. Don't name or imply a real company unless verified sources support it. If it's used in the book, either fictionalise it or replace it with a sourced case.
 
 ## Why this is distinct
-It's a **case** that cuts across several domains, not a domain in itself. A single scenario connects corporate structure (a shell company as a liability shield), wealth extraction, and child labor at the site of AI's physical infrastructure. That makes it a test of the [[GSH Bookmark Index#GSH-premise|GSH-premise]].
+It's a **case** that cuts across several domains, not a domain in itself. A single scenario connects corporate structure (a shell company as a liability shield), wealth extraction, and child labor at the site of AI's physical infrastructure. That makes it a test of the [[_GSH Bookmark Index#GSH-premise|GSH-premise]].
 
 ## Anticipated direction
 - **Accountability gap:** how a shell company spreads responsibility so that no one is plainly answerable. This could be the "what's specific to AI" argument the root asks for, or it could turn out to be ordinary corporate behaviour. Needs testing.

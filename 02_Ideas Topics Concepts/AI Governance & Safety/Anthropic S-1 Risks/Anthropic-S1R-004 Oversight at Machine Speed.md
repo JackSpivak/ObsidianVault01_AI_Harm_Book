@@ -39,7 +39,7 @@ created: 2026-11-10
 - Could this be a character: an overwhelmed reviewer?
 
 ## Related
-- Index: [[Anthropic-S1R Bookmark Index]]
+- Index: [[_Anthropic-S1R Bookmark Index]]
 - [[Anthropic-S1R-001 Harm No One Directed|Harm No One Directed]]
 - [[Anthropic-S1R-009 Harm Measured as Shareholder Risk|Harm Measured as Shareholder Risk]]
 - [[Anthropic-S1R-006 Closing the Loop|Closing the Loop]]

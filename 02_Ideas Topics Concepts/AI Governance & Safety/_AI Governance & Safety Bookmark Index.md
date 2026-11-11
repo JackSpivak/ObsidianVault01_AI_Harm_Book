@@ -3,13 +3,13 @@ canonical_id: ai-governance-safety-index
 type: index
 status: developing
 tags: [index/bookmarks]
-aliases: [AI Governance & Safety Index, AIGS Index]
+aliases: [AI Governance & Safety Bookmark Index, AI Governance & Safety Index, AIGS Index]
 created: 2026-11-10
 ---
 
 # AI Governance & Safety — Bookmark Index
 
-*A living table of contents for an ongoing exploration of harm, safeguards and AI governance. It describes what has been found. It doesn't limit what can be found next.* Maintained under the bookmark-index-maintainer rules (`.claude/skills/bookmark-index-maintainer/SKILL.md`). Registered in the [[Master Bookmark Index]].
+*A living table of contents for an ongoing exploration of harm, safeguards and AI governance. It describes what has been found. It doesn't limit what can be found next.* Maintained under the bookmark-index-maintainer rules (`.claude/skills/bookmark-index-maintainer/SKILL.md`). Registered in the [[_Master Bookmark Index]].
 
 This is the canonical copy. It replaces the Nexus import [[ai-governance-safety-bookmark-index_v1]]. The bookmark pages were migrated out of the Nexus imports on 2026-11-10 and live in this folder. Sub-items link to block IDs within them (e.g. `#^002-I-a`).
 
@@ -40,9 +40,9 @@ Click the arrow beside an item to open or close its branch.
 
 ## Cross-references
 - **001 and 002.II.a:** nominal human authority isn't the same as authority meaningfully exercised (001's autonomy/paternalism thread).
-- **002 and [[GSH Bookmark Index|GSH-001]]:** concentration of control links to [[GSH-001 Global Wealth Distribution]] in the Global Structural Harm index.
-- **002 and [[Corpus Governance Bookmark Index|CG-001]]:** CG-001 is the ground-level face of 002, and a counter-example to 002.II.a: a gap that attentive human oversight caught.
-- **003 and [[Corpus Governance Bookmark Index|Corpus Governance]]:** the tooling side of 003 (reading markdown outlines, storing properties in YAML) is a vault-convention question. Any answer would become a corpus-wide rule.
+- **002 and [[_GSH Bookmark Index|GSH-001]]:** concentration of control links to [[GSH-001 Global Wealth Distribution]] in the Global Structural Harm index.
+- **002 and [[_Corpus Governance Bookmark Index|CG-001]]:** CG-001 is the ground-level face of 002, and a counter-example to 002.II.a: a gap that attentive human oversight caught.
+- **003 and [[_Corpus Governance Bookmark Index|Corpus Governance]]:** the tooling side of 003 (reading markdown outlines, storing properties in YAML) is a vault-convention question. Any answer would become a corpus-wide rule.
 
 ## Summary
 The original index was created in the claude.ai "000" conversation and imported through Nexus. It predates bookmark-index-maintainer v1.3. This canonical copy was rebuilt on 2026-11-10 after an audit:

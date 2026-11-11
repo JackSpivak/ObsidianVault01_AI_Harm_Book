@@ -14,7 +14,7 @@ migrated: 2026-11-10
 
 # 001 — Existential Safety Question
 
-Index: [[AI Governance & Safety Bookmark Index]]
+Index: [[_AI Governance & Safety Bookmark Index]]
 
 ## Context & Requirements
 - Core question: is "existential" risk from AI guardrails a permanent, foundational tradeoff, or an extinction-level technical risk — and do the two require conflicting governance responses?

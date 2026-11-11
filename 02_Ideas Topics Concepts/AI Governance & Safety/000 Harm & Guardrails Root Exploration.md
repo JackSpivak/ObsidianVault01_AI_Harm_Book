@@ -14,7 +14,7 @@ migrated: 2026-11-10
 
 # 000 — Harm & Guardrails: Root Exploration
 
-Index: [[AI Governance & Safety Bookmark Index]]
+Index: [[_AI Governance & Safety Bookmark Index]]
 
 ## Context & Requirements
 - Originating goal: explore the meaning of "harm" broadly, then apply that framework to AI safety/guardrails.

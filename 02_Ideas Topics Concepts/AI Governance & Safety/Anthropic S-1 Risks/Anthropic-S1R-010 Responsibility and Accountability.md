@@ -53,7 +53,7 @@ The gaps between would, could and should are where harm goes unanswered.
 > [!todo] Legal research deferred at the author's request (2026-11-10): foreseeability and negligence, the kind-of-harm rule, strict liability, and current AI liability proposals.
 
 ## Conceptual territory
-New ground in this index. It is related to the GSH-premise and the GSH-005 accountability gap in the [[GSH Bookmark Index]], but approached through a developer's own disclosure rather than supply chains *(cross-link to explore)*.
+New ground in this index. It is related to the GSH-premise and the GSH-005 accountability gap in the [[_GSH Bookmark Index]], but approached through a developer's own disclosure rather than supply chains *(cross-link to explore)*.
 
 ## Test cases from the source
 - [[Anthropic-S1R-005 The Sandbox Escape Incident|005]]: Anthropic, the evaluation partner whose test was misconfigured, or no one? The filing says only "The affected parties were notified." (p. 33)
@@ -112,5 +112,5 @@ The author asked who is responsible for harm that no one directed, and who would
 - **External references:** [[Risk Factors Excerpt - Anthropic SEC S1 - 2026-11-10]] (supporting document, pp. 32–35); [[Anthropic S-1 Risk Factors 2026]] (research note)
 
 ## Related
-- Index: [[Anthropic-S1R Bookmark Index]]
+- Index: [[_Anthropic-S1R Bookmark Index]]
 - Originates from: [[Anthropic-S1R-001 Harm No One Directed]]

@@ -14,7 +14,7 @@ migrated: 2026-11-10
 
 # 002 — Scalability of Oversight and Control
 
-Index: [[AI Governance & Safety Bookmark Index]]
+Index: [[_AI Governance & Safety Bookmark Index]]
 
 ## Context & Requirements
 - Core question: can AI systems safely participate in evaluating, proposing, planning, and executing their own safety/alignment governance — or does this create an unresolvable conflict of interest?

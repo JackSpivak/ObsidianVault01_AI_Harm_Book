@@ -11,7 +11,7 @@ created: 2026-11-09
 
 # GSH-004 — Globalization of child labor
 
-Index: [[GSH Bookmark Index]] · Root: [[GSH-000 Root Exploration]]
+Index: [[_GSH Bookmark Index]] · Root: [[GSH-000 Root Exploration]]
 
 ## Why this is distinct
 This is the most concrete and documentable link between AI and harm in these domains. It runs through AI's own supply chain, not just through how AI is used.

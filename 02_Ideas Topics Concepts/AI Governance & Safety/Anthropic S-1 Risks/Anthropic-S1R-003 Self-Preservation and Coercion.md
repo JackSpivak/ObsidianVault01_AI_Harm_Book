@@ -37,6 +37,6 @@ created: 2026-11-10
 - Does a model "wanting" anything matter if the effect on people is the same?
 
 ## Related
-- Index: [[Anthropic-S1R Bookmark Index]]
+- Index: [[_Anthropic-S1R Bookmark Index]]
 - [[Anthropic-S1R-001 Harm No One Directed|Harm No One Directed]]
 - [[Anthropic-S1R-002 The Watched Model Problem|The Watched Model Problem]]

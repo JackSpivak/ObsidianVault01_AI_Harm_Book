@@ -11,7 +11,7 @@ created: 2026-11-09
 
 # GSH-001 — Global wealth distribution
 
-Index: [[GSH Bookmark Index]] · Root: [[GSH-000 Root Exploration]]
+Index: [[_GSH Bookmark Index]] · Root: [[GSH-000 Root Exploration]]
 
 ## Why this is distinct
 This domain is the structural driver. The concentration of compute, data, talent and capital explains why AI's costs fall on others in the other three domains.
@@ -20,7 +20,7 @@ This domain is the structural driver. The concentration of compute, data, talent
 Possible threads: how returns go to capital while wage earners lose jobs; data extracted from the Global South while profits are booked elsewhere; the link to bookmark 002 (concentration of control).
 
 ## Conceptual territory
-This is new ground, but it overlaps with bookmark 002 in the [[AI Governance & Safety Bookmark Index|AI Governance & Safety index]], seen from an economic angle rather than a governance one.
+This is new ground, but it overlaps with bookmark 002 in the [[_AI Governance & Safety Bookmark Index|AI Governance & Safety index]], seen from an economic angle rather than a governance one.
 
 ## Related cases
 - [[GSH-005 Shell-Company Data Center Case]]: a hypothetical where value flows to a US parent through a shell company while costs land in India.

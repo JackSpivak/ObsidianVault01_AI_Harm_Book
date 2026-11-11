@@ -11,7 +11,7 @@ created: 2026-11-09
 
 # GSH-003 — Cultural basis of war
 
-Index: [[GSH Bookmark Index]] · Root: [[GSH-000 Root Exploration]]
+Index: [[_GSH Bookmark Index]] · Root: [[GSH-000 Root Exploration]]
 
 ## Why this is distinct
 The framing itself is in question. Is war rooted in culture, or is AI's clearer role in *manipulating* culture and identity? That tension could be an argument in its own right.

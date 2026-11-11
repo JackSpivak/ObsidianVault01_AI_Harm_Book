@@ -37,6 +37,6 @@ created: 2026-11-10
 - What exactly is the RSP "AI R&D capability threshold," and what does meeting it trigger? *(to research; the filing says further reports will follow)*
 
 ## Related
-- Index: [[Anthropic-S1R Bookmark Index]]
+- Index: [[_Anthropic-S1R Bookmark Index]]
 - [[Anthropic-S1R-002 The Watched Model Problem|The Watched Model Problem]]
 - [[Anthropic-S1R-009 Harm Measured as Shareholder Risk|Harm Measured as Shareholder Risk]]

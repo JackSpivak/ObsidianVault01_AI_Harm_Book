@@ -11,7 +11,7 @@ created: 2026-11-09
 
 # GSH-000 — Root: AI harm in global structural domains
 
-Index: [[GSH Bookmark Index]]
+Index: [[_GSH Bookmark Index]]
 
 ## Why this is distinct
 This is the root of a new exploration: how AI harm applies to four global structural domains. The harm here is mostly systemic and spread out, not tied to particular incidents.
