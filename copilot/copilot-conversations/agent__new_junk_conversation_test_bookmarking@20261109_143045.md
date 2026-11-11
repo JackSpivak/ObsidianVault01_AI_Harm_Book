@@ -6,7 +6,7 @@ sessionId: "f9eab68b-c5d5-4436-8f57-f8a507c6995c"
 topic: "bookmarking skill"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":351012,"contextWindow":1000000,"inputTokens":2,"outputTokens":6,"cacheReadTokens":350359,"cacheWriteTokens":645,"updatedAt":1794359270449}'
+usage: '{"usedTokens":352610,"contextWindow":1000000,"inputTokens":2,"outputTokens":346,"cacheReadTokens":351928,"cacheWriteTokens":334,"updatedAt":1794359459084}'
 lastAccessedAt: 1794356243367
 ---
 
@@ -1076,3 +1076,20 @@ The underscore only affects the file name. The headings inside each index are un
 
 Moving it back is a single folder move, with no link changes needed. Which do you want?
 [Timestamp: 2026/11/10 18:07:15]
+
+**user**: can i just move the folder manuallly with no consequence
+[Timestamp: 2026/11/10 18:10:51]
+
+**ai**: **Yes, you can move it by hand with no consequences.**
+
+I checked: no note links to the S-1 notes by folder path. The only mention of the path is in this chat's own transcript, as plain text, not a link. All links use note names, so they resolve wherever the folder sits.
+
+**How:** in Obsidian's file explorer, drag `Anthropic S-1 Risks` from inside `AI Governance & Safety` onto `02_Ideas Topics Concepts`. Watch where you drop it: dropping onto a folder name puts it *inside* that folder, which is probably how it got nested in the first place.
+
+**Nothing else depends on the location:**
+- The master index and the bookmark skill find indices by `canonical_id`, not by folder.
+- The start-of-chat reminder hook scans all of `02_Ideas Topics Concepts/`, including subfolders.
+- The automatic git backup will record the move.
+
+Moving it in Obsidian is better than moving it in Windows File Explorer, because Obsidian updates links if any ever need it. Here, either would work.
+[Timestamp: 2026/11/10 18:10:51]
