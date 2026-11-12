@@ -251,3 +251,187 @@ Every harm class or instance in this ontology is defined across **21 formal sub-
 * `dcterms:bibliographicCitation`: Parfit, D. (1984). *Reasons and Persons* (Part IV). Oxford University Press; Harman, E. (2004). "Can We Harm and Benefit in Creating?" *Philosophical Perspectives*, 18, 89–113; Shiffrin, S. V. (1999). "Wrongful Life, Procreative Responsibility, and the Significance of Harm." *Legal Theory*, 5(2), 117–148. *(Expandable)*
 
 * *Domain / Locus:* Bioethics, reproductive technology, wrongful life litigation, intergenerational climate ethics.**
+
+
+
+
+
+
+
+
+**
+
+# Master Formal Ontology of Harm (Part 3: Domains 4–7)
+
+  
+
+---
+
+  
+
+### Domain 4: Epistemic & Cognitive Harm (Information & Mind)
+
+* `skos:definition`: Harm consists in degrading an agent’s capacity to know, reason, perceive reality, or form autonomous beliefs—distinct from emotional distress or reputational damage.
+
+* `skos:scopeNote`: Synthesizes feminist epistemology (Miranda Fricker), behavioral economics (Kahneman, Thaler), and AI/platform ethics (Shoshana Zuboff) to address harms targeting human agency at the cognitive root.
+
+* *Foundational Thinkers:* **Miranda Fricker**, **Cass Sunstein**, **Shoshana Zuboff**.
+
+* `dcterms:bibliographicCitation`: Fricker, M. (2007). *Epistemic Injustice*. Oxford University Press; Zuboff, S. (2019). *The Age of Surveillance Capitalism*. PublicAffairs. *(Expandable)*
+
+  
+
+#### 4.1 Epistemic Injustice (Testimonial & Hermeneutical)
+
+* `skos:definition`: Wronging someone specifically in their capacity as a knower through prejudice-driven credibility deflation (*testimonial injustice*) or conceptual erasure (*hermeneutical injustice*).
+
+* `skos:scopeNote`: Explains why dismissing a patient's symptoms or a witness's testimony due to identity prejudice is a distinct moral injury to rational dignity even before physical or legal consequences materialize.
+
+* *Key Thinkers:* **Miranda Fricker**.
+
+* `dcterms:bibliographicCitation`: Fricker, M. (2007). *Epistemic Injustice: Power and the Ethics of Knowing*. Oxford University Press. *(Expandable)*
+
+* *Domain / Locus:* Judicial testimony, medical diagnosis, academic/scientific institutions, workplace evaluations.
+
+* *Object of Harm:* Epistemic agency, testimonial credibility, shared interpretive concepts, intellectual self-trust.
+
+* *Moral Patient:* Speakers, witnesses, patients, marginalized interpretive communities.
+
+* *Consent Status:* Non-consensual systemic exclusion or dismissal.
+
+* *Causal Vector:* Normative, linguistic, and cognitive bias in interpersonal or institutional evaluation.
+
+* *Temporal Profile:* Acute (dismissed testimony) and cumulative (epistemic marginalization).
+
+* *Modality:* Actualized wrong to epistemic status.
+
+* *Reversibility:* Partially mitigable through institutional validation and conceptual reclamation.
+
+* *Consequential & Cascading Harm:* **Cross-Domain Cascade** (discounted medical testimony → misdiagnosis and physical harm; discounted legal testimony → wrongful conviction or denial of protective orders).
+
+* *Measurement Metric:* Qualitative credibility audits, diagnostic disparity rates, procedural fairness reviews.
+
+* *Primary Moral Agent:* Biased listeners, clinicians, judges, or institutions discounting credible testimony.
+
+* *Secondary Agency:* **Systemic Contribution** (institutions perpetuating biased evidentiary norms or exclusionary curricula).
+
+* *Beneficiary Role:* **Principal/Institutional** (dominant groups retaining disproportionate epistemic authority and institutional credibility).
+
+* *Protective Agency:* **Fiduciary Guardians** (patient/victim advocates); **Whistleblowers** (epistemic allies amplifying marginalized voices).
+
+* *Protective Mechanisms:* Structured diagnostic checklists, blind peer review, corroborative evidentiary rules, inclusive reporting frameworks.
+
+* *Accountability Mechanism:* Procedural reversals, institutional epistemic audits, restorative recognition.
+
+  
+
+#### 4.2 Cognitive Manipulation & Autonomy Subversion
+
+* `skos:definition`: Hijacking human belief formation, attention, or decision-making through deception, algorithmic dark patterns, deepfakes, or neuro-technical tampering without physical coercion.
+
+* `skos:scopeNote`: Addresses modern digital and neuro-technological threats where choice architecture is weaponized to bypass rational deliberation while preserving the illusion of voluntary consent.
+
+* *Key Thinkers:* **Daniel Kahneman**, **Richard Thaler**, **Shoshana Zuboff**.
+
+* `dcterms:bibliographicCitation`: Thaler, R. H., & Sunstein, C. R. (2008). *Nudge*. Yale University Press; Susser, D., Roessler, B., & Nissenbaum, H. (2019). "Online Manipulation: Hidden Influences in a Digital World." *Georgetown Law Technology Review*, 4(1), 1–45. *(Expandable)*
+
+* *Domain / Locus:* AI governance, digital consumer protection, election integrity, neurotechnology.
+
+* *Object of Harm:* Cognitive liberty, rational autonomy, epistemic integrity, authentic preference formation.
+
+* *Moral Patient:* Digital users, voters, consumers, neuro-device users.
+
+* *Consent Status:* Bypassed or subverted (manipulated consent is legally and morally invalid).
+
+* *Causal Vector:* Informational/algorithmic (dark patterns, deepfakes, addictive loops) or neuro-technical.
+
+* *Temporal Profile:* Acute (election interference) or chronic/habitual (behavioral addiction).
+
+* *Modality:* Actualized cognitive distortion or probabilistic behavioral manipulation.
+
+* *Reversibility:* Partially mitigable via debriefing, media literacy, cognitive restoration.
+
+* *Consequential & Cascading Harm:* **Direct Consequential** (impulsive financial losses, compulsive screen addiction); **Cross-Domain Cascade** (algorithmic radicalization or election disinformation → civic polarization and real-world violence).
+
+* *Measurement Metric:* Behavioral A/B manipulation audits, deceptive-design heuristics, provenance verification.
+
+* *Primary Moral Agent:* Malicious disinformation actors, manipulative platform designers, rogue AI systems.
+
+* *Secondary Agency:* **Material Facilitation** (ad-tech networks monetizing outrage); **Instigation** (political operatives funding deepfakes).
+
+* *Beneficiary Role:* **Principal/Institutional** (platforms capturing ad revenue from dark patterns/addiction; political actors gaining power via disinformation).
+
+* *Protective Agency:* **Regulatory Authorities** (consumer protection agencies, election commissions); **Whistleblowers** (tech ethicists, disinformation researchers).
+
+* *Protective Mechanisms:* Content provenance watermarks (C2PA), bans on dark patterns, friction/cooling-off UI prompts, algorithmic transparency rules.
+
+* *Accountability Mechanism:* Deceptive-trade-practice fines, mandatory algorithmic unlearning, platform liability.
+
+  
+
+---
+
+  
+
+### Domain 5: Relational, Care & Existential Harm (Social & Ecological)
+
+* `skos:definition`: Harm destroys essential dependency bonds, cultural continuity, or intrinsic ecological integrity—rather than damaging an isolated individual’s rights or welfare.
+
+* `skos:scopeNote`: Overcomes the hyper-individualism of classical Western legal theory by incorporating Feminist Ethics of Care (Noddings, Kittay), Indigenous/Cultural Rights jurisprudence (Lemkin), and Earth Jurisprudence (Arne Næss, Christopher Stone).
+
+* *Foundational Thinkers:* **Nel Noddings**, **Eva Feder Kittay**, **Arne Næss**, **Christopher Stone**.
+
+* `dcterms:bibliographicCitation`: Kittay, E. F. (1999). *Love's Labor*. Routledge; Stone, C. D. (1972). "Should Trees Have Standing?" *Southern California Law Review*, 45, 450–501. *(Expandable)*
+
+  
+
+#### 5.1 Care & Attachment Harm
+
+* `skos:definition`: Severing essential dependency relationships or abandoning duties of care toward vulnerable dependents (e.g., wrongful family separation or institutional neglect).
+
+* `skos:scopeNote`: Grounded in Feminist Ethics of Care—recognizing that human flourishing depends on asymmetrical networks of dependency and that breaking attachment bonds causes profound developmental harm even without physical violence.
+
+* *Key Thinkers:* **Nel Noddings**, **Eva Feder Kittay**.
+
+* `dcterms:bibliographicCitation`: Noddings, N. (1984). *Caring: A Feminine Approach to Ethics and Moral Education*. University of California Press; Kittay, E. F. (1999). *Love's Labor: Essays on Women, Equality and Dependency*. Routledge. *(Expandable)*
+
+* *Domain / Locus:* Family law, immigration detention, elder care, pediatric medicine, disability institutions.
+
+* *Object of Harm:* Relational attachment, developmental security, dependency support networks.
+
+* *Moral Patient:* Infants, children, elderly persons, severely disabled dependents, caregivers.
+
+* *Consent Status:* Non-consensual; dependents lack capacity to consent to separation or neglect.
+
+* *Causal Vector:* Physical separation, institutional neglect, administrative detention policies.
+
+* *Temporal Profile:* Acute trauma with lifelong developmental consequences.
+
+* *Modality:* Actualized relational rupture.
+
+* *Reversibility:* Partially mitigable via reunification, though developmental trauma may be permanent.
+
+* *Consequential & Cascading Harm:* **Cross-Domain Cascade** (early childhood attachment rupture → lifelong neurodevelopmental impairment, educational difficulties, heightened vulnerability to adult instability).
+
+* *Measurement Metric:* Developmental psychology assessments, attachment scales, care-ratio audits.
+
+* *Primary Moral Agent:* Negligent caregivers, abusive institutions, state officials enforcing family separation.
+
+* *Secondary Agency:* **Vicarious Agency** (agency directors); **Gatekeeper Negligence** (social workers failing welfare checks).
+
+* *Beneficiary Role:* **Principal/Institutional** (for-profit care facilities or detention contractors maximizing margins via understaffing).
+
+* *Protective Agency:* **Fiduciary Guardians** (guardians *ad litem*, family preservation advocates); **Restorative Agents** (child psychologists).
+
+* *Protective Mechanisms:* Family-preservation statutory mandates, mandatory care-staffing ratios, guardianship oversight boards.
+
+* *Accountability Mechanism:* Reunification orders, institutional receivership, custodial negligence damages.
+
+  
+
+#### 5.2 Cultural & Epistemicide Harm
+
+* `skos:definition`: Systematic destruction of a group’s language, sacred heritage, collective memory, or cultural identity—distinct from individual property or bodily injury.
+
+  
+**
