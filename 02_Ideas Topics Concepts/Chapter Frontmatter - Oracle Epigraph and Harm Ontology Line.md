@@ -1,0 +1,38 @@
+---
+type: idea
+status: seed
+tags: [device/epigraph, structure/chapter-frontmatter]
+aliases: [Chapter epigraph device, Harm ontology chapter line]
+created: 2026-11-13
+---
+
+# Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line
+
+## The idea - Summary
+- Each chapter opens with a standard frontmatter block containing two entries:
+  1. **An epigraph: a quote, insight or "seeing"** about the current state of the world, spoken by an invented but wise being. The voice can't tell objective reality apart from the growing hybrid of real and synthesized reality. The being may turn out to be the AI itself. One possibility: a Lao Tzu–like figure who "hallucinates" a stream of consciousness drawn from evolving `worldscontext.md` documents.
+  2. **A line of technical identifiers** from the harm ontology. It lists namespace entries for the harm categories and specific harm types that were identified in the story premise and used to synthesize the story.
+- A possible variant: a second, slightly different line that lists harms identified *after* the story unfolded.
+
+## The idea - Original wording
+> "One is an idea for chapter epigraph/heading/frontmatter with two standard entries:  two things. 1. a quote or an insight or a "seeing" about the current state of the world ( but cant distinguish the real world from the evolving hybrid of objective reality and synthesized reality. Maybe Laotzu could hallucinate stream of consciousness from evolving worldscontext.md docs) from a fictitious but wise being who may turn out to be the AI itself. second one 2. a line entry of technical identifiers from the harm ontology including namespace entries for the categories and specific types of harms identified in the story premise and used as basis for story synthesiss. Perhaps another - only slightly different - for harms identified after the story unfolded"
+- **Attribution:** the author
+- **Source:** Obsidian Copilot agent session, 2026-11-13 ("I need a new idea note…", `copilot/copilot-conversations/agent__I_need_a_new_idea_note._Hs_to_do_with@20261113_120813.md`)
+- **External references:** [[Interdisciplinary_Harm_Ontology_Compendium]] (defines the `harm:` namespace prefix); [[003 Harm Ontology from Outlines]]. `worldscontext.md` was mentioned, but no such file exists in the vault yet.
+
+## Real-world examples
+-
+
+## Why it matters to the book
+- The epigraph voice blurs real and synthesized reality and may be revealed as the AI, so the structure itself carries the book's theme.
+- The ontology line makes the harm taxonomy visible. The "before" and "after" lines can show the gap between the harms that were planned and the harms that emerged.
+
+## Open questions
+- Is the sage figure an original invented being, or explicitly modeled on Lao Tzu?
+- Exact format of the identifier line (e.g. `harm:Category / harm:Type`)?
+- Does the "after" line appear at the chapter end, in an appendix, or beside the "before" line?
+
+## Related
+- [[Interdisciplinary_Harm_Ontology_Compendium]]
+- [[003 Harm Ontology from Outlines]]
+- [[worldscontext]] (unresolved: note to write later)
