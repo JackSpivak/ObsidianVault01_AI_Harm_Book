@@ -6,7 +6,7 @@ sessionId: "98b5058d-70c0-406b-94b5-23583b34f968"
 topic: "I need a new idea note. Hs to do with some litterary devices…"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":47528,"contextWindow":1000000,"inputTokens":4,"outputTokens":6,"cacheReadTokens":46903,"cacheWriteTokens":615,"updatedAt":1794599231433}'
+usage: '{"usedTokens":53987,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":53291,"cacheWriteTokens":691,"updatedAt":1794600037573}'
 ---
 
 **user**: I need a new idea note.  Hs to do with some litterary devices and directions for the book
@@ -157,3 +157,73 @@ Full ideas would stay where they are, with their own names, and only get an entr
 
 Should I go ahead with all three?
 [Timestamp: 2026/11/13 12:46:59]
+
+**user**: i like the idea of stickiing with a single process as well. but im wondering if the better approach to resollve the tension you mentioned above is to add the stub sections to the full note template where they are missing.  then maybe we could eliminate the stub template entirely and the only differnce wouldd be that in usage a stub wold be marked as such in the type field
+[Timestamp: 2026/11/13 12:57:26]
+
+**ai**: I think that's better than my version. One template means the skill doesn't need two code paths, and a stub is simply an idea note with most sections still empty. I'd change one detail: mark stubs in the `status` field rather than `type`.
+
+**Why `status: stub` works better than `type: stub`**
+- `type` says what kind of thing a note is, and a stub and a full idea are both ideas. Maturity is what `status` tracks.
+- A stub's development then becomes one status progression, `stub → seed → developing → stable`, with no type change along the way.
+- The skill already works this way. It sets `status: stub` on filing and says "status moves from stub toward more developed values." It also means notes of `type: idea` stay together in searches and Dataview queries.
+
+**What the merged Idea template would contain**
+- **Frontmatter:** the current Idea template fields, plus `bookmark:`, `canonical_id:` and `territory:` from the stub
+- **Sections:**
+  - Why this is distinct
+  - Anticipated direction
+  - Conceptual territory
+  - Summary
+  - Original wording
+  - Real-world examples
+  - Why it matters to the book
+  - Open questions
+  - Related
+- A stub fills in only a sentence or two (usually in Anticipated direction or Summary) and leaves the rest empty.
+- I'd make the Summary and Original wording headings the same in both. They currently differ: "The idea - Summary" in the Idea template versus "Summary" in the stub.
+
+**Existing notes:** about 20 idea notes in the vault use one format or the other (the S-1R, GSH and 003 series and a few loose notes). I wouldn't retrofit them. The skill just needs to treat missing sections as "not yet written" rather than as an error, and you can fill sections in as notes get revisited. If you'd like them all brought into line anyway, I can propose that as a separate batch.
+
+**Full plan for your approval:**
+1. Merge the two templates into `Idea.md` and delete `Idea Stub.md`.
+2. Update the bookmark-index-maintainer skill:
+   - point it at `Idea.md`
+   - accept any status when filing and set `stub` only if the note has no status yet
+   - never downgrade a status
+3. Bring this chapter-frontmatter note up to the new template. I'd draft its three new sections from the note's own content.
+4. Move the note to `_Unfiled Ideas/` with `bookmark: draft`.
+5. Record the stub-vs-idea rule and the decision on one template and one filing process in `Decisions_Log.md`, and add a one-line pointer in `CLAUDE.md`.
+
+Should I go ahead? And is `status: stub` OK, or do you still prefer `type`?
+[Timestamp: 2026/11/13 12:57:26]
+
+**user**: i totally agree type should be idea and status shoulld be stub
+
+is there anything else that you think needs resolving to updaate all appropriate rules and templates?
+[Timestamp: 2026/11/13 13:00:15]
+
+**ai**: Yes. I checked the rules, templates and skill, and found more than the five steps I listed last time.
+
+**Gaps the update needs to close**
+
+1. **`obsidian-conventions.md` (line 16)** lists the allowed statuses as `seed | developing | stable | archived`, so `stub` isn't a legal value yet. It should become `stub | seed | developing | stable | archived`.
+2. **The skill carries its own copy of the stub layout** (`SKILL.md` lines 46–69). Even with `Idea Stub.md` deleted, the skill would keep creating notes from that copy, and it would drift from the template. It should say "use `00_Claude_Admin/Templates/Idea.md`, set `status: stub`" and nothing more.
+3. **Skill-made stubs currently break your note creation rules.** That built-in layout has no Summary or Original wording, which `CLAUDE.md` requires on every note. Switching to the shared template fixes this, but only if the skill is told to fill both sections, or to say the exact wording can't be located.
+4. **Filing always sets `status: stub`** (`SKILL.md` line 99). It should set that only if no status exists yet, and never downgrade one.
+5. **The skill names `Idea Stub` as the hand-written route** (line 79). That needs repointing to `Idea.md`.
+6. **Nothing says where new idea notes go.** That gap is why this note landed in the `02_Ideas Topics Concepts/` root. I'd add a rule to `CLAUDE.md` and `obsidian-conventions.md`: new idea notes go in `_Unfiled Ideas/` with `bookmark: draft`.
+7. **`_Unfiled Ideas/` doesn't exist yet.** I'd create it.
+8. **The Original wording block in the template** should follow the `CLAUDE.md` format, with a separate attribution for each quote ("Author:" or "Claude: <model, version>"). The stub version only has "User:".
+
+**Not changing**
+- **The unfiled-check hook** only looks at `bookmark: ready`, so it keeps working as is.
+- **The old `SKILL_v10–12` copies** under `00_Claude_Admin/Nexus Attachment Imports/` are archived imports, so I'd leave them alone.
+- **Existing idea notes** aren't being retrofitted, as agreed.
+
+**Two decisions I need from you**
+- **Heading names:** should they be "The idea - Summary" / "The idea - Original wording" (your current Idea template), or plain "Summary" / "Original wording"? I'd go with the plain names because they're shorter and match the stub template and most of the indexed notes.
+- **`.obsidian/`:** I haven't checked whether a Templates or Templater setting or a hotkey points at `Idea Stub.md`. Your rules say I need your OK to look inside `.obsidian/`. Should I check it? I'd only read it, not edit it.
+
+Once you answer these, I'll make all the changes plus the Decisions_Log entry, then list every file I touched.
+[Timestamp: 2026/11/13 13:00:15]
