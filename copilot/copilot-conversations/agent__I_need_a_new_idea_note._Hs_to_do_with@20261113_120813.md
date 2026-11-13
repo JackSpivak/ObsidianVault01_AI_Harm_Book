@@ -6,7 +6,7 @@ sessionId: "98b5058d-70c0-406b-94b5-23583b34f968"
 topic: "I need a new idea note. Hs to do with some litterary devices…"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":71853,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":71192,"cacheWriteTokens":656,"updatedAt":1794601732021}'
+usage: '{"usedTokens":77034,"contextWindow":1000000,"inputTokens":2,"outputTokens":7,"cacheReadTokens":75374,"cacheWriteTokens":1651,"updatedAt":1794602283844}'
 ---
 
 **user**: I need a new idea note.  Hs to do with some litterary devices and directions for the book
@@ -421,3 +421,62 @@ I created `02_Ideas Topics Concepts/Global Structural Harm/GSH Status.base`. It 
 
 If it shows errors or blank tables, tell me what you see and I'll fix the syntax. Once you've seen it, we can decide whether something like this belongs in each index.
 [Timestamp: 2026/11/13 13:26:55]
+
+**user**: template/filing looks good. havent looked at base yet.  One other thing related to template and process.  you have process based on status, for example. but if i creaated note manually, i would probably break process because I don't see a controlled vocabulary w dropdown or something for allowed type and status field options. does this need handling.  Maybe i am lacking understanding of an obsidian feature
+[Timestamp: 2026/11/13 13:32:35]
+
+**ai**: You're not missing anything. Obsidian's Properties feature has no true dropdowns or allowed-value lists. What it does have:
+
+- **Property types:** text, list, number, checkbox, date and date & time. Each property has one type, but nothing limits *which* text you can enter.
+- **Autocomplete:** when you type in a text property such as `status`, Obsidian suggests values already used elsewhere in the vault. That steers you toward `stub`, `seed` and so on, but it won't stop you typing `Stub` or `draftt`.
+
+As far as I know, recent versions haven't added enum or dropdown properties. I can check the current docs if you want to be sure.
+
+**Does it need handling?** Somewhat. A wrong `status` mostly just looks untidy. A wrong `bookmark` value is the real risk: if you type `Ready` instead of `ready`, the hook and the sweep will silently skip the note.
+
+**Options, from lightest to heaviest:**
+1. **Templates plus autocomplete.** If you start notes from the template, the correct values are already filled in, so you only change a word and autocomplete helps. This costs nothing and is already in place.
+2. **A "problems" view in a Base.** One view lists any idea note whose `type`, `status` or `bookmark` isn't an allowed value. Glancing at it catches typos. It uses only built-in features.
+3. **Tolerant filing.** The skill accepts obvious variants (`Ready`, `READY`) and reports anything it can't match during a sweep, rather than skipping the note silently. That's a small edit to the skill.
+4. **Real dropdowns from a community plugin** (e.g. Metadata Menu). This gives true controlled vocabularies, but it's another plugin to install and maintain, and it adds a rule system alongside the one we have.
+
+**My recommendation:** options 1, 2 and 3 together. That gives you guidance, a way to spot mistakes and a safety net, all without new plugins. I'd also add a short "allowed values" list to `obsidian-conventions.md` so there's one reference to check, covering `type`, `status` and `bookmark` (`draft`, `ready` or an index ID).
+
+Since you haven't opened the Base yet, I could add the problems view as a third tab to `GSH Status.base`. That way you'd see both ideas when you open it. Should I make those changes?
+[Timestamp: 2026/11/13 13:32:35]
+
+**user**: I am inclined toward 4. It seems like a bad pattern that when we identify a significant problem we don't solve it - rather enable continual messiness with its associated issues by building mess tolerant systems.  Shouldn't we simply enforce what we are pretty sure is correct and has limited maintenance cost (since the developers maintain the plugin normally)?  Please share yoiur reasoning
+[Timestamp: 2026/11/13 13:37:31]
+
+**ai**: I agree with your principle: when something is clearly correct and cheap to enforce, enforce it rather than building tolerance for mess. The one caveat is that a dropdown plugin can only guard one of the ways values get into your notes.
+
+**Where you're right**
+- Tolerant systems turn into habits. If the skill quietly accepts `Ready`, nothing ever pushes values back toward correct, and every future tool needs the same tolerance.
+- Stopping a mistake when it's typed is cheaper than finding it later.
+- The vocabulary is small and settled (`type`, `status`, `bookmark`), so locking it down costs little.
+- I withdraw option 3 (tolerant filing).
+
+**What a plugin can't cover**
+- **It only controls Obsidian's interface.** Values reach your notes in at least three ways:
+  - you, in Obsidian (the plugin covers this)
+  - me, writing the files directly (the plugin can't see this)
+  - your own edits in source mode or outside Obsidian (also not covered)
+
+  So enforcement at entry still needs one cheap check to confirm it held, which is what the "problems" view does. That view isn't tolerance. It's a check, the same way you'd still run a test after adding a type checker.
+- **It may not replace the native Properties panel.** From the docs, Metadata Menu's dropdowns appear in *its own* field modal (opened by a command or context menu). I'm not sure the standard Properties panel stops free typing. If it doesn't, you'd have to get into the habit of using the plugin's editor.
+- **It adds a second source of rules.** The plugin keeps its allowed values in a definition note (a "fileClass"), and it may add a `fileClass:` field to your notes. To avoid two copies drifting apart, that definition should become *the* source of the allowed values, and the conventions rule should point to it.
+- **Maintenance is less certain than "the developers maintain it."** Metadata Menu has wide use (about 244k downloads). The same author now lists **[Fileclass](https://community.obsidian.md/plugins/fileclass)** as its successor, which works only with frontmatter, and that's all we use. I couldn't confirm either one's 2026 release activity from the search results. If we adopt one, Fileclass may be the better long-term choice, but I'd check its GitHub activity first.
+
+**Revised recommendation**
+1. **Enforce:** adopt Fileclass or Metadata Menu, after checking that it's actively maintained and how it behaves in the Properties panel. Its definition note becomes the single source of allowed values.
+2. **Verify:** add the problems view, which catches anything written outside the plugin, including by me.
+3. **I follow the same list:** the skill and rules point to that definition note, so I don't keep my own copy.
+
+Installing a plugin changes `.obsidian/`, so either you install it or I do it with your OK. Should I research the two plugins first (releases, open issues, Properties-panel behaviour) so you can choose with real information?
+
+Sources:
+- [Metadata Menu – Obsidian community listing](https://community.obsidian.md/plugins/metadata-menu)
+- [Fileclass – Obsidian community listing](https://community.obsidian.md/plugins/fileclass)
+- [Metadata Menu fields documentation](https://mdelobelle.github.io/metadatamenu/fields)
+- [Metadata Menu GitHub repo](https://github.com/mdelobelle/metadatamenu)
+[Timestamp: 2026/11/13 13:37:31]
