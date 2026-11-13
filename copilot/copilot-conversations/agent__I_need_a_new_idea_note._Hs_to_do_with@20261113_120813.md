@@ -6,7 +6,7 @@ sessionId: "98b5058d-70c0-406b-94b5-23583b34f968"
 topic: "I need a new idea note. Hs to do with some litterary devices…"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":79794,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":78302,"cacheWriteTokens":1482,"updatedAt":1794602869039}'
+usage: '{"usedTokens":89346,"contextWindow":1000000,"inputTokens":2,"outputTokens":2,"cacheReadTokens":88159,"cacheWriteTokens":1183,"updatedAt":1794603340729}'
 ---
 
 **user**: I need a new idea note.  Hs to do with some litterary devices and directions for the book
@@ -528,5 +528,60 @@ Sources:
 **user**: i think i am good.  I am satisfied that you examined base sufficiently.  let's do it all.
 [Timestamp: 2026/11/13 13:50:52]
 
-**ai**: The latest release is 0.8.12, from February 2026, so it's actively maintained. Installing it now:
+**ai**: The latest release is 0.8.12, from February 2026, so it's actively maintained. Installing it now:Everything is in place, but none of it has been tested in Obsidian yet, which you'll need to do. Restart Obsidian, or turn on community plugins if it asks, so the new plugin loads.
+
+**Plugin**
+- I installed **Metadata Menu 0.8.12** (released 2026-02-11) from the author's official GitHub release into `.obsidian/plugins/metadata-menu/`.
+- I added it to `.obsidian/community-plugins.json` and set its folder for definition notes to `00_Claude_Admin/FileClasses/`.
+
+**Allowed values**
+- **New file:** `00_Claude_Admin/FileClasses/Idea.md` is the single source of allowed values.
+- **Dropdowns:** `type` (idea), `status` (stub → seed → developing → stable → archived) and `territory` (new | revisited).
+- **`bookmark` stays free text.** Index IDs keep growing, so a fixed dropdown can't hold them. The Problems view checks it against `draft`, `ready` and the ID patterns instead.
+- **`revisits`** is a link-to-note field.
+
+**Updated files**
+- **Idea template and the chapter-frontmatter note:** both now carry `fileClass: Idea`, which is what makes the dropdowns appear.
+- **`GSH Status.base`:** has a third tab, **Problems (all ideas)**. It lists idea notes with a bad `status`, `bookmark` or `territory` value, or with no `fileClass`.
+- **Conventions rule and skill:** both point to the fileClass and don't keep their own copy of the lists.
+- **Decisions_Log:** a new entry records the decision to enforce values.
+
+**What to check in Obsidian**
+1. Open the chapter-frontmatter note and look for Metadata Menu's dropdown on `status`. It's usually reached through the plugin's icon or the right-click menu, not the standard Properties panel.
+2. Open `GSH Status` and look at all three tabs.
+
+I wrote the fileClass and the Problems filter from the documented formats. If either shows an error or behaves oddly, tell me what you see. Metadata Menu can also re-save the fileClass through its own editor, which fixes small format differences.
+
+**One decision left: the existing idea notes.** About 20 of them have no `fileClass: Idea`: the S-1R, GSH and 003 series and a few loose notes. Until they get it:
+- They'll all appear in the Problems tab.
+- They won't get dropdowns.
+
+Adding that one line is a mechanical change across about 20 files. Should I do it and then list every file I changed?
+
+Sources:
+- [Metadata Menu GitHub releases](https://github.com/mdelobelle/metadatamenu)
+- [Fileclass – Obsidian community listing](https://community.obsidian.md/plugins/fileclass)
 [Timestamp: 2026/11/13 13:50:52]
+
+**user**: for check 1 i see the properties they look great. is that just an interface on top of the standard YAML? or does it replace frontmatter?  However I only see Idea on the dropdown. and seed.  is that because a controlled vocabulary hasnt been created in metadata menu yet?
+[Timestamp: 2026/11/13 13:55:24]
+
+**ai**: **Your first question: it's an interface on top of normal YAML.** Neither Obsidian's Properties panel nor Metadata Menu replaces the frontmatter. Both read and write the same plain YAML block at the top of the note. Your note on disk still says `fileClass: Idea`, `status: seed` and so on, as ordinary text. If you removed the plugin tomorrow, nothing in your notes would change.
+
+**The dropdown: I think it's Obsidian's own autocomplete, not Metadata Menu.**
+- **Why I think that:** Metadata Menu writes its full list of settings into its settings file the first time it runs. That file still holds only the two lines I wrote, so the plugin probably hasn't loaded yet.
+- **What you saw:** in Obsidian's own Properties panel, clicking a value shows suggestions *filtered by the text already in the box*. With "seed" in the box you only see "seed", and with "Idea" only "Idea". That matches what you saw.
+- **Is the list there?** Yes, the allowed values are already defined in `00_Claude_Admin/FileClasses/Idea.md`. The plugin just isn't reading them yet.
+
+**To get it running:**
+1. Go to **Settings → Community plugins**. If "Restricted mode" is on, turn it off.
+2. Find **Metadata Menu** in the list and switch it on. If it isn't listed, fully quit and reopen Obsidian.
+3. Check its settings page: the class files path should show `00_Claude_Admin/FileClasses/`.
+
+**Then test it:**
+- In the note, **right-click the `status` property**, or use the command palette and choose *Metadata Menu: …field options*.
+- You should get a picker listing stub / seed / developing / stable / archived.
+- **To see Obsidian's own list instead:** clear the box in the standard Properties panel and it will show every value already used in the vault.
+
+Tell me what happens. If the plugin is on and its picker still shows the wrong options, the fileClass format is the likely cause. I'll fix that, or you can open the fileClass in Metadata Menu's own editor and save it, which rewrites it in the exact format the plugin expects.
+[Timestamp: 2026/11/13 13:55:24]

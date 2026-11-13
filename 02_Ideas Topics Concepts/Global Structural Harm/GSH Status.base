@@ -26,3 +26,20 @@ views:
       - status
       - file.folder
       - created
+  - type: table
+    name: Problems (all ideas)
+    filters:
+      and:
+        - type == "idea"
+        - or:
+            - '!["stub", "seed", "developing", "stable", "archived"].contains(status)'
+            - '!(bookmark == "draft" || bookmark == "ready" || /^[A-Za-z0-9-]+-\d{3}[a-z]?$/.matches(bookmark) || /^\d{3}[a-z]?$/.matches(bookmark))'
+            - '!["new", "revisited"].contains(territory)'
+            - fileClass != "Idea"
+    order:
+      - file.name
+      - status
+      - bookmark
+      - territory
+      - fileClass
+      - file.folder

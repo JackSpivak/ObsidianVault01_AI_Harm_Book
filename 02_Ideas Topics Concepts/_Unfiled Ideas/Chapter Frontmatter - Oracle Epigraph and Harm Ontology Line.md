@@ -1,11 +1,16 @@
 ---
+fileClass: Idea
 type: idea
 status: seed
 bookmark: draft
 canonical_id:
 territory: new
-tags: [device/epigraph, structure/chapter-frontmatter]
-aliases: [Chapter epigraph device, Harm ontology chapter line]
+tags:
+  - device/epigraph
+  - structure/chapter-frontmatter
+aliases:
+  - Chapter epigraph device
+  - Harm ontology chapter line
 created: 2026-11-13
 ---
 

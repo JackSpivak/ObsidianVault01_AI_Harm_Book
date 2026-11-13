@@ -45,7 +45,7 @@ Every confirmed bookmark gets a page immediately — never left page-less, and n
 
 Stub structure: use the single idea template, `00_Claude_Admin/Templates/Idea.md` — there is no separate stub template. A stub is an idea note with `status: stub`; maturity lives in `status`, never in a different template or `type`. Fill in:
 
-- Frontmatter: `type: idea`, `status: stub`, `bookmark: <e.g. CG-002>`, `canonical_id: <unique slug>`, `territory: new | revisited`, plus `revisits: [[<page>]]` only if revisited.
+- Frontmatter: `fileClass: Idea`, `type: idea`, `status: stub`, (allowed values for every field: `00_Claude_Admin/FileClasses/Idea.md`, the single source), `bookmark: <e.g. CG-002>`, `canonical_id: <unique slug>`, `territory: new | revisited`, plus `revisits: [[<page>]]` only if revisited.
 - **Why this is distinct** (1–2 sentences), **Anticipated direction**, **Conceptual territory** (new ground, or previously-entered territory approached differently — and how).
 - **Summary** and **Original wording**, as required by the note creation rules in `CLAUDE.md`: verbatim quotes, each with its own attribution, plus source and external references. If the exact wording can't be located, say so in the section rather than reconstructing it.
 - Leave the remaining sections empty; they fill in as the idea develops.

@@ -20,6 +20,7 @@ created: YYYY-MM-DD
 ---
 ```
 
+- **Allowed values for idea notes** are defined in one place only: `00_Claude_Admin/FileClasses/Idea.md` (Metadata Menu fileClass, which gives the dropdowns). Read it before writing idea frontmatter; never keep a second copy of the lists. Idea notes carry `fileClass: Idea`. The "Problems" view in `GSH Status.base` lists idea notes whose values don't match.
 - Keep tags few and structural (e.g. `theme/surveillance`, `harm/bias`); use links, not tags, for specific entities.
 - Add `aliases` for alternate names so links resolve.
 

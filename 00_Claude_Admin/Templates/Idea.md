@@ -1,4 +1,5 @@
 ---
+fileClass: Idea
 type: idea
 status: seed
 bookmark: draft
