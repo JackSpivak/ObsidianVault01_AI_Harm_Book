@@ -1,3 +1,8 @@
+formulas:
+  problem: 'if(fileClass != "Idea", "missing fileClass: Idea · ", "") + if(!["stub", "seed", "developing", "stable", "archived"].contains(status), "status not an allowed value · ", "") + if(!(bookmark == "draft" || bookmark == "ready" || /^[A-Za-z0-9-]+-\d{3}[a-z]?$/.matches(bookmark) || /^\d{3}[a-z]?$/.matches(bookmark)), "bookmark not draft/ready/an index ID · ", "") + if(!["new", "revisited"].contains(territory), "territory not new/revisited", "")'
+properties:
+  formula.problem:
+    displayName: Problem
 views:
   - type: table
     name: GSH notes
@@ -38,8 +43,11 @@ views:
             - fileClass != "Idea"
     order:
       - file.name
+      - formula.problem
       - status
       - bookmark
       - territory
       - fileClass
       - file.folder
+    columnSize:
+      formula.problem: 336
