@@ -6,7 +6,7 @@ sessionId: "98b5058d-70c0-406b-94b5-23583b34f968"
 topic: "I need a new idea note. Hs to do with some litterary devices…"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":57790,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":56883,"cacheWriteTokens":897,"updatedAt":1794600426403}'
+usage: '{"usedTokens":59348,"contextWindow":1000000,"inputTokens":4,"outputTokens":8,"cacheReadTokens":0,"cacheWriteTokens":59336,"updatedAt":1794600959554}'
 ---
 
 **user**: I need a new idea note.  Hs to do with some litterary devices and directions for the book
@@ -287,3 +287,54 @@ Should I read `.obsidian/` to check these? I won't change anything there. After 
 
 Should I go ahead, and is Option A for the naming clash OK?
 [Timestamp: 2026/11/13 13:06:48]
+
+**user**: i am also inclined to stick with the same name although i am thinking it will create confusion as you  proposed.  I am thinking of an alternate. Option C.  I didn't know when we developed the whole bookmarking approach that Obsidian had an internal methoddology for this.  is it native or at least a core plugin?  If so how much of our process does it's feature set cover? Could we update our process to use existing Obsidian rigging and only add the process features we need?
+[Timestamp: 2026/11/13 13:15:39]
+
+**ai**: Yes, it's a core plugin, but it covers only a small part of what your process does.
+
+**What Obsidian's Bookmarks is**
+- It's a **core plugin** (built in, switched on in your `core-plugins.json`). It replaced the older "Starred" feature in 2023.
+- **What you can bookmark:**
+  - notes, folders, headings and blocks
+  - saved searches and graph views
+- **What else it does:**
+  - nested **groups**
+  - custom display titles
+  - the same item in several groups
+  - a sidebar tree you can reorder by dragging
+- **Where it's stored:** one settings file, `.obsidian/bookmarks.json`. You don't have one yet, so you've never used it.
+
+(I'm going from my knowledge of Obsidian here, not a fresh check of the docs. I can verify it if you want.)
+
+**How it compares with your process**
+
+| Your process needs | Bookmarks plugin |
+|---|---|
+| A navigable tree of branches | ✅ Groups |
+| One item under several parents | ✅ |
+| Numbered IDs (GSH-003, 2a/2b sub-framings) | ❌ Display titles only, nothing machine-readable |
+| Why it's distinct, direction, territory | ❌ No notes or metadata |
+| Status, `canonical_id`, `revisits` | ❌ |
+| Inbox and draft/ready filing | ❌ |
+| Dedup, routing, master index of indices | ❌ |
+| Readable in git and editable by me | ❌ Settings JSON, and I'm not allowed to touch `.obsidian/` |
+
+So it handles **navigation only**. Everything that gives your indices meaning would still have to live in notes.
+
+**My recommendation for Option C: use Obsidian's built-in pieces where they really replace work, and leave Bookmarks out of the process.**
+
+- **Keep:** markdown index notes and note frontmatter remain the source of truth. They're linkable, versioned in git, and I can maintain them.
+- **Adopt Bases, the better native fit.** It's a core plugin that's already on, and it builds live tables from frontmatter. For example, a `.base` view could list every note whose `bookmark` starts with `GSH-`, sorted by ID and showing `status`. That could replace some of the lists in your indices that are currently maintained by hand, and removes the risk of two copies drifting apart that the skill warns about.
+- **Already native, keep using:** properties, aliases, the core Templates plugin (once its folder is set) and link updating.
+- **Bookmarks stays your own:** use it to pin things in the sidebar if you like, but nothing in the process depends on it. Mirroring the indices into it would just be another copy to keep in sync.
+
+**On the name:** if Bookmarks stays a personal tool, the clash only matters for wording. You could keep "bookmark" for now and decide on a rename later. If you'd like a different term, options include "branch," "thread," "waypoint" or "marker."
+
+**Next steps, in order:**
+1. **Now:** the template and filing update from my last message, unchanged.
+2. **After that:** a short trial, building one Bases view for a single index such as GSH, to see whether it can replace that index's hand-kept list. This involves only a new `.base` file in the vault and no `.obsidian/` changes.
+3. **Later:** decide whether to rename "bookmark."
+
+Should I start step 1? And is the Bases trial worth doing next?
+[Timestamp: 2026/11/13 13:15:39]
