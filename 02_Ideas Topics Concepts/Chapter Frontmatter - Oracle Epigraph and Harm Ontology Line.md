@@ -9,10 +9,11 @@ created: 2026-11-13
 # Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line
 
 ## The idea - Summary
-- Each chapter opens with a standard frontmatter block containing two entries:
-  1. **An epigraph: a quote, insight or "seeing"** about the current state of the world, spoken by an invented but wise being. The voice can't tell objective reality apart from the growing hybrid of real and synthesized reality. The being may turn out to be the AI itself. One possibility: a Lao Tzu–like figure who "hallucinates" a stream of consciousness drawn from evolving `worldscontext.md` documents.
-  2. **A line of technical identifiers** from the harm ontology. It lists namespace entries for the harm categories and specific harm types that were identified in the story premise and used to synthesize the story.
-- A possible variant: a second, slightly different line that lists harms identified *after* the story unfolded.
+- Each chapter opens with a standard epigraph/heading block containing two entries:
+  1. **Quote, insight or "seeing"** about the current state of the world, spoken by an invented but wise being. The voice can't tell objective reality apart from the growing hybrid of real and synthesized reality. The being may turn out to be the AI itself. One possibility: a Lao Tzu–like figure who "hallucinates" a stream of consciousness drawn from evolving `worldscontext.md` documents.
+  2. **Harm ontology identifier line(s)**: technical identifiers, including namespace entries, for harm categories and specific harm types. It should appear as cryptic essentially machine readable code pointing to the actual harm ontology.  Possible also a .ttl (turtle) statement or IRI for the story as a whole - so that (after vetting/curation) these imaginative stories could be actual learnable/teachable instances of harm - possibly to be absorbed into the Harm Ontology
+     - **2a. Premise harms:** the harms identified in the story premise and used as the basis for story synthesis.
+     - **2b. Emergent harms (possible):** a slightly different line for harms identified *after* the story unfolded.
 
 ## The idea - Original wording
 > "One is an idea for chapter epigraph/heading/frontmatter with two standard entries:  two things. 1. a quote or an insight or a "seeing" about the current state of the world ( but cant distinguish the real world from the evolving hybrid of objective reality and synthesized reality. Maybe Laotzu could hallucinate stream of consciousness from evolving worldscontext.md docs) from a fictitious but wise being who may turn out to be the AI itself. second one 2. a line entry of technical identifiers from the harm ontology including namespace entries for the categories and specific types of harms identified in the story premise and used as basis for story synthesiss. Perhaps another - only slightly different - for harms identified after the story unfolded"

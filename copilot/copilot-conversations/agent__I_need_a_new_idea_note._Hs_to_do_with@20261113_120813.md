@@ -6,7 +6,7 @@ sessionId: "98b5058d-70c0-406b-94b5-23583b34f968"
 topic: "I need a new idea note. Hs to do with some litterary devices…"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":38798,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":38388,"cacheWriteTokens":400,"updatedAt":1794598138011}'
+usage: '{"usedTokens":45406,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":43102,"cacheWriteTokens":2299,"updatedAt":1794598783712}'
 ---
 
 **user**: I need a new idea note.  Hs to do with some litterary devices and directions for the book
@@ -66,3 +66,45 @@ At the moment both entries share one note, [[Chapter Frontmatter - Oracle Epigra
 
 Would you like them split, or kept together?
 [Timestamp: 2026/11/13 12:28:47]
+
+**user**: the second variant is actuallly 2b. current number 2 should actually contain 2a and 2b.  the variant is not a variant on the epigraph.  it is a variant of the second line of the epigraph
+[Timestamp: 2026/11/13 12:31:39]
+
+**ai**: I've fixed it. The note now treats the after-the-story line as part of entry 2, not as a variant of the epigraph. The Summary reads:
+
+1. **Quote, insight or "seeing"** from the wise being who may turn out to be the AI.
+2. **Harm ontology identifier line(s)**
+   - **2a. Premise harms:** the harms identified in the story premise and used as the basis for story synthesis.
+   - **2b. Emergent harms (possible):** a slightly different line for harms identified after the story unfolded.
+
+I also changed "frontmatter block" to "epigraph/heading block" so the whole two-part block is framed as the epigraph. Your Original wording quote is unchanged.
+[Timestamp: 2026/11/13 12:31:39]
+
+**user**: didn't you say that when we created ideas they would be in the unfilled ideas folder to be handled with the filing process/sweep so that they ultimately appear in a relevant bookmark index and folder? Why didn't this behavior trigger
+[Timestamp: 2026/11/13 12:39:25]
+
+**ai**: You're right that this should have happened. It didn't, and that was my mistake.
+
+**What went wrong**
+- I didn't say anything about the filing workflow earlier in *this* chat. It's set up in the vault, though: `.claude/skills/bookmark-index-maintainer/SKILL.md` (line 79) describes new idea notes going into `02_Ideas Topics Concepts/_Unfiled Ideas/`, built from the **Idea Stub** template. Each note gets a `bookmark: draft` → `ready` flag, and a sweep then files it into a bookmark index. That's probably what you remember.
+- I missed it because the workflow is written down **only inside that skill**. Neither `CLAUDE.md` nor the `.claude/rules/` files mention it, so when you asked for an "idea note" I followed the general rules. I used the regular **Idea** template and saved the note in the `02_Ideas Topics Concepts/` root. I should have recognised this as a skill task and gone the stub route.
+
+**As a result, the note currently:**
+- isn't in `_Unfiled Ideas/`
+- has no `bookmark:` or `canonical_id:` field, so the unfiled-check hook and any sweep will never see it
+- is missing the stub sections: Why this is distinct, Anticipated direction and Conceptual territory
+
+**Proposed fix (needs your OK because it moves a note):**
+1. Move it to `02_Ideas Topics Concepts/_Unfiled Ideas/`. The folder doesn't exist yet, so I'd create it.
+2. Convert it to the Idea Stub format:
+   - add `bookmark: draft`, `canonical_id:`, `territory:` and `status: stub`
+   - draft the three stub sections from what the note already says
+   - keep your 2a/2b edits and the Original wording exactly as they are
+3. Then either:
+   - **(a)** leave it as `draft` so you can flip it to `ready` when you're happy with it, or
+   - **(b)** file it now: I'd propose an ID and index placement, likely the AI Governance & Safety index next to [[003 Harm Ontology from Outlines]], or a new craft/structure index, for you to approve.
+
+**So this doesn't happen again:** I'd add one line to `CLAUDE.md` under Note creation rules: *"New idea notes use the Idea Stub template and go in `02_Ideas Topics Concepts/_Unfiled Ideas/` for filing via the bookmark-index-maintainer skill."*
+
+Should I go ahead with steps 1–2, and do you want 3a or 3b? Should I also add the `CLAUDE.md` line?
+[Timestamp: 2026/11/13 12:39:25]
