@@ -13,7 +13,7 @@ Every new note starts with YAML frontmatter:
 ```yaml
 ---
 type: character | location | concept | research | chapter | scene | outline | session | idea
-status: seed | developing | stable | archived
+status: stub | seed | developing | stable | archived
 tags: []
 aliases: []
 created: YYYY-MM-DD
@@ -34,6 +34,7 @@ created: YYYY-MM-DD
 - Don't create a note for something mentioned once with no further use — keep it inline until it earns its own note.
 - Merge notes that duplicate each other; propose merges, don't do them unasked.
 - Prefer updating an existing note over creating a new one.
+- New idea notes (stub or fully developed) use the single `Idea` template, go in `02_Ideas Topics Concepts/_Unfiled Ideas/` with `bookmark: draft`, and are filed into a bookmark index by the bookmark-index-maintainer skill. A stub is `type: idea` + `status: stub`, not a separate template.
 - Session/brainstorm notes go in `01_The Writer's Room/`; promote durable conclusions into the proper folder and link back.
 
 ## File naming

@@ -1,0 +1,28 @@
+views:
+  - type: table
+    name: GSH notes
+    filters:
+      and:
+        - file.inFolder("02_Ideas Topics Concepts/Global Structural Harm")
+        - type == "idea"
+    order:
+      - bookmark
+      - file.name
+      - status
+      - tags
+      - created
+    sort:
+      - property: bookmark
+        direction: ASC
+  - type: table
+    name: Unfiled inbox (all ideas)
+    filters:
+      or:
+        - bookmark == "draft"
+        - bookmark == "ready"
+    order:
+      - file.name
+      - bookmark
+      - status
+      - file.folder
+      - created

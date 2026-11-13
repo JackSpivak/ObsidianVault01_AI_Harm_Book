@@ -54,6 +54,7 @@ Detailed operating rules live in `.claude/rules/` and load automatically.
   `Canon_and_Continuity.md`.
 
 ## Note creation rules
+- New idea notes use `00_Claude_Admin/Templates/Idea.md` (stubs too: `status: stub`), go in `02_Ideas Topics Concepts/_Unfiled Ideas/` with `bookmark: draft`, and are filed via the bookmark-index-maintainer skill. See `Decisions_Log.md` 2026-11-13.
 - When creating any note from conversation content (ideas, research, characters, world building), include two sections: 
 	- Summary (your paraphrase) and 
 	- Original wording immediately below it, containing:

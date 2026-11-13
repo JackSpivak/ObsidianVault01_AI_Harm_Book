@@ -43,32 +43,14 @@ When creating this index for the first time, or recreating it from scratch, in a
 
 Every confirmed bookmark gets a page immediately — never left page-less, and never left as a placeholder whose content has to be invented later. The required content is already produced by the placement step itself: a bookmark can't legitimately be proposed without already being able to say why it's distinct and where it's headed, so writing the stub is recording that justification, not inventing new content on top of it.
 
-Stub frontmatter and structure:
+Stub structure: use the single idea template, `00_Claude_Admin/Templates/Idea.md` — there is no separate stub template. A stub is an idea note with `status: stub`; maturity lives in `status`, never in a different template or `type`. Fill in:
 
-```
----
-canonical_id: <unique slug>
-type: idea
-status: stub
-bookmark: <e.g. CG-002>
-territory: new            # new | revisited
-revisits: [[<page>]]      # present only if territory: revisited
-created: <date>
----
+- Frontmatter: `type: idea`, `status: stub`, `bookmark: <e.g. CG-002>`, `canonical_id: <unique slug>`, `territory: new | revisited`, plus `revisits: [[<page>]]` only if revisited.
+- **Why this is distinct** (1–2 sentences), **Anticipated direction**, **Conceptual territory** (new ground, or previously-entered territory approached differently — and how).
+- **Summary** and **Original wording**, as required by the note creation rules in `CLAUDE.md`: verbatim quotes, each with its own attribution, plus source and external references. If the exact wording can't be located, say so in the section rather than reconstructing it.
+- Leave the remaining sections empty; they fill in as the idea develops.
 
-# <Title>
-
-## Why this is distinct
-<1-2 sentences>
-
-## Anticipated direction
-<what this branch is expected to develop into>
-
-## Conceptual territory
-<new ground, or previously-entered territory approached differently — and how>
-```
-
-Status moves from `stub` toward more developed values as the page grows, tracked only in the page's own frontmatter — never duplicated as a second field in the index. A hand-maintained copy of a fact that already lives on the page it describes is the same two-copies-drift problem this whole pattern exists to avoid. If the index should show status at a glance, that's a live query (e.g. Dataview) over each page's frontmatter, not a second, separately-maintained source of truth.
+Status moves from `stub` toward more developed values (`seed → developing → stable`) as the page grows, tracked only in the page's own frontmatter — never duplicated as a second field in the index. A hand-maintained copy of a fact that already lives on the page it describes is the same two-copies-drift problem this whole pattern exists to avoid. If the index should show status at a glance, that's a live query (an Obsidian Bases view) over each page's frontmatter, not a second, separately-maintained source of truth.
 
 ### Dedup before creating
 
@@ -76,7 +58,7 @@ Before creating a new idea or topic page, check whether one already exists for t
 
 ### Filing an existing note (the inverse process)
 
-A note written by hand — from the `Idea Stub` template, in `02_Ideas Topics Concepts/_Unfiled Ideas/` — goes through the same pipeline in reverse: note first, then bookmark. The end state must be indistinguishable from a skill-created stub.
+A note written by hand or created by Claude from conversation — from the `Idea` template, at any status (a bare stub or a fully developed idea), in `02_Ideas Topics Concepts/_Unfiled Ideas/` — goes through the same pipeline in reverse: note first, then bookmark. The end state must be indistinguishable from a skill-created stub.
 
 **The inbox and the completion marker:**
 - `_Unfiled Ideas/` is the inbox: *where* waiting notes live. Filing moves them out; an empty folder means everything is filed.
@@ -88,7 +70,7 @@ A note written by hand — from the `Idea Stub` template, in `02_Ideas Topics Co
 - Sweep — "sweep unfiled notes", "file notes", "file uncategorized", etc.: every `ready` note. List `draft` notes in the inbox by name only ("2 drafts left untouched").
 - Session-start reminder — if a hook reports ready notes at the start of a session, mention the count once and offer a sweep; don't start filing unprompted.
 
-1. **Read the note.** If it lacks the stub sections (Why this is distinct / Anticipated direction / Conceptual territory), draft them from the note's own content and show them — don't invent beyond what the note supports.
+1. **Read the note.** If it lacks the routing sections (Why this is distinct / Anticipated direction / Conceptual territory), draft them from the note's own content and show them — don't invent beyond what the note supports. Never remove or shrink a developed note's other sections. Older notes in either legacy format (stub-only, or "The idea - Summary" headings) are valid; treat missing sections as not yet written, not as errors.
 2. **Dedup.** Exact check by `canonical_id` and distinctive title (see "Dedup before creating"). If the idea already has a page, propose linking or merging instead of filing.
 3. **Rank relevance.** Read the master index for each index's scope, then use semantic search to find the closest existing bookmarks. Semantic search is correct *here* — this is a relevance question. Resolving which file is canonical stays exact-match.
 4. **Route** using the Routing section:
@@ -96,7 +78,7 @@ A note written by hand — from the `Idea Stub` template, in `02_Ideas Topics Co
    - Worthy, no index fits → the note becomes `<PREFIX>-000`, the root stub of a new index; propose the prefix and register the index in the master index.
    - Not a topic idea → case 4a/4b; don't bookmark.
 5. **One confirmation covers everything.** Present the full plan in one message — ID, new file name, destination folder, index entries, master-index change, links to be rewritten. Approval of that plan *is* approval of the rename and move; don't ask again per step. Never execute without it.
-6. **Execute** (see "Rename and move mechanics" below): set `bookmark`, `canonical_id`, `status: stub`; rename to the index's naming convention (`<ID> <Title>.md`); move into the index's folder; add to the index; update the master index if needed.
+6. **Execute** (see "Rename and move mechanics" below): set `bookmark`, `canonical_id`, and `status: stub` only if the note has no status yet (never downgrade an existing status); rename to the index's naming convention (`<ID> <Title>.md`); move into the index's folder; add to the index; update the master index if needed.
 
 ### Moving a filed note to another index
 
