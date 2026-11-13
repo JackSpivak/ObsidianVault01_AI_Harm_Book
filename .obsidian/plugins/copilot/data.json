@@ -449,6 +449,8 @@
       "minimax-m3"
     ]
   },
+  "connectors": [],
+  "customConnectors": [],
   "miyoConnectionMode": "local",
   "_keychainVaultId": "a7a77fb4",
   "settingsVersion": 16
