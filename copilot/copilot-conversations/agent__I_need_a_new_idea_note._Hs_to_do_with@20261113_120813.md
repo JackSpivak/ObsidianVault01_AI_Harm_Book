@@ -6,7 +6,7 @@ sessionId: "98b5058d-70c0-406b-94b5-23583b34f968"
 topic: "I need a new idea note. Hs to do with some litterary devices…"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":45406,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":43102,"cacheWriteTokens":2299,"updatedAt":1794598783712}'
+usage: '{"usedTokens":47528,"contextWindow":1000000,"inputTokens":4,"outputTokens":6,"cacheReadTokens":46903,"cacheWriteTokens":615,"updatedAt":1794599231433}'
 ---
 
 **user**: I need a new idea note.  Hs to do with some litterary devices and directions for the book
@@ -108,3 +108,52 @@ I also changed "frontmatter block" to "epigraph/heading block" so the whole two-
 
 Should I go ahead with steps 1–2, and do you want 3a or 3b? Should I also add the `CLAUDE.md` line?
 [Timestamp: 2026/11/13 12:39:25]
+
+**user**: no. I thought we agreed that the note stub was only intended for when we bookmark a conversation as a key point (possibly a bifurcation rather than a deepening) for further conversation or investigation. New fully fleshed ideas should use the actual idea template.
+
+the distinction is that a stub may be a place holder for a thought or direction that is not yet developed - so immature that it is perhaps just born.  And as a result it may only have an identifying sentence or two about the direction or intention or question to be elaborated
+[Timestamp: 2026/11/13 12:44:58]
+
+**ai**: Understood. I've dropped the stub conversion, and the note keeps the **Idea** template it already uses.
+
+I checked `Decisions_Log.md` and found nothing about this, so the distinction isn't written down anywhere. That makes it easy for me to get wrong. As I understand it:
+
+- **Idea Stub:** a placeholder created when we bookmark a key point in a conversation, often a fork rather than a deepening. It may be only a sentence or two naming a direction, intention or question to explore later.
+- **Idea template:** for new, fleshed-out ideas, like this chapter-epigraph note.
+
+One thing is still open: your earlier question was why this note didn't go to `_Unfiled Ideas` to be swept into a bookmark index. Do you want **full idea notes** to go through that filing process too?
+
+- **Yes:** move this note into `_Unfiled Ideas/`, keep the Idea template, and add a `bookmark: draft` field so the sweep picks it up when you mark it `ready`. Right now the skill's filing rules only describe stubs, so the skill would need a small update to accept Idea-template notes without forcing the stub sections onto them.
+- **No:** full ideas stay where they're created, and only stubs go through the index. If so, I'll still need to know which folder they should live in. This one currently sits in the `02_Ideas Topics Concepts/` root.
+
+Once you've answered, I'd like to record the stub-vs-idea rule, plus your answer here, in `Decisions_Log.md` and as a line in `CLAUDE.md`. Should I do that?
+[Timestamp: 2026/11/13 12:44:58]
+
+**user**: yes i think full ideas should go through the filing process too. do you see any reason why not? or better alternatives?
+[Timestamp: 2026/11/13 12:46:59]
+
+**ai**: Yes, I think that's the right call, with a few adjustments. Here's my reasoning.
+
+**Reasons to file full ideas too**
+- **One map.** If only stubs reach the indices, your developed ideas would sit outside the structure while half-formed ones sit inside it, which is backwards.
+- **Same machinery.** The dedup check and relevance ranking you already have catch overlaps, for example between this note and [[003 Harm Ontology from Outlines]].
+- **One inbox.** Everything new lands in `_Unfiled Ideas/`, and the hook tells you when something is `ready`.
+
+**Possible problems, and how to handle them**
+1. **Stub-specific steps.** As written, the filing process drafts "Why this is distinct / Anticipated direction / Conceptual territory" whenever those sections are missing. For full ideas it should skip that step and keep the Idea template. This needs a small change to the skill.
+2. **Status gets downgraded.** Filing currently sets `status: stub`. A full idea should keep `seed` or `developing`.
+3. **Renaming.** Filing renames a note to `<ID> Title.md` and moves it. That's fine inside Obsidian, but your rules warn that renames break links outside it. The note's aliases should therefore include the old title, which the skill already does for moves.
+4. **Ideas that cross indices.** This note touches both craft/structure and the harm ontology. The skill's "(also under …)" placement already handles that, so it isn't a blocker.
+
+**An alternative I considered: link-only filing**
+Full ideas would stay where they are, with their own names, and only get an entry in an index. You'd have fewer renames, but two filing behaviours to remember, and a note's location would no longer tell you whether it's filed. I don't think that's worth it. I'd stick with one process.
+
+**My recommendation:** use one filing process with two note types. Filing would read the note's template. If it's a stub, it gets the stub treatment. If it's a full idea, it keeps its sections and status and only gets an ID, a placement and the rename and move.
+
+**If you agree, I'll:**
+1. Update the bookmark-index-maintainer skill to handle both note types as described above.
+2. Move this note to `_Unfiled Ideas/` and add `bookmark: draft`.
+3. Record the stub-vs-idea rule and this filing decision in `Decisions_Log.md`, and add a one-line pointer in `CLAUDE.md`.
+
+Should I go ahead with all three?
+[Timestamp: 2026/11/13 12:46:59]
