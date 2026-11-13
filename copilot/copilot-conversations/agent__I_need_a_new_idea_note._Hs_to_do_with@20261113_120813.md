@@ -6,7 +6,7 @@ sessionId: "98b5058d-70c0-406b-94b5-23583b34f968"
 topic: "I need a new idea note. Hs to do with some litterary devices…"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":111039,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":105835,"cacheWriteTokens":5199,"updatedAt":1794607896819}'
+usage: '{"usedTokens":117765,"contextWindow":1000000,"inputTokens":2,"outputTokens":409,"cacheReadTokens":116282,"cacheWriteTokens":1072,"updatedAt":1794608338454}'
 lastAccessedAt: 1794606821784
 model: '{"baseModelId":"default","effort":"low"}'
 ---
@@ -698,3 +698,64 @@ Below are my proposed `territory` values. I haven't written anything yet. I base
 - Should I add the new revisits check?
 <!-- copilot-message {"tools":["Bash (execute)"]} -->
 [Timestamp: 2026/11/13 15:11:03]
+
+**user**: for developed choose 1a
+[Timestamp: 2026/11/13 15:14:16]
+
+**ai**: I've done 1a. Four notes had `status: developed`, and all four now read `developing`:
+- [[000 Harm & Guardrails Root Exploration]]
+- [[001 Existential Safety Question]]
+- [[002 Scalability of Oversight and Control]]
+- [[CG-001 Corpus Vigilance Under Narrow-Task Execution]]
+
+Only the status line changed in each note.
+
+I still need two answers before I write the rest:
+1. **The territory table:** should I apply it as proposed? The borderline rows were S1R-003 (`revisited` → 002) and S1R-009 (`new`).
+2. **The new Problems check:** should I add the "revisited but no `revisits` link" rule?
+
+A "yes to both" works if you're happy with everything as proposed.
+<!-- copilot-message {"tools":["Bash (execute)"]} -->
+[Timestamp: 2026/11/13 15:14:16]
+
+**user**: remind me of the implication of revisited.  do we use this to merge notes into a single note or is it simply informational
+[Timestamp: 2026/11/13 15:17:37]
+
+**ai**: It's **informational only**. Marking a note `revisited` never merges it into another note or changes either one.
+
+**What it means**
+- The note covers ground an earlier note already explored, but from a **different angle**. For example, S1R-004 looks at the oversight problem from 002, but through Anthropic's own filing rather than as theory.
+- The `revisits:` link names that earlier note, so you can follow the thread back.
+
+**Why it exists**
+- The skill's duplicate check says that when a new idea overlaps an existing note from a different angle, you **link with `revisits`** rather than create a near-copy. The overlap becomes visible and deliberate instead of accidental.
+- Both notes stay separate because each angle has value: here, the theory in 002 and the evidence in the S-1 notes.
+
+**Merging is a separate matter**
+- If two notes turn out to say the *same thing from the same angle*, that's a real duplicate. Under your rules I'd propose a merge and wait for approval.
+- `revisited` is in fact the signal that a merge is *not* needed.
+
+**One useful side effect:** S1R-002, 003, 004 and 006 would all link back to 002. That shows the S-1 filing gives real-world evidence for 002's theory, which may be useful for the book's argument.
+
+Do you want me to apply the territory table and add the new check?
+[Timestamp: 2026/11/13 15:17:37]
+
+**user**: yes
+[Timestamp: 2026/11/13 15:18:30]
+
+**ai**: The `&` in the name of note 000 broke one line. I'll fix it by hand:The territory table is applied as approved, and the new check is in.
+
+**Territory set (12 notes):**
+- **`new`:** S1R-001, 005, 007, 008, 009, and [[Peace Can Be Built Intentionally]].
+- **`revisited`, linking to [[002 Scalability of Oversight and Control]]:** S1R-002, 003, 004, 006.
+- **`revisited`, linking to [[Peace Can Be Built Intentionally]]:** [[Gourmet Cuisine Analogy]].
+- **Link added to 001:** [[001 Existential Safety Question]] was already `revisited` and now links to [[000 Harm & Guardrails Root Exploration]].
+  - My script broke this link at first because of the `&` in the note name. I fixed it by hand.
+
+Only these frontmatter lines changed.
+
+**New check in `GSH Status.base`:** the Problems tab now also catches "revisited but no revisits link," and the Problem column names it.
+
+**Please verify:** open the Problems tab. It should now be empty, or very nearly. Anything still listed is either a real remaining problem or a syntax issue in my new check, so tell me what's there. If it's empty, all the idea notes in the vault meet the rules.
+<!-- copilot-message {"tools":["Bash (execute)","Edit (edit): 02_Ideas Topics Concepts/AI Governance & Safety/001 Existential Safety Question.md","Edit (edit): 02_Ideas Topics Concepts/Global Structural Harm/GSH Status.base"]} -->
+[Timestamp: 2026/11/13 15:18:30]

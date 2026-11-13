@@ -1,10 +1,11 @@
 ---
 fileClass: Idea
 type: idea
-status: developed
+status: developing
 bookmark: "001"
 canonical_id: aigs-001-existential-safety-question
 territory: revisited
+revisits: "[[000 Harm & Guardrails Root Exploration]]"
 tags: []
 aliases: [001-existential-safety-question_v1, 001-existential-safety-question]
 created: 2026-11-03

@@ -2,6 +2,8 @@
 fileClass: Idea
 type: idea
 status: seed
+territory: revisited
+revisits: "[[Peace Can Be Built Intentionally]]"
 tags: []
 aliases: []
 created: 2026-11-04

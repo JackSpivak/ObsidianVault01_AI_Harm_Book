@@ -4,6 +4,7 @@ type: idea
 canonical_id: anthropic-s1r-008
 bookmark: Anthropic-S1R-008
 status: seed
+territory: new
 tags: [harm/physical, harm/biosecurity]
 aliases: [AI Reaching into the Physical World]
 created: 2026-11-10

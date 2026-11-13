@@ -4,6 +4,8 @@ type: idea
 canonical_id: anthropic-s1r-003
 bookmark: Anthropic-S1R-003
 status: seed
+territory: revisited
+revisits: "[[002 Scalability of Oversight and Control]]"
 tags: [harm/misalignment, harm/manipulation]
 aliases: [Self-Preservation and Coercion]
 created: 2026-11-10

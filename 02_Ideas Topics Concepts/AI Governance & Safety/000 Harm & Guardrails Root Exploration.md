@@ -1,7 +1,7 @@
 ---
 fileClass: Idea
 type: idea
-status: developed
+status: developing
 bookmark: "000"
 canonical_id: aigs-000-root-exploration
 territory: new

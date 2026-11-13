@@ -4,6 +4,8 @@ type: idea
 canonical_id: anthropic-s1r-002
 bookmark: Anthropic-S1R-002
 status: seed
+territory: revisited
+revisits: "[[002 Scalability of Oversight and Control]]"
 tags: [harm/misalignment, theme/oversight]
 aliases: [Evaluation Awareness, The Watched Model Problem]
 created: 2026-11-10

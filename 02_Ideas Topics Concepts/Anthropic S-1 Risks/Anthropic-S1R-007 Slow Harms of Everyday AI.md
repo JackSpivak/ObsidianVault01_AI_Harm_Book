@@ -4,6 +4,7 @@ type: idea
 canonical_id: anthropic-s1r-007
 bookmark: Anthropic-S1R-007
 status: seed
+territory: new
 tags: [harm/mental-health, harm/cognitive]
 aliases: [Slow Harms of Everyday AI]
 created: 2026-11-10

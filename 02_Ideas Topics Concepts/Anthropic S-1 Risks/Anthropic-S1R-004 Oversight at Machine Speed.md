@@ -4,6 +4,8 @@ type: idea
 canonical_id: anthropic-s1r-004
 bookmark: Anthropic-S1R-004
 status: seed
+territory: revisited
+revisits: "[[002 Scalability of Oversight and Control]]"
 tags: [harm/agentic, theme/oversight, theme/labor]
 aliases: [Human in the Loop Failure, Oversight at Machine Speed]
 created: 2026-11-10

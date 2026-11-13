@@ -4,6 +4,8 @@ type: idea
 canonical_id: anthropic-s1r-006
 bookmark: Anthropic-S1R-006
 status: seed
+territory: revisited
+revisits: "[[002 Scalability of Oversight and Control]]"
 tags: [harm/acceleration, theme/oversight]
 aliases: [Recursive AI Development, Closing the Loop]
 created: 2026-11-10

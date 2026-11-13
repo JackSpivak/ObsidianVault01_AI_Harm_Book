@@ -1,7 +1,7 @@
 ---
 fileClass: Idea
 type: idea
-status: developed
+status: developing
 bookmark: "002"
 canonical_id: aigs-002-scalability-of-oversight-and-control
 territory: new

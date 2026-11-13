@@ -2,6 +2,7 @@
 fileClass: Idea
 type: idea
 status: seed
+territory: new
 tags: [theme/peacebuilding, junktest]
 aliases: [Intentional Peacebuilding, Building Peace]
 created: 2026-10-29

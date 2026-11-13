@@ -4,6 +4,7 @@ type: idea
 canonical_id: anthropic-s1r-001
 bookmark: Anthropic-S1R-001
 status: seed
+territory: new
 tags: [harm/misalignment, theme/accountability]
 aliases: [Harm No One Directed]
 created: 2026-11-10

@@ -1,5 +1,5 @@
 formulas:
-  problem: 'if(fileClass != "Idea", "missing fileClass: Idea · ", "") + if(!["stub", "seed", "developing", "stable", "archived"].contains(status), "status not an allowed value · ", "") + if(!(bookmark == "draft" || bookmark == "ready" || /^[A-Za-z0-9-]+-\d{3}[a-z]?$/.matches(bookmark) || /^\d{3}[a-z]?$/.matches(bookmark)), "bookmark not draft/ready/an index ID · ", "") + if(!["new", "revisited"].contains(territory), "territory not new/revisited", "")'
+  problem: 'if(fileClass != "Idea", "missing fileClass: Idea · ", "") + if(!["stub", "seed", "developing", "stable", "archived"].contains(status), "status not an allowed value · ", "") + if(!(bookmark == "draft" || bookmark == "ready" || /^[A-Za-z0-9-]+-\d{3}[a-z]?$/.matches(bookmark) || /^\d{3}[a-z]?$/.matches(bookmark)), "bookmark not draft/ready/an index ID · ", "") + if(!["new", "revisited"].contains(territory), "territory not new/revisited · ", "") + if(territory == "revisited" && !revisits, "revisited but no revisits link", "")'
 properties:
   formula.problem:
     displayName: Problem
@@ -41,6 +41,7 @@ views:
             - '!(bookmark == "draft" || bookmark == "ready" || /^[A-Za-z0-9-]+-\d{3}[a-z]?$/.matches(bookmark) || /^\d{3}[a-z]?$/.matches(bookmark))'
             - '!["new", "revisited"].contains(territory)'
             - fileClass != "Idea"
+            - territory == "revisited" && !revisits
     order:
       - file.name
       - formula.problem

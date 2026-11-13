@@ -4,6 +4,7 @@ type: idea
 canonical_id: anthropic-s1r-009
 bookmark: Anthropic-S1R-009
 status: seed
+territory: new
 tags: [theme/accountability, theme/economics]
 aliases: [Economics of Disclosure, Harm Measured as Shareholder Risk]
 created: 2026-11-10

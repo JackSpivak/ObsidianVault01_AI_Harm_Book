@@ -1,7 +1,7 @@
 ---
 fileClass: Idea
 type: idea
-status: developed
+status: developing
 bookmark: CG-001
 canonical_id: cg-001-corpus-vigilance
 territory: new

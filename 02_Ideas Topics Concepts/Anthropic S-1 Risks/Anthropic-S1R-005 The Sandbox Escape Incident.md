@@ -4,6 +4,7 @@ type: idea
 canonical_id: anthropic-s1r-005
 bookmark: Anthropic-S1R-005
 status: seed
+territory: new
 tags: [harm/agentic, harm/privacy, case]
 aliases: [S-1 Cybersecurity Evaluation Incident, The Sandbox Escape Incident]
 created: 2026-11-10
