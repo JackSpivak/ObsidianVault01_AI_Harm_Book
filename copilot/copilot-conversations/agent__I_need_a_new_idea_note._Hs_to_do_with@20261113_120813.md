@@ -6,7 +6,7 @@ sessionId: "98b5058d-70c0-406b-94b5-23583b34f968"
 topic: "I need a new idea note. Hs to do with some litterary devices…"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":53987,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":53291,"cacheWriteTokens":691,"updatedAt":1794600037573}'
+usage: '{"usedTokens":57790,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":56883,"cacheWriteTokens":897,"updatedAt":1794600426403}'
 ---
 
 **user**: I need a new idea note.  Hs to do with some litterary devices and directions for the book
@@ -227,3 +227,63 @@ is there anything else that you think needs resolving to updaate all appropriate
 
 Once you answer these, I'll make all the changes plus the Decisions_Log entry, then list every file I touched.
 [Timestamp: 2026/11/13 13:00:15]
+
+**user**: simpler heading names fine.  is there a distinction we are trying to canonize?  we have a patterrn for making and using templates.  are you concerned that there may be an unnecesssary and posssiibly conflicting tension between our template approach and a standard thjat already exists in obsidian?
+[Timestamp: 2026/11/13 13:04:12]
+
+**ai**: Yes, there's a distinction worth canonizing. The note-shape decisions come down to three separate axes, each with exactly one field or place that records it:
+
+| Axis | Question it answers | Where it's recorded |
+|---|---|---|
+| **Kind** | What is this note? | `type` (and the template that matches it) |
+| **Maturity** | How developed is it? | `status`: stub → seed → developing → stable → archived |
+| **Filing state** | Is it placed in an index? | `bookmark` (draft / ready / ID) and its folder (`_Unfiled Ideas/` or the index folder) |
+
+The muddle we just untangled came from mixing these axes. A separate stub *template* treated a level of maturity as a different kind of note. The fix is the rule: **one template per kind; maturity and filing are fields, never separate templates.** That's what I'd record in the Decisions_Log.
+
+**On a conflict with Obsidian's own template system:** in principle I don't think there is one, but I can't confirm that without looking at your settings.
+
+- **Compatible:** your templates use `{{title}}` and `{{date:YYYY-MM-DD}}`, which is the syntax of Obsidian's core Templates plugin. When you insert a template in Obsidian, the plugin fills those in. When I create a note, I read the same file and fill them in myself. So the files work as one shared spec for both of us, not as a parallel system.
+- **Possible conflicts, which I can only check in `.obsidian/`:**
+  - The Templates plugin's folder setting might point somewhere other than `00_Claude_Admin/Templates/`.
+  - A hotkey, or a "new note" or folder-template setting (Templater has this feature), might point at `Idea Stub.md`, which would break once that file is deleted. Templater could also auto-apply a template to notes created in `_Unfiled Ideas/` that differs from what I'd write.
+  - `.obsidian/types.json` might give `status` or `bookmark` a property type, such as a list, that doesn't match how we use them.
+  - If you use Templater, its `<% %>` syntax would be a second dialect. Our templates don't use it, so I'd keep them in core syntax.
+
+Should I read `.obsidian/` to check these? I won't change anything there. After that I'll do the full update: merge the template with the simpler headings, update the skill, conventions and `CLAUDE.md`, move this note, and add the Decisions_Log entry.
+[Timestamp: 2026/11/13 13:04:12]
+
+**user**: yes please read but alter nothing
+[Timestamp: 2026/11/13 13:06:48]
+
+**ai**: I read through `.obsidian/` and changed nothing. There are no template conflicts, but I found three smaller issues.
+
+**What's there**
+- **Core Templates plugin:** turned on, but there's no `templates.json`. That means Obsidian's template folder has never been set, so its "Insert template" command doesn't yet know about `00_Claude_Admin/Templates/`. At the moment only I use those templates.
+- **Templater:** not installed, so there's no second syntax and no automatic folder templates.
+- **No `hotkeys.json` and no `types.json`:** nothing is bound to `Idea Stub.md`, and no property has a forced type.
+- **Community plugins:** terminal, obsidian-git, copilot, nexus-ai-chat-importer and convert-to-markdown. None of them use templates.
+- **`app.json`:** has `alwaysUpdateLinks: true`.
+
+**So deleting `Idea Stub.md` is safe.** Nothing in Obsidian points to it.
+
+**Issues worth knowing about**
+
+1. **"Bookmark" means two things.** The core **Bookmarks** plugin is turned on, and in Obsidian a "bookmark" is a starred note or search in the sidebar. Our system uses the same word for a `bookmark:` field and for the bookmark indices. That's the real clash with an Obsidian standard. It's harmless for now, but it could confuse you, me, or anyone reading the vault later.
+   - **Option A:** keep the name and note the difference in the Decisions_Log.
+   - **Option B:** rename our concept later, for example to "branch" or "thread." That would touch the skill, the hook, every index and the frontmatter of all the filed notes, so it would be a separate project.
+   - I'd go with Option A for now.
+2. **The status view would need Dataview, which you don't have.** The skill suggests Dataview for showing statuses in an index, but it isn't installed. You do have **Bases** turned on, Obsidian's built-in database view, and it can do the same job. I'd change that line in the skill to say "Bases."
+3. **Moves outside Obsidian don't update links.** `alwaysUpdateLinks` only fixes links when a note is renamed or moved *inside* Obsidian. When the skill moves a note through the shell, links aren't fixed automatically. The skill already rewrites links and adds aliases itself, which covers this, so it's just something to keep in mind.
+
+**Optional:** you could point Obsidian's Templates setting at `00_Claude_Admin/Templates` (Settings → Templates → Template folder location). Then you could insert the same templates by hand. I can't change that setting myself without your OK, and it may be easier for you to do it in the app.
+
+**Ready to do the full update:**
+1. Merge the two templates into `Idea.md` with plain headings, and delete `Idea Stub.md`.
+2. Fix the skill: use the shared template, require Summary and Original wording, never downgrade a status, and say Bases instead of Dataview.
+3. Add `stub` to the status list in the conventions rule, and add the placement rule for new idea notes to both the rule and `CLAUDE.md`.
+4. Create `_Unfiled Ideas/` and move the chapter-frontmatter note into it as a draft, with the three sections drafted from its own content.
+5. Add a Decisions_Log entry covering the three axes, one template per note type, one filing process, and the bookmark naming clash.
+
+Should I go ahead, and is Option A for the naming clash OK?
+[Timestamp: 2026/11/13 13:06:48]
