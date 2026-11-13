@@ -1,4 +1,5 @@
 ---
+fileClass: Idea
 type: idea
 canonical_id: anthropic-s1r-008
 bookmark: Anthropic-S1R-008

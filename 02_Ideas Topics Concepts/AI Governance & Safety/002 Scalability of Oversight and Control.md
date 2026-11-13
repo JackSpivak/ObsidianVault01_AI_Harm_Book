@@ -1,4 +1,5 @@
 ---
+fileClass: Idea
 type: idea
 status: developed
 bookmark: "002"

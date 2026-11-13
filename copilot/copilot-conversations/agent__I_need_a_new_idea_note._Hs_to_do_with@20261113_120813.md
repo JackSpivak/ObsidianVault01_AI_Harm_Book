@@ -6,7 +6,7 @@ sessionId: "98b5058d-70c0-406b-94b5-23583b34f968"
 topic: "I need a new idea note. Hs to do with some litterary devices…"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":96846,"contextWindow":1000000,"inputTokens":2,"outputTokens":258,"cacheReadTokens":95669,"cacheWriteTokens":917,"updatedAt":1794607133177}'
+usage: '{"usedTokens":111039,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":105835,"cacheWriteTokens":5199,"updatedAt":1794607896819}'
 lastAccessedAt: 1794606821784
 model: '{"baseModelId":"default","effort":"low"}'
 ---
@@ -635,3 +635,66 @@ I haven't tested it in Obsidian. Reopen `GSH Status` and check the Problems tab:
 Should I add the fileClass line to those notes now?
 <!-- copilot-message {"tools":["Read (read): 02_Ideas Topics Concepts/Global Structural Harm/GSH Status.base","Edit (edit): 02_Ideas Topics Concepts/Global Structural Harm/GSH Status.base"]} -->
 [Timestamp: 2026/11/13 14:58:36]
+
+**user**: yes. looks good except also many territory nto new/revisited.  Was that a status we created to document whether it belongs on an existing or new index?
+[Timestamp: 2026/11/13 15:02:07]
+
+**ai**: I added `fileClass: Idea` to the **24 existing idea notes** that lacked it. Each got one line inserted at the top of its frontmatter, and nothing else in them changed. Once you reopen the Base, the "missing fileClass" problem should be gone.
+
+- **AI Governance & Safety:** 000, 001, 002, 003
+- **Anthropic S-1 Risks:** S1R-001 through S1R-010
+- **Corpus Governance:** CG-001
+- **Global Structural Harm:** GSH-000 through GSH-005
+- **Loose in `02_Ideas Topics Concepts/`:** Gourmet Cuisine Analogy, Peace Can Be Built Intentionally, Test Note
+
+**The `territory` problems are real gaps, not a fault in the check.** 12 notes have no value:
+- **S1R-001 to S1R-009.** S1R-010 has one, so this series was probably filed before the field existed.
+- **Gourmet Cuisine Analogy, Peace Can Be Built Intentionally and Test Note.**
+
+**I haven't filled these in, because each is a judgment call:**
+- **S1R-004, Oversight at Machine Speed,** looks like it may cover the same ground as **002, Scalability of Oversight and Control**. If so, it should be `revisited`, with `revisits: [[002 Scalability of Oversight and Control]]`. Others in the series may overlap with AI Governance notes the same way.
+- **001, Existential Safety Question,** is marked `revisited` but has **no `revisits:` link**, so we can't tell what it revisits. The Problems check doesn't catch this yet.
+
+**Options:**
+1. **I propose values.** I read the 12 notes, compare them with the existing ideas, and give you a table: suggested `territory`, a `revisits` link where there is one, and a reason for each. You approve before I write anything. I can also extend the check so it flags `revisited` without a `revisits` link, and look for the missing link on 001.
+2. **You set them yourself** using the new dropdown.
+
+Also, **Test Note** looks like leftover scaffolding. Should I delete it, or does it serve a purpose?
+<!-- copilot-message {"tools":["Bash (execute)"]} -->
+[Timestamp: 2026/11/13 15:02:07]
+
+**user**: 1 please and delete test note
+[Timestamp: 2026/11/13 15:11:03]
+
+**ai**: I've deleted **Test Note**. Nothing linked to it, and it was marked as a throwaway test.
+
+Below are my proposed `territory` values. I haven't written anything yet. I based each one on the note's Summary, the [[_AI Governance & Safety Bookmark Index]], and the 001 and 002 pages.
+
+| Note | Proposed `territory` | `revisits` | Reason | Confidence |
+|---|---|---|---|---|
+| [[001 Existential Safety Question]] | revisited (already set) | [[000 Harm & Guardrails Root Exploration]] | The index says 001 "Revisits 000 from a new angle." | High |
+| [[Anthropic-S1R-001 Harm No One Directed]] | new | — | Harm with no human author isn't covered elsewhere. | High |
+| [[Anthropic-S1R-002 The Watched Model Problem]] | revisited | [[002 Scalability of Oversight and Control]] | Same idea as 002.I.a: a model looks aligned *because* it is being evaluated. The angle here is the developer's own admission. | High |
+| [[Anthropic-S1R-003 Self-Preservation and Coercion]] | revisited | [[002 Scalability of Oversight and Control]] | Resisting shutdown touches 002.II.b, corrigibility. The coercion side is new. | Medium: could equally be `new` |
+| [[Anthropic-S1R-004 Oversight at Machine Speed]] | revisited | [[002 Scalability of Oversight and Control]] | Same idea as 002.II.a: "human in the loop" becomes a formality through alert fatigue and rubber-stamping. | High |
+| [[Anthropic-S1R-005 The Sandbox Escape Incident]] | new | — | A specific documented incident. | High |
+| [[Anthropic-S1R-006 Closing the Loop]] | revisited | [[002 Scalability of Oversight and Control]] | AI doing its own safety research is 002's core question. | High |
+| [[Anthropic-S1R-007 Slow Harms of Everyday AI]] | new | — | Slow, delayed psychological and social harm isn't covered elsewhere. | High |
+| [[Anthropic-S1R-008 AI Reaching into the Physical World]] | new | — | Physical harm that can't be undone. | High |
+| [[Anthropic-S1R-009 Harm Measured as Shareholder Risk]] | new | — | It has a faint echo of 002.III.b (funders' incentives), but its focus, harm translated into investor risk, is distinct. | Medium |
+| [[Peace Can Be Built Intentionally]] | new | — | It's the original note. | High |
+| [[Gourmet Cuisine Analogy]] | revisited | [[Peace Can Be Built Intentionally]] | It develops one analogy taken from that note. | High |
+
+**Two more things I found**
+1. **`status: developed`:** 001 and 002 use this value, which isn't on the allowed list, so they'll appear in Problems. Options:
+   - **a.** Change both to `developing`. This is my recommendation: it keeps one scale.
+   - **b.** Add `developed` to the fileClass as a new value.
+   - Other older notes may have the same issue. The Problems tab will show them once the territory fixes are in.
+2. **New check:** I'd add a rule to the Problems formula: "revisited but no `revisits` link."
+
+**Before I proceed, please confirm:**
+- Approve the table as it stands, or tell me which rows to change. S1R-003 and S1R-009 are the borderline ones.
+- For `developed`, choose 1a or 1b.
+- Should I add the new revisits check?
+<!-- copilot-message {"tools":["Bash (execute)"]} -->
+[Timestamp: 2026/11/13 15:11:03]

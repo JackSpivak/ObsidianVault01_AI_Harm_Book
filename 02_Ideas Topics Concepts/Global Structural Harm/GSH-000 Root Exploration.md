@@ -1,4 +1,5 @@
 ---
+fileClass: Idea
 canonical_id: gsh-000-root-exploration
 type: idea
 status: stub

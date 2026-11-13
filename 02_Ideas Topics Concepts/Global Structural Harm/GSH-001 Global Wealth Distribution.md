@@ -1,4 +1,5 @@
 ---
+fileClass: Idea
 canonical_id: gsh-001-global-wealth-distribution
 type: idea
 status: stub

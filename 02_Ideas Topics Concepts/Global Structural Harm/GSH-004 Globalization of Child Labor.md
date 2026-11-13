@@ -1,4 +1,5 @@
 ---
+fileClass: Idea
 canonical_id: gsh-004-globalization-of-child-labor
 type: idea
 status: stub

@@ -1,4 +1,5 @@
 ---
+fileClass: Idea
 canonical_id: gsh-002-world-hunger
 type: idea
 status: stub

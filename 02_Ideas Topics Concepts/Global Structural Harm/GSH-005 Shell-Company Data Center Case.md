@@ -1,4 +1,5 @@
 ---
+fileClass: Idea
 canonical_id: gsh-005-shell-company-data-center-case
 type: idea
 status: stub

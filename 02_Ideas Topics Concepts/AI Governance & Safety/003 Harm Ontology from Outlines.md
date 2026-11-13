@@ -1,4 +1,5 @@
 ---
+fileClass: Idea
 type: idea
 status: stub
 bookmark: "003"

@@ -1,4 +1,5 @@
 ---
+fileClass: Idea
 canonical_id: gsh-003-cultural-basis-of-war
 type: idea
 status: stub

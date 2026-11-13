@@ -1,4 +1,5 @@
 ---
+fileClass: Idea
 canonical_id: anthropic-s1r-010
 type: idea
 status: developing
