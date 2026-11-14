@@ -7,7 +7,7 @@ topic: "philosopher adverse stress test harm ontology"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":125070,"contextWindow":1000000,"inputTokens":4,"outputTokens":4,"cacheReadTokens":0,"cacheWriteTokens":125062,"updatedAt":1794691148622}'
+usage: '{"usedTokens":126285,"contextWindow":1000000,"inputTokens":4,"outputTokens":3,"cacheReadTokens":125062,"cacheWriteTokens":1216,"updatedAt":1794691441935}'
 ---
 
 **user**: philosopher adverse stress test harm ontology
@@ -534,3 +534,57 @@ That makes **four parts, not three**, because "phenomena" splits in two along th
 
 Please send your labels, and I'll tell you whether they hold up philosophically. If this becomes the design, I can record it in `Decisions_Log.md`.
 [Timestamp: 2026/11/14 14:18:53]
+
+**user**: is it fair or appropriate to use the word Phenomena ?  implying that if harms (causes) are all phenomenal?  might some harms be situational?  or systemic? or do all of these count as phenomena?  Can we find examples of harms which are not phenomena?
+[Timestamp: 2026/11/14 14:23:42]
+
+**ai**: You're right to question it. "Phenomena" is the wrong word, and the reason is useful for the ontology.
+
+## Why "phenomena" misleads
+
+The word has two senses, and they point in different directions:
+
+1. **Everyday or scientific sense:** any observable occurrence ("weather phenomena"). This is roughly what I meant, and it's too loose.
+2. **Philosophical sense:** how things **appear to a conscious observer**, as opposed to how they are in themselves (Kant, phenomenology). In this sense, calling all harms "phenomena" implies **a harm must show up in someone's experience**. That quietly builds in the hedonic view, the one account that says unfelt harms don't count. The ontology also already has an attribute called `hasPhenomenologicalTransparency` (perceived vs. unperceived), so the word would clash with it.
+
+## Harms that aren't phenomena
+
+In either sense, many harms fail to "appear" at all:
+
+| Kind | Example | Why it isn't a phenomenon |
+|---|---|---|
+| **Unperceived** | Covert data profiling; secret defamation | Never experienced by the person harmed |
+| **Posthumous** | A dead person's reputation destroyed | No one left to experience it |
+| **Omission** | A system fails to flag a cancer it should have caught | Nothing happens; the harm is an *absence* |
+| **Risk imposition** | Exposure to a model that fails 1 time in 1,000 | Nothing has happened yet; the harm is a raised probability |
+| **Standing condition** | Exclusion from credit by a scoring system | A *state* that lasts, not an event |
+| **Structural / systemic** | Labour-market deskilling; concentration of power | Exists only in the pattern; no single occurrence carries it |
+| **Statistical** | A hiring model that is 4% worse for one group | Invisible in any single decision; real only in aggregate |
+| **Dispositional** | Habituated deference (Aristotle's point) | A changed *tendency*, visible only later, if ever |
+| **Harmless wrong** | Trespass that leaves no trace | No effect at all; only a violated right |
+
+So yes: situational, systemic, structural, risk-based and omission harms are not phenomena in any careful sense. Many of the harms most typical of AI fall into these rows.
+
+## A better framing
+
+Formal ontology already has a well-tested way to draw this line. Upper ontologies such as BFO (Basic Formal Ontology) separate **occurrents**, things that *happen* (events, processes), from **continuants**, things that *persist* (objects, states, dispositions, structures). Harms come in both kinds. So I'd replace "Phenomena (cause)" with **"Sources of harm"**, typed like this:
+
+- **Act:** a discrete doing (a deceptive message)
+- **Process:** an ongoing doing (an engagement loop)
+- **Omission:** a failure to act where action was owed
+- **Condition:** a persisting state (exclusion, dependence)
+- **Structure:** an arrangement of incentives or institutions (a market, a platform's business model)
+- **Risk:** a raised probability of a future harm
+
+The result side becomes **"Effects of harm,"** a setback to something, which may or may not be felt.
+
+**Revised plain labels:**
+1. **Ways of judging harm** (the accounts)
+2. **Sources of harm** (act, process, omission, condition, structure, risk)
+3. **Effects of harm** (what is set back, for whom)
+4. **How the law responds**
+
+One open point: should a **structure** count as a source of harm, or only as a context in which agents cause harm? This is the responsibility-gap question in another form, and it matters to the book's argument. I'd keep it open for now.
+
+Want me to record "drop 'phenomena'; use sources and effects" as a decision, or keep discussing first?
+[Timestamp: 2026/11/14 14:23:42]
