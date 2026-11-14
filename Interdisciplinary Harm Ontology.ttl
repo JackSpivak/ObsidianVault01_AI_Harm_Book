@@ -1,0 +1,944 @@
+@prefix harm:    <http://example.org> .
+@prefix owl:     <http://w3.org> .
+@prefix rdf:     <http://w3.org> .
+@prefix rdfs:    <http://w3.org> .
+@prefix skos:    <http://w3.org> .
+@prefix dcterms: <http://purl.org> .
+@prefix xsd:     <http://w3.org> .
+
+<http://example.org> a owl:Ontology , skos:ConceptScheme ;
+    skos:prefLabel "Interdisciplinary Harm Ontology"@en ;
+    skos:definition "A formal OWL/SKOS/Dublin Core ontology integrating classical philosophical, legal, economic, game-theoretic, psychological, and AI-safety taxonomies and cross-cutting attributes of harm."@en ;
+    dcterms:creator "Philosophers Council, Legal Counsel, Economists & Game Theorists, Technologists & AI Safety, Psychologists & Behavioral Scientists"@en .
+
+harm:Harm a owl:Class , skos:Concept ;
+    skos:topConceptOf <http://example.org> ;
+    skos:prefLabel "Harm"@en ;
+    skos:definition "A relational setback to an entity's conscious experience, vital welfare interests, moral or legal rights, natural flourishing, or systemic equilibrium."@en .
+
+harm:ExperientialHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:Harm ;
+    skos:broader harm:Harm ;
+    skos:prefLabel "Experiential & Subjective Harm (Conscious Suffering)"@en ;
+    skos:altLabel "Hedonic Harm"@en , "Phenomenological Harm"@en , "Suffering-Based Harm"@en ;
+    skos:definition "At the highest level, this domain defines harm strictly through conscious, subjective phenomenology—negative mental or physical states experienced directly by a sentient subject."@en ;
+    skos:note "Under this domain, conscious experience is the sole locus of harm; negative states such as pain, distress, grief, or trauma constitute harm directly through how they are felt by a sentient being."@en ;
+    skos:scopeNote "Restricted to sentient individuals capable of conscious experience; excludes unperceived or posthumous setbacks."@en ;
+    skos:historyNote "Epicurus established physical pain and mental distress as fundamental evils; Jeremy Bentham formalized pleasure and pain into a moral calculus across all sentient beings."@en ;
+    dcterms:bibliographicCitation "Epicurus. Letter to Menoeceus."@en ,
+                                  "Bentham, Jeremy. An Introduction to the Principles of Morals and Legislation (1789)."@en ;
+    harm:hasComparativeBaseline harm:TemporalBaseline ;
+    harm:hasPhenomenologicalTransparency harm:PerceivedSubjective ;
+    harm:hasPatientOntology harm:SentientIndividual .
+
+harm:HedonicHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:ExperientialHarm ;
+    skos:broader harm:ExperientialHarm ;
+    skos:prefLabel "Experiential Harm (Hedonic / Phenomenological Harm)"@en ;
+    skos:altLabel "Hedonic Harm"@en , "Experiential Harm"@en , "Suffering-Based Harm"@en ;
+    skos:definition "An action harms a subject if and only if it causes negative mental states—such as physical pain, emotional distress, anguish, or grief—or deprives the subject of positive states like pleasure and contentment."@en ;
+    skos:note "Under this view, what you do not experience cannot harm you. It measures harm strictly by the intensity and duration of subjective suffering or lost pleasure."@en ;
+    skos:scopeNote "Applies strictly to conscious mental states; excludes unperceived betrayals, posthumous events, or painless death."@en ;
+    skos:example "Inflicting physical pain, emotional anguish, grief, or depriving a sentient creature of comfort and pleasure."@en ;
+    skos:historyNote "Epicurus established that physical pain (aponia's opposite) and mental distress (ataraxia's opposite) are the fundamental evils, famously arguing that death is no harm to the deceased because it involves no sensation. Jeremy Bentham formalized this in An Introduction to the Principles of Morals and Legislation (1789), building a moral calculus around the intensity and duration of pleasure and pain across all sentient beings."@en ;
+    dcterms:bibliographicCitation "Bentham, Jeremy. An Introduction to the Principles of Morals and Legislation (1789)."@en ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent ;
+    harm:hasVictim harm:DirectPrimaryVictim ;
+    harm:hasObjectOfHarm harm:SomaticBiologicalSubstrate , harm:PsychologicalCognitiveSubstrate ;
+    harm:hasRemedialDutyBearer harm:PerpetratorAsRestorer ;
+    harm:hasModality harm:ActualizedHarm ;
+    harm:hasTemporalTrajectory harm:AcuteTrajectory .
+
+
+
+
+harm:DignitaryRelationalHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:ExperientialHarm ;
+    skos:broader harm:ExperientialHarm ;
+    skos:prefLabel "Dignitary and Relational Harm"@en ;
+    skos:altLabel "Dignitary Tort"@en , "Moral Damage"@en , "Reputational Harm"@en , "Emotional Distress"@en ;
+    skos:definition "Harm to a person's reputation, privacy, personal autonomy, or emotional tranquility."@en ;
+    skos:note "Unlike physical or financial injury, dignitary harm requires no tangible economic loss; the legal injury lies in the affront to the person's standing, self-determination, or psychological integrity. Bridges experiential distress and deontological dignity."@en ;
+    skos:scopeNote "Actionable without pecuniary loss where conduct invades privacy, damages reputation, or affronts personal standing."@en ;
+    skos:example "Invasion of private seclusion, public disclosure of private facts, defamation, or humiliating affronts to personal standing."@en ;
+    skos:historyNote "Samuel D. Warren & Louis D. Brandeis, in their seminal 1890 Harvard Law Review essay 'The Right to Privacy', argued that the common law must evolve beyond physical property to protect the 'inviolate personality' against emotional and reputational intrusion. William Prosser codified the modern taxonomy of privacy and dignitary torts in the mid-20th century."@en ;
+    dcterms:bibliographicCitation "Warren, Samuel D., & Brandeis, Louis D. 'The Right to Privacy,' Harvard Law Review (1890)."@en ,
+                                  "Prosser, William L. 'Privacy,' California Law Review (1960)."@en ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent ;
+    harm:hasVictim harm:DirectPrimaryVictim ;
+    harm:hasObjectOfHarm harm:DignitaryRelationalSubstrate , harm:PsychologicalCognitiveSubstrate ;
+    harm:hasRemedialDutyBearer harm:PerpetratorAsRestorer ;
+    harm:hasNormativeStatus harm:NormativeWrongful .
+
+harm:PsychologicalEmotionalTrauma a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:ExperientialHarm ;
+    skos:broader harm:ExperientialHarm ;
+    skos:prefLabel "Psychological & Emotional Trauma"@en ;
+    skos:altLabel "Intentional Infliction of Emotional Distress (IIED)"@en , "Negligent Infliction of Emotional Distress (NIED)"@en , "Pain and Suffering Damages"@en ;
+    skos:definition "Severe mental anguish, psychiatric injury, or post-traumatic stress inflicted through extreme and outrageous conduct or severe negligence, recognized as a standalone injury even without physical impact."@en ;
+    skos:note "Operationalizes severe psychological suffering in tort law when emotional trauma reaches clinically or legally cognizable thresholds independent of bodily contact."@en ;
+    skos:scopeNote "Requires severe mental distress beyond trivial upset, typically triggered by extreme/outrageous conduct or zone-of-danger negligence."@en ;
+    skos:example "Inflicting severe post-traumatic stress via extreme harassment, or bystander emotional trauma from witnessing a close relative's injury."@en ;
+    skos:historyNote "Calvert Magruder mapped mental distress torts in 1936; William Prosser formalized IIED as an independent tort category in the Restatement (Second) of Torts."@en ;
+    dcterms:bibliographicCitation "Magruder, Calvert. 'Mental and Emotional Disturbance in the Law of Torts,' Harvard Law Review (1936)."@en ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent ;
+    harm:hasVictim harm:DirectPrimaryVictim , harm:SecondaryRelationalVictim ;
+    harm:hasObjectOfHarm harm:PsychologicalCognitiveSubstrate ;
+    harm:hasRemedialDutyBearer harm:PerpetratorAsRestorer ;
+    harm:hasTemporalTrajectory harm:AcuteTrajectory , harm:SlowAccumulativeTrajectory .
+
+
+
+
+harm:NuisanceSensoryOffense a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:ExperientialHarm ;
+    skos:broader harm:ExperientialHarm ;
+    skos:prefLabel "Nuisance and Sensory Offense"@en ;
+    skos:altLabel "Private Nuisance"@en , "Public Nuisance"@en , "Profound Offense"@en ;
+    skos:definition "Unreasonable interference with the sensory enjoyment of life or property—such as noxious odors, deafening noise, or grotesque public displays."@en ;
+    skos:note "Philosophy distinguishes mere passing annoyance from sustained, inescapable sensory misery that degrades lived experience and property enjoyment."@en ;
+    skos:scopeNote "Covers sustained, unreasonable sensory or environmental interference; excludes fleeting or hypersensitive trivial annoyances."@en ;
+    skos:example "Continuous industrial noise, noxious chemical odors drifting onto residential land, or inescapable public displays causing profound offense."@en ;
+    skos:historyNote "Joel Feinberg analyzed the boundary between non-actionable offense and profound, inescapable affronts in Offense to Others (1985); William Blackstone defined private nuisance in his Commentaries."@en ;
+    dcterms:bibliographicCitation "Feinberg, Joel. Offense to Others (1985)."@en ,
+                                  "Blackstone, William. Commentaries on the Laws of England (1765–1769)."@en ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent , harm:DiffuseCollectivePerpetrator ;
+    harm:hasVictim harm:DirectPrimaryVictim , harm:DiffuseRepresentativeClass ;
+    harm:hasObjectOfHarm harm:PsychologicalCognitiveSubstrate , harm:MaterialPecuniarySubstrate ;
+    harm:hasRemedialDutyBearer harm:PerpetratorAsRestorer , harm:InstitutionalSovereignGuarantor ;
+    harm:hasTemporalTrajectory harm:SlowAccumulativeTrajectory .
+
+harm:VicariousMoralInjury a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:ExperientialHarm ;
+    skos:broader harm:ExperientialHarm ;
+    skos:prefLabel "Vicarious, Secondary & Moral Injury"@en ;
+    skos:altLabel "Moral Injury"@en , "Secondary Traumatic Stress"@en , "Vicarious Trauma"@en ;
+    skos:definition "Profound shame, guilt, and existential pain occurring when a person perpetrates, witnesses, or is forced by an institution to participate in acts that transgress their deeply held moral beliefs."@en ;
+    skos:note "Distinct from standard physical trauma or fear-based PTSD, moral injury arises from ethical betrayal and conscience transgression rather than mortal terror."@en ;
+    skos:scopeNote "Applies to trauma rooted in moral transgression or institutional betrayal, including secondary trauma experienced by caregivers and moderators."@en ;
+    skos:example "Combat veterans ordered into morally conflicting engagements, healthcare workers forced to ration care, or content moderators exposed to traumatic material."@en ;
+    skos:historyNote "Jonathan Shay coined Moral Injury in Achilles in Vietnam (1994) to distinguish betrayal-based ethical trauma from fear-based PTSD; Brett Litz formalized clinical measurement frameworks."@en ;
+    dcterms:bibliographicCitation "Shay, Jonathan. Achilles in Vietnam (1994)."@en ,
+                                  "Litz, Brett T., et al. 'Moral Injury and Moral Repair in War Veterans,' Clinical Psychology Review (2009)."@en ;
+    harm:hasPerpetrator harm:DiffuseCollectivePerpetrator , harm:UnitaryIntentionalAgent ;
+    harm:hasVictim harm:DirectPrimaryVictim , harm:SecondaryRelationalVictim ;
+    harm:hasObjectOfHarm harm:PsychologicalCognitiveSubstrate ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor ;
+    harm:hasTemporalTrajectory harm:SlowAccumulativeTrajectory .
+
+
+
+
+harm:WelfareInterestHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:Harm ;
+    skos:broader harm:Harm ;
+    skos:prefLabel "Welfare & Interest-Based Harm (Counterfactual Setbacks)"@en ;
+    skos:altLabel "Setback to Interests"@en , "Counterfactual Comparative Harm (CCH)"@en , "Welfare Harm"@en ;
+    skos:definition "At the highest level, this domain defines harm objectively rather than subjectively. An entity is harmed whenever an action sets back its vital stakes, resources, or baseline position compared to what would otherwise have occurred—even if the victim never perceives the loss."@en ;
+    skos:note "The dominant framework in modern jurisprudence and liberal political philosophy. Harm occurs when an action sets back a person's vital, ongoing stakes in their well-being (such as health, property, privacy, or liberty), leaving them worse off than they otherwise would have been. Crucially, this allows for posthumous or unperceived harm—such as a secret betrayal or slander—because a person's objective interests are damaged even if they never feel pain."@en ;
+    skos:scopeNote "Applies to objective setbacks across vital ongoing interests (health, property, privacy, liberty); distinct from mere offense or moral disapproval, and distinguishes between non-normative harm (a setback caused by nature) and normative harm (a wrongful setback that violates a right)."@en ;
+    skos:example "A secret betrayal or slander; posthumous or unperceived harm where a person's objective interests are damaged even if they never feel pain."@en ;
+    skos:historyNote "John Stuart Mill introduced the Harm Principle in On Liberty (1859), defining harm as an objective injury to the vital interests of others, distinct from mere offense or moral disapproval. Joel Feinberg systematized the concept in Harm to Others (1984), explicitly defining harm as a 'setback to interests' and distinguishing between non-normative harm and normative harm."@en ;
+    dcterms:bibliographicCitation "Mill, John Stuart. On Liberty (1859)."@en ,
+                                  "Feinberg, Joel. The Moral Limits of the Criminal Law, Vol. 1: Harm to Others (1984)."@en ;
+    harm:hasComparativeBaseline harm:CounterfactualBaseline ;
+    harm:hasPhenomenologicalTransparency harm:UnperceivedObjective ;
+    harm:hasPatientOntology harm:SentientIndividual , harm:CollectiveArtificialPerson , harm:NonSentientSystem .
+
+harm:InterestSetbackHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:WelfareInterestHarm ;
+    skos:broader harm:WelfareInterestHarm ;
+    skos:prefLabel "Interest-Based Harm (The Counterfactual Comparative Account)"@en ;
+    skos:altLabel "Setback to Interests"@en , "Counterfactual Comparative Harm (CCH)"@en , "Welfare Harm"@en ;
+    skos:definition "Harm occurs when an action sets back a person's vital, ongoing stakes in their well-being (such as health, property, privacy, or liberty), leaving them worse off than they otherwise would have been."@en ;
+    skos:note "Establishes the philosophical foundation for evaluating welfare losses objectively via counterfactual comparison, allowing harm to occur without conscious awareness."@en ;
+    skos:scopeNote "Requires a setback to vital ongoing welfare interests relative to a counterfactual baseline; excludes mere emotional offense."@en ;
+    skos:example "Covert theft, secret defamation after death, or sabotage of an individual's financial or personal security."@en ;
+    skos:historyNote "Formulated by John Stuart Mill in On Liberty (1859) and systematically mapped by Joel Feinberg in Harm to Others (1984)."@en ;
+    dcterms:bibliographicCitation "Mill, John Stuart. On Liberty (1859)."@en ,
+                                  "Feinberg, Joel. Harm to Others (1984)."@en ;
+    harm:hasComparativeBaseline harm:CounterfactualBaseline ;
+    harm:hasPhenomenologicalTransparency harm:UnperceivedObjective .
+
+
+
+
+harm:PublicCriminalHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:WelfareInterestHarm ;
+    skos:broader harm:WelfareInterestHarm ;
+    skos:prefLabel "Public Harm (Criminal / Societal Harm)"@en ;
+    skos:altLabel "Public Wrong"@en , "Social Harm"@en , "Malum in Se"@en , "Malum Prohibitum"@en ;
+    skos:definition "Harm that threatens the foundational order, safety, and collective peace of the political community."@en ;
+    skos:note "Even when a crime has an individual victim (such as assault or theft), criminal law treats the act primarily as an injury against the sovereign state and the public at large."@en ;
+    skos:scopeNote "Governs offenses prosecuted by the sovereign state to protect collective security, public order, and social peace."@en ;
+    skos:example "Assault, theft, arson, treason, or regulatory offenses endangering public safety."@en ;
+    skos:historyNote "Cesare Beccaria, in On Crimes and Punishments (1764), argued that the true measure of a crime is the harm done to society, rejecting sin or moral status as valid bases for criminal law. William Blackstone systematized the distinction between 'private wrongs' and 'public wrongs' in Commentaries on the Laws of England (1765–1769)."@en ;
+    dcterms:bibliographicCitation "Beccaria, Cesare. On Crimes and Punishments (1764)."@en ,
+                                  "Blackstone, William. Commentaries on the Laws of England (1765–1769)."@en ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent ;
+    harm:hasVictim harm:DiffuseRepresentativeClass , harm:DirectPrimaryVictim ;
+    harm:hasObjectOfHarm harm:SystemicEnvironmentalSubstrate , harm:SomaticBiologicalSubstrate ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor ;
+    harm:hasNormativeStatus harm:NormativeWrongful .
+
+harm:PrivateTortiousHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:WelfareInterestHarm ;
+    skos:broader harm:WelfareInterestHarm ;
+    skos:prefLabel "Private Harm (Tortious / Civil Injury)"@en ;
+    skos:altLabel "Tortious Injury"@en , "Damnum Iniuria Datum (loss wrongfully caused)"@en , "Invasion of Legally Protected Interests"@en ;
+    skos:definition "Harm inflicted by one private party upon another that entitles the injured party to a civil remedy, typically monetary damages or an injunction."@en ;
+    skos:note "This spans physical bodily injury, property damage, and economic loss, requiring a causal link between a breach of duty and an actual setback."@en ;
+    skos:scopeNote "Requires a breach of an objective legal duty plus a causal link to an actual setback; excludes non-normative economic or physical setbacks where no legal right was violated (Damnum Absque Injuria)."@en ;
+    skos:example "Physical bodily injury, property damage, and economic loss (such as a car crash)."@en ;
+    skos:historyNote "Oliver Wendell Holmes Jr., in The Common Law (1881), shifted tort liability away from subjective moral fault toward objective standards of foreseeability and external conduct that causes measurable harm to others. H.L.A. Hart & Tony Honoré, in Causation in the Law (1959), established the modern legal framework for determining when a person's actions are the legally responsible cause of a resulting private harm."@en ;
+    dcterms:bibliographicCitation "Holmes, Oliver Wendell Jr. The Common Law (1881)."@en ,
+                                  "Hart, H.L.A., & Honoré, Tony. Causation in the Law (1959)."@en ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent , harm:VicariouslyLiablePrincipal ;
+    harm:hasVictim harm:DirectPrimaryVictim ;
+    harm:hasObjectOfHarm harm:SomaticBiologicalSubstrate , harm:MaterialPecuniarySubstrate ;
+    harm:hasRemedialDutyBearer harm:PerpetratorAsRestorer , harm:VictimDutyToMitigate ;
+    harm:hasDistributionAggregation harm:NarrowConcentrated ;
+    harm:hasSeverityMagnitude harm:ModerateCompensable , harm:SevereRuinous ;
+    harm:hasModality harm:ActualizedHarm ;
+    harm:hasTemporalTrajectory harm:AcuteTrajectory ;
+    harm:hasCausationMechanism harm:FactualButForCausation , harm:ProximateCausation ;
+    harm:hasNormativeStatus harm:NormativeWrongful ;
+    harm:hasReversibility harm:RestorableElastic , harm:IrreversibleHysteresis .
+
+
+
+
+harm:ExpectationRelianceHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:WelfareInterestHarm ;
+    skos:broader harm:WelfareInterestHarm ;
+    skos:prefLabel "Expectation and Reliance Harm (Contractual / Economic Harm)"@en ;
+    skos:altLabel "Pecuniary Harm"@en , "Expectation Loss"@en , "Reliance Loss"@en , "Pure Economic Loss"@en ;
+    skos:definition "Harm arising not from physical damage, but from broken promises, breached agreements, or unfair commercial interference."@en ;
+    skos:note "Legal counsel measures this harm counterfactually: how much worse off is the party compared to the position they would have been in had the promise been kept (expectation) or had the promise never been made (reliance)."@en ;
+    skos:scopeNote "Governs contractual and commercial breaches measured via restitution, reliance, or expectation baselines."@en ;
+    skos:example "Lost profit from an unfulfilled supply contract, or wasted capital invested in reliance on a broken promise."@en ;
+    skos:historyNote "Lon L. Fuller & William R. Perdue Jr., in their landmark 1936 article 'The Reliance Interest in Contract Damages', formalized the three core categories of contractual harm: restitution, reliance, and expectation interests."@en ;
+    dcterms:bibliographicCitation "Fuller, Lon L., & Perdue, William R. Jr. 'The Reliance Interest in Contract Damages,' Yale Law Journal (1936)."@en ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent , harm:VicariouslyLiablePrincipal ;
+    harm:hasVictim harm:DirectPrimaryVictim ;
+    harm:hasObjectOfHarm harm:MaterialPecuniarySubstrate ;
+    harm:hasRemedialDutyBearer harm:PerpetratorAsRestorer , harm:VictimDutyToMitigate ;
+    harm:hasComparativeBaseline harm:CounterfactualBaseline ;
+    harm:hasReversibility harm:RestorableElastic .
+
+harm:ProbabilisticRiskHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:WelfareInterestHarm ;
+    skos:broader harm:WelfareInterestHarm ;
+    skos:prefLabel "Probabilistic and Risk-Based Harm"@en ;
+    skos:altLabel "Risk Imposition"@en , "Loss of Chance Doctrine"@en , "Toxic Tort Exposure"@en ;
+    skos:definition "Exposing an individual or population to a heightened probability of future catastrophe (such as carcinogen exposure or reckless endangerment)."@en ;
+    skos:note "Even if the physical illness has not yet manifested, the imposition of risk itself acts as an immediate setback to a person's security and life prospects."@en ;
+    skos:scopeNote "Applies when risk imposition or statistical loss of chance precedes—or occurs independently of—an actualized physical injury; overrides standard actualized-harm requirements."@en ;
+    skos:example "Carcinogen exposure, reckless endangerment, or when a doctor's negligence reduces a patient's survival odds from 40% to 10%."@en ;
+    skos:historyNote "Judith Jarvis Thomson analyzed the moral boundaries of imposing non-consensual risk upon others even when no physical injury materializes. Joseph H. King Jr. formalized the modern Loss of Chance doctrine in medical malpractice law (1981), arguing that reducing a patient's statistical odds of recovery is itself a compensable injury."@en ;
+    dcterms:bibliographicCitation "Thomson, Judith Jarvis. 'Imposing Risks,' in Rights, Restitution, and Risk (1986)."@en ,
+                                  "King, Joseph H. Jr. 'Causation, Valuation, and Chance in Personal Injury Torts Involving Preexisting Conditions and Future Consequences,' Yale Law Journal (1981)."@en ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent , harm:DiffuseCollectivePerpetrator ;
+    harm:hasVictim harm:DirectPrimaryVictim , harm:DiffuseRepresentativeClass ;
+    harm:hasObjectOfHarm harm:OpportunityCapabilitySubstrate , harm:SomaticBiologicalSubstrate ;
+    harm:hasRemedialDutyBearer harm:PerpetratorAsRestorer , harm:InstitutionalSovereignGuarantor ;
+    harm:hasDistributionAggregation harm:NarrowConcentrated , harm:DiffuseThreshold ;
+    harm:hasSeverityMagnitude harm:DeMinimisTrivial , harm:SevereRuinous , harm:CatastrophicExistential ;
+    harm:hasModality harm:ProbabilisticRisk ;
+    harm:hasTemporalTrajectory harm:LatentTrajectory ;
+    harm:hasPhenomenologicalTransparency harm:UnperceivedObjective ;
+    harm:hasSystemOpacity harm:BlackBoxOpaque .
+
+
+
+
+harm:CollectiveEnvironmentalHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:WelfareInterestHarm ;
+    skos:broader harm:WelfareInterestHarm ;
+    skos:prefLabel "Collective, Diffuse, and Environmental Harm"@en ;
+    skos:altLabel "Public Trust Harm"@en , "Antitrust Injury"@en , "Tragedy of the Commons"@en ;
+    skos:definition "Small, incremental setbacks spread across millions of people or shared ecosystems—such as price-fixing monopolies, air pollution, or data breaches—where no single victim suffers a catastrophic personal loss, yet the aggregate welfare setback is massive."@en ;
+    skos:note "Captures macro-level welfare erosion where individual losses may be de minimis in isolation but cross severe economic or ecological thresholds in aggregate."@en ;
+    skos:scopeNote "Applies to multi-victim or ecosystem-wide setbacks requiring aggregate legal mechanisms such as class actions, antitrust enforcement, or public trust doctrine."@en ;
+    skos:example "Industrial air pollution, price-fixing cartels overcharging millions of consumers by pennies, or widespread personal data breaches."@en ;
+    skos:historyNote "Garrett Hardin articulated the Tragedy of the Commons (1968); Joseph Sax architected the modern Public Trust Doctrine (1970); Robert Bork established the Consumer Welfare Standard in antitrust law."@en ;
+    dcterms:bibliographicCitation "Hardin, Garrett. 'The Tragedy of the Commons,' Science (1968)."@en ,
+                                  "Sax, Joseph L. 'The Public Trust Doctrine in Natural Resource Law,' Michigan Law Review (1970)."@en ,
+                                  "Bork, Robert H. The Antitrust Paradox (1978)."@en ;
+    harm:hasPerpetrator harm:DiffuseCollectivePerpetrator ;
+    harm:hasVictim harm:DiffuseRepresentativeClass ;
+    harm:hasObjectOfHarm harm:SystemicEnvironmentalSubstrate , harm:MaterialPecuniarySubstrate ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor , harm:PerpetratorAsRestorer ;
+    harm:hasDistributionAggregation harm:DiffuseThreshold ;
+    harm:hasTemporalTrajectory harm:SlowAccumulativeTrajectory .
+
+harm:OpportunityCostChoiceHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:WelfareInterestHarm ;
+    skos:broader harm:WelfareInterestHarm ;
+    skos:prefLabel "Opportunity Cost & Choice Architecture Harm"@en ;
+    skos:altLabel "Opportunity Cost"@en , "Dark Patterns"@en , "Sludge"@en ;
+    skos:definition "Harm inflicted not by taking away what someone currently has, but by subtly manipulating their choice environment (via deceptive user interfaces, hidden friction, or behavioral nudges) so they consistently make suboptimal decisions—forfeiting wealth, time, or better alternatives they otherwise would have chosen."@en ;
+    skos:note "Bridges behavioral economics and consumer protection by measuring welfare lost through engineered friction and cognitive manipulation."@en ;
+    skos:scopeNote "Covers welfare setbacks caused by deceptive choice architecture, asymmetric cancellation friction (sludge), and exploited cognitive biases."@en ;
+    skos:example "Subscription traps that are one-click to join but require complex hurdles to cancel, or deceptive interface prompts tricking users into unwanted purchases."@en ;
+    skos:historyNote "Richard Thaler & Cass Sunstein introduced Choice Architecture and Sludge; Harry Brignull coined Dark Patterns (2010) to classify manipulative user interfaces."@en ;
+    dcterms:bibliographicCitation "Thaler, Richard H., & Sunstein, Cass R. Nudge (2008)."@en ,
+                                  "Sunstein, Cass R. Sludge (2021)."@en ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent , harm:VicariouslyLiablePrincipal ;
+    harm:hasVictim harm:DirectPrimaryVictim , harm:DiffuseRepresentativeClass ;
+    harm:hasObjectOfHarm harm:OpportunityCapabilitySubstrate , harm:MaterialPecuniarySubstrate , harm:PsychologicalCognitiveSubstrate ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor , harm:PerpetratorAsRestorer ;
+    harm:hasCognitiveExploitability harm:SubversiveExploitation ;
+    harm:hasComparativeBaseline harm:CounterfactualBaseline .
+
+
+
+
+harm:DeontologicalRightsHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:Harm ;
+    skos:broader harm:Harm ;
+    skos:prefLabel "Deontological & Rights-Based Harm (Normative Wrongs)"@en ;
+    skos:altLabel "Dignitary Harm"@en , "Rights-Violation Harm"@en , "Kantian Wronging"@en ;
+    skos:definition "At the highest level, this domain locates harm not in pain or lowered material welfare, but in the violation of formal rights, moral status, and rational autonomy. A person is harmed simply by being wronged."@en ;
+    skos:note "Rather than measuring pain or lowered welfare, this category locates harm in the violation of a person's moral status, rational agency, or fundamental rights. A person is harmed when they are coerced, deceived, manipulated, or used merely as a tool for someone else's ends—even if the act produces pleasure or leaves their material welfare intact."@en ;
+    skos:scopeNote "Inherently normative (the harm is the breach of right or duty; non-normative rights violations do not exist); occurs even if the act produces pleasure, leaves material welfare intact, or remains unperceived by the victim."@en ;
+    skos:example "Coercing, deceiving, or manipulating a rational agent; using another human being merely as a tool for someone else's ends; violating natural rights to life, liberty, and property."@en ;
+    skos:historyNote "Immanuel Kant formulated the Humanity Formula of the Categorical Imperative in Groundwork of the Metaphysics of Morals (1785); John Locke grounded harm in the violation of natural rights (1689); Wesley Newcomb Hohfeld mapped the exact correlative relationship between legal rights and duties (1913)."@en ;
+    dcterms:bibliographicCitation "Kant, Immanuel. Groundwork of the Metaphysics of Morals (1785)."@en ,
+                                  "Locke, John. Second Treatise of Government (1689)."@en ,
+                                  "Hohfeld, Wesley Newcomb. Fundamental Legal Conceptions (1913)."@en ;
+    harm:hasNormativeStatus harm:NormativeWrongful ;
+    harm:hasPhenomenologicalTransparency harm:UnperceivedObjective ;
+    harm:hasModality harm:ActualizedHarm .
+
+harm:KantianDeontologicalHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:DeontologicalRightsHarm ;
+    skos:broader harm:DeontologicalRightsHarm ;
+    skos:prefLabel "Deontological Harm (Rights-Based / Dignitary Harm)"@en ;
+    skos:altLabel "Dignitary Harm"@en , "Rights-Violation Harm"@en , "Kantian Wronging"@en ;
+    skos:definition "Treating a rational agent merely as a means to an end through coercion, deception, or manipulation—violating their moral agency even if the act produces pleasure or leaves material welfare intact."@en ;
+    skos:note "Grounds harm in disrespect for rational autonomy and inherent human dignity rather than experiential pain or utilitarian welfare loss."@en ;
+    skos:scopeNote "Applies whenever rational agency is instrumentalized or natural rights are infringed, independent of material consequences."@en ;
+    skos:example "Deceiving someone into a beneficial transaction without informed consent, or paternalistically overriding an adult's autonomous choice."@en ;
+    skos:historyNote "Formulated by Immanuel Kant in Groundwork of the Metaphysics of Morals (1785) and John Locke in Second Treatise of Government (1689)."@en ;
+    dcterms:bibliographicCitation "Kant, Immanuel. Groundwork of the Metaphysics of Morals (1785)."@en ,
+                                  "Locke, John. Second Treatise of Government (1689)."@en ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent ;
+    harm:hasVictim harm:DirectPrimaryVictim ;
+    harm:hasObjectOfHarm harm:NormativeStatusSubstrate , harm:DignitaryRelationalSubstrate ;
+    harm:hasRemedialDutyBearer harm:PerpetratorAsRestorer ;
+    harm:hasNormativeStatus harm:NormativeWrongful .
+
+
+
+
+harm:InjuriaSineDamnoHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:DeontologicalRightsHarm ;
+    skos:broader harm:DeontologicalRightsHarm ;
+    skos:prefLabel "Rights-Based Harm Without Loss (Injuria Sine Damno)"@en ;
+    skos:altLabel "Injuria Sine Damno (legal injury without actual damage)"@en , "Technical Trespass"@en , "Constitutional Violation"@en ;
+    skos:definition "A distinct legal category where a person's formal legal or constitutional right is violated, even though they suffer zero physical pain, financial loss, or emotional distress."@en ;
+    skos:note "Demonstrates that breaching a correlative legal duty constitutes a formal legal injury regardless of tangible loss. Conversely, the law also recognizes Damnum Absque Injuria—real economic or physical harm (such as losing customers to a fair business competitor) that is not legally actionable because no legal right was violated."@en ;
+    skos:scopeNote "Applies strictly where a formal legal or constitutional right is breached with zero physical pain, financial loss, or emotional distress; excludes factual setbacks where no legal right was violated (Damnum Absque Injuria)."@en ;
+    skos:example "An unauthorized, harmless entry onto land (technical trespass) or an unlawful denial of the right to vote (even if the election outcome would not have changed)."@en ;
+    skos:historyNote "Wesley Newcomb Hohfeld's Fundamental Legal Conceptions (1913) mapped the exact correlative relationship between a legal right and a legal duty; Joel Feinberg bridged jurisprudence and moral philosophy in The Moral Limits of the Criminal Law (1984)."@en ;
+    dcterms:bibliographicCitation "Hohfeld, Wesley Newcomb. Fundamental Legal Conceptions (1913)."@en ,
+                                  "Feinberg, Joel. The Moral Limits of the Criminal Law, Vol. 1: Harm to Others (1984)."@en ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent , harm:DiffuseCollectivePerpetrator ;
+    harm:hasVictim harm:DirectPrimaryVictim ;
+    harm:hasObjectOfHarm harm:NormativeStatusSubstrate ;
+    harm:hasRemedialDutyBearer harm:PerpetratorAsRestorer , harm:InstitutionalSovereignGuarantor ;
+    harm:hasDistributionAggregation harm:NarrowConcentrated , harm:DiffuseThreshold ;
+    harm:hasSeverityMagnitude harm:DeMinimisTrivial , harm:ModerateCompensable ;
+    harm:hasNormativeStatus harm:NormativeWrongful ;
+    harm:hasModality harm:ActualizedHarm ;
+    harm:hasTemporalTrajectory harm:AcuteTrajectory ;
+    harm:hasPhenomenologicalTransparency harm:UnperceivedObjective .
+
+harm:EpistemicTestimonialHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:DeontologicalRightsHarm ;
+    skos:broader harm:DeontologicalRightsHarm ;
+    skos:prefLabel "Epistemic and Testimonial Harm"@en ;
+    skos:altLabel "Epistemic Injustice"@en , "Testimonial Injustice"@en , "Hermeneutical Injustice"@en , "Epistemic Violence"@en ;
+    skos:definition "Harming someone specifically in their capacity as a knower and rational communicator—either by unfairly deflating their credibility due to prejudice or by depriving them of the shared social concepts needed to articulate their own experiences."@en ;
+    skos:note "Harm can be inflicted directly upon a person's mind, identity, and capacity to understand or communicate their own reality. Separates testimonial injustice (when prejudice causes a listener to deflate a speaker's credibility) from hermeneutical injustice (when a society lacks the shared concepts or vocabulary for a person to make sense of their own traumatic experiences)."@en ;
+    skos:scopeNote "Targets a subject specifically in their rational capacity as a knower and communicator; encompasses both interpersonal credibility deficits and structural conceptual deprivation."@en ;
+    skos:example "Unfairly deflating a speaker's credibility in court or medicine due to identity prejudice; lacking shared social vocabulary to articulate workplace harassment or medical trauma."@en ;
+    skos:historyNote "Miranda Fricker formalized Epistemic Injustice (2007), separating testimonial injustice from hermeneutical injustice. Gayatri Chakravorty Spivak introduced epistemic violence to describe how dominant discourses silence marginalized subjects' ways of knowing."@en ;
+    dcterms:bibliographicCitation "Fricker, Miranda. Epistemic Injustice: Power and the Ethics of Knowing (2007)."@en ,
+                                  "Spivak, Gayatri Chakravorty. 'Can the Subaltern Speak?' in Marxism and the Interpretation of Culture (1988)."@en ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent , harm:DiffuseCollectivePerpetrator ;
+    harm:hasVictim harm:DirectPrimaryVictim , harm:DiffuseRepresentativeClass ;
+    harm:hasObjectOfHarm harm:PsychologicalCognitiveSubstrate , harm:NormativeStatusSubstrate ;
+    harm:hasRemedialDutyBearer harm:PerpetratorAsRestorer , harm:InstitutionalSovereignGuarantor ;
+    harm:hasDistributionAggregation harm:NarrowConcentrated , harm:DiffuseThreshold ;
+    harm:hasSeverityMagnitude harm:ModerateCompensable , harm:SevereRuinous ;
+    harm:hasNormativeStatus harm:NormativeWrongful ;
+    harm:hasCausationMechanism harm:StructuralAttribution ;
+    harm:hasPhenomenologicalTransparency harm:UnperceivedObjective ;
+    harm:hasTemporalTrajectory harm:SlowAccumulativeTrajectory .
+
+harm:FiduciaryBetrayalHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:DeontologicalRightsHarm ;
+    skos:broader harm:DeontologicalRightsHarm ;
+    skos:prefLabel "Fiduciary and Betrayal Harm"@en ;
+    skos:altLabel "Breach of Fiduciary Duty"@en , "Constructive Fraud"@en , "Abuse of Trust"@en ;
+    skos:definition "A normative wrong occurring when someone entrusted with loyal care over another's interests (a trustee, doctor, lawyer, or corporate director) engages in self-dealing or disloyalty."@en ;
+    skos:note "Even if the beneficiary still makes a profit, the breach of the duty of loyalty itself is a legally actionable wrong requiring disgorgement."@en ;
+    skos:scopeNote "Applies to relationships of structural trust and dependency; actionable upon breach of loyalty regardless of whether financial loss occurred."@en ;
+    skos:example "A corporate director secretly profiting from a self-dealing contract, or a trustee investing trust assets for personal gain."@en ;
+    skos:historyNote "Benjamin N. Cardozo defined the fiduciary standard as 'not honesty alone, but the punctilio of an honor the most sensitive' in Meinhard v. Salmon (1928); Tamar Frankel systematized modern fiduciary law."@en ;
+    dcterms:bibliographicCitation "Meinhard v. Salmon, 249 N.Y. 458 (1928)."@en ,
+                                  "Frankel, Tamar. Fiduciary Law (2011)."@en ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent ;
+    harm:hasVictim harm:DirectPrimaryVictim ;
+    harm:hasObjectOfHarm harm:DignitaryRelationalSubstrate , harm:NormativeStatusSubstrate , harm:MaterialPecuniarySubstrate ;
+    harm:hasRemedialDutyBearer harm:PerpetratorAsRestorer ;
+    harm:hasNormativeStatus harm:NormativeWrongful ;
+    harm:hasPhenomenologicalTransparency harm:UnperceivedObjective .
+
+
+
+
+harm:TeleologicalDeprivationHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:Harm ;
+    skos:broader harm:Harm ;
+    skos:prefLabel "Teleological & Deprivation Harm (Privation of Good & Flourishing)"@en ;
+    skos:altLabel "Perfectionist Harm"@en , "Privation of Flourishing"@en , "Deprivationism"@en ;
+    skos:definition "At the highest level, this domain defines harm structurally and comparatively across time: not by inflicting an active injury, but by blocking an entity from attaining the goods, capabilities, or future existence it ought naturally to possess or enjoy."@en ;
+    skos:note "Captures harms of omission, structural blockage, and lost future potential, where an entity fails to flourish or loses future goods even without feeling conscious pain."@en ;
+    skos:scopeNote "Encompasses privation of human flourishing (eudaimonia), deprivation of future goods via death, and systemic capability barriers."@en ;
+    skos:historyNote "Aristotle defined human flourishing (eudaimonia) in the Nicomachean Ethics; Thomas Aquinas developed the Privation Theory of Evil; Thomas Nagel formalized the Deprivation Account of death."@en ;
+    dcterms:bibliographicCitation "Aristotle. Nicomachean Ethics."@en ,
+                                  "Aquinas, Thomas. Summa Theologiae."@en ,
+                                  "Nagel, Thomas. 'Death,' Noûs (1970)."@en ;
+    harm:hasComparativeBaseline harm:CounterfactualBaseline ;
+    harm:hasPhenomenologicalTransparency harm:UnperceivedObjective ;
+    harm:hasTemporalTrajectory harm:SlowAccumulativeTrajectory .
+
+harm:PerfectionistTeleologicalHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:TeleologicalDeprivationHarm ;
+    skos:broader harm:TeleologicalDeprivationHarm ;
+    skos:prefLabel "Teleological Harm (Perfectionist / Eudaimonic Harm)"@en ;
+    skos:altLabel "Perfectionist Harm"@en , "Aretaic Harm"@en , "Privation of Flourishing"@en ;
+    skos:definition "Any impediment that prevents an entity from fulfilling its natural function, developing its core capabilities, or achieving human flourishing (eudaimonia), even if the person consents and feels content."@en ;
+    skos:note "Rooted in classical virtue ethics and natural law, viewing harm as the absence or corruption of a good that a being ought naturally to possess."@en ;
+    skos:scopeNote "Applies to moral, intellectual, or developmental stunting regardless of subjective contentment or consent."@en ;
+    skos:example "Corrupting a person's moral character, stunting intellectual growth, or depriving an individual of civic community."@en ;
+    skos:historyNote "Aristotle defined the human good as eudaimonia in the Nicomachean Ethics; Thomas Aquinas developed the Privation Theory of Evil (privatio boni)."@en ;
+    dcterms:bibliographicCitation "Aristotle. Nicomachean Ethics."@en ,
+                                  "Aquinas, Thomas. Summa Theologiae."@en ;
+    harm:hasObjectOfHarm harm:OpportunityCapabilitySubstrate ;
+    harm:hasPhenomenologicalTransparency harm:UnperceivedObjective .
+
+harm:DeprivationHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:TeleologicalDeprivationHarm ;
+    skos:broader harm:TeleologicalDeprivationHarm ;
+    skos:prefLabel "Harm by Deprivation (Comparative Non-Existence / Omission)"@en ;
+    skos:altLabel "Deprivationism"@en , "Harm by Omission"@en ;
+    skos:definition "Blocking access to a good state a subject would otherwise have enjoyed—most notably death, which harms a person by depriving them of future experiences and projects."@en ;
+    skos:note "Resolves the philosophical puzzle of how death harms the dead without requiring a conscious subject at the time of the loss."@en ;
+    skos:scopeNote "Measured counterfactually by comparing actual non-existence or omission against the future goods the subject would otherwise have experienced."@en ;
+    skos:example "Premature death depriving a person of decades of future relationships, projects, and experiences."@en ;
+    skos:historyNote "Lucretius explored pre-natal and post-mortem symmetry in De Rerum Natura; Thomas Nagel articulated the modern Deprivation Account in 'Death' (1970)."@en ;
+    dcterms:bibliographicCitation "Lucretius. De Rerum Natura."@en ,
+                                  "Nagel, Thomas. 'Death,' Noûs (1970)."@en ;
+    harm:hasObjectOfHarm harm:OpportunityCapabilitySubstrate , harm:SomaticBiologicalSubstrate ;
+    harm:hasComparativeBaseline harm:CounterfactualBaseline ;
+    harm:hasReversibility harm:IrreversibleHysteresis .
+
+harm:CapabilityStructuralHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:TeleologicalDeprivationHarm ;
+    skos:broader harm:TeleologicalDeprivationHarm ;
+    skos:prefLabel "Capability Deprivation & Structural Harm"@en ;
+    skos:altLabel "Capability Deprivation"@en , "Structural Violence"@en ;
+    skos:definition "Systemic social, economic, or institutional barriers (such as lack of education, healthcare, or political voice) that prevent individuals from converting basic resources into real human functioning and agency."@en ;
+    skos:note "Shifts evaluation from raw material resources to substantive freedoms—what people are actually able to do and become."@en ;
+    skos:scopeNote "Captures institutionalized deprivation occurring diffusely without requiring an individual malicious assailant."@en ;
+    skos:example "Systemic exclusion from quality education, basic healthcare, or political participation."@en ;
+    skos:historyNote "Amartya Sen and Martha Nussbaum formalized the Capabilities Approach; Johan Galtung coined Structural Violence (1969)."@en ;
+    dcterms:bibliographicCitation "Sen, Amartya. Development as Freedom (1999)."@en ,
+                                  "Nussbaum, Martha C. Creating Capabilities (2011)."@en ,
+                                  "Galtung, Johan. 'Violence, Peace, and Peace Research,' Journal of Peace Research (1969)."@en ;
+    harm:hasPerpetrator harm:DiffuseCollectivePerpetrator ;
+    harm:hasVictim harm:DiffuseRepresentativeClass ;
+    harm:hasObjectOfHarm harm:OpportunityCapabilitySubstrate ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor ;
+    harm:hasCausationMechanism harm:StructuralAttribution .
+
+
+
+
+harm:WrongfulDeathConsortiumHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:TeleologicalDeprivationHarm ;
+    skos:broader harm:TeleologicalDeprivationHarm ;
+    skos:prefLabel "Wrongful Death & Loss of Consortium"@en ;
+    skos:altLabel "Wrongful Death"@en , "Survival Actions"@en , "Loss of Consortium"@en ;
+    skos:definition "The direct legal translation of Deprivationism. Because the dead cannot sue for their own lost future, statutes grant surviving family members the right to recover for the deprivation of future financial support, companionship, guidance, and relational goods that death stole."@en ;
+    skos:note "Overturns the old common-law rule that personal tort actions died with the victim by recognizing relational and future support deprivation."@en ;
+    skos:scopeNote "Statutory civil action compensating surviving dependents and spouses for lost future financial and relational goods."@en ;
+    skos:example "A surviving spouse and children suing a negligent actor for lost future income, companionship, and parental guidance."@en ;
+    skos:historyNote "Lord Campbell architected the Fatal Accidents Act 1846; Roscoe Pound analyzed relational family interests as legally protected goods."@en ;
+    dcterms:bibliographicCitation "Fatal Accidents Act 1846 (9 & 10 Vict. c. 93)."@en ,
+                                  "Pound, Roscoe. 'Individual Interests in the Domestic Relations,' Michigan Law Review (1916)."@en ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent , harm:VicariouslyLiablePrincipal ;
+    harm:hasVictim harm:SecondaryRelationalVictim ;
+    harm:hasObjectOfHarm harm:DignitaryRelationalSubstrate , harm:MaterialPecuniarySubstrate , harm:OpportunityCapabilitySubstrate ;
+    harm:hasRemedialDutyBearer harm:PerpetratorAsRestorer ;
+    harm:hasReversibility harm:IrreversibleHysteresis .
+
+harm:ParensPatriaePaternalisticHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:TeleologicalDeprivationHarm ;
+    skos:broader harm:TeleologicalDeprivationHarm ;
+    skos:prefLabel "Parens Patriae & Paternalistic Harm Prevention"@en ;
+    skos:altLabel "Parens Patriae"@en , "Legal Moralism"@en , "Soft Paternalism"@en ;
+    skos:definition "The legal operationalization of Teleological Harm. The state steps in to protect vulnerable persons (minors, incapacitated adults) or prohibit self-corrupting behaviors (such as compulsory education laws, child labor bans, or substance prohibitions) on the grounds that certain actions stunt human development and flourishing regardless of consent."@en ;
+    skos:note "Justifies state intervention to safeguard developmental capacity and long-term rational autonomy even against an individual's immediate wishes."@en ;
+    skos:scopeNote "Applies to state protective intervention for minors, incapacitated wards, or developmental public-policy mandates."@en ;
+    skos:example "Compulsory schooling statutes, child labor prohibitions, and state guardianship over neglected minors."@en ;
+    skos:historyNote "Patrick Devlin argued for law's role in preserving shared moral conditions in The Enforcement of Morals (1965); Ronald Dworkin analyzed paternalism in Taking Rights Seriously (1977)."@en ;
+    dcterms:bibliographicCitation "Devlin, Patrick. The Enforcement of Morals (1965)."@en ,
+                                  "Dworkin, Ronald. Taking Rights Seriously (1977)."@en ;
+    harm:hasVictim harm:DiffuseRepresentativeClass , harm:DirectPrimaryVictim ;
+    harm:hasObjectOfHarm harm:OpportunityCapabilitySubstrate ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor .
+
+harm:AttachmentDevelopmentalHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:TeleologicalDeprivationHarm ;
+    skos:broader harm:TeleologicalDeprivationHarm ;
+    skos:prefLabel "Attachment, Developmental & Relational Deprivation"@en ;
+    skos:altLabel "Attachment Trauma"@en , "Adverse Childhood Experiences (ACEs)"@en , "Developmental Neglect"@en ;
+    skos:definition "Harm caused during critical neurodevelopmental windows by the absence of safe, responsive caregiving or social stimulation."@en ;
+    skos:note "Even without active physical abuse, early deprivation alters brain architecture, emotional regulation, and lifelong capacity for human flourishing."@en ;
+    skos:scopeNote "Applies to developmental privation during critical biological and psychological growth stages."@en ;
+    skos:example "Severe emotional neglect in infancy causing lifelong attachment disorders, stress dysregulation, and reduced health expectancy."@en ;
+    skos:historyNote "John Bowlby and Mary Ainsworth established Attachment Theory; Vincent Felitti and Robert Anda conducted the landmark ACE Study (1998)."@en ;
+    dcterms:bibliographicCitation "Bowlby, John. Attachment and Loss (1969)."@en ,
+                                  "Felitti, Vincent J., et al. 'Relationship of Childhood Abuse and Household Dysfunction to Many of the Leading Causes of Death in Adults,' American Journal of Preventive Medicine (1998)."@en ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent , harm:DiffuseCollectivePerpetrator ;
+    harm:hasVictim harm:DirectPrimaryVictim ;
+    harm:hasObjectOfHarm harm:PsychologicalCognitiveSubstrate , harm:SomaticBiologicalSubstrate , harm:OpportunityCapabilitySubstrate ;
+    harm:hasRemedialDutyBearer harm:SpecialRelationshipRescuer , harm:InstitutionalSovereignGuarantor ;
+    harm:hasReversibility harm:IrreversibleHysteresis .
+
+
+
+
+harm:SystemicCyberneticHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:Harm ;
+    skos:broader harm:Harm ;
+    skos:prefLabel "Systemic, Emergent & Cybernetic Harm (Network & Equilibrium Failures)"@en ;
+    skos:altLabel "Emergent Harm"@en , "Equilibrium Failure"@en , "Cybernetic Harm"@en ;
+    skos:definition "At the highest level, this domain defines harm not as a linear act by an agent against a victim, but as a destabilizing shift in a complex system, incentive structure, or information network."@en ;
+    skos:note "Harm emerges from feedback loops, misaligned equilibria, and scale—where individually rational or benign actions produce catastrophic collective or systemic breakdown."@en ;
+    skos:scopeNote "Captures non-linear, multi-agent, algorithmic, and network-level harms that operate without a single linear perpetrator."@en ;
+    skos:historyNote "Norbert Wiener warned of cybernetic goal misalignment (1960); Thomas Schelling modeled micromotive-to-macrobehavior traps (1978); Elinor Ostrom analyzed commons governance; Nick Bostrom formalized existential alignment risks."@en ;
+    dcterms:bibliographicCitation "Wiener, Norbert. 'Some Moral and Technical Consequences of Automation,' Science (1960)."@en ,
+                                  "Schelling, Thomas C. Micromotives and Macrobehavior (1978)."@en ,
+                                  "Bostrom, Nick. Superintelligence (2014)."@en ;
+    harm:hasFeedbackDynamics harm:NonLinearAmplifying ;
+    harm:hasIncentiveAlignment harm:StructurallyAlignedEmergent .
+
+harm:ExternalityCoordinationHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:SystemicCyberneticHarm ;
+    skos:broader harm:SystemicCyberneticHarm ;
+    skos:prefLabel "Negative Externalities & Coordination Failures"@en ;
+    skos:altLabel "Negative Externality"@en , "Nash Equilibrium Trap"@en , "Collective Action Failure"@en ;
+    skos:definition "Harm inflicted on uninvolved third parties as an unpriced byproduct of an economic transaction or strategic interaction, or situations where rational individual incentives lock all players into a mutually destructive outcome."@en ;
+    skos:note "Demonstrates how individually rational choices produce socially suboptimal or destructive equilibria without malicious intent."@en ;
+    skos:scopeNote "Applies to unpriced third-party spillovers and multi-player coordination traps such as bank runs or arms races."@en ;
+    skos:example "Industrial pollution imposed on downwind residents, systemic financial contagion, bank runs, or arms races."@en ;
+    skos:historyNote "Arthur Pigou defined negative externalities in The Economics of Welfare (1920); Thomas Schelling demonstrated micromotive-to-macrobehavior traps in 1978."@en ;
+    dcterms:bibliographicCitation "Pigou, Arthur C. The Economics of Welfare (1920)."@en ,
+                                  "Schelling, Thomas C. Micromotives and Macrobehavior (1978)."@en ;
+    harm:hasPerpetrator harm:DiffuseCollectivePerpetrator ;
+    harm:hasVictim harm:DiffuseRepresentativeClass ;
+    harm:hasObjectOfHarm harm:MaterialPecuniarySubstrate , harm:SystemicEnvironmentalSubstrate ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor ;
+    harm:hasIncentiveAlignment harm:StructurallyAlignedEmergent ;
+    harm:hasFeedbackDynamics harm:NonLinearAmplifying .
+
+harm:InformationAsymmetryHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:SystemicCyberneticHarm ;
+    skos:broader harm:SystemicCyberneticHarm ;
+    skos:prefLabel "Information Asymmetry & Adverse Selection Harm"@en ;
+    skos:altLabel "Moral Hazard"@en , "Adverse Selection"@en , "Predatory Signalling"@en ;
+    skos:definition "Harm generated when one party exploits superior information to shift hidden risks onto another party, degrading market trust and causing systemic collapse."@en ;
+    skos:note "Captures how hidden risk-taking (moral hazard) and opaque quality differences (adverse selection) destroy functional markets and harm honest participants."@en ;
+    skos:scopeNote "Applies to structural information imbalances causing risk externalization or market failure."@en ;
+    skos:example "Reckless financial risk-taking when losses are socialized onto taxpayers, or opaque algorithmic pricing discriminating silently."@en ;
+    skos:historyNote "George Akerlof demonstrated how information asymmetry destroys markets in 'The Market for Lemons' (1970); Joseph Stiglitz formalized screening and signaling."@en ;
+    dcterms:bibliographicCitation "Akerlof, George A. 'The Market for \"Lemons\": Quality Uncertainty and the Market Mechanism,' Quarterly Journal of Economics (1970)."@en ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent , harm:DiffuseCollectivePerpetrator ;
+    harm:hasVictim harm:DirectPrimaryVictim , harm:DiffuseRepresentativeClass ;
+    harm:hasObjectOfHarm harm:MaterialPecuniarySubstrate , harm:SystemicEnvironmentalSubstrate ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor ;
+    harm:hasSystemOpacity harm:BlackBoxOpaque ;
+    harm:hasIncentiveAlignment harm:StructurallyAlignedEmergent .
+
+
+
+
+harm:AlgorithmicAlignmentHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:SystemicCyberneticHarm ;
+    skos:broader harm:SystemicCyberneticHarm ;
+    skos:prefLabel "Algorithmic, Alignment & Emergent Scale Harm"@en ;
+    skos:altLabel "Specification Gaming"@en , "Reward Hacking"@en , "Distributional Shift"@en , "Systemic Algorithmic Bias"@en ;
+    skos:definition "Harm arising when an autonomous or automated system optimizes a proxy goal too literally, scales subtle historical biases across millions of decisions instantaneously, or fails catastrophically when deployed outside its training distribution—causing harm without human malice or conscious intent."@en ;
+    skos:note "Highlights the responsibility gap and zero-marginal-cost scaling of automated optimization systems."@en ;
+    skos:scopeNote "Applies to harms produced by automated optimization, reward hacking, or scaled algorithmic bias."@en ;
+    skos:example "An automated hiring or lending model scaling historical bias at zero marginal cost, or an AI system achieving a proxy metric by damaging real-world constraints."@en ;
+    skos:historyNote "Norbert Wiener warned in 1960 that automated systems given literal goals without human values execute harmful outcomes; Stuart Russell and Nick Bostrom formalized the AI Alignment Problem and Instrumental Convergence."@en ;
+    dcterms:bibliographicCitation "Wiener, Norbert. 'Some Moral and Technical Consequences of Automation,' Science (1960)."@en ,
+                                  "Russell, Stuart. Human Compatible (2019)."@en ,
+                                  "Bostrom, Nick. Superintelligence (2014)."@en ;
+    harm:hasPerpetrator harm:NonAgenticAutonomousSource , harm:VicariouslyLiablePrincipal ;
+    harm:hasVictim harm:DiffuseRepresentativeClass , harm:DirectPrimaryVictim ;
+    harm:hasObjectOfHarm harm:OpportunityCapabilitySubstrate , harm:MaterialPecuniarySubstrate , harm:SystemicEnvironmentalSubstrate ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor , harm:PerpetratorAsRestorer ;
+    harm:hasSystemOpacity harm:BlackBoxOpaque ;
+    harm:hasScalabilityAsymmetry harm:ZeroMarginalCostReplication ;
+    harm:hasIncentiveAlignment harm:StructurallyAlignedEmergent .
+
+harm:EpistemicPollutionHarm a owl:Class , skos:Concept ;
+    rdfs:subClassOf harm:SystemicCyberneticHarm ;
+    skos:broader harm:SystemicCyberneticHarm ;
+    skos:prefLabel "Epistemic Pollution & Attention Hijacking"@en ;
+    skos:altLabel "Information Cascade"@en , "Algorithmic Radicalization"@en , "Attention Extraction"@en ;
+    skos:definition "The degradation of a society's shared epistemic environment through synthetic media, automated outrage amplification, and variable-reward engagement loops."@en ;
+    skos:note "Harms both individual cognitive sovereignty and collective democratic sense-making by exploiting human attention vulnerabilities at scale."@en ;
+    skos:scopeNote "Covers network-level degradation of shared truth ecosystems and persuasive attention extraction."@en ;
+    skos:example "Algorithmic recommendation feeds amplifying outrage cascades, synthetic media flooding public discourse, or addictive infinite-scroll loops."@en ;
+    skos:historyNote "Herbert A. Simon coined the Attention Economy (1971); Cass Sunstein and Tristan Harris analyzed how algorithmic echo chambers and persuasive design hijack cognitive vulnerabilities."@en ;
+    dcterms:bibliographicCitation "Simon, Herbert A. 'Designing Organizations for an Information-Rich World' (1971)."@en ,
+                                  "Sunstein, Cass R. #Republic (2017)."@en ;
+    harm:hasPerpetrator harm:DiffuseCollectivePerpetrator , harm:NonAgenticAutonomousSource ;
+    harm:hasVictim harm:DiffuseRepresentativeClass , harm:DirectPrimaryVictim ;
+    harm:hasObjectOfHarm harm:PsychologicalCognitiveSubstrate , harm:SystemicEnvironmentalSubstrate ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor ;
+    harm:hasFeedbackDynamics harm:NonLinearAmplifying ;
+    harm:hasScalabilityAsymmetry harm:ZeroMarginalCostReplication ;
+    harm:hasCognitiveExploitability harm:SubversiveExploitation .
+
+
+
+
+# ==============================================================================
+# PART 2: CROSS-CUTTING ATTRIBUTES (OBJECT PROPERTIES & CONCEPT SCHEMES)
+# ==============================================================================
+
+# --- DOMAIN A: EPISTEMIC & CAUSAL STRUCTURE ---
+
+harm:hasComparativeBaseline a owl:ObjectProperty , skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:ComparativeBaselineValue ;
+    skos:prefLabel "Comparative Baseline (Attribute 1)"@en ;
+    skos:definition "Measures whether harm is evaluated temporally (worse off now than before) or counterfactually (worse off now than if the event had never occurred)."@en ;
+    skos:scopeNote "Domains of Applicability: Contract law (Expectation Damages), Medical malpractice (Loss of Chance), Intergenerational ethics (Non-Identity Problem), Microeconomics (Opportunity Cost)."@en .
+
+harm:ComparativeBaselineValue a owl:Class , skos:ConceptScheme ;
+    skos:prefLabel "Comparative Baseline Vocabulary"@en .
+harm:TemporalBaseline a harm:ComparativeBaselineValue , skos:Concept ;
+    skos:prefLabel "Temporal Comparison (Before vs. After)"@en .
+harm:CounterfactualBaseline a harm:ComparativeBaselineValue , skos:Concept ;
+    skos:prefLabel "Counterfactual Comparison (Actual vs. What Would Have Been)"@en .
+
+harm:hasCausationMechanism a owl:ObjectProperty , skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:CausationMechanismValue ;
+    skos:prefLabel "Causation, Proximity, and Attribution (Attribute 2)"@en ;
+    skos:definition "Tethers an external state of affairs to an agent's action or omission via factual ('but-for') causation, proximate foreseeability, overdetermination, or structural attribution."@en ;
+    skos:scopeNote "Domains of Applicability: Tort and criminal liability, AI alignment responsibility gaps, Multi-agent game theory."@en .
+
+harm:CausationMechanismValue a owl:Class , skos:ConceptScheme ;
+    skos:prefLabel "Causation Mechanism Vocabulary"@en .
+harm:FactualButForCausation a harm:CausationMechanismValue , skos:Concept ;
+    skos:prefLabel "Factual Causation ('But-For')"@en .
+harm:ProximateCausation a harm:CausationMechanismValue , skos:Concept ;
+    skos:prefLabel "Proximate / Foreseeable Legal Causation"@en .
+harm:OverdeterminedCausation a harm:CausationMechanismValue , skos:Concept ;
+    skos:prefLabel "Overdetermined Causation"@en .
+harm:StructuralAttribution a harm:CausationMechanismValue , skos:Concept ;
+    skos:prefLabel "Institutional / Structural Attribution"@en .
+
+harm:hasPhenomenologicalTransparency a owl:ObjectProperty , skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:PhenomenologicalTransparencyValue ;
+    skos:prefLabel "Phenomenological Transparency (Attribute 3)"@en ;
+    skos:definition "Distinguishes between subjective harms requiring conscious awareness (pain, grief, terror) and objective harms occurring outside awareness (covert surveillance, trustee self-dealing)."@en ;
+    skos:scopeNote "Domains of Applicability: Animal welfare and bioethics, Privacy, defamation, and fiduciary law, Posthumous and estate law."@en .
+
+harm:PhenomenologicalTransparencyValue a owl:Class , skos:ConceptScheme ;
+    skos:prefLabel "Phenomenological Transparency Vocabulary"@en .
+harm:PerceivedSubjective a harm:PhenomenologicalTransparencyValue , skos:Concept ;
+    skos:prefLabel "Perceived / Subjective Conscious Awareness"@en .
+harm:UnperceivedObjective a harm:PhenomenologicalTransparencyValue , skos:Concept ;
+    skos:prefLabel "Unperceived / Objective External Setback"@en .
+
+harm:hasSystemOpacity a owl:ObjectProperty , skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:SystemOpacityValue ;
+    skos:prefLabel "System Opacity & Legibility (Attribute 4)"@en ;
+    skos:definition "Measures whether the mechanism causing the harm can be inspected, audited, or understood, or is obscured by deep neural networks, proprietary secrecy, or complex supply chains."@en ;
+    skos:scopeNote "Domains of Applicability: Algorithmic auditing (lending, hiring, sentencing), High-frequency trading crashes, Data-broker ecosystems."@en .
+
+harm:SystemOpacityValue a owl:Class , skos:ConceptScheme ;
+    skos:prefLabel "System Opacity Vocabulary"@en .
+harm:TransparentLegible a harm:SystemOpacityValue , skos:Concept ;
+    skos:prefLabel "Transparent / Inspectable Mechanism"@en .
+harm:BlackBoxOpaque a harm:SystemOpacityValue , skos:Concept ;
+    skos:prefLabel "Black-Box / Opaque System"@en .
+
+# --- DOMAIN B: DYNAMIC, SCALING & MAGNITUDE BEHAVIOR (PART 1) ---
+
+harm:hasTemporalTrajectory a owl:ObjectProperty , skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:TemporalTrajectoryValue ;
+    skos:prefLabel "Temporal Trajectory (Attribute 5)"@en ;
+    skos:definition "Maps how harm unfolds across time: Acute (instant impact), Latent (decades of dormancy before manifestation), or Slow/Accumulative (generational degradation)."@en ;
+    skos:scopeNote "Domains of Applicability: Toxic torts (asbestos, radiation), Occupational health, Climate and environmental litigation (Slow Violence)."@en .
+
+harm:TemporalTrajectoryValue a owl:Class , skos:ConceptScheme ;
+    skos:prefLabel "Temporal Trajectory Vocabulary"@en .
+harm:AcuteTrajectory a harm:TemporalTrajectoryValue , skos:Concept ;
+    skos:prefLabel "Acute Trajectory (Immediate Impact)"@en .
+harm:LatentTrajectory a harm:TemporalTrajectoryValue , skos:Concept ;
+    skos:prefLabel "Latent Trajectory (Delayed Manifestation)"@en .
+harm:SlowAccumulativeTrajectory a harm:TemporalTrajectoryValue , skos:Concept ;
+    skos:prefLabel "Slow / Accumulative Trajectory (Generational)"@en .
+
+harm:hasDistributionAggregation a owl:ObjectProperty , skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:DistributionAggregationValue ;
+    skos:prefLabel "Distribution & Aggregation (Attribute 6)"@en ;
+    skos:definition "Contrasts narrow, concentrated harm to one identifiable victim against diffuse, microscopic losses spread across millions of people that cross a tipping point together."@en ;
+    skos:scopeNote "Domains of Applicability: Class-action consumer law, Data privacy micro-leaks, Collective action ethics (Harmless Torturer paradox)."@en .
+
+harm:DistributionAggregationValue a owl:Class , skos:ConceptScheme ;
+    skos:prefLabel "Distribution & Aggregation Vocabulary"@en .
+harm:NarrowConcentrated a harm:DistributionAggregationValue , skos:Concept ;
+    skos:prefLabel "Narrow / Concentrated (Single Target)"@en .
+harm:DiffuseThreshold a harm:DistributionAggregationValue , skos:Concept ;
+    skos:prefLabel "Diffuse / Threshold Aggregation"@en .
+
+
+
+
+# --- DOMAIN B: DYNAMIC, SCALING & MAGNITUDE BEHAVIOR (PART 2) ---
+
+harm:hasFeedbackDynamics a owl:ObjectProperty , skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:FeedbackDynamicsValue ;
+    skos:prefLabel "Feedback & Amplification Dynamics (Attribute 7)"@en ;
+    skos:definition "Measures whether a harm remains static after impact or triggers self-reinforcing cascades where the system's reaction compounds initial damage exponentially."@en ;
+    skos:scopeNote "Domains of Applicability: Systemic financial contagion (bank runs), Social media radicalization algorithms, Networked infrastructure blackouts."@en .
+
+harm:FeedbackDynamicsValue a owl:Class , skos:ConceptScheme ;
+    skos:prefLabel "Feedback Dynamics Vocabulary"@en .
+harm:LinearStatic a harm:FeedbackDynamicsValue , skos:Concept ;
+    skos:prefLabel "Linear / Static Impact"@en .
+harm:NonLinearAmplifying a harm:FeedbackDynamicsValue , skos:Concept ;
+    skos:prefLabel "Non-Linear / Self-Reinforcing Amplification"@en .
+
+harm:hasScalabilityAsymmetry a owl:ObjectProperty , skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:ScalabilityAsymmetryValue ;
+    skos:prefLabel "Marginal Cost & Scalability Asymmetry (Attribute 8)"@en ;
+    skos:definition "Captures the ratio between the effort required to inflict harm and the resulting scale of damage, contrasting high-friction physical effort against zero-marginal-cost replication."@en ;
+    skos:scopeNote "Domains of Applicability: Cybersecurity and ransomware, Synthetic media and deepfakes, Biosecurity and engineered pathogens."@en .
+
+harm:ScalabilityAsymmetryValue a owl:Class , skos:ConceptScheme ;
+    skos:prefLabel "Scalability Asymmetry Vocabulary"@en .
+harm:HighFrictionProportional a harm:ScalabilityAsymmetryValue , skos:Concept ;
+    skos:prefLabel "High-Friction / Proportional Effort"@en .
+harm:ZeroMarginalCostReplication a harm:ScalabilityAsymmetryValue , skos:Concept ;
+    skos:prefLabel "Zero-Marginal-Cost Replication"@en .
+
+harm:hasReversibility a owl:ObjectProperty , skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:ReversibilityValue ;
+    skos:prefLabel "Reversibility & Hysteresis (Attribute 9)"@en ;
+    skos:definition "Measures whether a harmed entity or system can return to its prior baseline once the harmful action stops, or whether damage permanently alters the system's state."@en ;
+    skos:scopeNote "Domains of Applicability: Environmental extinction and tipping points, Neurodevelopmental psychology, Existential risk and restorative justice."@en .
+
+harm:ReversibilityValue a owl:Class , skos:ConceptScheme ;
+    skos:prefLabel "Reversibility Vocabulary"@en .
+harm:RestorableElastic a harm:ReversibilityValue , skos:Concept ;
+    skos:prefLabel "Restorable / Elastic Baseline"@en .
+harm:IrreversibleHysteresis a harm:ReversibilityValue , skos:Concept ;
+    skos:prefLabel "Irreversible / Hysteresis State Shift"@en .
+
+harm:hasSeverityMagnitude a owl:ObjectProperty , skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:SeverityMagnitudeValue ;
+    skos:prefLabel "Severity & Magnitude (Attribute 19)"@en ;
+    skos:definition "Measures the depth or intensity of the setback on its scale of impact, from barely noticeable trivialities (de minimis) to civilization-scale catastrophe."@en ;
+    skos:scopeNote "Domains of Applicability: Criminal and tort proportionality, Regulatory exposure thresholds, Existential risk ethics."@en .
+
+harm:SeverityMagnitudeValue a owl:Class , skos:ConceptScheme ;
+    skos:prefLabel "Severity & Magnitude Vocabulary"@en .
+harm:DeMinimisTrivial a harm:SeverityMagnitudeValue , skos:Concept ;
+    skos:prefLabel "De Minimis / Trivial"@en .
+harm:ModerateCompensable a harm:SeverityMagnitudeValue , skos:Concept ;
+    skos:prefLabel "Moderate / Compensable"@en .
+harm:SevereRuinous a harm:SeverityMagnitudeValue , skos:Concept ;
+    skos:prefLabel "Severe / Ruinous"@en .
+harm:CatastrophicExistential a harm:SeverityMagnitudeValue , skos:Concept ;
+    skos:prefLabel "Catastrophic / Existential"@en .
+
+# --- DOMAIN C: NORMATIVE & STRATEGIC CONTEXT ---
+
+harm:hasNormativeStatus a owl:ObjectProperty , skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:NormativeStatusValue ;
+    skos:prefLabel "Normativity vs. Non-Normativity (Attribute 10)"@en ;
+    skos:definition "Separates factual setbacks caused by nature or fair competition (Damnum Absque Injuria) from wrongful setbacks caused by violating a legal right or moral duty (Injuria)."@en ;
+    skos:scopeNote "Domains of Applicability: Antitrust and free-market competition, Constitutional rights, Criminal law."@en .
+
+harm:NormativeStatusValue a owl:Class , skos:ConceptScheme ;
+    skos:prefLabel "Normative Status Vocabulary"@en .
+harm:NormativeWrongful a harm:NormativeStatusValue , skos:Concept ;
+    skos:prefLabel "Normative Harm (Wrongful Breach of Right/Duty)"@en .
+harm:NonNormativeSetback a harm:NormativeStatusValue , skos:Concept ;
+    skos:prefLabel "Non-Normative Setback (Damnum Absque Injuria)"@en .
+
+harm:hasModality a owl:ObjectProperty , skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:ModalityValue ;
+    skos:prefLabel "Modality: Actualized vs. Probabilistic Risk (Attribute 11)"@en ;
+    skos:definition "Distinguishes between damage that has already materialized and the imposition of heightened danger that narrows a victim's safe life options before any physical crash occurs."@en ;
+    skos:scopeNote "Domains of Applicability: Public health and FDA safety regulation, Reckless endangerment law, Nuclear and AI catastrophic risk."@en .
+
+harm:ModalityValue a owl:Class , skos:ConceptScheme ;
+    skos:prefLabel "Modality Vocabulary"@en .
+harm:ActualizedHarm a harm:ModalityValue , skos:Concept ;
+    skos:prefLabel "Actualized Harm (Materialized Outcome)"@en .
+harm:ProbabilisticRisk a harm:ModalityValue , skos:Concept ;
+    skos:prefLabel "Probabilistic Risk Imposition"@en .
+
+harm:hasIncentiveAlignment a owl:ObjectProperty , skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:IncentiveAlignmentValue ;
+    skos:prefLabel "Incentive & Strategic Alignment (Attribute 12)"@en ;
+    skos:definition "Identifies whether harm stems from malicious cruelty, negligence, or structurally aligned incentives and literal proxy goals that inevitably produce collateral damage without ill will."@en ;
+    skos:scopeNote "Domains of Applicability: Game-theoretic market failures (Tragedy of the Commons), Principal-agent moral hazard, AI reward hacking and specification gaming."@en .
+
+harm:IncentiveAlignmentValue a owl:Class , skos:ConceptScheme ;
+    skos:prefLabel "Incentive Alignment Vocabulary"@en .
+harm:MaliciousIntentional a harm:IncentiveAlignmentValue , skos:Concept ;
+    skos:prefLabel "Malicious / Deliberate Intent"@en .
+harm:NegligentCareless a harm:IncentiveAlignmentValue , skos:Concept ;
+    skos:prefLabel "Negligent / Careless Disregard"@en .
+harm:StructurallyAlignedEmergent a harm:IncentiveAlignmentValue , skos:Concept ;
+    skos:prefLabel "Structurally Aligned / Emergent Equilibrium"@en .
+
+harm:hasCognitiveExploitability a owl:ObjectProperty , skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:CognitiveExploitabilityValue ;
+    skos:prefLabel "Cognitive & Volitional Exploitability (Attribute 13)"@en ;
+    skos:definition "Measures whether harm overrides a victim's will through overt brute force or subversively bypasses rational defenses by exploiting cognitive biases, addiction pathways, or emotional vulnerabilities."@en ;
+    skos:scopeNote "Domains of Applicability: Behavioral economics and consumer protection (Dark Patterns/Sludge), Persuasive technology and addiction, Undue influence law."@en .
+
+harm:CognitiveExploitabilityValue a owl:Class , skos:ConceptScheme ;
+    skos:prefLabel "Cognitive Exploitability Vocabulary"@en .
+harm:OvertCoercion a harm:CognitiveExploitabilityValue , skos:Concept ;
+    skos:prefLabel "Overt Coercion / Force"@en .
+harm:SubversiveExploitation a harm:CognitiveExploitabilityValue , skos:Concept ;
+    skos:prefLabel "Subversive Bias / Addiction Exploitation"@en .
+
+
+
+
+# --- DOMAIN D: RELATIONAL ROLES, OBJECT & STANDING ---
+
+harm:hasPatientOntology a owl:ObjectProperty , skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:PatientOntologyValue ;
+    skos:prefLabel "Patient Ontology (Attribute 14)"@en ;
+    skos:definition "Defines the categories of entities capable of possessing interests or suffering setbacks: Sentient Individuals, Collective/Artificial Persons, and Non-Sentient Systems."@en ;
+    skos:scopeNote "Domains of Applicability: Bioethics, Corporate and international law, Environmental personhood, Intergenerational justice."@en .
+
+harm:PatientOntologyValue a owl:Class , skos:ConceptScheme ;
+    skos:prefLabel "Patient Ontology Vocabulary"@en .
+harm:SentientIndividual a harm:PatientOntologyValue , skos:Concept ;
+    skos:prefLabel "Sentient Individual (Human / Animal)"@en .
+harm:CollectiveArtificialPerson a harm:PatientOntologyValue , skos:Concept ;
+    skos:prefLabel "Collective / Artificial Person (Corporation / State / Group)"@en .
+harm:NonSentientSystem a harm:PatientOntologyValue , skos:Concept ;
+    skos:prefLabel "Non-Sentient System (Ecosystem / Future Generations)"@en .
+
+harm:hasPerpetrator a owl:ObjectProperty , skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:PerpetratorRoleValue ;
+    skos:prefLabel "Moral & Legal Agency / Perpetrator (Attribute 15)"@en ;
+    skos:definition "Defines the nature, culpability, and structure of the entity from which the harm originates."@en ;
+    skos:scopeNote "Domains of Applicability: Criminal mens rea grading, Tort strict and vicarious liability, AI and robotics responsibility gaps."@en .
+
+harm:PerpetratorRoleValue a owl:Class , skos:ConceptScheme ;
+    skos:prefLabel "Perpetrator Role Vocabulary"@en .
+harm:UnitaryIntentionalAgent a harm:PerpetratorRoleValue , skos:Concept ;
+    skos:prefLabel "Unitary Intentional or Negligent Agent"@en .
+harm:VicariouslyLiablePrincipal a harm:PerpetratorRoleValue , skos:Concept ;
+    skos:prefLabel "Vicariously Liable Principal (Institutional / Respondeat Superior)"@en .
+harm:DiffuseCollectivePerpetrator a harm:PerpetratorRoleValue , skos:Concept ;
+    skos:prefLabel "Diffuse / Collective Perpetration"@en .
+harm:NonAgenticAutonomousSource a harm:PerpetratorRoleValue , skos:Concept ;
+    skos:prefLabel "Non-Agentic / Autonomous Causal Source (Nature / AI System)"@en .
+
+harm:hasVictim a owl:ObjectProperty , skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:VictimRoleValue ;
+    skos:prefLabel "Victimhood & Standing / Recipient (Attribute 16)"@en ;
+    skos:definition "Maps the concrete relational position of the party suffering the setback, distinguishing direct targets from secondary relational victims and proxy-represented classes."@en ;
+    skos:scopeNote "Domains of Applicability: Constitutional and civil Locus Standi, Class-action certification, Victimology and restorative justice."@en .
+
+harm:VictimRoleValue a owl:Class , skos:ConceptScheme ;
+    skos:prefLabel "Victim Role Vocabulary"@en .
+harm:DirectPrimaryVictim a harm:VictimRoleValue , skos:Concept ;
+    skos:prefLabel "Direct / Primary Victim"@en .
+harm:SecondaryRelationalVictim a harm:VictimRoleValue , skos:Concept ;
+    skos:prefLabel "Secondary / Relational Victim (Bystander / Dependent)"@en .
+harm:DiffuseRepresentativeClass a harm:VictimRoleValue , skos:Concept ;
+    skos:prefLabel "Diffuse / Proxy-Represented Class (Public / Future Generations / Ecosystem)"@en .
+
+harm:hasObjectOfHarm a owl:ObjectProperty , skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:ObjectOfHarmValue ;
+    skos:prefLabel "Object of Harm / Locus of Injury / Protected Substrate (Attribute 17)"@en ;
+    skos:definition "Defines the specific physical, psychological, relational, economic, or normative asset, faculty, or state of being that absorbs the setback."@en ;
+    skos:scopeNote "Domains of Applicability: Legal pleading and remedy selection, Insurance underwriting lines, Bioethics and neuro-rights."@en .
+
+harm:ObjectOfHarmValue a owl:Class , skos:ConceptScheme ;
+    skos:prefLabel "Object of Harm (Protected Substrate) Vocabulary"@en .
+harm:SomaticBiologicalSubstrate a harm:ObjectOfHarmValue , skos:Concept ;
+    skos:prefLabel "Somatic & Biological Substrate (Body, Health, Life)"@en .
+harm:PsychologicalCognitiveSubstrate a harm:ObjectOfHarmValue , skos:Concept ;
+    skos:prefLabel "Psychological & Cognitive Substrate (Mental Peace, Attention, Rationality)"@en .
+harm:MaterialPecuniarySubstrate a harm:ObjectOfHarmValue , skos:Concept ;
+    skos:prefLabel "Material & Pecuniary Substrate (Property, Wealth, Contract Expectancy)"@en .
+harm:DignitaryRelationalSubstrate a harm:ObjectOfHarmValue , skos:Concept ;
+    skos:prefLabel "Dignitary, Reputational & Relational Substrate (Standing, Privacy, Trust)"@en .
+harm:NormativeStatusSubstrate a harm:ObjectOfHarmValue , skos:Concept ;
+    skos:prefLabel "Normative & Status Substrate (Constitutional Rights, Legal Standing, Agency)"@en .
+harm:OpportunityCapabilitySubstrate a harm:ObjectOfHarmValue , skos:Concept ;
+    skos:prefLabel "Opportunity, Capability & Future Substrate (Development, Survival Odds)"@en .
+harm:SystemicEnvironmentalSubstrate a harm:ObjectOfHarmValue , skos:Concept ;
+    skos:prefLabel "Systemic & Environmental Substrate (Ecosystems, Institutions, Epistemic Commons)"@en .
+
+harm:hasRemedialDutyBearer a owl:ObjectProperty , skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:RemedialDutyBearerValue ;
+    skos:prefLabel "Remedial & Protective Duty-Bearing / Mitigator / Restorer (Attribute 18)"@en ;
+    skos:definition "Defines the entity bearing an affirmative obligation to intervene, rescue, minimize ongoing impact, or restore the victim."@en ;
+    skos:scopeNote "Domains of Applicability: Tort and contract remedies (duty to rescue, mitigation of damages), Administrative disaster law, Humanitarian Responsibility to Protect (R2P)."@en .
+
+harm:RemedialDutyBearerValue a owl:Class , skos:ConceptScheme ;
+    skos:prefLabel "Remedial Duty-Bearer Vocabulary"@en .
+harm:PerpetratorAsRestorer a harm:RemedialDutyBearerValue , skos:Concept ;
+    skos:prefLabel "The Perpetrator as Restorer (Corrective Justice)"@en .
+harm:SpecialRelationshipRescuer a harm:RemedialDutyBearerValue , skos:Concept ;
+    skos:prefLabel "Special-Relationship Rescuer (Fiduciary / Parent / Carrier / Peril-Creator)"@en .
+harm:InstitutionalSovereignGuarantor a harm:RemedialDutyBearerValue , skos:Concept ;
+    skos:prefLabel "Institutional & Sovereign Guarantor (State / Regulator / Public Fund)"@en .
+harm:VictimDutyToMitigate a harm:RemedialDutyBearerValue , skos:Concept ;
+    skos:prefLabel "The Victim's Own Duty to Mitigate (Avoidable Consequences)"@en .
