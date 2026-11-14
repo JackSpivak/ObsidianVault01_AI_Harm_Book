@@ -6,7 +6,7 @@ sessionId: "98b5058d-70c0-406b-94b5-23583b34f968"
 topic: "I need a new idea note. Hs to do with some litterary devices…"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":192241,"contextWindow":1000000,"inputTokens":4,"outputTokens":8,"cacheReadTokens":191362,"cacheWriteTokens":867,"updatedAt":1794632316531}'
+usage: '{"usedTokens":196200,"contextWindow":1000000,"inputTokens":2,"outputTokens":474,"cacheReadTokens":193996,"cacheWriteTokens":1728,"updatedAt":1794633003627}'
 lastAccessedAt: 1794631713324
 model: '{"baseModelId":"default","effort":"low"}'
 ---
@@ -984,3 +984,31 @@ If you can't find it in either place, I can set it directly. It's a single line,
 
 Would you like me to make that edit?
 [Timestamp: 2026/11/13 21:58:30]
+
+**user**: heres another single idea. dont extract multiple ideas
+[Timestamp: 2026/11/13 22:09:17]
+
+**ai**: Sure, I'll keep it to one note. Your message doesn't include the idea itself, though. It may not have pasted.
+
+Please send the text. I'll then:
+- create one note from the Idea template in `_Unfiled Ideas/`, with `status: seed` and `bookmark: draft`
+- put your words in Original wording exactly as you send them, attributed to you
+- not split the idea into separate notes, even if it touches several topics
+[Timestamp: 2026/11/13 22:09:17]
+
+**user**: Ecospiritualism (also called ecospirituality) is a philosophy and worldview that blends environmentalism with spirituality, viewing the natural world as sacred and humanity as deeply interconnected with the Earth.Rather than being a single organized religion, it serves as an umbrella term for personal, philosophical, and religious practices that treat ecological care as a spiritual duty.Core BeliefsSacredness of Nature: The Earth, ecosystems, and all living beings are viewed as inherently sacred, divine, or worthy of deep reverence rather than mere resources for human use.Interconnectedness: Humans are seen as an inseparable part of nature's web of life—not separate from or superior to it.Spiritual Stewardship: Caring for the planet, fighting climate change, and protecting biodiversity are practiced as moral and spiritual obligations.Common Practices & ExpressionsNature-Based Contemplation: Practices like forest bathing (shinrin-yoku), outdoor meditation, or celebrating seasonal shifts (such as solstices and equinoxes).Religious Greening: Incorporating ecological ethics into established faiths—such as Christian creation care, Islamic environmental stewardship (khalifah), Buddhist mindfulness of interdependence, or Indigenous land-based traditions.Ecopsychology & Healing: Connecting personal emotional and spiritual well-being to the health of the local environment.If you'd like to explore this further, let me know if you're interested in:Specific practices (like nature-based meditation or seasonal rituals)How it connects to major religions or Indigenous traditionsBooks and thinkers who helped shape the movementI can tailor the information to what you're looking for.
+[Timestamp: 2026/11/13 22:09:34]
+
+**ai**: I created one note: [[Ecospiritualism]], in `_Unfiled Ideas/`.
+
+**What's in it**
+- **Template and fields:** the Idea template, with `status: seed` and `bookmark: draft`. I added the alias "Ecospirituality" so links using either name will find it.
+- **Summary:** a short paraphrase covering the core beliefs and the three kinds of practice.
+- **Original wording:** your whole paste, copied exactly, including the run-together headings and the closing "If you'd like to explore this further…" lines.
+- **Link:** the vault already mentions a "Council of Ecospiritualists & Indigenous Elders" in [[structured-inquiry-book-notes]], so I linked the new note to it.
+
+**Please check two things**
+- **Where the text came from:** it reads like an AI-generated answer, because it ends by offering to "tailor the information." So I attributed it as *pasted by you, original source not identified*, rather than as your own words. If it came from somewhere specific, such as Google's AI Overview or another chat, tell me and I'll record it under External references.
+- **Sections I left blank:** I didn't fill in "Anticipated direction" or "Why it matters to the book," because the paste doesn't say how *you* want to use the idea. I added an open question instead: is it a lens for judging AI harm, a character's worldview, or the council's voice? A sentence from you there would make it a real idea note rather than a definition.
+<!-- copilot-message {"tools":["Grep (read)","Grep (read): 08_Resources/structured-inquiry-book-notes.md","Write (edit): 02_Ideas Topics Concepts/_Unfiled Ideas/Ecospiritualism.md"]} -->
+[Timestamp: 2026/11/13 22:09:34]
