@@ -7,7 +7,7 @@ topic: "philosopher adverse stress test harm ontology"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":131510,"contextWindow":1000000,"inputTokens":4,"outputTokens":2,"cacheReadTokens":0,"cacheWriteTokens":131504,"updatedAt":1794697547080}'
+usage: '{"usedTokens":131510,"contextWindow":1000000,"inputTokens":4,"outputTokens":2,"cacheReadTokens":0,"cacheWriteTokens":131504,"updatedAt":1794698579682}'
 ---
 
 **user**: philosopher adverse stress test harm ontology
@@ -776,3 +776,14 @@ This is a useful frame for the book, and for AI harm in particular: AI chains te
 
 Still nothing saved. When you're ready, the open choice is: **fixed cause/effect classes** (simpler, closer to your draft), or **events plus roles** (more faithful to your chain, slightly more complex)?
 [Timestamp: 2026/11/14 16:05:27]
+
+**user**: so  maybe a starting point aligned with your view might be to consider if a role is to be a thing in itself or a property of a thing
+
+HarmfulOmission	OmmissionHarm
+HarmfulRisk	RiskExposureHarm
+HarmfulCondition
+HarmfulStructure
+[Timestamp: 2026/11/14 16:22:54]
+
+**ai**: 
+[Timestamp: 2026/11/14 16:22:54]
