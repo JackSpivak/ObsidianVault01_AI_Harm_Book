@@ -6,8 +6,8 @@ sessionId: "98b5058d-70c0-406b-94b5-23583b34f968"
 topic: "I need a new idea note. Hs to do with some litterary devices…"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":187987,"contextWindow":1000000,"inputTokens":2,"outputTokens":2,"cacheReadTokens":187465,"cacheWriteTokens":518,"updatedAt":1794609184465}'
-lastAccessedAt: 1794606821784
+usage: '{"usedTokens":190698,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":190407,"cacheWriteTokens":281,"updatedAt":1794631877747}'
+lastAccessedAt: 1794631713324
 model: '{"baseModelId":"default","effort":"low"}'
 ---
 
@@ -931,3 +931,23 @@ The Master names several authors (Kutz, Kadish, Pigou, Coase, Young, Butt, Palsg
 I believe all of them are real, but under your research rules they count as unverified until checked. Should I verify each one against a web source and correct any details?
 <!-- copilot-message {"tools":["Bash (execute)","Read (read): 02_Ideas Topics Concepts/AI Governance & Safety/Interdisciplinary_Harm_Ontology_Compendium v2.md","Edit (edit): 02_Ideas Topics Concepts/AI Governance & Safety/Interdisciplinary_Harm_Ontology_Compendium v2.md"]} -->
 [Timestamp: 2026/11/13 15:30:03]
+
+**user**: reopened obsidian and new metadata menu features look great.  except i seem to have two note titlles on each note. is there a second title field in metadata menu that makes it display this way?
+[Timestamp: 2026/11/13 21:50:58]
+
+**ai**: It's very likely **not** Metadata Menu. Two built-in things combine to show the title twice:
+
+1. **Obsidian's "inline title":** a built-in feature that shows the **file name** as a large title at the top of every note. It's on by default, and your `appearance.json` doesn't turn it off.
+2. **Each note's own `# H1` heading:** your conventions require one H1 per note, and it usually repeats the file name.
+
+So you see the file name (inline title), then the Properties block, then the same text again as the H1. That has been true since before the plugin. You may only be noticing it now because Metadata Menu's controls draw attention to the top of the note.
+
+Metadata Menu's `enableTabHeader` setting adds a small fileClass icon to the **tab** at the top of the window, not a second title inside the note.
+
+**To fix it,** choose one:
+- **Turn off the inline title (my recommendation):** Settings → Appearance → **Show inline title** → off. You keep the H1s, which your conventions require and which travel with the note's text, and the duplicate goes away. It's an Obsidian setting, so it's easiest to flip it yourself, though I can change it if you prefer.
+- **Remove the H1s:** this would break the "one H1 per note" convention and mean editing every note, so I don't recommend it.
+
+If turning off the inline title doesn't remove the duplicate, send a screenshot and I'll look again.
+<!-- copilot-message {"tools":["Read (read): .obsidian/appearance.json"]} -->
+[Timestamp: 2026/11/13 21:50:58]
