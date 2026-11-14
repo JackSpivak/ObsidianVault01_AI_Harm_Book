@@ -7,7 +7,7 @@ topic: "philosopher adverse stress test harm ontology"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":123244,"contextWindow":1000000,"inputTokens":4,"outputTokens":5,"cacheReadTokens":122526,"cacheWriteTokens":709,"updatedAt":1794689390956}'
+usage: '{"usedTokens":123945,"contextWindow":1000000,"inputTokens":4,"outputTokens":3,"cacheReadTokens":0,"cacheWriteTokens":123938,"updatedAt":1794690190574}'
 ---
 
 **user**: philosopher adverse stress test harm ontology
@@ -448,3 +448,41 @@ Want me to compare v1 and v2 fully, and re-check the stress-test findings agains
 
 The root `.ttl` file matches the v1 structure. Is there a v2 `.ttl` file, or should that be archived too? And which of options 1–3 do you want?
 [Timestamp: 2026/11/14 13:49:43]
+
+**user**: above you suggested rebuilding the ontology around 3 axes
+1.Accounts
+2. Phenomena
+3.. Legal vehicles and remedies
+
+in this proposal what is meant by Accounts?
+[Timestamp: 2026/11/14 14:02:58]
+
+**ai**: "Accounts" means **theories of what harm *is***: different philosophical answers to the question "what makes something count as harmful?" The word comes from philosophy, where people speak of "the counterfactual account of harm" or "the hedonic account." An account isn't a type of event; it's a **test** you apply to an event.
+
+The main accounts are mostly the old top-level classes I–IV, reframed:
+
+| Account | Its test: "X harmed you if…" |
+|---|---|
+| **Hedonic / experiential** | X made you *feel* worse (pain, distress, grief) |
+| **Comparative (counterfactual)** | You're worse off than you *would have been* without X |
+| **Non-comparative** | X left you in a bad state (injured, confused), whatever the alternative was |
+| **Rights-based / deontological** | X *wronged* you: it violated a right or treated you merely as a tool |
+| **Flourishing / capability** | X stopped you from developing or exercising your capacities |
+
+**Why make it a separate axis?** In the current design, these tests are filed as *kinds* of harm, as if pain-harms and rights-harms were different animals. In fact they are rival tests that can all be run on **the same event**, and they often disagree. An example:
+
+> A chatbot quietly profiles a user to tailor persuasive messages. The user never notices and is happy with the product.
+> - Hedonic account: **no harm** (nothing felt).
+> - Comparative: **possibly** (worse choices than they'd otherwise make).
+> - Rights-based: **yes** (manipulated, used as a means).
+> - Flourishing: **yes, over time** (judgment exercised less).
+
+In the three-axis design:
+- **Phenomenon:** covert profiling and manipulation, which is what happened.
+- **Legal vehicles:** e.g. privacy and consumer-protection claims, which is how the law might respond.
+- **Accounts:** the table above, which shows how each theory judges it.
+
+The current tree has to file the event under one branch, or contradict itself across several. The separate axis lets the ontology record that **the theories disagree**, and that disagreement is often the most interesting thing for the book. Many AI harms don't show up under the hedonic test but are obvious under the rights or flourishing tests. That gap explains why such harms are easy to dismiss.
+
+One technical note: I suggested modelling accounts as a SKOS concept scheme, not as OWL classes. Each harm record could then carry several judgments, for example "assessed under Rights-based: harmful," without the logical contradiction of belonging to classes that exclude each other.
+[Timestamp: 2026/11/14 14:02:58]
