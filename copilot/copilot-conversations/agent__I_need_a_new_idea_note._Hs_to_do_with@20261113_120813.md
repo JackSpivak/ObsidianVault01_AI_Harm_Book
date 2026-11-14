@@ -6,7 +6,7 @@ sessionId: "98b5058d-70c0-406b-94b5-23583b34f968"
 topic: "I need a new idea note. Hs to do with some litterary devices…"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":190698,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":190407,"cacheWriteTokens":281,"updatedAt":1794631877747}'
+usage: '{"usedTokens":192241,"contextWindow":1000000,"inputTokens":4,"outputTokens":8,"cacheReadTokens":191362,"cacheWriteTokens":867,"updatedAt":1794632316531}'
 lastAccessedAt: 1794631713324
 model: '{"baseModelId":"default","effort":"low"}'
 ---
@@ -951,3 +951,36 @@ Metadata Menu's `enableTabHeader` setting adds a small fileClass icon to the **t
 If turning off the inline title doesn't remove the duplicate, send a screenshot and I'll look again.
 <!-- copilot-message {"tools":["Read (read): .obsidian/appearance.json"]} -->
 [Timestamp: 2026/11/13 21:50:58]
+
+**user**: why do i require an H!
+[Timestamp: 2026/11/13 21:53:36]
+
+**ai**: It comes from your conventions file, `.claude/rules/obsidian-conventions.md`, which says "One H1 per note matching the note's purpose." It's a common markdown convention rather than an Obsidian requirement, and you can drop it. Here are the arguments both ways for your vault.
+
+**Reasons to keep it**
+- **Portability:** the inline title exists only inside Obsidian. Your vault is backed up to GitHub through obsidian-git, and on GitHub, in an export, or in any other editor, a note without an H1 has no visible title.
+- **The book itself:** manuscript chapters will eventually be compiled into a document, for example with Pandoc or Word export. Compilers build chapter titles and the table of contents from H1s, not file names.
+- **Titles that file names can't hold:** file names can't contain `:`, `?` or `/` and tend to be shortened. The H1 can be the real title, for example a file named `001 Existential Safety Question` with the heading `# 001 — Existential Safety Question`.
+- **AI tools:** when Copilot or I read a note's text, the H1 is the clearest statement of what the note is.
+
+**Reasons to drop it**
+- **It duplicates the file name** in nearly every note, which is the issue you just ran into.
+- **Many Obsidian-only users skip it** and rely on the inline title.
+
+**My recommendation:** keep H1s, and turn off the inline title instead. The H1 is the version that survives outside Obsidian, which matters for a GitHub-backed vault that will become a book.
+
+A middle option is to require H1s only in **manuscript notes** (`03_Manuscript/`) and make them optional elsewhere. If you'd like that, I'll update the conventions rule. Which do you want?
+[Timestamp: 2026/11/13 21:53:36]
+
+**user**: dont see this option in appearance
+[Timestamp: 2026/11/13 21:58:30]
+
+**ai**: It's probably in a different place in your version of Obsidian. Settings get reorganised between releases. Try these locations:
+
+1. **Settings → Appearance**, then scroll down to the **Interface** section. Look for **"Show inline title"**. It's often below the fold, under the font and theme options.
+2. **Settings → Editor**, in the **Display** section. Some versions keep it there.
+
+If you can't find it in either place, I can set it directly. It's a single line, `"showInlineTitle": false`, added to `.obsidian/appearance.json`. That file currently has only two settings, and nothing else would change. Restart Obsidian afterwards, and you can undo it by deleting the line.
+
+Would you like me to make that edit?
+[Timestamp: 2026/11/13 21:58:30]

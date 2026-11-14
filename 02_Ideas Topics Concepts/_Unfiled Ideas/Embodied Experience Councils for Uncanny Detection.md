@@ -29,7 +29,16 @@ created: 2026-11-13
 - To judge whether a character's behavior, style or narrative feels uncanny, the book needs editorial perspectives on different parts of human experience. That means several more councils: cinematographers, concert musicians, athletes, psychotherapists, somatic/body workers and sex therapists.
 
 ## Original wording
-> "Idea. Absolutely need editorial perspectives on the different pieces of The human experience in order to judge whether characters behavior/style / narrative is uncanny. Need several additional writers councils. Cinematographers, concert musicians, athletes, psychotherapists, sumatic / body workers, sex therapists"
+> "Idea. Absolutely need editorial perspectives on the different pieces of The human experience in order to judge whether characters behavior/style / narrative is uncanny. 
+> Specifically, Need several additional writers councils. 
+> 	1. Women, Feminist
+> 	2. 
+> 	3. Elders, Grandmothers
+> 	4. Cinematographers
+> 	5. Concert musicians
+> 	6. Athletes
+> 	7. Psychotherapists
+> 	8. Somatic / body workers, sex therapists"
 - **Attribution:** the author
 - **Source:** Obsidian Copilot agent session "input ideas", 2026-11-13 (`copilot/copilot-conversations/agent__input_ideas@20261113_210310.md`)
 - **External references:** [[structured-inquiry-book-notes]] (existing council framework).
