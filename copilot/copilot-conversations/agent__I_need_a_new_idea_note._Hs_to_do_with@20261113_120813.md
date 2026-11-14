@@ -6,7 +6,7 @@ sessionId: "98b5058d-70c0-406b-94b5-23583b34f968"
 topic: "I need a new idea note. Hs to do with some litterary devices…"
 tags:
   - copilot-conversation
-usage: '{"usedTokens":170807,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":170599,"cacheWriteTokens":198,"updatedAt":1794608950035}'
+usage: '{"usedTokens":187987,"contextWindow":1000000,"inputTokens":2,"outputTokens":2,"cacheReadTokens":187465,"cacheWriteTokens":518,"updatedAt":1794609184465}'
 lastAccessedAt: 1794606821784
 model: '{"baseModelId":"default","effort":"low"}'
 ---
@@ -886,6 +886,48 @@ Which would you prefer?
 **user**: yes my error please go for 3 and you don't have to ask individual permoissions
 [Timestamp: 2026/11/13 15:30:03]
 
-**ai**: Now the attributes. First the missing values, added to the existing attributes:
-<!-- copilot-message {"tools":["Bash (execute)","Read (read): 02_Ideas Topics Concepts/AI Governance & Safety/Interdisciplinary_Harm_Ontology_Compendium v2.md","Edit (edit): 02_Ideas Topics Concepts/AI Governance & Safety/Interdisciplinary_Harm_Ontology_Compendium v2.md","Edit (edit)"]} -->
+**ai**: Now the attributes. First the missing values, added to the existing attributes:Now I'll confirm that v2 only adds to the original:All four priorities are done in a new file, [[Interdisciplinary_Harm_Ontology_Compendium v2]]. A line-by-line comparison shows **0 lines removed and 97 added**. The original is unchanged and still read-only.
+
+## What v2 adds
+
+**1. Agency and resolution attributes**
+- **Attribute 23, `hasSecondaryAgent`:** material facilitation, vicarious agency, instigation & conspiracy, gatekeeper negligence, systemic contribution.
+- **Attribute 24, `hasBeneficiaryRole`:** perpetrator, principal/institutional, downstream market, no beneficiary.
+- **New Domain E: Protection, Remedy & Accountability**
+  - **Attribute 25, `hasMitigatingMechanism`:** technical control (this is where guardrails go), procedural protocol, legal instrument, design friction.
+  - **Attribute 26, `hasAccountabilityMechanism`:** compensatory, nominal/punitive, disgorgement, structural injunction, criminal sanction, regulatory sanction (including model or data deletion), restorative recognition.
+- **The existing `hasRemedialDutyBearer`:** gains three values (regulatory authority, whistleblower, restorative agent) and a note saying it now covers only *who* protects or restores.
+
+**2. Consent, causal vector and cascade**
+- **Attribute 20, `hasCausalVector`:** kinetic, chemical/biological, informational/algorithmic, financial, institutional, relational, neurotechnical.
+- **Attribute 21, `hasConsequentialCascade`:** direct consequential, cross-domain cascade, vulnerability amplification, remote cutoff.
+- **Attribute 22, `hasConsentStatus`:** valid, coerced, deceived, subverted, incapable of consent, captive exposure.
+
+**3. New classes**, each with SKOS fields, citations and attribute bindings:
+- **I.6 `harm:NonComparativeHarm`**
+- **III.5 `harm:CulturalEpistemicideHarm`**
+- **III.6 `harm:CognitiveLibertyHarm`**
+- **New object of harm:** `CulturalCollectiveIdentitySubstrate`.
+
+**4. Missing values**
+- `NonComparativeBaseline`
+- `ChronicPersistentTrajectory` and `TransientEpisodicTrajectory`
+- `PartiallyMitigable`
+- `ImminentThreat`
+
+## How the additions are marked
+- **No renumbering:** existing attributes keep numbers 1–19. The new ones are numbered 20–26 and placed in the domain they belong to, so the numbers within a domain aren't in order. This was the only way to avoid changing existing text.
+- **Labels:** every addition is marked *(v2)* and has a `skos:changeNote`. A revision note near the top gives the new totals: 29 subclasses and 26 attributes in 5 domains.
+- **Map labels:** on the structural map, the new class lines use `└──` rather than `├──`, which looks slightly off. Fixing it would mean editing existing lines.
+
+## ⚠ Citations need checking
+These sources are **from my own knowledge, not from your files**:
+- Lemkin (1944) and Santos (2014) for cultural harm
+- Bublitz (2013) and Farahany (2023) for cognitive liberty
+- Feinberg's *Harm to Self* (1986) for consent
+
+The Master names several authors (Kutz, Kadish, Pigou, Coase, Young, Butt, Palsgraf, Shue) without full references, so **I completed those citations myself**.
+
+I believe all of them are real, but under your research rules they count as unverified until checked. Should I verify each one against a web source and correct any details?
+<!-- copilot-message {"tools":["Bash (execute)","Read (read): 02_Ideas Topics Concepts/AI Governance & Safety/Interdisciplinary_Harm_Ontology_Compendium v2.md","Edit (edit): 02_Ideas Topics Concepts/AI Governance & Safety/Interdisciplinary_Harm_Ontology_Compendium v2.md"]} -->
 [Timestamp: 2026/11/13 15:30:03]
