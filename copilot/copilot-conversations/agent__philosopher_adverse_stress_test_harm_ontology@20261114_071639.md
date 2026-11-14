@@ -7,7 +7,7 @@ topic: "philosopher adverse stress test harm ontology"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":131510,"contextWindow":1000000,"inputTokens":4,"outputTokens":2,"cacheReadTokens":0,"cacheWriteTokens":131504,"updatedAt":1794698579682}'
+usage: '{"usedTokens":135718,"contextWindow":1000000,"inputTokens":4,"outputTokens":7,"cacheReadTokens":133513,"cacheWriteTokens":2194,"updatedAt":1794699456583}'
 ---
 
 **user**: philosopher adverse stress test harm ontology
@@ -787,3 +787,212 @@ HarmfulStructure
 
 **ai**: 
 [Timestamp: 2026/11/14 16:22:54]
+
+**user**: so maybe a starting point aligned with your view might be to consider if a role is to be a thing in itself or a property of a thing.
+
+we could speak of an event as a neutral happening
+
+it could be a harmful event if it resulted in a harmful effect
+we could say that an event was a harmful event if it played a harmful role in the creation of a harmful effect
+in this view, if harmful role were a thing rather than an attribute
+
+an event could be harmful if it had, as a role, any of many discrete instances of harmful roles
+
+HarmfulOmission
+HarmfulRisk
+HarmfulCondition
+HarmfulStructure
+
+could each be instancces of a thing called a HarmfulRole.
+
+the benefit of this approach is that the roles can have appropriate properties like
+
+isPosthumous
+isDistributed
+isContinuous
+
+etc
+[Timestamp: 2026/11/14 16:32:59]
+
+**ai**: Yes. Treating a role as a thing in its own right is a sound choice, and it has a respected precedent. Basic Formal Ontology (BFO), the upper ontology behind most biomedical ontologies, models a **role** as an entity in its own right that is borne by something and realized in a particular context. Your reasoning is the standard one: once a role is a thing, it can carry its own properties.
+
+Your draft needs one correction and one sorting exercise before it works.
+
+## 1. Omission, Risk, Condition and Structure are kinds of thing, not roles
+
+Here's a simple test: **does it stay true if you remove the harm chain?**
+- An omission is still an omission, and a business model is still a structure. These describe **what the thing is**.
+- "The trigger," "the enabler," "the proximate cause" are true only **relative to a particular chain and effect**. These are **roles**.
+
+So the model needs two layers:
+
+| Layer | Answers | Members |
+|---|---|---|
+| **Factor** (neutral; what it is) | What kind of thing is this? | Act, Process, Omission, Condition, Structure, Risk |
+| **CausalRole** (relational; what part it plays) | What did it do in *this* chain? | Trigger, Enabler, Amplifier, Conduit, Proximate cause, Distal cause, Contributing cause |
+
+I'd use **Factor** rather than "Event" as the neutral base, because an omission and a structure aren't events. "Factor" covers happenings, absences and standing arrangements alike.
+
+A single factor can play different roles in different chains. A recommender's engagement loop could be the **amplifier** in one person's radicalization and the **trigger** in another person's sleep loss. Each of those is a separate role instance, which is the strongest argument for treating roles as things.
+
+## 2. Each property belongs to a specific home
+
+The properties you list are the right kind of idea, but they attach to different things:
+
+| Property | Belongs to | Why |
+|---|---|---|
+| `isContinuous` | **Factor** | A process is continuous whatever role it plays |
+| `isDistributed` | **Role** (or Factor) | "Many small contributors" describes the factor's share in the chain |
+| `isPosthumous` | **Effect** | Being posthumous is about the victim's state when the setback lands |
+
+Good **role** properties would include:
+- causal necessity (but-for, sufficient, overdetermined)
+- proximity (proximate, distal)
+- causal share or degree of contribution
+- foreseeability
+- the agent answerable for the role
+
+The existing `hasCausationMechanism` attribute fits here.
+
+## 3. The word "harmful" should come from the effect, not be built into the role
+
+A role is harmful only because the effect it contributes to is judged harmful, and that judgment depends on the theory of harm. So I'd name the class `CausalRole`, not `HarmfulRole`, and let harmfulness come from the assessment. Otherwise the same theory-dependence problem returns.
+
+## Sketch
+
+```turtle
+:case7_feedLoop      a :Process .                    # Factor
+:case7_role1         a :CausalRole ;
+    :roleType        :Amplifier ;
+    :borneBy         :case7_feedLoop ;
+    :contributesTo   :case7_sleepLoss ;              # Effect
+    :causalNecessity :Contributory ;
+    :isDistributed   true .
+:case7_sleepLoss     a :HarmEffect ;
+    :isPosthumous    false .
+:case7_assess        a :HarmAssessment ;
+    :assessesEffect  :case7_sleepLoss ;
+    :underTheory     :ExperientialAccount ;
+    :verdict         :Harmful .
+```
+
+**The four-part model, restated:**
+- **Factor:** what it is
+- **CausalRole:** what part it played
+- **Effect:** what happened to whom
+- **Assessment:** which theory judges the result harmful
+
+Each layer carries only the properties that belong to it.
+
+Still discussion only. Want to test this skeleton against a hard case before deciding? Posthumous defamation by an AI system would stress every layer.
+[Timestamp: 2026/11/14 16:32:59]
+
+**user**: Ok, please display this model as a tree using the variety of example classes and properties we have been discussing
+[Timestamp: 2026/11/14 16:37:15]
+
+**ai**: Here's the model as discussed so far. It's a draft for discussion, not a decision. Items marked `(?)` are still open.
+
+```text
+HARM MODEL (draft v0.1 — discussion only)
+│
+├── 1. Factor ............................ what a thing IS (neutral; harmfulness not presupposed)
+│   ├── PhenomenalFactor ................. observable in principle
+│   │   ├── Act .......................... a discrete doing (a deceptive message; pulling a trigger)
+│   │   └── Process ...................... an ongoing doing (an engagement loop)
+│   ├── NonPhenomenalFactor .............. not an observable event
+│   │   ├── Omission ..................... a failure to act where action was owed
+│   │   ├── Risk ......................... a raised probability of a future setback
+│   │   └── Structure .................... an arrangement of incentives/institutions (a business model)
+│   └── Condition (?) .................... a persisting state (exclusion, dependence) — borderline
+│
+│   Factor properties
+│   ├── isContinuous ..................... true for Process, Condition
+│   ├── causes → Factor | Effect ......... builds the chain (trigger → gun → bullet → wound → death)
+│   └── hasAgent → Agent (?) ............. who performed or maintains it
+│
+├── 2. CausalRole ........................ what part a factor PLAYS in one specific chain
+│   │                                     (a thing in itself; one factor can bear many roles)
+│   ├── roleType (individuals)
+│   │   ├── Trigger
+│   │   ├── Enabler
+│   │   ├── Amplifier
+│   │   ├── Conduit
+│   │   ├── ProximateCause
+│   │   ├── DistalCause
+│   │   └── ContributingCause
+│   │
+│   CausalRole properties
+│   ├── borneBy → Factor
+│   ├── contributesTo → Effect
+│   ├── causalNecessity .................. ButFor | Sufficient | Overdetermined | Contributory
+│   ├── proximity ........................ Proximate | Distal
+│   ├── causalShare ...................... degree of contribution (0–1) (?)
+│   ├── isDistributed .................... many small contributors
+│   ├── isForeseeable
+│   └── answerableAgent → Agent (?) ...... who answers for this role
+│
+├── 3. Effect (HarmEffect) ............... what happened TO WHOM (the setback, if any)
+│   │
+│   Effect properties
+│   ├── affects → Patient ................ SentientIndividual | CollectiveArtificialPerson | NonSentientSystem | FutureGeneration (?)
+│   ├── hasObjectOfHarm .................. Somatic | PsychologicalCognitive | Assent/Judgment (new) |
+│   │                                      MaterialPecuniary | DignitaryRelational | NormativeStatus |
+│   │                                      OpportunityCapability | SystemicEnvironmental
+│   ├── hasPhenomenologicalTransparency .. Perceived | Unperceived
+│   ├── isPosthumous
+│   ├── isStatistical .................... real only in aggregate
+│   ├── isDispositional .................. a changed tendency (habituation)
+│   ├── hasSeverityMagnitude ............. DeMinimis | Moderate | Severe | Catastrophic
+│   ├── hasReversibility ................. Restorable | Irreversible
+│   ├── hasTemporalTrajectory ............ Acute | Latent | SlowAccumulative
+│   └── hasModality ...................... Actualized | Probabilistic
+│
+├── 4. TheoryOfHarm ...................... a WAY OF JUDGING harm (individuals, not subclasses)
+│   ├── ExperientialAccount .............. harmed if made to feel worse
+│   ├── ComparativeAccount ............... harmed if worse off than otherwise
+│   ├── NonComparativeAccount ............ harmed if left in a bad state
+│   ├── RightsBasedAccount ............... harmed if wronged (judges the act, not only the result)
+│   └── CapacityAccount .................. harmed if blocked from developing/exercising capacities
+│
+├── 5. HarmAssessment .................... a judgment linking all of the above
+│   │
+│   HarmAssessment properties
+│   ├── assessesFactor → Factor
+│   ├── assessesRole → CausalRole
+│   ├── assessesEffect → Effect
+│   ├── underTheory → TheoryOfHarm
+│   └── verdict .......................... Harmful | NotHarmful | Contested
+│
+├── 6. Agent (?) ......................... who acts, profits or answers
+│   ├── UnitaryIntentionalAgent
+│   ├── CollectiveAgent
+│   ├── AutonomousSystem (?) ............. responsibility gap — left open on purpose
+│   └── beneficiaryRole (from v2) ........ Perpetrator | PrincipalInstitutional | DownstreamMarket | None
+│
+└── 7. LegalResponse (later) ............. how the law responds
+    ├── CauseOfAction .................... tort, contract, fiduciary, wrongful death, criminal …
+    ├── Doctrine ......................... loss of chance, injuria sine damno, parens patriae …
+    └── Remedy ........................... damages, injunction, disgorgement, restitution …
+```
+
+**How the layers connect, using your shooting example:**
+
+```text
+Act(trigger pull) ─causes→ Process(gun mechanism) ─causes→ … ─causes→ Effect(death)
+     │                                                                    ▲
+     └─ bears ─ CausalRole{Trigger, ButFor, Proximate} ─ contributesTo ───┘
+                                                                          │
+HarmAssessment{RightsBased → Harmful}  ─ assesses ─ Act                   │
+HarmAssessment{Comparative → Harmful}  ─ assesses ────────────────────────┘
+HarmAssessment{Experiential → Contested (Epicurus: death unfelt)}
+```
+
+**Open questions** (marked `(?)` in the tree):
+1. Is **Condition** phenomenal, non-phenomenal, or both depending on the case?
+2. Is **Agent** a top-level class, and is an **AutonomousSystem** an agent?
+3. Should **FutureGeneration** be a kind of patient, given the non-identity problem?
+4. Is **causalShare** measurable, or only ordinal (more, less)?
+5. Should **Assent/Judgment** be confirmed as a new object of harm (from the Classical Council)?
+
+Want to stress-test this tree next? Posthumous AI defamation or rubber-stamping (002.II.a) would test it well.
+[Timestamp: 2026/11/14 16:37:15]
