@@ -7,7 +7,7 @@ topic: "philosopher adverse stress test harm ontology"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":276070,"contextWindow":1000000,"inputTokens":4,"outputTokens":3,"cacheReadTokens":274774,"cacheWriteTokens":1289,"updatedAt":1794728324745}'
+usage: '{"usedTokens":278645,"contextWindow":1000000,"inputTokens":4,"outputTokens":3,"cacheReadTokens":277133,"cacheWriteTokens":1505,"updatedAt":1794728866808}'
 ---
 
 **user**: philosopher adverse stress test harm ontology
@@ -2793,3 +2793,94 @@ Should I do all three?
 
 Should I do steps 1–3?
 [Timestamp: 2026/11/15 00:38:33]
+
+**user**: almost. i have read about a "handoff process" and I think about a "handoff note.md" of some kind.  primarily in enterprise team environments. is there such a thing as a handoff note or is it the same as the session note you are proposing?
+[Timestamp: 2026/11/15 00:43:07]
+
+**ai**: Yes, a handoff note is a real and distinct thing, though it's closely related to a session note.
+
+## Where handoff notes come from
+
+- **Healthcare shift changes:** structured handoffs such as SBAR and I-PASS (from memory, unverified). I-PASS roughly means: severity, summary, action list, situation awareness and contingencies, and the receiver repeating it back.
+- **On-call and operations:** a handoff document that tells the next engineer what's live, what's broken and what to watch.
+- **Project handovers** between team members.
+- **AI agent work:** a common practice is a `HANDOFF.md` or progress file that a fresh agent session reads first to pick up the work.
+
+## How it differs from a session note
+
+| | Session note | Handoff note |
+|---|---|---|
+| Faces | **Backward:** what happened | **Forward:** what to do next |
+| How many | One per session, kept as history | **One per workstream, overwritten** at each close |
+| Reader | You, later; anyone reconstructing the reasoning | The **next session** (me, starting cold) |
+| Content | Summary, decisions, how the thinking moved, quotes, references | Current state, open threads, next step, cautions, links |
+| Length | As long as needed | **Short**, ideally one screen |
+
+So my "Resume here" section would be a handoff **inside** the session note. That works, but it has a practical drawback: to resume, you'd have to find the latest session note each time.
+
+## Recommendation: one rolling handoff note per workstream
+
+- **File:** for example `01_The Writer's Room/Handoff - Harm Ontology.md`. The name stays stable, so you always attach the same file to a new chat.
+- **Overwritten at each close** with the current state only. History stays in the session notes, and git keeps old versions.
+- **Mostly links:** to the latest session note, the index, pending proposals and the next step. That keeps it from repeating what's in other files.
+- **Suggested sections**, adapted from I-PASS:
+  - **Status**
+  - **Where we are**
+  - **Pending, not yet decided:** with links
+  - **Next step**
+  - **Cautions:** e.g. "these claims are untested," "don't log the Causal/Valence split yet"
+  - **Read first:** files to attach or open
+  - **Previous sessions:** links to session notes
+
+Each new chat starts by attaching the handoff note. Each close ends by rewriting it. Session notes get a `continued_in:` link, so the chain can be followed.
+
+If you agree, I'll fold this into the closing plan:
+1. Update the skill (incremental harvest) and the Session template (closing checklist), plus a small **Handoff template**. Log all three.
+2. Run the targeted harvest (HO-005, the HO-003 and HO-002 extensions).
+3. Write the session-note addendum, set the watermark and mark it closed.
+4. Create **Handoff - Harm Ontology.md** as the starting point for the next chat.
+
+Go ahead?
+[Timestamp: 2026/11/15 00:43:07]
+
+**user**: if session notes are kept per session i am not clear when a session ends.  is it when i switch to a new conversation and then new session starts when i resume this same conversation?  I guess i have conversation conflated with session in my heads
+[Timestamp: 2026/11/15 00:47:33]
+
+**ai**: The conflation is natural, because the words are used loosely. Here are definitions that would make the system consistent.
+
+## Three different things
+
+| Term | What it is | In this vault |
+|---|---|---|
+| **Conversation (chat)** | One Copilot chat, saved as one transcript file | `agent__philosopher_…@20261114_071639.md` |
+| **Session** | A unit of work we choose to record | Recorded by one session note |
+| **Workstream** | An ongoing line of work spanning many sessions | "Harm Ontology", with one handoff note |
+
+The open question is how a session lines up with a conversation. There are two options.
+
+**Option A: one session per sitting** (by time). Each time you sit down, that's a session. This chat would then be two or three sessions (the 14th, overnight, the 15th), all sharing one transcript. That gets confusing: several session notes would point to the same file, with separate watermarks.
+
+**Option B: one session per conversation.** *(Recommended.)* A session starts with the first message of a new chat and ends when you **formally close** that chat. Pauses don't matter: this chat ran across 14–15 November and is still **one session**.
+
+Option B fits everything we've set up:
+- **one transcript → one session note → one watermark**
+- the closing process is what ends a session
+- because closed chats aren't resumed, a session can't quietly restart
+
+## Edge cases under Option B
+
+- **You switch to another chat without closing this one:** this session is simply **paused**, not ended. It ends only when you run the closing process.
+- **You accidentally reopen a closed chat:** that's a continuation of the same session. Add to its existing session note and move the watermark; don't start a new note. Better still, avoid it by using the "[CLOSED]" label in history.
+- **Naming:** a session note is dated by the day the chat started. This one stays `2026-11-14 Harm Ontology Redesign` even though it ran into the 15th.
+
+## How the pieces fit
+
+```text
+Workstream: Harm Ontology ── Handoff - Harm Ontology.md (rolling, overwritten at each close)
+   ├── Session 2026-11-14 = this chat ── session note ── transcript (watermark)
+   └── Session 2026-11-15 = next chat ── session note ── transcript (watermark)
+         (each session note links continued_in → the next)
+```
+
+If you agree with Option B, I'll add these definitions to the Decisions Log as part of the closing plan, together with the template, skill and handoff items. Shall I go ahead with everything?
+[Timestamp: 2026/11/15 00:47:33]
