@@ -7,7 +7,7 @@ topic: "Strategy: mapping old Interdisciplinary Harm Ontology.ttl to new Harm On
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":46713,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":44565,"cacheWriteTokens":2143,"updatedAt":1794782744281}'
+usage: '{"usedTokens":59212,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":57691,"cacheWriteTokens":1516,"updatedAt":1794783316808}'
 ---
 
 **user**: fresh conversation to discuss strategy for mapping older version Interdisciplinary Harm Ontology.ttl to new Harm Ontology.ttl.  please rename this conversation accordingly'
@@ -96,3 +96,86 @@ The `.ttl` file also has 20 terms that the Compendium lacks. These are scaffoldi
 Do you want me to draft that v2 `.ttl`? Should I start with just the beneficiary attribute so you can check the pattern first?
 <!-- copilot-message {"tools":["Glob (read)","Bash (execute)"]} -->
 [Timestamp: 2026/11/15 15:45:07]
+
+**user**: not quite yet.  we are just discussing beneficiary.  is there anything else in the v2 compendium that has been added since the prior ttl file?
+[Timestamp: 2026/11/15 15:49:37]
+
+**ai**: Yes. Beneficiary is one of 18 additions in Compendium v2 that the `.ttl` files don't have. I diffed [[Interdisciplinary_Harm_Ontology_Compendium]] (v1, the source of the `.ttl`) against v2. The diff found **no deleted or changed lines**, only added ones, which matches the "additions only" note on line 15.
+
+**3 new harm subclasses**
+
+| Line | Subclass | Parent class |
+|---|---|---|
+| 127 | `harm:NonComparativeHarm` (Non-Identity Cases) | ExperientialHarm |
+| 274 | `harm:CulturalEpistemicideHarm` | DeontologicalRightsHarm |
+| 287 | `harm:CognitiveLibertyHarm` | DeontologicalRightsHarm |
+
+**7 new attributes, each with its own values**
+
+| # | Line | Attribute | Domain | Values |
+|---|---|---|---|---|
+| 20 | 423 | `hasCausalVector` | A | Kinetic, ChemicalBiological, InformationalAlgorithmic, FinancialEconomic, InstitutionalNormative, RelationalBehavioral, Neurotechnical |
+| 21 | 454 | `hasConsequentialCascade` | B | DirectConsequential, CrossDomainCascade, VulnerabilityAmplification, … |
+| 22 | 495 | `hasConsentStatus` | C | Valid, Coerced, Deceived, Subverted, IncapableOfConsent, CaptiveExposure |
+| 23 | 514 | `hasSecondaryAgent` | D | MaterialFacilitation, InstigationConspiracy, GatekeeperNegligence, VicariousAgency, SystemicContribution |
+| **24** | **521** | **`hasBeneficiaryRole`** | **D** | **PerpetratorBeneficiary, PrincipalInstitutionalBeneficiary, DownstreamMarketBeneficiary, NoBeneficiary** |
+| 25 | 547 | `hasMitigatingMechanism` | **E (new)** | TechnicalControl, DesignFriction, ProceduralProtocol, LegalInstrument, RemoteCutoff |
+| 26 | 554 | `hasAccountabilityMechanism` | **E (new)** | CompensatoryDamages, NominalPunitiveDamages, Disgorgement, StructuralInjunction, CriminalSanction, RegulatorySanction, RestorativeRecognition |
+
+**New values added to 6 existing attributes**
+
+| Line | Existing attribute | Added value(s) |
+|---|---|---|
+| 417 | `hasComparativeBaseline` | `NonComparativeBaseline` |
+| 444 | `hasTemporalTrajectory` | `ChronicPersistentTrajectory`, `TransientEpisodicTrajectory` |
+| 468 | `hasReversibility` | `PartiallyMitigable` |
+| 485 | `hasModality` | `ImminentThreat` |
+| 535 | `hasObjectOfHarm` | `CulturalCollectiveIdentitySubstrate` |
+| 540 | `hasRemedialDutyBearer` | `RegulatoryAuthority`, `Whistleblower`, `RestorativeAgent` |
+
+**1 scope clarification (line 541):** `hasRemedialDutyBearer` now covers only *who* protects or restores. The tools they use are in attribute 25, and the remedies are in attribute 26.
+
+**Where these touch beneficiary**
+- **`hasSecondaryAgent` (23):** it sits next to beneficiary in Domain D. The two separate *enabling* a harm from *profiting* by it.
+- **`Disgorgement` (26):** this remedy takes profits away from the beneficiary.
+- **Existing class `harm:FiduciaryBetrayalHarm`:** its "beneficiary" note (line 268) uses the trust-law sense of "beneficiary": the person the fiduciary serves, who is the *victim* of the betrayal. In `hasBeneficiaryRole`, "beneficiary" means whoever *profits from* a harm. So the same word means opposite roles, which is worth deciding before any `.ttl` work.
+<!-- copilot-message {"tools":["Bash (execute)","Read (read): 02_Ideas Topics Concepts/AI Governance & Safety/Interdisciplinary_Harm_Ontology_Compendium v2.md"]} -->
+[Timestamp: 2026/11/15 15:49:37]
+
+**user**: please explain semantics here.  i do not understand how enabling a harm necesssarily (or even commonly) relates to benefittiing from a harm.  is there an implicit assumption here that someone would  enable a harm only to benefit from it or with that inevitable consequence even though perhaps unintnetional? this doesnt seem right
+[Timestamp: 2026/11/15 15:55:02]
+
+**ai**: You're right. The compendium doesn't make that assumption. I created it with my phrasing last turn, when I said the two attributes "separate *enabling* a harm from *profiting* by it." That was my framing, not the compendium's, and it was misleading.
+
+**What the compendium actually says**
+
+The definitions on lines 515 and 522 describe two separate questions that don't depend on each other:
+
+- **`hasSecondaryAgent` (line 515)** is about **responsibility**. It covers people who didn't commit the harm but share blame because they enabled it: supplying the means, giving orders or encouragement, failing to stop a known risk, or shaping the norms and incentives. It says nothing about motive or gain.
+- **`hasBeneficiaryRole` (line 522)** is about **gain**. It asks who captures "financial gain, avoided compliance costs, competitive advantage, power or utility from the harm." The comparison it draws is "separates *causing* the harm from *profiting* by it" (line 522). It says nothing about who enabled the harm. Its note on line 523 makes the actual point: "the party that profits is often not the party that causes the harm or the one that pays for it."
+
+Neither definition depends on intent. A beneficiary can gain without wanting the harm or even knowing about it. That's the subject of one of the cited sources, Butt's "On Benefiting from Injustice" (line 525).
+
+**The two questions are independent, so all four combinations happen:**
+
+| | Benefits from the harm | Doesn't benefit |
+|---|---|---|
+| **Enabled the harm** | A data broker paid to supply data later used for stalking | A moderator who missed a report out of overload (`GatekeeperNegligence`) and gained nothing |
+| **Didn't enable it** | Advertisers whose ad revenue rose with outrage engagement (`DownstreamMarketBeneficiary`) | Bystanders |
+
+**A real gap this exposes**
+
+Because the questions are independent, the four beneficiary values don't cover every case:
+- `PerpetratorBeneficiary`
+- `PrincipalInstitutionalBeneficiary`
+- `DownstreamMarketBeneficiary`
+- `NoBeneficiary`
+
+There's no value for an enabler who is paid, such as the data broker, a compute provider or a model licensor. `DownstreamMarketBeneficiary` is defined as profiting "without directing the harm." Strictly, a supplier doesn't direct the harm either. But "downstream" suggests the supplier is upstream of it, so the fit is poor. You could either:
+
+- add a value such as `FacilitatorBeneficiary`, or
+- treat "Is this agent also a beneficiary?" as a separate statement about a specific agent in a specific case, rather than as a fixed list of values.
+
+The second option fits the independence better. It's a design choice we can discuss, not something to fix now.
+<!-- copilot-message {"tools":["Read (read): 02_Ideas Topics Concepts/AI Governance & Safety/Interdisciplinary_Harm_Ontology_Compendium v2.md"]} -->
+[Timestamp: 2026/11/15 15:55:02]
