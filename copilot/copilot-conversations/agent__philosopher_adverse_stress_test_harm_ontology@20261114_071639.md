@@ -7,7 +7,7 @@ topic: "philosopher adverse stress test harm ontology"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":270064,"contextWindow":1000000,"inputTokens":2,"outputTokens":2,"cacheReadTokens":269272,"cacheWriteTokens":788,"updatedAt":1794727243776}'
+usage: '{"usedTokens":273611,"contextWindow":1000000,"inputTokens":2,"outputTokens":292,"cacheReadTokens":272657,"cacheWriteTokens":660,"updatedAt":1794727640656}'
 ---
 
 **user**: philosopher adverse stress test harm ontology
@@ -2674,3 +2674,35 @@ The handoff will be good but not perfect. The fine texture of the conversation s
 Want me to write the addendum now?
 <!-- copilot-message {"tools":["Read (read): copilot/copilot-conversations/agent__philosopher_adverse_stress_test_harm_ontology@20261114_071639.md"]} -->
 [Timestamp: 2026/11/15 00:20:22]
+
+**user**: is the chat transcript something we decided to save and stored as a memory or a standard behavior of claude
+[Timestamp: 2026/11/15 00:25:17]
+
+**ai**: Neither. It's a feature of the **Obsidian Copilot plugin**, not a decision we made and not something Claude remembers.
+
+- **Who saves it:** Copilot writes each chat to a markdown file in `copilot/copilot-conversations/`. This one is `agent__philosopher_adverse_stress_test_harm_ontology@20261114_071639.md`. That's a plugin setting (chat auto-save). I don't know its exact name in your version.
+- **Not Claude memory:** I don't keep conversations between sessions. A new chat only knows what's in the vault, your `CLAUDE.md` files, and the memory folder.
+- **Not a decision of ours:** nothing in the Decisions Log or the rules makes saving transcripts part of the process. The vault only *treats* them a certain way: the bookmark skill excludes them from link rewriting, and session notes cite them as their source.
+
+What this means for relying on it:
+- **It's only as safe as the plugin setting.** If auto-save were turned off, or the file deleted, the transcript would be gone. At the start of this session, git showed this transcript as untracked. Your automatic vault backups have probably committed it since, but I haven't checked.
+- **It's a raw log, not a curated record.** That's why the session note and the decisions matter more.
+
+If you want transcripts to be a deliberate part of the process, there are two small options:
+1. Add a line to the Decisions Log: "Copilot chat transcripts are the raw archive. Session notes cite them, and they are kept in git."
+2. Check the next vault backup commit to confirm transcripts are actually included.
+
+Neither is urgent. Shall I write the session-note addendum and the "Resume here" handoff now?
+[Timestamp: 2026/11/15 00:25:17]
+
+**user**: yes to the last 1 and 2
+[Timestamp: 2026/11/15 00:26:54]
+
+**ai**: Both are done.
+
+1. **Decision logged.** There's a new 2026-11-15 row in the Decisions Log: *Copilot chat transcripts are the raw archive.* They're saved by the plugin, kept in git, cited by session notes, and never edited.
+2. **Git checked.** The transcript is in your automatic vault backups. It first appears in the commit from 2026-11-14 23:24, and again in commits at 00:10 and 00:21 on the 15th. It isn't excluded by `.gitignore`. Git currently shows it as modified: the latest turns haven't been backed up yet, and the next automatic backup will pick them up.
+
+The **session-note addendum with a "Resume here" handoff** is still not written. It's the step that saves your latest insight about assessed membership and re-attribution test cases, which isn't recorded anywhere yet. Want me to write it before you close this chat?
+<!-- copilot-message {"tools":["Bash (execute)","Edit (edit): 00_Claude_Admin/Decisions_Log.md"]} -->
+[Timestamp: 2026/11/15 00:26:54]
