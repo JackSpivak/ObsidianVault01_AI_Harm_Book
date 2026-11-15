@@ -31,6 +31,7 @@ Click the arrow beside an item to open or close its branch.
 - [[HO-001 Harm by Habituation and Captured Assent|HO-001 — Harm by habituation and captured assent]]: AI's typical harm may be the self you are trained into, not a loss you suffer.
 - [[HO-002 Ontology Stress-Test Suite|HO-002 — Ontology stress-test suite]]: the one place where the model is tested against hard cases (Pass / Partial / Fail / Untested). It turns design claims into tests.
 - [[HO-003 Causal Assembly - the Perfect Storm|HO-003 — Causal assembly: the perfect storm]]: factors `participatesIn` a jointly sufficient assembly. Engineered or exploited assemblies of harmless parts are an attack vector.
+- [[HO-004 Criticality, Leverage and the Limits of Scope|HO-004 — Criticality, leverage and the limits of scope]]: time makes the model asymmetric (settled past, open future). Scope can never be asserted complete; inclusion by leverage, not only magnitude; sensitivity as an attack vector.
 
 ## Premises
 - [[HO-premise No Intrinsic Harmfulness|HO-premise — No intrinsic harmfulness]]: valence (harmful or beneficial) lives only in assessments. HO-I.b, HO-II.a, HO-II.b and HO-III.a all depend on it.
@@ -44,6 +45,8 @@ Click the arrow beside an item to open or close its branch.
 - **This index and [[The Self-Revising Harm Ontology]]** (unfiled story device): a model where harm is only ever judged, never intrinsic, is exactly what an AI could quietly re-weight.
 
 - **HO-003 and HO-I.a / HO-III.a:** assemblies are made of Factors, and factor-level vs. assembly-level verdicts are a new kind of Divergence.
+- **HO-004 and HO-II.b:** the predictability horizon is a principled limit on the Sai Weng horizon.
+- **HO-004 and HO-003:** the most dangerous pattern is an assembly of individually innocuous, sub-threshold factors placed at critical points.
 - **HO-002 and every other entry:** each design claim in this index should eventually have a test case in HO-002. [[The Self-Revising Harm Ontology]] is test T17.
 
 ## Summary

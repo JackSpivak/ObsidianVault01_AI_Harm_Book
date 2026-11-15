@@ -62,6 +62,12 @@ For each case:
 | T19 | **Engineered assembly:** harmless parts, harmful whole (e.g. task decomposition) | CausalAssembly (origin: Engineered, individuallyInnocuous), factor-level vs. assembly-level Divergence | Judging factors one at a time and finding nothing wrong |
 | T20 | **Exploited emergent storm:** an accidental alignment of factors that someone then uses | CausalAssembly (origin: Exploited), orchestrator, Unknown members | "Nobody built it, so nobody is answerable" |
 | T21 | **Hidden outcome selection** (a variant of T09) | Outcome, Perspective (framing, resolution) | Benefits counted while some effects quietly fall outside the frame |
+| T22 | **Hidden attribution:** one convenient factor named as "the cause" ("the user misused it") | Attribution vs. CausalAssembly, Unknown members | Other contributors escape notice |
+| T23 | **The butterfly:** a small pivotal factor with a vast unforeseen effect | leverage, criticality, predictabilityHorizon, inclusionCriteria | Excluding by magnitude alone |
+| T24 | **Adversarial perturbation at a critical point** (e.g. adversarial examples in ML) | sensitivity as assessed, CausalAssembly (Engineered) | Sensitivity used as a weapon |
+| T25 | **Low-and-slow attack** kept below the assessment's sensitivity threshold | Perspective.sensitivity, assembly of sub-threshold factors | Attacking the Perspective itself |
+| T26 | **"Our assessment found no harm"** | scopeAdequacy (never Complete), acknowledgedExclusions | A claim of completeness |
+| T27 | **Unfinished harm:** a verdict on effects still unfolding | Outcome as a cut, provisional verdict, finality | A provisional verdict treated as final |
 
 ## Original wording
 > "i would like to add an idea note specifically for stress testing the ontology.  you have mentioned in many cases observing that new structuring prevents certain traps especially with respect to ideas like the chineese farmer parable. I would like to centralize testing of the Ontology against challenging test cases"

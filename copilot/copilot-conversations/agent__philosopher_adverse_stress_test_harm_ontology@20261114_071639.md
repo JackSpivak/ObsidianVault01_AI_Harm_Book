@@ -7,7 +7,7 @@ topic: "philosopher adverse stress test harm ontology"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":253664,"contextWindow":1000000,"inputTokens":4,"outputTokens":3,"cacheReadTokens":0,"cacheWriteTokens":253657,"updatedAt":1794723236401}'
+usage: '{"usedTokens":264573,"contextWindow":1000000,"inputTokens":4,"outputTokens":8,"cacheReadTokens":262926,"cacheWriteTokens":1635,"updatedAt":1794723641382}'
 ---
 
 **user**: philosopher adverse stress test harm ontology
@@ -2487,3 +2487,99 @@ Combined with HO-003, this gives the most dangerous pattern: **an assembly of in
 
 Should I log and file all six, or would you rather adjust something first? The `scopeAdequacy` "never Complete" rule is the one I'd most want you to confirm, since it's a strong philosophical commitment.
 [Timestamp: 2026/11/14 23:13:21]
+
+**user**: yes. certainly log all this.  but i am concerned how to represent this challenge ontologically.  it may be inherently true that the structure of reality, because of the irreversability of time makes our aesthetic desire for a symmetrical structure impossible. an assembly of causes produce an infinitely rammifying chain of events  - very much not a mirror image
+[Timestamp: 2026/11/14 23:17:20]
+
+**ai**: Everything is logged and filed. On your concern about how to represent this: I think you're right, and the ontology should **embody the asymmetry, not hide it.** Here's how.
+
+## What the asymmetry actually is
+
+Both directions are unbounded: the causal past regresses indefinitely, and the future ramifies indefinitely. So the difference isn't one of **size**. It's one of **modality**:
+
+| | Past (causes) | Future (effects) |
+|---|---|---|
+| Shape | **Converges** (many → one) | **Ramifies** (one → many, branching) |
+| Status | **Settled:** it happened, fixed | **Open:** still unfolding, partly undetermined |
+| How we know it | **Traces and evidence** (forensics, records) | **Prediction**, limited by the predictability horizon |
+| What a selection looks like | **Attribution:** pick factors out of a settled assembly | **Outcome:** a *cut* across an unfinished branching, at a horizon |
+| Verdict | Can be final, given evidence | **Provisional** while effects are still unfolding |
+
+## How to represent this without false symmetry
+
+1. **Model shapes, not mirrors.** The structure is a **convergence** (CausalAssembly, many-to-one) feeding a **branching** (effects, one-to-many), not two mirror-image trees. The `leadsTo` links between effects form an open, branching graph that is never closed.
+2. **An Outcome is a cut, not a container.** It's like a horizontal slice through a growing tree at the assessment's horizon. Anything beyond the cut exists but isn't counted. `acknowledgedExclusions` says so, and `scopeAdequacy` can never be Complete.
+3. **Time-indexed status on everything.** Each Factor and Effect is **Actual** (before `assessedAt`) or **Extrapolated / Pending** (after). Beyond the `predictabilityHorizon`, the status must be Unknown. The arrow of time becomes a visible property of the data, not a hidden assumption.
+4. **Verdicts carry a status:** **Provisional** while the branching under the cut is still open, and **Final** only through institutional closure. Nature never closes a harm. Courts, statutes of limitation and funerals do. The model can record *who* closed it, which matters for HO-II.c.
+5. **Formally, use OWL-Time and PROV-O** (from memory, unverified). PROV-O is built around exactly this asymmetry: it records what *was* generated and used, which is the settled past. Its model of plans and expectations covers the anticipated future. That's a strong candidate for reuse.
+
+## What gets lost, honestly
+
+Giving up symmetry costs elegance and some reasoning shortcuts. For example, you can't run the model "backward" from effects to causes with the same tools you use forward. That cost is real. But a symmetric model would quietly imply that the future is as determinate as the past, and **that is exactly the assumption behind the "net benefit" and "who knows?" arguments.** The asymmetry is a guard against those traps, not a flaw in the model.
+
+## Files changed
+
+- **Decisions Log:** two new rows:
+  - *the model is deliberately asymmetric in time* (no Ramification class; Attribution and Outcome as bounded selections; provisional vs. final verdicts)
+  - *scope, humility and criticality*
+- **New note:** [[HO-004 Criticality, Leverage and the Limits of Scope]] (status `seed`), with your four passages quoted word for word.
+- **[[HO-002 Ontology Stress-Test Suite]]:** six new tests:
+  - **T22:** hidden attribution
+  - **T23:** the butterfly
+  - **T24:** an adversarial perturbation
+  - **T25:** a low-and-slow attack
+  - **T26:** "no harm found"
+  - **T27:** unfinished harm (a provisional verdict treated as final)
+- **The index:** an HO-004 entry and two cross-references.
+
+The session note [[2026-11-14 Harm Ontology Redesign]] doesn't yet include anything from Outcome onward. Want me to add an addendum so it covers the full arc?
+<!-- copilot-message {"tools":["Edit (edit): 00_Claude_Admin/Decisions_Log.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002 Ontology Stress-Test Suite.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-004 Criticality, Leverage and the Limits of Scope.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md"]} -->
+[Timestamp: 2026/11/14 23:17:20]
+
+**user**: i am suddenly struck.  perhaps some of the problem is due to the simple and neat way we packaged factors into a causal assembly.  do we not in fact somehow assesss the factors as well and see which ones "count" toward inclusion in the assembly of causes?
+[Timestamp: 2026/11/14 23:20:14]
+
+**ai**: Yes. I think you've caught a mistake in how I framed it. I called the assembly "settled" and a fact about the world. But **the events of the past are settled; which of them count as members of the assembly is not.** Membership is itself a judgment.
+
+## Why membership has to be assessed
+
+Every past event is in some sense "upstream" of a harm: the oxygen in the room, the victim's decision to walk that street, the electricity grid. Something has to sort **participants** from **background**. That sorting is done by **causal standards**, and they disagree just as harm standards do (from memory, unverified):
+
+| Causal standard | A factor counts if… | Fails when… |
+|---|---|---|
+| **But-for** | without it, the effect wouldn't have happened | **overdetermination**: two fires each enough to burn the house, so neither is a but-for cause |
+| **NESS** (Hart & Honoré, Richard Wright) | it's a *Necessary Element of a Sufficient Set* | it's needed in no sufficient set |
+| **INUS** (Mackie) | it's an Insufficient but Non-redundant part of an Unnecessary but Sufficient condition | similar to NESS, from philosophy |
+| **Probability-raising** | it made the effect more likely | it lowered or didn't change the odds |
+| **Mechanistic** | a traceable physical or informational pathway connects it | the pathway is opaque (a black box) |
+| **Proximate / legal** | it's close enough and foreseeable enough to count | it's too remote, or an intervening act breaks the chain |
+
+**NESS is almost literally your causal assembly.** It defines a cause *as* membership in a sufficient set. That's strong support for the concept, and a good vocabulary to reuse.
+
+## What changes in the model
+
+1. **Two kinds of assessment, not one:**
+   - **CausalAssessment:** does this factor participate? Is this effect an effect of that? It's made under a **causal standard** (from the table).
+   - **ValenceAssessment:** is the outcome harmful or beneficial? It's made under an **evaluative standard** (the five accounts and legal standards).
+   - Possibly a third, **ResponsibilityAssessment:** who answers for it? This is related, but law and ethics keep it separate.
+   All three are taken from Perspectives, and they can diverge independently.
+2. **`participatesIn` isn't a bare fact.** It's a claim made *within* a CausalAssessment, with a standard, a confidence and an assessor. In RDF that means reifying it, for example as a `ParticipationClaim`, or recording it as part of the assessment record.
+3. **CausalAssembly is perspective-relative,** like Outcome. That restores some symmetry, though not a mirror image: **both sides are now selected by assessment.** The time asymmetry still holds (settled events, open future), but *what counts* is judged on both sides.
+4. **HO-003 needs revising.** "Jointly sufficient" stays, but sufficiency is *as assessed under a standard*, not a fact about the world.
+
+## A new attack vector you've uncovered
+
+If membership depends on the causal standard, then **the standard can be gamed**:
+- **Engineered overdetermination:** add redundant contributors so that no single one is a but-for cause. Each party then truthfully says "it would have happened anyway." This is a known problem in tort (the two-fires cases), and well suited to many AI agents acting in parallel.
+- **Standard shopping:** choosing the causal standard under which you aren't a participant. Mechanistic causation fails for black-box systems, so opacity becomes a shield.
+- **Perfect storm, revisited:** an engineered assembly (T19) combined with overdetermination becomes harm with no but-for cause anywhere.
+
+**Proposed changes** (nothing written yet):
+- Split Assessment into **Causal / Valence (/ Responsibility)**.
+- Add **causal standards** as a second family of standards.
+- Reify **participatesIn** as a claim.
+- Revise **HO-003** ("sufficient as assessed").
+- **New tests:** **T28** engineered overdetermination; **T29** causal-standard shopping, including opacity as a shield.
+
+Should I log and file these? And are you happy with **ValenceAssessment** as the name for what we've been calling Assessment, with Assessment staying as the parent class?
+[Timestamp: 2026/11/14 23:20:14]
