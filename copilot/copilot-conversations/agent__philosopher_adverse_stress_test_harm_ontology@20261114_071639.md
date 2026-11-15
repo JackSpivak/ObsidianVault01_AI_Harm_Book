@@ -7,7 +7,7 @@ topic: "philosopher adverse stress test harm ontology"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":139337,"contextWindow":1000000,"inputTokens":4,"outputTokens":8,"cacheReadTokens":138063,"cacheWriteTokens":1262,"updatedAt":1794700845668}'
+usage: '{"usedTokens":144371,"contextWindow":1000000,"inputTokens":4,"outputTokens":8,"cacheReadTokens":143756,"cacheWriteTokens":603,"updatedAt":1794701350413}'
 ---
 
 **user**: philosopher adverse stress test harm ontology
@@ -1067,3 +1067,214 @@ That gives you:
 
 One test before you decide: can you think of a factor that is **non-phenomenal under every condition**? Candidates are pure **risk** that never materializes, and **omissions** nobody ever audits. If none survive, NonPhenomenal may be an empty category, and your three values might reduce to "phenomenal" and "conditionally phenomenal."
 [Timestamp: 2026/11/14 17:00:34]
+
+**user**: wouldnt posthumous be nonphenomenal under every condition except zombie return from the dead?
+[Timestamp: 2026/11/14 17:02:53]
+
+**ai**: Yes, with one qualification. Posthumous harm is the strongest candidate for non-phenomenal in every case, but **only with respect to the victim**.
+
+Take posthumous defamation by an AI system:
+- **The act** (a chatbot generating false claims about a dead person) is fully observable. Anyone can read it.
+- **The effect on the living** (the family's grief, the damaged legacy) is felt.
+- **The effect on the dead person** can't be experienced by them under any condition. That's the non-phenomenal part, short of your zombie.
+
+So your example sharpens the model. "Phenomenal" has been covering two different questions:
+
+| Question | Property | Posthumous defamation |
+|---|---|---|
+| Can someone **observe** it? | `observability` (of the factor or effect) | Yes, by everyone |
+| Can the victim **experience** it? | `experienceability` (of the effect, relative to the victim) | Never |
+
+Your three-value vocabulary fits **both** properties. Posthumous harm is then the clean example of **NonPhenomenal for experienceability**, which means that category isn't empty after all.
+
+Two other cases also belong there for the same reason:
+- **Harm to non-sentient victims** (an ecosystem, a river): observable, but there's no one to experience it.
+- **Harm to future people** who don't yet exist: they can't experience it now, and may never exist to experience it.
+
+**One serious caveat beyond zombies:** many traditions hold that the dead *do* continue to experience or be affected: ancestor traditions, many Indigenous worldviews, and religious belief in an afterlife. Under those views, posthumous harm is conditionally phenomenal. That ties directly to the Ecospiritualists & Indigenous Elders council in [[structured-inquiry-book-notes]]. It also shows that even phenomenality depends partly on which **theory** or worldview is doing the judging.
+
+So the revised position:
+- Keep your three values.
+- Use them for **two** properties, observability and experienceability.
+- Expect NonPhenomenal to be rare for observability and real for experienceability.
+
+Want me to add this to the draft tree?
+[Timestamp: 2026/11/14 17:02:53]
+
+**user**: so jist to be clear are you suggesting that nonphenomenal factors can be experienced? im thinking they can but just cchecking
+[Timestamp: 2026/11/14 17:05:03]
+
+**ai**: Yes, you're right. The important nuance is **what** gets experienced. Usually it's the factor's **effects**, or the **discovery** of the factor, not the factor itself.
+
+| Non-phenomenal factor | What is actually experienced |
+|---|---|
+| **Omission** (a missed diagnosis) | The pain of the untreated illness. Nothing happened, but its consequence is felt. |
+| **Risk** (a 1-in-1,000 failure rate) | Anxiety, once the person learns of it. Or nothing, if they never learn. |
+| **Status** (being on a watchlist) | Humiliation at every airport search, though the list itself is never seen. |
+| **Structure** (a platform business model) | Felt as precarity, compulsion or exhaustion, without the person knowing the cause. |
+| **Disposition** (dependence on AI) | Helplessness when the tool is gone. |
+
+So the two properties are independent:
+- **Observability** asks whether the factor can be seen.
+- **Experienceability** asks whether the victim can feel the effect.
+
+A factor can be **unobservable yet produce experienced effects** (omission → pain). The reverse also holds: a factor can be **observable while its effect is never experienced** (posthumous defamation).
+
+That independence is exactly why the model needs both properties. It also describes a pattern common in AI harm: **people feel the effect but can't see the cause.** They know something is wrong (they're anxious, excluded, stuck) but can't identify the factor responsible. That has a link to hermeneutical injustice from the original ontology: lacking the concepts to name what is happening to you.
+[Timestamp: 2026/11/14 17:05:03]
+
+**user**: exactly. so i think we are good on that.
+[Timestamp: 2026/11/14 17:05:34]
+
+**ai**: Good, that's settled. Here's what this thread has agreed so far, all still in chat and unsaved:
+
+1. **Factor** is a neutral base (what a thing is): Act, Process, Omission, Condition, Structure, Risk.
+   - Condition may split into **Physical state / Status / Disposition**.
+2. **Phenomenality** is a property, not a class branch. It has three values: **Phenomenal / NonPhenomenal / ConditionallyPhenomenal**, and it applies to two independent properties:
+   - **Observability:** can the factor or effect be seen? Qualified by `observableBy`, `revealedBy` and `hiddenFrom`.
+   - **Experienceability:** can the victim feel the effect? Posthumous harm, non-sentient victims and future people are the clear NonPhenomenal cases.
+3. **The two properties are independent.** Unseen causes can produce felt effects, and seen causes can produce unfelt effects.
+4. **Key pattern for AI harm:** the effect is felt but the cause is unseen. This links to hermeneutical injustice.
+
+**Still open:**
+- events-plus-roles versus fixed cause/effect classes
+- whether Agent is a top-level class, and whether an AI system can be one
+- future generations as a type of victim
+- whether causal share can be measured
+- whether Assent/Judgment becomes a new object of harm
+
+When you're ready, I can:
+- record the settled points in `Decisions_Log.md`
+- save this whole design thread as a session note in `01_The Writer's Room/`, with verbatim quotes
+- update the draft tree
+
+Or we can keep working through the open questions.
+[Timestamp: 2026/11/14 17:05:34]
+
+**user**: other open questions still to be resolved?
+[Timestamp: 2026/11/14 17:05:48]
+
+**ai**: Yes. Beyond the five already listed, several other questions came up during this conversation and haven't been resolved. Here they are, grouped.
+
+### Model structure
+1. **Events plus roles, or fixed cause/effect classes?** You leaned toward roles. That isn't confirmed.
+2. **Role types:** are Trigger, Enabler, Amplifier, Conduit, Proximate and Distal the right set? Can one factor hold two roles in the same chain?
+3. **Naming:** neutral names (`Factor`, `CausalRole`) or "Harmful…" names? This decides whether harmfulness is built in or comes only from the assessment.
+4. **Condition split:** confirm Physical state / Status / Disposition.
+5. **Effect vs. chain:** is an Effect a separate class, or just the last Factor in a chain (death as both event and effect)?
+
+### Judging harm
+6. **Where theories attach:** do they judge the factor, the role, the effect, or any of them? (The rights-based theory judges the act; the others mostly judge the effect.)
+7. **Verdict values:** are Harmful / NotHarmful / Contested enough, or do you need degrees?
+8. **Worldview as a theory:** should afterlife, ancestor and Indigenous views count as theories of harm, as the posthumous case suggested?
+9. **Missing theories:** should the Classical Council's ideas be added (harm to the wrongdoer, harm through habituation, manufactured desire)?
+
+### Agents and responsibility
+10. **Agent as a class,** and whether an AI system can be one (the responsibility gap).
+11. **Does a structure cause harm,** or is it only the setting in which agents cause it?
+12. **Where beneficiaries fit:** v2's `hasBeneficiaryRole` as a role, an agent property, or its own layer?
+13. **Harm to the perpetrator:** a separate effect type, or just an effect on a different victim?
+
+### Victims and objects of harm
+14. **Future generations** as a type of victim (the non-identity problem).
+15. **AI systems as possible victims** (model welfare).
+16. **Relationships as victims** (the Confucian point): can a bond itself be harmed, not just the people in it?
+17. **Assent/Judgment** confirmed as a new object of harm.
+
+### Consent and law
+18. **Consent:** does consent cancel harm, reduce it, or only change the verdict under some theories? (Aristotle; dark patterns.)
+19. **Legal layer:** when and how to model causes of action, doctrines and remedies.
+
+### Housekeeping
+20. **v1 vs. v2:** archive v1, mark v2 as current, and decide what happens to the root `.ttl` file.
+21. **Migration:** how v2's existing 26 subclasses and 24+ attributes map onto the new layers.
+22. **Causal share:** a number or only an ordering.
+
+The ones I'd tackle next are **1, 6 and 11**. Most of the others depend on them. Which would you like to start with?
+[Timestamp: 2026/11/14 17:05:48]
+
+**user**: im sorry. this is rolling back too far.  didnt we make a decision to speak of factors rather than events for good reason?
+[Timestamp: 2026/11/14 17:07:12]
+
+**ai**: You're right, I rolled back too far. These were already settled:
+
+- **Factor, not Event.** An omission, a risk or a structure isn't an event, so "Factor" is the neutral base that covers all of them. Your chain of causes is a chain of Factors.
+- **Roles are things in their own right.** This was your proposal. A Factor *bears* a CausalRole in a specific chain, and the role carries its own properties.
+
+So **question 1 is closed:** the model is **Factors plus roles**, and "fixed cause/effect classes" is no longer an option.
+
+That also narrows three other questions:
+- **Q3 (naming):** half-settled. You use `Factor`, and I recommended `CausalRole` over `HarmfulRole`. What's still open is only whether "Harmful…" names appear anywhere.
+- **Q5 (Effect):** reframe it as **"Is an Effect a separate class, or a Factor in the role of final outcome?"** Your shooting chain suggests the second. Death is a Factor at the end of the chain.
+- **Q2 (role types):** still open, but it now only concerns the list of role types, not whether roles exist.
+
+The corrected next three questions:
+- **6:** what each theory judges (the Factor, the role or the effect)
+- **11:** whether a structure causes harm or only provides the setting for it
+- **5 (reframed):** whether Effect is its own class or a role
+
+Where would you like to start?
+[Timestamp: 2026/11/14 17:07:12]
+
+**user**: I think an effect is a seperate class with a variety of harmfulEffects being possible as instances
+what do you think
+[Timestamp: 2026/11/14 17:08:53]
+
+**ai**: I agree, Effect should be its own class. Three refinements would make it work cleanly.
+
+## Why it earns its own class
+
+Effects carry properties that Factors don't:
+- the **victim** affected
+- the **object of harm** (body, assent, reputation…)
+- **experienceability**
+- **severity**
+- **reversibility**
+- whether it's **posthumous**
+
+A trigger pull has no "victim" or "severity" of its own; the wound does. And most theories of harm judge the **effect**, so giving it a class gives the assessment a clean target.
+
+## Refinement 1: effects can feed further effects
+
+Your shooting chain still needs handling. "Organ damage" is an **effect** of the bullet and also a **cause** of death. Two ways to allow that:
+
+- **(a)** Don't declare Effect and Factor disjoint. In OWL, one individual can be both, so organ damage is an Effect that also bears a CausalRole toward death.
+- **(b)** Add an effect-to-effect link: `Effect —leadsTo→ Effect`. This captures **cascading harm**, which is common in AI cases: wrongful denial of credit → lost housing → job loss → depression.
+
+I'd use **both**. (a) keeps the physical chain intact. (b) makes the cascades easy to see and query.
+
+## Refinement 2: kinds of effect vs. actual effects
+
+"A variety of harmful effects as instances" needs one distinction:
+
+| | Example | Modelled as |
+|---|---|---|
+| **Kind** of effect | Sleep loss, reputational damage, deskilling, death | Subclasses of Effect, or a SKOS vocabulary of effect types |
+| **Actual** effect in a case | *This user's* sleep loss in March 2026 | An **instance** (individual) |
+
+So `:case7_sleepLoss a :SleepLoss`, where `:SleepLoss rdfs:subClassOf :Effect`. The instances are the real occurrences, and the varieties are the types.
+
+## Refinement 3: keep "harmful" out of the base class
+
+Make the class **`Effect`** (neutral) rather than `HarmfulEffect`. The same effect can be judged differently. Increased dependence on an AI assistant is a *benefit* under some views (convenience, capability) and a *harm* under others (eroded skill and judgment). Two options:
+- Let the **HarmAssessment** carry the verdict, as now.
+- If you want a convenient label, define **`HarmfulEffect`** as a class that is *inferred* for any Effect that has at least one "Harmful" assessment. Then it's derived from the assessment, not asserted.
+
+**Resulting structure:**
+
+```text
+Effect (neutral)
+ ├── kinds: SleepLoss · ReputationalDamage · Deskilling · CapturedAssent · Death · …
+ ├── properties: affects · hasObjectOfHarm · experienceability · severity · reversibility · isPosthumous
+ ├── leadsTo → Effect                 (cascades)
+ └── HarmfulEffect ≡ Effect assessed Harmful under ≥1 theory   (inferred, optional)
+```
+
+That would settle Q5. Want to move on to Q6 (what each theory judges), which now comes more easily?
+[Timestamp: 2026/11/14 17:08:53]
+
+**user**: i think that there is a really critical issue here that is emerging. just as a given role may be harmful or helpful depending on the circumstance, so can be an effect. especially if the state induced in the obeject of harm itself becomes a beneficial agent in a causation chain.
+[Timestamp: 2026/11/14 17:11:58]
+
+**ai**: 
+[Timestamp: 2026/11/14 17:11:58]
