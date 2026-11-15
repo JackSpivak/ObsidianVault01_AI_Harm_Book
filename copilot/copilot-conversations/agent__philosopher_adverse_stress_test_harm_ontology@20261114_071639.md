@@ -7,7 +7,7 @@ topic: "philosopher adverse stress test harm ontology"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":250908,"contextWindow":1000000,"inputTokens":4,"outputTokens":3,"cacheReadTokens":0,"cacheWriteTokens":250901,"updatedAt":1794722480642}'
+usage: '{"usedTokens":253664,"contextWindow":1000000,"inputTokens":4,"outputTokens":3,"cacheReadTokens":0,"cacheWriteTokens":253657,"updatedAt":1794723236401}'
 ---
 
 **user**: philosopher adverse stress test harm ontology
@@ -2417,3 +2417,73 @@ This also gives T21 (hidden outcome selection) a partner: **hidden attribution**
 
 Should I log these and update HO-003 and HO-002, or do you want to look at the names first? Alternatives to "Ramification" include "EffectSpread" and "ConsequenceField."
 [Timestamp: 2026/11/14 23:00:52]
+
+**user**: ramification has a real sticking point ontologically and perhaps existentially.  in some sense, every point in time has a state which potentially influences every downstream state. the effects that we are assessing are a very vanishingly small subset of the "events" (things, circumstance, processes - everything) that contribute to a state snapshot.  it seems that somehow our assessments must also have some natural implicit and explicit scope because we are not (and cannot) pay attention to everything.  and even more critical, we cannot know that the scope of our assessment even assesses the relevant elements of harm.  magnitude of harm seems obvious but insufficient for inclusion.  small but pivitol harms may generate huge but unforseen downstream effects.  Think of the 'butterfly effect" popularized in complex systems research.  the flapping of a butterfly wings at the right place produces a storm system or hurricane somewhere downstream. this speaks to the notion of critical points in complex system behavior.  This sensitivity (sensitivity analysis is something routinely performed in statistics and control system design) might also be an intentional target or vector of cyberatack
+[Timestamp: 2026/11/14 23:13:21]
+
+**ai**: You're right, and I think this is the deepest point in the session so far. Here it is unpacked, with what it means for the model.
+
+## 1. "Ramification" can't be an object; neither can "CausalAssembly" in full
+
+If every state influences every later state, then the **complete** set of effects of anything is unbounded. It's the whole future, with no edge. The cause side has the same problem: the complete assembly behind any event reaches back indefinitely, and in the extreme the Big Bang is a participating factor.
+
+So both "world-level totals" are **limit concepts**. They're real in principle, but they can never be listed as instances. What we actually model, on both sides, is always a **bounded selection**. That restores the symmetry more honestly than my last proposal did:
+
+| | Cause side | Effect side |
+|---|---|---|
+| Limit concept (never instantiated) | the full causal past | the full causal future |
+| What we can actually model | **Attribution:** the factors counted | **Outcome:** the effects counted |
+| What bounds it | the Perspective's scope | the Perspective's scope |
+
+**Recommendation:** don't make Ramification a class. Keep CausalAssembly only in the sense of the **identified, bounded** assembly, with `hasUnknownMembers` always available. Document the two limit concepts in scope notes, so the model admits its own edges.
+
+## 2. Every assessment must carry its scope and humility explicitly
+
+You've identified two layers of scope:
+- **Explicit scope:** what the assessor declares (victims, time window, effects considered).
+- **Implicit scope:** what attention, method and knowledge silently leave out, including what the assessor doesn't know it is missing.
+
+The second can't be listed, but it can be **acknowledged**. Proposed Perspective or Assessment properties:
+- `declaredScope`: what's in the frame.
+- `acknowledgedExclusions`: what's knowingly left out.
+- `scopeAdequacy`: **Unknown by default, and it can never be asserted as Complete.** The model enforces humility: no assessment may claim it captured all relevant harm.
+
+That last rule is probably the most important thing to come from your point. It blocks a whole family of false claims, such as "our impact assessment found no harm."
+
+## 3. Magnitude is insufficient: leverage and criticality
+
+Your butterfly example (Lorenz's chaos work, popularised as "the butterfly effect"; from memory, unverified) shows that a **small** factor at a **critical point** can matter more than a large one elsewhere. So including or excluding something can't depend on magnitude alone. Candidate properties, on a Factor, Effect or CausalRole *as assessed*:
+- **sensitivity / leverage:** how much downstream variation depends on this element.
+- **criticality:** how close the system is to a tipping point or bifurcation.
+- **predictabilityHorizon:** in chaotic systems, prediction fails beyond a certain time, however good the data. This gives the Sai Weng problem a **principled** limit. Beyond the predictability horizon, an extrapolated link can't be given a confident verdict; it must be Unknown.
+
+One caveat: sensitivity is always measured **within a model**, as in statistical or control-system sensitivity analysis. So it belongs to an **assessment of** a factor, not to the factor itself. A different model gives different sensitivities. That's consistent with the premise that nothing is intrinsically harmful, and it extends it: nothing is intrinsically pivotal either.
+
+Donella Meadows' "leverage points" in systems thinking (from memory, unverified) may be worth checking as a vocabulary to reuse here.
+
+## 4. Sensitivity as an attack vector
+
+Agreed, and some of this is documented practice (from memory, unverified):
+- **Adversarial examples in machine learning:** tiny, invisible changes to an input flip a model's output. That's sensitivity used as a weapon.
+- **Cascading failures in infrastructure:** attacks aimed at the few nodes whose failure spreads.
+- **Pushes at tipping points:** small, well-timed interventions in markets, elections or social contagion near a threshold.
+- **Low-and-slow attacks:** harms deliberately kept **below the assessment's sensitivity threshold**. This attacks the Perspective itself: if an attacker knows the *de minimis* line, they stay just under it.
+
+Combined with HO-003, this gives the most dangerous pattern: **an assembly of individually innocuous factors placed at critical points, each below the detection threshold.** Nothing looks wrong, nothing is large, and the harm still lands.
+
+## Proposed changes (nothing written yet)
+
+1. **No Ramification class.** Document the full causal past and future as limit concepts. Add **Attribution** as the mirror of Outcome.
+2. **Scope properties:** `declaredScope`, `acknowledgedExclusions`, and `scopeAdequacy` (default Unknown, never Complete).
+3. **Criticality properties,** recorded as assessed: `sensitivity` / `leverage`, `criticality`, and `predictabilityHorizon`.
+4. **Perspective additions:** `aggregationRule` (from my last message) and `inclusionCriteria` (magnitude *and* leverage).
+5. **New tests in HO-002:**
+   - **T22:** hidden attribution.
+   - **T23:** the butterfly, a small pivotal factor with a vast unforeseen effect.
+   - **T24:** an adversarial perturbation at a critical point.
+   - **T25:** a low-and-slow attack kept below the sensitivity threshold.
+   - **T26:** an "our assessment found no harm" claim, to check that `scopeAdequacy` blocks it.
+6. **Possibly a new note: HO-004 Criticality, Leverage and the Limits of Scope,** linked to HO-II.b (horizon) and HO-003 (assembly).
+
+Should I log and file all six, or would you rather adjust something first? The `scopeAdequacy` "never Complete" rule is the one I'd most want you to confirm, since it's a strong philosophical commitment.
+[Timestamp: 2026/11/14 23:13:21]
