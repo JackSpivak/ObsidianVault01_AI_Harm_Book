@@ -7,7 +7,7 @@ topic: "philosopher adverse stress test harm ontology"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":250799,"contextWindow":1000000,"inputTokens":2,"outputTokens":669,"cacheReadTokens":245695,"cacheWriteTokens":4433,"updatedAt":1794722055835}'
+usage: '{"usedTokens":250908,"contextWindow":1000000,"inputTokens":4,"outputTokens":3,"cacheReadTokens":0,"cacheWriteTokens":250901,"updatedAt":1794722480642}'
 ---
 
 **user**: philosopher adverse stress test harm ontology
@@ -2341,3 +2341,79 @@ Factor ──participatesIn──► CausalAssembly ──sufficientFor──►
 The model now has a symmetric shape: **factors converge into assemblies, assemblies produce effects, and perspectives select effects into outcomes, which assessments judge.**
 <!-- copilot-message {"tools":["Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-003 Causal Assembly - the Perfect Storm.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002 Ontology Stress-Test Suite.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md","Edit (edit): 00_Claude_Admin/Decisions_Log.md"]} -->
 [Timestamp: 2026/11/14 22:53:17]
+
+**user**: do assessments have perspectives?  if this is truely symmetric what is the assembly of effects? especially since some effects can be of very different targets, timescale and assessment
+[Timestamp: 2026/11/14 22:57:01]
+
+**ai**: **Error:** Credit balance is too low
+[Timestamp: 2026/11/14 22:57:01]
+
+**user**: do assessments have perspectives? if this is truely symmetric what is the assembly of effects? especially since some effects can be of very different targets, timescale and assessment
+[Timestamp: 2026/11/14 23:00:52]
+
+**ai**: 
+
+## 1. Do assessments have perspectives?
+
+Each assessment is **taken from exactly one perspective** (`Assessment —takenFrom→ Perspective`). A perspective is reusable: many assessments can be taken from "the regulator's standard view." An assessment doesn't hold several perspectives. If you want to combine perspectives, that's an **Integration** of several assessments.
+
+So the accurate statement is: **every assessment has one perspective, and a perspective can serve many assessments.**
+
+## 2. Is it truly symmetric? Not yet, and your question shows why
+
+| | Cause side | Effect side |
+|---|---|---|
+| What we have | **CausalAssembly**: the factors that *actually* participated (known or not). A fact about the world. | **Outcome**: effects *selected by a perspective*. A choice. |
+
+These aren't mirror images. One belongs to the **world** and the other to a **perspective**. To be truly symmetric, each side needs both levels:
+
+| | Cause side (converging) | Effect side (spreading) |
+|---|---|---|
+| **World level** (everything, known or not) | **CausalAssembly**: all participating factors | **Ramification** (new): all effects issuing from the assembly |
+| **Perspective level** (what gets counted) | **Attribution** (new): the factors a perspective calls "the cause" | **Outcome**: the effects a perspective calls "the result" |
+
+**Attribution** is the missing mirror of Outcome, and it's what courts and ordinary speech do when they name *the* cause out of a whole assembly. Philosophers of causation have long noted that picking out "the cause" from the background conditions is a pragmatic choice (Mackie's INUS conditions; from memory, unverified). Oxygen is part of every fire's assembly, but no one attributes the fire to it.
+
+## 3. What unifies such different effects?
+
+A Ramification doesn't need its effects to be alike. Its effects may involve:
+- different victims
+- different objects of harm
+- different timescales
+- different ways of being assessed
+
+The only thing that unifies them is **common origin**: they all issue from the same assembly. That's the mirror of the assembly side, whose members are equally mixed (an act, a structure, a risk) and are unified only by **contributing to the same result**.
+
+The variety does create a real problem for assessment. **You can't judge a mixed bundle with a single verdict unless you say how you combined it.** "Net benefit" quietly sums effects across different victims and timescales. So:
+
+- **Default:** assess each effect, or group of similar effects (same victim, same timescale), **separately**. Then use an **Integration** to combine them, recording the Divergences.
+- **If you do aggregate:** the Perspective must declare an **aggregationRule**, for example:
+  - None (report separately)
+  - Sum
+  - Worst-off first
+  - Per-patient minimum
+  - Discounted over time
+
+`aggregationRule` passes our test for adding a property: changing it alone can flip a verdict (sum says "net benefit," worst-off-first says "harmful"). It would belong under **Optics** or **Purpose**.
+
+## The full symmetric shape
+
+```text
+WORLD          Factors ─participatesIn→ CausalAssembly ─produces→ Ramification ─hasEffect→ Effects
+                                              │                         │
+PERSPECTIVE                       Attribution (selected)        Outcome (selected)
+                                              └──────────┬──────────────┘
+                                                    Assessment
+                                          (takenFrom one Perspective,
+                                           incl. aggregationRule)
+```
+
+This also gives T21 (hidden outcome selection) a partner: **hidden attribution**. Naming one convenient factor as "the cause" so other contributors escape notice ("the user misused it") is the cause-side version of the same trap.
+
+**Proposed additions** (nothing written yet):
+- **Ramification** and **Attribution** as classes.
+- **aggregationRule** as a Perspective property.
+- **Test T22:** hidden attribution.
+
+Should I log these and update HO-003 and HO-002, or do you want to look at the names first? Alternatives to "Ramification" include "EffectSpread" and "ConsequenceField."
+[Timestamp: 2026/11/14 23:00:52]
