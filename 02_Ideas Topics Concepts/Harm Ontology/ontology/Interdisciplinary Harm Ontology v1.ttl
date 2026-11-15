@@ -7,9 +7,10 @@
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.org/ontology/harm> a owl:Ontology , skos:ConceptScheme ;
-    owl:versionInfo "1.0.2"@en ;
+    owl:versionInfo "1.0.3"@en ;
     skos:changeNote "2026-11-15: prefix and namespace IRIs repaired (previously truncated to http://w3.org, http://purl.org and http://example.org). Ontology IRI set to http://example.org/ontology/harm to match the Compendium's harm: namespace. No other content changed."@en ;
     skos:changeNote "2026-11-15 (1.0.2): added explicit declarations of the SKOS and Dublin Core annotation properties and SKOS classes, for strict OWL tools such as Protégé. skos:broader and skos:topConceptOf are declared as annotation properties (a common OWL DL practice) because they link classes here. No other content changed."@en ;
+    skos:changeNote "2026-11-15 (1.0.3): attribute numbers in property prefLabels aligned with the Compendium (v1 and v2). Severity & Magnitude was labelled Attribute 19 and is now Attribute 10; attributes previously labelled 10-18 are now 11-19. No other content changed."@en ;
     skos:prefLabel "Interdisciplinary Harm Ontology"@en ;
     skos:definition "A formal OWL/SKOS/Dublin Core ontology integrating classical philosophical, legal, economic, game-theoretic, psychological, and AI-safety taxonomies and cross-cutting attributes of harm."@en ;
     dcterms:creator "Philosophers Council, Legal Counsel, Economists & Game Theorists, Technologists & AI Safety, Psychologists & Behavioral Scientists"@en .
@@ -791,7 +792,7 @@ harm:IrreversibleHysteresis a harm:ReversibilityValue , skos:Concept ;
 harm:hasSeverityMagnitude a owl:ObjectProperty , skos:Concept ;
     rdfs:domain harm:Harm ;
     rdfs:range harm:SeverityMagnitudeValue ;
-    skos:prefLabel "Severity & Magnitude (Attribute 19)"@en ;
+    skos:prefLabel "Severity & Magnitude (Attribute 10)"@en ;
     skos:definition "Measures the depth or intensity of the setback on its scale of impact, from barely noticeable trivialities (de minimis) to civilization-scale catastrophe."@en ;
     skos:scopeNote "Domains of Applicability: Criminal and tort proportionality, Regulatory exposure thresholds, Existential risk ethics."@en .
 
@@ -811,7 +812,7 @@ harm:CatastrophicExistential a harm:SeverityMagnitudeValue , skos:Concept ;
 harm:hasNormativeStatus a owl:ObjectProperty , skos:Concept ;
     rdfs:domain harm:Harm ;
     rdfs:range harm:NormativeStatusValue ;
-    skos:prefLabel "Normativity vs. Non-Normativity (Attribute 10)"@en ;
+    skos:prefLabel "Normativity vs. Non-Normativity (Attribute 11)"@en ;
     skos:definition "Separates factual setbacks caused by nature or fair competition (Damnum Absque Injuria) from wrongful setbacks caused by violating a legal right or moral duty (Injuria)."@en ;
     skos:scopeNote "Domains of Applicability: Antitrust and free-market competition, Constitutional rights, Criminal law."@en .
 
@@ -825,7 +826,7 @@ harm:NonNormativeSetback a harm:NormativeStatusValue , skos:Concept ;
 harm:hasModality a owl:ObjectProperty , skos:Concept ;
     rdfs:domain harm:Harm ;
     rdfs:range harm:ModalityValue ;
-    skos:prefLabel "Modality: Actualized vs. Probabilistic Risk (Attribute 11)"@en ;
+    skos:prefLabel "Modality: Actualized vs. Probabilistic Risk (Attribute 12)"@en ;
     skos:definition "Distinguishes between damage that has already materialized and the imposition of heightened danger that narrows a victim's safe life options before any physical crash occurs."@en ;
     skos:scopeNote "Domains of Applicability: Public health and FDA safety regulation, Reckless endangerment law, Nuclear and AI catastrophic risk."@en .
 
@@ -839,7 +840,7 @@ harm:ProbabilisticRisk a harm:ModalityValue , skos:Concept ;
 harm:hasIncentiveAlignment a owl:ObjectProperty , skos:Concept ;
     rdfs:domain harm:Harm ;
     rdfs:range harm:IncentiveAlignmentValue ;
-    skos:prefLabel "Incentive & Strategic Alignment (Attribute 12)"@en ;
+    skos:prefLabel "Incentive & Strategic Alignment (Attribute 13)"@en ;
     skos:definition "Identifies whether harm stems from malicious cruelty, negligence, or structurally aligned incentives and literal proxy goals that inevitably produce collateral damage without ill will."@en ;
     skos:scopeNote "Domains of Applicability: Game-theoretic market failures (Tragedy of the Commons), Principal-agent moral hazard, AI reward hacking and specification gaming."@en .
 
@@ -855,7 +856,7 @@ harm:StructurallyAlignedEmergent a harm:IncentiveAlignmentValue , skos:Concept ;
 harm:hasCognitiveExploitability a owl:ObjectProperty , skos:Concept ;
     rdfs:domain harm:Harm ;
     rdfs:range harm:CognitiveExploitabilityValue ;
-    skos:prefLabel "Cognitive & Volitional Exploitability (Attribute 13)"@en ;
+    skos:prefLabel "Cognitive & Volitional Exploitability (Attribute 14)"@en ;
     skos:definition "Measures whether harm overrides a victim's will through overt brute force or subversively bypasses rational defenses by exploiting cognitive biases, addiction pathways, or emotional vulnerabilities."@en ;
     skos:scopeNote "Domains of Applicability: Behavioral economics and consumer protection (Dark Patterns/Sludge), Persuasive technology and addiction, Undue influence law."@en .
 
@@ -874,7 +875,7 @@ harm:SubversiveExploitation a harm:CognitiveExploitabilityValue , skos:Concept ;
 harm:hasPatientOntology a owl:ObjectProperty , skos:Concept ;
     rdfs:domain harm:Harm ;
     rdfs:range harm:PatientOntologyValue ;
-    skos:prefLabel "Patient Ontology (Attribute 14)"@en ;
+    skos:prefLabel "Patient Ontology (Attribute 15)"@en ;
     skos:definition "Defines the categories of entities capable of possessing interests or suffering setbacks: Sentient Individuals, Collective/Artificial Persons, and Non-Sentient Systems."@en ;
     skos:scopeNote "Domains of Applicability: Bioethics, Corporate and international law, Environmental personhood, Intergenerational justice."@en .
 
@@ -890,7 +891,7 @@ harm:NonSentientSystem a harm:PatientOntologyValue , skos:Concept ;
 harm:hasPerpetrator a owl:ObjectProperty , skos:Concept ;
     rdfs:domain harm:Harm ;
     rdfs:range harm:PerpetratorRoleValue ;
-    skos:prefLabel "Moral & Legal Agency / Perpetrator (Attribute 15)"@en ;
+    skos:prefLabel "Moral & Legal Agency / Perpetrator (Attribute 16)"@en ;
     skos:definition "Defines the nature, culpability, and structure of the entity from which the harm originates."@en ;
     skos:scopeNote "Domains of Applicability: Criminal mens rea grading, Tort strict and vicarious liability, AI and robotics responsibility gaps."@en .
 
@@ -908,7 +909,7 @@ harm:NonAgenticAutonomousSource a harm:PerpetratorRoleValue , skos:Concept ;
 harm:hasVictim a owl:ObjectProperty , skos:Concept ;
     rdfs:domain harm:Harm ;
     rdfs:range harm:VictimRoleValue ;
-    skos:prefLabel "Victimhood & Standing / Recipient (Attribute 16)"@en ;
+    skos:prefLabel "Victimhood & Standing / Recipient (Attribute 17)"@en ;
     skos:definition "Maps the concrete relational position of the party suffering the setback, distinguishing direct targets from secondary relational victims and proxy-represented classes."@en ;
     skos:scopeNote "Domains of Applicability: Constitutional and civil Locus Standi, Class-action certification, Victimology and restorative justice."@en .
 
@@ -924,7 +925,7 @@ harm:DiffuseRepresentativeClass a harm:VictimRoleValue , skos:Concept ;
 harm:hasObjectOfHarm a owl:ObjectProperty , skos:Concept ;
     rdfs:domain harm:Harm ;
     rdfs:range harm:ObjectOfHarmValue ;
-    skos:prefLabel "Object of Harm / Locus of Injury / Protected Substrate (Attribute 17)"@en ;
+    skos:prefLabel "Object of Harm / Locus of Injury / Protected Substrate (Attribute 18)"@en ;
     skos:definition "Defines the specific physical, psychological, relational, economic, or normative asset, faculty, or state of being that absorbs the setback."@en ;
     skos:scopeNote "Domains of Applicability: Legal pleading and remedy selection, Insurance underwriting lines, Bioethics and neuro-rights."@en .
 
@@ -948,7 +949,7 @@ harm:SystemicEnvironmentalSubstrate a harm:ObjectOfHarmValue , skos:Concept ;
 harm:hasRemedialDutyBearer a owl:ObjectProperty , skos:Concept ;
     rdfs:domain harm:Harm ;
     rdfs:range harm:RemedialDutyBearerValue ;
-    skos:prefLabel "Remedial & Protective Duty-Bearing / Mitigator / Restorer (Attribute 18)"@en ;
+    skos:prefLabel "Remedial & Protective Duty-Bearing / Mitigator / Restorer (Attribute 19)"@en ;
     skos:definition "Defines the entity bearing an affirmative obligation to intervene, rescue, minimize ongoing impact, or restore the victim."@en ;
     skos:scopeNote "Domains of Applicability: Tort and contract remedies (duty to rescue, mitigation of damages), Administrative disaster law, Humanitarian Responsibility to Protect (R2P)."@en .
 
