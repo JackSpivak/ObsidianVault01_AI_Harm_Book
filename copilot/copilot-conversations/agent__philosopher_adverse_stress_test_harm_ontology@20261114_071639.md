@@ -7,7 +7,7 @@ topic: "philosopher adverse stress test harm ontology"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":155045,"contextWindow":1000000,"inputTokens":4,"outputTokens":3,"cacheReadTokens":0,"cacheWriteTokens":155038,"updatedAt":1794716053813}'
+usage: '{"usedTokens":160228,"contextWindow":1000000,"inputTokens":4,"outputTokens":3,"cacheReadTokens":158163,"cacheWriteTokens":2058,"updatedAt":1794717084034}'
 ---
 
 **user**: philosopher adverse stress test harm ontology
@@ -1505,3 +1505,115 @@ If assessments and judgments are the same kind of thing, then **an AlgorithmicAs
 
 Want to test the structure on *TransUnion* (risk, horizon, standing), or on a rubber-stamping case?
 [Timestamp: 2026/11/14 21:13:41]
+
+**user**: you made an interesting point about the three elements of a perspective.  i suggest there should be more. if you think of a perspective literally - as in photography - each perspective has:
+standpoint - where you/camera is actually standing
+direction - where you/camera is actually pointing
+timestamp - temporal point at which you take the picture
+utility - perhaps the applicability of the standard you mention for the perspective with respect to a domain of intent
+domain of intent  - what is the perspective intended to reveal
+standard - what counts ad a revelation
+[Timestamp: 2026/11/14 21:25:56]
+
+**ai**: The photography metaphor works well. It's more precise than my three-part version, and it suggests a few more elements. Here's each of your six, checked against the model, followed by what the camera adds.
+
+## Your six elements
+
+| Element | Meaning in the model | Example from the parable | Notes |
+|---|---|---|---|
+| **Standpoint** | Whose position the judgment is made from | The neighbours vs. the father | Keep this separate from **who holds the camera** (see below) |
+| **Direction** | What the judgment points at: which link, which victim | The son's leg, not the other families' sons | Covers `assesses` and `forPatient`. This is where the ethical trap hides: what's *out of shot* |
+| **Timestamp** | When the judgment is made | At step 3 vs. step 4 | This is `assessedAt`. It's not the same as horizon (see "exposure time" below) |
+| **Domain of intent** | What the judgment is meant to reveal | "Is this good for the family?" vs. "Is the state's draft just?" | New and important. The same scene photographed for a different purpose yields a different picture |
+| **Standard** | What counts as a finding | Fortune to the household | The EvaluativeStandard |
+| **Utility** | How well the standard fits the intent | A household-fortune standard is a poor fit for judging the war | Strong idea. It's really a property of the *pairing* of standard and intent: is this the right lens for this question? |
+
+**Utility is the most original of the six.** It lets the model flag a **mismatch**: a perfectly valid standard used for a question it can't answer. The AI industry's offsetting argument is often exactly this: a population-scale welfare standard applied to a question about individual rights. I'd call the property **`fitness`** (fitness of standard to intent) so it isn't confused with utilitarian "utility."
+
+## What the camera adds
+
+| Camera element | Meaning in the model | Why it's needed |
+|---|---|---|
+| **Exposure time** | **Horizon**: the span of the chain the judgment takes in | Your timestamp is *when the shutter fires*. Exposure is *how much time the image captures*. The parable is about this one |
+| **Framing / crop** | **Scope**: what's deliberately left outside the frame | Telephoto on one household vs. wide-angle on the whole village |
+| **Resolution** | **Granularity**: individual vs. aggregate | Statistical harms only show up at population resolution |
+| **Exposure threshold** | **Sensitivity**: how faint a harm can be and still register | The *de minimis* line. Tiny diffuse harms vanish if sensitivity is low |
+| **Photographer** | **Assessor**: who operates the camera, as distinct from whose standpoint is taken | A company can "photograph" from the user's standpoint, or say it does |
+
+## Grouped, so it stays usable
+
+```text
+Perspective (of an Assessment)
+ ├── Position ...... standpoint · direction
+ ├── Time .......... timestamp (assessedAt) · exposure (horizon)
+ ├── Optics ........ framing (scope) · resolution (granularity) · sensitivity (threshold)
+ ├── Purpose ....... intent · standard · fitness (standard ↔ intent)
+ └── Operator ...... assessor (who holds the camera)
+```
+
+That makes **ten properties in five groups**. Laozi's warning applies, so a test before adopting any of them: **each one should be able to flip a verdict on its own** while everything else stays fixed. All ten pass that test in the parable or in AI cases. For example: change only the framing and the son's injury goes from blessing to evidence of a war that killed other families' sons.
+
+## One modelling consequence
+
+Ten properties on every Assessment is a lot. A **Perspective** could be its own class: a reusable configuration such as "the industry's standard impact-assessment perspective," which many Assessments can use (`Assessment —takenFrom→ Perspective`). Then you can compare perspectives directly and ask which property differs between the regulator's view and the victim's. That is often the most revealing question in a harm dispute.
+
+Does **fitness** capture what you meant by utility, or did you have something else in mind?
+[Timestamp: 2026/11/14 21:25:56]
+
+**user**: ten properties is a lot. however, i am wondering that perhaps this is part of the nature of the real world.  not all of these may be applicable to all circumstances or instances of a perspective (when it is not so literal as a camera). and some circumstances may require more for an assessment to valuably serve the intent.  think of a cybersecurity threat assessment for example.  another aspect of the real world is that regardless of how many actual properties are needed there will inevetably be missing information in many or most cases.  in real world instances these properties might be left blank (null) or better "unknown" especially by default
+[Timestamp: 2026/11/14 21:31:03]
+
+**ai**: You're describing how the real world works, and RDF and OWL were designed for exactly this. Here's how to handle each of your three points.
+
+## 1. Not every property applies, and nothing has to be filled in
+
+RDF and OWL work under the **open-world assumption**. A missing property doesn't mean "false" or "none." It just means nothing has been said. So nothing in the Perspective is mandatory by default, and a sparse assessment is still a valid one. A victim's own judgment might record only standpoint, direction and verdict. A Supreme Court judgment might fill all ten properties and more.
+
+## 2. Some domains need more: use domain profiles
+
+Your cybersecurity example fits well. A threat assessment needs the core perspective properties **plus** its own. From memory (unverified), the field's common vocabulary includes:
+- **threat actor**
+- **attack vector**
+- **exploitability**
+- **asset criticality**
+- **likelihood**
+- **detectability**
+
+Standards such as CVSS, STRIDE and MITRE ATT&CK formalize some of these.
+
+The clean way to model this:
+- **Core Perspective**: the ten properties, all optional.
+- **Domain profiles**: subclasses that add properties (`ThreatAssessment`, `ClinicalAssessment`, `Judgment`, `RegulatoryImpactAssessment`…).
+- **Requirements per profile**: written with **SHACL**, the W3C validation language that sits on top of RDF. SHACL can say "a ThreatAssessment must address likelihood and horizon" without forcing every other assessment to.
+
+The key phrase is **"must be addressed," not "must be known."** That leads to your third point.
+
+## 3. Missing information: "unknown" isn't one thing
+
+Defaulting to "unknown" is better than leaving a blank, but "blank" actually covers several different situations, and they matter differently:
+
+| Status | Meaning | Example |
+|---|---|---|
+| *(absent)* | Never considered | The assessment didn't think about horizon at all |
+| **Unknown** | Considered, but can't be determined | Horizon of a latent harm whose outcome hasn't arrived |
+| **NotApplicable** | Doesn't apply to this case | Experienceability for a harmless trespass |
+| **Undisclosed** | Known to someone, but withheld | A company's internal risk data |
+| **Disputed** | Values conflict | The parties disagree about the victim group |
+| **Pending** | Will become knowable | An effect still unfolding |
+
+Two reasons this matters:
+- **Absent vs. Unknown.** An assessment that *never considered* horizon is a different, and worse, failure than one that *tried and couldn't know*. Your Sai Weng neighbours never asked about horizon. The old man asked and answered "unknown."
+- **Undisclosed is often the AI-harm case.** The information exists, but it's held by the party with the most to lose. A model that records *who* holds a missing value turns gaps into evidence, which is the same power asymmetry as the shadowban.
+
+**Recommended rule:** absence means "not considered." Assessments assert **Unknown, NotApplicable, Undisclosed, Disputed or Pending** explicitly. Profiles use SHACL to require that key properties are **addressed** (given a value or one of these statuses), never that they are **known**.
+
+## One further addition
+
+Values that *are* filled in still differ in certainty. Two small extras would cover that:
+- **`confidence`** (or a likelihood range) on any value
+- **`suppliedBy`**: who provided the value (provenance)
+
+Both are standard practice in threat intelligence, where reliability of the source and credibility of the information are rated separately. With these, a "known" value from a regulator and the same value from the company being assessed are no longer treated as equal.
+
+So your instinct produces a three-part design: a **small optional core**, **domain profiles** that add properties, and **explicit statuses for what's missing**. It would handle an unknown or disputed horizon like the parable's without forcing a false verdict.
+[Timestamp: 2026/11/14 21:31:03]
