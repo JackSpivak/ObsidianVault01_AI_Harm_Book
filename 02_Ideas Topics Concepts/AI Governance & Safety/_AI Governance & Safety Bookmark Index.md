@@ -43,6 +43,8 @@ Click the arrow beside an item to open or close its branch.
 - **002 and [[_GSH Bookmark Index|GSH-001]]:** concentration of control links to [[GSH-001 Global Wealth Distribution]] in the Global Structural Harm index.
 - **002 and [[_Corpus Governance Bookmark Index|CG-001]]:** CG-001 is the ground-level face of 002, and a counter-example to 002.II.a: a gap that attentive human oversight caught.
 - **003 and [[_Corpus Governance Bookmark Index|Corpus Governance]]:** the tooling side of 003 (reading markdown outlines, storing properties in YAML) is a vault-convention question. Any answer would become a corpus-wide rule.
+- **003 and [[_Harm Ontology Bookmark Index|Harm Ontology]]:** 003 covers the tooling for building an ontology; the Harm Ontology index (HO-) covers the design of the ontology itself (2026-11-14).
+- **002.II.a and [[HO-001 Harm by Habituation and Captured Assent|HO-001]]:** rubber-stamping is captured assent in an oversight setting.
 
 ## Summary
 The original index was created in the claude.ai "000" conversation and imported through Nexus. It predates bookmark-index-maintainer v1.3. This canonical copy was rebuilt on 2026-11-10 after an audit:

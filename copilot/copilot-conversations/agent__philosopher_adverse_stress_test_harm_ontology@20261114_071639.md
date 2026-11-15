@@ -7,7 +7,7 @@ topic: "philosopher adverse stress test harm ontology"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":198714,"contextWindow":1000000,"inputTokens":4,"outputTokens":6,"cacheReadTokens":198173,"cacheWriteTokens":531,"updatedAt":1794718897426}'
+usage: '{"usedTokens":230186,"contextWindow":1000000,"inputTokens":2,"outputTokens":6,"cacheReadTokens":229463,"cacheWriteTokens":715,"updatedAt":1794719380230}'
 ---
 
 **user**: philosopher adverse stress test harm ontology
@@ -1986,3 +1986,49 @@ To go ahead, reply **"go"** and I'll use these defaults:
 
 Or change any of the three.
 [Timestamp: 2026/11/14 22:01:31]
+
+**user**: i do not need them in the inbox.  but you reference "stub" notes. perhaps that's conversational momentum. i believe that we decided that stubs were only applicable to un-fleshed-out conversational directions that were explicitly requested.  And that stub structure should essentially be the same as an idea with a different status
+[Timestamp: 2026/11/14 22:04:41]
+
+**ai**: You're right, that was momentum on my part. The 2026-11-13 decision says a stub is "a place holder for a thought or direction that is not yet developed." Everything here was developed at length in this conversation. All the notes use the single Idea template, and `status` records maturity. So I'll fill in each note's sections from the discussion and set:
+- **`developing`** for the concepts that are logged as decisions
+- **`seed`** for the three that are still early: judgment and precedent, vocabulary reuse, and habituation
+
+You answered the inbox question and didn't object to the other defaults (`HO-` prefix, HO-001 filed here), so I'll proceed.Creating the index now, then the notes.I've written five of the thirteen notes; next are the judging-layer notes.All 13 notes are written. Now I'm registering the index in the master index and adding the cross-reference under 003.I've created the new Harm Ontology bookmark index and 13 idea notes, all in `02_Ideas Topics Concepts/Harm Ontology/`. A check found no duplicate `canonical_id`s and no broken links in the index.
+
+**The index:** [[_Harm Ontology Bookmark Index]] (prefix `HO-`). It's registered in the [[_Master Bookmark Index]] as live.
+
+**The notes:**
+
+| Note | Status |
+|---|---|
+| HO-000 Harm as Perspective-Relative Assessment (root) | developing |
+| HO-premise No Intrinsic Harmfulness | developing |
+| HO-I.a Factor and CausalRole | developing |
+| HO-I.b Effect and Cascades | developing |
+| HO-I.c Phenomenality – Observability and Experienceability | developing |
+| HO-II.a Assessment and Evaluative Standard | developing |
+| HO-II.b Assessment Horizon – the Sai Weng Trap | developing |
+| HO-II.c Judgment as Assessment – Reasoning over Precedent | seed |
+| HO-II.d Perspective – Ten Optional Properties | developing |
+| HO-II.e Missingness Statuses and Domain Profiles | developing |
+| HO-III.a Divergence and Integration – True but Partial | developing |
+| HO-III.b Reusing Expert Domain Vocabularies | seed |
+| HO-001 Harm by Habituation and Captured Assent | seed |
+
+Every note uses the single Idea template, with all sections filled in from this conversation. In each note:
+- **Original wording** quotes are copied word for word from this chat, each with its own attribution. Council lines are labelled as "voicing" a persona, never as the real philosopher's words.
+- Anything taken from memory is marked unverified.
+
+**Other files I changed:**
+- [[_AI Governance & Safety Bookmark Index]]: two cross-reference lines added (003 ↔ Harm Ontology, and 002.II.a ↔ HO-001). Nothing was moved.
+- [[_Master Bookmark Index]]: the new index's entry.
+
+**Three choices I made that you may want to change:**
+- **No pages for the tiers.** HO-I, HO-II and HO-III are bold labels in the index, not notes of their own, so you don't get three nearly empty files.
+- **HO-000 is marked as revisiting v2.** Its `territory` is `revisited`, with `revisits` pointing to the v2 Compendium, because it reworks the Compendium's territory from a new angle. The other notes are marked `new`.
+- **The two story-device notes are untouched.** [[The Self-Revising Harm Ontology]] and its companion note are still unfiled drafts. The index only cross-references them.
+
+**Later harvests:** each note has a distinctive `canonical_id` (e.g. `ho-factor-causal-role`). If a concept comes up again, the filing check will find the existing note and suggest extending it instead of creating a duplicate.
+<!-- copilot-message {"tools":["Grep (read): 02_Ideas Topics Concepts/AI Governance & Safety/_AI Governance & Safety Bookmark Index.md","Glob (read)","Read (read): 02_Ideas Topics Concepts/AI Governance & Safety/_AI Governance & Safety Bookmark Index.md","Read (read): 02_Ideas Topics Concepts/Global Structural Harm/_GSH Bookmark Index.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-000 Harm as Perspective-Relative Assessment.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-premise No Intrinsic Harmfulness.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-premise No Intrinsic Harmfulness.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-I.a Factor and CausalRole.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-I.b Effect and Cascades.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-I.c Phenomenality - Observability and Experienceability.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-II.a Assessment and Evaluative Standard.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-II.b Assessment Horizon - the Sai Weng Trap.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-II.c Judgment as Assessment - Reasoning over Precedent.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-II.d Perspective - Ten Optional Properties.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-II.e Missingness Statuses and Domain Profiles.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-III.a Divergence and Integration - True but Partial.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-III.b Reusing Expert Domain Vocabularies.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-001 Harm by Habituation and Captured Assent.md","[3 more tool calls]"]} -->
+[Timestamp: 2026/11/14 22:04:41]
