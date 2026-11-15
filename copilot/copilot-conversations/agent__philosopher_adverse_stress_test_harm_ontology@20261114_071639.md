@@ -7,7 +7,7 @@ topic: "philosopher adverse stress test harm ontology"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":164656,"contextWindow":1000000,"inputTokens":4,"outputTokens":7,"cacheReadTokens":0,"cacheWriteTokens":164645,"updatedAt":1794717790683}'
+usage: '{"usedTokens":174376,"contextWindow":1000000,"inputTokens":2,"outputTokens":7,"cacheReadTokens":173550,"cacheWriteTokens":817,"updatedAt":1794718242456}'
 ---
 
 **user**: philosopher adverse stress test harm ontology
@@ -1749,3 +1749,115 @@ An **Integration** (or **Synthesis**) class could combine several partial Assess
 
 This is worth recording as a design principle when you're ready. A possible wording: *"The ontology represents harm as perspective-relative assessments; divergence between assessments is a first-class object, typed by its source."* Want me to log it, or keep developing the idea first?
 [Timestamp: 2026/11/14 21:42:44]
+
+**user**: lets log all of what youve proposed as decisions.  i think we agree so far
+[Timestamp: 2026/11/14 21:47:43]
+
+**ai**: I've added **10 entries dated 2026-11-14** to `00_Claude_Admin/Decisions_Log.md`, newest first, in the log's existing table format. Each "Why" cell quotes your own words, copied as you wrote them, misspellings included.
+
+The 10 decisions:
+1. Theories of harm describe harm; they don't classify it.
+2. Factor and CausalRole.
+3. Phenomenality is a property with three values, applied to observability and experienceability.
+4. Effect is a separate, neutral class.
+5. Valence (harmful or beneficial) lives only in the Assessment.
+6. Assessment and Judgment, with the rename to EvaluativeStandard.
+7. Perspective is a reusable class with ten optional properties.
+8. Open world, domain profiles and explicit missingness.
+9. Reuse expert domain vocabularies.
+10. Divergence is a first-class object.
+
+Things to check:
+- **The rename `TheoryOfHarm` → `EvaluativeStandard`.** You answered my proposal with "yes", but that may have been general agreement, not approval of the rename. Tell me if you want it changed.
+- **Two items are marked unverified in the log:** the wording of Wilber's "true but partial", and the candidate vocabularies. Both still need checking against sources.
+
+The open questions are not in the log, because they aren't decisions yet:
+- whether Condition splits into physical state, status and disposition
+- Agent, and whether an AI system can be one
+- whether a structure causes harm or only sets the scene
+- future generations, AI systems and relationships as patients
+- Assent/Judgment as a new object of harm
+- consent
+- the legal layer
+- whether v2 replaces v1
+
+Next, if you want: save this design discussion as a session note in `01_The Writer's Room/`, or update the draft tree to match the logged decisions.
+<!-- copilot-message {"tools":["Read (read): 00_Claude_Admin/Decisions_Log.md","Edit (edit): 00_Claude_Admin/Decisions_Log.md"]} -->
+[Timestamp: 2026/11/14 21:47:43]
+
+**user**: yes. a session note in the writers room is a great idea.  we have not done that yet. in light of this long discussion, do you think we need any adjustment to our template?
+[Timestamp: 2026/11/14 21:50:21]
+
+**ai**: There's no session template to adjust yet. `00_Claude_Admin/Templates/` holds Idea, Character, Chapter, Research Source and Worldbuilding, and `01_The Writer's Room/` is empty. So this would be the first one. This discussion suggests what a session template needs that the Idea template doesn't cover.
+
+## Proposed `Session.md` template
+
+```markdown
+---
+type: session
+status: seed
+tags: []
+aliases: []
+created: {{date:YYYY-MM-DD}}
+session_date: {{date:YYYY-MM-DD}}
+participants: [Author, "Claude: <model, version>"]
+source: <chat file path / conversation name>
+topics: []
+---
+
+# {{date:YYYY-MM-DD}} <Topic>
+
+## Summary
+-
+
+## Decisions made
+- <one line each> → [[Decisions_Log]] (date)
+
+## How the thinking moved
+- <key turns, reversals and corrections, and why>
+
+## Concepts introduced
+- <term>: <one-line definition> → promote to idea note? (y/n)
+
+## Open questions
+-
+
+## Original wording
+> "<verbatim quote>"
+- **Attribution:** Author | Claude: <model, version>   ← one per quote
+
+## External references
+| Reference | Used for | Status (verified / from memory / unverified) |
+|---|---|---|
+
+## Artifacts touched
+- <files read, versions used, files edited>
+
+## Follow-ups
+- [ ] 
+
+## Related
+-
+```
+
+## Why each new section is there, based on this discussion
+
+| Section | What happened in this session that it captures |
+|---|---|
+| **Decisions made** | 10 decisions were logged. The session note should point to them, not repeat them. |
+| **How the thinking moved** | Much of the value was in the corrections: "phenomena" dropped, your point that causes *can* be phenomena, my rollback to "events" that you caught, Effects becoming neutral. A summary loses that path. |
+| **Concepts introduced** | Factor, CausalRole, Divergence, fitness, the missingness statuses. Each is a candidate idea note, and this flags them for filing. |
+| **External references with status** | Sai Weng (searched, pages not opened), the case law, HYPO/CATO, Wilber, the vocabularies: most are from memory. Your rules require that to be visible. |
+| **Artifacts touched** | We stress-tested the **root v1** files, not v2. A future reader needs to know which version a session was about. |
+| **Per-quote attribution** | Your note rule requires it. This session has quotes from both of us. |
+
+**One question about attribution:** this session used councils (persona voices such as Socrates). I'd attribute those quotes as **"Claude: Opus 5.5 (claude-opus-5-5), voicing Classical Council"**, so a persona's words are never mistaken for the real philosopher's. Is that OK?
+
+If you approve, I'll:
+1. Create `00_Claude_Admin/Templates/Session.md` as above.
+2. Write `01_The Writer's Room/2026-11-14 Harm Ontology Redesign.md` from it, with verbatim quotes taken from the saved chat log.
+3. Add a Decisions Log entry for the new template.
+
+Any changes to the template first?
+<!-- copilot-message {"tools":["Glob (read)","Read (read): 00_Claude_Admin/Templates/Idea.md"]} -->
+[Timestamp: 2026/11/14 21:50:21]
