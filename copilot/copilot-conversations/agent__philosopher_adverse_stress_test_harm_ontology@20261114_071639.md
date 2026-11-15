@@ -7,7 +7,7 @@ topic: "philosopher adverse stress test harm ontology"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":135718,"contextWindow":1000000,"inputTokens":4,"outputTokens":7,"cacheReadTokens":133513,"cacheWriteTokens":2194,"updatedAt":1794699456583}'
+usage: '{"usedTokens":139337,"contextWindow":1000000,"inputTokens":4,"outputTokens":8,"cacheReadTokens":138063,"cacheWriteTokens":1262,"updatedAt":1794700845668}'
 ---
 
 **user**: philosopher adverse stress test harm ontology
@@ -996,3 +996,74 @@ HarmAssessment{Experiential → Contested (Epicurus: death unfelt)}
 
 Want to stress-test this tree next? Posthumous AI defamation or rubber-stamping (002.II.a) would test it well.
 [Timestamp: 2026/11/14 16:37:15]
+
+**user**: i think a condition might be both but not certain.  can you quickly think of exaamples or counterexamples?
+[Timestamp: 2026/11/14 16:59:05]
+
+**ai**: Quick examples suggest **"both" is right**, but they also show why. Conditions differ by **what kind of state** they are, and that kind decides whether they're observable.
+
+**Observable conditions (phenomenal):**
+- A building with no wheelchair ramp. The barrier is physically there to see.
+- Chronic traffic noise outside a home.
+- A homeless encampment after an algorithmic eviction screen.
+- Lead in water pipes. It's invisible to the eye, but instruments can detect it.
+
+**Unobservable conditions (non-phenomenal):**
+- **Being on a watchlist or a no-fly list.** It exists only as a record and a rule. Nothing about the person changes.
+- **A credit score just below an approval cutoff.** It's an institutional status with no physical trace.
+- **Dependence on an AI assistant.** It's a disposition, visible only when the person is tested (the assistant is gone, and can they still do the task?).
+- **Being a member of a disadvantaged statistical group in a model.** It's real only in aggregate.
+
+**The awkward case: a shadowban.** It's fully observable *to the platform* (a flag in a database) and invisible *to the user*. So the same condition is phenomenal or not **depending on who is looking**.
+
+**What this suggests:** the split isn't really about Condition. Three different kinds of state are hiding under that one word:
+
+| Kind of state | Example | Observable? |
+|---|---|---|
+| **Physical state** | Missing ramp, lead pipes | Yes, by sense or instrument |
+| **Status** (exists by rule or record) | Watchlist, credit tier, shadowban | Only to whoever holds the record |
+| **Disposition** (a tendency) | Dependence, habituated deference | Only when triggered or tested |
+
+The shadowban is a counterexample to treating phenomenality as a fixed type, because observability can depend on **who is observing**. That points to an option:
+
+- **Option A:** keep the Phenomenal / NonPhenomenal branches, and split Condition into PhysicalState (phenomenal), Status and Disposition (non-phenomenal).
+- **Option B:** drop the branches. Make observability a **property** (`isObservableBy → Victim | Perpetrator | ThirdParty | Instrument | Nobody`), and type Conditions as Physical, Status or Disposition.
+
+I lean toward **B**. Observability that depends on who is looking matters a great deal for AI harm, where the system often sees what the victim can't. A fixed branch can't express that. Your call; nothing is saved.
+[Timestamp: 2026/11/14 16:59:05]
+
+**user**: how about phenomenal, nonPhenomenal or conditionallyPhenomenal
+[Timestamp: 2026/11/14 17:00:34]
+
+**ai**: It's a better fit than two branches, and it captures the shadowban. But it has one weakness: **"conditionally" doesn't say what the condition is.** Try sorting the earlier examples with it:
+
+| Example | Phenomenal on what condition? |
+|---|---|
+| Lead in pipes | **Instrument:** visible only with a test kit |
+| Shadowban | **Observer:** visible to the platform, not the user |
+| Dependence on AI | **Trigger:** revealed only when the assistant is removed |
+| Latent harm (asbestos) | **Time:** appears decades later |
+| A trigger pull nobody saw | **Witness:** observable, but unobserved |
+
+Two problems follow:
+
+1. **The middle category swallows almost everything.** Very little is phenomenal unconditionally (even a gunshot needs someone present) or non-phenomenal unconditionally (an omission can be found by audit). Most cases would end up "conditional," and the label would stop telling you much.
+2. **What matters most is the condition.** For AI harm, *"the system can see it and the victim can't"* is the key fact, and "conditionally phenomenal" hides it.
+
+**A way to keep your three terms and fix this:** treat them as a **property value**, not as classes, and require a qualifier whenever the value is conditional:
+
+```turtle
+:case9_shadowban  a :Condition ;
+    :phenomenality      :ConditionallyPhenomenal ;
+    :observableBy       :Platform ;          # who can see it
+    :revealedBy         :Audit ;             # what would expose it (Instrument | Trigger | Time | Audit | Disclosure)
+    :hiddenFrom         :Victim .
+```
+
+That gives you:
+- **Your vocabulary** (Phenomenal / NonPhenomenal / ConditionallyPhenomenal), easy for readers to grasp.
+- **The precision** of knowing *to whom* and *by what means* something becomes visible.
+- **Flexibility:** a case can change value over time (a shadowban becomes phenomenal once it's disclosed) without changing class.
+
+One test before you decide: can you think of a factor that is **non-phenomenal under every condition**? Candidates are pure **risk** that never materializes, and **omissions** nobody ever audits. If none survive, NonPhenomenal may be an empty category, and your three values might reduce to "phenomenal" and "conditionally phenomenal."
+[Timestamp: 2026/11/14 17:00:34]
