@@ -80,6 +80,17 @@ A note written by hand or created by Claude from conversation — from the `Idea
 5. **One confirmation covers everything.** Present the full plan in one message — ID, new file name, destination folder, index entries, master-index change, links to be rewritten. Approval of that plan *is* approval of the rename and move; don't ask again per step. Never execute without it.
 6. **Execute** (see "Rename and move mechanics" below): set `bookmark`, `canonical_id`, and `status: stub` only if the note has no status yet (never downgrade an existing status); rename to the index's naming convention (`<ID> <Title>.md`); move into the index's folder; add to the index; update the master index if needed.
 
+### Incremental harvest from a conversation
+
+When harvesting idea material from a conversation:
+1. Find the session note whose `source` cites the conversation's transcript (`copilot/copilot-conversations/…`). Read its `harvested_through` timestamp.
+2. Read the transcript **only after** that timestamp, matching its `[Timestamp: …]` lines. If there's no session note or no watermark, harvest the whole transcript and create the watermark.
+3. Check each new item against existing notes: exact match on `canonical_id` and title (as in "Dedup before creating"), **and** the relevant index, for material that *refines* an already filed concept. Refinements extend the existing note (or add a revision callout); they don't create a near-duplicate.
+4. File new ideas as usual (one confirmation covers the whole plan).
+5. After filing, update `harvested_through` in the session note to the last message harvested. The watermark lives only there, never in memory or a second file.
+
+Inside a live conversation this mainly prevents re-processing. The token savings come in a fresh session that reads only the transcript's tail.
+
 ### Moving a filed note to another index
 
 When a filed note turns out to fit best elsewhere — noticed by the user, or flagged by the skill during routing or the anti-lock-in check:

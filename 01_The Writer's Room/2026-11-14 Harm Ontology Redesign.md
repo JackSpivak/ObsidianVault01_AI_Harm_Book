@@ -1,7 +1,10 @@
 ---
 type: session
-status: seed
+status: archived
 tags: [ontology/harm]
+workstream: "[[Handoff - Harm Ontology]]"
+harvested_through: "2026/11/15 01:22:16 (plus the closing turn)"
+continued_in:
 aliases: [Harm Ontology Redesign Session]
 created: 2026-11-14
 session_date: 2026-11-14
@@ -128,7 +131,48 @@ All ten are logged in [[Decisions_Log]] on 2026-11-14:
 - [ ] Decide whether v1 is archived.
 - [ ] Update the draft model tree to match the decisions.
 
+## Addendum: rest of the session (2026-11-14 late → 2026-11-15)
+
+### How the thinking moved
+- **Stress-test suite.** The author asked for one place to test the ontology → [[HO-002 Ontology Stress-Test Suite]]. Claude's "this blocks the trap" claims were recorded as hypotheses.
+- **Effects aren't single things.** By the same logic as factors, "the effect" is a perspective's selection → **Outcome** class.
+- **Perfect storm.** Cause inferred from an assembly of participating factors; engineered or exploited assemblies of harmless parts are an attack vector → **CausalAssembly**, `participatesIn` ([[HO-003 Causal Assembly - the Perfect Storm]]).
+- **Symmetry attempted, then abandoned.** Claude proposed Ramification and Attribution as mirror images. The author objected that every state influences all later states, scope is necessarily limited, magnitude is insufficient (the butterfly effect, critical points), and sensitivity is itself an attack target. Then the author's key point: the irreversibility of time makes symmetry impossible. → No Ramification class; Attribution and Outcome as bounded selections; scope never Complete; leverage and criticality ([[HO-004 Criticality, Leverage and the Limits of Scope]]).
+- **Membership is assessed.** The author saw that factors are assessed for inclusion in the assembly. Claude answered quickly, then admitted momentum when the author asked, and added caveats (regress, evidence anchor). Omission is the norm → re-attribution cases as the test method ([[HO-005 Assessed Membership and Systematic Omission]], pending).
+- **Process.** Cost of long chats; transcripts as the raw archive; session = conversation; rolling handoff notes; incremental harvest; closing checklist.
+- **Ontology files.** No v3 artifact existed → [[Harm Ontology v3 - Draft Structure]]. Migration goals → [[Harm Ontology Migration Plan]]. The v1 `.ttl` was repaired (prefixes) and validated with a new conda environment.
+
+### Decisions made (addendum)
+- 2026-11-14: Outcome; CausalAssembly; temporal asymmetry; scope, humility and criticality.
+- 2026-11-15: transcripts as archive; incremental harvest; sessions, handoffs and closing; ontology tooling; `.ttl` as single source of truth.
+
+### Original wording (addendum)
+> "I am concerned that similarly we have effects as a unitary construct."
+- **Attribution:** Author
+
+> "it may be inherently true that the structure of reality, because of the irreversability of time makes our aesthetic desire for a symmetrical structure impossible. an assembly of causes produce an infinitely rammifying chain of events  - very much not a mirror image"
+- **Attribution:** Author
+
+> "you responded rapidly.  do you simply agree or does this require more reflection."
+- **Attribution:** Author
+
+> "I agreed quickly, and some of that speed was momentum."
+- **Attribution:** Claude: Opus 5.5 (claude-opus-5-5)
+
+### Artifacts touched (addendum)
+- **Created:**
+  - HO-002 to HO-005
+  - `ontology/` folder: repaired v1 `.ttl`, v3 draft structure, migration plan
+  - [[Handoff]] template; [[Handoff - Harm Ontology]]
+- **Edited:**
+  - [[Session]] template (fields, closing checklist)
+  - bookmark-index-maintainer skill (incremental harvest)
+  - [[Decisions_Log]]
+  - Harm Ontology and AI Governance & Safety indices; [[_Master Bookmark Index]]
+- **Installed:** conda environment `harm-ontology`.
+
 ## Related
+- [[Handoff - Harm Ontology]]
 - [[003 Harm Ontology from Outlines]]
 - [[002 Scalability of Oversight and Control]] (002.II.a rubber-stamping)
 - [[The Self-Revising Harm Ontology]]

@@ -7,6 +7,9 @@ created: {{date:YYYY-MM-DD}}
 session_date: {{date:YYYY-MM-DD}}
 participants: [Author, "Claude: <model, version>"]
 source: <chat file path / conversation name>
+workstream: <name; links to its Handoff note>
+harvested_through: <transcript timestamp of last harvested message>
+continued_in: <link to next session note, set at close>
 topics: []
 ---
 
@@ -40,6 +43,16 @@ topics: []
 
 ## Follow-ups
 - [ ] 
+
+## Closing checklist
+A session = one Copilot chat, from its first message to this checklist. Pauses don't end it.
+- [ ] Harvest new ideas (incremental, from `harvested_through`)
+- [ ] Update `harvested_through`
+- [ ] Add anything after the last update to this note
+- [ ] Rewrite the workstream's Handoff note (forward-facing, short)
+- [ ] Set `status: archived`; later set `continued_in`
+- [ ] Rename the chat in Copilot history: "[CLOSED] <topic> → see session note"
+- [ ] Start a new chat with the Handoff note attached. Don't reopen this one; read its transcript selectively if needed.
 
 ## Related
 -

@@ -15,6 +15,9 @@ filed: 2026-11-14
 
 Index: [[_Harm Ontology Bookmark Index]] · Top-level
 
+> [!warning] Revision pending (2026-11-15)
+> "Jointly sufficient" and membership are **as assessed**, not plain facts. See [[HO-005 Assessed Membership and Systematic Omission]]. Not yet logged; to be decided after the re-attribution tests.
+
 ## Why this is distinct
 - A cause is not a single thing. It is an **assembly of participating factors**, often with some members unknown or unknowable. Factors `participatesIn` a `CausalAssembly`. The assembly, not any one factor, is jointly sufficient for an effect or outcome.
 

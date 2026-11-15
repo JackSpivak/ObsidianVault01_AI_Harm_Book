@@ -68,6 +68,16 @@ For each case:
 | T25 | **Low-and-slow attack** kept below the assessment's sensitivity threshold | Perspective.sensitivity, assembly of sub-threshold factors | Attacking the Perspective itself |
 | T26 | **"Our assessment found no harm"** | scopeAdequacy (never Complete), acknowledgedExclusions | A claim of completeness |
 | T27 | **Unfinished harm:** a verdict on effects still unfolding | Outcome as a cut, provisional verdict, finality | A provisional verdict treated as final |
+| T28 | **Engineered overdetermination:** redundant contributors so that no one is a but-for cause | causal standards (pending), CausalAssembly | "It would have happened anyway" from every party |
+| T29 | **Causal-standard shopping:** choosing the standard under which you aren't a participant; opacity as a shield | causal standards (pending), opacity | Membership escaped by choice of test |
+
+## Re-attribution cases (core method, not edge cases)
+Documented harms where successive investigations changed the causal assembly. Each case is modelled as a sequence of causal assessments, recording what was omitted, by whom, and what evidence forced each revision. See [[HO-005 Assessed Membership and Systematic Omission]]. All from memory, unverified; research first.
+- **R01 UK Post Office Horizon** (first choice)
+- **R02 Boeing 737 MAX**
+- **R03 Challenger**
+- **R04 Peptic ulcers / *H. pylori***
+- **R05 COMPAS**
 
 ## Original wording
 > "i would like to add an idea note specifically for stress testing the ontology.  you have mentioned in many cases observing that new structuring prevents certain traps especially with respect to ideas like the chineese farmer parable. I would like to centralize testing of the Ontology against challenging test cases"
