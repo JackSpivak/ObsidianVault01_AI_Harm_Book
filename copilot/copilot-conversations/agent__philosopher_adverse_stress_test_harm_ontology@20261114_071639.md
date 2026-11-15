@@ -7,7 +7,7 @@ topic: "philosopher adverse stress test harm ontology"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":150311,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":148495,"cacheWriteTokens":1811,"updatedAt":1794701834795}'
+usage: '{"usedTokens":153157,"contextWindow":1000000,"inputTokens":4,"outputTokens":8,"cacheReadTokens":0,"cacheWriteTokens":153145,"updatedAt":1794715697125}'
 ---
 
 **user**: philosopher adverse stress test harm ontology
@@ -1378,3 +1378,65 @@ Sources:
 - [Sai Weng Loses a Horse — YellowBridge](https://www.yellowbridge.com/literature/horse.php)
 <!-- copilot-message {"tools":["ToolSearch (other)","WebSearch (fetch)"]} -->
 [Timestamp: 2026/11/14 17:16:28]
+
+**user**: so an assessment is a class of things? that has properties?
+how does this relate to what you had originally called an account? which we now call a TheoryOfHarm?
+isn't a theory of harm really a perspective from which harm (and therefore essentially goodness and badness) will be judged?
+[Timestamp: 2026/11/14 21:07:57]
+
+**ai**: 
+
+## 1. Yes, Assessment is a class, and each instance is one judgment
+
+Each **instance** of Assessment is **one act of judging**: one verdict, about one thing, made by one assessor, from one standpoint, at one horizon. Its properties record the details of that judgment:
+
+```text
+Assessment (class)
+ └── instance: case7_assess_3
+      ├── assesses ........... case7_brokenLeg        (the Effect, Factor or Role being judged)
+      ├── underTheory ........ ComparativeAccount
+      ├── forPatient ......... the son
+      ├── assessor ........... the neighbours
+      ├── assessmentHorizon .. step 3
+      ├── chainStatus ........ actual
+      └── verdict ............ Harmful
+```
+
+In the parable, the same broken leg gets **several Assessment instances** (the neighbours at step 3, the father at step 4, the state, the other families), each with a different verdict. Nothing about the leg changes; only the judgments differ.
+
+## 2. How Assessment relates to TheoryOfHarm
+
+- **TheoryOfHarm** is the **standard**: a reusable rulebook for what counts as harm.
+- **Assessment** is a **particular ruling** made by applying that standard to a case.
+
+It's like a legal code and a court verdict. There are only a handful of theories (five individuals), and they don't change. There can be any number of assessments, and each one cites the theory it used: `Assessment —underTheory→ TheoryOfHarm`.
+
+## 3. Is a theory of harm "a perspective from which good and bad are judged"?
+
+Mostly yes, with two refinements.
+
+**Refinement A: "perspective" bundles three different things.** Keeping them apart is what stops the parable's trap:
+
+| Part of a "perspective" | Question it answers | Where it lives in the model |
+|---|---|---|
+| **Standard** | *What counts* as harm? (feeling worse, worse off, wronged…) | TheoryOfHarm |
+| **Standpoint** | *From whose position*: victim, perpetrator, society, ancestors? | `assessor`, `forPatient` |
+| **Horizon** | *How far along the chain* are we looking? | `assessmentHorizon`, `chainScope` |
+
+If all three fold into "perspective," then someone can change the horizon or the standpoint while appearing to apply the same theory. The neighbours and the old man use the **same standard** (is this good for the family?). They differ only in **horizon**.
+
+**Refinement B: not every theory judges good and bad.**
+- The experiential, comparative, non-comparative and capacity accounts are **theories of value**. They judge what is **good or bad for** someone, and each pairs with a theory of well-being.
+- The **rights-based account is different.** It judges what is **right or wrong**. A harmless trespass is *wrong* without being *bad for* anyone.
+
+So a precise description: **a theory of harm is a standard for judging whether something is bad for someone, or wrong to someone.**
+
+## A naming consequence
+
+Assessments can now return "Beneficial," and the rights-based account judges wrongs as well as harms. So the name **TheoryOfHarm** has become too narrow, the same issue as HarmAssessment. Options:
+- **EvaluativeStandard** (precise, neutral)
+- **EvaluativePerspective** (closer to your wording, but "perspective" risks pulling standpoint and horizon back in)
+- Keep **TheoryOfHarm** for readability, with a scope note explaining that it covers benefit and wrong too.
+
+I lean toward **EvaluativeStandard** in the formal model, with "theory of harm" as a plain-language alias (`skos:altLabel`). Your call.
+[Timestamp: 2026/11/14 21:07:57]
