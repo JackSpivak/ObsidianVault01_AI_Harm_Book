@@ -7,7 +7,7 @@ topic: "Strategy: mapping old Interdisciplinary Harm Ontology.ttl to new Harm On
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":64737,"contextWindow":1000000,"inputTokens":4,"outputTokens":4,"cacheReadTokens":63569,"cacheWriteTokens":1160,"updatedAt":1794785176236}'
+usage: '{"usedTokens":74500,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":71053,"cacheWriteTokens":3437,"updatedAt":1794785652821}'
 lastAccessedAt: 1794784680078
 ---
 
@@ -316,3 +316,93 @@ Six pieces, which together cover who gains, what they gain, how it reaches them,
 
 If this direction holds, I can record it in `Decisions_Log.md` or save it as an idea note.
 [Timestamp: 2026/11/15 16:25:38]
+
+**user**: for right now i think the purpose would be better served by the full rework.  would you be able to use the narrative description matter to provide equally rich descriptions for the new classes and attributes by "inverting" the language?
+[Timestamp: 2026/11/15 16:30:14]
+
+**ai**: Yes, I can, with one limit. Some of the descriptive fields can be inverted and some can't, and treating them all the same way would produce confident but false text.
+
+## Which fields can be inverted
+
+| Field | Invertible? | How I'd handle it |
+|---|---|---|
+| `skos:prefLabel`, `altLabel` | Yes | Invert, then check that each label is a term people actually use |
+| `skos:definition` | Yes, with rethinking | Gain isn't simply loss in reverse: value can move by transfer, by avoided cost, or be created from harm. Each definition has to say which. |
+| `skos:note`, `scopeNote` | Mostly | Invert the logic, then rewrite wherever the reversed claim isn't true |
+| `skos:example` | Partly | Many harm examples have a real beneficiary I can name. For the others I'd write new examples. |
+| Domains of Applicability | Partly | Some carry over (tort becomes restitution or unjust enrichment); some are new fields (rent-seeking economics, tax law) |
+| `skos:historyNote` | **No** | History can't be inverted. I'd write each note from the real history of the benefit-side idea. |
+| `dcterms:bibliographicCitation` | **No** | Inverting a citation would invent a source. Each citation has to be a real work on the benefit side. I'd check each one and mark any I couldn't confirm as `(unverified)`. |
+
+This follows your rule against inventing sources. The citations and history notes are where most of the work lies.
+
+## Sample: inverting `hasCausalVector` (line 423)
+
+> **`harm:hasValueCaptureChannel` (Value-Capture Channel — Medium or Pathway of Benefit)** *(v3, proposed)*
+> * **Definition:** The medium or pathway through which value produced by a harm reaches the beneficiary. Values: direct seizure of the victim's money or property (`harm:DirectTransferChannel`); prices and market exchange, such as engagement sold as ad inventory (`harm:MarketPricingChannel`); costs avoided by pushing them onto victims or the public, such as skipped safety testing or unpaid environmental costs (`harm:CostExternalisationChannel`); accumulation of data, models or assets that keep producing returns (`harm:AssetAccumulationChannel`); gains in market position, influence or legitimacy (`harm:PositionalPowerChannel`); and routing through intermediaries, subsidiaries or other jurisdictions (`harm:IntermediatedBookingChannel`).
+> * **Note:** Mirrors `harm:hasCausalVector`. That attribute traces *what carried the harm to the victim*; this one traces *what carried the gain to the beneficiary*. The two pathways are often unequal: harm may arrive directly and physically, while the gain arrives indirectly, sometimes legally, and is often hard to see. Complements `harm:hasCaptureAttribution`, which says how directly the gain can be traced back to the harm.
+> * **Domains of Applicability:** Restitution & Unjust Enrichment, Tax & Transfer-Pricing Law, Competition Law, Platform & Data Governance.
+> * **dcterms:bibliographicCitation:** *to be sourced. Candidates I would check: Tullock (1967) and Krueger (1974) on rent-seeking; the US Restatement (Third) of Restitution and Unjust Enrichment (2011); Zuboff, The Age of Surveillance Capitalism (2019). All (unverified) until confirmed.*
+> * *skos:changeNote:* Proposed 2026-11-15 as a benefit-side mirror of attribute 20.
+
+## Scope and plan
+
+The full rework covers about 20 classes and about 22 attributes or value sets, so it's large. I suggest working in stages:
+1. **Skeleton:** names, hierarchy and value lists only, for you to approve.
+2. **Descriptions:** definitions, notes and examples, done one domain at a time.
+3. **Sources:** history notes and citations, researched and checked separately.
+4. **Output:** a Compendium v3 note. The `.ttl` would come later.
+
+Two questions before I start:
+- Should the benefit side go in a **Compendium v3** (one combined document) or in a separate **Benefit Companion** note linked to v2?
+- Should I record "full benefit mirror, built in stages" in `Decisions_Log.md`?
+<!-- copilot-message {"tools":["Read (read): 02_Ideas Topics Concepts/AI Governance & Safety/Interdisciplinary_Harm_Ontology_Compendium v2.md"]} -->
+[Timestamp: 2026/11/15 16:30:14]
+
+**user**: this sounds like a good plan. except lets call it v2a rather than v3 and we will need to straighten out version numbers soon
+
+is this markdown compendium sufficient to produce the necessary ttl?
+[Timestamp: 2026/11/15 16:33:39]
+
+**ai**: Mostly yes. The Compendium supplies the content. The structure comes from conventions in the v1 `.ttl` that the Compendium never states. I checked how `Interdisciplinary Harm Ontology v1.ttl` turns Compendium entries into Turtle.
+
+## What the Compendium already supplies
+- Class names, the class hierarchy (`rdfs:subClassOf`), labels, alternative labels, definitions, notes, scope notes, examples, history notes and citations. All of these carry over almost word for word. For example, `FiduciaryBetrayalHarm` (`.ttl` lines 401–412) matches its Compendium entry.
+- Property names and the value names for each attribute.
+- The "Key Attribute Bindings", which become direct statements such as `harm:hasVictim harm:DirectPrimaryVictim` (`.ttl` line 414).
+- "Domains of Applicability", which becomes a `skos:scopeNote` (`.ttl` line 913).
+
+## What the `.ttl` adds that the Compendium doesn't state
+- **A root class.** `harm:Harm` (`.ttl` line 34) is the top class. The benefit side would need its own counterpart, `harm:ValueCapture`.
+- **Value classes.** Each attribute gets a container class for its values, such as `harm:VictimRoleValue` (`.ttl` line 915). These are the 20 `.ttl`-only terms I found earlier.
+- **Domain and range.** Every property has `rdfs:domain harm:Harm` and a range set to its value class (`.ttl` lines 909–910).
+- **Short labels for values.** The Compendium describes values inline in prose, so I'd write a short `prefLabel` for each one.
+- **Annotation-property declarations** that strict tools such as Protégé need (version 1.0.2).
+
+These follow a regular pattern, so I can apply them by copying the v1 `.ttl` style.
+
+## What v2a needs that neither file has
+
+**1. A decision on the reused properties.** About 12 properties would apply to both harms and benefits. At present their domain is `harm:Harm`, which means any thing that has one of these properties is treated as a harm. Benefits that used them would therefore be classified as harms. There are two ways to fix this:
+- **(a)** Add a shared superclass, such as `harm:HarmOrBenefitEvent`, and make it the domain.
+- **(b)** Drop the domain on the shared properties.
+
+I lean towards (a), but you need to decide. The Compendium can't settle this.
+
+**2. Attribute numbering is already out of step between the files.** In the `.ttl`, `hasVictim` is labelled "Attribute 16" (line 911) and `hasObjectOfHarm` is "Attribute 17" (line 927). In Compendium v2 they are numbered 17 and 18. This belongs to the version and numbering clean-up you mentioned, and it should be fixed before v2a adds more numbers.
+
+**3. A structural weakness to know about, not to fix now.** The bindings attach property values directly to *classes*. Combined with `rdfs:domain harm:Harm`, this means a reasoner treats each subclass as an instance of a harm. It's a common shortcut and works in OWL Full, but a strict DL reasoner will complain. The benefit side would inherit the same issue, so it's worth deciding on one approach for both sides.
+
+## Conclusion
+
+If the v2a markdown records two things explicitly, the `.ttl` can be produced from it:
+- the shared-domain decision (point 1)
+- the value-class names for each new attribute
+
+I'd add a short "Serialization conventions" section to the top of the v2a Compendium. Then the markdown becomes the single source, and the `.ttl` is generated from it rather than written by hand.
+
+I can record two decisions in `Decisions_Log.md`:
+- "Benefit mirror: full rework, staged, named Compendium v2a"
+- "Version and attribute numbering clean-up pending"
+<!-- copilot-message {"tools":["Bash (execute)"]} -->
+[Timestamp: 2026/11/15 16:33:39]
