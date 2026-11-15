@@ -7,7 +7,7 @@ topic: "philosopher adverse stress test harm ontology"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":267113,"contextWindow":1000000,"inputTokens":4,"outputTokens":2,"cacheReadTokens":264561,"cacheWriteTokens":2546,"updatedAt":1794723944013}'
+usage: '{"usedTokens":270064,"contextWindow":1000000,"inputTokens":2,"outputTokens":2,"cacheReadTokens":269272,"cacheWriteTokens":788,"updatedAt":1794727243776}'
 ---
 
 **user**: philosopher adverse stress test harm ontology
@@ -2625,3 +2625,52 @@ These would test whether the model can represent:
 
 Want me to research the Horizon case as the first test, or would you rather name the insight in HO-003 now and leave the research for later?
 [Timestamp: 2026/11/14 23:25:19]
+
+**user**: not yet. this conversation is getting quite long and expensive. I have a practical question. how much of this entire thread (which i understand gets re-uploaded with every turn and at least partially processed minus whatever valuable parts are cached and indexed on your backend.  is that a point when we should simply begin fresh and pull in somekind of a handoff document summarizing everything and continue there?  What is lost doing that?  How expensive will this get continuing the way we are
+[Timestamp: 2026/11/15 00:20:22]
+
+**ai**: Yes, this is a good point to start fresh.
+
+## How big it is now
+
+Copilot's record for this chat shows about **267,000 tokens** of context, out of a 1,000,000-token window. Every turn re-sends all of it:
+- **While the cache is warm** (replies within a few minutes of each other), most of it is read from cache, which is much cheaper than fresh input. The last turn read about 265,000 tokens from cache and wrote about 2,500 new ones.
+- **After a pause,** the cache expires, and the whole context is processed at full price again. The overnight gap since your last message means this turn probably paid that cost.
+- **Each new turn adds to it.** The longer the chat, the more every later turn costs, even for a short question.
+
+I can't see your billing or the exact per-token rates, so I can't give you a dollar figure. The trend is the point: **cost per turn grows with length, and long pauses are the most expensive.** The context also isn't unlimited. Past a certain length it gets automatically summarized, which loses detail anyway, and in a way you don't control.
+
+## What a fresh start loses
+
+- **The reasoning path in full detail:** the exact back-and-forth, my earlier mistakes and your corrections (phenomena, events vs. factors, the rollback).
+- **Knowing what I've already read:** a new session has to re-open files.
+- **Unsaved material:** this matters most (see below).
+
+## What it doesn't lose
+
+Most of this session is already in the vault:
+- [[2026-11-14 Harm Ontology Redesign]]: the session note, though it only covers the session up to the Divergence decision.
+- [[Decisions_Log]]: 16 decisions from this session.
+- The [[_Harm Ontology Bookmark Index]] and its 17 notes (HO-000 to HO-004, the tiered notes, the premise and the stress-test suite).
+- The Session template, and the cross-references in the other indices.
+
+## The gap to close before starting fresh
+
+Two things aren't saved anywhere yet:
+1. **The session note's arc after Divergence:** Outcome, CausalAssembly, scope and criticality, and temporal asymmetry. They are logged and have notes, but the session note's "How the thinking moved" stops earlier.
+2. **Your latest insight, with no file at all:**
+   - membership in a causal assembly is itself assessed
+   - omission through inadequate assessment is the norm, not an edge case
+   - re-attribution cases (Horizon, 737 MAX, Challenger, ulcers) as the test method
+   - my own caveats: the regress problem, the evidence anchor, and the Causal/Valence split held back until tested
+
+## My recommendation
+
+1. **Here, in one turn:** add an addendum to the session note covering everything after Divergence. Include a **"Resume here"** section with the latest insight, the pending proposals (not logged, deliberately) and the suggested next step (research the Horizon case). That section becomes your handoff document.
+2. **In a new chat:** attach only that session note and the [[_Harm Ontology Bookmark Index]]. That's a few thousand tokens instead of 267,000. I'll read individual HO notes as needed.
+
+The handoff will be good but not perfect. The fine texture of the conversation stays in this chat's transcript, which remains available if you ever need it.
+
+Want me to write the addendum now?
+<!-- copilot-message {"tools":["Read (read): copilot/copilot-conversations/agent__philosopher_adverse_stress_test_harm_ontology@20261114_071639.md"]} -->
+[Timestamp: 2026/11/15 00:20:22]
