@@ -7,7 +7,7 @@ topic: "philosopher adverse stress test harm ontology"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":236213,"contextWindow":1000000,"inputTokens":2,"outputTokens":690,"cacheReadTokens":231291,"cacheWriteTokens":4230,"updatedAt":1794720089342}'
+usage: '{"usedTokens":236327,"contextWindow":1000000,"inputTokens":4,"outputTokens":8,"cacheReadTokens":235521,"cacheWriteTokens":794,"updatedAt":1794720420903}'
 ---
 
 **user**: philosopher adverse stress test harm ontology
@@ -2067,3 +2067,156 @@ Every note uses the single Idea template, with all sections filled in from this 
 **One question for you:** who runs the tests? If I run them on a model I helped design, that's the self-evaluation problem from 002. The note suggests mixing author, Claude and council runs. One option is the improvised adversarial council you asked about earlier, if you want to formalise it. Want to try the first test now? T01 (Sai Weng) is the obvious place to start.
 <!-- copilot-message {"tools":["Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002 Ontology Stress-Test Suite.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md"]} -->
 [Timestamp: 2026/11/14 22:20:30]
+
+**user**: can you please display the current ontology structure with the various improviements weve made since last graphic visual
+[Timestamp: 2026/11/14 22:26:24]
+
+**ai**: Here's the current model, with all logged decisions applied. **[NEW]** marks additions since the last tree, **[CHANGED]** marks revisions, and `(?)` marks open questions.
+
+```text
+HARM MODEL (draft v0.2 — reflects Decisions_Log 2026-11-14)
+│
+├── 1. Factor ............................... what a thing IS — neutral, never "harmful" in itself
+│   ├── Act ............................... a discrete doing (deceptive message; trigger pull)
+│   ├── Process ........................... an ongoing doing (engagement loop)
+│   ├── Omission .......................... a failure to act where action was owed
+│   ├── Condition (?) ..................... a persisting state           [CHANGED: may split ↓]
+│   │   ├── PhysicalState (?) ............ missing ramp, lead pipes
+│   │   ├── Status (?) ................... watchlist, credit tier, shadowban
+│   │   └── Disposition (?) .............. dependence, habituated deference
+│   ├── Structure ......................... incentives / institutions (business model)
+│   └── Risk .............................. a raised probability of a future setback
+│   │   [CHANGED: Phenomenal / NonPhenomenal branches REMOVED → now properties, see box A]
+│   │
+│   Factor properties
+│   ├── causes → Factor | Effect ......... builds the chain
+│   ├── isContinuous
+│   ├── observability ..................... see box A
+│   └── hasAgent → Agent (?)
+│
+├── 2. CausalRole ........................... what part a factor PLAYS in one chain (a thing in itself)
+│   ├── roleType: Trigger · Enabler · Amplifier · Conduit · ProximateCause · DistalCause · ContributingCause (?)
+│   │
+│   CausalRole properties
+│   ├── borneBy → Factor | Effect ........ [CHANGED: effects can bear roles too]
+│   ├── contributesTo → Effect
+│   ├── causalNecessity .................. ButFor | Sufficient | Overdetermined | Contributory
+│   ├── proximity ........................ Proximate | Distal
+│   ├── causalShare (?) .................. number or ordinal?
+│   ├── isDistributed · isForeseeable
+│   └── answerableAgent → Agent (?)
+│
+├── 3. Effect ............................... what happened TO WHOM — neutral   [CHANGED: no built-in harm]
+│   ├── kinds (subclasses): SleepLoss · ReputationalDamage · Deskilling · CapturedAssent (?) · Death · …
+│   ├── HarmfulEffect ..................... [NEW] optional, INFERRED from ≥1 Harmful assessment
+│   │
+│   Effect properties
+│   ├── leadsTo → Effect ................. [NEW] cascades (credit denial → housing loss → …)
+│   ├── affects → Patient ................ SentientIndividual | CollectiveArtificialPerson | NonSentientSystem |
+│   │                                      FutureGeneration (?) | AISystem (?) | Relationship (?)
+│   ├── hasObjectOfHarm .................. Somatic | PsychologicalCognitive | Assent/Judgment (?) | MaterialPecuniary |
+│   │                                      DignitaryRelational | NormativeStatus | OpportunityCapability | SystemicEnvironmental
+│   ├── experienceability ................ see box A
+│   ├── isPosthumous · isStatistical · isDispositional
+│   ├── severity · reversibility · temporalTrajectory · modality
+│   └── (Effect and Factor are NOT disjoint — "cause" and "effect" are positions in a chain)
+│
+├── 4. EvaluativeStandard ................... [CHANGED: was TheoryOfHarm (kept as altLabel)]
+│   │                                         a standard for judging bad-FOR or wrong-TO someone (individuals)
+│   ├── Philosophical
+│   │   ├── ExperientialAccount .......... harmed if made to feel worse
+│   │   ├── ComparativeAccount ........... harmed if worse off than otherwise
+│   │   ├── NonComparativeAccount ........ harmed if left in a bad state
+│   │   ├── RightsBasedAccount ........... wronged (judges the act; no effect needed)
+│   │   └── CapacityAccount .............. blocked from developing / exercising capacities
+│   ├── Legal ............................ [NEW] InjuryInFact · ReasonablePerson · LossOfChance · ConcreteHarm · …
+│   │                                      (each linked to its nearest philosophical account)
+│   └── Worldview (?) .................... afterlife / ancestor traditions as standards?
+│
+├── 5. Perspective .......................... [NEW] reusable configuration; all properties optional
+│   ├── Position ......................... standpoint · direction
+│   ├── Time ............................. timestamp (assessedAt) · exposure (horizon)
+│   ├── Optics ........................... framing (scope) · resolution (granularity) · sensitivity (threshold)
+│   ├── Purpose .......................... intent · standard → EvaluativeStandard · fitness (standard ↔ intent)
+│   └── Operator ......................... assessor → Agent
+│
+├── 6. Assessment ........................... one judgment = one instance   [CHANGED: was HarmAssessment]
+│   │
+│   Assessment properties
+│   ├── assesses → Factor | CausalRole | Effect
+│   ├── takenFrom → Perspective .......... [NEW]
+│   ├── forPatient → Patient
+│   ├── chainScope ....................... Link | Segment | WholeChain
+│   ├── chainStatus ...................... Actual | Extrapolated     [NEW — Sai Weng]
+│   ├── verdict .......................... Harmful | Beneficial | Mixed | Neutral | Contested   [CHANGED]
+│   ├── confidence · suppliedBy .......... [NEW] certainty + provenance on values
+│   │
+│   Subclasses (domain profiles) .......... [NEW] each adds properties; SHACL: "addressed, not known"
+│   ├── PersonalAssessment
+│   ├── MoralAssessment
+│   ├── ExpertAssessment
+│   ├── RegulatoryAssessment
+│   ├── ThreatAssessment ................. + threatActor · attackVector · exploitability · likelihood …
+│   ├── AlgorithmicAssessment ............ an AI system's own judgment
+│   └── Judgment ......................... + authority · jurisdiction · bindingForce · procedure · ratio ·
+│                                            citesPrecedent / distinguishes / overrules · remedyOrdered · finality
+│
+├── 7. Divergence ........................... [NEW] typed disagreement between assessments — the value-add
+│   │
+│   Divergence properties
+│   ├── between → Assessment (2+)
+│   ├── divergesOn → any Perspective property (standpoint, horizon, framing, standard …)
+│   ├── divergenceType ................... Perspectival ("true but partial") | Normative | Evidential | Factual
+│   └── reconcilable ..................... yes | no | unknown
+│
+├── 8. Integration .......................... [NEW, optional] combines partial assessments
+│   └── integrates → Assessment · resolves / leavesOpen → Divergence · keptInFrame / leftOut
+│
+├── 9. Agent (?) ............................ who acts, profits, answers, assesses
+│   ├── UnitaryIntentionalAgent · CollectiveAgent · AutonomousSystem (?)
+│   └── beneficiaryRole (v2) ............. Perpetrator | PrincipalInstitutional | DownstreamMarket | None
+│
+└── 10. LegalResponse (later) ............... CauseOfAction · Doctrine · Remedy
+
+┌─ BOX A — Phenomenality (property, not class)   [NEW] ───────────────────────────────┐
+│ values: Phenomenal | NonPhenomenal | ConditionallyPhenomenal                         │
+│ observability (Factor or Effect) + observableBy · revealedBy · hiddenFrom            │
+│ experienceability (Effect, relative to the patient)                                  │
+│ independent: unseen causes → felt effects; seen causes → unfelt effects              │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+┌─ BOX B — Missing information (any property)   [NEW] ─────────────────────────────────┐
+│ (absent) = not considered                                                            │
+│ Unknown · NotApplicable · Undisclosed · Disputed · Pending                           │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+┌─ BOX C — Vocabulary reuse   [NEW] ───────────────────────────────────────────────────┐
+│ own namespace (harm:) · map by default (skos:closeMatch) · reference identifiers ·   │
+│ import only small cores (candidates: BFO, PROV-O, OWL-Time, SHACL, legal, cyber, AI)  │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+**How the parts connect, using the Sai Weng parable:**
+
+```text
+Factor(horse returns) ─causes→ Effect(son's broken leg) ─leadsTo→ Effect(son spared from draft)
+                                   ▲
+              ┌────────────────────┼─────────────────────┐
+  Assessment A (neighbours)   Assessment B (old man)   Assessment C (other families)
+  takenFrom P1: horizon=step3 takenFrom P2: horizon=Unknown takenFrom P3: framing=village
+  verdict: Harmful            verdict: Contested       verdict: Harmful (their sons died)
+              └──────────┬─────────┘                         │
+       Divergence 1: divergesOn horizon, Perspectival        │
+                         └────────────── Divergence 2: divergesOn framing, Perspectival
+```
+
+**Still open,** marked `(?)` in the tree:
+- whether Condition splits
+- which role types to keep, and whether causal share can be measured
+- AI systems and Agent
+- future generations, AI systems and relationships as patients
+- Assent/Judgment as an object of harm
+- worldviews as standards
+- consent
+- the legal layer
+
+Test status: none of this has been checked against [[HO-002 Ontology Stress-Test Suite]] yet. All 18 cases are Untested.
+[Timestamp: 2026/11/14 22:26:24]
