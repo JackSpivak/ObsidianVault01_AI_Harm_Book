@@ -7,11 +7,29 @@
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.org/ontology/harm> a owl:Ontology , skos:ConceptScheme ;
-    owl:versionInfo "1.0.1"@en ;
+    owl:versionInfo "1.0.2"@en ;
     skos:changeNote "2026-11-15: prefix and namespace IRIs repaired (previously truncated to http://w3.org, http://purl.org and http://example.org). Ontology IRI set to http://example.org/ontology/harm to match the Compendium's harm: namespace. No other content changed."@en ;
+    skos:changeNote "2026-11-15 (1.0.2): added explicit declarations of the SKOS and Dublin Core annotation properties and SKOS classes, for strict OWL tools such as Protégé. skos:broader and skos:topConceptOf are declared as annotation properties (a common OWL DL practice) because they link classes here. No other content changed."@en ;
     skos:prefLabel "Interdisciplinary Harm Ontology"@en ;
     skos:definition "A formal OWL/SKOS/Dublin Core ontology integrating classical philosophical, legal, economic, game-theoretic, psychological, and AI-safety taxonomies and cross-cutting attributes of harm."@en ;
     dcterms:creator "Philosophers Council, Legal Counsel, Economists & Game Theorists, Technologists & AI Safety, Psychologists & Behavioral Scientists"@en .
+
+# --- Declarations for strict OWL tools (added in 1.0.2) ---
+skos:Concept a owl:Class .
+skos:ConceptScheme a owl:Class .
+
+skos:prefLabel a owl:AnnotationProperty .
+skos:altLabel a owl:AnnotationProperty .
+skos:definition a owl:AnnotationProperty .
+skos:note a owl:AnnotationProperty .
+skos:scopeNote a owl:AnnotationProperty .
+skos:example a owl:AnnotationProperty .
+skos:historyNote a owl:AnnotationProperty .
+skos:changeNote a owl:AnnotationProperty .
+skos:broader a owl:AnnotationProperty .
+skos:topConceptOf a owl:AnnotationProperty .
+dcterms:bibliographicCitation a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
 
 harm:Harm a owl:Class , skos:Concept ;
     skos:topConceptOf <http://example.org/ontology/harm> ;
