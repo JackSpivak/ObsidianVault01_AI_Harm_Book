@@ -7,7 +7,7 @@ topic: "philosopher adverse stress test harm ontology"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":160228,"contextWindow":1000000,"inputTokens":4,"outputTokens":3,"cacheReadTokens":158163,"cacheWriteTokens":2058,"updatedAt":1794717084034}'
+usage: '{"usedTokens":164656,"contextWindow":1000000,"inputTokens":4,"outputTokens":7,"cacheReadTokens":0,"cacheWriteTokens":164645,"updatedAt":1794717790683}'
 ---
 
 **user**: philosopher adverse stress test harm ontology
@@ -1617,3 +1617,135 @@ Both are standard practice in threat intelligence, where reliability of the sour
 
 So your instinct produces a three-part design: a **small optional core**, **domain profiles** that add properties, and **explicit statuses for what's missing**. It would handle an unknown or disputed horizon like the parable's without forcing a false verdict.
 [Timestamp: 2026/11/14 21:31:03]
+
+**user**: this is great.  this also has me very committed to using pre-existing domain vocabularies into which a  great deal of work has been contributed by experts with domain knowledge we oonly guess at
+[Timestamp: 2026/11/14 21:34:48]
+
+**ai**: That's the right commitment. It also fits a principle we've already been following: **don't build what experts have already built and tested.** Reusing vocabularies gives three benefits:
+- **Expert knowledge** you couldn't reconstruct yourself.
+- **Interoperability:** your data can link to existing datasets (court records, incident databases, threat intelligence).
+- **Credibility:** reviewers recognize the terms.
+
+## How to reuse, from lightest to heaviest
+
+| Method | What it means | When to use |
+|---|---|---|
+| **Map** | Keep your own term and link it (`skos:exactMatch`, `skos:closeMatch`) | Default. Low risk; their meaning doesn't override yours |
+| **Reference** | Use their term directly as a value (e.g. a CVSS score, a MITRE technique ID) | When their term *is* the thing, with no translation needed |
+| **Import** | Pull their whole ontology in, with its axioms | Rarely. Brings their logic and their mistakes too |
+
+**Rule of thumb:** map by default, reference for well-established identifiers, and import only small, stable core ontologies.
+
+## Candidate vocabularies, by layer
+
+These are all from memory, unverified. Each needs checking for current version, licence and fit before it's adopted.
+
+| Layer | Candidates |
+|---|---|
+| **Upper structure** (Factor, Role, Process, Disposition) | **BFO** (Basic Formal Ontology), whose Role and Disposition classes match our model; DOLCE as an alternative |
+| **Provenance, time, who supplied what** | **PROV-O** (W3C); **OWL-Time** (W3C) for timestamp and horizon |
+| **Assessment, confidence, uncertainty** | PROV-O plus W3C's uncertainty work; threat-intelligence reliability scales |
+| **Validation** (must be addressed) | **SHACL** (W3C) |
+| **Legal judgments and precedent** | **LKIF-Core**, **Akoma Ntoso**, **LegalRuleML**, **ECLI** (European Case Law Identifier) |
+| **Cybersecurity** | **STIX** (threat intelligence), **MITRE ATT&CK**, **CVSS**, **CWE** / **CAPEC** |
+| **AI harm specifically** | **AI Incident Database** (AIID), **CSET AI Harm Taxonomy**, **MIT AI Risk Repository**, **OECD AI Incidents Monitor**, **NIST AI RMF**, **EU AI Act** risk categories |
+| **Health and clinical** | SNOMED CT, ICD-11 (Effect types such as injury and disorder) |
+| **Victims and harm to people** | Possibly the victimology and human-rights documentation standards (e.g. **HURIDOCS**) |
+
+The **AI-harm row** matters most for the book. Those projects already classify real incidents. Mapping your Factor / Role / Effect / Assessment model onto them would test it against hundreds of documented cases, and might show where *their* taxonomies make the same category errors we found in v1.
+
+## Cautions
+
+- **Different meanings behind the same word.** "Harm" in the CSET taxonomy, "injury" in standing law and "impact" in CVSS are not the same concept. Use `closeMatch` rather than `exactMatch` unless you've checked.
+- **Heavy upper ontologies.** BFO is rigorous but demanding. Aligning *loosely* (your Factor is roughly a BFO entity) may be enough.
+- **Versions and licences.** Some (SNOMED CT, certain legal standards) have licensing terms. Many evolve, so record which version you mapped to.
+- **The ontology encodes contested positions.** Every reused vocabulary carries a view of harm, so map knowingly. The standing-law vocabulary, for instance, builds in a narrow, concrete view of injury that your model is designed to question.
+
+## Possible next steps
+
+1. **Log the decision:** "Reuse expert domain vocabularies; map by default, reference established identifiers, import only small core ontologies."
+2. **Research verification:** a sourced research note in `02_Ideas Topics Concepts/Research/` for the AI-harm vocabularies first, confirming what each one actually covers, its version and its licence.
+3. **A mapping table** later, once the model has settled, showing each of your classes against its closest external terms.
+
+Want me to start with step 2 on the AI-harm vocabularies? That's web research, so I'd cite everything and mark anything unconfirmed.
+[Timestamp: 2026/11/14 21:34:48]
+
+**user**: typically this will be implemented via domain namespaces and using terms from well maintained ontologies.  I am aware of this approach.  are you proposing anything fundamentally different from a practical implementation standpoint?
+[Timestamp: 2026/11/14 21:36:36]
+
+**ai**: No. What I described is the standard practice you already know: domain namespaces, terms taken from well-maintained ontologies, and mapping or importing as appropriate. I explained it at more length than you needed.
+
+Only a few things from this conversation go beyond routine reuse, and they belong to the **model**, not to the reuse method:
+
+1. **Explicit missingness statuses** (Unknown / NotApplicable / Undisclosed / Disputed / Pending) instead of leaving properties absent. Absence keeps its own meaning: not considered.
+2. **SHACL profiles that require "addressed" rather than "known."** That's an ordinary use of SHACL, but a deliberate policy choice.
+3. **Perspective as a reusable class,** with `fitness` relating standard and intent. As far as I know, the common vocabularies don't provide this, so it would probably sit in your own namespace.
+4. **Theory-relative verdicts:** harmfulness lives only in the Assessment, never in Factors, Roles or Effects. That's a modelling commitment, and it will conflict with some vocabularies you reuse (incident taxonomies that label things "harms" outright). That's the main reason for mapping with `closeMatch` rather than adopting their classes wholesale.
+
+Beyond that, it's the conventional approach. The useful remaining work is choosing *which* vocabularies, and checking their scope and versions. That's research, not design.
+[Timestamp: 2026/11/14 21:36:36]
+
+**user**: i actually like what i think might provide an actual value-add for this ontology relative to others which define harm outright. especially if our model has a representation that could capture and name the divergence various domains might have relative to an assessment that might be entirely legitimate from our more "zen" perspective.
+
+modern day philosopher ken wilber famously claimed that all perspectives are "partial" but "true" and some are more valuable than others.   perhaps this wording captures the "blind men and the elephant" problem
+[Timestamp: 2026/11/14 21:42:44]
+
+**ai**: I think you've found the real value-add. Most harm ontologies **assert** that something is a harm. This model would **represent disagreement about harm, explain it, and name it**. That has practical uses in law, regulation, incident review and the book. The parable, the councils and the stress tests all turn on this.
+
+## Wilber and the elephant
+
+From memory (unverified): Wilber's Integral Theory holds that perspectives are "true but partial." Each captures something real, none captures the whole, and more inclusive perspectives are more valuable. He's an influential but contested figure; academic philosophers often regard Integral Theory as more a synthesis than a rigorous theory. The "true but partial" idea stands up on its own, though, and the blind men and the elephant illustrate it well:
+
+| Parable | Model |
+|---|---|
+| The elephant | The full situation: the whole causal chain, every victim, every horizon. No one perceives it whole. |
+| Each blind man | One Assessment |
+| Touching the trunk, the leg, the tail | **Direction** and **framing** differ |
+| "It's a snake!" / "It's a tree!" | Verdicts that conflict, yet are **each true of what was touched** |
+| The argument that follows | **Divergence**, which the model can now name |
+
+## The new element: Divergence as a class
+
+A **Divergence** links two or more Assessments of the same situation and records **why** they differ:
+
+```text
+Divergence
+ ├── between → Assessment, Assessment, …
+ ├── divergesOn → standpoint | direction | timestamp | horizon | framing |
+ │                resolution | sensitivity | intent | standard | assessor
+ ├── divergenceType
+ │    ├── Perspectival ... different parts of the elephant; both can be true    ← "true but partial"
+ │    ├── Normative ...... same facts, different standards (rights vs. comparative)
+ │    ├── Evidential ..... different information (Unknown / Undisclosed values)
+ │    └── Factual ........ same perspective, contradictory claims → at least one is wrong
+ └── reconcilable → yes | no | unknown
+```
+
+**The key distinction:** "they disagree because they're looking at different parts" (**Perspectival**) versus "they disagree about the same part" (**Factual**). Most real harm disputes mix the two, and the parties rarely know which kind they're having. Naming it is the value-add.
+
+Applied to the parable:
+- The neighbours vs. the old man: **Perspectival**, on **horizon**.
+- The household vs. the other families: **Perspectival**, on **framing**.
+- The household vs. the state: **Normative**, on **standard**.
+
+## "Some are more valuable than others": a guardrail
+
+Wilber's ranking clause is the risky part. "All perspectives are true" can slide into **relativism**: every view goes, including the self-serving "who knows?" defence. The model can block that by keeping two claims separate:
+
+1. **Truth is relative to a perspective.** A verdict can be true *given* its standpoint, horizon and framing. That's partial truth.
+2. **Value is assessed, not assumed.** How valuable a perspective is can be measured using properties we already have:
+   - **fitness**: does its standard suit the intent?
+   - **coverage**: how much of the chain and how many victims fall inside the frame?
+   - **missingness**: how much is Unknown or Undisclosed, and who withheld it?
+   - **independence**: is the assessor also the beneficiary?
+
+This turns Wilber's ranking from a matter of authority into something you can inspect. An industry impact assessment can be **true but partial** *and* rank low on coverage and independence. Both can be said at once, with reasons.
+
+**One more guardrail:** not every divergence is perspectival. Sometimes one blind man is simply wrong: he's touching a tree, not the elephant. The **Factual** type keeps "partial" from becoming an excuse for "false."
+
+## Optional counterpart: Integration
+
+An **Integration** (or **Synthesis**) class could combine several partial Assessments into a fuller picture. It would record which divergences it resolved and which it left standing. Courts, councils and your book all perform integrations. The ontology could show what each one **kept in frame and what it left out**.
+
+This is worth recording as a design principle when you're ready. A possible wording: *"The ontology represents harm as perspective-relative assessments; divergence between assessments is a first-class object, typed by its source."* Want me to log it, or keep developing the idea first?
+[Timestamp: 2026/11/14 21:42:44]
