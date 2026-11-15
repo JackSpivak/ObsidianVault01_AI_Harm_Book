@@ -10,7 +10,8 @@ aliases: [HO-I.a, Factor, CausalRole]
 created: 2026-11-14
 filed: 2026-11-14
 ---
-
+```````
+```
 # HO-I.a — Factor and CausalRole
 
 Index: [[_Harm Ontology Bookmark Index]] · Parent: [[HO-000 Harm as Perspective-Relative Assessment|HO-000]] · Tier HO-I (core model)
