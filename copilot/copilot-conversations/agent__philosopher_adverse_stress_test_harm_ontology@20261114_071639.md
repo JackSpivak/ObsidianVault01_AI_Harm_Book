@@ -7,7 +7,7 @@ topic: "philosopher adverse stress test harm ontology"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":230186,"contextWindow":1000000,"inputTokens":2,"outputTokens":6,"cacheReadTokens":229463,"cacheWriteTokens":715,"updatedAt":1794719380230}'
+usage: '{"usedTokens":236213,"contextWindow":1000000,"inputTokens":2,"outputTokens":690,"cacheReadTokens":231291,"cacheWriteTokens":4230,"updatedAt":1794720089342}'
 ---
 
 **user**: philosopher adverse stress test harm ontology
@@ -2032,3 +2032,38 @@ Every note uses the single Idea template, with all sections filled in from this 
 **Later harvests:** each note has a distinctive `canonical_id` (e.g. `ho-factor-causal-role`). If a concept comes up again, the filing check will find the existing note and suggest extending it instead of creating a duplicate.
 <!-- copilot-message {"tools":["Grep (read): 02_Ideas Topics Concepts/AI Governance & Safety/_AI Governance & Safety Bookmark Index.md","Glob (read)","Read (read): 02_Ideas Topics Concepts/AI Governance & Safety/_AI Governance & Safety Bookmark Index.md","Read (read): 02_Ideas Topics Concepts/Global Structural Harm/_GSH Bookmark Index.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-000 Harm as Perspective-Relative Assessment.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-premise No Intrinsic Harmfulness.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-premise No Intrinsic Harmfulness.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-I.a Factor and CausalRole.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-I.b Effect and Cascades.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-I.c Phenomenality - Observability and Experienceability.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-II.a Assessment and Evaluative Standard.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-II.b Assessment Horizon - the Sai Weng Trap.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-II.c Judgment as Assessment - Reasoning over Precedent.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-II.d Perspective - Ten Optional Properties.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-II.e Missingness Statuses and Domain Profiles.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-III.a Divergence and Integration - True but Partial.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-III.b Reusing Expert Domain Vocabularies.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-001 Harm by Habituation and Captured Assent.md","[3 more tool calls]"]} -->
 [Timestamp: 2026/11/14 22:04:41]
+
+**user**: i would like to add an idea note specifically for stress testing the ontology.  you have mentioned in many cases observing that new structuring prevents certain traps especially with respect to ideas like the chineese farmer parable. I would like to centralize testing of the Ontology against challenging test cases
+[Timestamp: 2026/11/14 22:20:30]
+
+**ai**: I've added [[HO-002 Ontology Stress-Test Suite]] to the Harm Ontology index, with status `seed`. You asked for this note directly, so I filed it without the usual placement step. I made it a top-level entry next to HO-001, not part of a tier, because it tests every layer.
+
+**The key point:** throughout this conversation I claimed that the new structure "blocks" certain traps, such as the horizon trap, the offsetting trap and the relativism trap. **None of those claims has actually been tested.** The note says so and treats them as hypotheses. It quotes my line "That one rule blocks the ethical trap at the level of the ontology itself" as a claim to test, not a result.
+
+**What's in the note:**
+- **Test format:** case, layers exercised, trap probed, expected representation, and a result of **Pass, Partial, Fail or Untested**, with the date and any design change it caused.
+- **18 initial test cases,** all marked Untested. They're drawn from this session:
+  - Sai Weng, from both the horizon and the framing angle
+  - the shooting chain
+  - covert profiling
+  - the shadowban
+  - posthumous AI defamation
+  - the missed diagnosis
+  - rubber-stamping (002.II.a)
+  - *TransUnion v. Ramirez*
+  - the "net benefit to society" argument
+  - harmless trespass
+  - the whistleblower cascade
+  - convenience turning into deskilling
+  - future generations
+  - a factual error disguised as a perspective
+  - absent vs. unknown information
+  - luck vs. agency
+  - **T17:** your story device [[The Self-Revising Harm Ontology]], which tests whether the model can notice that its own standards have been quietly changed
+- **Direction:** eventually express each case as RDF data, with SHACL checks re-run after every design change.
+
+**Index changes:** a new entry for HO-002, plus a cross-reference note that every design claim in the index should eventually have a test case.
+
+**One question for you:** who runs the tests? If I run them on a model I helped design, that's the self-evaluation problem from 002. The note suggests mixing author, Claude and council runs. One option is the improvised adversarial council you asked about earlier, if you want to formalise it. Want to try the first test now? T01 (Sai Weng) is the obvious place to start.
+<!-- copilot-message {"tools":["Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002 Ontology Stress-Test Suite.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md"]} -->
+[Timestamp: 2026/11/14 22:20:30]

@@ -29,6 +29,7 @@ Click the arrow beside an item to open or close its branch.
 		- [[HO-III.a Divergence and Integration - True but Partial|HO-III.a — Divergence and integration]]: typed disagreement between assessments. The main value-add.
 		- [[HO-III.b Reusing Expert Domain Vocabularies|HO-III.b — Reusing expert vocabularies]]: map by default, reference identifiers, import only small cores.
 - [[HO-001 Harm by Habituation and Captured Assent|HO-001 — Harm by habituation and captured assent]]: AI's typical harm may be the self you are trained into, not a loss you suffer.
+- [[HO-002 Ontology Stress-Test Suite|HO-002 — Ontology stress-test suite]]: the one place where the model is tested against hard cases (Pass / Partial / Fail / Untested). It turns design claims into tests.
 
 ## Premises
 - [[HO-premise No Intrinsic Harmfulness|HO-premise — No intrinsic harmfulness]]: valence (harmful or beneficial) lives only in assessments. HO-I.b, HO-II.a, HO-II.b and HO-III.a all depend on it.
@@ -40,6 +41,8 @@ Click the arrow beside an item to open or close its branch.
 - **HO-000 and [[_AI Governance & Safety Bookmark Index|003]]:** 003 covers building tooling for an ontology; this index covers the ontology's design.
 - **HO-I.b and HO-II.e:** Effects with Undisclosed values held by the party with most to lose (the shadowban pattern).
 - **This index and [[The Self-Revising Harm Ontology]]** (unfiled story device): a model where harm is only ever judged, never intrinsic, is exactly what an AI could quietly re-weight.
+
+- **HO-002 and every other entry:** each design claim in this index should eventually have a test case in HO-002. [[The Self-Revising Harm Ontology]] is test T17.
 
 ## Summary
 Created 2026-11-14 from the harm ontology redesign session ([[2026-11-14 Harm Ontology Redesign]]). Its decisions are logged in [[Decisions_Log]].
