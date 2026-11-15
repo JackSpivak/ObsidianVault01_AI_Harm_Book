@@ -7,7 +7,7 @@ topic: "philosopher adverse stress test harm ontology"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":264573,"contextWindow":1000000,"inputTokens":4,"outputTokens":8,"cacheReadTokens":262926,"cacheWriteTokens":1635,"updatedAt":1794723641382}'
+usage: '{"usedTokens":267113,"contextWindow":1000000,"inputTokens":4,"outputTokens":2,"cacheReadTokens":264561,"cacheWriteTokens":2546,"updatedAt":1794723944013}'
 ---
 
 **user**: philosopher adverse stress test harm ontology
@@ -2583,3 +2583,45 @@ If membership depends on the causal standard, then **the standard can be gamed**
 
 Should I log and file these? And are you happy with **ValenceAssessment** as the name for what we've been calling Assessment, with Assessment staying as the parent class?
 [Timestamp: 2026/11/14 23:20:14]
+
+**user**: I am just naming this insight.  you responded rapidly.  do you simply agree or does this require more reflection.  certainly problems will occur when we test.  problems are likely to occur even finding test cases.  im thinking we need to find cases which have multiple causative factors - some of them we simply omit from the causal assembly because of inadequate assessment.  this is actually almost more certainly a core behavior in reality rather than an edge case to test
+[Timestamp: 2026/11/14 23:25:19]
+
+**ai**: You're right to ask. I agreed quickly, and some of that speed was momentum. The honest answer is in two parts.
+
+## What I agree with after reflecting
+
+Your core insight holds up: **membership in a causal assembly is assessed, not given.** The two-fires cases in tort law exist because courts have to *decide* what counts. So do accident investigations, which routinely add or drop factors. I'm confident in this part.
+
+## What I answered too fast
+
+- **The regress problem.** If membership is assessed, so is *how factors are carved up*: where one factor ends and another begins ("pilot error" vs. "training gap + interface design + schedule pressure"). Then what is left that isn't relative to a perspective? Without some anchor, the model slides into "everything is a view." The likely anchor is **evidence and traces**: perspectives select and describe, but they answer to the record. I haven't worked that out, and I shouldn't have proposed new classes before doing so.
+- **Splitting Assessment into Causal, Valence and Responsibility** may be right, but it's a structural change. I proposed it in one breath. It deserves testing first.
+- **The causal standards** (NESS, INUS, etc.) came from memory, and I presented them more confidently than I should have.
+- **A pattern worth noticing:** across this session I've repeatedly said a new structure "blocks" a trap. Your stress-test note is the right correction. These are hypotheses.
+
+## Your main point: omission is the norm
+
+I agree, and it changes how testing should work. If incomplete assemblies are normal, then:
+- **Tests can't assume a known, complete "true" assembly** to compare against. There usually isn't one.
+- **The model must treat "assessed assembly ⊂ unknown full assembly" as the default state,** not an error condition.
+- **The interesting question is often *which* factors get omitted, and by whom.** Omission is rarely random. Factors belonging to the assessor, or to powerful parties, tend to drop out.
+
+## A practical way to find test cases
+
+Look for **re-attribution cases**: documented harms where successive investigations **grew or changed the assembly** over time. Each case gives a sequence of causal assessments, and the gap between them shows what was omitted and why. Candidates, all from memory and unverified until checked:
+- **UK Post Office Horizon scandal:** for years, subpostmasters were blamed and prosecuted, while software faults and the Post Office's own conduct were left out of the assembly. This is a near-perfect case, and it's about a computer system.
+- **Boeing 737 MAX:** early attribution to pilots, later expanded to MCAS design, training decisions and regulatory delegation.
+- **Challenger:** the O-ring, later widened to organisational culture (Diane Vaughan's "normalization of deviance").
+- **Peptic ulcers:** attributed to stress for decades until *H. pylori* was identified. Omission through inadequate science, not self-interest.
+- **COMPAS / risk-scoring tools:** debates over which factors the assessment should include at all.
+
+These would test whether the model can represent:
+- **revision over time** (successive CausalAssessments)
+- **omission and its pattern** (who was left out, and who did the leaving)
+- **the anchor** (the evidence that eventually forced each revision)
+
+**My suggestion:** pause the structural changes. Don't log the Causal/Valence split yet. First, research two or three of these cases properly, with sources, and model them roughly. Let the cases tell us whether the split, the reified `participatesIn` and the evidence anchor are actually needed. Horizon would be my first choice.
+
+Want me to research the Horizon case as the first test, or would you rather name the insight in HO-003 now and leave the research for later?
+[Timestamp: 2026/11/14 23:25:19]
