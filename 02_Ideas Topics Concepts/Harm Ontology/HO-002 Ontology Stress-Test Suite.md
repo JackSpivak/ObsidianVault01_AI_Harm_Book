@@ -59,6 +59,9 @@ For each case:
 | T16 | **Absent vs. Unknown** (the neighbours vs. the old man) | missingness statuses | Treating "not considered" as "unknowable" |
 | T17 | **[[The Self-Revising Harm Ontology]]** (AI quietly re-weights the ontology) | the model itself as an object of manipulation | Can the model detect changes to its own standards and perspectives? |
 | T18 | **Luck vs. agency** (Sai Weng has no perpetrator) | Agent presence in the chain | "Who knows?" applied to deliberately caused harm |
+| T19 | **Engineered assembly:** harmless parts, harmful whole (e.g. task decomposition) | CausalAssembly (origin: Engineered, individuallyInnocuous), factor-level vs. assembly-level Divergence | Judging factors one at a time and finding nothing wrong |
+| T20 | **Exploited emergent storm:** an accidental alignment of factors that someone then uses | CausalAssembly (origin: Exploited), orchestrator, Unknown members | "Nobody built it, so nobody is answerable" |
+| T21 | **Hidden outcome selection** (a variant of T09) | Outcome, Perspective (framing, resolution) | Benefits counted while some effects quietly fall outside the frame |
 
 ## Original wording
 > "i would like to add an idea note specifically for stress testing the ontology.  you have mentioned in many cases observing that new structuring prevents certain traps especially with respect to ideas like the chineese farmer parable. I would like to centralize testing of the Ontology against challenging test cases"

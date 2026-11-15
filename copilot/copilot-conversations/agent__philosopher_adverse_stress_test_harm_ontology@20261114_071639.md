@@ -7,7 +7,7 @@ topic: "philosopher adverse stress test harm ontology"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":245258,"contextWindow":1000000,"inputTokens":2,"outputTokens":675,"cacheReadTokens":244156,"cacheWriteTokens":425,"updatedAt":1794721176633}'
+usage: '{"usedTokens":250799,"contextWindow":1000000,"inputTokens":2,"outputTokens":669,"cacheReadTokens":245695,"cacheWriteTokens":4433,"updatedAt":1794722055835}'
 ---
 
 **user**: philosopher adverse stress test harm ontology
@@ -2312,3 +2312,32 @@ It also opens a new kind of **Divergence**: **factor-level vs. assembly-level.**
 Should I go ahead with all three?
 <!-- copilot-message {"tools":["Edit (edit): 00_Claude_Admin/Decisions_Log.md"]} -->
 [Timestamp: 2026/11/14 22:38:34]
+
+**user**: i love the idea of causal assembly especially because i see factors as "participating in" a cause which we now make expllicit as participating in a causal assembly.  also it suggests a property on factor object property participatesIn
+[Timestamp: 2026/11/14 22:53:17]
+
+**ai**: I've added `participatesIn` to the model, and I've done the three things I proposed. I took "I love the idea" as your go-ahead.
+
+**`participatesIn` in the model:**
+
+```text
+Factor ──participatesIn──► CausalAssembly ──sufficientFor──► Effect / Outcome
+        ◄──hasMember────── (inverse, owl:inverseOf)
+```
+
+- One factor can take part in many assemblies. A recommender loop can be part of a radicalisation assembly and a sleep-loss assembly at the same time.
+- **A possible reuse:** I believe the OBO Relation Ontology already defines a "participates in" relation (from memory, unverified). It's defined for things taking part in processes, so it would need checking for fit. It would be a natural first test of the vocabulary-reuse policy.
+- **Open question:** how CausalRole fits with assemblies. Probably a factor's role is borne *within* a specific assembly (`CausalRole —withinAssembly→ CausalAssembly`). Then the same factor could be a Trigger in one assembly and an Enabler in another. I've recorded this in the note instead of deciding it.
+
+**Files written:**
+- **New note:** [[HO-003 Causal Assembly - the Perfect Storm]] (status `seed`). Its Original wording has your three messages on this, word for word, plus my "each factor passes inspection on its own" line.
+- **[[HO-002 Ontology Stress-Test Suite]]:** three new tests:
+  - **T19:** an engineered assembly of harmless parts.
+  - **T20:** an emergent storm that someone exploits.
+  - **T21:** a hidden outcome selection.
+- **The index:** an HO-003 entry and a cross-reference to HO-I.a and HO-III.a.
+- **The Decisions Log:** a CausalAssembly entry.
+
+The model now has a symmetric shape: **factors converge into assemblies, assemblies produce effects, and perspectives select effects into outcomes, which assessments judge.**
+<!-- copilot-message {"tools":["Write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-003 Causal Assembly - the Perfect Storm.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002 Ontology Stress-Test Suite.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md","Edit (edit): 00_Claude_Admin/Decisions_Log.md"]} -->
+[Timestamp: 2026/11/14 22:53:17]
