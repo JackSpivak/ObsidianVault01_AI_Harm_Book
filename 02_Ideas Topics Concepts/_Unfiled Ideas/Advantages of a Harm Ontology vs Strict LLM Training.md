@@ -27,6 +27,7 @@ created: 2026-11-16
 - **Epistemological:** it records what a harm *isn't* as well as what it is, leaves unsupported claims as visible gaps instead of fluent prose, lets frameworks disagree on the same event, and keeps facts apart from moral or legal judgment.
 - **Computational:** it's compact for context windows, modular through imports, validatable with SHACL, migratable across versions, and runnable cheaply offline.
 - **Governance:** it frees harm criteria from vendor safety filters, can be read and amended by non-engineers, allows shared reporting across institutions, supports counterfactual "flip one property" simulation, and keeps institutional memory.
+- **The gap:** governing harm through model training versus governing it through an explicit, auditable ontology is a real gap. I found no public evidence that labs such as Anthropic use a formal harm ontology; they publish prose principles. See [[#Do labs use formal harm ontologies? (research, 2026-11-16)]].
 
 ## Main text (verbatim, as provided by the author)
 
@@ -106,6 +107,44 @@ Beyond the core structural benefits already discussed (eliminating drift, standa
 - **Attribution:** Author (request). The main text was pasted by the author. It reads as output from an AI conversation ("your compendium", "removing brevity constraints"), but which model or session produced it isn't stated, and I couldn't locate it in the vault.
 - **Source:** Obsidian Copilot agent session, 2026-11-16 (`copilot/copilot-conversations/agent__are_you_able_to_find_a_conversation_segment_in_which@20261115_182550.md`).
 - **External references:** [[Interdisciplinary_Harm_Ontology_Compendium v2a]] (the `harm:` classes and properties cited, and the Joint Councils structure). Technical claims (SHACL, "lost in the middle", `owl:imports`) are **unverified** here.
+
+## Do labs use formal harm ontologies? (research, 2026-11-16)
+
+### Summary
+- **Anthropic:** no public evidence of a formal, machine-readable harm ontology used in training or governance. What's published is prose: Claude's Constitution (January 2026, CC0) and the Usage Policy (updated October 8, 2026, per secondary sources). A "Unified Harm Framework" is mentioned by one secondary source (unverified; contents not found).
+- **Inference (not sourced):** training on principles (Constitutional AI, RLHF) turns them into model weights. Nothing in the weights enforces the guarantees listed above. Those benefits come from an ontology *alongside* the model.
+- **Public alternatives exist**, though none matches this compendium's philosophical and legal depth:
+
+| Resource | Form | Notes |
+|---|---|---|
+| AIRO (AI Risk Ontology), ADAPT Centre | OWL 2, open source | EU AI Act + ISO 31000 based |
+| VAIR (Vocabulary of AI Risks) | Taxonomy on AIRO | Draft, "no official standing" |
+| IBM Risk Atlas Nexus | Open source, ontology-based | Reuses AIRO |
+| MIT AI Risk Repository | Database + taxonomies | 7 domains / 24 subdomains; causal taxonomy |
+| CSET AI Harm Taxonomy | Taxonomy | About 10 harm types; MIT severity scale 1–5 |
+| MLCommons AILuminate | Hazard taxonomy | 12 hazard categories (secondary sources) |
+
+- **Book angle:** governing harm through model training versus governing it through an explicit, auditable ontology is a real gap, not just a rhetorical one.
+
+### Original wording
+> "does claude use standard, well established, explicit, rich ontologies like this one in the prodction of their llms to guarantee that the benefits mentioned above are persistant and governed across development, training and use?  are these standard ontologies of harm available in the public domain?  if not are they published by anthropic anywhere and available for use"
+- **Attribution:** Author
+
+> "I found no public evidence that Anthropic trains or governs Claude with a formal, machine-readable harm ontology (OWL/SKOS) like yours. What it publishes is written in prose."
+- **Attribution:** Claude: Opus 5.5 (claude-opus-5-5)
+
+> "The benefits in your note belong to an ontology *alongside* a model, not to a model trained on principles."
+- **Attribution:** Claude: Opus 5.5 (claude-opus-5-5). Inference, not sourced.
+
+> "The comparison holds up as a real gap: governing harm through model training versus governing it through an explicit, auditable ontology."
+- **Attribution:** Claude: Opus 5.5 (claude-opus-5-5)
+
+- **Source:** Obsidian Copilot agent session, 2026-11-16 (`copilot/copilot-conversations/agent__are_you_able_to_find_a_conversation_segment_in_which@20261115_182550.md`).
+- **External references** (from web search results; pages not opened, so details are unverified):
+	- [Claude's Constitution (PDF)](https://www-cdn.anthropic.com/cffd979fd050fbc0d8874b8c58b24cc10554e208/claudes-constitution_webPDF_26-01.26a.pdf)
+	- Usage Policy update, secondary: [MindStudio](https://www.mindstudio.ai/blog/anthropic-cruelty-policy-claude), [Progressive Robot](https://www.progressiverobot.com/2026/10/09/anthropic-usage-policy-cruel-behavior-claude-ai/)
+	- [AIRO](https://w3id.org/AIRO) · [OECD catalogue: AIRO](https://oecd.ai/en/catalogue/tools/airo-ai-risk-ontology) · [AIRO paper (Zenodo)](https://zenodo.org/records/6821845) · [VAIR](https://w3id.org/vair)
+	- [MIT AI Risk Repository paper](https://futuretech.mit.edu/publication/the-ai-risk-repository-a-meta-review-database-and-taxonomy-of-risks-from-artificial-intelligence) · [MIT Incident Tracker harm taxonomy](https://airisk.mit.edu/ai-incident-tracker/harm-taxonomy) · [MIT update incl. MLCommons](https://airisk.mit.edu/blog/april-2025-update-of-the-ai-risk-repository-2)
 
 ## Real-world examples
 - None yet.

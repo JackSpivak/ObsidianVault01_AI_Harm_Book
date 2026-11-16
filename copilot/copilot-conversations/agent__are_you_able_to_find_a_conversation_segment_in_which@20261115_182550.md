@@ -7,7 +7,7 @@ topic: "are you able to find a conversation segment in which an AI p…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":73553,"contextWindow":1000000,"inputTokens":2,"outputTokens":301,"cacheReadTokens":68226,"cacheWriteTokens":5024,"updatedAt":1794863497880}'
+usage: '{"usedTokens":85722,"contextWindow":1000000,"inputTokens":2,"outputTokens":268,"cacheReadTokens":84318,"cacheWriteTokens":1134,"updatedAt":1794864053849}'
 ---
 
 **user**: are you able to find a conversation segment in which an AI persona on the writers council named Mary Roach comments on the master formal harm ontology
@@ -218,3 +218,73 @@ Which do you want, and should I keep the colons?
 - **Original wording:** this section now records that only the layout was changed, on 2026-11-16.
 <!-- copilot-message {"tools":["Write (edit): 02_Ideas Topics Concepts/_Unfiled Ideas/Advantages of a Harm Ontology vs Strict LLM Training.md"]} -->
 [Timestamp: 2026/11/16 14:11:00]
+
+**user**: does claude use standard, well established, explicit, rich ontologies like this one in the prodction of their llms to guarantee that the benefits mentioned above are persistant and governed across development, training and use?  are these standard ontologies of harm available in the public domain?  if not are they published by anthropic anywhere and available for use
+[Timestamp: 2026/11/16 14:16:52]
+
+**ai**: **Short answer:** I found no public evidence that Anthropic trains or governs Claude with a formal, machine-readable harm ontology (OWL/SKOS) like yours. What it publishes is written in prose. Formal AI-risk ontologies do exist in the public domain, but they come from academic groups, not from Anthropic.
+
+I'm Claude, but I have no inside knowledge of how Anthropic trains me. Everything below comes from public sources, and from these searches.
+
+### 1. Does Anthropic use a formal harm ontology to guarantee those benefits?
+**Not in anything I could find.** What Anthropic publishes:
+- **Claude's Constitution (January 2026), released under CC0.** It's a long prose document of values and reasoning, with harms weighed case by case. Search 1 (Anthropic harm taxonomy ontology Claude training constitution usage policy published) returned the PDF itself. I did not open it, but the summary says its harm section weighs costs such as "Harms to Anthropic: Reputational, legal, political, or financial harms to Anthropic."
+- **Usage Policy.** Search 1 says it was updated on October 8, 2026, adding a ban on "sustained and needless abusive or cruel behavior" toward the models. That came from secondary news and blog sources, not Anthropic's own page.
+- **A "Unified Harm Framework".** One secondary source says it guides Anthropic's policy development. I couldn't verify it or find its contents. It doesn't appear to be published as a formal ontology. Treat it as **unverified**.
+
+**My inference (not sourced):** training methods like Constitutional AI and RLHF turn principles into model weights. Nothing in the weights enforces the kind of guarantees in your note, such as SHACL completeness checks, explicit exclusion boundaries, or migration of old assessments when definitions change. That's the gap your note describes. The benefits in your note belong to an ontology *alongside* a model, not to a model trained on principles. As far as I can tell, the published approach is principles written in prose plus evaluations.
+
+### 2. Are standard harm ontologies or taxonomies available publicly?
+Yes, though none is as rich in philosophy and law as your compendium:
+
+| Resource | Form | Notes |
+|---|---|---|
+| **AIRO** (AI Risk Ontology), ADAPT Centre: Golpayegani, Pandit, Lewis | **OWL 2**, open source | Based on the EU AI Act and ISO 31000. Closest to your format. |
+| **VAIR** (Vocabulary of AI Risks) | Taxonomy built on AIRO | Marked as a draft with "no official standing"; GitHub repo `delaramglp/vair` |
+| **IBM Risk Atlas Nexus** | Open source, ontology-based | Combines several frameworks and reuses AIRO |
+| **MIT AI Risk Repository** | Database + taxonomies | 7 domains / 24 subdomains, plus a causal taxonomy; 1,700+ risks |
+| **CSET AI Harm Taxonomy** | Taxonomy | About 10 harm types; used for MIT's 1–5 severity scale |
+| **MLCommons AILuminate** | Hazard taxonomy for benchmarks | 12 hazard categories (from secondary sources) |
+
+### 3. Does Anthropic publish one for others to use?
+I found none. The Constitution is free to reuse under CC0, but it's prose, not an ontology.
+
+### What this means for the book
+The comparison holds up as a real gap: governing harm through model training versus governing it through an explicit, auditable ontology. Your v3 could reuse or map to AIRO/VAIR, which would fit the reuse-expert-vocabularies goal in [[HO-000 Harm as Perspective-Relative Assessment]].
+
+Would you like me to add this as a section or open question in [[Advantages of a Harm Ontology vs Strict LLM Training]], or put the AIRO/VAIR mapping on the migration to-do list?
+
+Sources:
+- [Claude's Constitution (PDF)](https://www-cdn.anthropic.com/cffd979fd050fbc0d8874b8c58b24cc10554e208/claudes-constitution_webPDF_26-01.26a.pdf)
+- [MindStudio: Anthropic cruelty policy](https://www.mindstudio.ai/blog/anthropic-cruelty-policy-claude) · [Markgrid](https://markgrid.ai/resources/anthropic-bans-abusive-behavior-claude-usage-policy) · [Progressive Robot](https://www.progressiverobot.com/2026/10/09/anthropic-usage-policy-cruel-behavior-claude-ai/) · [Clark Baker, Substack](https://rkoch.substack.com/p/a-constitution-that-does-not-bind)
+- [AIRO (w3id)](https://w3id.org/AIRO) · [OECD catalogue: AIRO](https://oecd.ai/en/catalogue/tools/airo-ai-risk-ontology) · [AIRO paper (Zenodo)](https://zenodo.org/records/6821845) · [VAIR](https://w3id.org/vair)
+- [MIT AI Risk Repository paper](https://futuretech.mit.edu/publication/the-ai-risk-repository-a-meta-review-database-and-taxonomy-of-risks-from-artificial-intelligence) · [arXiv 2408.12622](https://www.arxiv.org/pdf/2408.12622) · [MIT Incident Tracker harm taxonomy](https://airisk.mit.edu/ai-incident-tracker/harm-taxonomy) · [MIT update incl. MLCommons](https://airisk.mit.edu/blog/april-2025-update-of-the-ai-risk-repository-2) · [Emergent Mind: MLCommons taxonomy](https://www.emergentmind.com/topics/mlcommons-hazard-taxonomy)
+<!-- copilot-message {"tools":["ToolSearch (other)","WebSearch (fetch)"]} -->
+[Timestamp: 2026/11/16 14:16:52]
+
+**user**: lets do both of those things
+[Timestamp: 2026/11/16 14:19:15]
+
+**ai**: I added the research section to the ideas note and put the vocabulary mapping on the migration to-do list.
+
+1. **[[Advantages of a Harm Ontology vs Strict LLM Training]]:** a new section, "Do labs use formal harm ontologies? (research, 2026-11-16)", placed before Real-world examples. It contains:
+   - A summary of what Anthropic publishes. The idea that the benefits come from an ontology *alongside* the model is labelled as my inference, not a sourced fact.
+   - The six-row table of public alternatives.
+   - An Original wording block with your question quoted exactly, attributed to you, and two of my sentences quoted exactly, attributed to Claude: Opus 5.5.
+   - The source links, marked unverified because I only saw them in search results and didn't open the pages.
+
+2. **[[Harm Ontology Migration Plan]]:** a second open to-do: match v3's classes and properties to the public **AIRO** and **VAIR** vocabularies. Where the meaning is the same, v3 would reuse their identifiers. Where v3 covers more, that gets noted. MIT and CSET are possible extras. I put it in Phase 2 (crosswalk) and didn't mark it high priority. It links back to the new research section.
+
+3. **My memory of the migration plan:** I added this as item 8.
+<!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/_Unfiled Ideas/Advantages of a Harm Ontology vs Strict LLM Training.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology Migration Plan.md","Edit (edit)"]} -->
+[Timestamp: 2026/11/16 14:19:15]
+
+**user**: also, please add the language you mentioned above regarding a gap to the summary material in the advantages note if you did not already do that
+[Timestamp: 2026/11/16 14:20:40]
+
+**ai**: I've added it to the main Summary at the top of [[Advantages of a Harm Ontology vs Strict LLM Training]]. Before this, the gap point was only in the research section further down, as a "Book angle" bullet.
+
+1. **Main Summary:** a new last bullet, **"The gap"**. It says that governing harm through model training versus governing it through an explicit, auditable ontology is a real gap. It also notes I found no public evidence that labs like Anthropic use a formal harm ontology; they publish principles written as prose. The bullet links to the research section.
+2. **Original wording (research section):** I added my exact sentence from the earlier answer, "The comparison holds up as a real gap: governing harm through model training versus governing it through an explicit, auditable ontology." It's attributed to Claude: Opus 5.5.
+<!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/_Unfiled Ideas/Advantages of a Harm Ontology vs Strict LLM Training.md"]} -->
+[Timestamp: 2026/11/16 14:20:40]
