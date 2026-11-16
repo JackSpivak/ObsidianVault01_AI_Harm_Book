@@ -45,6 +45,16 @@ Likely crosswalk examples (to be confirmed in Phase 2):
 ## Open to-dos
 - [ ] **HIGH PRIORITY — before Phase 3 (content migration):** resolve [[Capability Approach - Sen and Nussbaum]] against the [[Harm Ontology v3 - Draft Structure|v3 skeleton]]. Decide where functionings, capabilities, agency, conversion factors and adaptive preferences live (EvaluativeStandard, Effect / patient properties, Factor kinds, or a gap), and settle Sen's open list vs Nussbaum's fixed ten. Added 2026-11-16.
 - [ ] **Map v3 to public AI-risk vocabularies:** crosswalk v3 classes and properties to [AIRO](https://w3id.org/AIRO) (OWL 2) and [VAIR](https://w3id.org/vair). Reuse their IRIs where meanings match (`owl:equivalentClass` / `skos:closeMatch`), and note where v3 goes beyond them. Possibly also MIT AI Risk Repository domains and the CSET harm taxonomy. Belongs in Phase 2 (crosswalk). Background: [[Advantages of a Harm Ontology vs Strict LLM Training#Do labs use formal harm ontologies? (research, 2026-11-16)]]. Added 2026-11-16.
+	- Landscape, candidate alignments and v3's likely additions are in [[External AI-Risk Ontologies - Alignment and Additions for Harm Ontology v3]]. Also consider W3C DPV RISK/AI (which has absorbed AIRO/VAIR) and LKIF-Core (legal).
+	- **First step:** download the AIRO and DPV-RISK `.ttl` files to `~/harm-ontology-scripts/` (outside the vault), then load them with rdflib and compare by meaning against the v1 `.ttl` and the v3 skeleton.
+	- **Check before mapping:** whether `airo:Consequence` or `dpv:Harm` build in negative valence. If they do, map with `skos:closeMatch`, not `owl:equivalentClass` ([[HO-premise No Intrinsic Harmfulness]]).
+
+## Reflection: what the external landscape means for this plan (2026-11-16)
+- **Phase 1 (skeleton):** declare `airo:`, `dpv:` and `vair:` prefixes, so later mapping triples don't force a skeleton change.
+- **Phase 2 (crosswalk):** gains a third column. Each row maps v1/v2a → v3 **and** v3 → external IRI, where one exists. Rows with no external match are v3's contribution; list them explicitly.
+- **Phase 3 (narrative):** where AIRO/DPV already define a term, cite them with `dcterms:source` instead of writing a rival definition.
+- **Scope boundary:** AI-system modelling (purpose, deployer, controls and mitigations) is reused from AIRO/DPV-AI, not rebuilt in v3. v3's job is the judgment layer they lack.
+- **Positioning:** in v3's annotations, describe it as complementary to AIRO/DPV (risk management) rather than competing with it.
 
 ## Session plan
 One focused session per phase (Phase 3 possibly per meta-category). Each starts from [[Handoff - Harm Ontology]].

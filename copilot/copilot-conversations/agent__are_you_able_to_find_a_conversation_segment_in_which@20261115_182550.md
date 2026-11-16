@@ -7,7 +7,7 @@ topic: "are you able to find a conversation segment in which an AI p…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":106907,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":101523,"cacheWriteTokens":5374,"updatedAt":1794865240664}'
+usage: '{"usedTokens":116603,"contextWindow":1000000,"inputTokens":2,"outputTokens":776,"cacheReadTokens":115299,"cacheWriteTokens":526,"updatedAt":1794865515985}'
 ---
 
 **user**: are you able to find a conversation segment in which an AI persona on the writers council named Mary Roach comments on the master formal harm ontology
@@ -400,3 +400,38 @@ Sources:
 - [LKIF-Core (CEUR)](https://ceur-ws.org/Vol-321/paper3.pdf) · [LKIF (Wikipedia)](https://en.wikipedia.org/wiki/Legal_Knowledge_Interchange_Format) · [Judicial interpretation ontologies (SWJ)](https://www.semantic-web-journal.net/sites/default/files/swj323.pdf)
 <!-- copilot-message {"tools":["WebSearch (fetch)"]} -->
 [Timestamp: 2026/11/16 14:39:58]
+
+**user**: please record this as an idea note reflecting potential additions, external links, alignments to the Harm Ontology v3.   Include reflecting on this in the migration plan
+[Timestamp: 2026/11/16 14:44:16]
+
+**ai**: I created the idea note and added a reflection section to the migration plan.
+
+**1. New idea note:** [[External AI-Risk Ontologies - Alignment and Additions for Harm Ontology v3]], in `_Unfiled Ideas/` (`bookmark: draft`, `status: seed`). It contains:
+- **Landscape table:** the seven resources (AIRO, VAIR, W3C DPV, AI Incident Database, MIT AI Risk Repository, LKIF-Core, IBM Risk Atlas Nexus) with standing, file format and coverage.
+- **Potential additions:** five things v3 offers that AIRO lacks, each linked to the HO notes.
+- **Alignments table:** v3 elements matched to candidate AIRO / DPV / LKIF / CSET terms, with a likely mapping type for each. All marked provisional until the files are actually compared.
+- **Where AIRO and DPV are stronger:** regulatory alignment, institutional uptake, AI-system modelling and stable identifiers.
+- **External links:** grouped by resource and marked unverified, since I only saw them in search results.
+- **Original wording:** your two requests and two of my sentences, copied exactly and attributed one by one.
+
+**2. [[Harm Ontology Migration Plan]]:**
+- **The AIRO/VAIR to-do now has three sub-bullets:**
+  - a link to the new note
+  - the first concrete step: download the `.ttl` files outside the vault and compare them with rdflib
+  - a check before mapping: if AIRO or DPV treat a consequence as negative by definition, v3 can only map as *close*, not *equivalent*, because of [[HO-premise No Intrinsic Harmfulness]]
+- **New section, "Reflection: what the external landscape means for this plan":**
+  - Phase 1 declares the external prefixes up front.
+  - The Phase 2 crosswalk gets an extra column for each v3 term's external match. Rows with no match show what v3 contributes.
+  - Phase 3 cites external definitions instead of writing rival ones.
+  - Modelling of AI systems (purpose, deployer, controls) is reused, not rebuilt.
+  - v3 is positioned as complementary to AIRO and DPV, not a competitor.
+
+**3. My memory of the migration plan:** I added this as item 9.
+
+All the links point to notes that already exist.
+
+Two things are still waiting on you:
+- **Filing:** I'd put this new note in the index as **HO-008**, beside the earlier plan (HO-II.a.1, HO-006, HO-007). Should I file all four?
+- **Comparison:** should I run the machine-readable comparison against AIRO and DPV?
+<!-- copilot-message {"tools":["Write (edit): 02_Ideas Topics Concepts/_Unfiled Ideas/External AI-Risk Ontologies - Alignment and Additions for Harm Ontology v3.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology Migration Plan.md","Edit (edit)"]} -->
+[Timestamp: 2026/11/16 14:44:16]
