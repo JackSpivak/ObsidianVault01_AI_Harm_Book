@@ -7,7 +7,7 @@ topic: "Strategy: mapping old Interdisciplinary Harm Ontology.ttl to new Harm On
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":138161,"contextWindow":1000000,"inputTokens":4,"outputTokens":5,"cacheReadTokens":134468,"cacheWriteTokens":3684,"updatedAt":1794787062156}'
+usage: '{"usedTokens":144615,"contextWindow":1000000,"inputTokens":4,"outputTokens":7,"cacheReadTokens":143786,"cacheWriteTokens":818,"updatedAt":1794787249486}'
 lastAccessedAt: 1794784680078
 ---
 
@@ -713,3 +713,74 @@ This tests both the method and the v3 definitions before scaling to all ~50 clas
 
 What's your next question? Or should I start the pilot?
 [Timestamp: 2026/11/15 16:57:13]
+
+**user**: Narrative metadata is entirely absent in the skeleton. New target file. Can migrating this there appropriately? Be accomplished? Can you remember to make this part of a comprehensive plan when we finish the questions?
+[Timestamp: 2026/11/15 16:58:22]
+
+**ai**: Yes, it can be done. The skeleton being empty actually helps: nothing has to be merged or overwritten, and each narrative field simply follows its term through the crosswalk to the new location.
+
+**How it works:**
+- Every crosswalk row says where an old term goes. The script copies that term's labels, notes, examples, history notes and citations to the v3 target, with a provenance link back to the old IRI.
+- Once the crosswalk is approved, the copying is mechanical. That's why reviewing the crosswalk matters more than reviewing the prose.
+
+**The real constraint is fit, not mechanics.** An old definition describes the old *bundled* class. Copied into a narrower v3 term, it can become inaccurate. Suppose the definition of `PrivateTortiousHarm` were pasted onto an Effect kind: it would describe a whole legal wrong, not an injury. So placement depends on the mapping type:
+
+| Mapping type | Old `skos:definition` becomes | History notes, citations, examples |
+|---|---|---|
+| exact / close | the v3 `skos:definition` | copied as is |
+| narrower / broader / split | a `skos:note`, with an `editorialNote` saying where it came from and why it isn't the definition | copied to the main target; other targets link to it |
+| merge | the strongest one is the definition; the rest become notes | all copied, each with its own provenance |
+
+History notes and citations nearly always carry over safely, because they describe the *idea*, not the old class boundary.
+
+**What the migration can't cover:**
+- v3 terms with no old counterpart, such as `CausalAssembly`, `Perspective`, `Divergence` and Box B missingness, get nothing from v1 or v2. Their narrative has to come from the HO notes and Decisions Log, or be written fresh. That's Phase 4.
+- Many v3 terms will need **their own native definitions** written in v3's neutral framing, even when they have old notes attached.
+
+**Your request to make this part of the plan:** I'm keeping a running list of items for the comprehensive plan, and this is on it. I'll also save it to memory in case this conversation gets summarized before we finish.I've saved it to memory. The running list for the comprehensive plan now has six items:
+1. Reusing structure through an explicit crosswalk, with object and annotation properties kept distinct
+2. Generating a legacy `.ttl` for v2a first, so the old terms have IRIs
+3. Matching on meaning rather than names: unbundle each old class, assign a mapping type, give a rationale for each row, run a challenge pass, and pilot on one meta-category
+4. **Migrating narrative into the empty v3 skeleton**, using the placement rules in the table above
+5. Moving v2a's benefit material (Part B) into v3's assessment model rather than keeping a separate `ValueCapture` class
+6. Versioning: v3.0 for the skeleton, v3.1 once migrated, v3.2 once the new narrative is written
+
+What's your next question?
+<!-- copilot-message {"tools":["Write (edit)","Bash (execute)"]} -->
+[Timestamp: 2026/11/15 16:58:22]
+
+**user**: If I simply tell Claude in a fresh conversation window that I am going to check alignment and mappings and do it in a crosswalk between two ontologies and use the plan that we work out, will it look for those ontologies by name in my folders that it has access to, or will it wait for me to upload them specifically?
+[Timestamp: 2026/11/15 16:59:37]
+
+**ai**: In a fresh Obsidian Copilot conversation, Claude will look for the ontologies itself; you won't need to upload them. It has the same file access to your vault that I have here. Whether it finds the **right** files is a separate question.
+
+**Why it could pick the wrong files:**
+- **Copies:** there are two copies of the v1 Compendium (vault root and `AI Governance & Safety/`), and a broken v1 `.ttl` in the vault root next to the repaired one.
+- **Unhelpful names:** "the new ontology" is a markdown note called *Harm Ontology v3 - Draft Structure*, not a `.ttl`. Earlier in this conversation a name search for `Harm Ontology.ttl` found nothing.
+- **What carries over:** a fresh conversation won't have this discussion. It will see the one-line memory pointer I saved, and your CLAUDE.md, but not the reasoning behind the plan.
+
+**The reliable way:** put the plan in the vault with exact file paths, then start the new conversation by naming that note. For example:
+
+> "Read [[Harm Ontology Migration Plan]] and follow it. We're doing the crosswalk pilot."
+
+The plan note would contain:
+- the exact path of each source and target file, and which ones to ignore (the broken root `.ttl` and the duplicate Compendium)
+- the crosswalk method and mapping rules we've worked out
+- where the crosswalk output goes
+
+[[Harm Ontology Migration Plan]] already exists, and your plan says each session should start from [[Handoff - Harm Ontology]]. So the comprehensive plan should **update those two notes** rather than create a new one. I've added that to the running list.
+
+**A different tool works differently:** in claude.ai (web or desktop chat) without vault access, Claude can't see your folders, and you'd need to upload or paste the files.
+
+What's your next question?
+[Timestamp: 2026/11/15 16:59:37]
+
+**user**: I will be doing the work here in this Obsidian copilot claued environment. I am using. Claude cod.e Terminal as far as I knew.
+[Timestamp: 2026/11/15 17:00:45]
+
+**ai**: Then the answer is simpler: you won't need to upload anything. This Obsidian Copilot environment runs on Claude Code underneath, through the Claude Agent SDK. Whether you start a fresh conversation here or in the Claude Code terminal, Claude can read your vault folders directly. Both also load the same `CLAUDE.md` files and the same memory folder.
+
+The risk of picking the wrong file still applies in both. Claude will search by name and could open the broken root `.ttl` or the duplicate Compendium. So the advice stands: start the new session by pointing it at [[Harm Ontology Migration Plan]] and [[Handoff - Harm Ontology]], updated with exact file paths. Then it starts from the right files.
+
+What's your next question?
+[Timestamp: 2026/11/15 17:00:45]
