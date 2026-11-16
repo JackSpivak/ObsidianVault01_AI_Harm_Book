@@ -7,7 +7,7 @@ topic: "are you able to find a conversation segment in which an AI p…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":88373,"contextWindow":1000000,"inputTokens":2,"outputTokens":477,"cacheReadTokens":85733,"cacheWriteTokens":2161,"updatedAt":1794864804557}'
+usage: '{"usedTokens":106907,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":101523,"cacheWriteTokens":5374,"updatedAt":1794865240664}'
 ---
 
 **user**: are you able to find a conversation segment in which an AI persona on the writers council named Mary Roach comments on the master formal harm ontology
@@ -307,3 +307,96 @@ The links point to notes that already exist.
 You now have three unfiled ontology-related ideas: this one, the Advantages note and the Capability Approach note. Do you want me to file them into [[_Harm Ontology Bookmark Index]]?
 <!-- copilot-message {"tools":["Write (edit): 02_Ideas Topics Concepts/_Unfiled Ideas/The Governance Gap - Training-Governed vs Ontology-Governed Harm.md"]} -->
 [Timestamp: 2026/11/16 14:32:58]
+
+**user**: yes
+[Timestamp: 2026/11/16 14:35:04]
+
+**ai**: Here's the filing plan. I haven't changed anything yet.
+
+**Checks:**
+- **Draft status:** all three notes are still marked `bookmark: draft`. I'm filing them because you asked explicitly.
+- **Duplicates:** none of the three titles already exists in the vault.
+- **Index:** I found [[_Harm Ontology Bookmark Index]] by its exact ID (`harm-ontology-bookmark-index`), and it's the only match.
+
+**Placements:**
+
+| Note | New ID | New file name | Where in the index | `canonical_id` |
+|---|---|---|---|---|
+| Capability Approach - Sen and Nussbaum | **HO-II.a.1** | `HO-II.a.1 Capability Approach - Sen and Nussbaum.md` | Under HO-II.a (Assessment and evaluative standard). It's a candidate *evaluative standard*: harm judged as a shrinking of what someone can do and be. | `ho-capability-approach` |
+| Advantages of a Harm Ontology vs Strict LLM Training | **HO-006** | `HO-006 Advantages of a Harm Ontology vs Strict LLM Training.md` | New top-level item. It's the case for *why* the ontology exists at all, which none of the current items covers. | `ho-advantages-vs-llm-training` |
+| The Governance Gap - Training-Governed vs Ontology-Governed Harm | **HO-007** | `HO-007 The Governance Gap - Training-Governed vs Ontology-Governed Harm.md` | New top-level item, also listed under the AI Governance & Safety index (see below). | `ho-governance-gap` |
+
+**What happens to the files:**
+- All three move from `_Unfiled Ideas/` to `02_Ideas Topics Concepts/Harm Ontology/`.
+- Each keeps its old name as an alias, so old links still resolve.
+- Each note's current status (`seed`) stays as it is.
+
+**Cross-references to add to the index:**
+- **HO-II.a.1 and HO-001:** adaptive preferences are captured assent seen from the welfare side.
+- **HO-II.a.1 and HO-I.b:** conversion factors work like effect properties specific to the person affected.
+- **HO-006 and HO-002:** each advantage could become a stress test.
+- **HO-006 and HO-III.b:** the mapping to the public AIRO/VAIR vocabularies.
+- **HO-007 and HO-006:** HO-007 is the real-world claim and HO-006 is the capability behind it.
+- **HO-007 and the AI Governance & Safety index:** HO-007 is about how labs govern harm.
+
+**Links to update:**
+- **[[Harm Ontology Migration Plan]]:** its two to-dos link to the Capability and Advantages notes.
+- **The Governance Gap note:** it links to the Advantages note.
+- **The Capability note's to-do callout:** no change needed.
+- **Excluded:** the conversation transcripts stay as they are, as the skill requires.
+
+**Your choice:** HO-007 is arguably more about lab governance than about ontology design. I'd keep it here and cross-reference it from the AI Governance & Safety index. The alternative is to file it there as its main home.
+
+Should I go ahead as proposed?
+<!-- copilot-message {"tools":["Skill (other)","Grep (read): 02_Ideas Topics Concepts","Read (read): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md"]} -->
+[Timestamp: 2026/11/16 14:35:04]
+
+**user**: what existing, respected, standardized, published, available ontologies available and in current use
+
+does this Interdisciplinary harm ontology add anything to the AIRO (AI Risk Ontology), is there an existing open source published compendium or machine readable version available for comparson
+[Timestamp: 2026/11/16 14:39:58]
+
+**ai**: **Short answer:** yes, there are respected, published, open ontologies in current use. Most of them build on AIRO and come from one research community. None that I found models harm the way your ontology does. AIRO models *risk management* (in the ISO 31000 sense: risk source → consequence → impact), not what harm *is* or how it gets *judged*. That's where your work adds something.
+
+### 1. What exists and is available
+
+| Resource | Status / standing | Machine-readable? | What it covers |
+|---|---|---|---|
+| **AIRO** (AI Risk Ontology), ADAPT Centre: Golpayegani, Pandit, Lewis, 2022 | Peer-reviewed; open source; v1.0 | **Yes**: OWL/Turtle at w3id.org/airo; repo `DelaramGlp/airo`; a parsed `.ttl` mirror exists | Risk, RiskSource, Consequence, Impact (subclass of Consequence), ImpactArea, AISubject, built on the EU AI Act and ISO 31000/31073 |
+| **VAIR** (Vocabulary of AI Risks) | Draft, "no official standing" | Yes (w3id.org/vair) | The taxonomy of specific terms that fills AIRO |
+| **W3C DPV**: RISK and AI extensions (v2.3, February 2026) | W3C *Community Group* report, **not** a W3C Standard | Yes | A taxonomy of consequences and impacts including "harm", financial loss, data breach, and also *positive* consequences (benefits). **AIRO and VAIR have been incorporated into DPV.** Models the AI Act's risk definition. |
+| **AI Incident Database**: CSET AI Harm Taxonomy, GMF taxonomy | Widely used for classifying incidents | Database snapshot download; formats not confirmed | Harm types and severity (CSET); goals/methods/failures (GMF) |
+| **MIT AI Risk Repository** | Widely cited; living database | Spreadsheet/database (not OWL) | 1,700+ risks; 7 domains / 24 subdomains; causal taxonomy |
+| **LKIF-Core** (legal ontology, ESTRELLA project) | Established in AI & Law research | OWL | Basic legal concepts: agents, actions, rights, roles. **Tort and harm appear only as a planned extension.** |
+| **IBM Risk Atlas Nexus** | Open source (per earlier search) | Not confirmed this round | Combines several frameworks; reuses AIRO |
+
+### 2. Does your ontology add anything to AIRO?
+This comparison is based on search summaries and AIRO's class list. **I haven't run a full comparison of the files yet.** With that caveat, these are likely additions, judging from your v1/v2a and v3 notes:
+
+1. **Theories of what harm is.** AIRO treats Impact as an effect on people or the environment. It doesn't distinguish hedonic, interest-based, rights-based, flourishing (capabilities) or Kantian accounts of harm. Your compendium does.
+2. **Legal doctrine inside the model.** Doctrines like *injuria sine damno* and *damnum absque injuria*, the line between tort and crime, and remedial duty-bearers. Even LKIF-Core leaves tort as future work.
+3. **Fact separated from verdict.** AIRO assumes a consequence is negative. Your v3 says nothing is harmful in itself: judgments are made from perspectives, with time horizons, and disagreement between judgments is modelled as part of the record (HO-000, HO-II, HO-III.a). I found nothing like that in AIRO, VAIR or DPV.
+4. **Harm mechanisms specific to AI:** habituation and captured assent (HO-001), assemblies of individually harmless factors (HO-003), how widely a harm can spread at almost no extra cost, and observability and experienceability (HO-I.c).
+5. **Long-form narrative and lineage:** history notes and citations across disciplines. AIRO's annotations are short and standards-based.
+
+**Where AIRO and DPV are stronger:** regulatory alignment (EU AI Act, ISO), institutional uptake through DPV, AI-system modelling (purpose, capability, deployer, controls and mitigations), and published vocabularies with stable identifiers. Those are the reasons to reuse them, which matches your HO-III.b principle of mapping by default and only importing small cores.
+
+### 3. A machine-readable comparison
+You already have machine-readable versions on your side: the repaired v1 `.ttl` and the v2a compendium. For a real comparison rather than my reading of summaries, I can:
+1. Download the AIRO and DPV-RISK Turtle files to a folder **outside the vault**.
+2. Load them with rdflib in your `harm-ontology` environment.
+3. Produce a comparison of classes and properties by meaning, following the method already in your migration plan.
+
+The result would be a note listing what's equivalent or close, what only AIRO/DPV has, and what only your ontology has. That would also start the AIRO/VAIR mapping to-do.
+
+Two things are waiting for you:
+- **Comparison:** should I run it?
+- **Filing:** the plan from my last message still needs your OK. It files the Capability note as HO-II.a.1, the Advantages note as HO-006 and the Governance Gap note as HO-007.
+
+Sources:
+- [AIRO (w3id)](https://w3id.org/AIRO) · [AIRO parsed Turtle mirror](https://akswnc7.informatik.uni-leipzig.de/dstreitmatter/archivo/w3id.org/AIRO/2024.09.16-052348/AIRO_type%3Dparsed.ttl) · [AIRO paper (Zenodo)](https://zenodo.org/records/6821845) · [AIRO paper (IOS Press)](https://ebooks.iospress.nl/pdf/doi/10.3233/SSW220008) · [TCD record](https://edepositireland.ie/handle/2262/100132) · [HART vocabulary](https://rsaniei.github.io/hart) · [SAGE paper](https://ceur-ws.org/Vol-4292/SAGE-paper8-long.pdf) · [VAIR](https://w3id.org/vair) · [OECD catalogue: AIRO](https://oecd.ai/en/catalogue/tools/airo-ai-risk-ontology)
+- [DPV 2.3](https://w3c.github.io/dpv/2.3/dpv/) · [DPV AI extension 2.3](https://w3c.github.io/dpv/2.3/ai) · [DPV RISK extension](https://w3id.org/dpv/risk) · [DPV Risk and Impact Assessment](https://www.w3.org/community/reports/dpvcg/CG-FINAL-dpv-20240801/modules/risk.html) · [DPV EU AI Act](https://w3c.github.io/dpv/2.0/legal/eu/aiact)
+- [AIID taxonomies](https://incidentdatabase.ai/taxonomies/) · [CSET v1](https://incidentdatabase.ai/taxonomies/csetv1) · [AIID editors paper](https://arxiv.org/pdf/2409.16425) · [MIT AI Risk Repository paper](https://futuretech.mit.edu/publication/the-ai-risk-repository-a-meta-review-database-and-taxonomy-of-risks-from-artificial-intelligence)
+- [LKIF-Core (CEUR)](https://ceur-ws.org/Vol-321/paper3.pdf) · [LKIF (Wikipedia)](https://en.wikipedia.org/wiki/Legal_Knowledge_Interchange_Format) · [Judicial interpretation ontologies (SWJ)](https://www.semantic-web-journal.net/sites/default/files/swj323.pdf)
+<!-- copilot-message {"tools":["WebSearch (fetch)"]} -->
+[Timestamp: 2026/11/16 14:39:58]
