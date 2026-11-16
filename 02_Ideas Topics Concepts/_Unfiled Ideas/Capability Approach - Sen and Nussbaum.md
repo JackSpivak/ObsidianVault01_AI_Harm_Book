@@ -86,3 +86,47 @@ created: 2026-11-16
 - [[HO-000 Harm as Perspective-Relative Assessment]]
 - [[HO-001 Harm by Habituation and Captured Assent]]
 - [[Open Harm Categories - Harm Beyond Human Experience]]
+
+
+From Google Search
+Amartya Sen’s **capability approach** is ==a normative framework for evaluating human well-being, poverty, and social justice by focusing on what people are actually able to do and be, rather than merely what resources or income they possess==. [[1](https://plato.stanford.edu/entries/capability-approach/), [2](https://commonweb.unifr.ch/artsdean/pub/gestens/f/as/files/4760/24995_105422.pdf), [3](https://www.youtube.com/watch?v=WWEGvW0Irq0)]
+
+Core Concepts
+
+- **Functionings:** The actual, achieved states of "beings and doings" that a person values, such as being well-nourished, healthy, educated, or participating in community life. [[1](https://iep.utm.edu/sen-cap/), [2](https://en.wikipedia.org/wiki/Capability_approach), [3](https://www.youtube.com/watch?v=Sab2nq1wdr0)]
+
+- **Capabilities:** The real, substantive opportunities and freedom ("choice sets") a person has to achieve those functionings. It emphasizes _freedom of choice_—having the option to live a valued life, not just stumbling into an outcome. [[1](https://en.wikipedia.org/wiki/Capability_approach), [2](https://plato.stanford.edu/entries/capability-approach/), [3](https://www.youtube.com/watch?v=Sab2nq1wdr0)]
+
+- **Agency:** A person's ability to act, pursue goals they value, and bring about change for themselves or society. [[1](https://www.scribd.com/document/836888692/Capability-approach-Amartya-Sen), [2](https://en.wikipedia.org/wiki/Capability_approach), [3](https://www.youtube.com/watch?v=Sab2nq1wdr0)]
+
+- **Conversion Factors:** Personal, social, and environmental conditions that affect how well a person can transform a commodity or resource into a functioning:
+    - _Personal:_ Age, metabolism, physical disability, or gender.
+    - _Social:_ Public policies, social norms, discrimination, or power structures.
+    - _Environmental:_ Climate, infrastructure, or geographic location.  
+        _(For example, giving a bicycle to a person with a physical disability may not translate into the functioning of mobility due to a personal conversion factor)._ [[1](https://learn.mru.org/lessons/amartyasen-1-capabilities), [2](https://plato.stanford.edu/entries/capability-approach/), [3](https://www.youtube.com/watch?v=Sab2nq1wdr0)]
+
+---
+
+What It Rejects
+
+Sen’s approach explicitly moves away from traditional economic and philosophical metrics:
+
+- **Welfarism and Utility:** Rejects measuring well-being purely by happiness, pleasure, or desire fulfillment, which can adapt to deprivation (e.g., chronically poor people lowering their expectations). [[1](https://iep.utm.edu/sen-cap/), [2](https://www.youtube.com/watch?v=Sab2nq1wdr0)]
+
+- **Resourcism and Opulence:** Rejects judging a person's advantage strictly by GDP per capita, income, or primary goods (as in strict Rawlsian or utilitarian models), arguing that people have diverse abilities to convert those resources into actual living standards. [[1](https://base.socioeco.org/docs/developments_critiques_advances.pdf), [2](https://www.youtube.com/watch?v=fhzD-yCJvfM&t=125), [3](https://www.youtube.com/watch?v=Sab2nq1wdr0)]
+
+---
+
+Real-World Impact
+
+- **Human Development:** The framework fundamentally shaped the United Nations Development Programme (UNDP) and the creation of metrics like the **Human Development Index (HDI)**, which shift focus from pure economic output to life expectancy, literacy, and living standards. [[1](https://www.youtube.com/watch?v=WWEGvW0Irq0), [2](https://en.wikipedia.org/wiki/Capability_approach), [3](https://learn.mru.org/lessons/amartyasen-1-capabilities)]
+
+- **Poverty Definition:** Redefined poverty not merely as low income, but as **capability deprivation**—the denial of real opportunities to live a decent life. [[1](https://commonweb.unifr.ch/artsdean/pub/gestens/f/as/files/4760/24995_105422.pdf), [2](https://www.youtube.com/watch?v=WWEGvW0Irq0)]
+
+---
+
+Sen vs. Nussbaum
+
+While Amartya Sen deliberately left the list of important capabilities open-ended to allow for democratic and participatory local valuation, his frequent collaborator, philosopher Martha Nussbaum, developed a concrete list of **ten central human capabilities** (including life, health, bodily integrity, and practical reason) meant to be guaranteed by constitutional design. [[1](https://iep.utm.edu/sen-cap/), [2](https://commonweb.unifr.ch/artsdean/pub/gestens/f/as/files/4760/24995_105422.pdf), [3](https://en.wikipedia.org/wiki/Capability_approach), [4](https://www.youtube.com/watch?v=WWEGvW0Irq0)]
+
+Would you like to explore how the capability approach is applied to a specific area, such as **education**, **poverty measurement**, or **gender justice**?
