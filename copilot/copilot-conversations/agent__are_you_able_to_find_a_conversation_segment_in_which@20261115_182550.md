@@ -7,7 +7,7 @@ topic: "are you able to find a conversation segment in which an AI p…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":85722,"contextWindow":1000000,"inputTokens":2,"outputTokens":268,"cacheReadTokens":84318,"cacheWriteTokens":1134,"updatedAt":1794864053849}'
+usage: '{"usedTokens":88373,"contextWindow":1000000,"inputTokens":2,"outputTokens":477,"cacheReadTokens":85733,"cacheWriteTokens":2161,"updatedAt":1794864804557}'
 ---
 
 **user**: are you able to find a conversation segment in which an AI persona on the writers council named Mary Roach comments on the master formal harm ontology
@@ -288,3 +288,22 @@ Sources:
 2. **Original wording (research section):** I added my exact sentence from the earlier answer, "The comparison holds up as a real gap: governing harm through model training versus governing it through an explicit, auditable ontology." It's attributed to Claude: Opus 5.5.
 <!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/_Unfiled Ideas/Advantages of a Harm Ontology vs Strict LLM Training.md"]} -->
 [Timestamp: 2026/11/16 14:20:40]
+
+**user**: Please make this last turn an idea note
+[Timestamp: 2026/11/16 14:32:58]
+
+**ai**: I made [[The Governance Gap - Training-Governed vs Ontology-Governed Harm]] in `02_Ideas Topics Concepts/_Unfiled Ideas/` (`bookmark: draft`, `status: seed`). I took "this last turn" to mean the gap idea itself, as a note of its own.
+
+- **What it covers:** the advantages note says what an ontology *can* do. This one makes a real-world claim: labs appear to govern harm through training on prose principles, not through explicit ontologies, and the difference is a gap the book can name.
+- **Original wording:** five quotes copied exactly, each with its own attribution. Two are yours (the question about Anthropic and the "add the gap language" request), and three are my sentences, attributed to Claude: Opus 5.5. One of mine is marked as inference, not sourced.
+- **Sources:** marked unverified, because I only saw them in search results and didn't open them.
+- **Open questions:**
+  - Labs may have internal taxonomies they haven't published. No public evidence isn't the same as proof they don't exist.
+  - A hybrid of ontology and model might be possible.
+  - An external ontology might just move the opacity to whoever controls the ontology.
+
+The links point to notes that already exist.
+
+You now have three unfiled ontology-related ideas: this one, the Advantages note and the Capability Approach note. Do you want me to file them into [[_Harm Ontology Bookmark Index]]?
+<!-- copilot-message {"tools":["Write (edit): 02_Ideas Topics Concepts/_Unfiled Ideas/The Governance Gap - Training-Governed vs Ontology-Governed Harm.md"]} -->
+[Timestamp: 2026/11/16 14:32:58]
