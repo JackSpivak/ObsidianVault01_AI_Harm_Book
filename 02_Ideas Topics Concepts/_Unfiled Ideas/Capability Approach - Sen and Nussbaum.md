@@ -13,6 +13,9 @@ created: 2026-11-16
 
 # Capability Approach - Sen and Nussbaum
 
+> [!todo] High priority
+> Resolve this against the [[Harm Ontology v3 - Draft Structure|v3 skeleton]] before content migration (Phase 3). Tracked in [[Harm Ontology Migration Plan#Open to-dos]].
+
 ## Why this is distinct
 - The compendium mentions the Capabilities Approach only in a history note, as one entry among the flourishing-type harms. This note treats it as a full framework of its own: functionings, capabilities, agency, conversion factors, and what it rejects. Each of those parts could map onto the harm ontology.
 

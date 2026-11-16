@@ -7,7 +7,7 @@ topic: "are you able to find a conversation segment in which an AI p…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":53992,"contextWindow":1000000,"inputTokens":2,"outputTokens":562,"cacheReadTokens":50159,"cacheWriteTokens":3269,"updatedAt":1794861782127}'
+usage: '{"usedTokens":59656,"contextWindow":1000000,"inputTokens":2,"outputTokens":354,"cacheReadTokens":57876,"cacheWriteTokens":1424,"updatedAt":1794861880303}'
 ---
 
 **user**: are you able to find a conversation segment in which an AI persona on the writers council named Mary Roach comments on the master formal harm ontology
@@ -78,3 +78,18 @@ All the links point to notes that already exist.
 Do you want me to file it into a bookmark index now? [[_Harm Ontology Bookmark Index]] looks like the best fit.
 <!-- copilot-message {"tools":["Read (read): 00_Claude_Admin/Templates/Idea.md","Read (read): 00_Claude_Admin/FileClasses/Idea.md","Grep (read)","Write (edit): 02_Ideas Topics Concepts/_Unfiled Ideas/Capability Approach - Sen and Nussbaum.md"]} -->
 [Timestamp: 2026/11/16 13:39:16]
+
+**user**: please record an open high priority to-do item to resolve this against the skeleton Harm Ontology v3 before content migration
+[Timestamp: 2026/11/16 13:44:21]
+
+**ai**: I recorded the to-do in two vault notes and in my memory:
+
+1. **[[Harm Ontology Migration Plan]]:** I added a new **Open to-dos** section with one open checkbox item marked **HIGH PRIORITY — before Phase 3 (content migration)**. The task is to match [[Capability Approach - Sen and Nussbaum]] against the [[Harm Ontology v3 - Draft Structure|v3 skeleton]]:
+   - Decide where each concept goes: functionings, capabilities, agency, conversion factors and adaptive preferences.
+   - Choose between Sen's open list and Nussbaum's fixed list of ten.
+2. **[[Capability Approach - Sen and Nussbaum]]:** I added a high-priority `[!todo]` callout at the top that links back to the plan's to-do.
+3. **My memory of the migration plan:** I added this as item 7, so it will go into the full migration plan when you finish your questions.
+
+I didn't add a Phase 3 status line in the Phases table. Tell me if you want one there as well.
+<!-- copilot-message {"tools":["Grep (read): 01_The Writer's Room","Read (read)","Grep (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology Migration Plan.md","Read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology Migration Plan.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology Migration Plan.md","Edit (edit): 02_Ideas Topics Concepts/_Unfiled Ideas/Capability Approach - Sen and Nussbaum.md","Edit (edit)"]} -->
+[Timestamp: 2026/11/16 13:44:21]
