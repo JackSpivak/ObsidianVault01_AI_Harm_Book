@@ -7,7 +7,7 @@ topic: "Name this chatWhat is Perspective"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":88582,"contextWindow":1000000,"inputTokens":2,"outputTokens":7,"cacheReadTokens":82790,"cacheWriteTokens":5783,"updatedAt":1794937421556}'
+usage: '{"usedTokens":102730,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":0,"cacheWriteTokens":102725,"updatedAt":1794942925393}'
 ---
 
 **user**: Name this chatWhat is Perspective
@@ -478,6 +478,122 @@ Do you approve? You can also adjust any part, for example:
 **user**: yes. definitely save the base state - the initial current structure of the Perspective they are consideriing as PerspectiveStructure 0.01
 [Timestamp: 2026/11/17 10:45:55]
 
-**ai**: 
+**ai**: I've saved both notes and added them to the bookmark index. Both are in `02_Ideas Topics Concepts/Harm Ontology/`.
+
+| Bookmark | Note | Contents |
+|---|---|---|
+| `HO-II.d.1` | [[PerspectiveStructure 0.01]] | The base state: your list and your two follow-up instructions, quoted verbatim, plus the full eight-group structure graph, quoted verbatim and attributed to Claude: Opus 5.5. A callout at the top marks it as frozen, so the next version becomes a new note (0.02). |
+| `HO-II.d.1.a` | [[v-0.01 ClassicalCouncil Review of - PerspectiveStructure 0.01]] | Your four-task brief, quoted verbatim, and the full Classical Council output, quoted verbatim. It says the personas are performances, not real quotations, and flags the historical citations as unverified. |
+
+**Index changes** in [[_Harm Ontology Bookmark Index]]:
+- Both entries are nested under HO-II.d.
+- A new cross-reference says that a Perspective instantiates a PerspectiveType.
+
+**Naming:** the review's file name now ends in "PerspectiveStructure 0.01", to match the base note's new name. Both notes have `HO-II.d.1` and `HO-II.d.1.a` as aliases, so links using those IDs resolve. Every link in the two notes points to an existing note; none are unresolved.
+
+The next review is the **Ethics Council** (Kant, Mill, Aristotle, Gilligan, Rawls, Singer). It would be saved as `HO-II.d.1.b`, "v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01". Should I go ahead?
 <!-- copilot-message {"tools":["Write (edit): 02_Ideas Topics Concepts/Harm Ontology/PerspectiveStructure 0.01.md","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 ClassicalCouncil Review of - PerspectiveStructure 0.01.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md"]} -->
 [Timestamp: 2026/11/17 10:45:55]
+
+**user**: yes. go ahead and use previous bookmarking approach to save result
+[Timestamp: 2026/11/17 12:17:02]
+
+**ai**: 
+
+# Ethics Council: review of PerspectiveStructure 0.01 (2 of 7)
+
+*This follows the council rules in [[Claude_philosophers]]. Dates and works are cited from memory and haven't been verified.*
+
+---
+
+**Kant.** Your structure describes a lens completely, but it never asks the first moral question: does this lens treat the people it looks at as *ends*, or only as material? A credit-scoring lens sees a person as a risk to be priced. That's a property of the lens itself, not of how one shot happens to use it. I'd add `standingOfSubjects`: does the lens regard those it examines as agents, as patients, or as data? I'd also add `consentToBeSeen`: did the people seen agree to it, could they, or is that even asked? And your `purpose` field confuses an end with a maxim. A lens may aim at safety while its maxim, "observe everyone, in case", couldn't be willed as a universal law.
+
+**Mill.** My friend begins with duty; I'd begin with who pays. The structure records `whoseInterests` a lens serves, but not **who bears its costs**. Benefits and burdens often fall on different people, and a lens that sees only aggregate welfare hides that split. I'd add `costBearer` and keep it next to `whoseInterests`. And a warning about `unitOfMeasure`: I argued that some pleasures are higher than others, which means not everything is commensurable. Record `commensurability`: does the lens put all values on one scale, or does it keep incommensurable goods apart? Finally, `authority` needs a limit. Power over someone is only legitimate to prevent harm to others. Record whether a lens claims authority over its subjects' self-regarding choices.
+
+**Aristotle.** I said much of my piece at the Classical table, so I'll add one thing. A lens shapes the character of the person who uses it every day. The actuary's habits become the actuary's virtues and vices. Epicurus named the feelings a lens produces. I'd name the dispositions it trains: `characterFormation`. This is where your book's habituation harm lives ([[HO-001 Harm by Habituation and Captured Assent|HO-001]]).
+
+**Gilligan.** Every attribute here is a property *of* the lens, as if the lens stood alone. A care perspective doesn't exist that way. It exists *between* people: carer and cared-for, in a situation. So I'd question the structure itself. Relations shouldn't be group 6 of 8; they're closer to the ground. I'd add `whoseVoice`, which is different from `whoseInterests`. A lens can serve your interests without ever hearing you. I'd also add `contextSensitivity`, running from abstract-universal to particular-situated.
+
+On `developmentalAltitude`, which you already know is contested: Kohlberg's stages of moral development ranked justice reasoning above care reasoning. That ranking scored many women lower. *In a Different Voice* was my answer. An altitude scale carries the perspective of whoever built it.
+
+**Rawls.** Gilligan's point about the altitude scale generalizes: a lens has a *position* it assumes its holder occupies. Mine is deliberately the original position, behind a veil of ignorance. Most lenses assume you already know who you are. Record `assumedPositionality`, running from impartial through situated to interested. Then add `distributiveConcern`: does the lens care how outcomes are spread, and does it give priority to the least advantaged? Finally, where `authority` binds people who didn't choose the lens, record `publicJustifiability`: can its verdicts be justified in terms everyone affected could reasonably accept?
+
+**Singer.** You have *social scope*, the size of the group, and *developmental altitude*, the inclusivity of values. You're missing a third axis: **which beings count at all**. That's the **moral circle**. Two lenses can share a social scope and an altitude, yet one counts animals and future generations while the other counts only living citizens. For your book, the question is pressing: does a lens count AI systems as possible moral patients? Add `moralCircle` and `impartiality`. And `temporalScope` needs a `discountRate`. Discounting future people is a moral choice disguised as arithmetic.
+
+---
+
+## 1. Omissions and gaps, and where they fit
+
+| Proposed attribute | Type | Where it fits | From |
+|---|---|---|---|
+| `normativeForm` {deontic · consequentialist · aretaic · relational · contractualist} | [O] | 2 Aim, or new **Normative core** group | council |
+| `embedsStandard` → EvaluativeStandard | [O] | Normative core (links to [[HO-II.a Assessment and Evaluative Standard\|HO-II.a]]) | council |
+| `valueTheory` {hedonic · preference · capability · rights · relational} | [O] | Normative core | Mill, Singer |
+| `standingOfSubjects` {agent · patient · datum} | [O] | 2 Aim | Kant |
+| `consentToBeSeen` {given · possible · absent · not asked} | [O] | 7 Consequence | Kant |
+| `costBearer` | [O] → Party | 7, beside `whoseInterests` | Mill |
+| `commensurability` {single scale · plural · lexical} | [O] | 5 Epistemics | Mill |
+| `harmPrincipleRespected` (claims authority over self-regarding acts?) | [D] boolean, or [O] | 7 Consequence | Mill |
+| `characterFormation` (dispositions trained in users) | [O] → Disposition | Stance (Classical proposal) | Aristotle |
+| `whoseVoice` | [O] → Party | 7, beside `whoseInterests` | Gilligan |
+| `contextSensitivity` {universal · situated} | [O] | 5 Epistemics | Gilligan |
+| `assumedPositionality` {impartial · situated · interested} | [O] | 3 Integral position, or Stance | Rawls |
+| `distributiveConcern` {none · equality · priority to worst-off · sufficiency} | [O] | Normative core | Rawls |
+| `publicJustifiability` | [O] → {yes · contested · no} | 7, beside `authority` | Rawls |
+| `moralCircle` {self · kin · nation · humanity · sentient beings · future beings · AI systems · ecosystems} | [O] | 3, as a **third axis** next to social scope and altitude | Singer |
+| `impartiality` | [D] ordinal | Normative core | Singer |
+| `discountRate` | [D] | 4 Scope, on `temporalScope` | Singer |
+
+## 2. Divergence from the structure itself
+
+- **The council's main finding:** the structure is descriptive and has no **normative core**. Add one group (`normativeForm`, `valueTheory`, `embedsStandard`, `distributiveConcern`, `impartiality`). This connects PerspectiveType to [[HO-II.a Assessment and Evaluative Standard|EvaluativeStandard]] explicitly, and doesn't leave the link implied.
+- **Gilligan:** relations come before attributes. This agrees with Laozi's "web, not tree" from the Classical review, which is now a second independent voice for it.
+- **Singer and the others:** the Integral position group needs **three scope axes** (size, altitude, moral circle). At present it has two.
+
+## 3. Divergence on the meaning of existing attributes
+
+- **`whoseInterests`** splits into three: interests served, costs borne (`costBearer`) and voice heard (`whoseVoice`).
+- **`purpose`** (Kant): separate the stated end from the operative maxim. A lens can be stated as "safety" while its maxim is "observe everyone". This echoes Confucius's `misnaming`.
+- **`developmentalAltitude`:** the Kohlberg–Gilligan dispute is a documented case of an altitude scale encoding its authors' perspective. That strengthens the Classical proposal to always record whose ranking it is (`assessedBy`).
+- **`authority`:** add legitimacy conditions (Mill's harm principle, Rawls's public justifiability), not only the basis (Confucius).
+- **`unitOfMeasure`:** choosing a unit already decides commensurability. Record that choice explicitly.
+- **`temporalScope`:** a horizon without a discount rate is incomplete.
+
+## 4. Ethics vocabulary for populating attributes
+
+| Attribute | Ethics term (altLabel) | Definition in this domain | Example / historyNote |
+|---|---|---|---|
+| PerspectiveType | moral theory; normative framework; ethical tradition | A systematic account of what makes acts, characters or institutions right or good | — |
+| normativeForm: deontic | deontology; duty ethics | Rightness lies in conformity to duties or constraints, whatever the outcome | Kant, *Groundwork of the Metaphysics of Morals* (1785) |
+| normativeForm: consequentialist | utilitarianism; welfarism | Rightness lies in the goodness of outcomes | Bentham, *Introduction to the Principles of Morals and Legislation* (1789); Mill, *Utilitarianism* (1861) |
+| normativeForm: aretaic | virtue ethics | Rightness lies in what a virtuous agent would do | Revived by Anscombe, "Modern Moral Philosophy" (1958), and MacIntyre, *After Virtue* (1981) |
+| normativeForm: relational | ethics of care | Morality is grounded in relationships and responsiveness to need | Gilligan, *In a Different Voice* (1982); Noddings (1984) |
+| normativeForm: contractualist | justice as fairness; contractualism | Principles are right if they'd be agreed under fair conditions | Rawls, *A Theory of Justice* (1971); Scanlon (1998) |
+| standingOfSubjects | Formula of Humanity; "mere means" | Treat humanity always as an end, never merely as a means | Applies to profiling: a person reduced to a risk score |
+| consentToBeSeen | informed consent | Agreement given with understanding and without coercion | Belmont Report (1979), respect for persons |
+| valueTheory | axiology; theory of the good | What makes a life go well: pleasure, preference satisfaction, capabilities, objective goods | Parfit's three-way taxonomy, *Reasons and Persons* (1984) |
+| commensurability | value pluralism; incommensurability | Whether all goods can be ranked on one scale | Mill's higher and lower pleasures; Berlin's pluralism |
+| harmPrincipleRespected | the harm principle | Power over someone is legitimate only to prevent harm to others | Mill, *On Liberty* (1859) |
+| characterFormation | habituation (*ethismos*) | Virtues and vices are formed by repeated action | *Nicomachean Ethics* II |
+| whoseVoice | "different voice"; epistemic standing | Whose account of their own situation the lens hears | Gilligan (1982) |
+| contextSensitivity | particularism | Moral reasons vary with context; no exceptionless principles | Dancy, *Ethics Without Principles* (2004) |
+| assumedPositionality | original position; veil of ignorance; "view from nowhere" | The standpoint the lens assumes its holder occupies | Rawls (1971); Nagel, *The View from Nowhere* (1986) |
+| distributiveConcern | difference principle; prioritarianism; sufficientarianism | How a lens weighs the spread of outcomes | Rawls (1971); Parfit, "Equality or Priority?" (1991) |
+| publicJustifiability | public reason; overlapping consensus | Coercive rules must be justifiable to all reasonable people | Rawls, *Political Liberalism* (1993) |
+| moralCircle | moral circle; moral patienthood; moral considerability | The set of beings whose interests count | Singer, *The Expanding Circle* (1981); *Animal Liberation* (1975) |
+| impartiality | equal consideration of interests | Like interests count alike, whoever has them | Singer, "Famine, Affluence, and Morality" (1972) |
+| discountRate | pure time preference; intergenerational justice | How much less future welfare counts | Ramsey (1928) called pure discounting "ethically indefensible" (wording unverified) |
+| developmentalAltitude | stages of moral development (pre-conventional, conventional, post-conventional) | Developmental levels of moral reasoning | Kohlberg (1958 onward); critiqued by Gilligan (1982) |
+| reflexive method | reflective equilibrium | Adjusting principles and case judgments against each other | Rawls (1971); Goodman (1955) |
+| costBearer | burdens and benefits; distributive justice | Who bears a lens's costs, as distinct from who benefits | Environmental justice literature |
+
+---
+
+## Moderator's summary
+
+- **Main tension:** Kant and Rawls look for universal principles and an impartial position. Gilligan insists on particular relationships and on the voices actually heard. Mill and Singer press on outcomes and on who counts. The structure can hold all of them only if `normativeForm` is plural and recorded, not built in.
+- **Strongest additions:** a **Normative core** group; a **third scope axis**, `moralCircle`; splitting `whoseInterests` three ways (interests, costs, voice); and legitimacy conditions on `authority`.
+- **Agreement with the Classical review:** a second voice for relations-first (Gilligan alongside Laozi), and for recording whose ranking an altitude scale is (Kohlberg alongside Confucius and Laozi).
+- **Most relevant to the book:** `consentToBeSeen`, `standingOfSubjects` and `moralCircle`. Does a lens count AI systems, and does it count the people it scores as ends?
+<!-- copilot-message {"tools":["Write (edit): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md"]} -->
+[Timestamp: 2026/11/17 12:17:02]
