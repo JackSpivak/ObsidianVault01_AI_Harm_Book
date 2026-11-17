@@ -7,7 +7,7 @@ topic: "Name this chatWhat is Perspective"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":271275,"contextWindow":1000000,"inputTokens":2,"outputTokens":744,"cacheReadTokens":0,"cacheWriteTokens":270529,"updatedAt":1794957781855}'
+usage: '{"usedTokens":309140,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":298052,"cacheWriteTokens":11083,"updatedAt":1794958680420}'
 ---
 
 **user**: Name this chatWhat is Perspective
@@ -1243,6 +1243,86 @@ Your Divergence object should allow *verdict convergence with rationale divergen
 - **Validation:** Minsky's frames confirm the type/instance design with defaults.
 - **Most relevant to the book:** a model is a lens nobody wrote down; counterfeit people exploit the intentional stance; complaints are heard but given low precision; intent-based lenses fail when the agent is an AI.
 
-**All seven councils are now complete.** The next step would be consolidating them into **PerspectiveStructure 0.02**, using the Logic Council's pruning rules (minimal core and the pragmatic test).
-<!-- copilot-message {"tools":["Write (edit): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 CognitiveCouncil Review of - PerspectiveStructure 0.01.md","Edit (edit)"]} -->
+**All seven councils are now complete.** The next step would be consolidating them into **PerspectiveStructure 0.02**, using the Logic Council's pruning rules (minimal core and the pragmatic test).I've saved the Cognitive Council review as [[v-0.01 CognitiveCouncil Review of - PerspectiveStructure 0.01]] (`HO-II.d.1.g`) and added it to [[_Harm Ontology Bookmark Index]]. That completes all seven council reviews.
+
+The note has a 21-row vocabulary table in the eight-column format. Each Explanation is about 140–200 words. Among the attributes it covers:
+- frame defaults
+- learned representation
+- training provenance
+- consensus mechanism
+- suppressors
+- prediction-error handling
+- precision weighting
+- explore vs exploit mode
+- causal model
+- governing analogies
+- treating the ontology as one of its own perspectives
+- intent weighting
+- stance toward the object
+- degeneracy (the same verdict reached by different routes)
+- re-entrant integration
+
+## What the seven reviews add up to
+
+**Points that several councils reached independently:**
+- **The gap between what a lens says it does and what it actually does.** Five witnesses: Confucius, Kant, Fuller, Arendt and Feynman. This is the strongest candidate for a core attribute.
+- **Relations matter more than a tree of attributes.** Laozi, Gilligan, Einstein and Edelman.
+- **Judgements about a lens must record who made them.** Hart's split between describing a lens and evaluating it, applied across every council.
+- **Blind spots come in four kinds:** built into the lens (Laozi), negligent, accepted (Le Guin) and actively suppressed (Minsky).
+
+**Proposed new groups:**
+- Stance
+- Normative core
+- Institutional
+- Subject's side
+- Power
+- Infrastructure
+- Dynamics
+
+**Main design decisions:**
+- **Lenses that are learned, not designed.** AI models are lenses too, and the structure should be able to record them (Hinton).
+- **The type/instance design.** Minsky's frames confirm it.
+- **Dates on meanings.** Scalia's point that what a term means should be tied to when it was used.
+
+**How to cut it down:** the reviews proposed more than 120 attributes in total. The Logic Council gave two filters for trimming them in 0.02:
+- **Minimal core** (Descartes): keep only what's needed to identify a lens.
+- **Pragmatic test** (Peirce): drop any attribute whose value changes no query and no divergence between lenses.
+
+**One limitation to keep in mind:** all seven councils were voiced by one model, me. The Cognitive note says so explicitly under "selfInstance". Hawkins and Longino would treat that as limited independence, so their agreement shouldn't be read as independent confirmation.
+
+## Next steps
+
+1. **Consolidate into PerspectiveStructure 0.02**, applying the minimal core and the pragmatic test. I'd propose the structure first and wait for your approval before writing it.
+2. **Run a web verification pass** on the citations in all seven tables. Every one is currently marked as from memory.
+3. **Log decisions** in `Decisions_Log.md`. These include the type/instance split, separating size from developmental altitude, and the eight-column vocabulary format.
+
+Which would you like to do first?
+<!-- copilot-message {"tools":["Write (edit): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 CognitiveCouncil Review of - PerspectiveStructure 0.01.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md"]} -->
 [Timestamp: 2026/11/17 16:24:50]
+
+**user**: please run verification on all 7 tables.  add citation verified column next to citation column. update all tables as required. (remove existing tables replacw with enriched version. do not ask for verification for each web search. all web searches are accepted in advance
+[Timestamp: 2026/11/17 16:36:55]
+
+**ai**: I've started seven background agents, one for each council note, to verify the citations in all seven vocabulary tables. They run in parallel, and all web searches go ahead without asking you, as you said.
+
+**What each agent does:**
+- Reads its note's current version first, so any edits you've made are kept.
+- Searches the web to check every citation (author, title, year, journal or publisher, volume, pages, section numbers or case citations), along with the dates, quotes and figures in the Historical note and Example cells.
+- Searches people's names in extended mode, per your CLAUDE.md.
+- Adds a **Citation verified** column straight after Citation. Each cell gives a status (Verified, Corrected, Partly verified or Not verified) and a source URL the agent actually found. No URLs are made up.
+- Corrects errors where they appear and notes each fix in the new column. It removes "(unverified)" marks once an item is confirmed and keeps them where it isn't.
+- Leaves the Explanation cells at their full length, changing one only if it states something found to be false.
+- Replaces the old table completely, and updates each note's warning callout to say what was checked.
+
+Each table will now have nine columns: your eight plus Citation verified. When all seven agents finish, I'll give you a combined report with the counts and every correction made.
+<!-- copilot-message {"tools":["Agent (think)"]} -->
+[Timestamp: 2026/11/17 16:36:55]
+
+**ai**: **Error:** Credit balance is too low
+[Timestamp: 2026/11/17 16:38:22]
+
+**ai**: **Error:** Credit balance is too low
+[Timestamp: 2026/11/17 16:38:24]
+
+**ai**: **Error:** Credit balance is too low
+[Timestamp: 2026/11/17 16:38:25]
