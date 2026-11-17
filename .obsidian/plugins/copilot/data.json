@@ -269,12 +269,12 @@
     {
       "providerId": "482a21c3-2ded-4ffc-b107-6a7da22d6430",
       "info": {
-        "id": "claude-fable-5-2[1m]",
+        "id": "claude-fable-5-1[1m]",
         "displayName": "Fable",
-        "description": "Fable 5.2 · Most capable for your hardest and longest-running tasks"
+        "description": "Fable 5.1 · Most capable for your hardest and longest-running tasks · $10/$50 per Mtok"
       },
-      "configuredModelId": "86583b61-814c-4a34-a51c-f6aed83e7ec2",
-      "configuredAt": 1794890754263
+      "configuredModelId": "76abdaee-2169-4d48-8701-fd9217b9e418",
+      "configuredAt": 1794933873263
     }
   ],
   "backends": {
