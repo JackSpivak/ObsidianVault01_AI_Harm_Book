@@ -7,7 +7,7 @@ topic: "Name this chatWhat is Perspective"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":167219,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":164595,"cacheWriteTokens":2619,"updatedAt":1794954216837}'
+usage: '{"usedTokens":171860,"contextWindow":1000000,"inputTokens":2,"outputTokens":602,"cacheReadTokens":170727,"cacheWriteTokens":529,"updatedAt":1794954535363}'
 ---
 
 **user**: Name this chatWhat is Perspective
@@ -670,3 +670,118 @@ Each agent first reads the note's current version, because the Classical note wa
 I'll report back when both are finished.
 <!-- copilot-message {"tools":["Agent (think)"]} -->
 [Timestamp: 2026/11/17 15:23:15]
+
+**ai**: The Classical note is done. I'm still waiting on the Ethics note.
+
+All 25 rows in [[v-0.01 ClassicalCouncil Review of - PerspectiveStructure 0.01]] now have Explanation cells of about 120–200 words. The agent only replaced the vocabulary table and left the rest of the note untouched, including your edits.
+
+Three things to know about the Classical table:
+- **Column padding:** you had padded the table so the columns lined up. The rebuilt table uses compact rows, so that alignment is gone. The eight columns are unchanged.
+- **One new uncertainty mark:** the Stobaeus reference for Hierocles is now marked "(unverified locator)". No other cells changed apart from the Explanations.
+- **New links:** the Explanations now link to HO-II.a, HO-II.b, HO-III.a, HO-001, HO-002, HO-004, HO-005 and HO-premise. All of these notes already exist, so there are no broken links.
+[Timestamp: 2026/11/17 15:26:16]
+
+**ai**: Both notes now have their full, enriched vocabulary tables. Each keeps the eight-column framework, and the old tables are gone.
+
+| Note | Rows | Explanation length |
+|---|---|---|
+| [[v-0.01 ClassicalCouncil Review of - PerspectiveStructure 0.01]] | 25 | about 120–200 words each |
+| [[v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01]] | 23 | about 150–200 words each |
+
+Each Explanation covers the term's significance, how it applies to AI harm and to the ontology, its limits, where it pulls against other attributes or councils, and what that means for modelling. The rest of each note is unchanged.
+
+**Other changes:**
+- **More detailed examples:** 13 rows in the Ethics table have fuller Example cells, for instance in deontic, care ethics, moralCircle and publicJustifiability.
+- **New "unverified" flags:** one on the Stobaeus reference for Hierocles in the Classical table, and one on the Facebook study's sample size in the Ethics table.
+- **Your latest request** is now quoted word for word in both notes, attributed to you, just above each table.
+- **Table layout:** the column padding you added to the Classical table was lost when the table was rebuilt. The content is unaffected.
+
+**Links:** the new Explanations link to existing HO notes (HO-000, HO-001, HO-002, HO-004, HO-005, HO-II.a/b/e, HO-III.a, HO-premise) and to the Capability Approach note. None of the links are broken.
+
+All citations are still from memory and unverified, as flagged at the top of each note.
+
+The Legal Council review (`HO-II.d.1.c`) is next. It will use the full eight-column format from the start. Shall I go ahead?
+<!-- copilot-message {"tools":["Grep (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 ClassicalCouncil Review of - PerspectiveStructure 0.01.md","Read (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 ClassicalCouncil Review of - PerspectiveStructure 0.01.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 ClassicalCouncil Review of - PerspectiveStructure 0.01.md"]} -->
+[Timestamp: 2026/11/17 15:26:37]
+
+**user**: yes proceed
+[Timestamp: 2026/11/17 15:29:49]
+
+**ai**: 
+
+# Legal Council: review of PerspectiveStructure 0.01 (3 of 7)
+
+*This follows the council rules in [[Claude_philosophers]]. Cases, dates and citations are from memory and haven't been verified.*
+
+---
+
+**Hart.** Start with a distinction your structure blurs: what a lens *is* versus whether it is *good*. `blindSpot: negligent`, `misnaming` and `failureByExcess` are evaluations, filed alongside descriptions like `lineage`. Keep them apart. Evaluations are themselves Assessments made from a perspective, so they need an `assessedBy`.
+
+Second, `authority` is ambiguous. A lens can be *legally valid*, meaning a system's rule of recognition makes its verdicts binding, without being *effective*, and the reverse is also true. Record `recognitionStatus` (which legal systems recognize this lens as a source, and at what rank) separately from `authority` in fact. Finally, every lens has a core of settled cases and a penumbra of open texture: "no vehicles in the park". Record where the penumbra lies.
+
+**Dworkin.** Hart's split is tidy, but it misses how lenses actually decide hard cases: by *principles*, not rules. In *Riggs v. Palmer* (1889) the court denied a murderer his inheritance under a valid will because "no one shall profit from his own wrong". Your structure has `assumption` but no `principles`. Those are the weighted, non-mechanical commitments a lens falls back on when its rules run out. Also, "harm" and "fairness" are *interpretive concepts*. People don't merely define them differently by domain; they *disagree* about them. `definitionByDomain` makes that disagreement look like translation. Flag interpretive concepts so the disagreement shows up as a Divergence, not as a list of synonyms.
+
+**Holmes.** Gentlemen, the life of the law has not been logic; it has been experience. Look at any lens the way the bad man looks at law: what will actually happen to me? Your structure records what a lens claims. It doesn't record what it *does*. Add `enforcementReality`: how often its verdicts are actually applied, by whom, and with what discretion. Pound called this the gap between law in books and law in action. A content policy that is enforced against one community and not another is two lenses wearing one name.
+
+**Scalia.** My colleagues want principles and predictions. I want the *text*. Which words, adopted when, constitute this lens? Your provenance group records sources but not the **authoritative formulation**, and meanings drift. "Harm" in Mill's 1859 sense isn't "harm" in a 2025 trust-and-safety policy. Add `canonicalText` and `meaningAsOf`, a date-stamp on every definition. Otherwise your ontology lets later readers smuggle their preferences into older words, and calls it evolution.
+
+**Ginsburg.** Justice Scalia and I disagreed often, and we agree that dates matter. But I'd point to the dates that shut people out. In *Ledbetter v. Goodyear* (2007) the Court held that a 180-day filing period ran from the first discriminatory pay decision, before the plaintiff could have known about it. I dissented, and Congress reversed the result in 2009. `temporalScope` needs `limitationPeriod` and `discoveryRule`, because a harm that can't be seen can't be challenged in time (HO-I.c).
+
+Next, `whoseInterests` and `costBearer` must ask whether facially neutral rules fall unequally: `differentialBurden`, or disparate impact. Then `remedy`. A lens that names a harm but offers no remedy is commentary. And favour durable, incremental change. Lenses that leap too far invite backlash.
+
+**Fuller.** Let me audit the lens as a set of rules. In *The Morality of Law* I named eight ways to fail to make law at all: no general rules, rules not published, retroactive rules, unclear rules, contradictory rules, rules impossible to obey, rules constantly changing, and **official action that doesn't match the declared rule**. Apply that to AI. In *State v. Loomis* (2016) a man was sentenced partly by COMPAS, a proprietary risk score whose workings he couldn't examine. That's an unpublished rule. Add `proceduralIntegrity`, scored against the eight desiderata. The eighth, congruence, is the formal version of Confucius's misnaming and Kant's hidden maxim. Three councils have now reached the same point.
+
+---
+
+## 1. Omissions and gaps, and where they fit
+
+| Proposed attribute | Type | Where it fits | From |
+|---|---|---|---|
+| `recognitionStatus` (recognized as a source, by which system, at what rank) | [O] → LegalSystem + rank | new **Institutional** group | Hart |
+| `authority` split into `validity` (de jure) and `efficacy` (de facto) | [O] / [D] | 7 → Institutional | Hart, Holmes |
+| `internalAcceptance` (do officials treat it as binding?) | [O] → {accepted · tolerated · ignored} | Institutional | Hart |
+| `openTexture` / `penumbra` (where settled meaning ends) | [A] | 1 Identity, beside definition | Hart |
+| `principles` (weighted background commitments) | [O] → Principle | Normative core (Ethics proposal) | Dworkin |
+| `interpretiveConcept` flag | [D] boolean | 1 Identity | Dworkin |
+| `enforcementReality` (applied how often, by whom, with what discretion) | [O] → EnforcementPattern | Institutional | Holmes |
+| `incentiveEffects` (behaviour the lens induces in the "bad man") | [A] | 7 Consequence | Holmes |
+| `canonicalText` (authoritative formulation) | [O] → Source | 8a Sources | Scalia |
+| `meaningAsOf` (date-stamp on definitions) | [D] xsd:date | 8b Provenance | Scalia |
+| `limitationPeriod` / `discoveryRule` | [D] / [O] | 4 Scope, on temporalScope | Ginsburg |
+| `differentialBurden` (disparate impact) | [O] → Party/Group | 7, beside costBearer | Ginsburg |
+| `remedy` (what the lens can award or order) | [O] → RemedyType | Institutional | Ginsburg |
+| `changeMode` {incremental · sweeping} | [O] | 1 Identity (history) | Ginsburg |
+| `proceduralIntegrity` (Fuller's eight desiderata) | [O] → Desideratum scores | Institutional | Fuller |
+| `jurisdiction` | [O] → Jurisdiction | 2 Aim, refines domainOfApplicability | council |
+| `standing` (who may invoke the lens) | [O] → Party criteria | Institutional | council |
+| `standardOfProof` | [O] → {preponderance · clear and convincing · beyond reasonable doubt} | 5, refines criterionOfTruth | council |
+| `precedentialWeight` {binding · persuasive · none} | [O] | Institutional | council |
+| `causationTest` {but-for · proximate · material contribution} | [O] | 5 (links HO-I.a) | council |
+| `legalPersonhood` (who can hold rights) | [O] | 3, legal counterpart of moralCircle | council |
+
+**Proposed new group:** **Institutional** (validity, efficacy, recognition, acceptance, enforcement, standing, remedy, precedential weight and procedural integrity).
+
+## 2. Divergence from the structure itself
+
+- **Hart:** separate description from evaluation. The evaluative attributes (`blindSpot` type, `misnaming`, failures) should be Assessments with `assessedBy`, not plain facts about the lens. This is the strongest structural point so far, and it applies the ontology's own premise ([[HO-premise No Intrinsic Harmfulness|HO-premise]]) to lenses themselves.
+- **Scalia:** the structure is atemporal. Every definition and text needs a date, or `PerspectiveType` will silently drift. This suggests versioning (`validFrom` / `validTo`) across the whole structure.
+- **Holmes:** add a books-vs-action layer. Every claimed attribute may have an *observed* counterpart.
+- **Dworkin vs Scalia:** principles vs text. The structure should allow both (`principles` and `canonicalText`) and record which one a lens relies on when they conflict.
+
+## 3. Divergence on the meaning of existing attributes
+
+- **`authority`** splits three ways: validity, efficacy and acceptance (Hart and Holmes), plus the legitimacy conditions from the Ethics review.
+- **`definitionByDomain`** treats disagreement as translation. Interpretive concepts need a Divergence link, not altLabels (Dworkin).
+- **`temporalScope`** needs a legal edge: limitation periods and discovery rules decide whether a harm can be heard at all (Ginsburg).
+- **`moralCircle`** has a legal twin, `legalPersonhood`, and the two often diverge. Corporations are legal persons; animals generally aren't. The Whanganui River has been a legal person since 2017.
+- **`criterionOfTruth`** becomes concrete in law as `standardOfProof` and `causationTest`.
+- **`whoseVoice`** becomes concrete as `standing`: the formal gate on who may speak (*TransUnion*, HO-002 T08).
+
+## Moderator's summary
+
+- **Main tension:** Hart and Scalia want clear sources and texts. Dworkin wants principles. Holmes says only enforcement matters. Fuller says form itself carries morality. Ginsburg asks who the neutral form leaves behind.
+- **Strongest additions:** an **Institutional** group; the **description/evaluation split**; **date-stamped meanings**; Fuller's **procedural integrity** as an audit of AI rules.
+- **Convergence across councils:** stated vs. operative congruence now has three sources (Confucius's misnaming, Kant's maxim, Fuller's eighth desideratum). That's strong evidence it belongs in 0.02 as a first-class attribute.
+- **Most relevant to the book:** *Loomis* (secret rules), *Ledbetter* (hidden harms that time out before they're discovered) and differential enforcement (one name, two lenses).
+<!-- copilot-message {"tools":["Write (edit): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 LegalCouncil Review of - PerspectiveStructure 0.01.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md"]} -->
+[Timestamp: 2026/11/17 15:29:49]
