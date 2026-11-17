@@ -2,8 +2,8 @@
 epoch: 1794892483139
 mode: agent
 backendId: claude
-sessionId: "947e513d-268e-4d1c-bbec-d2a3fa509008"
-topic: "harm ontology v3 is organized fundamentallly differ3ently th…"
+sessionId: 947e513d-268e-4d1c-bbec-d2a3fa509008
+topic: Crosswalking Harm Ontology Versions
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
