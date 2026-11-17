@@ -7,7 +7,7 @@ topic: "Name this chatWhat is Perspective"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":102730,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":0,"cacheWriteTokens":102725,"updatedAt":1794942925393}'
+usage: '{"usedTokens":117137,"contextWindow":1000000,"inputTokens":2,"outputTokens":532,"cacheReadTokens":0,"cacheWriteTokens":116603,"updatedAt":1794943942083}'
 ---
 
 **user**: Name this chatWhat is Perspective
@@ -594,6 +594,18 @@ On `developmentalAltitude`, which you already know is contested: Kohlberg's stag
 - **Main tension:** Kant and Rawls look for universal principles and an impartial position. Gilligan insists on particular relationships and on the voices actually heard. Mill and Singer press on outcomes and on who counts. The structure can hold all of them only if `normativeForm` is plural and recorded, not built in.
 - **Strongest additions:** a **Normative core** group; a **third scope axis**, `moralCircle`; splitting `whoseInterests` three ways (interests, costs, voice); and legitimacy conditions on `authority`.
 - **Agreement with the Classical review:** a second voice for relations-first (Gilligan alongside Laozi), and for recording whose ranking an altitude scale is (Kohlberg alongside Confucius and Laozi).
-- **Most relevant to the book:** `consentToBeSeen`, `standingOfSubjects` and `moralCircle`. Does a lens count AI systems, and does it count the people it scores as ends?
+- **Most relevant to the book:** `consentToBeSeen`, `standingOfSubjects` and `moralCircle`. Does a lens count AI systems, and does it count the people it scores as ends?I've saved the Ethics review as [[v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01]] (`HO-II.d.1.b`) and added it to [[_Harm Ontology Bookmark Index]] under HO-II.d.1, after the Classical review. The note contains the council output word for word, attributed to Claude: Opus 5.5, with a warning that the dates and works it cites are from memory and still need checking. All its links point to notes that already exist.
+
+**Main proposals from the Ethics Council:**
+- **A new Normative core group.** It would link PerspectiveType explicitly to EvaluativeStandard (HO-II.a).
+- **A third scope axis, `moralCircle`.** It records which beings count at all, including whether a lens counts AI systems.
+- **`whoseInterests` split three ways:** whose interests a lens serves, who bears its costs, and whose voice it hears.
+- **Legitimacy conditions on `authority`,** drawing on Mill's harm principle and Rawls's public justifiability.
+
+**Where the reviews converge so far:**
+- **Relations before attributes:** Gilligan and Laozi both argue for this.
+- **Altitude scales encode their authors' perspective:** Kohlberg's stages, as Gilligan criticised them, are a real example. This supports recording whose ranking it is (`assessedBy`).
+
+Next is the **Legal Council** (Hart, Dworkin, Holmes, Scalia, Ginsburg, Fuller), to be saved as `HO-II.d.1.c`. Should I go ahead?
 <!-- copilot-message {"tools":["Write (edit): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md"]} -->
 [Timestamp: 2026/11/17 12:17:02]
