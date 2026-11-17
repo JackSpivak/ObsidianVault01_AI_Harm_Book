@@ -185,16 +185,6 @@
     {
       "providerId": "482a21c3-2ded-4ffc-b107-6a7da22d6430",
       "info": {
-        "id": "claude-fable-5-1[1m]",
-        "displayName": "Fable",
-        "description": "Fable 5.1 · Most capable for your hardest and longest-running tasks · $10/$50 per Mtok"
-      },
-      "configuredModelId": "45943aeb-0fc5-4798-89ef-dfbc80f84122",
-      "configuredAt": 1793735993149
-    },
-    {
-      "providerId": "482a21c3-2ded-4ffc-b107-6a7da22d6430",
-      "info": {
         "id": "sonnet",
         "displayName": "Sonnet",
         "description": "Sonnet 5.5 · Efficient for routine tasks · $2/$10 per Mtok"
@@ -275,6 +265,16 @@
         }
       },
       "configuredAt": 1793736346404
+    },
+    {
+      "providerId": "482a21c3-2ded-4ffc-b107-6a7da22d6430",
+      "info": {
+        "id": "claude-fable-5-2[1m]",
+        "displayName": "Fable",
+        "description": "Fable 5.2 · Most capable for your hardest and longest-running tasks"
+      },
+      "configuredModelId": "86583b61-814c-4a34-a51c-f6aed83e7ec2",
+      "configuredAt": 1794890754263
     }
   ],
   "backends": {
@@ -282,7 +282,6 @@
       "enabledModels": [
         "11249328-f8e8-4c4c-8897-f74d64841269",
         "1aab1d0e-ae03-490a-a827-3fe1d787568b",
-        "45943aeb-0fc5-4798-89ef-dfbc80f84122",
         "07ffdbd8-ba84-4d7e-aaac-0f3b9bce360e",
         "05f6f9e8-cdcb-4579-8136-6044b1967e4c"
       ]
