@@ -7,7 +7,7 @@ topic: "Name this chatWhat is Perspective"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":242989,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":0,"cacheWriteTokens":242984,"updatedAt":1794957084265}'
+usage: '{"usedTokens":271275,"contextWindow":1000000,"inputTokens":2,"outputTokens":744,"cacheReadTokens":0,"cacheWriteTokens":270529,"updatedAt":1794957781855}'
 ---
 
 **user**: Name this chatWhat is Perspective
@@ -1108,6 +1108,141 @@ Second, the interface hides the mechanism. I wrote about the command line for th
 - **Main tension:** Asimov and Clarke engineer and extrapolate. Le Guin and Butler ask who lives under the system and who holds the power. Dick and Chiang trace deception and cognitive change. Stephenson descends to the material plumbing.
 - **Strongest additions:** a **Subject's side** group, a **Power** facet, an **Infrastructure** facet, `acceptedHarm` as distinct from blind spots, and `manipulability` (fabricated inputs).
 - **Scope rule respected:** every point rests on mechanisms that exist now or are physically plausible. Psychohistory and Voigt-Kampff are cited only for their physically grounded lessons: aggregate prediction fails on outliers, and human–machine discrimination tests have error rates.
-- **Most relevant to the book:** Omelas as the model of accepted harm, the liar's dividend, consent under total asymmetry, AI as accountability laundering, and lenses that change their holders' memory.
-<!-- copilot-message {"tools":["Write (edit)"]} -->
+- **Most relevant to the book:** Omelas as the model of accepted harm, the liar's dividend, consent under total asymmetry, AI as accountability laundering, and lenses that change their holders' memory.I've saved the Sci-Fi Council review as [[v-0.01 SciFiCouncil Review of - PerspectiveStructure 0.01]] (`HO-II.d.1.f`) and added it to [[_Harm Ontology Bookmark Index]].
+
+**Your physics-only rule** is quoted word for word at the top of the note. Every point in the review rests on mechanisms that exist now or that physics allows. Where a cited work depends on something physics doesn't allow, only its physically grounded point is used, and the note says so:
+- **Psychohistory:** used only for the point that aggregate prediction fails on outliers.
+- **Voigt-Kampff test:** used only for the point that tests for telling humans from machines have error rates.
+- **Time travel in *Kindred*:** excluded. Only the book's depiction of power relations is used.
+- **Simulation hypothesis:** excluded entirely.
+
+**The vocabulary table** has 21 rows in the eight-column format, with Explanation cells of about 140–200 words. Rows include:
+- conflict resolution
+- specification gaming
+- accepted harm (Omelas)
+- category imposition
+- lived experience
+- narrative form
+- legibility
+- manipulability
+- the liar's dividend
+- human–machine discrimination tests
+- power asymmetry
+- consent under asymmetry
+- compression loss ("blurry JPEG")
+- cognitive alteration
+- accountability laundering
+- infrastructure dependence
+- relational moral obligation over time
+
+**Main findings:**
+- **The structure only sees from one side.** Le Guin points out that it describes a lens entirely from the holder's side. The council proposes a **Subject's side** group, plus **Power** and **Infrastructure** facets. This completes points that Gilligan and Ginsburg began in the Ethics and Legal reviews.
+- **Accepted harm is not a blind spot.** Some harms are seen and tolerated, not missed. They need different responses, so the council proposes recording them separately.
+
+The last review is the **Cognitive Council** (Hinton, Hawkins, Minsky, Friston, Gopnik, Hofstadter, Saxe, Dennett, Edelman), as `HO-II.d.1.g`. Shall I proceed?
+<!-- copilot-message {"tools":["Write (edit): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 SciFiCouncil Review of - PerspectiveStructure 0.01.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md"]} -->
 [Timestamp: 2026/11/17 16:16:41]
+
+**user**: proceed
+[Timestamp: 2026/11/17 16:24:50]
+
+**ai**: 
+
+# Cognitive Council: review of PerspectiveStructure 0.01 (7 of 7)
+
+*This follows the council rules in [[Claude_philosophers]]. Works and dates are cited from memory and haven't been verified.*
+
+---
+
+**Hinton.** You're designing a perspective as a list of hand-coded attributes. Brains don't represent things that way, and neither do the systems I helped build. They use **distributed representations**: a concept is a pattern across thousands of features, none of which means anything alone. Einstein's attribute space is the right instinct.
+
+Here's the important point for your book, though. The most consequential perspectives being created today aren't designed at all; they're *learned*. A trained model is a PerspectiveType. It has a training objective, a training corpus and blind spots no one wrote down. Your ontology must be able to record an AI system as a lens, with `trainingProvenance` and `objectiveFunction`, or it will miss the lenses that matter most.
+
+**Hawkins.** Hinton's networks learn one model. The neocortex runs **thousands of models at once**, each in its own cortical column and reference frame, and they vote to reach a consensus. That's a better template for HO-III.a's Integration than any single merged view. Record a `consensusMechanism`: how partial lenses vote or combine.
+
+Also, perception is active. Columns learn by moving sensors through the world. A lens chooses where to look, so add `activeSampling`. A lens that samples only where it expects harm will keep confirming its expectations, which is the same loop as Tesla's.
+
+**Minsky.** May I point out that you've reinvented my frames? In 1974 I proposed that knowledge is organized as **frames**: structures with slots that hold **default values**, which particular situations override. Your PerspectiveType with defaults, instantiated by Perspectives that override them, is exactly that. Good; it's a sound design.
+
+But a perspective isn't one agent. It's a society of smaller agents: some that notice, some that judge, and some, which I called **censors** and **suppressors**, that stop certain thoughts from forming at all. Record `internalSublenses` and especially `suppressors`. A lens's most important blind spots may be actively suppressed, not passively missed. That's different from both Le Guin's accepted harm and Laozi's constitutive emptiness.
+
+**Friston.** Let me make Minsky's society mathematical. Any lens that persists is a **generative model** that minimizes prediction error, or surprise. When the world doesn't match its predictions, it has two options. It can update its model, which is perception. Or it can act on the world until the world matches, which is active inference.
+
+Tesla's performativity is active inference by institutions. Record `predictionErrorHandling`: update, act or suppress. Then there's **precision weighting**, meaning which prediction errors a lens treats as reliable enough to count. A lens that assigns low precision to complaints from one group simply doesn't hear them. That is the mechanism under Gilligan's `whoseVoice`.
+
+**Gopnik.** Karl describes adults, who exploit what they already know. Children explore. They form causal hypotheses, test them in play and revise quickly. Lenses differ the same way. Some are in **exploit mode**, applying settled categories efficiently, and some are in **explore mode**, still open to new kinds of harm. New harms are mostly found by explorers. Record `explorationMode`.
+
+And let me reframe how we think about large models. They're best understood as **cultural technologies**, like writing, libraries or search, that transmit and recombine what people have already said. They aren't agents with their own perspectives. That matters for Hinton's point: an AI lens transmits the perspectives in its training data, compressed, as Chiang said.
+
+**Hofstadter.** Alison is right that they recombine. What do they recombine *with*? **Analogies**. Analogy is the core of cognition, and a lens is largely defined by its governing analogies. Is AI a brain, a tool, a parrot, a mirror, an employee, a child? Each analogy brings a whole frame of expectations, and with it a set of harms you will or won't see.
+
+Record `governingAnalogies`. And a strange loop: this ontology is a perspective describing perspectives, including itself. That isn't a paradox to avoid. It's a feature to record. Socrates asked for reflexivity at the first council. Here's how: let the ontology be an instance of its own PerspectiveType.
+
+**Saxe.** Every harm lens contains a hidden **theory of mind**: a model of what the people involved believed, intended and knew. Human harm judgments depend heavily on attributed intent. In experiments, an attempted harm that fails is judged more harshly than an accidental harm that succeeds.
+
+Lenses differ sharply here. Criminal law weighs intent (*mens rea*); consequentialism weighs outcomes. Record `intentWeighting` and `modelOfSubject`: what the lens assumes its subjects believe and want. And note an AI-specific problem: we can't straightforwardly attribute intent to an AI system, so intent-weighted lenses struggle to assess harms it causes.
+
+**Dennett.** Rebecca's problem has a practical answer. Choose a **stance**. We can describe any system from the physical stance, the design stance, or the intentional stance, as if it had beliefs and desires. Each stance is a lens with costs. Taking the intentional stance toward AI is useful for prediction, but it invites misplaced trust and misplaced blame. Record `stanceTowardObject`.
+
+AI also shows **competence without comprehension**. A system can perform well without understanding, so its competence can't be read as judgment. And I warned about counterfeit people: systems designed to pass as persons exploit our habit of taking the intentional stance. There's no central viewer in the mind, no Cartesian theatre. Don't build one into your ontology either.
+
+**Edelman.** I'll close by resisting the computer metaphors. In the brain, different circuits can produce the same function; I called that **degeneracy**. It means two lenses can reach the same verdict by entirely different routes. Agreement on the verdict doesn't mean agreement on the reasons.
+
+Your Divergence object should allow *verdict convergence with rationale divergence*. That matters, because the agreement breaks as soon as circumstances change. And the brain integrates without a central controller, through **re-entry**: continual two-way signalling between maps. Model Integration that way. Lenses inform each other repeatedly, with no master lens on top.
+
+---
+
+## 1. Omissions and gaps, and where they fit
+
+| Proposed attribute | Type | Where it fits | From |
+|---|---|---|---|
+| `learnedRepresentation` (lens is learned, not designed) | [D] boolean + [O] Model | 1 Identity | Hinton |
+| `trainingProvenance` / `objectiveFunction` | [O] → Dataset, Objective | 8a/8b Provenance | Hinton |
+| `consensusMechanism` (how partial lenses vote or combine) | [O] → Mechanism | 6 Relations / HO-III.a Integration | Hawkins |
+| `activeSampling` (where the lens chooses to look) | [A] | 5 Epistemics | Hawkins |
+| `frameDefaults` (type-level defaults overridable by instances) | design rule | whole structure | Minsky |
+| `internalSublenses` | [O] → PerspectiveType | 6 Relations (part-of) | Minsky |
+| `suppressors` (actively inhibited observations) | [O] → Effect/Claim | 7, sibling of blindSpot and acceptedHarm | Minsky |
+| `predictionErrorHandling` {update · act on world · suppress} | [O] | 5 Epistemics | Friston |
+| `precisionWeighting` (whose signals count as reliable) | [O] → Source/Party + weight | 5, mechanism of whoseVoice | Friston |
+| `explorationMode` {explore · exploit} | [O] | 5 Epistemics | Gopnik |
+| `causalModel` (explicit causal hypotheses) | [O] → CausalGraph | 5, links HO-I.a | Gopnik |
+| `culturalTechnology` flag (transmits rather than originates perspectives) | [D] boolean | 1 Identity | Gopnik |
+| `governingAnalogies` | [O] → Analogy | 1 Identity | Hofstadter |
+| `selfInstance` (the ontology as an instance of its own PerspectiveType) | design rule | whole structure | Hofstadter |
+| `modelOfSubject` (assumed beliefs and intentions of subjects) | [A] | Subject's side (Sci-Fi) | Saxe |
+| `intentWeighting` {intent-dominant · outcome-dominant · mixed} | [O] | Normative core (Ethics) | Saxe |
+| `stanceTowardObject` {physical · design · intentional} | [O] | Stance (Classical) | Dennett |
+| `comprehensionClaim` (competence vs comprehension) | [A] | 8c Trust | Dennett |
+| `degeneracy` (same verdict, different routes) | relation on Divergence | HO-III.a | Edelman |
+| `reentrantIntegration` (integration without a master lens) | design rule for Integration | HO-III.a | Edelman |
+
+## 2. Divergence from the structure itself
+
+- **Hinton: AI systems are lenses.** The ontology must be able to record a trained model as a PerspectiveType, with training data, objective, blind spots and lineage. This is the most book-relevant structural point in all seven reviews.
+- **Minsky: the type/instance design is validated.** It is his frames with default slots. Keep it.
+- **Minsky and Hawkins: a lens is composite.** It contains sub-lenses (internal agents, cortical columns). Add part-of relations between PerspectiveTypes.
+- **Hinton, with Einstein: discrete attributes are an interface.** Underneath may be a continuous space. Use attributes for human-readable records, and allow an embedding representation for comparison.
+- **Edelman and Dennett: no master lens.** Integration should be re-entrant and distributed, not a top-level view. This confirms HO-III.a's "true but partial".
+- **Hofstadter: the ontology should be an instance of itself.** That answers Socrates's reflexivity question from council 1.
+
+## 3. Divergence on the meaning of existing attributes
+
+- **Blind spots now have four kinds:** constitutive (Laozi), negligent, accepted (Le Guin) and **suppressed** (Minsky). The structure should type them.
+- **`whoseVoice`** gains a mechanism: precision weighting (Friston). Voices are heard but discounted.
+- **`performativity`** is active inference (Friston). A lens acts on the world to reduce its own prediction error.
+- **Divergence** gains a subtype: verdict convergence with rationale divergence (Edelman's degeneracy).
+- **`effectOnHolder` / `cognitiveAlteration`:** analogies and stances shape what holders perceive (Hofstadter, Dennett).
+- **`moralCircle`** and **accountability:** intent attribution to AI is problematic (Saxe, Dennett). Intent-weighted lenses can't straightforwardly apply to AI-caused harm.
+- **`transmissionMode`:** AI as a cultural technology makes models a new transmission mode for existing lenses (Gopnik).
+
+## Moderator's summary
+
+- **Main tension:** connectionists (Hinton, Edelman) against symbolic and architectural views (Minsky, Hawkins). Prediction (Friston) against exploration (Gopnik). Mind-reading (Saxe, Dennett) against analogy (Hofstadter).
+- **Strongest additions:** AI systems as recordable lenses, with training provenance; suppressors as a fourth kind of blind spot; precision weighting as the mechanism behind ignored voices; intent weighting; stance toward the object; degeneracy as a Divergence subtype.
+- **Validation:** Minsky's frames confirm the type/instance design with defaults.
+- **Most relevant to the book:** a model is a lens nobody wrote down; counterfeit people exploit the intentional stance; complaints are heard but given low precision; intent-based lenses fail when the agent is an AI.
+
+**All seven councils are now complete.** The next step would be consolidating them into **PerspectiveStructure 0.02**, using the Logic Council's pruning rules (minimal core and the pragmatic test).
+<!-- copilot-message {"tools":["Write (edit): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 CognitiveCouncil Review of - PerspectiveStructure 0.01.md","Edit (edit)"]} -->
+[Timestamp: 2026/11/17 16:24:50]
