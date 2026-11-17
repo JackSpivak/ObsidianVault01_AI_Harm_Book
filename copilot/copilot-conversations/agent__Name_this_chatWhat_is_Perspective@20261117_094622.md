@@ -7,7 +7,7 @@ topic: "Name this chatWhat is Perspective"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":309140,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":298052,"cacheWriteTokens":11083,"updatedAt":1794958680420}'
+usage: '{"usedTokens":351325,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":349130,"cacheWriteTokens":2185,"updatedAt":1794959312182}'
 ---
 
 **user**: Name this chatWhat is Perspective
@@ -1326,3 +1326,246 @@ Each table will now have nine columns: your eight plus Citation verified. When a
 
 **ai**: **Error:** Credit balance is too low
 [Timestamp: 2026/11/17 16:38:25]
+
+**ai**: **Error:** Credit balance is too low
+[Timestamp: 2026/11/17 16:39:04]
+
+**ai**: **Error:** Credit balance is too low
+[Timestamp: 2026/11/17 16:39:07]
+
+**ai**: **Error:** Credit balance is too low
+[Timestamp: 2026/11/17 16:39:08]
+
+**user**: pllease rerun previous turn only for tables that failed for low credit balance
+[Timestamp: 2026/11/17 16:40:08]
+
+**ai**: All seven verification agents stopped because of the low credit balance, so I've restarted all seven. None of them had written anything to the notes before stopping, and none of the tables has a Citation verified column yet.
+
+I resumed each agent where it left off, so any checks it had already done are reused. Each one will finish its original job: add the Citation verified column, correct errors and replace its table. I'll send you a combined report when they're done.
+
+If the credit balance is still too low, they'll fail the same way. In that case the balance needs topping up before another retry will work.
+<!-- copilot-message {"tools":["Grep (read): 02_Ideas Topics Concepts/Harm Ontology","ToolSearch (other)","SendMessage (other)"]} -->
+[Timestamp: 2026/11/17 16:40:08]
+
+**ai**: The Legal table is done (1 of 7 agents finished). The other six are still running.
+
+All 23 rows in [[v-0.01 LegalCouncil Review of - PerspectiveStructure 0.01]] now have a Citation verified column with source links:
+- **12 verified**
+- **8 corrected:** mostly missing page ranges and journal details. No case citation was wrong. Every U.S. Reports volume and page matched.
+- **3 partly verified**
+- **0 not verified**
+
+**The four items that were marked unverified are now confirmed:**
+- **EU AI Liability Directive:** withdrawal announced in February 2025, confirmed in July 2025.
+- **FTC algorithmic disgorgement:** used against Everalbum (2021), Kurbo (2022) and Rite Aid (2023).
+- **Dutch childcare-benefits scandal:** now cites Amnesty's *Xenophobic Machines* report (2021).
+- **Solum citation:** completed as "The Fixation Thesis", 91 Notre Dame L. Rev. 1 (2015).
+
+**Still unconfirmed:**
+- Holmes's "prophecies" wording didn't appear in any search result. The verification column says so, but the Historical note has no "(unverified)" mark.
+- The Waismann "*Porosität*" term is marked unverified.
+- Fuller's 1969 revised edition and Raz's 1977 essay are marked unverified.
+
+The agent also re-titled the note's warning callout "Partly verified". The callout points out that quotations inside the council dialogue itself weren't checked.
+
+The Physics, Logic and Sci-Fi notes have changed on disk, which suggests those agents are partway through writing. I'll report on each one as it finishes.
+[Timestamp: 2026/11/17 16:43:27]
+
+**ai**: The Sci-Fi table is now verified, so two of the seven tables are done. Five agents are still running.
+
+All 22 rows in [[v-0.01 SciFiCouncil Review of - PerspectiveStructure 0.01]] have been checked:
+- **Verified:** 14
+- **Corrected:** 4
+- **Partly verified:** 4
+- **Not verified:** 0
+
+**The corrections that matter most:**
+- **Clarke's third law** first appeared in a 1968 letter to *Science*, before the 1973 revised *Profiles of the Future*. The table had dated it only to 1973.
+- **The Eykholt et al. paper title** was wrong. It ends "Deep Learning Visual Classification", not "Deep Learning Models".
+- **The Replika example** is now confirmed and has had its "unverified" mark removed. Replika removed erotic roleplay in February 2023 after Italy's data-protection regulator acted.
+- **The Earthseed verse** is the epigraph to chapter 1 of *Parable of the Sower*, not the book's opening line.
+- **The William James link** is now marked partly unverified. The agent found the 1891 essay itself, but no source saying Le Guin drew on it.
+- **The date of Chiang's *New Yorker* essay** is now given as "May 2023", because sources disagree on the exact day.
+
+**Still unconfirmed and marked:**
+- Suvin's publisher
+- the publisher of *The Dispossessed*
+- Le Guin's Kroeber parentage
+- the Avon imprint for *In the Beginning... Was the Command Line*
+
+No Explanation cells needed changing.
+[Timestamp: 2026/11/17 16:43:57]
+
+**ai**: The Physics table is done: 3 of the 7 council tables are finished, and 4 are still running.
+
+All 20 rows of [[v-0.01 PhysicsCouncil Review of - PerspectiveStructure 0.01]] were checked. 7 are verified, 6 corrected and 7 partly verified; none failed outright.
+
+**Main corrections:**
+- **Challenger figures:** confirmed. Feynman's Appendix F gives estimates from roughly 1 in 100 (engineers) to 1 in 100,000 (management). I updated the "Real-world examples" line, which still said "figures from memory".
+- **Fermi at Trinity:** now cites Katz, "Fermi at Trinity" (arXiv 2021). Fermi estimated about 10 kilotons, and the modern figure is about 21, so he was low by roughly a factor of two.
+- **Einstein's "invariance theory":** the agent found no evidence Einstein preferred this name. An Einstein Papers note says Felix Klein suggested "Invariantentheorie" in 1910. The Historical note now says so, and the Einstein claim stays marked unverified.
+- **Chilling effects:** the placeholder citation is replaced with Penney, "Chilling Effects: Online Surveillance and Wikipedia Use", *Berkeley Technology Law Journal* 31 (2016).
+- **Measurement-uncertainty guide (GUM):** published in 1993 by ISO on behalf of seven organizations, not by the international bureau of weights and measures (BIPM) alone. It was reissued as JCGM 100:2008.
+- **Curie's notebooks:** that they're kept in lead-lined boxes at the Bibliothèque nationale de France is backed only by press reports, not by the library itself, and the cell now says so.
+- **Facebook moderators:** the 2020 settlement of $52 million is added.
+
+**Still unverified:** the agent ran out of search budget before checking these, so they stay marked:
+- Galileo's "Second Day" passage
+- the 2009 date for SKOS
+- Mach coining *Gedankenexperiment*
+- Cohen (1962)
+- the Kuhn chapter reference
+- Dekker (2011)
+- the 1935 EPR paper
+<!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 PhysicsCouncil Review of - PerspectiveStructure 0.01.md"]} -->
+[Timestamp: 2026/11/17 16:44:03]
+
+**ai**: The Ethics table is done. Four of the seven tables are now finished, and three agents are still running.
+
+All 23 rows of [[v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01]] were checked:
+- **Verified:** 9
+- **Corrected:** 3
+- **Partly verified:** 11
+- **Not verified:** 0
+
+Every status rests on search-result snippets. The agent didn't open any of the source pages, which is why so many rows are only partly verified.
+
+**Main fixes:**
+- **Facebook study:** the figure is now exactly 689,003 users, and the "unverified" mark is removed.
+- **Ramsey quotation:** confirmed as "ethically indefensible" on p. 543. The Stern Review's 0.1% discount rate is added.
+- **Vallor:** the deskilling argument comes from her 2015 paper "Moral Deskilling and Upskilling in a New Machine Age", not from her 2016 book. The Historical note now credits the paper.
+- **Shafer-Landau, second edition:** the year is now 2012, the publisher's date. Some catalogues say 2013.
+- **Page numbers added** for Nussbaum, Solove, Haraway, Schwitzgebel & Garza and Raz.
+
+I also updated the note's "External references" line, which still said the citations were from memory.
+
+**Still unconfirmed, and marked as such:**
+- Rawls section numbers
+- Parfit's Lindley Lecture year (sources give 1991 or 1995)
+- *Utilitarianism*: 1861 as a magazine serial, or 1863 as a book
+- GDPR dates
+- Kohlberg's publisher
+- a few other dates
+<!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01.md"]} -->
+[Timestamp: 2026/11/17 16:44:12]
+
+**ai**: The Classical table is done. That's five of seven, with Logic and Cognitive still running.
+
+**Results for [[v-0.01 ClassicalCouncil Review of - PerspectiveStructure 0.01]]:** all 25 rows checked.
+- **7 verified**
+- **3 corrected or completed**
+- **13 partly verified:** the work and date are confirmed, but not the exact line or page reference.
+- **2 not verified:**
+  - **assumption:** no search was run for this row, so it's still outstanding.
+  - **failureByExcess / failureByDeficiency:** nothing came back for the *Nicomachean Ethics* line 1106b36.
+
+**Main fixes:**
+- **Hierocles' "circles" passage:** it comes from his treatise on how to behave toward relatives, not from *Elements of Ethics*. The Stobaeus locator (4.27.23) is now confirmed.
+- **Albert Ellis:** the date is now "mid-1950s", because sources give 1955 or 1956–57.
+- **Missing details added:** where Owen's essay appeared, page numbers for Vlastos and Gettier, and the publisher for Fingarette.
+- **Marked unverified:** Liu Xin's "nine or ten" schools, and Han Yu's early form of the lineage.
+
+**Weaker sources:** a few cells point to weaker sites, such as a Substack post for the Polanyi quotation and a blog for the *Meno* passage. They could be swapped for primary sources later.
+[Timestamp: 2026/11/17 16:44:32]
+
+**ai**: The Logic table is done, so six of the seven tables are finished. Only the Cognitive table is still running.
+
+All 19 rows in [[v-0.01 LogicCouncil Review of - PerspectiveStructure 0.01]] were checked:
+- 9 verified
+- 4 corrected
+- 6 partly verified
+- 0 not verified
+
+**Main fixes:**
+- **Robodebt's dates** were wrong. They are now 2015–19, from the April 2015 pilot to November 2019 (per the Royal Commission), and the "unverified" mark is gone. This was the only Explanation cell that changed.
+- **Hans Albert's book** is now cited in its German original, *Traktat über kritische Vernunft* (1968), with the English translation as Princeton UP, 1985.
+- **Kuhn's 1969 Postscript** is noted as first published in the 1970 second edition.
+- **Missing details** such as page and issue numbers were added for Lakatos, Kahneman & Tversky, Ramsey, de Finetti, AGM, Brier, Chouldechova, Thompson, Matthias, Orwell, Rosch and Harman.
+
+**Coverage was uneven** because of the billing interruption, so some secondary items weren't searched. They're marked "(unverified)" or "not checked" in their rows:
+- Davidson (1974)
+- Laudan (1977)
+- ProPublica's "Machine Bias"
+- Kleinberg et al. (2016)
+- the Dutch childcare-benefits example
+- the Facebook contagion example
+
+The Facebook study was confirmed separately in the Ethics table, at 689,003 users.
+[Timestamp: 2026/11/17 16:44:47]
+
+**ai**: All seven council tables have now been checked against the web. Each table has a **Citation verified** column straight after Citation, with a status and source URLs that came from the searches.
+
+| Council | Rows | Verified | Corrected | Partly | Not verified |
+|---|---|---|---|---|---|
+| [[v-0.01 ClassicalCouncil Review of - PerspectiveStructure 0.01\|Classical]] | 25 | 7 | 3 | 13 | 2 |
+| [[v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01\|Ethics]] | 23 | 9 | 3 | 11 | 0 |
+| [[v-0.01 LegalCouncil Review of - PerspectiveStructure 0.01\|Legal]] | 23 | 12 | 8 | 3 | 0 |
+| [[v-0.01 LogicCouncil Review of - PerspectiveStructure 0.01\|Logic]] | 19 | 9 | 4 | 6 | 0 |
+| [[v-0.01 PhysicsCouncil Review of - PerspectiveStructure 0.01\|Physics]] | 20 | 7 | 6 | 7 | 0 |
+| [[v-0.01 SciFiCouncil Review of - PerspectiveStructure 0.01\|Sci-Fi]] | 22 | 14 | 4 | 4 | 0 |
+| [[v-0.01 CognitiveCouncil Review of - PerspectiveStructure 0.01\|Cognitive]] | 21 | 16 | 1 | 4 | 0 |
+| **Total** | **153** | **74** | **29** | **48** | **2** |
+
+**Corrections in the Cognitive table, the last one to finish:**
+- Henrich's *The Secret of Our Success* is from 2015, not 2016.
+- The Yiu, Kosoy & Gopnik paper is now fully cited: *Perspectives on Psychological Science* 19(5), 2024.
+- The EU AI Act requirement is confirmed as Article 53(1)(d), which requires a public summary of the training content for general-purpose models.
+- Hinton announced he was leaving Google on 1 May 2023. Dennett's *Atlantic* essay ran on 16 May 2023.
+
+**What the checks found overall:**
+- No citation was badly wrong. Most corrections added missing page, volume or issue numbers, or fixed a year.
+- Four corrections change content:
+  - Robodebt ran 2015–19, not 2016–19.
+  - Fermi's Trinity estimate was about half the actual yield.
+  - Felix Klein, not Einstein, suggested the name "invariance theory".
+  - The title of the Eykholt et al. paper was wrong.
+- Several items that had been flagged as uncertain are now confirmed: the Challenger risk figures, the Facebook sample of 689,003 users, the Ramsey quote, the Replika changes and the withdrawal of the EU AI Liability Directive.
+
+**Limits of the check:**
+- **Snippets, not full sources.** Many statuses rest on search snippets rather than opened pages. That is why 48 rows are only partly verified: the work and date are confirmed, but the exact page or line isn't.
+- **Gaps from the billing interruption.** Some secondary items were never searched, mainly in the Logic and Physics tables. Every gap is marked in its row.
+- **Two Classical rows weren't checked:** *assumption* and *failureByExcess/Deficiency*.
+- **Weaker sources.** A few URLs point to blogs or Substack posts rather than primary sources.
+- **Council dialogue unchecked.** The words spoken in the council dialogues themselves weren't checked. Each note's warning callout now says so.
+
+I also updated the "External references" line in the Cognitive, Physics and Sci-Fi notes, which still described the citations as from memory. The other four agents had already updated theirs.
+
+Next, I can re-run searches for the remaining unverified items, starting with the two unchecked Classical rows. Or we can move on to consolidating everything into PerspectiveStructure 0.02.
+<!-- copilot-message {"tools":["Grep (read): 02_Ideas Topics Concepts/Harm Ontology","Bash (execute)"]} -->
+[Timestamp: 2026/11/17 16:45:31]
+
+**user**: finish items
+[Timestamp: 2026/11/17 16:46:49]
+
+**ai**: I've started seven background agents, one for each council note, to close the remaining gaps. They're working through every row marked "Partly verified" or "Not verified", and every cell still tagged "(unverified)" or "not checked".
+
+This pass differs from the first one in three ways:
+- **Opening the actual pages.** Last time many results rested on search snippets. This time the agents fetch the source page whenever a snippet doesn't settle the question.
+- **Targeted lists.** Each agent has a list of the specific items still open in its table. For example: the two Classical rows that were never checked, the Rawls section numbers, Holmes's "prophecies" wording, Galileo's ship passage, the publishers that are still uncertain, and the open items in the Logic table left over from the billing interruption.
+- **Better sources.** They'll replace weak sources, such as blogs and Substack posts, with stronger ones like the Perseus Digital Library, the Stanford Encyclopedia of Philosophy, publisher pages or ctext.org where possible.
+
+Each agent will confirm, correct, or leave an item marked with the reason it's still open. Explanation cells stay untouched unless one states something false.
+
+I'll send a combined report when all seven finish. These agents run on the same account credit as last time, so if the balance is still low they may stop early again.
+<!-- copilot-message {"tools":["Agent (think)"]} -->
+[Timestamp: 2026/11/17 16:46:49]
+
+**ai**: The Legal table is done; the other six agents are still running.
+
+In [[v-0.01 LegalCouncil Review of - PerspectiveStructure 0.01]], 9 of the 11 open items are now closed. None of the earlier claims turned out to be wrong.
+
+**Closed:**
+- **Holmes:** the exact "prophecies of what the courts will do in fact" wording is confirmed.
+- **Waismann:** "Porosität der Begriffe" is confirmed, and William Kneale suggested the English term "open texture".
+- **Fuller:** the revised edition is confirmed as 1969.
+- **Raz (1977):** confirmed as *Law Quarterly Review* 93, pp. 195–211.
+- **Kelsen:** the "by and large effective" wording is confirmed.
+- **EU robotics resolution:** adopted 16 February 2017.
+- Rio Principle 15, Laudan, Roman *praescriptio*, and the feminist critiques of the reasonable-person standard (Bender, 1988) are also confirmed.
+
+**Still open:**
+- **Hart, *The Concept of Law*:** the chapter V–VI reference for the "internal point of view" isn't confirmed. Only secondary summaries turned up, and the book's contents page would settle it.
+- **US discovery rule:** its history wasn't searched.
+
+The note's top callout now reads "Mostly verified" and names both open items.
+[Timestamp: 2026/11/17 16:48:27]
