@@ -7,7 +7,7 @@ topic: "Name this chatWhat is Perspective"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":171860,"contextWindow":1000000,"inputTokens":2,"outputTokens":602,"cacheReadTokens":170727,"cacheWriteTokens":529,"updatedAt":1794954535363}'
+usage: '{"usedTokens":197954,"contextWindow":1000000,"inputTokens":2,"outputTokens":634,"cacheReadTokens":0,"cacheWriteTokens":197318,"updatedAt":1794955959288}'
 ---
 
 **user**: Name this chatWhat is Perspective
@@ -782,6 +782,105 @@ Next, `whoseInterests` and `costBearer` must ask whether facially neutral rules 
 - **Main tension:** Hart and Scalia want clear sources and texts. Dworkin wants principles. Holmes says only enforcement matters. Fuller says form itself carries morality. Ginsburg asks who the neutral form leaves behind.
 - **Strongest additions:** an **Institutional** group; the **description/evaluation split**; **date-stamped meanings**; Fuller's **procedural integrity** as an audit of AI rules.
 - **Convergence across councils:** stated vs. operative congruence now has three sources (Confucius's misnaming, Kant's maxim, Fuller's eighth desideratum). That's strong evidence it belongs in 0.02 as a first-class attribute.
-- **Most relevant to the book:** *Loomis* (secret rules), *Ledbetter* (hidden harms that time out before they're discovered) and differential enforcement (one name, two lenses).
+- **Most relevant to the book:** *Loomis* (secret rules), *Ledbetter* (hidden harms that time out before they're discovered) and differential enforcement (one name, two lenses).I've saved the Legal Council review as [[v-0.01 LegalCouncil Review of - PerspectiveStructure 0.01]] (`HO-II.d.1.c`) and added it to [[_Harm Ontology Bookmark Index]].
+
+The note contains the council discussion and sections 1–3, word for word as shown above. It also has a 24-row vocabulary table in the eight-column format. Each Explanation cell is about 120–200 words.
+
+The table covers:
+- **Institutional:** recognition status, validity vs efficacy, internal acceptance, procedural integrity, jurisdiction, standing, precedential weight and remedy.
+- **Meaning and interpretation:** open texture, principles, interpretive concepts, canonical text, meaning-as-of dates and change mode.
+- **Evidence and causation:** enforcement reality, incentive effects, standard of proof, causation test and the reasonable-person standard.
+- **Time and burden:** limitation periods with the discovery rule, differential burden and legal personhood.
+
+**Main findings so far:**
+- **Hart's description/evaluation split** is the most consequential structural point across all three reviews. It applies the ontology's own premise, that harm is assessed rather than intrinsic, to lenses themselves.
+- **Congruence between stated and operative purpose** now has three independent sources: Confucius on misnaming, Kant on the hidden maxim and Fuller's eighth desideratum. It is the strongest candidate for PerspectiveStructure 0.02.
+
+All case citations are from memory. The note flags them as unverified, and a few cells mark specific uncertain details, such as the status of the EU AI Liability Directive and FTC algorithmic disgorgement.
+
+The **Logic Council** (Popper, Bayes, Arendt, Wittgenstein, Descartes, Peirce) is next, as `HO-II.d.1.d`. Shall I proceed?
 <!-- copilot-message {"tools":["Write (edit): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 LegalCouncil Review of - PerspectiveStructure 0.01.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md"]} -->
 [Timestamp: 2026/11/17 15:29:49]
+
+**user**: proceed
+[Timestamp: 2026/11/17 15:53:25]
+
+**ai**: 
+
+# Logic Council: review of PerspectiveStructure 0.01 (4 of 7)
+
+*This follows the council rules in [[Claude_philosophers]]. The works and dates cited are from memory and haven't been verified.*
+
+---
+
+**Popper.** I have one question about every attribute of a lens: what would show it to be *wrong*? Your structure records sources, lineage and trust, but never a lens's **falsification conditions**, meaning the observations it forbids. A lens that can explain every outcome explains nothing. If a "safety" framework counts both an incident and the absence of incidents as proof that it works, it has made itself immune to refutation. Add `falsifiers` and `immunizingMoves`.
+
+Also replace "verified" in 8c with **corroboration**. A lens is never verified. It has survived particular severe tests, and those tests should be listed. Your HO-002 stress-test suite already works this way, so the ontology should apply the same standard to every lens it records.
+
+**Bayes.** Popper treats lenses as passing or failing; I'd say they are believed *to a degree*. Every lens brings **priors**: how common it assumes the harm is, and which base rates it takes for granted. Every lens also has an **update rule**: how much evidence it needs before it changes its mind. Your `confidence` field (8c) should be a calibrated probability with a track record, not a label.
+
+The COMPAS dispute shows why this matters. One side measured calibration, the other measured error rates, and both were right on their own terms. When base rates differ between groups, the two measures can't both be equalized. That disagreement is about priors and metrics, not about facts.
+
+**Arendt.** Gentlemen, you are discussing how lenses believe. I'm concerned with how lenses *lie*. Factual truth is fragile. A lens can turn an inconvenient fact into "just an opinion", and your `status` field would record that lens as "dominant" without comment. Add `factHandling`: does the lens keep facts separate from opinion, or dissolve facts into opinion?
+
+Then there is accountability. Bureaucracy is the rule of Nobody, where no one can be asked to answer. An automated decision system is the perfected form of it. Record `accountabilityLocus`: when this lens's verdict harms someone, can anyone be named who must answer? Finally, Eichmann's office had *Sprachregelungen*, language rules that turned killing into "special treatment". That is a fourth witness for misnaming.
+
+**Wittgenstein.** You are all assuming that "perspective" and "harm" have essences that definitions can capture. Look and see. "Game" has no common feature, only overlapping resemblances, and "harm" is the same. Your structure, written in OWL, looks for necessary and sufficient conditions. For many lenses there aren't any.
+
+So, three things. First, model some concepts as **family resemblances**, with membership by similarity to exemplars, not by definition. Second, a lens isn't a list of attributes. It is a **language game** embedded in a form of life: a practice of doing things with words. Third, before adding more attributes, check whether the PerspectiveType/Perspective distinction is a real problem or a grammatical one. I suspect it is real, but it should be tested.
+
+**Descartes.** Wittgenstein dissolves; I would rebuild. Doubt every attribute and keep only those you can't do without. You now have more than seventy proposed attributes across four councils. Which of them is a *foundation*, and which is optional ornament? I propose a **minimal core**: a lens is identifiable only if its name, canonical source, object of attention and foundational commitments are given. Everything else is optional and can carry a missingness status (HO-II.e). Then proceed in order from the simple to the complex, and enumerate so completely that nothing is left out.
+
+**Peirce.** Monsieur Descartes, your complete enumeration contradicts your own ontology's rule that scope can never be complete (HO-004). I'd offer a sharper pruning tool instead: the **pragmatic maxim**. The meaning of an attribute lies in the practical difference it makes. For each of your seventy attributes, ask what query, decision or Divergence would come out differently if its value changed. If the answer is none, drop it. This is your own HO-II.d keep-test ("can it flip a verdict on its own?"), applied to PerspectiveType.
+
+Add `inferenceModes`, because lenses differ in whether they reason by deduction, induction or **abduction**, inference to the best explanation, which is how most harm diagnoses actually happen. And a lens is a sign that has an interpretant, so record the **community of inquiry** that interprets and corrects it.
+
+---
+
+## 1. Omissions and gaps, and where they fit
+
+| Proposed attribute | Type | Where it fits | From |
+|---|---|---|---|
+| `falsifiers` (observations the lens forbids) | [A] → later [O] TestCase | 5 Epistemics | Popper |
+| `immunizingMoves` (ad hoc rescues used) | [A] | 8c Trust | Popper |
+| `corroboration` (severe tests survived) | [O] → TestCase (HO-002) | 8c, replaces "verified" | Popper |
+| `priors` / `assumedBaseRates` | [O] → BaseRate | 5 Epistemics | Bayes |
+| `updateRule` (evidence threshold for revision) | [A] | 5 Epistemics | Bayes |
+| `calibration` (track record of stated vs actual) | [D] score + [O] record | 8c Trust | Bayes |
+| `fairnessMetric` (calibration · error-rate balance · parity) | [O] | Normative core (Ethics) | Bayes |
+| `factHandling` {preserves · blurs · dissolves} | [O] | 5 Epistemics | Arendt |
+| `accountabilityLocus` {named agent · role · institution · Nobody} | [O] | Institutional (Legal) | Arendt |
+| `languageRules` (euphemism regimes) | [A] | 1 Identity, beside misnaming | Arendt |
+| `conceptStructure` {definitional · family resemblance · prototype} | [O] | 1 Identity | Wittgenstein |
+| `exemplars` (paradigm cases) | [O] → Case | 1 Identity | Wittgenstein |
+| `formOfLife` / `languageGame` (the practice the lens lives in) | [A] | Stance (Classical) | Wittgenstein |
+| `foundationalCommitments` (minimal core) | [O] | new **Core** tier | Descartes |
+| `requiredness` per attribute {core · optional} | schema rule (SHACL) | whole structure | Descartes |
+| `pragmaticTest` (what changes if the value changes) | design rule | whole structure | Peirce |
+| `inferenceModes` {deduction · induction · abduction} | [O] | 5 Epistemics | Peirce |
+| `communityOfInquiry` (who corrects the lens) | [O] → Community | 6 Relations | Peirce |
+
+## 2. Divergence from the structure itself
+
+- **Descartes and Peirce: prune.** After four councils the structure is past 70 attributes. They propose two filters: a **minimal core** (Descartes), and a **pragmatic test** for everything else (Peirce: drop it if no query or Divergence depends on it). Recommendation: apply both when consolidating version 0.02.
+- **Wittgenstein: not everything is OWL-definable.** Some concepts need SKOS-style exemplars and similarity, not necessary and sufficient conditions. A hybrid fits: OWL for the structure of PerspectiveType, SKOS and exemplars for contested content concepts like "harm".
+- **Popper: every attribute needs a test hook.** This links the structure to HO-002.
+- **Descartes vs HO-004:** complete enumeration contradicts "scope never complete". The council sides with Peirce's fallibilism.
+
+## 3. Divergence on the meaning of existing attributes
+
+- **`verificationStatus` (8c)** is the wrong frame for lenses. Replace it with corroboration (tests survived), plus calibration (track record). Keep verification for *source citations* only.
+- **`confidence`** should be a calibrated credence with a history, not a label (Bayes).
+- **`definitionByDomain`** assumes concepts have definitions. Add `conceptStructure` and `exemplars` (Wittgenstein). This complements Dworkin's interpretive concepts.
+- **`status` / prevalence:** popularity can't settle factual truth (Arendt). This sharpens the Classical split between *doxa* and *episteme*.
+- **`criterionOfTruth`** extends to `inferenceModes`, `updateRule` and `priors`.
+- **`misnaming`** gains a fourth witness: Arendt's *Sprachregelung*.
+
+## Moderator's summary
+
+- **Main tension:** Descartes wants foundations and completeness. Peirce and Popper offer fallibilism and testing. Wittgenstein doubts that definitions are the right tool at all. Bayes and Arendt bring degrees of belief and the politics of truth.
+- **Strongest additions:** corroboration and calibration in place of verification; `accountabilityLocus`, the rule of Nobody; family-resemblance concept structure; and two **pruning rules**, a minimal core and the pragmatic test.
+- **This is a turning point:** the first council to argue for *fewer* attributes. That should shape how 0.02 is consolidated.
+- **Most relevant to the book:** the rule of Nobody in automated decisions; lenses that immunize themselves against refutation; the COMPAS calibration dispute as a Divergence of metrics, not of facts.
+<!-- copilot-message {"tools":["Write (edit)"]} -->
+[Timestamp: 2026/11/17 15:53:25]
