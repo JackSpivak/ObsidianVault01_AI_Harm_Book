@@ -46,6 +46,7 @@ Click the arrow beside an item to open or close its branch.
 
 ## Cross-references
 - **HO-II.b and HO-III.a:** horizon is one of the axes a Divergence can turn on (the neighbours vs. the old man).
+- **HO-II.d.1 and HO-II.d:** a Perspective (one shot) instantiates a PerspectiveType (the tradition). Type-level values are defaults the shot may override.
 - **HO-II.c and HO-II.b:** legal finality is law's way of closing the horizon.
 - **HO-001 and [[_AI Governance & Safety Bookmark Index|002.II.a]]:** rubber-stamping is captured assent in an oversight setting.
 - **HO-000 and [[_AI Governance & Safety Bookmark Index|003]]:** 003 covers building tooling for an ontology; this index covers the ontology's design.
