@@ -7,7 +7,7 @@ topic: "Name this chatWhat is Perspective"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":351325,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":349130,"cacheWriteTokens":2185,"updatedAt":1794959312182}'
+usage: '{"usedTokens":367574,"contextWindow":1000000,"inputTokens":4,"outputTokens":8,"cacheReadTokens":367148,"cacheWriteTokens":414,"updatedAt":1794959780015}'
 ---
 
 **user**: Name this chatWhat is Perspective
@@ -1569,3 +1569,153 @@ In [[v-0.01 LegalCouncil Review of - PerspectiveStructure 0.01]], 9 of the 11 op
 
 The note's top callout now reads "Mostly verified" and names both open items.
 [Timestamp: 2026/11/17 16:48:27]
+
+**ai**: Four of the seven tables are now done. Classical, Ethics and Sci-Fi are still running.
+
+**[[v-0.01 LogicCouncil Review of - PerspectiveStructure 0.01|Logic]]:** no row is "Partly verified" any more.
+- **Confirmed:** Davidson, Laudan, ProPublica's "Machine Bias" (23 May 2016), Kleinberg et al., Arendt's "Lying in Politics" (*New York Review of Books*, 1971), the *Eichmann* ch. VI reference, Sellars and Haack.
+- **"Doublespeak":** first recorded 1950–55, formed on "doublethink". The word doesn't appear in *1984*, and it has no single coiner.
+- **Real-world examples line:** I removed "details unverified" and added the sources, which are the Royal Commission for Robodebt and Amnesty's report for the Dutch case.
+- **Still open:** some section and page locators in the citations (Popper, Wittgenstein, Laplace and others).
+
+**[[v-0.01 CognitiveCouncil Review of - PerspectiveStructure 0.01|Cognitive]]:** 13 of the 16 open items are closed, and none needed correcting.
+- **Publication details confirmed:** Bartlett (Cambridge UP, 1932), *A Thousand Brains* (Basic Books, 2021) and *The Remembered Present* (1989).
+- **Gopnik's "cultural technology" argument:** traced to her *Wall Street Journal* essay of July 2022.
+- **"Agnotology":** coined in 1992, but sources disagree on who coined it. Some credit Iain Boal, coining it at Proctor's request. The table says "Robert Proctor coined", which you may want to soften.
+- **Still open:** Helmholtz's 1860s date, Bourdieu, and which journal McGoey's 2012 piece appeared in.
+
+**[[v-0.01 PhysicsCouncil Review of - PerspectiveStructure 0.01|Physics]]:** 11 of the 13 priority items are closed.
+- **Confirmed:** Galileo's ship passage, SKOS (18 Aug 2009), Cohen 1962, Kuhn ch. VI, Dekker, EPR (1935), the Hawthorne dates, the IPCC's 2001 calibrated language, and the ICRP's founding (1928, first dose limit 1934).
+- **Correction:** Mach didn't coin *Gedankenexperiment*. Ørsted used it around 1811–12, and Mach popularized it.
+- **Still open:** Curie's notebooks (press sources only), the primary texts for Goodhart and Strathern, and Fermi's piano-tuner story.
+<!-- copilot-message {"tools":["Grep (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 LogicCouncil Review of - PerspectiveStructure 0.01.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 LogicCouncil Review of - PerspectiveStructure 0.01.md"]} -->
+[Timestamp: 2026/11/17 16:48:47]
+
+**ai**: The Ethics and Sci-Fi tables are finished, which makes six of seven done. The Classical agent is still running.
+
+**[[v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01|Ethics]]:** 12 items closed, none wrong.
+- **Mill's *Utilitarianism*:** first published as a magazine serial in 1861, then as a book in 1863. Our 1861 date stands.
+- **Parfit's Lindley Lecture:** given in 1991 and printed around 1995. 1991 stands.
+- **GDPR:** adopted 27 April 2016 and applicable from 25 May 2018. One wording point: the note says it came "in force 2018", but strictly it *applies* from 2018 (it entered into force in 2016). This is flagged in the verification column; the note's wording is unchanged.
+- **Also confirmed:** Anscombe, Raz ch. 13, Chang, Beauchamp & Childress, the Hart–Devlin debate, *Animal Liberation* and Kohlberg's publisher.
+- **Still open:**
+  - Rawls §24, the veil-of-ignorance section, and §§4 and 9 rest only on a search result.
+  - Which publisher brought out *After Virtue* first: Duckworth and Notre Dame both did in 1981, and sources disagree.
+
+**[[v-0.01 SciFiCouncil Review of - PerspectiveStructure 0.01|Sci-Fi]]:** 7 of 9 items closed.
+- **Le Guin and William James:** confirmed. Le Guin herself credited James's 1891 essay when "Omelas" was reprinted in *The Wind's Twelve Quarters* (1975).
+- **Chiang's "Will A.I. Become the New McKinsey?":** dated 4 May 2023.
+- **Also confirmed:** the publishers for Suvin, *The Dispossessed* and Stephenson's essay, Le Guin's parents, and the full Shannon citation.
+- **Still open:**
+  - The exact punctuation of the Earthseed verse, which needs the printed book.
+  - Dates for the growth of the SEO and data-broker industries, which only weak sources support.
+[Timestamp: 2026/11/17 16:49:00]
+
+**ai**: All seven tables have now been through two verification passes.
+
+| Council | Closed in this pass | Still open |
+|---|---|---|
+| Classical | 12, plus 1 correction | about 10 |
+| Ethics | 12 | 3 |
+| Legal | 9 | 2 |
+| Logic | all works confirmed | page and section numbers only |
+| Physics | 11, plus 1 correction | 3 |
+| Sci-Fi | 7 | 2 |
+| Cognitive | 13 | 3 |
+
+**Classical:**
+- The two rows that hadn't been searched (*assumption* and *failure by excess or deficiency*) are now verified against Perseus and the MIT Classics text.
+- The *Analects* passages (2.3, 4.16, 12.1) and *Daodejing* chapters 2 and 11 are confirmed in Legge's translations.
+- Weak sources were replaced: Perseus for the *Meno* passage and the University of Chicago Press page for Polanyi.
+- **Correction:** Aristotle's infinite-regress argument is in *Posterior Analytics* I.3, not I.2.
+- The Liu Xin and Han Yu claims are confirmed only by Wikipedia, and the cells say so.
+
+**Overall:**
+- **No row is still "Not verified".** About 150 rows across the seven tables have been checked.
+- **Two corrections in this pass:** Mach popularized the term *Gedankenexperiment* but didn't coin it, and the *Posterior Analytics* locator above.
+- **Corrections from the first pass:**
+  - Robodebt's dates
+  - Fermi's estimate at the Trinity test
+  - Klein (not Einstein) proposing "invariance theory"
+  - the Eykholt paper title
+  - Henrich's date
+  - Hierocles' source
+- **What remains open** is mostly fine-grained: exact Bekker line numbers, the Rawls section numbers (§§4, 9, 24), specific editions (D. C. Lau, Hadot, Polanyi 1966), and the exact punctuation of the Earthseed verse. Each item is marked in its own row with the reason it's still open.
+- **Some confirmations rest on search-result summaries** rather than on pages that were opened and read. Each cell says which it is.
+
+**Two wording points you might want to change:**
+1. **Cognitive, `suppressors`:** the table says Robert Proctor coined "agnotology". It was coined in 1992, and some sources credit the linguist Iain Boal, who coined it at Proctor's request.
+2. **Ethics, GDPR:** the note says it came "in force 2018". Strictly, it entered into force in 2016 and *applies* from 2018.
+
+Shall I make those two changes? After that, the next step would be consolidating everything into **PerspectiveStructure 0.02**.
+[Timestamp: 2026/11/17 16:50:35]
+
+**user**: yes
+[Timestamp: 2026/11/17 16:51:59]
+
+**ai**: I've made both changes:
+
+1. **Ethics (GDPR):** the Historical note now says the GDPR was "adopted April 2016, in force May 2016, applicable from 25 May 2018".
+2. **Cognitive (agnotology):** the Historical note now says "agnotology" was coined in 1992 by the linguist Iain Boal at Robert Proctor's request, notes that some sources credit Proctor himself, and says Proctor developed the idea using the tobacco industry's efforts to manufacture doubt.
+
+That completes the verification work on all seven tables. The next step is consolidating the reviews into **PerspectiveStructure 0.02**. I'd first propose the pruned structure, using the minimal core and the pragmatic test, and wait for your approval before writing anything.
+<!-- copilot-message {"tools":["Grep (read): 02_Ideas Topics Concepts/Harm Ontology","Grep (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01.md","Grep (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 CognitiveCouncil Review of - PerspectiveStructure 0.01.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 CognitiveCouncil Review of - PerspectiveStructure 0.01.md"]} -->
+[Timestamp: 2026/11/17 16:51:59]
+
+**user**: what is the current token size of this chat? would it be more effective to discuss how to consolidate/integrate these in aa seperate chat? if so what content/context needs to be imported? or is context of everything in the vault simply remain available because of miyo running in basckground
+[Timestamp: 2026/11/17 16:56:04]
+
+**ai**: **Size of this chat:** I can't measure the exact token count from inside the chat. It's very large, though. It holds seven full council reviews, about 150 table rows of 100–200 words each, and a long run of agent reports. That likely puts it in the hundreds of thousands of tokens, near the point where earlier turns get summarized automatically.
+
+**Should we move?** Yes. Consolidation is a fresh task that needs careful side-by-side comparison of all seven reviews. A new chat with only the essential context will do that more reliably than this one. Here, detail from earlier turns is already compressed or summarized, and every new turn costs more.
+
+**Does Miyo make the vault available automatically?** Only partly.
+- **What Miyo does:** it lets a new chat *search* the vault by meaning, and it returns short excerpts. That's good for finding things.
+- **What it doesn't do:** load full notes into the conversation. For consolidation, the new chat needs to read the key notes in full and directly.
+- **Notes are safe:** everything we saved stays in the vault, so nothing is lost by switching. The new chat just has to open the right notes.
+- **Some things exist only in this conversation.** The working rules you set here (the table format, the verification column, the 100–200-word explanations, the physics-only rule for the Sci-Fi council) aren't recorded in any note.
+
+**What the new chat needs.** I'd put this in one handoff note:
+
+1. **Notes to read in full**
+   - [[PerspectiveStructure 0.01]] (the base)
+   - The seven council reviews (`HO-II.d.1.a` to `.g`)
+   - [[HO-II.d Perspective - Ten Optional Properties]]
+   - [[HO-III.a Divergence and Integration - True but Partial]]
+   - [[HO-II.e Missingness Statuses and Domain Profiles]]
+   - [[_Harm Ontology Bookmark Index]]
+2. **Rules carried forward**
+   - Vocabulary tables use eight columns plus a Citation verified column, with 100–200-word Explanations.
+   - Citations are web-verified.
+   - Every new note follows the Idea template, has verbatim Original wording, and gets bookmark filing.
+3. **Consolidation method**
+   - Minimal core (Descartes)
+   - Pragmatic test (Peirce)
+   - Rank attributes by impact (Fermi)
+   - Every evaluative attribute records who assessed it, following Hart's split between describing and evaluating
+4. **Points where the councils converged**
+   - Misnaming, with five witnesses
+   - Relations come before attributes
+   - Four kinds of blind spot
+   - AI models count as lenses
+   - The type/instance design, confirmed by Minsky's frames
+5. **Proposed new groups**
+   - Stance
+   - Normative core
+   - Institutional
+   - Subject's side
+   - Power
+   - Infrastructure
+   - Dynamics
+6. **Open decisions for you**
+   - The type/instance split
+   - Provenance at the level of each statement
+   - Using OWL together with SKOS
+   - An attribute-space model for comparing lenses
+   - Recording the ontology as an instance of itself
+7. **Known limits**
+   - All seven councils were voiced by one model.
+   - Some citations are still only partly verified.
+
+I can write this as `01_The Writer's Room/Handoff - PerspectiveStructure 0.02.md`. A new chat then only needs to be told to read that note. There's already a [[Handoff - Harm Ontology]] note, so the other option is to add a section to it. Which do you want: the new note, or a section added to the existing one?
+[Timestamp: 2026/11/17 16:56:04]
