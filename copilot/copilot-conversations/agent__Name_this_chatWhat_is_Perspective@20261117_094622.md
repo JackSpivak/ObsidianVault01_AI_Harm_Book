@@ -474,3 +474,10 @@ Do you approve? You can also adjust any part, for example:
 - skip the base note
 <!-- copilot-message {"tools":["Skill (other)","Read (read): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md","Read (read): 00_Claude_Admin/FileClasses/Idea.md","Read (read): 00_Claude_Admin/Templates/Idea.md","Grep (read)"]} -->
 [Timestamp: 2026/11/17 10:43:06]
+
+**user**: yes. definitely save the base state - the initial current structure of the Perspective they are consideriing as PerspectiveStructure 0.01
+[Timestamp: 2026/11/17 10:45:55]
+
+**ai**: 
+<!-- copilot-message {"tools":["Write (edit): 02_Ideas Topics Concepts/Harm Ontology/PerspectiveStructure 0.01.md"]} -->
+[Timestamp: 2026/11/17 10:45:55]
