@@ -28,6 +28,7 @@ Click the arrow beside an item to open or close its branch.
 					- [[v-0.01 ClassicalCouncil Review of - PerspectiveStructure 0.01|HO-II.d.1.a — Classical Council review]]: proposes a Stance group, the four causes as the basis of Aim, splitting status, constitutive blind spots, misnaming and effect on holder.
 					- [[v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01|HO-II.d.1.b — Ethics Council review]]: proposes a Normative core group, moral circle as a third scope axis, interests / costs / voice split, and legitimacy conditions on authority.
 					- [[v-0.01 LegalCouncil Review of - PerspectiveStructure 0.01|HO-II.d.1.c — Legal Council review]]: proposes an Institutional group, the description/evaluation split, date-stamped meanings and procedural integrity (Fuller's eight desiderata).
+					- [[v-0.01 LogicCouncil Review of - PerspectiveStructure 0.01|HO-II.d.1.d — Logic Council review]]: proposes corroboration and calibration instead of verification, accountability locus (rule by Nobody), family-resemblance concepts, and two pruning rules (minimal core, pragmatic test).
 		- [[HO-II.e Missingness Statuses and Domain Profiles|HO-II.e — Missingness and domain profiles]]: open world, SHACL "addressed, not known", Unknown / NotApplicable / Undisclosed / Disputed / Pending.
 	- **HO-III — Meta layer** (tier): relations between judgments, and to other vocabularies.
 		- [[HO-III.a Divergence and Integration - True but Partial|HO-III.a — Divergence and integration]]: typed disagreement between assessments. The main value-add.
