@@ -7,7 +7,7 @@ topic: "harm ontology v3 is organized fundamentallly differ3ently th…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":41670,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":34484,"cacheWriteTokens":7181,"updatedAt":1794892521575}'
+usage: '{"usedTokens":89946,"contextWindow":1000000,"inputTokens":2,"outputTokens":5,"cacheReadTokens":83568,"cacheWriteTokens":6371,"updatedAt":1794893513935}'
 ---
 
 **user**: harm ontology v3 is organized fundamentallly differ3ently than v1 or v2a.  what is the best way to identify where v2a can be used to define or enrich existinhg class and structure
@@ -74,3 +74,43 @@ If you'd like, I can write the inventory script and draft the pilot crosswalk fo
 
 **ai**: **Error:** Credit balance is too low
 [Timestamp: 2026/11/16 22:25:47]
+
+**user**: is the inventory script complete?? can you draft the crosswalk
+[Timestamp: 2026/11/16 22:30:24]
+
+**ai**: Short answers: **the script works but needs two fixes, and the crosswalk wasn't written yet.** I've drafted it now.Yes to both. The inventory script works, and the pilot crosswalk is drafted: [[Harm Ontology Crosswalk - Pilot Meta-Category V]].
+
+## Inventory script
+`~/harm-ontology-scripts/inventory.py` is outside the vault. It ran cleanly and wrote `inventory_v1_v2a.csv`, one row per element:
+
+| Kind | In v1 and v2a | Only in v2a | Only in v1 |
+|---|---|---|---|
+| Classes | 31 | 23 | 1 |
+| Properties | 19 | 30 | — |
+| Values | 55 | 46 | — |
+| Value schemes | — | — | 19 |
+
+That's 224 elements in total. Each row has its v2a line number and lists which annotations v1 holds for it.
+
+**It's good enough for the pilot but not finished.** Two things to fix before the full run:
+- Elements that exist only in v2a, such as the 23 new classes, have no label or annotation list. The script reads those from the `.ttl` file, and v2a is a markdown file.
+- The values for v2a-only attributes are pulled out with a regex. I haven't checked those rows one by one, so a few could be missing or wrongly assigned.
+
+## Crosswalk pilot (Meta-category V)
+It covers the 5 harm classes, the 5 benefit-side ("Gain") classes and the 9 attributes they depend on. Main findings:
+- **Every class splits.** None of them has a single home in v3. The usual pattern is a Factor (the mechanism), plus a CausalAssembly (the pattern of causes), plus an Effect (what results), plus a standard or a citation.
+- **v2a fills real gaps in v3:**
+  - feedback and amplification
+  - scaling at near-zero cost, which is central to AI harm
+  - named patterns of causes (coordination trap, moral hazard, adverse selection)
+  - possibly an **economic** branch of evaluative standards, alongside the philosophical and legal ones
+- **The biggest decision is the benefit mirror.** Under "no intrinsic harmfulness", a gain can be modelled as an Effect on the beneficiary, judged Beneficial from their perspective. Paired with the harm, that makes it a Divergence between two perspectives. If you accept that, v2a's whole Part B becomes Effects plus Assessments, with no separate `ValueCapture` class. Please decide this before we map the rest of Part B.
+- **Rows marked "blocked" depend on open v3 questions:** Agent and AI systems, the Condition split, Assent/Judgment as an object of harm, consent, and role types.
+
+Every target in the table is a proposal for you to review. Nothing has been logged in the Decisions Log. The AIRO/DPV comparison column is still empty because those files haven't been loaded yet.
+
+One quoting issue: my own quote in "Original wording" drops the "4." list number and the bold formatting from my earlier reply. Otherwise the wording is exact.
+
+Next step options: fix the two script gaps, decide the benefit-mirror question, or run the same method on Meta-category II. II is mostly legal classes, so it's the strongest contrast test.
+<!-- copilot-message {"tools":["Write (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology Crosswalk - Pilot Meta-Category V.md"]} -->
+[Timestamp: 2026/11/16 22:30:24]
