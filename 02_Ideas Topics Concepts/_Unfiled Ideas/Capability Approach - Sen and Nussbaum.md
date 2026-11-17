@@ -88,7 +88,7 @@ created: 2026-11-16
 - [[Open Harm Categories - Harm Beyond Human Experience]]
 
 
-From Google Search
+# From Google Search
 Amartya Sen’s **capability approach** is ==a normative framework for evaluating human well-being, poverty, and social justice by focusing on what people are actually able to do and be, rather than merely what resources or income they possess==. [[1](https://plato.stanford.edu/entries/capability-approach/), [2](https://commonweb.unifr.ch/artsdean/pub/gestens/f/as/files/4760/24995_105422.pdf), [3](https://www.youtube.com/watch?v=WWEGvW0Irq0)]
 
 Core Concepts
