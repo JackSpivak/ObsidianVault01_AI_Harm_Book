@@ -343,6 +343,18 @@ graph LR
 > "yes"
 - **Attribution:** Author
 
+> "im concerned about the integral altitudes.  the altitudes listed seem to correspond to macro level groupings of a 12 level color scheme with their own names, definitions, explanation and example"
+- **Attribution:** Author
+
+> "can you verify with primary text references?"
+- **Attribution:** Author
+
+> "the archaic and magic stages are both egocentric; the mythic stage, as we just pointed out, is ethnocentric; the rational and pluralistic stages are worldcentric; and the integral stage is integrated or kosmocentric."
+- **Attribution:** Ken Wilber, "The Leading Edge of the Unknown in the Human Being" (primary text, quoted by Claude: Opus 5.5 in this session)
+
+> "yes"
+- **Attribution:** Author (approving the corrections, the Gilligan spoke and the primary citations)
+
 - **Source:** Obsidian Copilot agent session "Read Handoff - PerspectiveStructure 0.02 and the notes it lists", 2026-11-17 (`copilot/copilot-conversations/agent__Read_Handoff_-_PerspectiveStructure_0.02_and_the_notes_it_lists,@20261117_170442.md`).
 - **External references:** [[v-0.01 LegalCouncil Review of - PerspectiveStructure 0.01]], [[v-0.01 ClassicalCouncil Review of - PerspectiveStructure 0.01]], [[v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01]], [[v-0.01 LogicCouncil Review of - PerspectiveStructure 0.01]], [[v-0.01 PhysicsCouncil Review of - PerspectiveStructure 0.01]] (citation rows); W3C SKOS and SHACL (from memory, unverified).
 
