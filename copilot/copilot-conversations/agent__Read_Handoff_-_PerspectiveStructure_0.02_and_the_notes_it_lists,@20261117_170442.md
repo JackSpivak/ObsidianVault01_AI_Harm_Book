@@ -7,7 +7,7 @@ topic: "Read Handoff - PerspectiveStructure 0.02 and the notes it li…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":292854,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":286508,"cacheWriteTokens":6336,"updatedAt":1794978327284}'
+usage: '{"usedTokens":294054,"contextWindow":1000000,"inputTokens":4,"outputTokens":8,"cacheReadTokens":0,"cacheWriteTokens":294042,"updatedAt":1794978686117}'
 lastAccessedAt: 1794974457725
 ---
 
@@ -1738,3 +1738,63 @@ The plan also includes these follow-ups:
 Go ahead with this plan?
 <!-- copilot-message {"tools":["Glob (read)","Write (edit): 02_Ideas Topics Concepts/_Unfiled Ideas/Integral Altitude Scale.md","Write (edit): 02_Ideas Topics Concepts/_Unfiled Ideas/PerspectiveStructure 0.02.md"]} -->
 [Timestamp: 2026/11/17 22:03:09]
+
+**user**: please explain the v3 open question regarding integration in more detail
+[Timestamp: 2026/11/17 22:11:06]
+
+**ai**: The two v3 integration questions in 0.02 both come from the same situation. v3 already had a **Perspective** class (the shot) and an **Attribution** class, both designed before PerspectiveType existed. Adding PerspectiveType creates two places where the new class and an old one may record the same thing.
+
+## 1. Standard overlap: who holds the evaluative standard?
+
+**The situation now:**
+- v3's **Perspective** (shot) already has a property `standard` under "Purpose". It names the EvaluativeStandard a judgment uses, for example `ReasonablePerson` or `CapacityAccount`.
+- 0.02's **PerspectiveType** (tradition) adds `embedsStandard`, the standard that a tradition is built around.
+
+So "which standard?" can now be answered in two places.
+
+**Example:**
+- Tradition: *Tort Law* `embedsStandard` → `ReasonablePerson`.
+- Shot: *"Judge Y in Smith v. Jones"* instantiates Tort Law, and its `standard` is → `ReasonablePerson`. That's the same value, recorded twice.
+- Another shot: *"Judge Z in a medical case"* instantiates Tort Law, but its `standard` is → `LossOfChance`. That's a legitimate departure.
+
+**Options:**
+
+| Option | How it works | Cost |
+|---|---|---|
+| **A. Default plus override** (my recommendation) | The tradition's `embedsStandard` is the default. A shot records `standard` only when it differs. If it's absent, the shot inherits the tradition's. | Needs an inheritance rule (a SHACL rule or a query). That's the frame-defaults pattern you've already approved. |
+| B. Shot only | Drop `embedsStandard`. Only shots carry standards. | You can't say what a tradition stands for without examples, and you can't compare traditions directly. |
+| C. Tradition only | Drop the shot's `standard`. | You can't record Judge Z's departure, which is exactly the kind of divergence the ontology exists to show. |
+
+**Why A matters:** an override is itself information. A shot departing from its tradition's standard is a signal worth querying, for example "which tort cases used loss of chance?" It may also be a Divergence between the shot and its own tradition.
+
+## 2. Omission vs Attribution: two sides of one selection?
+
+**What each records:**
+- **Attribution** (v3, from HO-004): out of all the factors behind an effect, the ones a perspective *calls "the cause"*. It's a bounded selection, and HO-005 says omission is the norm.
+- **Omission** (0.02 group 11): what a tradition *leaves out of its verdicts*, typed as out-of-frame, blind spot (negligent or suppressed) or accepted harm.
+
+**Why they look linked:** every attribution is also an omission. When a tradition names factor A as the cause, it leaves out factors B, C and D. 0.02's question is *how* and *why* it leaves them out.
+
+**Example: a self-driving car crash**
+- *Product-liability tradition:* Attribution = the sensor defect. Left out: the road design (**out of frame**: not this tradition's concern) and the company's decision not to log near-misses (**suppressed** blind spot).
+- *Transport-safety tradition:* Attribution = road design plus sensor. Left out: the driver's trust in the system (**negligent** blind spot, because it was foreseeable).
+
+**Options:**
+
+| Option | How it works | Cost |
+|---|---|---|
+| **A. Link them** (my recommendation) | An Attribution may list `leftOut` factors, and each left-out factor can carry an omission Assessment (branch, kind, assessedBy). | More structure per Attribution, though every part is optional. |
+| B. Keep them separate | Attribution stays about causes; omission stays about traditions in general. | You lose the case-level link. You can say "tort law has suppressed blind spots" but not *which factor* was suppressed *in this case*. |
+| C. Merge them | Treat omission as a property of Attribution only. | You lose tradition-level omissions, the general patterns that hold before any case, such as "accuracy benchmarks leave out dignity". |
+
+**Why A matters:** it connects two levels of the ontology.
+- **Tradition level (0.02):** "this tradition typically leaves out X."
+- **Case level (v3 Attribution):** "in this case, this shot left out factor B, and the omission was suppressed."
+
+The tradition-level pattern becomes a **default expectation** that cases confirm or contradict. That's the same frame-defaults logic as in question 1, and it gives HO-005's re-attribution test cases something concrete to check.
+
+## The common thread
+Both questions get the same answer from the pattern you already approved. **The tradition holds defaults and patterns; shots and cases hold particulars and departures.** If you agree, I'd record both as decisions and update 0.02's open questions accordingly.
+
+The filing plan for the two new notes is still waiting for your OK.
+[Timestamp: 2026/11/17 22:11:06]
