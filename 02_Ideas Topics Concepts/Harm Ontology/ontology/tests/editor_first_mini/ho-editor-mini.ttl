@@ -1,0 +1,2233 @@
+@prefix cog: <https://example.org/harm-ontology/v3-editor-mini/cog#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix eth: <https://example.org/harm-ontology/v3-editor-mini/eth#> .
+@prefix ho: <https://example.org/harm-ontology/v3-editor-mini/schema#> .
+@prefix int: <https://example.org/harm-ontology/v3-editor-mini/int#> .
+@prefix law: <https://example.org/harm-ontology/v3-editor-mini/law#> .
+@prefix lit: <https://example.org/harm-ontology/v3-editor-mini/lit#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix phil: <https://example.org/harm-ontology/v3-editor-mini/phil#> .
+@prefix pol: <https://example.org/harm-ontology/v3-editor-mini/pol#> .
+@prefix psy: <https://example.org/harm-ontology/v3-editor-mini/psy#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sci: <https://example.org/harm-ontology/v3-editor-mini/sci#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix soc: <https://example.org/harm-ontology/v3-editor-mini/soc#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dcterms:bibliographicCitation a owl:AnnotationProperty .
+
+dcterms:source a owl:AnnotationProperty .
+
+dcterms:title a owl:AnnotationProperty .
+
+rdfs:comment a owl:AnnotationProperty .
+
+rdfs:label a owl:AnnotationProperty .
+
+rdfs:seeAlso a owl:AnnotationProperty .
+
+skos:altLabel a owl:AnnotationProperty .
+
+skos:definition a owl:AnnotationProperty .
+
+skos:editorialNote a owl:AnnotationProperty .
+
+skos:example a owl:AnnotationProperty .
+
+skos:historyNote a owl:AnnotationProperty .
+
+skos:prefLabel a owl:AnnotationProperty .
+
+skos:scopeNote a owl:AnnotationProperty .
+
+cog:censors a owl:NamedIndividual,
+        ho:CognitiveScienceTerm ;
+    rdfs:label "censors"@en ;
+    dcterms:bibliographicCitation "Minsky, *The Society of Mind* (1986), ch. 27"@en ;
+    skos:altLabel "censors"@en,
+        "suppressors"@en ;
+    skos:definition "Mechanisms within a mind that prevent certain thoughts or observations from forming"@en ;
+    skos:example "A team culture in which some failure reports are never filed"@en ;
+    skos:historyNote "Minsky, ch. 27 \"Censors and Jokes\""@en ;
+    skos:prefLabel "censors"@en ;
+    skos:scopeNote "Individual mind; extended here to institutions by analogy"@en ;
+    ho:assertedBy "Cognitive Council"@en ;
+    ho:citationVerification "Cognitive review, `suppressors` row"@en ;
+    ho:discipline "Cognitive science"@en ;
+    ho:explanation "In *The Society of Mind* (1986), Minsky described the mind as a society of smaller agents, including censors and suppressors that stop certain thoughts from forming at all. As a spoke, it defines the suppressed kind: the lens could see something, but a mechanism inside it prevents the observation from forming or being recorded. That distinguishes suppression from the other three. It isn't the price of focus (constitutive), a failure of care (negligent), or a seen and defended trade-off (accepted). The extension from minds to institutions is this ontology's analogy, not Minsky's claim, but it fits: organizations have internal censors too, in incentives, review processes and what gets logged. For AI harm, it explains why some blind spots don't yield to better instruments. If a team is discouraged from filing certain failure reports, a better detector changes nothing. Suppressed blind spots call for transparency, disclosure duties and whistleblower protection. Because suppression is easy to allege and hard to prove, it must always be an Assessment with evidence and `assessedBy`."@en ;
+    ho:keyThinkers "Marvin Minsky"@en ;
+    ho:mappingGrade "closeMatch"@en ;
+    ho:mappingReason "internal agents that stop thoughts forming"@en ;
+    ho:mapsToProperty ho:suppressedBlindSpot ;
+    ho:meaningAsOf "1986"@en .
+
+eth:operativeMaxim a owl:NamedIndividual,
+        ho:EthicsTerm ;
+    rdfs:label "operative maxim"@en ;
+    dcterms:bibliographicCitation "Kant, *Groundwork of the Metaphysics of Morals* (1785), Ak. 4:421"@en ;
+    skos:altLabel "hidden maxim"@en,
+        "maxim vs stated end"@en,
+        "operative maxim"@en ;
+    skos:definition "The subjective principle an agent actually acts on, which may differ from the end they profess"@en ;
+    skos:example "A lens stated as \"safety\" whose maxim is \"observe everyone, in case\""@en ;
+    skos:historyNote "The categorical imperative tests maxims, not stated goals"@en ;
+    skos:prefLabel "operative maxim"@en ;
+    skos:scopeNote "One agent's principle of action, not institutional practice"@en ;
+    ho:assertedBy "Ethics Council"@en ;
+    ho:citationVerification "Ethics review, `normativeForm: deontic` row (Ak. 4:421)"@en ;
+    ho:discipline "Ethics"@en ;
+    ho:explanation "For Kant, the moral test applies to the maxim, the principle an agent actually acts on, not to the end the agent professes. Someone can sincerely state a good end while acting on a maxim that couldn't be willed as universal law. As a spoke, it adds the idea that incongruence can be hidden from the agent itself, not only from others. Kant's concept concerns one agent's will, while the hub concerns a lens's public identity and institutional operation, but the two meet closely enough to grade it closeMatch. They meet when a lens is treated as the maxim of an institution: a lens stated as \"safety\" whose working principle is \"observe everyone, in case\". That reading is an interpretation for this ontology, not Kant's own application. It explains why stated purpose and operative purpose should be recorded separately, with the operative side as an Assessment. For AI it matters because a deployer's stated purpose is usually sincere and still uninformative about what the system is optimized to do."@en ;
+    ho:keyThinkers "Immanuel Kant; Christine Korsgaard"@en ;
+    ho:mappingGrade "closeMatch"@en ;
+    ho:mappingReason "(author, 2026-11-17): a lens's operative purpose is read as its maxim; Kant's own term concerns an individual agent's principle"@en ;
+    ho:mapsToProperty ho:congruence ;
+    ho:meaningAsOf "1785"@en .
+
+<https://example.org/harm-ontology/v3-editor-mini/ho-editor-mini> a owl:Ontology ;
+    dcterms:title "Harm Ontology editor-first mini experiment (one file, for Protege)"@en ;
+    rdfs:comment "TEST ARTEFACT, not the v3 release. One OWL file so everything is visible and editable in an editor: property group tree (PerspectiveStructure 0.02), domain and range, narrative as annotations, discipline spokes as individuals. Placeholder IRIs. Object/data kinds and ranges were assigned by the builder and need review."@en ;
+    owl:versionInfo "editor-first mini 0.1 (2026-11-18). Not the v3 release." .
+
+int:altitude a owl:NamedIndividual,
+        ho:IntegralTheoryTerm ;
+    rdfs:label "altitude"@en ;
+    dcterms:bibliographicCitation "**Primary:** Wilber, \"The Leading Edge of the Unknown in the Human Being\" (talk transcript, Integral Life, undated) for bands, Gebser stages and tiers; Wilber, \"Integral Semiotics\" (excerpt from unpublished vol. 2 of the Kosmos Trilogy, undated) for colours red/amber/orange/green/indigo and quadrants. **Secondary:** Wilber, *The Religion of Tomorrow* (2017), p. 349, for the 12-colour sequence, as quoted by Visser. AQAL origin: *Sex, Ecology, Spirituality* (1995)."@en ;
+    skos:altLabel "altitude"@en,
+        "colour altitudes"@en,
+        "egocentric, ethnocentric, worldcentric, kosmocentric"@en ;
+    skos:definition "The level of development, marked by how widely a person or perspective identifies and cares"@en ;
+    skos:example "A tribe-scale group holding worldcentric values"@en ;
+    skos:historyNote "Wilber says his four bands are Gilligan's four stages, \"a condensed version of the more standard 6-to-8 levels\", and takes stage names from Gebser. The colour scheme and level numbering change between texts (e.g. red is \"Level 10\" in \"Integral Semiotics\"). His colours resemble Spiral Dynamics but aren't identical."@en ;
+    skos:prefLabel "altitude"@en ;
+    skos:scopeNote "Applies to whole perspectives as well as persons; the most comprehensive scale, and the most contested"@en ;
+    ho:assertedBy "Claude Opus 5.5 (this session)"@en ;
+    ho:citationVerification "Primary texts read in full 2026-11-17: [Leading Edge PDF](http://integral-life-home.s3.amazonaws.com/Wilber-WakeUpGrowUp-TheEdgeOfTheUnknown.pdf); [Integral Semiotics PDF](https://integral-life-home.s3.amazonaws.com/Ken%20Wilber%20-%20Integral%20Semiotics.pdf). 12-colour sequence: secondary only ([Visser](https://www.integralworld.net/visser101.html)); book not seen. SES 1995 as AQAL origin: [Wikipedia](https://en.wikipedia.org/wiki/Sex,_Ecology,_Spirituality)."@en ;
+    ho:discipline "Integral theory"@en ;
+    ho:explanation "Wilber's Integral theory is where the author's term comes from. In it, \"altitude\" means level of development, and the moral sequence runs egocentric (care for oneself), ethnocentric (care for one's own group), worldcentric (care for all people, regardless of race, sex or creed) and kosmocentric (care for all sentient beings). Wilber presents the scale as a measure of how widely a person identifies. In his own text, the four bands are Gilligan's four stages, and they group Gebser's finer stages: \"the archaic and magic stages are both egocentric; the mythic stage … is ethnocentric; the rational and pluralistic stages are worldcentric; and the integral stage is integrated or kosmocentric.\" As a spoke, it contributes the most comprehensive scale and the clearest statement of the size-versus-altitude distinction. A tribe can be worldcentric; an empire can be ethnocentric. Its colour altitudes give a still finer vocabulary: 12 colours from infrared to white in *The Religion of Tomorrow* (2017), as quoted by Visser, though the scheme and its numbering change between Wilber's texts and overlap confusingly with Spiral Dynamics. Two cautions travel with it. Its correlations with other scales are Wilber's claims, and critics such as Frank Visser contest some of them. And as a scale built from inside one tradition, it is subject to the same \"whose ranking\" rule as Kohlberg's. Its AQAL quadrants also supply the other two integral properties, interior/exterior and individual/collective."@en ;
+    ho:explanationProvenance "new draft"@en ;
+    ho:keyThinkers "Ken Wilber; Jean Gebser (stage names); Carol Gilligan (bands); Clare Graves and Spiral Dynamics (colour precursor); Frank Visser (critic)"@en ;
+    ho:mappingGrade "closeMatch"@en ;
+    ho:mappingReason "the sequence is defined by widening identity and care; the source of the author's term"@en ;
+    ho:mapsToProperty ho:developmentalAltitude ;
+    ho:meaningAsOf "per text (undated talk; 2017 for colours)"@en .
+
+law:congruence a owl:NamedIndividual,
+        ho:LawTerm ;
+    rdfs:label "congruence"@en ;
+    dcterms:bibliographicCitation "Fuller, *The Morality of Law* (Yale UP, 1964; rev. ed. 1969)"@en ;
+    skos:altLabel "congruence"@en,
+        "congruence between official action and declared rule"@en,
+        "the eighth desideratum"@en ;
+    skos:definition "The requirement that officials actually apply the rules that have been declared"@en ;
+    skos:example "A content policy enforced against one community but not another"@en ;
+    skos:historyNote "Set out through the parable of King Rex; followed the Hart–Fuller debate (1958)"@en ;
+    skos:prefLabel "congruence"@en ;
+    skos:scopeNote "Rule systems and their officials, not persons' intentions"@en ;
+    ho:assertedBy "Legal Council"@en ;
+    ho:citationVerification "Legal review, `proceduralIntegrity` row"@en ;
+    ho:discipline "Law"@en ;
+    ho:explanation "Fuller's eighth desideratum asks whether the rules officials actually apply are the rules that were declared. As a spoke of the congruence hub, it contributes the most precise and testable version of the idea: compare the published rule with observed official action. That makes congruence something you can measure from enforcement records, not only argue about, and it connects directly to Holmes's `enforcementReality` and to Pound's distinction between law in books and law in action. It differs from the hub in scope. Fuller audits rule systems and the officials who run them. He doesn't ask about one agent's private maxim, as Kant does, or about deliberate euphemism, as Arendt does. For AI harm the test applies almost unchanged: a platform's published content policy against its moderation logs, or a model card's stated purpose against how the model is actually deployed. Hart's caution carries over too. A perfectly congruent system can still be unjust, so congruence is necessary for integrity but not sufficient for goodness."@en ;
+    ho:keyThinkers "Lon Fuller; H. L. A. Hart (critic); Joseph Raz"@en ;
+    ho:mappingGrade "closeMatch"@en ;
+    ho:mappingReason "the same idea, but restricted to rule systems and their officials"@en ;
+    ho:mapsToProperty ho:congruence ;
+    ho:meaningAsOf "1964"@en .
+
+law:negligence a owl:NamedIndividual,
+        ho:LawTerm ;
+    rdfs:label "negligence"@en ;
+    dcterms:bibliographicCitation "*Donoghue v Stevenson* [1932] AC 562 (HL)"@en ;
+    skos:altLabel "failure of reasonable care"@en,
+        "foreseeability"@en,
+        "negligence"@en,
+        "the neighbour principle"@en ;
+    skos:definition "Failing to take reasonable care against harm one could reasonably foresee"@en ;
+    skos:example "A deployer who could foresee harm to a group of users and didn't look"@en ;
+    skos:historyNote "Lord Atkin's neighbour principle, House of Lords, 3–2, 26 May 1932; later structured by *Caparo v Dickman* (1990)"@en ;
+    skos:prefLabel "negligence"@en ;
+    skos:scopeNote "Judges a person's conduct; the ontology borrows its foreseeability standard"@en ;
+    ho:assertedBy "Claude Opus 5.5 (this session)"@en ;
+    ho:citationVerification "Web 2026-11-17, secondary sources only (study guides; full judgment on BAILII not opened)"@en ;
+    ho:discipline "Law"@en ;
+    ho:explanation "Lord Atkin's neighbour principle in *Donoghue v Stevenson* (1932) holds that you must take reasonable care to avoid acts or omissions that you can reasonably foresee would injure your neighbour, meaning anyone so closely and directly affected that you ought to have them in mind. As a spoke, it gives the negligent kind a tested standard: the question is not whether a lens saw a harm, but whether it ought reasonably to have seen it. That makes \"negligent\" assessable rather than merely accusatory. The grade is relatedMatch because negligence judges a person's conduct, while the hub concerns what a lens leaves out; the ontology borrows the foreseeability test, not the tort. The fit with AI is direct. A deployer who could foresee harm to a group of users and built no way of looking for it has a negligent blind spot in this sense. The later *Caparo* test (1990) adds proximity and whether a duty would be fair, just and reasonable, which shows how much judgement even the legal version contains."@en ;
+    ho:keyThinkers "Lord Atkin"@en ;
+    ho:mappingGrade "relatedMatch"@en ;
+    ho:mappingReason "a standard for judging conduct, not a property of a lens"@en ;
+    ho:mapsToProperty ho:negligentBlindSpot ;
+    ho:meaningAsOf "1932"@en .
+
+law:willfulBlindness a owl:NamedIndividual,
+        ho:LawTerm ;
+    rdfs:label "willful blindness"@en ;
+    dcterms:bibliographicCitation "*Global-Tech Appliances, Inc. v. SEB S.A.*, 563 U.S. 754 (2011)"@en ;
+    skos:altLabel "conscious avoidance"@en,
+        "deliberate ignorance"@en,
+        "willful blindness"@en ;
+    skos:definition "Believing a fact is highly probable and acting deliberately to avoid confirming it"@en ;
+    skos:example "A platform that avoids checking whether known harmful content is still circulating (illustrative)"@en ;
+    skos:historyNote "Doctrine borrowed from criminal law; 8–1, Kennedy dissenting"@en ;
+    skos:prefLabel "willful blindness"@en ;
+    skos:scopeNote "A legal test, narrower than suppression in general"@en ;
+    ho:assertedBy "Claude Opus 5.5 (this session)"@en ;
+    ho:citationVerification "Web 2026-11-17, Cornell LII syllabus"@en ;
+    ho:discipline "Law"@en ;
+    ho:explanation "In *Global-Tech Appliances v. SEB* (2011), the US Supreme Court set two requirements for willful blindness: the defendant must subjectively believe there is a high probability that a fact exists, and must take deliberate actions to avoid learning of it. The Court said this standard goes beyond recklessness and negligence. As a spoke, it is a narrow, tested case of the suppressed kind, with a useful feature: it separates suppression from negligence by requiring both belief and deliberate avoidance. That gives the ontology a concrete test for the hardest boundary in this hub. A lens that never suspected a harm may be negligent; a lens that suspected it and arranged not to find out is suppressing. The grade is narrowMatch because the doctrine is a legal standard for imputing knowledge, narrower than suppression in general. Justice Kennedy's dissent, that willful blindness is not knowledge, is worth recording too: it marks the line between what a lens knew and what it can be held to have known."@en ;
+    ho:keyThinkers "(Supreme Court majority); Justice Kennedy (dissent)"@en ;
+    ho:mappingGrade "narrowMatch"@en ;
+    ho:mappingReason "one legal test for deliberate avoidance of knowledge"@en ;
+    ho:mapsToProperty ho:suppressedBlindSpot ;
+    ho:meaningAsOf "2011"@en .
+
+lit:omelas a owl:NamedIndividual,
+        ho:LiteratureTerm ;
+    rdfs:label "Omelas"@en ;
+    dcterms:bibliographicCitation "Le Guin, \"The Ones Who Walk Away from Omelas\", *New Dimensions 3* (1973)"@en ;
+    skos:altLabel "Omelas"@en,
+        "accepted harm"@en,
+        "the child in the basement"@en ;
+    skos:definition "A harm the lens's holders know about and accept as the price of a benefit"@en ;
+    skos:example "Known error rates for some groups, accepted for overall accuracy"@en ;
+    skos:historyNote "Drew on William James (1891); Hugo Award 1974"@en ;
+    skos:prefLabel "Omelas"@en ;
+    skos:scopeNote "Fiction; the mechanism, not a real case"@en ;
+    ho:assertedBy "Sci-Fi Council"@en ;
+    ho:citationVerification "Sci-Fi review, `acceptedHarm` row"@en ;
+    ho:discipline "Literature"@en ;
+    ho:explanation "In Le Guin's story, a city's happiness depends on one child kept in misery, and everyone knows. That isn't a blind spot; it is an accepted harm, seen and agreed to as the price of a benefit. As a spoke, it defines the accepted kind and shows why it must be kept apart from the others. A blind spot calls for better instruments. An accepted harm calls for moral and political argument, because nothing is hidden: the lens has made a trade-off and needs to defend it. Lumping the two together lets accepted harm shelter behind the excuse of ignorance. The story also names a response the other kinds lack: walking away, or exit. For AI, many harms are accepted, not missed: known error rates for some groups, known trauma to content moderators, known environmental costs of training. Recording them as accepted, linked to `costBearer` and `differentialBurden`, makes the trade-off explicit. The grade is closeMatch, with the caveat that it is fiction: it gives the mechanism, not evidence of any real case."@en ;
+    ho:keyThinkers "Ursula K. Le Guin; William James"@en ;
+    ho:mappingGrade "closeMatch"@en ;
+    ho:mappingReason "a seen harm, knowingly accepted for a benefit"@en ;
+    ho:mapsToProperty ho:acceptedHarm ;
+    ho:meaningAsOf "1973"@en .
+
+phil:junzi a owl:NamedIndividual,
+        ho:PhilosophyTerm ;
+    rdfs:label "junzi 君子 vs xiaoren 小人"@en ;
+    dcterms:bibliographicCitation "*Analects* 4.16; Cicero, *De Finibus* III.16–22"@en ;
+    skos:altLabel "junzi 君子 vs xiaoren 小人"@en,
+        "oikeiōsis"@en ;
+    skos:definition "Degree of moral cultivation, shown in how widely concern extends"@en ;
+    skos:editorialNote "The source note records this spoke jointly with phil:oikeiosis as one combined column; kept here as one record under phil:junzi."@en ;
+    skos:example "\"The junzi understands what is right; the xiaoren understands what is profitable\""@en ;
+    skos:historyNote "Confucius moralized *junzi* (5th c. BCE); Stoic *oikeiōsis* preserved by Cicero (45 BCE)"@en ;
+    skos:prefLabel "junzi 君子 vs xiaoren 小人"@en ;
+    skos:scopeNote "Cultivation of a person, extended here to lenses"@en ;
+    ho:assertedBy "Classical Council"@en ;
+    ho:citationVerification "Classical review, `developmentalAltitude` row"@en ;
+    ho:discipline "Philosophy (Confucian; Stoic)"@en ;
+    ho:explanation "Confucius performed a quiet revolution: *junzi* had meant someone noble by birth, and he made it mean someone noble by cultivation. The Stoics independently described moral growth as widening appropriation, from caring for one's own body to caring for humanity. Both traditions give strong ancient precedent for the author's idea that perspectives differ in the inclusivity of their value structure, independently of the size of the group they address. That distinction, accepted by the author, is one of the most useful in the structure. **For AI harm:** the same social scope can be held at very different altitudes, for example a national AI strategy framed around competitive advantage versus one framed around global welfare. **Limit, and it is serious:** every altitude scale is built from inside a tradition, and it places that tradition near the top. Confucian, Stoic, Kohlbergian and Integral scales disagree about what \"higher\" means; the Ethics review documents how Kohlberg's scale ranked care reasoning lower. Modelling implication: never assert altitude as a bare fact. Make it a qualified, assessed value with `assessedBy` → PerspectiveType, so every ranking states whose ranking it is, and disagreements become Divergences."@en ;
+    ho:explanationProvenance "verbatim, [[v-0.01 ClassicalCouncil Review of - PerspectiveStructure 0.01|Classical review]]"@en ;
+    ho:keyThinkers "Confucius; Mencius; Zeno; Chrysippus; Cicero"@en ;
+    ho:mappingGrade "closeMatch"@en ;
+    ho:mappingReason "cultivation shown in how widely concern extends"@en ;
+    ho:mapsToProperty ho:developmentalAltitude ;
+    ho:meaningAsOf "5th c. BCE / 45 BCE"@en .
+
+phil:wu a owl:NamedIndividual,
+        ho:PhilosophyTerm ;
+    rdfs:label "wu 無 (non-being)"@en ;
+    dcterms:bibliographicCitation "*Daodejing* ch. 11"@en ;
+    skos:altLabel "the empty vessel"@en,
+        "usefulness of emptiness"@en,
+        "wu 無 (non-being)"@en ;
+    skos:definition "An exclusion that makes the lens usable"@en ;
+    skos:example "A map that leaves out most of the territory so it can be read"@en ;
+    skos:historyNote "Text dated c. 4th c. BCE; Guodian slips (excavated 1993)"@en ;
+    skos:prefLabel "wu 無 (non-being)"@en ;
+    skos:scopeNote "Applies to the lens's design, not its users"@en ;
+    ho:assertedBy "Classical Council"@en ;
+    ho:citationVerification "Classical review, `blindSpot (constitutive)` row (partly verified: Lau edition not confirmed)"@en ;
+    ho:discipline "Philosophy (Daoist)"@en ;
+    ho:explanation "In chapter 11 of the *Daodejing*, the usefulness of a cart, a pot and a room comes from their empty space: thirty spokes share one hub, and it is the emptiness at the centre that makes the wheel turn. As a spoke, this gives the constitutive kind its clearest image. A lens is useful because of what it leaves out. A map that showed everything would be as large as the territory and useless. This reverses the 0.01 structure's assumption that a blind spot is a defect. Some exclusions are the price of a lens working at all, and the right response to them is not to repair the lens but to make sure another lens covers what it leaves out. The danger is that the image can be borrowed as an excuse. \"Out of scope\" sounds constitutive even when the exclusion serves the lens-holder's interests. That is why the kind is assessed, not declared: a lens's own claim that an exclusion is constitutive is evidence, not a verdict. For AI harm, a benchmark that measures accuracy legitimately ignores dignity only if some other lens is watching dignity."@en ;
+    ho:keyThinkers "Laozi (traditional); Wang Bi"@en ;
+    ho:mappingGrade "closeMatch"@en ;
+    ho:mappingReason "usefulness through emptiness is the constitutive kind"@en ;
+    ho:mapsToProperty ho:outOfFrame ;
+    ho:meaningAsOf "c. 4th c. BCE"@en .
+
+phil:zhengming a owl:NamedIndividual,
+        ho:PhilosophyTerm ;
+    rdfs:label "rectification of names"@en ;
+    dcterms:bibliographicCitation "*Analects* 13.3; *Xunzi* ch. 22"@en ;
+    skos:altLabel "correcting names"@en,
+        "rectification of names"@en,
+        "zhengming 正名"@en ;
+    skos:definition "The demand that names match the realities and duties they claim"@en ;
+    skos:example "A \"trust & safety\" team whose real remit is reputational risk"@en ;
+    skos:historyNote "Confucius's answer on what he would do first in government; Xunzi made names conventions enforced by rulers"@en ;
+    skos:prefLabel "rectification of names"@en ;
+    skos:scopeNote "Names and titles, not operations directly"@en ;
+    ho:assertedBy "Classical Council"@en ;
+    ho:citationVerification "Classical review, `name` row"@en ;
+    ho:discipline "Philosophy (Confucian)"@en ;
+    ho:explanation "In *Analects* 13.3 Confucius says the first act of government would be to rectify names, because when names are wrong, speech and affairs fail. As a spoke, it locates incongruence in naming: a name is a promise about function, and a name that claims a virtue the practice lacks corrupts everything done under it. It maps closely to the hub but starts from the other end. Law checks action against a declared rule; *zhengming* checks a name against the reality and duties it claims. Xunzi sharpened it into a political point: names are conventions enforced by those with power, so deciding which name is \"correct\" is itself a perspective. That is why the ontology should record naming disputes as Divergences, not silently pick a winner. For AI harm the pattern is common: \"safety\" that means brand protection, \"personalization\" that means surveillance, \"responsible AI\" that means a principles page. The spoke supplies the vocabulary of `nameIntegrity`: apt, euphemistic, inflated, captured."@en ;
+    ho:keyThinkers "Confucius; Xunzi"@en ;
+    ho:mappingGrade "closeMatch"@en ;
+    ho:mappingReason "the same gap, located in names and titles"@en ;
+    ho:mapsToProperty ho:congruence ;
+    ho:meaningAsOf "c. 5th c. BCE"@en .
+
+pol:sprachregelung a owl:NamedIndividual,
+        ho:PoliticalTheoryTerm ;
+    rdfs:label "language rule"@en ;
+    dcterms:bibliographicCitation "Arendt, *Eichmann in Jerusalem* (1963), ch. VI"@en ;
+    skos:altLabel "Sprachregelung"@en,
+        "doublespeak"@en,
+        "euphemism"@en,
+        "language rule"@en ;
+    skos:definition "Official rules of language that make harmful practices sound neutral or benign"@en ;
+    skos:example "\"Content moderation\" for removal; \"engagement optimization\" for attention capture"@en ;
+    skos:historyNote "Arendt's term for Nazi euphemisms such as \"final solution\" and \"special treatment\""@en ;
+    skos:prefLabel "language rule"@en ;
+    skos:scopeNote "Deliberate concealment only; honest drift doesn't count"@en ;
+    ho:assertedBy "Logic Council"@en ;
+    ho:citationVerification "Logic review, `languageRules` row"@en ;
+    ho:discipline "Political theory"@en ;
+    ho:explanation "Arendt used the Nazi bureaucracy's *Sprachregelungen*, language rules such as \"final solution\" and \"special treatment\", to show how official vocabulary let people take part in atrocity without naming it. As a spoke, it is a narrower case of incongruence: deliberate, organized euphemism that conceals what is done and by whom. Honest drift between name and practice doesn't count, which is why it is graded narrowMatch. The extreme historical case must not be equated with ordinary AI vocabulary, but the mechanism is the same, and it adds something the other spokes lack: incongruence as a managed system of words, maintained by rules, not just an accidental gap. Orwell's essay on political language and the later word \"doublespeak\" belong to the same family. For the book, candidates include \"content moderation\" for removal, \"engagement optimization\" for attention capture and \"hallucination\" for fabrication. Euphemism is sometimes a legitimate softening, so the attribute should record function and context, not condemn by default."@en ;
+    ho:keyThinkers "Hannah Arendt; George Orwell; William Lutz"@en ;
+    ho:mappingGrade "narrowMatch"@en ;
+    ho:mappingReason "one kind of incongruence, deliberate euphemism"@en ;
+    ho:mapsToProperty ho:congruence ;
+    ho:meaningAsOf "1963"@en .
+
+psy:careStages a owl:NamedIndividual,
+        ho:DevelopmentalPsychologyTerm ;
+    rdfs:label "selfish → care → universal care → integrated (Wilber's rendering)"@en ;
+    dcterms:bibliographicCitation "Gilligan, *In a Different Voice* (Harvard UP, 1982); stage labels as rendered in Wilber, \"The Leading Edge of the Unknown in the Human Being\""@en ;
+    skos:altLabel "\"different voice\""@en,
+        "ethics of care"@en,
+        "selfish → care → universal care → integrated (Wilber's rendering)"@en ;
+    skos:definition "Stages of moral development described in the voice of care and responsibility, from care for oneself to care for all"@en ;
+    skos:example "A caregiver who moves from protecting only her own family to caring about everyone's children"@en ;
+    skos:historyNote "Written as an answer to Kohlberg, whose scale scored care reasoning lower"@en ;
+    skos:prefLabel "selfish → care → universal care → integrated (Wilber's rendering)"@en ;
+    skos:scopeNote "Built from the care voice; Wilber's labels may simplify Gilligan's own"@en ;
+    ho:assertedBy "Claude Opus 5.5 (this session)"@en ;
+    ho:citationVerification "Gilligan 1982: Ethics review, `normativeForm: relational` row. The four labels are Wilber's rendering, read in his primary text; Gilligan's own wording of her levels has not been checked."@en ;
+    ho:discipline "Developmental psychology (ethics of care)"@en ;
+    ho:explanation "Gilligan's *In a Different Voice* answered Kohlberg's scale by describing moral development in the voice of care and responsibility, not only rights and justice. As Wilber renders her, the stages run from selfish (care for oneself), to care (care extended to one's own group), to universal care (care for all people), to integrated (both voices brought together). As a spoke, it matters for two reasons. First, it is the most direct match to the hub: its stages are defined by how widely care extends. Second, it is the scale Wilber says his own four bands come from, so the Integral bands and Gilligan's stages can be mapped one-to-one on Wilber's authority. That reverses how the first draft of this note treated Gilligan, as only a critic recorded under Divergences. The Kohlberg–Gilligan dispute stays a Divergence, but Gilligan's scale is now a spoke in its own right. One caution: the four labels here are Wilber's paraphrase. Gilligan's own description of her levels should be checked before any of her wording is quoted in the book."@en ;
+    ho:explanationProvenance "new draft"@en ;
+    ho:keyThinkers "Carol Gilligan; Nel Noddings; Ken Wilber (adopter)"@en ;
+    ho:mappingGrade "closeMatch"@en ;
+    ho:mappingReason "stages of widening care, the most direct match to the hub's definition"@en ;
+    ho:mapsToProperty ho:developmentalAltitude ;
+    ho:meaningAsOf "1982"@en .
+
+psy:moralStages a owl:NamedIndividual,
+        ho:DevelopmentalPsychologyTerm ;
+    rdfs:label "stages of moral development"@en ;
+    dcterms:bibliographicCitation "Kohlberg, *Essays on Moral Development*, vol. 1 (Harper & Row, 1981); Gilligan (1982)"@en ;
+    skos:altLabel "pre-conventional, conventional, post-conventional"@en,
+        "stages of moral development"@en ;
+    skos:definition "Developmental levels of moral reasoning"@en ;
+    skos:example "The Heinz dilemma"@en ;
+    skos:historyNote "Built on Piaget (1932); 1958 dissertation with an all-male sample; revised by neo-Kohlbergians (Rest, 1999)"@en ;
+    skos:prefLabel "stages of moral development"@en ;
+    skos:scopeNote "Reasoning about justice; criticised for ranking care lower"@en ;
+    ho:assertedBy "Ethics Council"@en ;
+    ho:citationVerification "Ethics review, `developmentalAltitude` row"@en ;
+    ho:discipline "Developmental psychology"@en ;
+    ho:explanation "Developmental altitude is the most powerful and most dangerous attribute in the structure. Powerful because it captures something real: lenses differ in how widely and reflectively they extend concern, and a lens organised around self-interest is not equivalent to one organised around universal principles. Dangerous because every scale is built from somewhere. Kohlberg's stages, developed from interviews with boys and men, placed rule- and rights-based reasoning at the top and relational reasoning lower, so women's responses scored lower. Gilligan's critique is a documented case of an altitude scale encoding its authors' perspective, and it parallels the Confucian and Stoic rankings noted in the Classical review. For AI, altitude matters because developers increasingly claim their systems reason at a \"higher\" moral level, or align to \"universal\" values. Modelling implication: `developmentalAltitude` should never be stored as a bare value. It should always be an assessed property with `assessedBy` pointing to the scale and its PerspectiveType, so that the ontology records \"post-conventional according to Kohlberg's scale\" rather than \"post-conventional\". Rival altitude scales then become comparable, and their disagreements become Divergences."@en ;
+    ho:explanationProvenance "verbatim, [[v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01|Ethics review]]"@en ;
+    ho:keyThinkers "Jean Piaget; Lawrence Kohlberg; Carol Gilligan; James Rest"@en ;
+    ho:mappingGrade "closeMatch"@en ;
+    ho:mappingReason "levels of moral reasoning, not of concern directly"@en ;
+    ho:mapsToProperty ho:developmentalAltitude ;
+    ho:meaningAsOf "1981"@en .
+
+ho:Source a owl:Class ;
+    rdfs:label "Source"@en ;
+    skos:definition "stub (group 12a)"@en ;
+    ho:designStatus "stub: range target only in this experiment"@en .
+
+ho:adaptiveResponse a owl:DatatypeProperty ;
+    rdfs:label "adaptiveResponse"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 8"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_8_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "8 SUBJECT'S SIDE"@en .
+
+ho:aggregationRule a owl:DatatypeProperty ;
+    rdfs:label "aggregationRule"@en ;
+    dcterms:source "Harm Ontology v3 - Draft Structure (PerspectiveSpecification), group S4"@en ;
+    rdfs:domain ho:PerspectiveSpecification ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_S4_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "PerspectiveSpecification: Purpose"@en .
+
+ho:allowedValues a owl:AnnotationProperty ;
+    rdfs:label "allowed values"@en .
+
+ho:assertedBy a owl:AnnotationProperty ;
+    rdfs:label "asserted by"@en .
+
+ho:assessedBy a owl:ObjectProperty ;
+    rdfs:label "assessedBy"@en ;
+    rdfs:comment "each group-11 Assessment is taken with assessedBy -> PerspectiveType (PerspectiveStructure 0.02)"@en ;
+    rdfs:domain ho:Assessment ;
+    rdfs:range ho:PerspectiveType .
+
+ho:authenticityAssumption a owl:DatatypeProperty ;
+    rdfs:label "authenticityAssumption"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 6"@en ;
+    rdfs:comment "goes with manipulability"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_6_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "6 EPISTEMICS"@en .
+
+ho:authorityBasis a owl:DatatypeProperty ;
+    rdfs:label "authorityBasis"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 9"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_9_data ;
+    ho:allowedValues "coercive · legal · expert · moral · customary"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "9 POWER"@en .
+
+ho:bearerRole a owl:DatatypeProperty ;
+    rdfs:label "bearerRole"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 7"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_7_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "7 STANCE (holder's side)"@en .
+
+ho:boundaryTests a owl:AnnotationProperty ;
+    rdfs:label "boundary tests"@en .
+
+ho:canonStatus a owl:DatatypeProperty ;
+    rdfs:label "canonStatus"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 12c"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_12c_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "12c verification, evidence, confidence, canon status"@en .
+
+ho:canonicalSource a owl:DatatypeProperty ;
+    rdfs:label "canonicalSource"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 0"@en ;
+    rdfs:comment "absorbs foundationalWork, canonicalText"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_0_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "0 CORE (required)"@en ;
+    ho:tier "★ required"@en .
+
+ho:changeMode a owl:DatatypeProperty ;
+    rdfs:label "changeMode"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 10"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_10_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "10 DYNAMICS & MATERIALITY"@en .
+
+ho:citation a owl:DatatypeProperty ;
+    rdfs:label "citation"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 12a"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_12a_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "12a Sources"@en .
+
+ho:citationVerification a owl:AnnotationProperty ;
+    rdfs:label "citation verification"@en .
+
+ho:collectivity a owl:DatatypeProperty ;
+    rdfs:label "collectivity"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 3.1"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_3_1_data ;
+    ho:allowedValues "individual · collective · both"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "3.1 quadrant axes (Wilber, AQAL)"@en ;
+    ho:tier "★"@en .
+
+ho:commensurability a owl:DatatypeProperty ;
+    rdfs:label "commensurability"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 5"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_5_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "5 AIM & NORMATIVE CORE"@en .
+
+ho:conceptStructure a owl:DatatypeProperty ;
+    rdfs:label "conceptStructure"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 2"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_2_data ;
+    ho:allowedValues "definitional · family resemblance · prototype · interpretive"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "2 IDENTITY & LINEAGE"@en .
+
+ho:confidence a owl:DatatypeProperty ;
+    rdfs:label "confidence"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 12c"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_12c_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "12c verification, evidence, confidence, canon status"@en .
+
+ho:conflictResolution a owl:DatatypeProperty ;
+    rdfs:label "conflictResolution"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 5"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_5_data ;
+    ho:allowedValues "lexical · weighing · deadlock"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "5 AIM & NORMATIVE CORE"@en .
+
+ho:consentToBeSeen a owl:DatatypeProperty ;
+    rdfs:label "consentToBeSeen"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 8"@en ;
+    rdfs:comment "qualified by powerAsymmetry"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_8_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "8 SUBJECT'S SIDE"@en ;
+    ho:tier "★"@en .
+
+ho:controlLocus a owl:DatatypeProperty ;
+    rdfs:label "controlLocus"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 7"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_7_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "7 STANCE (holder's side)"@en .
+
+ho:costBearer a owl:DatatypeProperty ;
+    rdfs:label "costBearer"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 9"@en ;
+    rdfs:comment "kind assigned by the builder; goes with differentialBurden"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_9_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "9 POWER"@en ;
+    ho:tier "★"@en .
+
+ho:created a owl:DatatypeProperty ;
+    rdfs:label "created"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 12b"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf ho:grp_12b_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "12b PROV"@en .
+
+ho:criterionOfTruth a owl:DatatypeProperty ;
+    rdfs:label "criterionOfTruth"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 6"@en ;
+    rdfs:comment "goes with inferenceModes"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_6_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "6 EPISTEMICS"@en .
+
+ho:definitionByDomain a owl:DatatypeProperty ;
+    rdfs:label "definitionByDomain"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 2"@en ;
+    rdfs:comment "rename pending: domain -> discipline (with meaningAsOf)"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_2_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "2 IDENTITY & LINEAGE"@en .
+
+ho:designStatus a owl:AnnotationProperty ;
+    rdfs:label "design status"@en .
+
+ho:differentialBurden a owl:DatatypeProperty ;
+    rdfs:label "differentialBurden"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 9"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_9_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "9 POWER"@en .
+
+ho:direction a owl:DatatypeProperty ;
+    rdfs:label "direction"@en ;
+    dcterms:source "Harm Ontology v3 - Draft Structure (PerspectiveSpecification), group S1"@en ;
+    rdfs:domain ho:PerspectiveSpecification ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_S1_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "PerspectiveSpecification: Position"@en .
+
+ho:discipline a owl:AnnotationProperty ;
+    rdfs:label "discipline"@en .
+
+ho:discountRate a owl:DatatypeProperty ;
+    rdfs:label "discountRate"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 4"@en ;
+    rdfs:comment "goes with temporalScope"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_4_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "4 EXTENT"@en .
+
+ho:displayGroup a owl:AnnotationProperty ;
+    rdfs:label "display group"@en .
+
+ho:distributiveConcern a owl:DatatypeProperty ;
+    rdfs:label "distributiveConcern"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 5"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_5_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "5 AIM & NORMATIVE CORE"@en .
+
+ho:effectOnHolder a owl:DatatypeProperty ;
+    rdfs:label "effectOnHolder"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 7"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_7_data ;
+    ho:allowedValues "affective · dispositional · cognitive · physical/observer cost"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "7 STANCE (holder's side)"@en ;
+    ho:tier "★"@en .
+
+ho:errorHandling a owl:DatatypeProperty ;
+    rdfs:label "errorHandling"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 6"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_6_data ;
+    ho:allowedValues "update · act on world · suppress · immunize"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "6 EPISTEMICS"@en .
+
+ho:evidenceLabel a owl:DatatypeProperty ;
+    rdfs:label "evidenceLabel"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 12c"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_12c_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "12c verification, evidence, confidence, canon status"@en .
+
+ho:exemplars a owl:DatatypeProperty ;
+    rdfs:label "exemplars"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 2"@en ;
+    rdfs:comment "goes with conceptStructure"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_2_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "2 IDENTITY & LINEAGE"@en .
+
+ho:explanation a owl:AnnotationProperty ;
+    rdfs:label "explanation"@en .
+
+ho:explanationProvenance a owl:AnnotationProperty ;
+    rdfs:label "explanation provenance"@en .
+
+ho:explorationMode a owl:DatatypeProperty ;
+    rdfs:label "explorationMode"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 6"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_6_data ;
+    ho:allowedValues "explore · exploit"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "6 EPISTEMICS"@en .
+
+ho:exposure a owl:DatatypeProperty ;
+    rdfs:label "exposure"@en ;
+    dcterms:source "Harm Ontology v3 - Draft Structure (PerspectiveSpecification), group S2"@en ;
+    rdfs:comment "the horizon"@en ;
+    rdfs:domain ho:PerspectiveSpecification ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_S2_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "PerspectiveSpecification: Time"@en .
+
+ho:factHandling a owl:DatatypeProperty ;
+    rdfs:label "factHandling"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 6"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_6_data ;
+    ho:allowedValues "preserves · blurs · dissolves"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "6 EPISTEMICS"@en .
+
+ho:fieldOfApplication a owl:DatatypeProperty ;
+    rdfs:label "fieldOfApplication"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 5"@en ;
+    rdfs:comment "formerly domainOfApplicability; jurisdiction in the Legal profile"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_5_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "5 AIM & NORMATIVE CORE"@en .
+
+ho:fitness a owl:DatatypeProperty ;
+    rdfs:label "fitness"@en ;
+    dcterms:source "Harm Ontology v3 - Draft Structure (PerspectiveSpecification), group S4"@en ;
+    rdfs:domain ho:PerspectiveSpecification ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_S4_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "PerspectiveSpecification: Purpose"@en .
+
+ho:foundationalCommitments a owl:DatatypeProperty ;
+    rdfs:label "foundationalCommitments"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 0"@en ;
+    rdfs:comment "absorbs assumption, principles, priors/baseRates"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_0_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "0 CORE (required)"@en ;
+    ho:tier "★ required"@en .
+
+ho:framing a owl:DatatypeProperty ;
+    rdfs:label "framing"@en ;
+    dcterms:source "Harm Ontology v3 - Draft Structure (PerspectiveSpecification), group S3"@en ;
+    rdfs:domain ho:PerspectiveSpecification ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_S3_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "PerspectiveSpecification: Optics"@en .
+
+ho:glossLine a owl:AnnotationProperty ;
+    rdfs:label "gloss line"@en .
+
+ho:governingAnalogies a owl:DatatypeProperty ;
+    rdfs:label "governingAnalogies"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 7"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_7_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "7 STANCE (holder's side)"@en .
+
+ho:historicalNote a owl:DatatypeProperty ;
+    rdfs:label "historicalNote"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 2"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_2_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "2 IDENTITY & LINEAGE"@en .
+
+ho:hubStatus a owl:AnnotationProperty ;
+    rdfs:label "hub status"@en .
+
+ho:inclusionCriteria a owl:DatatypeProperty ;
+    rdfs:label "inclusionCriteria"@en ;
+    dcterms:source "Harm Ontology v3 - Draft Structure (PerspectiveSpecification), group S4"@en ;
+    rdfs:domain ho:PerspectiveSpecification ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_S4_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "PerspectiveSpecification: Purpose"@en .
+
+ho:inferenceModes a owl:DatatypeProperty ;
+    rdfs:label "inferenceModes"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 6"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_6_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "6 EPISTEMICS"@en .
+
+ho:infrastructureDependence a owl:DatatypeProperty ;
+    rdfs:label "infrastructureDependence"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 10"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_10_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "10 DYNAMICS & MATERIALITY"@en .
+
+ho:instrumentResponse a owl:DatatypeProperty ;
+    rdfs:label "instrumentResponse"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 6"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_6_data ;
+    ho:allowedValues "threshold · false alarm · miss"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "6 EPISTEMICS"@en ;
+    ho:tier "★"@en .
+
+ho:intent a owl:DatatypeProperty ;
+    rdfs:label "intent"@en ;
+    dcterms:source "Harm Ontology v3 - Draft Structure (PerspectiveSpecification), group S4"@en ;
+    rdfs:domain ho:PerspectiveSpecification ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_S4_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "PerspectiveSpecification: Purpose"@en .
+
+ho:intentWeighting a owl:DatatypeProperty ;
+    rdfs:label "intentWeighting"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 5"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_5_data ;
+    ho:allowedValues "intent · outcome · mixed"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "5 AIM & NORMATIVE CORE"@en ;
+    ho:tier "★"@en .
+
+ho:interfaceAbstraction a owl:DatatypeProperty ;
+    rdfs:label "interfaceAbstraction"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 8"@en ;
+    rdfs:comment "goes with legibility"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_8_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "8 SUBJECT'S SIDE"@en .
+
+ho:interiority a owl:DatatypeProperty ;
+    rdfs:label "interiority"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 3.1"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_3_1_data ;
+    ho:allowedValues "interior · exterior · both"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "3.1 quadrant axes (Wilber, AQAL)"@en ;
+    ho:tier "★"@en .
+
+ho:keyReference a owl:DatatypeProperty ;
+    rdfs:label "keyReference"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 12a"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_12a_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "12a Sources"@en .
+
+ho:keyThinkers a owl:AnnotationProperty ;
+    rdfs:label "key thinkers"@en .
+
+ho:laundering a owl:DatatypeProperty ;
+    rdfs:label "laundering"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 9"@en ;
+    rdfs:comment "goes with accountabilityLocus"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_9_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "9 POWER"@en .
+
+ho:legibility a owl:DatatypeProperty ;
+    rdfs:label "legibility"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 8"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_8_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "8 SUBJECT'S SIDE"@en .
+
+ho:lensKind a owl:DatatypeProperty ;
+    rdfs:label "lensKind"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 2"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_2_data ;
+    ho:allowedValues "designed · tacit · learned · cultural technology"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "2 IDENTITY & LINEAGE"@en .
+
+ho:livedExperience a owl:DatatypeProperty ;
+    rdfs:label "livedExperience"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 8"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_8_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "8 SUBJECT'S SIDE"@en .
+
+ho:manipulability a owl:DatatypeProperty ;
+    rdfs:label "manipulability"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 6"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_6_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "6 EPISTEMICS"@en .
+
+ho:mappingGrade a owl:AnnotationProperty ;
+    rdfs:label "mapping grade"@en .
+
+ho:mappingReason a owl:AnnotationProperty ;
+    rdfs:label "mapping reason"@en .
+
+ho:mapsToProperty a owl:AnnotationProperty ;
+    rdfs:label "documents / maps to property"@en .
+
+ho:meaningAsOf a owl:AnnotationProperty ;
+    rdfs:label "meaning as of"@en .
+
+ho:method a owl:DatatypeProperty ;
+    rdfs:label "method"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 6"@en ;
+    rdfs:comment "goes with instrumentResponse"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_6_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "6 EPISTEMICS"@en ;
+    ho:tier "★"@en .
+
+ho:modelOfSubject a owl:DatatypeProperty ;
+    rdfs:label "modelOfSubject"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 8"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_8_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "8 SUBJECT'S SIDE"@en .
+
+ho:modified a owl:DatatypeProperty ;
+    rdfs:label "modified"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 12b"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf ho:grp_12b_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "12b PROV"@en .
+
+ho:name a owl:DatatypeProperty ;
+    rdfs:label "name"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 0"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_0_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "0 CORE (required)"@en ;
+    ho:tier "★ required"@en .
+
+ho:nameByDomain a owl:DatatypeProperty ;
+    rdfs:label "nameByDomain"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 2"@en ;
+    rdfs:comment "rename pending: domain -> discipline (with meaningAsOf)"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_2_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "2 IDENTITY & LINEAGE"@en .
+
+ho:normativeForm a owl:DatatypeProperty ;
+    rdfs:label "normativeForm"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 5"@en ;
+    rdfs:comment "plural"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_5_data ;
+    ho:allowedValues "deontic · consequentialist · aretaic · relational · contractualist"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "5 AIM & NORMATIVE CORE"@en ;
+    ho:tier "★"@en .
+
+ho:objectOfAttention a owl:ObjectProperty ;
+    rdfs:label "objectOfAttention"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 0"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( ho:Factor ho:Effect ho:AffectedEntity ) ] ;
+    rdfs:subPropertyOf ho:grp_0_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "0 CORE (required)"@en ;
+    ho:tier "★ required"@en .
+
+ho:originalWording a owl:DatatypeProperty ;
+    rdfs:label "originalWording"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 12b"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_12b_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "12b PROV"@en .
+
+ho:performativity a owl:DatatypeProperty ;
+    rdfs:label "performativity"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 10"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_10_data ;
+    ho:allowedValues "none · self-confirming · self-defeating"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "10 DYNAMICS & MATERIALITY"@en ;
+    ho:tier "★"@en .
+
+ho:powerAsymmetry a owl:DatatypeProperty ;
+    rdfs:label "powerAsymmetry"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 9"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_9_data ;
+    ho:allowedValues "low · high · total"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "9 POWER"@en .
+
+ho:precisionWeighting a owl:DatatypeProperty ;
+    rdfs:label "precisionWeighting"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 9"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_9_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "9 POWER"@en .
+
+ho:predictabilityHorizon a owl:DatatypeProperty ;
+    rdfs:label "predictabilityHorizon"@en ;
+    dcterms:source "Harm Ontology v3 - Draft Structure (PerspectiveSpecification), group S2"@en ;
+    rdfs:comment "(?) open in the draft structure"@en ;
+    rdfs:domain ho:PerspectiveSpecification ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_S2_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "PerspectiveSpecification: Time"@en .
+
+ho:prevalence a owl:DatatypeProperty ;
+    rdfs:label "prevalence"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 10"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_10_data ;
+    ho:allowedValues "dominant · contested · marginal · emerging"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "10 DYNAMICS & MATERIALITY"@en .
+
+ho:quadrant a owl:DatatypeProperty ;
+    rdfs:label "quadrant"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 3.1"@en ;
+    rdfs:comment "derived"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_3_1_data ;
+    ho:allowedValues "UL interior–individual · LL interior–collective · UR exterior–individual · LR exterior–collective"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "3.1 quadrant axes (Wilber, AQAL)"@en .
+
+ho:resolution a owl:DatatypeProperty ;
+    rdfs:label "resolution"@en ;
+    dcterms:source "Harm Ontology v3 - Draft Structure (PerspectiveSpecification), group S3"@en ;
+    rdfs:domain ho:PerspectiveSpecification ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_S3_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "PerspectiveSpecification: Optics"@en .
+
+ho:scaleValidity a owl:DatatypeProperty ;
+    rdfs:label "scaleValidity"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 4"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_4_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "4 EXTENT"@en .
+
+ho:sensitivity a owl:DatatypeProperty ;
+    rdfs:label "sensitivity"@en ;
+    dcterms:source "Harm Ontology v3 - Draft Structure (PerspectiveSpecification), group S3"@en ;
+    rdfs:comment "threshold"@en ;
+    rdfs:domain ho:PerspectiveSpecification ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_S3_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "PerspectiveSpecification: Optics"@en .
+
+ho:socialScope a owl:DatatypeProperty ;
+    rdfs:label "socialScope"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 3.2"@en ;
+    rdfs:comment "size"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_3_2_data ;
+    ho:allowedValues "individual · family · community · tribe · nation · species …"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "3.2 scope axes (kept separate)"@en .
+
+ho:spatialScope a owl:DatatypeProperty ;
+    rdfs:label "spatialScope"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 4"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_4_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "4 EXTENT"@en .
+
+ho:stanceTowardObject a owl:DatatypeProperty ;
+    rdfs:label "stanceTowardObject"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 7"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_7_data ;
+    ho:allowedValues "physical · design · intentional"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "7 STANCE (holder's side)"@en .
+
+ho:standingOfSubjects a owl:DatatypeProperty ;
+    rdfs:label "standingOfSubjects"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 8"@en ;
+    rdfs:comment "\"patient\" -> \"affected\", 2026-11-18"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_8_data ;
+    ho:allowedValues "agent · affected · datum"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "8 SUBJECT'S SIDE"@en ;
+    ho:tier "★"@en .
+
+ho:standpoint a owl:DatatypeProperty ;
+    rdfs:label "standpoint"@en ;
+    dcterms:source "Harm Ontology v3 - Draft Structure (PerspectiveSpecification), group S1"@en ;
+    rdfs:domain ho:PerspectiveSpecification ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_S1_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "PerspectiveSpecification: Position"@en .
+
+ho:statedPurpose a owl:DatatypeProperty ;
+    rdfs:label "statedPurpose"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 5"@en ;
+    rdfs:comment "operative side is assessed under congruence (group 11)"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_5_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "5 AIM & NORMATIVE CORE"@en ;
+    ho:tier "★"@en .
+
+ho:systemicScope a owl:DatatypeProperty ;
+    rdfs:label "systemicScope"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 4"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_4_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "4 EXTENT"@en .
+
+ho:temporalScope a owl:DatatypeProperty ;
+    rdfs:label "temporalScope"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 4"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_4_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "4 EXTENT"@en .
+
+ho:tier a owl:AnnotationProperty ;
+    rdfs:label "tier"@en .
+
+ho:timestamp a owl:DatatypeProperty ;
+    rdfs:label "timestamp"@en ;
+    dcterms:source "Harm Ontology v3 - Draft Structure (PerspectiveSpecification), group S2"@en ;
+    rdfs:comment "altLabel assessedAt"@en ;
+    rdfs:domain ho:PerspectiveSpecification ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf ho:grp_S2_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "PerspectiveSpecification: Time"@en .
+
+ho:transmissionMode a owl:DatatypeProperty ;
+    rdfs:label "transmissionMode"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 2"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_2_data ;
+    ho:allowedValues "text · apprenticeship · ritual · institution · narrative · trained model"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "2 IDENTITY & LINEAGE"@en .
+
+ho:unitOfMeasure a owl:DatatypeProperty ;
+    rdfs:label "unitOfMeasure"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 5"@en ;
+    rdfs:comment "goes with commensurability"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_5_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "5 AIM & NORMATIVE CORE"@en ;
+    ho:tier "★"@en .
+
+ho:validFrom a owl:DatatypeProperty ;
+    rdfs:label "validFrom"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 10"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf ho:grp_10_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "10 DYNAMICS & MATERIALITY"@en .
+
+ho:validTo a owl:DatatypeProperty ;
+    rdfs:label "validTo"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 10"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf ho:grp_10_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "10 DYNAMICS & MATERIALITY"@en .
+
+ho:valueTheory a owl:DatatypeProperty ;
+    rdfs:label "valueTheory"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 5"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_5_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "5 AIM & NORMATIVE CORE"@en .
+
+ho:verificationStatus a owl:DatatypeProperty ;
+    rdfs:label "verificationStatus"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 12c"@en ;
+    rdfs:comment "citations only"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_12c_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "12c verification, evidence, confidence, canon status"@en .
+
+ho:wasDerivedFrom a owl:DatatypeProperty ;
+    rdfs:label "wasDerivedFrom"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 12b"@en ;
+    rdfs:comment "PROV"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_12b_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "12b PROV"@en .
+
+ho:wasGeneratedBy a owl:DatatypeProperty ;
+    rdfs:label "wasGeneratedBy"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 12b"@en ;
+    rdfs:comment "PROV"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_12b_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "12b PROV"@en .
+
+ho:whoseVoice a owl:DatatypeProperty ;
+    rdfs:label "whoseVoice"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 9"@en ;
+    rdfs:comment "kind assigned by the builder; goes with precisionWeighting"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf ho:grp_9_data ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "9 POWER"@en ;
+    ho:tier "★"@en .
+
+sci:agnotology a owl:NamedIndividual,
+        ho:ScienceStudiesTerm ;
+    rdfs:label "agnotology"@en ;
+    dcterms:bibliographicCitation "Proctor & Schiebinger (eds.), *Agnotology* (Stanford UP, 2008); McGoey, *The Unknowers* (Zed, 2019)"@en ;
+    skos:altLabel "agnotology"@en,
+        "manufactured doubt"@en,
+        "strategic ignorance"@en ;
+    skos:definition "The study of ignorance deliberately produced or maintained"@en ;
+    skos:example "Avoiding data collection on harms that would create obligations"@en ;
+    skos:historyNote "\"Agnotology\" coined 1992; tobacco industry's manufactured doubt as the founding case"@en ;
+    skos:prefLabel "agnotology"@en ;
+    skos:scopeNote "Institutional and strategic"@en ;
+    ho:assertedBy "Cognitive Council"@en ;
+    ho:citationVerification "Cognitive review, `suppressors` row"@en ;
+    ho:discipline "History of science"@en ;
+    ho:explanation "Agnotology is the study of ignorance that is produced or maintained, not simply not-yet-known. Proctor developed it from the tobacco industry's efforts to manufacture doubt about the harms of smoking; McGoey extended it to \"strategic ignorance\" in organizations. As a spoke, it gives the suppressed kind its institutional, evidence-based form. Where Minsky describes the mechanism inside one mind, agnotology documents how institutions arrange not to know: funding counter-research, avoiding studies whose results would create obligations, and designing record-keeping so that certain facts never exist on paper. It is graded closeMatch because it describes the same thing as the kind, at the scale the ontology cares about. For AI harm the pattern is plausible and worth watching: companies that avoid measuring harms that would trigger duties, or systems built so certain data are never logged. Any claim about a specific organization needs its own sourced research. The link to HO-II.e matters here: a value that is Undisclosed, held by the party with most to lose, can be evidence of suppression."@en ;
+    ho:keyThinkers "Robert Proctor; Londa Schiebinger; Linsey McGoey"@en ;
+    ho:mappingGrade "closeMatch"@en ;
+    ho:mappingReason "produced ignorance at institutional scale"@en ;
+    ho:mapsToProperty ho:suppressedBlindSpot ;
+    ho:meaningAsOf "2008"@en .
+
+sci:anomaly a owl:NamedIndividual,
+        ho:ScienceStudiesTerm ;
+    rdfs:label "anomaly"@en ;
+    dcterms:bibliographicCitation "Kuhn, *The Structure of Scientific Revolutions* (1962), ch. VI"@en ;
+    skos:altLabel "anomaly"@en,
+        "outlier"@en,
+        "residual"@en ;
+    skos:definition "An observation a lens can't explain and tends to set aside"@en ;
+    skos:example "Early complaints about an algorithm that fit no recognized harm category"@en ;
+    skos:historyNote "Kuhn argued accumulating anomalies precede scientific revolutions"@en ;
+    skos:prefLabel "anomaly"@en ;
+    skos:scopeNote "Names what is set aside, not why"@en ;
+    ho:assertedBy "Physics Council"@en ;
+    ho:citationVerification "Physics review, `anomalies` row"@en ;
+    ho:discipline "Philosophy of science"@en ;
+    ho:explanation "Kuhn argued that normal science sets aside observations its paradigm can't explain, and that these anomalies accumulate until they force a revolution. Curie's pitchblende, more radioactive than its uranium could explain, is the classic case of an anomaly taken seriously. As a spoke, it maps to the negligent kind with relatedMatch, because setting an anomaly aside isn't always negligent: sometimes it is reasonable, and the anomaly is noise. What it adds is a way to see negligence as it forms. Anomalies are the visible residue of a blind spot, the cases the lens couldn't place. For AI harm, they are often individual complaints that fit no recognized harm category, unusual model behaviour, or patterns among users that no lens has a concept for. These are frequently the first evidence of a new kind of harm. Recording anomalies, rather than letting them drop, is how a lens's negligent blind spots become visible before the damage does. It links this hub to `epistemicStanding` in the Assessments group."@en ;
+    ho:keyThinkers "Thomas Kuhn; Marie Curie"@en ;
+    ho:mappingGrade "relatedMatch"@en ;
+    ho:mappingReason "what a paradigm sets aside, which may be negligent or merely premature"@en ;
+    ho:mapsToProperty ho:negligentBlindSpot ;
+    ho:meaningAsOf "1962"@en .
+
+sci:cargoCultScience a owl:NamedIndividual,
+        ho:ScienceStudiesTerm ;
+    rdfs:label "cargo cult science"@en ;
+    dcterms:bibliographicCitation "Feynman, \"Cargo Cult Science\", *Engineering and Science* 37(7) (1974): 10–13"@en ;
+    skos:altLabel "cargo cult science"@en,
+        "form without substance"@en,
+        "scientism"@en ;
+    skos:definition "A practice that imitates the forms of rigorous inquiry without the integrity that makes them work"@en ;
+    skos:example "AI benchmarks reported to decimal precision on contaminated test sets"@en ;
+    skos:historyNote "Feynman's 1974 Caltech commencement address"@en ;
+    skos:prefLabel "cargo cult science"@en ;
+    skos:scopeNote "Scientific form and method, not stated purpose"@en ;
+    ho:assertedBy "Physics Council"@en ;
+    ho:citationVerification "Physics review, `cargoCult` row"@en ;
+    ho:discipline "Philosophy of science"@en ;
+    ho:explanation "Feynman's 1974 commencement address compared some research to islanders building imitation runways in the hope that planes would land: the form of science without the integrity that makes it work. As a spoke, it adds incongruence between method and substance. A lens can carry every outward sign of rigour (metrics, benchmarks, papers, decimal places) while lacking controls, replication and honest reporting of failure. It is graded relatedMatch because it concerns epistemic practice rather than a stated moral purpose, though the two often travel together when a lens's scientific form is what licenses its authority. For AI the risk is high: benchmarks and evaluations are abundant, while independent replication and reported failures are scarce. The spoke links congruence to the Epistemics group, especially Popper's falsifiers and corroboration. Because \"cargo cult\" is an accusation, it must be recorded as an Assessment with `assessedBy`, never as a plain fact about a lens."@en ;
+    ho:keyThinkers "Richard Feynman"@en ;
+    ho:mappingGrade "relatedMatch"@en ;
+    ho:mappingReason "about epistemic form vs substance, not a stated moral purpose"@en ;
+    ho:mapsToProperty ho:congruence ;
+    ho:meaningAsOf "1974"@en .
+
+soc:sacrificeZone a owl:NamedIndividual,
+        ho:SociologyTerm ;
+    rdfs:label "sacrifice zone"@en ;
+    dcterms:bibliographicCitation "Lerner, *Sacrifice Zones* (MIT Press, 2010)"@en ;
+    skos:altLabel "sacrifice zone"@en,
+        "tolerated cost"@en ;
+    skos:definition "A place or community whose harm is accepted for others' benefit"@en ;
+    skos:example "Communities near data centres bearing water and power costs (illustrative)"@en ;
+    skos:historyNote "Term from Cold War nuclear sites, applied to environmental justice"@en ;
+    skos:prefLabel "sacrifice zone"@en ;
+    skos:scopeNote "Geographic and community-bound"@en ;
+    ho:assertedBy "Sci-Fi Council"@en ;
+    ho:citationVerification "Sci-Fi review, `acceptedHarm` row"@en ;
+    ho:discipline "Sociology (environmental justice)"@en ;
+    ho:explanation "\"Sacrifice zone\" began as a term for Cold War nuclear sites and was taken up by the environmental justice movement for communities exposed to pollution so that others could benefit. Lerner's *Sacrifice Zones* (2010) documents such places in the United States. As a spoke, it is a narrower case of accepted harm: the tolerated cost falls on a particular place and the people who live there. It adds geography and distribution to the accepted kind. An accepted harm is rarely spread evenly; it is usually concentrated where the people bearing it have the least power to refuse. That connects the hub to the Power group, especially `costBearer`, `differentialBurden` and `whoseVoice`. For AI, the physical infrastructure of computation (data centres, power and water use, mining for hardware) raises the same pattern, though any specific claim about a specific place would need its own research before the book uses it. The example in the table is illustrative only."@en ;
+    ho:keyThinkers "Steve Lerner"@en ;
+    ho:mappingGrade "narrowMatch"@en ;
+    ho:mappingReason "accepted harm located in places and communities"@en ;
+    ho:mapsToProperty ho:acceptedHarm ;
+    ho:meaningAsOf "2010"@en .
+
+ho:CognitiveScienceTerm a owl:Class ;
+    rdfs:label "Cognitive science vocabulary"@en ;
+    rdfs:subClassOf ho:DisciplineTerm ;
+    skos:definition "Cognitive science vocabulary"@en .
+
+ho:Effect a owl:Class ;
+    rdfs:label "Effect"@en ;
+    skos:definition "neutral; one consequence among many (draft structure)"@en ;
+    ho:designStatus "stub: range target only in this experiment"@en .
+
+ho:EthicsTerm a owl:Class ;
+    rdfs:label "Ethics vocabulary"@en ;
+    rdfs:subClassOf ho:DisciplineTerm ;
+    skos:definition "Ethics vocabulary"@en .
+
+ho:Factor a owl:Class ;
+    rdfs:label "Factor"@en ;
+    skos:definition "neutral; one contributor among many (draft structure)"@en ;
+    ho:designStatus "stub: range target only in this experiment"@en .
+
+ho:IntegralTheoryTerm a owl:Class ;
+    rdfs:label "Integral theory vocabulary"@en ;
+    rdfs:subClassOf ho:DisciplineTerm ;
+    skos:definition "Integral theory vocabulary"@en .
+
+ho:LiteratureTerm a owl:Class ;
+    rdfs:label "Literature vocabulary"@en ;
+    rdfs:subClassOf ho:DisciplineTerm ;
+    skos:definition "Literature vocabulary"@en .
+
+ho:PoliticalTheoryTerm a owl:Class ;
+    rdfs:label "Political theory vocabulary"@en ;
+    rdfs:subClassOf ho:DisciplineTerm ;
+    skos:definition "Political theory vocabulary"@en .
+
+ho:SociologyTerm a owl:Class ;
+    rdfs:label "Sociology vocabulary"@en ;
+    rdfs:subClassOf ho:DisciplineTerm ;
+    skos:definition "Sociology vocabulary"@en .
+
+ho:accountabilityLocus a owl:ObjectProperty ;
+    rdfs:label "accountabilityLocus"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 9"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Agent ;
+    rdfs:subPropertyOf ho:grp_9_obj ;
+    ho:allowedValues "named agent · role · institution · Nobody"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "9 POWER"@en ;
+    ho:tier "★"@en .
+
+ho:anomalies a owl:ObjectProperty ;
+    rdfs:label "anomalies"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 11"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Assessment ;
+    rdfs:subPropertyOf ho:epistemicStanding ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "11 ASSESSMENTS (each an Assessment with assessedBy -> PerspectiveType)"@en .
+
+ho:appliedEvaluativeStandard a owl:ObjectProperty ;
+    rdfs:label "appliedEvaluativeStandard"@en ;
+    dcterms:source "Harm Ontology v3 - Draft Structure (PerspectiveSpecification), group S4"@en ;
+    rdfs:comment "inherits defaultEvaluativeStandard if absent"@en ;
+    rdfs:domain ho:PerspectiveSpecification ;
+    rdfs:range ho:EvaluativeStandard ;
+    rdfs:subPropertyOf ho:grp_S4_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "PerspectiveSpecification: Purpose"@en .
+
+ho:assessor a owl:ObjectProperty ;
+    rdfs:label "assessor"@en ;
+    dcterms:source "Harm Ontology v3 - Draft Structure (PerspectiveSpecification), group S5"@en ;
+    rdfs:domain ho:PerspectiveSpecification ;
+    rdfs:range ho:Agent ;
+    rdfs:subPropertyOf ho:grp_S5_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "PerspectiveSpecification: Operator"@en .
+
+ho:authority a owl:ObjectProperty ;
+    rdfs:label "authority"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 9"@en ;
+    rdfs:comment "bound parties"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Agent ;
+    rdfs:subPropertyOf ho:grp_9_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "9 POWER"@en .
+
+ho:calibration a owl:ObjectProperty ;
+    rdfs:label "calibration"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 11"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Assessment ;
+    rdfs:subPropertyOf ho:epistemicStanding ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "11 ASSESSMENTS (each an Assessment with assessedBy -> PerspectiveType)"@en .
+
+ho:causalModel a owl:ObjectProperty ;
+    rdfs:label "causalModel"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 6"@en ;
+    rdfs:comment "HO-I.a"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:CausalGraph ;
+    rdfs:subPropertyOf ho:grp_6_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "6 EPISTEMICS"@en .
+
+ho:complementaryWith a owl:ObjectProperty ;
+    rdfs:label "complementaryWith"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 1"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:PerspectiveType ;
+    rdfs:subPropertyOf ho:grp_1_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "1 RELATIONS (relations before attributes)"@en .
+
+ho:complements a owl:ObjectProperty ;
+    rdfs:label "complements"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 1"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:PerspectiveType ;
+    rdfs:subPropertyOf ho:grp_1_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "1 RELATIONS (relations before attributes)"@en .
+
+ho:convergesWith a owl:ObjectProperty ;
+    rdfs:label "convergesWith"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 1"@en ;
+    rdfs:comment "reified in HO-III.a"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:PerspectiveType ;
+    rdfs:subPropertyOf ho:grp_1_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "1 RELATIONS (relations before attributes)"@en ;
+    ho:tier "★"@en .
+
+ho:correctedBy a owl:ObjectProperty ;
+    rdfs:label "correctedBy"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 1"@en ;
+    rdfs:comment "community of inquiry"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Community ;
+    rdfs:subPropertyOf ho:grp_1_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "1 RELATIONS (relations before attributes)"@en .
+
+ho:corroboration a owl:ObjectProperty ;
+    rdfs:label "corroboration"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 11"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Assessment ;
+    rdfs:subPropertyOf ho:epistemicStanding ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "11 ASSESSMENTS (each an Assessment with assessedBy -> PerspectiveType)"@en .
+
+ho:coupledWith a owl:ObjectProperty ;
+    rdfs:label "coupledWith"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 1"@en ;
+    rdfs:comment "resonance and feedback between traditions"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:PerspectiveType ;
+    rdfs:subPropertyOf ho:grp_1_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "1 RELATIONS (relations before attributes)"@en .
+
+ho:critiquedBy a owl:ObjectProperty ;
+    rdfs:label "critiquedBy"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 11"@en ;
+    rdfs:comment "target of knownCritique"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:PerspectiveType ;
+    rdfs:subPropertyOf ho:grp_11_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "11 ASSESSMENTS (each an Assessment with assessedBy -> PerspectiveType)"@en .
+
+ho:defaultEvaluativeStandard a owl:ObjectProperty ;
+    rdfs:label "defaultEvaluativeStandard"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 5"@en ;
+    rdfs:comment "HO-II.a"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:EvaluativeStandard ;
+    rdfs:subPropertyOf ho:grp_5_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "5 AIM & NORMATIVE CORE"@en .
+
+ho:definedAgainst a owl:ObjectProperty ;
+    rdfs:label "definedAgainst"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 1"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:PerspectiveType ;
+    rdfs:subPropertyOf ho:grp_1_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "1 RELATIONS (relations before attributes)"@en .
+
+ho:divergesFrom a owl:ObjectProperty ;
+    rdfs:label "divergesFrom"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 1"@en ;
+    rdfs:comment "reified in HO-III.a"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:PerspectiveType ;
+    rdfs:subPropertyOf ho:grp_1_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "1 RELATIONS (relations before attributes)"@en ;
+    ho:tier "★"@en .
+
+ho:failureMode a owl:ObjectProperty ;
+    rdfs:label "failureMode"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 11"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Assessment ;
+    rdfs:subPropertyOf ho:grp_11_obj ;
+    ho:allowedValues "excess · deficiency"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "11 ASSESSMENTS (each an Assessment with assessedBy -> PerspectiveType)"@en .
+
+ho:generalizes a owl:ObjectProperty ;
+    rdfs:label "generalizes"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 1"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:PerspectiveType ;
+    rdfs:subPropertyOf ho:grp_1_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "1 RELATIONS (relations before attributes)"@en .
+
+ho:grp_0_obj a owl:ObjectProperty ;
+    rdfs:label "0 CORE (required)"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Object-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    ho:displayGroup "0 CORE (required)"@en .
+
+ho:grp_12_obj a owl:ObjectProperty ;
+    rdfs:label "12 PROVENANCE & TRUST (about the record)"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Object-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    ho:displayGroup "12 PROVENANCE & TRUST (about the record)"@en .
+
+ho:grp_12b_obj a owl:ObjectProperty ;
+    rdfs:label "12b PROV"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Object-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:subPropertyOf ho:grp_12_obj ;
+    ho:displayGroup "12b PROV"@en .
+
+ho:grp_3_2_data a owl:DatatypeProperty ;
+    rdfs:label "3.2 scope axes (kept separate)"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Data-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:subPropertyOf ho:grp_3_data ;
+    ho:displayGroup "3.2 scope axes (kept separate)"@en .
+
+ho:grp_3_obj a owl:ObjectProperty ;
+    rdfs:label "3 INTEGRAL POSITION (confirmed 2026-11-17)"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Object-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    ho:displayGroup "3 INTEGRAL POSITION (confirmed 2026-11-17)"@en .
+
+ho:grp_5_obj a owl:ObjectProperty ;
+    rdfs:label "5 AIM & NORMATIVE CORE"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Object-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    ho:displayGroup "5 AIM & NORMATIVE CORE"@en .
+
+ho:grp_6_obj a owl:ObjectProperty ;
+    rdfs:label "6 EPISTEMICS"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Object-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    ho:displayGroup "6 EPISTEMICS"@en .
+
+ho:grp_S4_obj a owl:ObjectProperty ;
+    rdfs:label "PerspectiveSpecification: Purpose"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Object-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveSpecification ;
+    ho:displayGroup "PerspectiveSpecification: Purpose"@en .
+
+ho:grp_S5_obj a owl:ObjectProperty ;
+    rdfs:label "PerspectiveSpecification: Operator"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Object-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveSpecification ;
+    ho:displayGroup "PerspectiveSpecification: Operator"@en .
+
+ho:hasSublens a owl:ObjectProperty ;
+    rdfs:label "hasSublens"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 1"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:PerspectiveType ;
+    rdfs:subPropertyOf ho:grp_1_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "1 RELATIONS (relations before attributes)"@en .
+
+ho:instantiates a owl:ObjectProperty ;
+    rdfs:label "instantiates"@en ;
+    rdfs:comment "inherits the tradition's defaults; may override"@en ;
+    rdfs:domain ho:PerspectiveSpecification ;
+    rdfs:range ho:PerspectiveType .
+
+ho:knownCritique a owl:ObjectProperty ;
+    rdfs:label "knownCritique"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 11"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Assessment ;
+    rdfs:subPropertyOf ho:grp_11_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "11 ASSESSMENTS (each an Assessment with assessedBy -> PerspectiveType)"@en .
+
+ho:lineage a owl:ObjectProperty ;
+    rdfs:label "lineage"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 2"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Person ;
+    rdfs:subPropertyOf ho:grp_2_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "2 IDENTITY & LINEAGE"@en .
+
+ho:moralCircle a owl:ObjectProperty ;
+    rdfs:label "moralCircle"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 3.2"@en ;
+    rdfs:comment "which beings count"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:AffectedEntity ;
+    rdfs:subPropertyOf ho:grp_3_2_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "3.2 scope axes (kept separate)"@en ;
+    ho:tier "★"@en .
+
+ho:orderOfMagnitude a owl:ObjectProperty ;
+    rdfs:label "orderOfMagnitude"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 11"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Assessment ;
+    rdfs:subPropertyOf ho:epistemicStanding ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "11 ASSESSMENTS (each an Assessment with assessedBy -> PerspectiveType)"@en .
+
+ho:originatingCircumstance a owl:ObjectProperty ;
+    rdfs:label "originatingCircumstance"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 2"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Event ;
+    rdfs:subPropertyOf ho:grp_2_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "2 IDENTITY & LINEAGE"@en .
+
+ho:partOf a owl:ObjectProperty ;
+    rdfs:label "partOf"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 1"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:PerspectiveType ;
+    rdfs:subPropertyOf ho:grp_1_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "1 RELATIONS (relations before attributes)"@en .
+
+ho:proceduralIntegrity a owl:ObjectProperty ;
+    rdfs:label "proceduralIntegrity"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 11"@en ;
+    rdfs:comment "Fuller's eight"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Assessment ;
+    rdfs:subPropertyOf ho:grp_11_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "11 ASSESSMENTS (each an Assessment with assessedBy -> PerspectiveType)"@en .
+
+ho:publicJustifiability a owl:ObjectProperty ;
+    rdfs:label "publicJustifiability"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 11"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Assessment ;
+    rdfs:subPropertyOf ho:grp_11_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "11 ASSESSMENTS (each an Assessment with assessedBy -> PerspectiveType)"@en .
+
+ho:remedy a owl:ObjectProperty ;
+    rdfs:label "remedy"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 9"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:LegalResponse ;
+    rdfs:subPropertyOf ho:grp_9_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "9 POWER"@en .
+
+ho:specializes a owl:ObjectProperty ;
+    rdfs:label "specializes"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 1"@en ;
+    rdfs:comment "absorbs formalCause"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:PerspectiveType ;
+    rdfs:subPropertyOf ho:grp_1_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "1 RELATIONS (relations before attributes)"@en .
+
+ho:uncertainty a owl:ObjectProperty ;
+    rdfs:label "uncertainty"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 11"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Assessment ;
+    rdfs:subPropertyOf ho:epistemicStanding ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "11 ASSESSMENTS (each an Assessment with assessedBy -> PerspectiveType)"@en .
+
+ho:wasAttributedTo a owl:ObjectProperty ;
+    rdfs:label "wasAttributedTo"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 12b"@en ;
+    rdfs:comment "PROV"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Agent ;
+    rdfs:subPropertyOf ho:grp_12b_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "12b PROV"@en .
+
+ho:whoseInterests a owl:ObjectProperty ;
+    rdfs:label "whoseInterests"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 9"@en ;
+    rdfs:comment "kind and range assigned by the builder"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:AffectedEntity ;
+    rdfs:subPropertyOf ho:grp_9_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "9 POWER"@en ;
+    ho:tier "★"@en .
+
+ho:CausalGraph a owl:Class ;
+    rdfs:label "CausalGraph"@en ;
+    skos:definition "stub (HO-I.a)"@en ;
+    ho:designStatus "stub: range target only in this experiment"@en .
+
+ho:Community a owl:Class ;
+    rdfs:label "Community"@en ;
+    skos:definition "stub (community of inquiry)"@en ;
+    ho:designStatus "stub: range target only in this experiment"@en .
+
+ho:DevelopmentalPsychologyTerm a owl:Class ;
+    rdfs:label "Developmental psychology vocabulary"@en ;
+    rdfs:subClassOf ho:DisciplineTerm ;
+    skos:definition "Developmental psychology vocabulary"@en .
+
+ho:Event a owl:Class ;
+    rdfs:label "Event"@en ;
+    skos:definition "stub"@en ;
+    ho:designStatus "stub: range target only in this experiment"@en .
+
+ho:LegalResponse a owl:Class ;
+    rdfs:label "LegalResponse"@en ;
+    skos:definition "later (draft structure)"@en ;
+    ho:designStatus "stub: range target only in this experiment"@en .
+
+ho:Person a owl:Class ;
+    rdfs:label "Person"@en ;
+    skos:definition "stub"@en ;
+    ho:designStatus "stub: range target only in this experiment"@en .
+
+ho:Perspective a owl:Class ;
+    rdfs:label "Perspective"@en ;
+    skos:definition "Abstract umbrella class with no direct members: either a tradition (PerspectiveType) or a perspective specification (PerspectiveSpecification). Carries only a definition and Explanation."@en .
+
+ho:grp_12a_data a owl:DatatypeProperty ;
+    rdfs:label "12a Sources"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Data-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:subPropertyOf ho:grp_12_data ;
+    ho:displayGroup "12a Sources"@en .
+
+ho:grp_2_obj a owl:ObjectProperty ;
+    rdfs:label "2 IDENTITY & LINEAGE"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Object-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    ho:displayGroup "2 IDENTITY & LINEAGE"@en .
+
+ho:grp_3_2_obj a owl:ObjectProperty ;
+    rdfs:label "3.2 scope axes (kept separate)"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Object-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:subPropertyOf ho:grp_3_obj ;
+    ho:displayGroup "3.2 scope axes (kept separate)"@en .
+
+ho:grp_3_data a owl:DatatypeProperty ;
+    rdfs:label "3 INTEGRAL POSITION (confirmed 2026-11-17)"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Data-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    ho:displayGroup "3 INTEGRAL POSITION (confirmed 2026-11-17)"@en .
+
+ho:grp_S1_data a owl:DatatypeProperty ;
+    rdfs:label "PerspectiveSpecification: Position"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Data-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveSpecification ;
+    ho:displayGroup "PerspectiveSpecification: Position"@en .
+
+ho:outOfFrame a owl:ObjectProperty ;
+    rdfs:label "outOfFrame"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 11"@en ;
+    rdfs:comment "constitutive: excluded by design; not visible to this lens"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Assessment ;
+    rdfs:subPropertyOf ho:omission ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "11 ASSESSMENTS (each an Assessment with assessedBy -> PerspectiveType)"@en .
+
+ho:LawTerm a owl:Class ;
+    rdfs:label "Law vocabulary"@en ;
+    rdfs:subClassOf ho:DisciplineTerm ;
+    skos:definition "Law vocabulary"@en .
+
+ho:PhilosophyTerm a owl:Class ;
+    rdfs:label "Philosophy vocabulary"@en ;
+    rdfs:subClassOf ho:DisciplineTerm ;
+    skos:definition "Philosophy vocabulary"@en .
+
+ho:ScienceStudiesTerm a owl:Class ;
+    rdfs:label "Science studies vocabulary (philosophy and history of science)"@en ;
+    rdfs:subClassOf ho:DisciplineTerm ;
+    skos:definition "Science studies vocabulary (philosophy and history of science)"@en .
+
+ho:acceptedHarm a owl:ObjectProperty ;
+    rdfs:label "acceptedHarm"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 11"@en ;
+    rdfs:comment "seen and tolerated"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Assessment ;
+    rdfs:subPropertyOf ho:omission ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "11 ASSESSMENTS (each an Assessment with assessedBy -> PerspectiveType)"@en .
+
+ho:blindSpot a owl:ObjectProperty ;
+    rdfs:label "blindSpot"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 11"@en ;
+    rdfs:comment "visible but missed"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Assessment ;
+    rdfs:subPropertyOf ho:omission ;
+    ho:allowedValues "negligent · suppressed"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "11 ASSESSMENTS (each an Assessment with assessedBy -> PerspectiveType)"@en .
+
+ho:grp_0_data a owl:DatatypeProperty ;
+    rdfs:label "0 CORE (required)"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Data-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    ho:displayGroup "0 CORE (required)"@en .
+
+ho:grp_12_data a owl:DatatypeProperty ;
+    rdfs:label "12 PROVENANCE & TRUST (about the record)"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Data-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    ho:displayGroup "12 PROVENANCE & TRUST (about the record)"@en .
+
+ho:grp_3_1_data a owl:DatatypeProperty ;
+    rdfs:label "3.1 quadrant axes (Wilber, AQAL)"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Data-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:subPropertyOf ho:grp_3_data ;
+    ho:displayGroup "3.1 quadrant axes (Wilber, AQAL)"@en .
+
+ho:grp_S2_data a owl:DatatypeProperty ;
+    rdfs:label "PerspectiveSpecification: Time"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Data-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveSpecification ;
+    ho:displayGroup "PerspectiveSpecification: Time"@en .
+
+ho:grp_S3_data a owl:DatatypeProperty ;
+    rdfs:label "PerspectiveSpecification: Optics"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Data-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveSpecification ;
+    ho:displayGroup "PerspectiveSpecification: Optics"@en .
+
+ho:negligentBlindSpot a owl:ObjectProperty ;
+    rdfs:label "negligentBlindSpot"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 11"@en ;
+    rdfs:comment "should have been seen"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Assessment ;
+    rdfs:subPropertyOf ho:blindSpot ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "11 ASSESSMENTS (each an Assessment with assessedBy -> PerspectiveType)"@en .
+
+ho:EvaluativeStandard a owl:Class ;
+    rdfs:label "EvaluativeStandard"@en ;
+    skos:definition "altLabel \"theory of harm\" (draft structure)"@en ;
+    ho:designStatus "stub: range target only in this experiment"@en .
+
+ho:grp_12c_data a owl:DatatypeProperty ;
+    rdfs:label "12c verification, evidence, confidence, canon status"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Data-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:subPropertyOf ho:grp_12_data ;
+    ho:displayGroup "12c verification, evidence, confidence, canon status"@en .
+
+ho:grp_9_obj a owl:ObjectProperty ;
+    rdfs:label "9 POWER"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Object-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    ho:displayGroup "9 POWER"@en .
+
+ho:grp_S4_data a owl:DatatypeProperty ;
+    rdfs:label "PerspectiveSpecification: Purpose"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Data-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveSpecification ;
+    ho:displayGroup "PerspectiveSpecification: Purpose"@en .
+
+ho:omission a owl:ObjectProperty ;
+    rdfs:label "omission"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 11"@en,
+        "Vocabulary Crosswalk - Concept Hubs and Discipline Schemes (HO-II.d.2), hub hov:omission"@en ;
+    rdfs:comment "hub drafted in HO-II.d.2; replaces blindSpot"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Assessment ;
+    rdfs:subPropertyOf ho:grp_11_obj ;
+    skos:definition "Something bearing on a lens's verdicts that the lens leaves out, whether by design, oversight, suppression or choice."@en ;
+    skos:example "A benchmark that measures accuracy and leaves out dignity."@en ;
+    skos:scopeNote "Cross-discipline concept hub, with three branches: out of frame, blind spot (negligent or suppressed), accepted harm"@en ;
+    ho:boundaryTests "**Out of frame vs blind spot:** could this lens, used with reasonable care, have seen it? **Negligent vs suppressed:** did the lens suspect it and take deliberate steps not to find out (the *Global-Tech* test)? **Blind spot vs accepted harm:** was it seen and traded off?"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "11 ASSESSMENTS (each an Assessment with assessedBy -> PerspectiveType)"@en ;
+    ho:explanation "Every lens leaves things out; the question is how and why. The council reviews found four kinds of exclusion that the 0.01 structure lumped together as `blindSpot`. Taking a blind spot in its ordinary sense, something visible but missed, sorts them into three branches. **Out of frame:** excluded by design and not visible to this lens at all, as a map must leave things out (constitutive). **Blind spot:** visible, but missed, either through lack of reasonable care (negligent) or because the lens suspected it and arranged not to look (suppressed). **Accepted harm:** seen and tolerated as the price of a benefit. Each calls for a different response: out-of-frame omissions need another lens to cover them; negligent blind spots need better instruments or care; suppressed ones need transparency, disclosure and whistleblower protection; accepted harms need moral and political argument. Keeping them apart stops the worse kinds hiding behind the better ones, for example \"out of scope\" used as an alibi for suppression. Which branch applies is a judgement, so it is always an Assessment with `assessedBy`. Links: [[HO-005 Assessed Membership and Systematic Omission|HO-005]], [[HO-004 Criticality, Leverage and the Limits of Scope|HO-004]]."@en ;
+    ho:glossLine "What a lens leaves out of its verdicts."@en ;
+    ho:hubStatus "candidate"@en ;
+    ho:tier "★"@en .
+
+ho:suppressedBlindSpot a owl:ObjectProperty ;
+    rdfs:label "suppressedBlindSpot"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 11"@en ;
+    rdfs:comment "suspected, and deliberately not looked at"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Assessment ;
+    rdfs:subPropertyOf ho:blindSpot ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "11 ASSESSMENTS (each an Assessment with assessedBy -> PerspectiveType)"@en .
+
+ho:AffectedEntity a owl:Class ;
+    rdfs:label "AffectedEntity"@en ;
+    skos:definition "formerly Patient; altLabels \"patient\", \"moral patient\" (Decisions_Log 2026-11-18)"@en ;
+    ho:designStatus "stub: range target only in this experiment"@en .
+
+ho:developmentalAltitude a owl:ObjectProperty ;
+    rdfs:label "developmentalAltitude"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 3.2, 11"@en,
+        "Vocabulary Crosswalk - Concept Hubs and Discipline Schemes (HO-II.d.2), hub hov:developmentalAltitude"@en ;
+    rdfs:comment "an Assessment; scale + assessedBy required; displayed in group 3, belongs to group 11"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Assessment ;
+    rdfs:subPropertyOf ho:grp_11_obj,
+        ho:grp_3_2_obj ;
+    skos:definition "How widely and how reflectively a lens's value structure extends concern, independently of the size of the group it addresses."@en ;
+    skos:example "Two national AI strategies with the same social scope, one framed around competitive advantage, the other around global welfare."@en ;
+    skos:scopeNote "Cross-discipline concept hub; one of three scope axes with `socialScope` (size) and `moralCircle` (which beings count)"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "11 ASSESSMENTS (each an Assessment with assessedBy -> PerspectiveType)"@en,
+        "3.2 scope axes (kept separate)"@en ;
+    ho:explanation "Several traditions, working independently, describe the same thing: values that widen from self, to one's own group, to all people, and sometimes beyond. Confucius made *junzi* a rank of cultivation rather than birth; the Stoics described concern widening outward from oneself; Kohlberg measured stages of moral reasoning, and Gilligan answered with stages of care; Wilber's Integral theory takes Gilligan's four stages as the bands egocentric, ethnocentric, worldcentric and kosmocentric. The author's distinction holds across all of them: a tribe-sized lens can hold world-centric values, so altitude is not size. The attribute is powerful because a lens organized around self-interest really does differ from one organized around universal concern, and the difference shapes which harms it counts. It is dangerous because every scale is built from inside a tradition and tends to put that tradition near the top. Gilligan's critique of Kohlberg is the documented case. So the ontology never stores altitude as a bare value: each value belongs to a named scale, is an Assessment with `assessedBy`, and disagreements between scales are recorded as Divergences. For the book, it matters when AI developers claim their systems align to \"universal\" or \"higher\" values: the question is always whose scale."@en ;
+    ho:glossLine "How widely and reflectively a lens's values extend concern."@en ;
+    ho:hubStatus "candidate"@en .
+
+ho:grp_12b_data a owl:DatatypeProperty ;
+    rdfs:label "12b PROV"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Data-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:subPropertyOf ho:grp_12_data ;
+    ho:displayGroup "12b PROV"@en .
+
+ho:grp_4_data a owl:DatatypeProperty ;
+    rdfs:label "4 EXTENT"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Data-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    ho:displayGroup "4 EXTENT"@en .
+
+ho:grp_7_data a owl:DatatypeProperty ;
+    rdfs:label "7 STANCE (holder's side)"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Data-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    ho:displayGroup "7 STANCE (holder's side)"@en .
+
+ho:congruence a owl:ObjectProperty ;
+    rdfs:label "congruence"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 11"@en,
+        "Vocabulary Crosswalk - Concept Hubs and Discipline Schemes (HO-II.d.2), hub hov:congruence"@en ;
+    rdfs:comment "stated vs operative; hub drafted in HO-II.d.2"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Assessment ;
+    rdfs:subPropertyOf ho:grp_11_obj ;
+    skos:definition "The degree to which what a lens says it is and does (its name, stated purpose, declared rules) matches what it actually does in practice."@en ;
+    skos:example "A \"trust & safety\" function whose real remit is reputational protection."@en ;
+    skos:scopeNote "Cross-discipline concept hub"@en ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "11 ASSESSMENTS (each an Assessment with assessedBy -> PerspectiveType)"@en ;
+    ho:explanation "Five disciplines, working from very different starting points, name the same gap between a lens's declared identity and its actual operation. Law calls it congruence between declared rule and official action; Confucian philosophy, the rectification of names; Kantian ethics, the difference between a professed end and the maxim actually acted on; political theory, the language rules that hide what is done; philosophy of science, cargo cult science, the form of rigour without its substance. The hub gives the idea a plain name so that no discipline's term is privileged, and each spoke keeps its own vocabulary and says where it differs. For the book this is central: many AI harms are carried by names (\"safety\", \"alignment\", \"personalization\") that a practice can claim without earning. Because judging incongruence is an evaluation, the ontology records it as an Assessment with `assessedBy`, never as a plain fact about the lens. The five-way convergence is the strongest in the council reviews, but all five were voiced by one model, so it counts as a candidate, not as independent confirmation."@en ;
+    ho:glossLine "The fit between what a lens says it does and what it actually does."@en ;
+    ho:hubStatus "candidate"@en ;
+    ho:tier "★★"@en .
+
+ho:epistemicStanding a owl:ObjectProperty ;
+    rdfs:label "epistemicStanding"@en ;
+    dcterms:source "PerspectiveStructure 0.02, group 11"@en ;
+    rdfs:comment "corroboration · calibration + uncertainty · anomalies · orderOfMagnitude"@en ;
+    rdfs:domain ho:PerspectiveType ;
+    rdfs:range ho:Assessment ;
+    rdfs:subPropertyOf ho:grp_11_obj ;
+    ho:designStatus "proposed (kind and range assigned by the builder; to be reviewed)"@en ;
+    ho:displayGroup "11 ASSESSMENTS (each an Assessment with assessedBy -> PerspectiveType)"@en .
+
+ho:grp_10_data a owl:DatatypeProperty ;
+    rdfs:label "10 DYNAMICS & MATERIALITY"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Data-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    ho:displayGroup "10 DYNAMICS & MATERIALITY"@en .
+
+ho:grp_2_data a owl:DatatypeProperty ;
+    rdfs:label "2 IDENTITY & LINEAGE"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Data-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    ho:displayGroup "2 IDENTITY & LINEAGE"@en .
+
+ho:grp_8_data a owl:DatatypeProperty ;
+    rdfs:label "8 SUBJECT'S SIDE"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Data-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    ho:displayGroup "8 SUBJECT'S SIDE"@en .
+
+ho:grp_9_data a owl:DatatypeProperty ;
+    rdfs:label "9 POWER"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Data-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    ho:displayGroup "9 POWER"@en .
+
+ho:Agent a owl:Class ;
+    rdfs:label "Agent"@en ;
+    skos:definition "(?) open in the draft structure"@en ;
+    ho:designStatus "stub: range target only in this experiment"@en .
+
+ho:grp_11_obj a owl:ObjectProperty ;
+    rdfs:label "11 ASSESSMENTS (each an Assessment with assessedBy -> PerspectiveType)"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Object-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    ho:displayGroup "11 ASSESSMENTS (each an Assessment with assessedBy -> PerspectiveType)"@en .
+
+ho:grp_5_data a owl:DatatypeProperty ;
+    rdfs:label "5 AIM & NORMATIVE CORE"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Data-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    ho:displayGroup "5 AIM & NORMATIVE CORE"@en .
+
+ho:grp_6_data a owl:DatatypeProperty ;
+    rdfs:label "6 EPISTEMICS"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Data-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    ho:displayGroup "6 EPISTEMICS"@en .
+
+ho:DisciplineTerm a owl:Class ;
+    rdfs:label "DisciplineTerm"@en ;
+    skos:definition "A discipline's own term for an idea that one of the hub properties documents (a 'spoke'). Individuals of the discipline subclasses below."@en .
+
+ho:grp_1_obj a owl:ObjectProperty ;
+    rdfs:label "1 RELATIONS (relations before attributes)"@en ;
+    rdfs:comment "DISPLAY GROUP (PerspectiveStructure 0.02): an abstract grouping property so the property tree mirrors the diagram. Do not use it in data. Groups are display facets, not OWL classes. Object-property side of the group (OWL keeps the two trees apart)."@en ;
+    rdfs:domain ho:PerspectiveType ;
+    ho:displayGroup "1 RELATIONS (relations before attributes)"@en .
+
+ho:PerspectiveSpecification a owl:Class ;
+    rdfs:label "PerspectiveSpecification"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ho:PerspectiveType ;
+            owl:onProperty ho:instantiates ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Agent ;
+            owl:onProperty ho:assessor ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:EvaluativeStandard ;
+            owl:onProperty ho:appliedEvaluativeStandard ],
+        ho:Perspective ;
+    skos:altLabel "perspective snapshot"@en,
+        "viewpoint"@en ;
+    skos:definition "Reusable; all properties optional (draft structure). altLabels: \"viewpoint\", \"perspective snapshot\"."@en .
+
+ho:Assessment a owl:Class ;
+    rdfs:label "Assessment"@en ;
+    skos:definition "one judgment = one instance (draft structure)"@en ;
+    ho:designStatus "stub: range target only in this experiment"@en .
+
+ho:PerspectiveType a owl:Class ;
+    rdfs:label "PerspectiveType"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ho:Assessment ;
+            owl:onProperty ho:proceduralIntegrity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Assessment ;
+            owl:onProperty ho:corroboration ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Assessment ;
+            owl:onProperty ho:outOfFrame ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Assessment ;
+            owl:onProperty ho:omission ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:PerspectiveType ;
+            owl:onProperty ho:complements ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Assessment ;
+            owl:onProperty ho:uncertainty ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Person ;
+            owl:onProperty ho:lineage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Agent ;
+            owl:onProperty ho:accountabilityLocus ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:PerspectiveType ;
+            owl:onProperty ho:convergesWith ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Event ;
+            owl:onProperty ho:originatingCircumstance ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:PerspectiveType ;
+            owl:onProperty ho:definedAgainst ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Assessment ;
+            owl:onProperty ho:calibration ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Assessment ;
+            owl:onProperty ho:blindSpot ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Agent ;
+            owl:onProperty ho:authority ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:PerspectiveType ;
+            owl:onProperty ho:hasSublens ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Assessment ;
+            owl:onProperty ho:anomalies ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:EvaluativeStandard ;
+            owl:onProperty ho:defaultEvaluativeStandard ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Assessment ;
+            owl:onProperty ho:publicJustifiability ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Assessment ;
+            owl:onProperty ho:developmentalAltitude ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:PerspectiveType ;
+            owl:onProperty ho:partOf ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:AffectedEntity ;
+            owl:onProperty ho:moralCircle ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:PerspectiveType ;
+            owl:onProperty ho:specializes ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:PerspectiveType ;
+            owl:onProperty ho:complementaryWith ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:PerspectiveType ;
+            owl:onProperty ho:coupledWith ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Assessment ;
+            owl:onProperty ho:epistemicStanding ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Assessment ;
+            owl:onProperty ho:suppressedBlindSpot ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:PerspectiveType ;
+            owl:onProperty ho:generalizes ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Assessment ;
+            owl:onProperty ho:failureMode ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Assessment ;
+            owl:onProperty ho:acceptedHarm ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:PerspectiveType ;
+            owl:onProperty ho:critiquedBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:CausalGraph ;
+            owl:onProperty ho:causalModel ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:PerspectiveType ;
+            owl:onProperty ho:divergesFrom ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Assessment ;
+            owl:onProperty ho:negligentBlindSpot ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:LegalResponse ;
+            owl:onProperty ho:remedy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:AffectedEntity ;
+            owl:onProperty ho:whoseInterests ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Assessment ;
+            owl:onProperty ho:orderOfMagnitude ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Community ;
+            owl:onProperty ho:correctedBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Assessment ;
+            owl:onProperty ho:congruence ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Assessment ;
+            owl:onProperty ho:knownCritique ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ho:Agent ;
+            owl:onProperty ho:wasAttributedTo ],
+        ho:Perspective ;
+    owl:disjointWith ho:PerspectiveSpecification ;
+    skos:altLabel "lens"@en ;
+    skos:definition "A reusable way of seeing and judging, with a lineage: Utilitarianism, Tort Law, Public Health, a trained AI model. Subclass of Perspective; prefLabel \"tradition\"; altLabel \"lens\"."@en ;
+    skos:prefLabel "tradition"@en .
+
