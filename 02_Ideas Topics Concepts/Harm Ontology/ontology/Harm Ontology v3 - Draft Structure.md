@@ -29,24 +29,29 @@ No element has been tested yet (see [[HO-002 Ontology Stress-Test Suite]]).
 ## Structure
 
 ```text
-HARM ONTOLOGY v3 (draft, 2026-11-15)
+HARM ONTOLOGY v3 (draft, 2026-11-15; revised 2026-11-17)
 │
-├── Factor ......................................... neutral; one contributor among many  → HO-I.a
+├── CausalCandidate (2026-11-17) ................... parent of Factor and FactorAssembly; anything a
+│                                                    CausalAssessment may select or leave out
+│
+├── Factor ⊑ CausalCandidate ....................... neutral; one contributor among many  → HO-I.a
 │   ├── Act · Process · Omission · Structure · Risk
 │   └── Condition (?) → PhysicalState (?) · Status (?) · Disposition (?)
 │   props: causes → Factor|Effect · isContinuous · observability (box A) · hasAgent → Agent (?)
-│          participatesIn → CausalAssembly (inverse hasMember)                          → HO-003
+│          (membership in a FactorAssembly is now supplied by assessments; see below)          → HO-003
 │
 ├── CausalRole ..................................... part a factor plays in one chain     → HO-I.a
 │   roleType: Trigger · Enabler · Amplifier · Conduit · ProximateCause · DistalCause · ContributingCause (?)
 │   props: borneBy → Factor|Effect · contributesTo → Effect · causalNecessity · proximity ·
 │          causalShare (?) · isDistributed · isForeseeable · answerableAgent (?) · withinAssembly (?)
 │
-├── CausalAssembly ................................. factors jointly sufficient (as assessed — pending) → HO-003
-│   props: hasMember → Factor · hasUnknownMembers (box B) · individuallyInnocuous ·
+├── FactorAssembly ⊑ CausalCandidate ............... (formerly CausalAssembly; altLabel "causal assembly") → HO-003
+│   THIN CONTAINER: identifier + label only, the shared referent rival assessments point to.
+│   Supplied by CausalAssessment, not asserted here: members · hasUnknownMembers · individuallyInnocuous ·
 │          origin: Emergent | Exploited | Engineered · orchestrator → Agent (?) · sufficientFor → Effect|Outcome
+│   (derived shortcuts allowed where assessments agree; Disputed where they don't)
 │
-├── Attribution .................................... factors a perspective calls "the cause" (bounded selection) → HO-004
+├── (Attribution — merged into CausalAssessment, 2026-11-17; see Assessment kinds) → HO-004
 │
 ├── Effect ......................................... neutral; one consequence among many  → HO-I.b
 │   kinds: SleepLoss · ReputationalDamage · Deskilling · CapturedAssent (?) · Death · …
@@ -57,7 +62,7 @@ HARM ONTOLOGY v3 (draft, 2026-11-15)
 │   (Effect and Factor are not disjoint)
 │
 ├── Outcome ........................................ a cut across the ramification at a horizon → Decisions 2026-11-14
-│   props: hasEffect → Effect · selectedBy → Perspective (framing, resolution)
+│   props: hasEffect → Effect · selectedBy → PerspectiveSpecification (framing, resolution)
 │
 ├── Patient ........................................ SentientIndividual · CollectiveArtificialPerson · NonSentientSystem ·
 │                                                    FutureGeneration (?) · AISystem (?) · Relationship (?)
@@ -70,26 +75,42 @@ HARM ONTOLOGY v3 (draft, 2026-11-15)
 │   ├── Causal (pending): ButFor · NESS · INUS · ProbabilityRaising · Mechanistic · Proximate   → HO-005
 │   └── Worldview (?)
 │
-├── Perspective (reusable; all props optional) ..... → HO-II.d
-│   ├── Position: standpoint · direction
-│   ├── Time: timestamp (assessedAt) · exposure (horizon) · predictabilityHorizon (?)
-│   ├── Optics: framing · resolution · sensitivity (threshold)
-│   ├── Purpose: intent · standard · fitness · inclusionCriteria · aggregationRule
-│   └── Operator: assessor → Agent
+├── Perspective (ABSTRACT; no direct members; definition + Explanation only) (2026-11-17)
+│   │   disjoint subclasses:
+│   │
+│   ├── PerspectiveType ............................ prefLabel "tradition" · altLabel "lens"     → [[PerspectiveStructure 0.02]]
+│   │   e.g. Utilitarianism · Tort Law · Public Health · a trained AI model
+│   │   groups 0–12 + profiles (LegalInstitutional · LearnedModel); key links:
+│   │   defaultEvaluativeStandard → EvaluativeStandard · moralCircle ↔ Patient ·
+│   │   accountabilityLocus / lineage → Agent · remedy → LegalResponse ·
+│   │   group 11 = Assessments of the tradition (congruence · omission · developmentalAltitude …)
+│   │
+│   └── PerspectiveSpecification (reusable; all props optional) ... prefLabel "perspective specification" ·
+│       │                                            altLabels "viewpoint", "perspective snapshot"  → HO-II.d
+│       ├── instantiates → PerspectiveType (inherits its defaults; may override)
+│       ├── Position: standpoint · direction
+│       ├── Time: timestamp (assessedAt) · exposure (horizon) · predictabilityHorizon (?)
+│       ├── Optics: framing · resolution · sensitivity (threshold)
+│       ├── Purpose: intent · appliedEvaluativeStandard (inherits defaultEvaluativeStandard if absent) ·
+│       │            fitness · inclusionCriteria · aggregationRule
+│       └── Operator: assessor → Agent
 │
 ├── Assessment (one judgment = one instance) ....... → HO-II.a
-│   props: assesses → Factor|CausalRole|Effect|Outcome|CausalAssembly · takenFrom → Perspective ·
+│   props: assesses → Factor|CausalRole|Effect|Outcome|FactorAssembly|PerspectiveType · takenFrom → PerspectiveSpecification ·
 │          forPatient · chainScope · chainStatus: Actual|Extrapolated ·
 │          verdict: Harmful|Beneficial|Mixed|Neutral|Contested · verdictStatus: Provisional|Final (+ closedBy) ·
 │          declaredScope · acknowledgedExclusions · scopeAdequacy (never Complete) ·
 │          sensitivity/leverage · criticality (as assessed) · confidence · suppliedBy
-│   kinds (pending split): CausalAssessment · ValenceAssessment · ResponsibilityAssessment   → HO-005
+│   kinds: CausalAssessment (adopted 2026-11-17; absorbs Attribution):
+│            attributedCause → CausalCandidate · leftOut → CausalCandidate (+ omission assessment) ·
+│            FactorAssembly members · sufficientFor · origin · orchestrator · individuallyInnocuous
+│          ValenceAssessment · ResponsibilityAssessment (split still pending)               → HO-005
 │   profiles: Personal · Moral · Expert · Regulatory · Threat · Algorithmic ·
 │             Judgment (+ authority · jurisdiction · bindingForce · procedure · ratio ·
 │             cites/distinguishes/overrules · remedyOrdered · finality)                       → HO-II.c
 │
 ├── Divergence ..................................... → HO-III.a
-│   props: between → Assessment (2+) · divergesOn → Perspective property ·
+│   props: between → Assessment (2+) · divergesOn → PerspectiveSpecification or PerspectiveType property ·
 │          divergenceType: Perspectival | Normative | Evidential | Factual ·
 │          (pattern) FactorLevel vs AssemblyLevel · reconcilable
 ├── Integration (optional) ......................... integrates · resolves/leavesOpen · keptInFrame/leftOut
@@ -104,7 +125,13 @@ BOX A — Phenomenality (property): Phenomenal | NonPhenomenal | ConditionallyPh
 BOX B — Missingness: (absent)=not considered · Unknown · NotApplicable · Undisclosed · Disputed · Pending
 BOX C — Reuse: own namespace; map (skos:closeMatch); candidates BFO · PROV-O · OWL-Time · SHACL · OBO RO ·
         legal (LKIF, Akoma Ntoso) · cyber (STIX, ATT&CK, CVSS) · AI incidents (AIID, CSET, MIT) — all unverified
+BOX D — Vocabulary layer (2026-11-17) → [[Vocabulary Crosswalk - Concept Hubs and Discipline Schemes]]
+        three layers: ontology (ho:) · profiles (hosh:) · vocabulary (hov: hubs + discipline schemes)
+        graded mappings: exact · close · narrow · broad · related; value scales, e.g. [[Integral Altitude Scale]]
 ```
+
+> [!note] Revision 2026-11-17
+> Applied decisions from [[Decisions_Log]] (2026-11-17): Perspective as abstract umbrella over PerspectiveType and PerspectiveSpecification; default and applied evaluative standards; CausalCandidate; CausalAssembly renamed FactorAssembly (thin container); Attribution merged into CausalAssessment; vocabulary layer (Box D). The 2026-11-15 structure is in the note's git history.
 
 ## Open and pending (summary)
 - **Pending, deliberately not logged:**

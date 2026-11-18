@@ -15,6 +15,9 @@ filed: 2026-11-15
 
 Index: [[_Harm Ontology Bookmark Index]] · Top-level
 
+> [!note] Revision 2026-11-17
+> Partly decided: **`CausalAssessment` is adopted** as a kind of Assessment and absorbs v3's `Attribution` (`attributedCause` and `leftOut` → `CausalCandidate`). Assembly membership and sufficiency are now assessed, as this note proposed (`CausalAssembly` renamed `FactorAssembly`, a thin container). Left-out items may carry an omission assessment (out of frame / blind spot › negligent or suppressed / accepted harm; [[Vocabulary Crosswalk - Concept Hubs and Discipline Schemes|HO-II.d.2]]). Still pending: the Valence and Responsibility split, and causal standards. See [[Decisions_Log]] 2026-11-17.
+
 ## Why this is distinct
 - It revises HO-003. The **events** of the past are settled, but **which of them count as members of a causal assembly is itself assessed.** Omitting causal factors through inadequate assessment is the **norm in reality, not an edge case**.
 

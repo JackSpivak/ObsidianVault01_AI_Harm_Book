@@ -2,16 +2,19 @@
 fileClass: Idea
 type: idea
 status: developing
-bookmark: draft
+bookmark: HO-II.d.3
 canonical_id: ho-perspective-structure-0-02
 territory: revisited
 revisits: "[[PerspectiveStructure 0.01]]"
 tags: [ontology/harm]
-aliases: [PerspectiveStructure 0.02, PerspectiveType Structure v-0.02]
+aliases: [HO-II.d.3, PerspectiveStructure 0.02, PerspectiveType Structure v-0.02]
 created: 2026-11-17
+filed: 2026-11-17
 ---
 
 # PerspectiveStructure 0.02
+
+Index: [[_Harm Ontology Bookmark Index]] · Parent: [[HO-II.d Perspective - Ten Optional Properties|HO-II.d]] · Previous version: [[PerspectiveStructure 0.01|HO-II.d.1]]
 
 > [!info] Version
 > Consolidates [[PerspectiveStructure 0.01]] and its seven council reviews (HO-II.d.1.a–g). 0.01 stays frozen. Words and meanings for each attribute live in the vocabulary layer, [[Vocabulary Crosswalk - Concept Hubs and Discipline Schemes|HO-II.d.2]]; this note holds the structure.
@@ -30,8 +33,9 @@ created: 2026-11-17
 ## Summary
 
 ### Decisions this version applies (all in [[Decisions_Log]], 2026-11-17)
-- **PerspectiveType / Perspective split:** both are classes; each tradition and each shot is an individual; a shot `instantiates` a tradition and may override its defaults; subclasses only for kinds of tradition.
-- **Terminology:** PerspectiveType has prefLabel "tradition", altLabel "lens"; Perspective is a "shot"; `fieldOfApplication` replaces `domainOfApplicability`; "profiles" replaces "domain profiles"; "domain" keeps only its OWL meaning.
+- **Perspective is an abstract umbrella** (definition and Explanation only) with two disjoint subclasses: **PerspectiveType** (prefLabel "tradition", altLabel "lens") and **PerspectiveSpecification** (prefLabel "perspective specification", altLabels "viewpoint", "perspective snapshot"). Each tradition and each specification is an individual; a specification `instantiates` a tradition and may override its defaults; further subclasses only for kinds of tradition. "Shot" is retired.
+- **Standards:** PerspectiveType `defaultEvaluativeStandard`; PerspectiveSpecification `appliedEvaluativeStandard`, inherited from the default when absent.
+- **Terminology:** `fieldOfApplication` replaces `domainOfApplicability`; "profiles" replaces "domain profiles"; "domain" keeps only its OWL meaning.
 - **Three layers:** ontology (`ho:`), profiles (`hosh:`), vocabulary (`hov:` hubs plus discipline schemes), with graded mappings.
 - **Integral position confirmed** as group 3 (author, 2026-11-17).
 
@@ -45,8 +49,9 @@ created: 2026-11-17
 
 ### Structure
 ```text
-PerspectiveType  (prefLabel "tradition" · altLabel "lens")
-│   ◄── instantiates ──  Perspective  (shot; HO-II.d; overrides frame defaults)
+Perspective (abstract umbrella)
+├── PerspectiveSpecification (HO-II.d) ── instantiates ──► PerspectiveType; overrides frame defaults
+└── PerspectiveType  (prefLabel "tradition" · altLabel "lens")   ◄── this note
 │
 ├── 0  CORE (required) ──────────────────────────────────────────────────────
 │   ├── name ★
@@ -91,7 +96,7 @@ PerspectiveType  (prefLabel "tradition" · altLabel "lens")
 ├── 5  AIM & NORMATIVE CORE ─────────────────────────────────────────────────
 │   ├── statedPurpose ★ .............. operative side is assessed under congruence (11)
 │   ├── normativeForm ★ {deontic · consequentialist · aretaic · relational · contractualist} (plural)
-│   ├── valueTheory · embedsStandard → EvaluativeStandard (HO-II.a)
+│   ├── valueTheory · defaultEvaluativeStandard → EvaluativeStandard (HO-II.a)
 │   ├── unitOfMeasure ★ + commensurability
 │   ├── intentWeighting ★ {intent · outcome · mixed}
 │   ├── distributiveConcern · conflictResolution {lexical · weighing · deadlock}
@@ -162,8 +167,8 @@ PerspectiveType  (prefLabel "tradition" · altLabel "lens")
 - `formalCause` → `specializes` + definition · `reflexiveApplication` → selfInstance (open question) · `dominantFactors` → shot level · `translationLoss` / `compressionLoss` → notes on a transformation mapping, if adopted · `limitBehavior`, `futureRobustness` → notes under epistemicStanding · `emergentEcosystems` → deferred · `narrativeForm` → a `transmissionMode` value · `importance` → Power and Dynamics · `harmPrincipleRespected` → publicJustifiability · `degeneracy`, `reentrantIntegration` → [[HO-III.a Divergence and Integration - True but Partial|HO-III.a]] · `status` → split into prevalence (10) and epistemicStanding (11) · `blindSpot` → omission with three branches.
 
 ### Place in Harm Ontology v3
-- New class **PerspectiveType** beside the existing **Perspective**; `Perspective instantiates PerspectiveType`.
-- Links: `embedsStandard` → EvaluativeStandard · `moralCircle` ↔ Patient · omission ↔ CausalAssessment.`leftOut` (formerly Attribution) and HO-005 · `accountabilityLocus`, `lineage` → Agent · `remedy` → LegalResponse · LegalInstitutional profile ↔ Judgment profile (HO-II.c) · LearnedModel ↔ Agent.AutonomousSystem (?).
+- **Perspective** becomes an abstract umbrella over **PerspectiveType** (new) and **PerspectiveSpecification** (the former Perspective); `PerspectiveSpecification instantiates PerspectiveType`.
+- Links: `defaultEvaluativeStandard` → EvaluativeStandard · `moralCircle` ↔ Patient · omission ↔ CausalAssessment.`leftOut` (formerly Attribution) and HO-005 · `accountabilityLocus`, `lineage` → Agent · `remedy` → LegalResponse · LegalInstitutional profile ↔ Judgment profile (HO-II.c) · LearnedModel ↔ Agent.AutonomousSystem (?).
 - New use of Assessment: assessments *of* traditions. New box: the vocabulary layer (HO-II.d.2).
 
 ## Original wording
@@ -196,9 +201,9 @@ PerspectiveType  (prefLabel "tradition" · altLabel "lens")
 
 ## Open questions
 - **v3 integration:**
-  - Standard overlap: make PerspectiveType's `embedsStandard` the default and the shot's `standard` the override?
+  - Standard overlap: **decided 2026-11-17.** `defaultEvaluativeStandard` on the tradition; `appliedEvaluativeStandard` on the specification, inherited when absent; a differing applied standard is a queryable departure.
   - Omission and causal selection: **decided 2026-11-17.** v3 `Attribution` merges into `CausalAssessment`, with `attributedCause` and `leftOut` → `CausalCandidate` (Factor or FactorAssembly, formerly CausalAssembly, now a thin container whose membership and origin are assessed); each left-out item may carry an omission assessment. Tradition-level omission patterns act as defaults that cases confirm or contradict.
-- Can a shot instantiate more than one tradition (mixed lenses)?
+- Can a perspective specification instantiate more than one tradition (mixed lenses)?
 - Rename `nameByDomain` / `definitionByDomain` to `…ByDiscipline`?
 - Still open from the handoff: statement-level provenance (RDF-star or named graphs) · attribute-space / embedding model for comparing traditions · the ontology as an instance of its own PerspectiveType · new Divergence subtypes for HO-III.a.
 - The council reviews are not independent evidence: all seven were voiced by one model.

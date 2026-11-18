@@ -1,6 +1,6 @@
 ---
 type: session
-status: developing
+status: archived
 tags: [handoff, ontology/harm]
 aliases: [PerspectiveStructure Handoff, Handoff - Perspective Consolidation]
 created: 2026-11-17

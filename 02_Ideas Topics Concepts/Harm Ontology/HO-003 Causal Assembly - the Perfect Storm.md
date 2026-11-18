@@ -15,6 +15,9 @@ filed: 2026-11-14
 
 Index: [[_Harm Ontology Bookmark Index]] · Top-level
 
+> [!note] Revision 2026-11-17
+> The class `CausalAssembly` is renamed **`FactorAssembly`** (altLabel "causal assembly") and is now a **thin container**: an identifier and label that rival assessments refer to. Its members, `sufficientFor`, `individuallyInnocuous`, `hasUnknownMembers`, `origin` and `orchestrator` are supplied by `CausalAssessment`, not asserted on the assembly. Factor and FactorAssembly share the parent class `CausalCandidate`. See [[Decisions_Log]] 2026-11-17 and [[Harm Ontology v3 - Draft Structure]].
+
 > [!warning] Revision pending (2026-11-15)
 > "Jointly sufficient" and membership are **as assessed**, not plain facts. See [[HO-005 Assessed Membership and Systematic Omission]]. Not yet logged; to be decided after the re-attribution tests.
 

@@ -7,7 +7,7 @@ topic: "Read Handoff - PerspectiveStructure 0.02 and the notes it li…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":317394,"contextWindow":1000000,"inputTokens":4,"outputTokens":7,"cacheReadTokens":0,"cacheWriteTokens":317383,"updatedAt":1794983671905}'
+usage: '{"usedTokens":340537,"contextWindow":1000000,"inputTokens":2,"outputTokens":646,"cacheReadTokens":339636,"cacheWriteTokens":253,"updatedAt":1794984213797}'
 lastAccessedAt: 1794974457725
 ---
 
@@ -2216,3 +2216,114 @@ Shall I log this? It would add:
 
 Then we can settle the overlap.
 [Timestamp: 2026/11/17 23:34:10]
+
+**user**: how about embedsStandard becomes traditionalEvaluativeStandard and "standard" becomes actualEvaluativeStandard?
+[Timestamp: 2026/11/17 23:37:38]
+
+**ai**: **Error:** Credit balance is too low
+[Timestamp: 2026/11/17 23:37:38]
+
+**user**: repeat previous
+[Timestamp: 2026/11/17 23:38:14]
+
+**ai**: The idea is good. Naming both properties after **EvaluativeStandard**, with a qualifier for the role, makes the pair self-explanatory. I'd adjust the qualifiers slightly.
+
+## The qualifiers
+| Proposed | Reads as | Concern | Alternative |
+|---|---|---|---|
+| traditionalEvaluativeStandard | the standard of the tradition | "Traditional" also means old-fashioned or customary ("traditional values"). A reader may think it's the *older* standard. | **defaultEvaluativeStandard**: says exactly what it does (the default a specification inherits) |
+| actualEvaluativeStandard | the standard really used | Clear. "Actual" also hints at "as opposed to claimed", which belongs to congruence, not here. | **appliedEvaluativeStandard**: the standard applied in this assessment |
+
+**My recommendation:**
+- PerspectiveType → **`defaultEvaluativeStandard`**;
+- PerspectiveSpecification → **`appliedEvaluativeStandard`**.
+
+**The rule:** if `appliedEvaluativeStandard` is absent, the specification inherits the tradition's default. If it's present and differs, that departure is queryable, and may be a Divergence.
+
+If you prefer your wording, `traditionalEvaluativeStandard` / `actualEvaluativeStandard` works too. I'd just add a definition that rules out the "old-fashioned" reading.
+
+## Repeated from my previous message: shall I log this?
+- **The umbrella:** Perspective as an abstract class with disjoint subclasses PerspectiveType and PerspectiveSpecification, carrying a definition and Explanation only.
+- **Ranges:** `takenFrom` points to PerspectiveSpecification; `instantiates` runs from PerspectiveSpecification to PerspectiveType.
+- **Labels:** PerspectiveSpecification gets prefLabel "perspective specification" and altLabels "viewpoint" and "perspective snapshot".
+- **Retire "shot"** from the glossary.
+- **The standard pair:** `defaultEvaluativeStandard` and `appliedEvaluativeStandard` (or your names), with the inheritance rule. This also closes the overlap question.
+
+Which property names, and shall I log all of it?
+[Timestamp: 2026/11/17 23:38:14]
+
+**user**: your wording is fine. log all of this. will you go ahead and also make these changes in the ontology as needed
+[Timestamp: 2026/11/17 23:39:50]
+
+**ai**: Now the v3 draft structure.Now updating 0.02 to use the new names.Last, a short revision callout on each affected HO note.I've logged the decisions and updated the ontology notes to match.
+
+**Logged in [[Decisions_Log]]:**
+- **Perspective is now an abstract umbrella class** with no direct members. It carries only a definition and an Explanation.
+- **It has two disjoint subclasses:**
+  - **PerspectiveType** ("tradition", altLabel "lens");
+  - **PerspectiveSpecification** ("perspective specification", altLabels "viewpoint" and "perspective snapshot").
+- **Ranges:** `takenFrom` points to PerspectiveSpecification, and `instantiates` runs from PerspectiveSpecification to PerspectiveType.
+- **"Shot" is retired.**
+- **The standard pair:** `defaultEvaluativeStandard` on the tradition and `appliedEvaluativeStandard` on the specification. A specification inherits the default when it doesn't name its own standard.
+
+**Files changed:**
+1. **[[Harm Ontology v3 - Draft Structure]]**
+   - **Perspective section:** now the umbrella, with both subclasses, and the inheritance of the default standard.
+   - **CausalCandidate:** new parent class over Factor and FactorAssembly.
+   - **CausalAssembly** is renamed FactorAssembly and described as a thin container.
+   - **Attribution** is marked as merged into CausalAssessment.
+   - **Assessment** now uses `takenFrom → PerspectiveSpecification`, and `CausalAssessment` gets `attributedCause` and `leftOut`.
+   - **Box D:** new, for the vocabulary layer.
+   - **Revision callout** listing all of these changes.
+2. **[[PerspectiveStructure 0.02]]** (still in `_Unfiled Ideas/`): now uses the umbrella, PerspectiveSpecification and `defaultEvaluativeStandard`. Both v3 integration questions are marked decided.
+3. **`Canon_and_Continuity.md` glossary:** added *Perspective* (umbrella) and *Perspective specification*; updated *Tradition* and *Lens*; removed *Shot*.
+4. **Revision callouts** added at the top of three notes:
+   - [[HO-II.d Perspective - Ten Optional Properties]]: the class is now PerspectiveSpecification, and `standard` is now `appliedEvaluativeStandard`;
+   - [[HO-003 Causal Assembly - the Perfect Storm]]: renamed FactorAssembly, now a thin container;
+   - [[HO-005 Assessed Membership and Systematic Omission]]: CausalAssessment adopted; Valence and Responsibility split still pending.
+
+**Not changed:**
+- **Note titles** (for example "HO-II.d Perspective…" and "HO-003 Causal Assembly…") stay as they are, so no links break.
+- **The frozen 0.01 note** is untouched.
+- **No `.ttl` file exists for v3 yet**, so there was no ontology file to edit. These are design notes. Building the `.ttl` is Phase 1 of the Migration Plan.
+
+**Still waiting:** the filing plan. 0.02 would become HO-II.d.3 and the altitude scale HO-II.d.2.a, both moving to `Harm Ontology/`. It also adds a "Next version" line to 0.01 and archives the handoff note. Go ahead?
+<!-- copilot-message {"tools":["Edit (edit): 00_Claude_Admin/Decisions_Log.md","Edit (edit): 00_Claude_Admin/Canon_and_Continuity.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure.md","Grep (read): 02_Ideas Topics Concepts/_Unfiled Ideas/PerspectiveStructure 0.02.md","Edit (edit): 02_Ideas Topics Concepts/_Unfiled Ideas/PerspectiveStructure 0.02.md","Grep (read): 02_Ideas Topics Concepts/Harm Ontology","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-II.d Perspective - Ten Optional Properties.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-003 Causal Assembly - the Perfect Storm.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-005 Assessed Membership and Systematic Omission.md"]} -->
+[Timestamp: 2026/11/17 23:39:50]
+
+**user**: yes
+[Timestamp: 2026/11/17 23:42:59]
+
+**ai**: The two notes are filed. I checked afterwards, and each ID resolves to exactly one note.
+
+- **[[PerspectiveStructure 0.02]] is now HO-II.d.3.** It's in `Harm Ontology/`, with an index line that links to its parent (HO-II.d) and to 0.01 as the previous version.
+- **[[Integral Altitude Scale]] is now HO-II.d.2.a.** It's in `Harm Ontology/`, under the vocabulary crosswalk.
+- **[[_Harm Ontology Bookmark Index]]** has both new entries.
+- **[[PerspectiveStructure 0.01]]'s header** now has a "Next version: HO-II.d.3" link. Its content is unchanged.
+- **[[Handoff - PerspectiveStructure 0.02]]** is set to `status: archived`.
+
+No links needed rewriting, because nothing linked to the two notes at their draft location.
+
+That completes the handoff's task. **Open items to carry forward:**
+- **New hubs:** write a concept hub for each remaining ★ attribute. Interiority/collectivity, accountability locus and consent to be seen are the obvious next ones.
+- **Wilber's book:** check the twelve-colour sequence, the teal/turquoise names and the third tier against *The Religion of Tomorrow* itself.
+- **Gilligan's wording:** check her own description of her stages.
+- **The "domain" rename:** decide whether to rename `nameByDomain` / `definitionByDomain`, and the HO-II.e note title. Renaming the note would break links, so it needs your OK.
+- **Undecided v3 questions:**
+  - mixed lenses;
+  - statement-level provenance;
+  - the embedding model;
+  - the ontology as an instance of itself;
+  - the Valence/Responsibility split;
+  - the new Divergence subtypes.
+
+Would you like a new handoff note for these, so the next session can pick them up?
+<!-- copilot-message {"tools":["PowerShell (other)","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/PerspectiveStructure 0.02.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/Integral Altitude Scale.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/PerspectiveStructure 0.01.md","Edit (edit): 01_The Writer's Room/Handoff - PerspectiveStructure 0.02.md","Grep (read)"]} -->
+[Timestamp: 2026/11/17 23:42:59]
+
+**user**: yes
+[Timestamp: 2026/11/17 23:43:51]
+
+**ai**: 
+<!-- copilot-message {"tools":["Write (edit): 01_The Writer's Room/Handoff - Perspective Vocabulary and v3 Follow-ups.md","Edit (edit): 01_The Writer's Room/Handoff - Harm Ontology.md"]} -->
+[Timestamp: 2026/11/17 23:43:51]

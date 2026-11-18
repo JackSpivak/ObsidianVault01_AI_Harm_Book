@@ -2,15 +2,18 @@
 fileClass: Idea
 type: idea
 status: seed
-bookmark: draft
+bookmark: HO-II.d.2.a
 canonical_id: ho-integral-altitude-scale
 territory: new
 tags: [ontology/harm]
-aliases: [Integral Altitude Scale, Wilber Altitudes, int:colourAltitude]
+aliases: [HO-II.d.2.a, Integral Altitude Scale, Wilber Altitudes, int:colourAltitude]
 created: 2026-11-17
+filed: 2026-11-17
 ---
 
 # Integral Altitude Scale
+
+Index: [[_Harm Ontology Bookmark Index]] · Parent: [[Vocabulary Crosswalk - Concept Hubs and Discipline Schemes|HO-II.d.2]]
 
 ## Why this is distinct
 - [[Vocabulary Crosswalk - Concept Hubs and Discipline Schemes|HO-II.d.2]] treats Wilber's Integral scale as one spoke of the `developmentalAltitude` hub. This note holds the scale itself: its four moral bands, six Gebser stages and twelve colour levels, each as its own record, so a value can be recorded as precisely as "amber, on Wilber's scale (2017)".
