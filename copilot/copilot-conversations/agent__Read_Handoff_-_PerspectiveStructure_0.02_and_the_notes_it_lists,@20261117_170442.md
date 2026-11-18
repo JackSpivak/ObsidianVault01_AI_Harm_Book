@@ -7,7 +7,7 @@ topic: "Read Handoff - PerspectiveStructure 0.02 and the notes it li…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":314725,"contextWindow":1000000,"inputTokens":4,"outputTokens":7,"cacheReadTokens":0,"cacheWriteTokens":314714,"updatedAt":1794983169782}'
+usage: '{"usedTokens":317394,"contextWindow":1000000,"inputTokens":4,"outputTokens":7,"cacheReadTokens":0,"cacheWriteTokens":317383,"updatedAt":1794983671905}'
 lastAccessedAt: 1794974457725
 ---
 
@@ -2129,3 +2129,90 @@ Seeing the two classes side by side should also make the overlap question easier
 
 Which name would you like? I'll update the glossary and log once you choose.
 [Timestamp: 2026/11/17 23:25:54]
+
+**user**: why isnt a shot a specific instance of a perspective (class)?  is it actually a class and im not understanding something?
+[Timestamp: 2026/11/17 23:27:37]
+
+**ai**: You're understanding it correctly. A shot **is** a specific instance of the Perspective class. Nothing about that has changed. The confusion comes from my wording: "shot" was never a separate class. It was only a nickname for *one individual* of the Perspective class.
+
+## The four things involved
+There are **two classes**, and each has its own **individuals**:
+
+```text
+CLASSES (the categories)           INDIVIDUALS (the actual members)
+───────────────────────            ─────────────────────────────────
+PerspectiveType  ──────────────►   Utilitarianism · Tort Law · Public Health   ("traditions")
+                                        ▲
+                                        │ instantiates
+                                        │
+Perspective  ──────────────────►   "NICE appraisal of drug X, 2024"            ("shots")
+                                   "Judge Y in Smith v. Jones, 2021"
+```
+
+- **Perspective** is a class. Its members are specific viewpoints: one situation, one time, one set of settings. "Shot" was just my informal word for one of these members.
+- **PerspectiveType** is also a class. Its members are traditions.
+- The two kinds of *member* are linked by `instantiates`. "Judge Y's view" instantiates "Tort Law".
+
+## Why naming came up at all
+The question isn't *whether* a shot is an instance. It's what the **class** should be called, so that its members are obvious to an outsider. The difficulty: in everyday English, "utilitarianism is a perspective" is perfectly natural. But in this ontology utilitarianism is a **PerspectiveType** member, *not* a Perspective member. An outside reader seeing the class name `Perspective` may put traditions in the wrong class.
+
+That leaves two reasonable choices:
+1. **Keep `Perspective` as the class name** and drop "shot" entirely. Each member is simply "a perspective", and the glossary defines the word narrowly: one specific viewpoint, as distinct from a tradition. This is the simplest option and pairs naturally with PerspectiveType.
+2. **Rename the class** to something whose members are self-evidently specific viewpoints, such as `PerspectiveSpecification`, as in my last message.
+
+Either way, a shot (by whatever name) remains an individual of that class.
+
+Which do you prefer: keep `Perspective` and retire "shot", or rename the class?
+[Timestamp: 2026/11/17 23:27:37]
+
+**user**: both Perspective and PerspectiveSpecification are good. i agree perspective invites confusion. it might be that Perspective is a class composed of two subclasses PerspectiveType and PerspectiveSpecification simply as a means to correctly sort the attributes. Maybe the only thing Perspective has as attribute is a definition and an explanation since this is a complex enough concept that we have had to study and discuss it ad nauseam
+[Timestamp: 2026/11/17 23:34:10]
+
+**ai**: Yes, that works, and it's a common, sound pattern: an **abstract umbrella class** with two disjoint subclasses. It also resolves the naming problem neatly. "Perspective" keeps its broad everyday meaning, and the two subclasses carry the precise ones.
+
+## The structure
+```text
+Perspective  (abstract: no direct members)
+│   skos:definition + Explanation only: what "a perspective" means in this ontology, and why it splits in two
+│
+├── PerspectiveType ............ prefLabel "tradition" · altLabel "lens"
+│                                 e.g. Utilitarianism, Tort Law, a trained AI model
+│                                 attributes: groups 0–12 + profiles (0.02)
+│
+└── PerspectiveSpecification ... prefLabel "perspective specification" · altLabel "viewpoint", "perspective snapshot"
+                                  e.g. "Judge Y in Smith v. Jones, 2021"
+                                  attributes: Position · Time · Optics · Purpose · Operator (HO-II.d)
+
+PerspectiveSpecification ── instantiates ──► PerspectiveType
+Assessment ── takenFrom ──► PerspectiveSpecification
+```
+
+## Is a definition and Explanation enough on the umbrella?
+Yes. In OWL a class can carry annotations (`skos:definition`, an Explanation, `rdfs:comment`, history notes) without any instance-level attributes. Given how much discussion the concept has needed, documenting it in one place is the right use for it.
+
+## Rules needed to make it work
+1. **Disjoint subclasses.** Nothing can be both a tradition and a specification.
+2. **Abstract.** Every Perspective must be one or the other, with no direct members. A SHACL rule enforces this.
+3. **Tight ranges elsewhere.** `Assessment takenFrom` must point to **PerspectiveSpecification**, not the umbrella. Otherwise an assessment could claim to be "taken from Utilitarianism" without any concrete viewpoint. Likewise, `instantiates` runs from Specification to Type only.
+4. **Queries on the umbrella return both kinds.** That's useful for "everything that is any kind of perspective", but most real queries will name a subclass.
+
+## Possibly shared attributes, later
+A few attributes might apply to both and could move up to the umbrella if needed:
+- provenance (group 12);
+- `divergesFrom`, since two specifications can diverge as well as two traditions.
+
+For now I'd keep the umbrella to definition and Explanation only, as you suggest, and move things up only if the pragmatic test calls for it.
+
+## Effect on the overlap question
+With these names, the overlap is easier to state:
+- **PerspectiveType** `embedsStandard`: the standard a tradition **recommends by default**;
+- **PerspectiveSpecification** `standard`: the standard **actually used** in this viewpoint, which may override the default.
+
+Shall I log this? It would add:
+- **The umbrella:** Perspective as an abstract class with disjoint subclasses PerspectiveType and PerspectiveSpecification, carrying a definition and Explanation only.
+- **Ranges:** `takenFrom` points to PerspectiveSpecification.
+- **Labels:** "perspective specification", altLabels "viewpoint" and "perspective snapshot".
+- **Retiring "shot"** from the glossary.
+
+Then we can settle the overlap.
+[Timestamp: 2026/11/17 23:34:10]
