@@ -92,6 +92,41 @@ Script and `toy_status.py` extended: `assessmentHorizon` (years) joins the claim
 - **Limits:** one run per condition; subagents are the same model family as the designer; the data is small enough to read whole (attempt 1), so larger data may behave differently; "A" was helped by agents listing predicates first; the agent's row count (87) was wrong (86), so even careful readers err; no human non-expert. Not yet scored against the criteria.
 - Files: `C:\Users\conta\AppData\Local\Temp\naive_test\` (outside the vault; regenerate with `prep.py` and the script's snapshot section).
 
+### Scoring against the criteria written in advance (Claude's scoring; the author confirms)
+Criteria: [[HO-002.a Assessment-Everywhere Test Strategy]] (CQ table, Scoring section). Evidence is **toy case runs 2–5 only** (fictional data, same-family subagents). Scale: Yes / Partly / No; "silent" or "visible" for a naive query's failure. Join counts were **not measured**; complexity below is qualitative from the subagent runs.
+
+| CQ | A | B | Why for B |
+|---|---|---|---|
+| CQ1 cause | Partly, **silent** (naive `causes` returns F1 as fact; assessments found only if the user lists predicates) | **Yes** (toy) | Corroborated {F1, F3}, all perspectives listed, none picked. Caveat: the standard shows only via CQ5; the snapshot keeps the latest view per perspective, so P1's 2010 F4 is not in it (history needs as-of queries) |
+| CQ2 severe | **No, silent** (E2 only; E1 dispute, E3 gap dropped) | **Yes** | Settled, Disputed and Open all shown with status and counts, in the snapshot and in raw queries |
+| CQ3 agreement | No (cannot be written) | **Yes** (toy) | Settled only for E8, with evidence required. Caveat: E8 is built to settle; no real data has reached Settled |
+| CQ4 over time | Partly (dated assessments; no history for asserted attributes) | **Yes** (toy) | As-of 2016 Settled, 2020 Disputed; each change shows its trigger, P4's missing one flagged |
+| CQ5 basis | No | **Partly** | Stated/Inherited/Unstandardized derived for every assessment; "Inherited points to the default standard" was not checked by the script |
+| CQ6 omission | Partly | **Yes** (toy) | `leftOut` with omission type on causal and severity assessments. Systematic omission (HO-005) not tested |
+| CQ7 AffectedEntity | No, silent (forced into a type) | **Partly** | (a)–(e) all ran as expected, but on made-up stand-ins with no procedure or evidence, and `affectedStanding` treated as exclusive (a test choice the AI-system dispute depends on) |
+| CQ9 answerability | No | **Yes** (toy) | Disputed, kept apart from cause |
+| CQ8 control | **Yes**, cheapest | **No, as built** (Yes via a raw core query) | The rule allows "A plus use of a named view". The named view (snapshot) lacks the observed core, so "who was directly affected" cannot be answered from it |
+| Subagent run: silent failure? | A: **yes** (CQ2) | **None found**, but **misleading** labels | No disputed or unassessed item dropped. "Corroborated" and "SingleSource" mislead lay readers; "Open" lumps 64 NotAssessed with SingleSource and Corroborated |
+
+**Adoption rule** (B only if it passes CQ1–CQ7 and CQ9, shows no silent failure in the subagent run, and on CQ8 costs no more than A plus a named view):
+- CQ1, 2, 3, 4, 6, 9: met in the toy case. CQ5 and CQ7: **partly**. Subagent run: **literally met**, with the label caveat. CQ8: **not met as built**.
+- **Result: B is not adoptable on this evidence.** Gaps are fixable in the *view* rather than the model: add the observed core to the snapshot; add a legend and Effect labels; plainer status labels; do not let "Open" merge NotAssessed with the rest (decision 20's fallback: show all seven). Then re-run CQ8.
+- **Not yet scored:** the Horizon (R01) slice, SHACL validation, whether anything reaches Settled in real data, human non-experts, the chain extension.
+- Score by an interested party (the designer's assistant): treat as a draft for the author to challenge. A re-run with fixed views, a human or larger data is the check on it.
+
+### Run 6 (same day): snapshot view fixed, CQ8 re-run
+**View changes in `toy_status.py`** (the model and data did not change; 48 of 48 checks still pass): a legend at the top; an Effect label on each block; the **observed core** (`affects`, recorded dates) shown beside the assessed readings; plain status words (SETTLED, DISPUTED, AGREE-BUT-NOT-SETTLED, ONE-INDEPENDENT-SOURCE, PARTLY-ASSESSED, NOT-COMPARABLE, NOT-ASSESSED), so NotAssessed is no longer merged into Open (a quick-scan layer Settled / Disputed / Open is kept); NOT-ASSESSED attributes listed in one line per Effect; "+n earlier" marks older views that the "latest per perspective" rule hides.
+
+**Re-run:** two fresh subagents (a non-technical operator, a busy manager), each given only the new snapshot (`snapshot_B2.txt`, "TEST:" labels stripped), same three questions.
+- **CQ1:** both: F1 main, F3 possible second cause, not a conflict; kept `answerable` apart from cause.
+- **CQ2:** both: E8 firmly severe (only SETTLED), E2/E6/E7/E9 probably, E1 unclear (disputed), E3 not comparable, the rest not assessed. No Effect dropped.
+- **CQ8 (was the failure):** both now state **AllOperators** from the core and the dates (recorded 2009–2014; start disputed 2009 vs 2012; end agreed 2014). Both **hedged on "directly"**, because `affectedStanding` is NOT-ASSESSED for E2.
+- **Still found confusing or risky (their words, paraphrased):** AGREE-BUT-NOT-SETTLED "sounds reassuring"; ONE-INDEPENDENT-SOURCE can look strong when two assessors agree; why E9 is not settled while E8 is, is not shown (missing evidence is not displayed); the "+2 earlier" views are hidden; E1 cause lists two values a skimmer might read as both confirmed; core and assessed dates differ and the table does not say which to trust; F1/F3/P1–P6 and the severity band translation are unexplained; most Effects unlabelled; E15's Couple1 line under a household Effect looked odd.
+- **No wrong conclusion was drawn by either agent.** n = 2, same model family as the designer, legend given, no human.
+- **Open wording question for the author:** does "directly affected" in CQ8 mean the core `affects`, or `affectedStanding = Direct`? The hedge is correct under the second reading; under the first, B now answers as A does.
+
+**Re-score (draft):** CQ8 moves from *No as built* to **Yes, with the wording caveat above**. Subagent run: no silent failure, label risks reduced but not gone. **CQ5 and CQ7 remain Partly** (toy limits), so the adoption rule is still **not fully met**, but the remaining blockers are no longer the snapshot. Suggested next: have the script check that Inherited points to the default standard (CQ5); show *why* a claim is not settled (missing evidence, different methods, silent perspective); then Horizon.
+
 ### Interim reading (Claude's interpretation, not a decision)
 - B passed every question where A failed silently (CQ1 naive, CQ2, CQ7), and cost no more on the CQ8 control.
 - But B's first visible answer to "who caused it?" was **wrong in kind** (finding 1). Visible but false disputes are a different failure from silent omission, and could be as misleading. Fix before Horizon.

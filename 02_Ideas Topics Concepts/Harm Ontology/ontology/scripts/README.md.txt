@@ -12,7 +12,8 @@ toy_status.py <A.ttl> <B.ttl>
     python -I "02_Ideas Topics Concepts/Harm Ontology/ontology/scripts/toy_status.py" \
       "02_Ideas Topics Concepts/Harm Ontology/ontology/tests/toy_branch_ledger_A.ttl" \
       "02_Ideas Topics Concepts/Harm Ontology/ontology/tests/toy_branch_ledger_B.ttl"
-  Expected at 2026-11-18: SUMMARY: 42 passed, 0 failed, of 42 checks.
+  Expected at 2026-11-18 (after the chain test and snapshot fix): SUMMARY: 48 passed, 0 failed, of 48 checks.
+  The snapshot section is a reader-facing view: legend, Effect labels, observed core, seven plain status words.
   Attribute kinds it understands: graded, non-exclusive (deniesValue / soleValue),
   interval ("YYYY-YYYY" overlap), and single-valued exclusive (subtype and Unclassified aware).
 

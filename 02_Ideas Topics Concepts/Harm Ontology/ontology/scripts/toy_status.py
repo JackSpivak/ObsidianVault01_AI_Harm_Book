@@ -147,6 +147,48 @@ def status(g, claim_as, scope, as_of):
     return "Settled", value, rows
 
 
+def why(g, st, rows, scope):
+    """Run 7: say WHY a claim is not settled (reader-facing). Mirrors the tail of status(); text only, no new rule."""
+    if st in ("Settled", "Disputed", "NotAssessed"):
+        return ""
+    if st == "Incommensurable":
+        bad = [short(a["persp"]) for a in rows if band(g, a) is None]
+        return "cannot be put on a common scale: " + ", ".join(bad)
+    if st == "SingleSource":
+        out = []
+        orgs = {}
+        for a in rows:
+            if a["repeats"] is not None:
+                out.append(f"{short(a['persp'])} is marked as repeating another assessment")
+            elif a["evidence"] is None:
+                out.append(f"{short(a['persp'])} gives no evidence")
+            elif a["proc"] is None:
+                out.append(f"{short(a['persp'])} states no method")
+            else:
+                orgs.setdefault(a["org"], []).append(short(a["persp"]))
+        for o, ps in orgs.items():
+            if len(ps) > 1:
+                out.append(f"{', '.join(ps)} are all from {short(o)}")
+        n = len(orgs)
+        return f"counts {n} independent organisation(s) (needs 2): " + ("; ".join(out) if out else "only one assessor")
+    if st == "Corroborated":
+        procs = {(short(a["proc"]), str(one(g, a["proc"], HO.version)) if a["proc"] else None) for a in rows}
+        out = []
+        if len(procs) > 1:
+            out.append("different methods or versions: " + ", ".join(sorted(f"{p} v{v}" for p, v in procs)))
+        noev = [short(a["persp"]) for a in rows if a["evidence"] is None]
+        if noev:
+            out.append("no evidence from " + ", ".join(noev))
+        return "; ".join(out)
+    if st == "PartiallyAssessed":
+        proc = rows[0]["proc"]
+        pool = scope if scope is not None else set(g.subjects(RDF.type, HO.PerspectiveSpecification))
+        said = {a["persp"] for a in rows}
+        silent = sorted(short(p) for p in pool if (p, HO.usesProcedure, proc) in g and p not in said)
+        return "perspective(s) using the same method have not spoken: " + ", ".join(silent)
+    return ""
+
+
 def revisions(al, target, attr):
     """Where one perspective changed its value on the same target and attribute, return (perspective, old, new).
     CQ4: every change should carry a trigger (`revisedBecause`); a change with none is flagged by the caller."""
@@ -182,17 +224,51 @@ def run_b(path):
 
     # Snapshot shortcuts for every Effect x attribute, incl. unassessed (mitigation 1)
     print("\n-- Snapshot statuses (scope: all in data; as of 2026-11-18) --")
-    effects = sorted(g.subjects(RDF.type, HO.Effect))
+    effects = sorted(g.subjects(RDF.type, HO.Effect), key=lambda e: int(short(e)[1:]) if short(e)[1:].isdigit() else 0)
     attrs = sorted(at for at in {a["attr"] for a in al} if (at, HO.appliesTo, HO.Effect) in g)
     counts = {}
+    # Run 6 view (fix after the non-expert test, run 5): legend; Effect labels; the observed core
+    # (not assessed) shown beside the assessed readings; plain status words; NotAssessed kept
+    # separate from the other "Open" kinds (all seven statuses shown); earlier views counted.
+    plain = {"Settled": "SETTLED", "Disputed": "DISPUTED", "Corroborated": "AGREE-BUT-NOT-SETTLED",
+             "SingleSource": "ONE-INDEPENDENT-SOURCE", "PartiallyAssessed": "PARTLY-ASSESSED",
+             "Incommensurable": "NOT-COMPARABLE", "NotAssessed": "NOT-ASSESSED"}
+    print("LEGEND (read this first)\n"
+          "  Each Effect block shows (1) its CORE: facts recorded without an assessor (who it affects, recorded dates),\n"
+          "  and (2) ASSESSED readings: what named perspectives say, with a status. Core and readings can differ; both are shown.\n"
+          "  Views = Perspective@year=value (the latest view of each perspective; 'n earlier' = older views kept, ask an as-of query).\n"
+          "  Statuses:\n"
+          "    SETTLED                 two or more independent assessors, same method and version, evidence given, nobody in scope silent\n"
+          "    DISPUTED                at least one real conflict among the views\n"
+          "    AGREE-BUT-NOT-SETTLED   no conflict, but the methods differ or evidence is missing (the values shown can hold together, e.g. two causes at once)\n"
+          "    ONE-INDEPENDENT-SOURCE  fewer than two independent organisations (several assessors from one firm, or one marked as repeating another, count as one), even if they agree\n"
+          "    PARTLY-ASSESSED         agreement, but a perspective that uses the same method has not spoken\n"
+          "    NOT-COMPARABLE          the values cannot be put on a common scale (e.g. a raw score with no method)\n"
+          "    NOT-ASSESSED            nobody has assessed it. This is a gap, not a finding.\n"
+          "  Layer for quick scanning: SETTLED, DISPUTED, or OPEN (= everything else).\n")
     for e in effects:
+        core_aff = ", ".join(f"{short(x)} ({one(g, x, RDFS.label)})" for x in g.objects(e, HO.affects)) or "none recorded"
+        s0, e0 = one(g, e, HO.occurredStart), one(g, e, HO.occurredEnd)
+        core_dates = f"{s0}-{e0}" if s0 is not None else "none recorded"
+        print(f"\n{short(e)}: {one(g, e, RDFS.label)}\n   CORE (observed): affects {core_aff}; recorded dates {core_dates}")
+        unassessed = []
         for at in attrs:
             ks = [k for k in cl if k[0] == e and k[1] == at] or [(e, at, None)]
             for k in ks:
                 st, val, rows = status(g, cl.get(k, []), None, today)
                 counts[st] = counts.get(st, 0) + 1
-                print(f"{short(e):4} {short(at):14} {short(k[2]):13} {display(st):9} [{st}{'(' + short(val) + ')' if val is not None else ''}]  {fmt(rows)}")
-    print("Counts:", counts)
+                if st == "NotAssessed":
+                    unassessed.append(short(at))
+                    continue
+                earlier = len(cl.get(k, [])) - len(rows)
+                who = f" for {short(k[2])}" if k[2] is not None else ""
+                print(f"   {short(at)}{who}: {plain[st]}{'(' + short(val) + ')' if val is not None else ''} [layer: {display(st).upper() if display(st) != 'Open' else 'OPEN'}]  views: {fmt(rows)}{f'  (+{earlier} earlier)' if earlier else ''}")
+                reason = why(g, st, rows, None)
+                if reason:
+                    print(f"      why not settled: {reason}")
+        if unassessed:
+            print("   NOT-ASSESSED: " + ", ".join(unassessed))
+    print("Counts:", {plain[k]: v for k, v in counts.items()})
 
     def q(label, key, scope=None, as_of=today):
         st, val, rows = status(g, cl.get(key, []), scope, as_of)
@@ -325,6 +401,37 @@ def run_b(path):
     ok = all((a["horizon"] is not None) for a in naive)
     results.append(ok)
     print("PASS" if ok else "FAIL", " every chain-level assessment declares its horizon (none silent)")
+
+    print("\n-- Checks 8 (run 7): CQ5 basis points to its standard; 'why not settled' text --")
+    for pid in sorted({a["persp"] for a in al}, key=short):
+        b = basis(g, pid)
+        std = one(g, pid, HO.appliedEvaluativeStandard)
+        t = one(g, pid, HO.instantiates)
+        dflt = one(g, t, HO.defaultEvaluativeStandard) if t is not None else None
+        if b == "Stated":
+            ok, ptr = std is not None, short(std)
+        elif b == "Inherited":
+            ok, ptr = dflt is not None and std is None, f"{short(dflt)} (default of {short(t)})"
+        else:
+            ok, ptr = std is None and dflt is None, "none"
+        expected = {"P1": "Stated", "P5": "Stated", "P2": "Inherited", "P3": "Inherited", "P6": "Inherited", "P4": "Unstandardized"}[short(pid)]
+        ok = ok and b == expected  # expected basis written by hand, so the check is not just the derivation checking itself
+        results.append(ok)
+        print(f"{'PASS' if ok else 'FAIL'}  CQ5 {short(pid)} {b} (expected {expected}): standard -> {ptr}")
+    sev = lambda e: cl[(e, HOA.severity, TOY.AllOperators)]
+    for label, e, must in (("E9 (missing evidence)", TOY.E9, ["P3", "no evidence"]),
+                           ("E6 (same firm)", TOY.E6, ["AuditFirmY", "1 independent"]),
+                           ("E7 (repeats)", TOY.E7, ["repeating"])):
+        st, v, rows = status(g, sev(e), None, today)
+        txt = why(g, st, rows, None)
+        ok = all(m in txt for m in must)
+        results.append(ok)
+        print(f"{'PASS' if ok else 'FAIL'}  why {label}: {txt}")
+    st, v, rows = status(g, sev(TOY.E1), {TOY.P2, TOY.P3, TOY.P6}, today)
+    txt = why(g, st, rows, {TOY.P2, TOY.P3, TOY.P6})
+    ok = "P3" in txt
+    results.append(ok)
+    print(f"{'PASS' if ok else 'FAIL'}  why E1 among P2,P3,P6 (silent perspective): {txt}")
 
     print(f"\nSUMMARY: {sum(results)} passed, {len(results) - sum(results)} failed, of {len(results)} checks")
 
