@@ -13,8 +13,8 @@ ho:Low ho:bandRank 1 . ho:Medium ho:bandRank 2 . ho:High ho:bandRank 3 . ho:Extr
 # ---------- Attribute concepts (hoa:) ----------
 # Added after run 1: bands apply only to graded attributes; each attribute declares what it applies to.
 hoa:severity      a ho:GradedAttribute ; ho:appliesTo ho:Effect .
-hoa:cause         ho:appliesTo ho:Effect .
-hoa:answerable    ho:appliesTo ho:Effect .
+hoa:cause         a ho:NonExclusiveAttribute ; ho:appliesTo ho:Effect .
+hoa:answerable    a ho:NonExclusiveAttribute ; ho:appliesTo ho:Effect .
 hoa:occurredStart ho:appliesTo ho:Effect .
 hoa:entityType    ho:appliesTo ho:AffectedEntity .
 
@@ -83,7 +83,7 @@ toy:C6 a ho:CausalAssessment ; ho:assesses toy:E1 ; ho:aboutAttribute hoa:cause 
     ho:hasEvidence toy:Ev2 ; ho:repeats toy:C2 ; ho:assessedAt "2016-01-10"^^xsd:date .
 toy:C3 a ho:CausalAssessment ; ho:assesses toy:E1 ; ho:aboutAttribute hoa:cause ; ho:value toy:F1 ;
     ho:takenFrom toy:P1 ; ho:assessorOrganisation toy:CompanyX ; ho:usesProcedure toy:ProcInternal ;
-    ho:hasEvidence toy:Ev3 ; ho:assessedAt "2018-09-01"^^xsd:date .
+    ho:hasEvidence toy:Ev3 ; ho:revisedBecause toy:Ev3 ; ho:assessedAt "2018-09-01"^^xsd:date .
 toy:C7 a ho:CausalAssessment ; ho:assesses toy:E1 ; ho:aboutAttribute hoa:cause ; ho:value toy:F3 ;
     ho:takenFrom toy:P4 ; ho:assessorOrganisation toy:Assoc ; ho:assessedAt "2019-02-01"^^xsd:date .
 toy:C4 a ho:CausalAssessment ; ho:assesses toy:E1 ; ho:aboutAttribute hoa:cause ; ho:value toy:F1 ;
@@ -104,10 +104,18 @@ toy:S5 a ho:Assessment ; ho:assesses toy:E1 ; ho:aboutAttribute hoa:severity ; h
     ho:forAffectedEntity toy:SomeOperators ; ho:takenFrom toy:P4 ; ho:assessorOrganisation toy:Assoc ;
     ho:assessedAt "2019-02-01"^^xsd:date .
 
-# Severity of E2: only one assessment (SingleSource)
+# Severity of E2: two assessments, but P3 repeats P2 (same org) -> still SingleSource
 toy:S6 a ho:Assessment ; ho:assesses toy:E2 ; ho:aboutAttribute hoa:severity ; ho:value "critical" ;
     ho:forAffectedEntity toy:AllOperators ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ;
     ho:usesProcedure toy:ProcForensic ; ho:hasEvidence toy:Ev2 ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:S8 a ho:Assessment ; ho:assesses toy:E2 ; ho:aboutAttribute hoa:severity ; ho:value "critical" ;
+    ho:forAffectedEntity toy:AllOperators ; ho:takenFrom toy:P3 ; ho:assessorOrganisation toy:AuditFirmY ;
+    ho:usesProcedure toy:ProcForensic ; ho:hasEvidence toy:Ev2 ; ho:repeats toy:S6 ; ho:assessedAt "2016-01-10"^^xsd:date .
+
+# Severity of E3: unstandardized raw value without procedure -> Incommensurable
+toy:S7 a ho:Assessment ; ho:assesses toy:E3 ; ho:aboutAttribute hoa:severity ; ho:value "moderate" ;
+    ho:forAffectedEntity toy:AllOperators ; ho:takenFrom toy:P4 ; ho:assessorOrganisation toy:Assoc ;
+    ho:assessedAt "2019-02-01"^^xsd:date .
 
 # When E2 began (assessed reading of occurredDuring)
 toy:T1 a ho:Assessment ; ho:assesses toy:E2 ; ho:aboutAttribute hoa:occurredStart ; ho:value "2012" ;
