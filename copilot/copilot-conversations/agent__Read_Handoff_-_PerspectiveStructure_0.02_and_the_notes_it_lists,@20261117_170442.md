@@ -7,7 +7,7 @@ topic: "Read Handoff - PerspectiveStructure 0.02 and the notes it li…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":91867,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":90623,"cacheWriteTokens":1239,"updatedAt":1794961251548}'
+usage: '{"usedTokens":101042,"contextWindow":1000000,"inputTokens":4,"outputTokens":7,"cacheReadTokens":99330,"cacheWriteTokens":1701,"updatedAt":1794962147814}'
 ---
 
 **user**: Read Handoff - PerspectiveStructure 0.02 and the notes it lists, then propose the 0.02 structure.
@@ -241,5 +241,130 @@ If this direction fits, it's probably worth its own bookmark (a Vocabulary/Cross
 **user**: repeat previous
 [Timestamp: 2026/11/17 17:28:52]
 
-**ai**: 
+**ai**: Here is the example. It uses the congruence hub, the strongest convergence across the councils, and should render in Obsidian's reading view. The narrative text is illustrative draft wording. The citations are the ones already web-checked in the review tables, but I haven't re-checked them here.
+
+## Naming convention (proposed)
+
+| Element | Pattern | Example |
+|---|---|---|
+| Hub concept ID | `ho:` + neutral camelCase | `ho:congruence` |
+| Hub prefLabel | plain English, lower case | "congruence" |
+| Spoke concept ID | `<discipline>:` + the domain's own term in camelCase | `law:congruence`, `phil:zhengming` |
+| Spoke label | Term · Discipline · Thinker, Year | "rectification of names · Philosophy · Confucius, Analects 13.3" |
+| Mapping edge | SKOS match type, plus a one-line `scopeNote` saying what differs | `closeMatch` — "about institutions, not persons" |
+| Discipline prefixes | `law` · `eth` (ethics) · `phil` (classical philosophy) · `pol` (political theory) · `sci` (philosophy of science) · `cog` · `phys` · `lit` (literature) | |
+
+Councils appear only as provenance (`assertedBy`), not as domains.
+
+## Graph: `ho:congruence`
+
+```mermaid
+graph LR
+    HUB(("<b>ho:congruence</b><br/>prefLabel: congruence<br/><i>The fit between what a lens<br/>says it does and what it<br/>actually does.</i>"))
+
+    LAW["<b>law:congruence</b><br/>congruence between official action<br/>and declared rule · Law<br/>Fuller, The Morality of Law, 1964<br/><i>The eighth way to fail to make law:<br/>officials act on rules other than<br/>the published ones.</i>"]
+
+    PHIL["<b>phil:zhengming</b><br/>rectification of names · Philosophy<br/>Confucius, Analects 13.3<br/><i>When names are not right, affairs<br/>fail. A name can claim a virtue<br/>the practice lacks.</i>"]
+
+    ETH["<b>eth:operativeMaxim</b><br/>maxim vs stated end · Ethics<br/>Kant, Groundwork, 1785<br/><i>The principle actually acted on<br/>may differ from the end professed.</i>"]
+
+    POL["<b>pol:sprachregelung</b><br/>language rule · Political theory<br/>Arendt, Eichmann in Jerusalem, 1963<br/><i>An official euphemism regime that<br/>hides what is done behind<br/>bureaucratic words.</i>"]
+
+    SCI["<b>sci:cargoCultScience</b><br/>cargo cult science · Phil. of science<br/>Feynman, Caltech address, 1974<br/><i>The form of a practice<br/>without its substance.</i>"]
+
+    HUB ---|"closeMatch<br/>scope: institutions and rules,<br/>not persons"| LAW
+    HUB ---|"closeMatch<br/>scope: names and titles"| PHIL
+    HUB ---|"relatedMatch<br/>scope: an individual agent's<br/>principle"| ETH
+    HUB ---|"narrowMatch<br/>scope: deliberate euphemism only"| POL
+    HUB ---|"relatedMatch<br/>scope: epistemic form,<br/>not moral claim"| SCI
+
+    BOOK["<b>Book use</b><br/>A safety review that only<br/>protects the company"]
+    HUB -.->|exemplar| BOOK
+
+    PROV["<b>Convergence (derived)</b><br/>5 disciplines map here<br/>assertedBy: Claude Opus 5.5 councils<br/>caveat: not independent<br/>status: candidate"]
+    HUB -.-> PROV
+```
+
+## Spoke record (one of the five, in full)
+In the vocabulary note, each spoke would carry the same eight columns as your review tables:
+
+| Field | `law:congruence` |
+|---|---|
+| Hub | `ho:congruence` (closeMatch) |
+| Term (altLabels) | congruence; the eighth desideratum; "congruence between official action and declared rule" |
+| Definition | The requirement that officials actually apply the rules that have been published. |
+| Example | A content policy enforced against one community but not another: "one name, two lenses". |
+| Citation | Lon L. Fuller, *The Morality of Law* (Yale UP, 1964), ch. 2 |
+| Citation verified | (copied from the Legal review row) |
+| Historical note | Fuller's response to the Hart–Fuller debate (1958) |
+| Key thinkers | Lon Fuller; H.L.A. Hart (critic) |
+| Scope note (how it differs from the hub) | Applies to rule systems and their officials, not to individual intentions. |
+| Explanation | 100–200 words, carried over from the review table |
+| meaningAsOf · assertedBy | 1964 · Claude Opus 5.5 (Legal Council), 2026-11-17 |
+
+## Questions from before (still open)
+1. **Hub names:** should they be neutral coinages like `congruence`, or should each one borrow the strongest domain's term?
+2. **Mapping grade:** should I assign `exact`/`close`/`narrow`/`related` when consolidating, or should every mapping start as `related` until you review it?
+3. **Domains:** should they be real disciplines, as shown above, or the seven councils? I recommend disciplines, with councils kept as provenance.
+
+Once you've answered these and approved the format, I'll create the Vocabulary/Crosswalk bookmark note under HO-II.d.1 using the Idea template.
 [Timestamp: 2026/11/17 17:28:52]
+
+**user**: is the explanation actually 100-200words... or is that a placeholder? can you show the actual proposed explanation
+[Timestamp: 2026/11/17 17:33:01]
+
+**ai**: It was a placeholder. Let me pull the actual row from the Legal review.It was a placeholder. "Carried over from the review table" was also inaccurate: the Legal review has no row for congruence on its own. Its closest row is `proceduralIntegrity`, which covers all eight of Fuller's desiderata and mentions congruence in only one sentence.
+
+## The existing Explanation (`proceduralIntegrity` row, Legal review, verbatim, about 120 words)
+> "Fuller's desiderata are a ready-made audit for algorithmic rules, which often fail several at once: unpublished (secret models), unclear (opaque features), constantly changing (retraining), impossible to comply with (unknown criteria), and incongruent (stated purpose vs actual effect). Scoring each desideratum as an object gives the ontology a structured way to say *how* a lens fails procedurally, not just that it does. The eighth desideratum, congruence, is the formal version of Confucius's misnaming and Kant's operative maxim, so three councils converge on it. Hart's objection is worth recording: the desiderata are conditions of efficacy, compatible with great iniquity, so procedural integrity is not moral goodness. The ontology should keep them as separate attributes."
+
+## Proposed new Explanation for the `law:congruence` spoke (about 165 words)
+This is a new draft by Claude Opus 5.5, written for this example:
+
+> Fuller's eighth desideratum asks whether the rules officials actually apply are the rules that were declared. As a spoke of `ho:congruence`, it contributes the most precise and testable version of the idea: compare the published rule with observed official action. That makes congruence something you can measure from enforcement records, not only argue about. It connects directly to Holmes's `enforcementReality` and to Pound's distinction between law in books and law in action. It differs from the hub in scope. Fuller audits rule systems and the officials who run them. He doesn't ask about one agent's private maxim, as Kant does, or about deliberate euphemism, as Arendt does. Incongruence in his sense can come from indifference, misreading or inaccessibility, not just bad faith (unverified paraphrase). For AI harm the test applies almost unchanged: a platform's published content policy against its moderation logs, or a model card's stated purpose against how the model is actually deployed. Hart's caution carries over too. A perfectly congruent system can still be unjust, so congruence is necessary for integrity but not sufficient for goodness.
+
+## What this means for the crosswalk
+- **Most spokes need a new Explanation.** The existing ones explain the review's *attribute* (here `proceduralIntegrity`). A spoke Explanation has to explain how the *term* relates to the hub and where it differs. I'd write these fresh and cite the review row each one draws on.
+- **The hub needs its own Explanation** too: what the concept is in neutral terms, and why five disciplines converge on it.
+- **Claims I added need verifying** before saving. Here that means the paraphrase of Fuller's causes of incongruence, which I've marked unverified. All web searches are pre-approved, so I'd check each one during drafting.
+
+Do you want me to draft the hub Explanation and the other four spoke Explanations for congruence as the worked example? Answers to the three earlier questions (hub naming, mapping grades, disciplines vs councils) would still help before I set up the bookmark note.
+<!-- copilot-message {"tools":["Grep (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 LegalCouncil Review of - PerspectiveStructure 0.01.md","Read (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 LegalCouncil Review of - PerspectiveStructure 0.01.md"]} -->
+[Timestamp: 2026/11/17 17:33:01]
+
+**user**: is this hub strictly for law where is that made obvious. thinking one hub per domain
+[Timestamp: 2026/11/17 17:35:31]
+
+**ai**: No. The hub `ho:congruence` is deliberately **cross-domain**. Only the spoke `law:congruence` is legal. My example made that hard to see in three ways:
+- the spoke card I showed in full was the legal one;
+- the `ho:` and `law:` prefixes carry the distinction, but nothing says so in plain words;
+- the hub and the legal spoke share the word "congruence".
+
+## The model as a matrix
+The hub is a **row** (one concept). Your "one hub per domain" is a **column** (one discipline). SKOS has a name for a column too: a **concept scheme**.
+
+| Concept hub (`ho:`) ↓ / Discipline scheme → | Law | Ethics | Philosophy | Political theory | Phil. of science |
+|---|---|---|---|---|---|
+| **congruence** | `law:congruence` | `eth:operativeMaxim` | `phil:zhengming` | `pol:sprachregelung` | `sci:cargoCultScience` |
+| **accountabilityLocus** | `law:standing`? | — | — | `pol:ruleOfNobody` | — |
+| **blindSpot** | — | — | `phil:constitutiveEmptiness` | — | `sci:anomaly`? |
+
+(The second and third rows are illustrative only, and the "?" mappings aren't settled.)
+
+- **Concept hub (row):** reconciles one idea across disciplines. This is where convergence, graded matches and "what differs" live.
+- **Discipline scheme (column):** collects every term one discipline uses, in its own vocabulary, with its own definitions. It's what a lawyer would browse.
+
+## Should there be one hub per domain?
+I'd use both, but not as alternatives:
+- **Domain-only hubs (columns only)** lose the thing you asked for: acknowledging and reconciling alignment *across* disciplines. Each domain would be a separate island. Connecting them would need domain-to-domain links, which for 8 disciplines is up to 28 pairings per concept, against 8 links to one shared hub.
+- **Concept hubs only** make it hard for a domain reader to see their own vocabulary as a whole.
+- **Both from the same data:** each spoke belongs to one discipline scheme (`skos:inScheme law:`) *and* maps to one concept hub. The column view and the row view are two indexes over the same records, with nothing duplicated.
+
+## Making it obvious in the notes
+- Label the hub explicitly: "**ho:congruence: cross-domain concept hub**", with a `scope: cross-domain` field.
+- Give every spoke a visible `domain: Law` field next to its ID, and list its scheme ("in scheme: Law vocabulary").
+- Give each discipline scheme its own index note (for example *Law vocabulary*) listing its terms and the hubs they map to.
+- Hub prefLabels should avoid copying one discipline's word where possible. If "congruence" reads as legal, a neutral name like `statedOperativeFit` might be better. That's question 1 again.
+
+So, to settle the design: do you want **concept hubs plus discipline schemes (rows and columns)**, as I recommend? Or did you mean something else by "one hub per domain", for example a separate ontology per domain?
+[Timestamp: 2026/11/17 17:35:31]
