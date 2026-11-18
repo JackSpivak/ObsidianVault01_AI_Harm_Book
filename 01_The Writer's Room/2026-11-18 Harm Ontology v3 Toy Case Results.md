@@ -58,6 +58,40 @@ Script `toy_status.py` and `toy_branch_ledger_B.ttl` were extended; 42 checks, a
 - **Limits:** CQ7 cases carry no procedure or evidence, so most read SingleSource (they test conflict vs no conflict). `affectedStanding` is treated as exclusive, a test choice that the AI-system dispute depends on. Variant A was not extended. Legal and anthropological content is unverified.
 - **Still open:** finding 8 (non-expert test of the generated snapshots); SHACL validation; Horizon R01; whether strict settlement leaves almost nothing Settled in real data (E8 settles only because it is built to).
 
+### Run 4 update (same day): Chain toy test (HO-006), test only
+Script and `toy_status.py` extended: `assessmentHorizon` (years) joins the claim key **only when given**, so existing keys are unchanged. Data: a thin `toy:Ch1` (Chain: identifier and label only) with four assessments of `netOutcome` (H1–H4). 48 of 48 checks pass (42 old + 6 new); the old results did not change.
+- Horizon 2: P2 and P6 agree (NetBeneficial); shows PartiallyAssessed because P3, who uses the same procedure, is silent. Not a conflict.
+- Horizon 20: P2 NetHarmful vs P1 NetBeneficial → **Disputed** (a same-horizon conflict still shows).
+- Two horizons = two separate claims (keys 2 and 20).
+- **Control:** with the horizon ignored, one claim → Disputed (the false dispute the key prevents).
+- P2 holds NetBeneficial at 2 and NetHarmful at 20 at once; under "latest per perspective" without horizon in the key, the 2-year verdict would be overwritten (Sai Weng flip stays visible).
+- **Not tested:** `maxHorizon` as a ceiling on a Procedure or standard; what the horizon is measured from; cut by time vs link count vs probability (only years used); chain membership and `withinChain`; a future horizon forcing `chainStatus: Extrapolated`. No deliberate-breakage pass was run for these 6 checks (only the control).
+- Hypothesis that survived one fictional test; **not a decision**, not logged in [[Decisions_Log]].
+
+### Run 5 (same day): non-expert subagent test (finding 8), first pass, NOT a pass/fail verdict
+**Setup.** Fresh subagents (same model family as the designer), CQ1, CQ2, CQ8 asked in plain words, no hints about joins. Files in a temp folder outside the vault: comments and "TEST:" labels stripped from the `.ttl` (labels like "TRAP" would leak the answers); `snapshot_B.txt` = the script's snapshot table only (no checks). Three conditions: A (data only), B raw (data only), B snapshot (table only, no legend).
+- **Attempt 1 (invalid for the purpose):** the files were small, so all three agents read them whole and wrote no queries. Discarded as evidence about *queries*; its observations are kept below only as marked.
+- **Attempt 2 (enforced):** no reading the file, no graph dump, answers only from SPARQL results; the snapshot agent got the table alone.
+
+| | A (queries) | B raw (queries) | B snapshot (table only) |
+|---|---|---|---|
+| CQ1 cause of E1 | Direct `causes` link (F1) plus assessments of F1, F4, F3; "F1 best supported", medium confidence. It listed the predicates first, which is why it found the assessments (a hurried user might not). | F1 most supported, F4 (2010) and F3 as dissent, `leftOut` and `revisedBecause` noticed; also separated answerability from cause. Counted "six" F1 assessments (five). | F1, with F3 as an alternative; treated `answerable` as a separate question. Read "Corroborated({F1, F3})" correctly as two surviving causes. |
+| CQ2 severe | **E2 only** (Extreme); E1 reported as Medium (one asserted value); E3 flagged "no severity". E1's dispute and E6–E9 never seen. **Silent partial answer.** | E2 (Extreme) and E1, E6–E9 (High) listed; applied band mappings itself; noticed E1's 4/10 and Low; E3 Medium; did not apply independence or settlement rules. Not silent, but expensive. | E2, E6–E9 clear; E1 "Disputed, can't call it severe"; E3 Incommensurable. Visible, nothing dropped. |
+| CQ8 when / who | 2009–2014; AllOperators; high confidence. Cheapest. | Same, plus the 2009 vs 2012 start dispute found. | When: found 2012–2014 and the disputed start. **Who was directly affected: "the table doesn't say"** (the snapshot has no observed core; `affectedStanding` read NotAssessed). |
+
+**What the snapshot agent could not interpret or found misleading (its own words, paraphrased):**
+- No legend: columns, `-`, P1–P6, `answerable`, `standing`, `@2015`; the table gives no Effect labels.
+- **"Corroborated" does not read as agreement:** E1 cause is Corroborated with two different values; E2 duration is Corroborated though the sources' ranges differ (narrowed to the intersection, so 2009–2011 vanishes from the headline).
+- **"SingleSource" on E6 and E7 reads wrong** when two sources agree (it means one independent organisation).
+- 64 of 86 rows are NotAssessed, all shown as **Open**: a reader could take gaps for findings, and Open also holds SingleSource and Corroborated. (Decision 20 asked for exactly this check; here the bracketed detailed status was visible, so the agent separated them. With the two-layer view only, it would not.)
+- E2 severity shown as "Extreme" while the source says "critical" (harmless, but a translation it did not announce).
+
+**Reading (Claude's, not a decision):**
+- B raw and the snapshot showed **no silent omission of a disputed or unassessed item**; A did (CQ2). That is the same direction as run 2.
+- B's costs appeared elsewhere: **CQ8 through the snapshot alone fails** (the observed core is missing), and the status vocabulary needs a legend and plainer labels. Whether that counts as a "fail" under the pre-written rule ("a silent partial answer in B is a fail") is the author's call: it is partial but not silent (NotAssessed is shown), though it could mislead.
+- **Limits:** one run per condition; subagents are the same model family as the designer; the data is small enough to read whole (attempt 1), so larger data may behave differently; "A" was helped by agents listing predicates first; the agent's row count (87) was wrong (86), so even careful readers err; no human non-expert. Not yet scored against the criteria.
+- Files: `C:\Users\conta\AppData\Local\Temp\naive_test\` (outside the vault; regenerate with `prep.py` and the script's snapshot section).
+
 ### Interim reading (Claude's interpretation, not a decision)
 - B passed every question where A failed silently (CQ1 naive, CQ2, CQ7), and cost no more on the CQ8 control.
 - But B's first visible answer to "who caused it?" was **wrong in kind** (finding 1). Visible but false disputes are a different failure from silent omission, and could be as misleading. Fix before Horizon.

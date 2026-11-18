@@ -59,8 +59,8 @@ latest_session: "[[2026-11-18 Harm Ontology v3 Toy Case Results]]"
 - **Limits:** CQ7 cases have no procedure or evidence, so they test conflict vs no conflict only (mostly SingleSource); `affectedStanding` is treated as exclusive (a test choice); variant A was not extended; legal and anthropological content is unverified.
 
 ## Next step
-0. *Optional, small, do first:* the **Chain toy test** ([[HO-006 Causal Chain - an Assessed Selection with a Horizon]]): one chain assessed at two horizons; pass if the horizons are separate claims and a same-horizon conflict still shows Disputed. Keeps the schema stable before the non-expert test.
-1. **Non-expert subagent test** (CQ1, CQ2, CQ8, given the schema only). It must check whether depending on script-generated snapshots causes silent failures (finding 8). B cannot be adopted until this passes.
+0. **Chain toy test: done** (run 4, 48 of 48 pass; see [[2026-11-18 Harm Ontology v3 Toy Case Results]]). Horizon in the claim key worked in the test. `maxHorizon`, horizon origin and `withinChain` untested. Test only, not logged.
+1. **Non-expert subagent test: first pass done (run 5), not scored.** No silent omission in B (A had one, CQ2). Findings: the snapshot alone cannot answer CQ8 "who was directly affected" (no observed core); "Corroborated" and "SingleSource" read misleadingly; "Open" lumps 64 NotAssessed with the others; no legend. Limits: n=1 per condition, same model family, small data. Decide whether to re-run with a fixed snapshot (core columns, legend, plainer labels), with a human, or with larger data; then score. B still can't be adopted until the author calls it. See [[2026-11-18 Harm Ontology v3 Toy Case Results]].
 2. **SHACL validation:** nodes with no assessment, shortcuts with no status.
 3. **Score** against the pre-written criteria (HO-002.a).
 4. **Horizon R01**, which needs sourced research first (new chat). Also checks whether anything reaches Settled in real data.
