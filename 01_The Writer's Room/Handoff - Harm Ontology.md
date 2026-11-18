@@ -29,7 +29,8 @@ latest_session: "[[2026-11-18 Harm Ontology v3 Toy Case Results]]"
   - `patientStanding` → `affectedStanding`
   - `forPatient` → `forAffectedEntity`
   - `standingOfSubjects {agent · affected · datum}`
-- **Where the rename has been applied:** the draft structure, [[PerspectiveStructure 0.02]] and HO-002.a. The other ~17 notes and the v1 `.ttl` are deferred to migration (memory list item 10). Propose those edits as a list first, and never change verbatim quotes.
+- **Where the rename has been applied:** the draft structure, [[PerspectiveStructure 0.02]], HO-002.a, and (2026-11-18, author-approved list "A") 21 lines in 12 notes: HO-I.b, HO-I.c, HO-II.a, HO-II.b, HO-II.e, HO-premise, HO-002 Stress-Test Suite, the Bookmark Index, the Migration Plan, the Crosswalk (Meta-Category V), and two _Unfiled Ideas notes. **Left on purpose:** verbatim quotes, older Decisions_Log entries, the 2026-11-14 session note, PerspectiveStructure 0.01, the council reviews, real medical "patient", chat transcripts. **Still deferred to migration:** `hasPatientOntology`, `PatientOntologyValue`, "Moral Patient (`hasMoralPatient`)" in the v1 `.ttl` (and the root copy), the v1/v2/v2a compendia and Master Formal Ontology Part 1 (deprecate and map, don't edit in place). Never change verbatim quotes.
+- **Paused (author, 2026-11-18):** formal v3 testing is on hold; the author will use v3 informally against real-world data and collect v4 updates and improvements first. No production `.ttl` or compendium yet.
 - **Test-only decisions in HO-002.a (Author decisions 5–21):**
   - `assessmentBasis: Stated | Inherited | Unstandardized`, derived by script
   - Procedure as a separate class
@@ -95,6 +96,7 @@ latest_session: "[[2026-11-18 Harm Ontology v3 Toy Case Results]]"
 ## Read first
 - This note, then [[HO-002.a Assessment-Everywhere Test Strategy]] (Author decisions, Variant B design, Variant A baseline) and [[2026-11-18 Harm Ontology v3 Toy Case Results]].
 - [[Harm Ontology v3 Test Summary]] for why and how the v3 tests were run, and which files they used.
+- **If the task is producing the first v3 `.ttl` and a generated Compendium (new chat): attach this handoff and [[Harm Ontology v3 Provisional Release Brief]] together.** The brief lists every file the build needs, including [[Decisions_Log]] and [[PerspectiveStructure 0.02]]. The handoff alone is not enough for that task: its "Next step" list is about testing.
 - [[Harm Ontology v3 - Draft Structure]] and [[Harm Ontology Migration Plan]] as needed.
 
 ## Previous sessions

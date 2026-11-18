@@ -21,7 +21,7 @@ created: 2026-11-16
 
 ## Anticipated direction
 - Use it as an **evaluative standard** in the v3 model, where harm is judged from a perspective ([[HO-000 Harm as Perspective-Relative Assessment]]). In capability terms, harm means shrinking someone's capability set, not reducing their resources or their satisfaction.
-- **Conversion factors** look like a ready-made vocabulary for patient-specific effect properties ([[HO-I.b Effect and Cascades]]): the same factor can affect two people differently.
+- **Conversion factors** look like a ready-made vocabulary for AffectedEntity-specific effect properties ([[HO-I.b Effect and Cascades]]): the same factor can affect two people differently.
 - Its rejection of welfarism, because preferences **adapt to deprivation**, fits closely with [[HO-001 Harm by Habituation and Captured Assent]]. A person trained into deference may report being satisfied while their capabilities have shrunk.
 - Sen left the list of capabilities open and Nussbaum fixed one. That echoes [[Open Harm Categories - Harm Beyond Human Experience]]: an open list leaves room for capabilities, and harms, that nobody has named yet.
 

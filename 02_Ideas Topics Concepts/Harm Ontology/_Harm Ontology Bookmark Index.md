@@ -18,7 +18,7 @@ Click the arrow beside an item to open or close its branch.
 	- **HO-I — Core model** (tier, no page of its own): what exists in a harm situation (neutral of verdicts).
 		- [[HO-I.a Factor and CausalRole|HO-I.a — Factor and CausalRole]]: neutral factors (Act, Process, Omission, Condition, Structure, Risk) bear roles in specific causal chains.
 			- [[HO-006 Causal Chain - an Assessed Selection with a Horizon|HO-006 — Causal chain]] (also under top-level HO-006; v4 proposed): the missing Chain class that CausalRole refers to.
-		- [[HO-I.b Effect and Cascades|HO-I.b — Effect and cascades]]: neutral effects with patient-specific properties. Effects can bear roles and lead to further effects.
+		- [[HO-I.b Effect and Cascades|HO-I.b — Effect and cascades]]: neutral effects with AffectedEntity-specific properties. Effects can bear roles and lead to further effects.
 		- [[HO-I.c Phenomenality - Observability and Experienceability|HO-I.c — Phenomenality]]: Phenomenal / NonPhenomenal / ConditionallyPhenomenal, applied separately to observability and experienceability.
 	- **HO-II — Judging layer** (tier): how anything comes to count as harmful or beneficial.
 		- [[HO-II.a Assessment and Evaluative Standard|HO-II.a — Assessment and evaluative standard]]: each assessment is one judgment, made under a standard (formerly "theory of harm").

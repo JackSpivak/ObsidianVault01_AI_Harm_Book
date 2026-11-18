@@ -16,11 +16,11 @@ filed: 2026-11-14
 Index: [[_Harm Ontology Bookmark Index]] · Parent: [[HO-000 Harm as Perspective-Relative Assessment|HO-000]] · Tier HO-I (core model)
 
 ## Why this is distinct
-- Effect is a separate, **neutral** class. It carries patient-specific properties that Factors don't have. Effects can also bear roles and lead to further effects, so harm and benefit can cascade.
+- Effect is a separate, **neutral** class. It carries AffectedEntity-specific properties that Factors don't have. Effects can also bear roles and lead to further effects, so harm and benefit can cascade.
 
 ## Anticipated direction
 - Kinds of effect as subclasses (SleepLoss, ReputationalDamage, Deskilling, CapturedAssent, Death…); actual occurrences as instances.
-- Properties: affects (patient), hasObjectOfHarm, experienceability, severity, reversibility, temporal trajectory, modality, isPosthumous, isStatistical, isDispositional.
+- Properties: affects (AffectedEntity), hasObjectOfHarm, experienceability, severity, reversibility, temporal trajectory, modality, isPosthumous, isStatistical, isDispositional.
 - `Effect —leadsTo→ Effect` for cascades. Effect and Factor are not disjoint.
 - An optional `HarmfulEffect` class, *inferred* only from a Harmful assessment.
 

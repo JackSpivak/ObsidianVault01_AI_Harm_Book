@@ -22,7 +22,7 @@ Phase 2 pilot of [[Harm Ontology Migration Plan]]. It maps v1/v2a Meta-Category 
 
 ## Routing questions
 1. Something that happens or exists → **Factor** kind
-2. What happens to someone → **Effect** kind (+ Patient / ObjectOfHarm)
+2. What happens to someone → **Effect** kind (+ AffectedEntity / ObjectOfHarm)
 3. How things combine → **CausalAssembly** pattern or **CausalRole** property
 4. A reason something counts as harm → **EvaluativeStandard**
 5. Who judges, when, how → **Perspective** property / Assessment profile
@@ -39,14 +39,14 @@ Phase 2 pilot of [[Harm Ontology Migration Plan]]. It maps v1/v2a Meta-Category 
 | V-0a | "harm emerges from feedback loops, misaligned equilibria and scale" | **CausalAssembly** with `origin: Emergent` | split | **primary**: definition, historyNote (Wiener, Schelling, Ostrom, Bostrom), citations | proposed |
 | V-0b | "individually rational or benign actions produce … breakdown" | CausalAssembly `individuallyInnocuous = true` | enriches | editorialNote | proposed |
 | V-0c | "without a villain or direct rights violation" (skos:note) | CausalRole `isDistributed`; Agent `CollectiveAgent` | split | editorialNote | blocked: Agent (?) |
-| V-0d | "destabilizing shift in a complex system" | Effect kind `SystemDestabilization` (new); Patient `NonSentientSystem`; ObjectOfHarm `SystemicEnvironmental` | split | editorialNote | proposed |
+| V-0d | "destabilizing shift in a complex system" | Effect kind `SystemDestabilization` (new); AffectedEntity `NonSentientSystem`; ObjectOfHarm `SystemicEnvironmental` | split | editorialNote | proposed |
 | V-0e | the meta-category as a grouping | — | retire | Keep as a SKOS collection label for the generated Compendium only | proposed |
 
 ### `harm:ExternalityCoordinationHarm` (l.373)
 | # | Fragment | v3 target | Rel. | Narrative | Status |
 |---|---|---|---|---|---|
 | V-1a | unpriced byproduct of a transaction | Factor kind `Externality` (Structure) | split | **primary** | proposed |
-| V-1b | lands on uninvolved third parties | Patient relation: `affects` a Patient outside the transaction; Perspective `standpoint: ThirdParty` | enriches | editorialNote | proposed |
+| V-1b | lands on uninvolved third parties | AffectedEntity relation: `affects` an AffectedEntity outside the transaction; Perspective `standpoint: ThirdParty` | enriches | editorialNote | proposed |
 | V-1c | rational incentives lock players into a destructive equilibrium | CausalAssembly pattern `CoordinationTrap` (origin Emergent) | split | editorialNote; example "arms races, bank runs" | proposed |
 | V-1d | "private costs diverge from social costs" | EvaluativeStandard `PigouvianExternality` (economic) | std | historyNote (Pigou 1920), citation | proposed — a new **Economic** branch under EvaluativeStandard? |
 | V-1e | Schelling: micromotives aggregate into macro harm | CausalAssembly `individuallyInnocuous` | enriches | historyNote (Schelling 1978) | proposed |
@@ -74,7 +74,7 @@ Phase 2 pilot of [[Harm Ontology Migration Plan]]. It maps v1/v2a Meta-Category 
 | # | Fragment | v3 target | Rel. | Narrative | Status |
 |---|---|---|---|---|---|
 | V-4a | synthetic media, outrage amplification, variable-reward loops | Factor kinds `SyntheticMediaFlooding`, `EngagementOptimization` (Process); CausalRole `Amplifier` | split | **primary** | proposed |
-| V-4b | degraded shared epistemic environment | Effect kind `EpistemicCommonsDegradation`; Patient `NonSentientSystem` or collective; ObjectOfHarm `SystemicEnvironmental` | split | editorialNote | proposed |
+| V-4b | degraded shared epistemic environment | Effect kind `EpistemicCommonsDegradation`; AffectedEntity `NonSentientSystem` or collective; ObjectOfHarm `SystemicEnvironmental` | split | editorialNote | proposed |
 | V-4c | harms individual "cognitive sovereignty" | Effect kind `AttentionCapture`, `CapturedAssent` (?); ObjectOfHarm `Assent/Judgment` (?) | split | editorialNote; link [[HO-001 Harm by Habituation and Captured Assent]] | blocked: Assent/Judgment as object of harm |
 | V-4d | "exploits innate cognitive biases" | v1 `SubversiveExploitation` (see C-6) | enriches | — | proposed |
 | V-4e | information cascade, radicalization | Effect `leadsTo` cascade + `temporalTrajectory: SlowAccumulative` | enriches | altLabels | proposed |
@@ -82,7 +82,7 @@ Phase 2 pilot of [[Harm Ontology Migration Plan]]. It maps v1/v2a Meta-Category 
 ## B. Benefit mirror (v2a Part B, V)
 
 > [!question] Design gap, not a mapping
-> v3 has no `ValueCapture` class, and under [[HO-premise No Intrinsic Harmfulness]] it may not need one. A gain is an **Effect** on a different Patient (the beneficiary), arising from the same Factor or CausalAssembly, that an Assessment from *that* party's Perspective judges `Beneficial`. The harm/benefit pair then becomes a **Divergence** (`Perspectival`) between two Assessments of one assembly. If that holds, Part B collapses into Effect kinds plus Assessments, and v2a's parent-property scheme (B2–B13) becomes unnecessary because v3 properties are already valence-neutral. **Decide before mapping the rest of Part B.**
+> v3 has no `ValueCapture` class, and under [[HO-premise No Intrinsic Harmfulness]] it may not need one. A gain is an **Effect** on a different AffectedEntity (the beneficiary), arising from the same Factor or CausalAssembly, that an Assessment from *that* party's Perspective judges `Beneficial`. The harm/benefit pair then becomes a **Divergence** (`Perspectival`) between two Assessments of one assembly. If that holds, Part B collapses into Effect kinds plus Assessments, and v2a's parent-property scheme (B2–B13) becomes unnecessary because v3 properties are already valence-neutral. **Decide before mapping the rest of Part B.**
 
 | # | v2a element (line) | Fragment | v3 target | Rel. | Status |
 |---|---|---|---|---|---|

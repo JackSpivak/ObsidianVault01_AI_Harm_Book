@@ -20,14 +20,14 @@ Index: [[_Harm Ontology Bookmark Index]] · Parent: [[HO-000 Harm as Perspective
 
 ## Anticipated direction
 - Observability is qualified by `observableBy`, `revealedBy` (Instrument / Trigger / Time / Audit / Disclosure) and `hiddenFrom`.
-- Experienceability is relative to the patient.
+- Experienceability is relative to the AffectedEntity.
 - Condition may split into physical state (observable), status (observable only to whoever holds the record) and disposition (revealed only when triggered).
 
 ## Conceptual territory
 - It replaces v1's `hasPhenomenologicalTransparency` (perceived vs. unperceived), which mixed the two questions. The label "phenomena" was dropped as a layer name, because it implied that harm must be experienced.
 
 ## Summary
-- Causes can be phenomena: every link in the shooting chain is observable. Whether something is observable can depend on who is looking (a shadowban is visible to the platform, invisible to the user). Posthumous harm, non-sentient patients and future people are NonPhenomenal for experienceability. Unseen causes can produce felt effects, and seen causes can produce unfelt effects.
+- Causes can be phenomena: every link in the shooting chain is observable. Whether something is observable can depend on who is looking (a shadowban is visible to the platform, invisible to the user). Posthumous harm, non-sentient AffectedEntities and future people are NonPhenomenal for experienceability. Unseen causes can produce felt effects, and seen causes can produce unfelt effects.
 
 ## Original wording
 > "i disagree with your statement in #1. I believe that a cause can be a phenomenon:"

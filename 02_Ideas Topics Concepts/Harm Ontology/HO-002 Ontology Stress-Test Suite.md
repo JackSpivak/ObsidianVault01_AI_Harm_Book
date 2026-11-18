@@ -45,15 +45,15 @@ For each case:
 | T02 | **The shooting chain** | Factor, CausalRole, phenomenality | Fixed cause/effect classes; "causes can't be phenomena" |
 | T03 | **Covert AI profiling, unnoticed** | standards, verdicts, Divergence (Normative) | v1 contradiction: one event both harm and not-harm |
 | T04 | **Shadowban** | observability (observableBy / hiddenFrom), Undisclosed | Fixed phenomenality; visibility that depends on the observer |
-| T05 | **Posthumous AI defamation** | experienceability, patient, worldview standards | Unfelt harm treated as no harm |
+| T05 | **Posthumous AI defamation** | experienceability, AffectedEntity, worldview standards | Unfelt harm treated as no harm |
 | T06 | **Missed diagnosis** (an omission) | Omission factor, felt effect | "Nothing happened, so no cause" |
 | T07 | **Rubber-stamping** (002.II.a) | AlgorithmicAssessment → Judgment, captured assent | Authority on paper mistaken for authority actually exercised |
 | T08 | ***TransUnion v. Ramirez*** (risk, standing) | Judgment, modality, horizon | Risk excluded as a harm (case details unverified) |
-| T09 | **"Net benefit to society"** | scope, forPatient, Integration | Offsetting trap: a net verdict hides a harm at one link |
+| T09 | **"Net benefit to society"** | scope, forAffectedEntity, Integration | Offsetting trap: a net verdict hides a harm at one link |
 | T10 | **Harmless trespass** | rights-based standard judging the act; no Effect | Wrong without harm forced into "harm" |
 | T11 | **Whistleblower fired → reform** | Effect leadsTo Effect, valence flip | Fixed valence on an effect |
 | T12 | **Convenience → dependence → deskilling** | dispositional effect, habituation (HO-001) | Welcomed harm treated as no harm |
-| T13 | **Future generations** (non-identity) | patient type, counterfactual standard | Counterfactual test failing for people not yet born |
+| T13 | **Future generations** (non-identity) | AffectedEntity type, counterfactual standard | Counterfactual test failing for people not yet born |
 | T14 | **The household vs. the other families** (Sai Weng, wider frame) | framing, Divergence (Perspectival) | Relativism trap: "true but partial" used to excuse a narrow frame |
 | T15 | **Factual error disguised as a perspective** | Divergence (Factual) | "Partial" used to cover "false" |
 | T16 | **Absent vs. Unknown** (the neighbours vs. the old man) | missingness statuses | Treating "not considered" as "unknowable" |

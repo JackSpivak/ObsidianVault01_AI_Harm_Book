@@ -19,7 +19,7 @@ Index: [[_Harm Ontology Bookmark Index]] · Parent: [[HO-000 Harm as Perspective
 - The point at which a judge stops following the chain decides the verdict. v1's `hasTemporalTrajectory` described the *shape* of a harm over time, not the *horizon* of a judgment. Nothing in v1 captured this.
 
 ## Anticipated direction
-- Every Assessment must state assessmentHorizon, assessedAt, chainScope, chainStatus (actual / extrapolated), forPatient and assessor.
+- Every Assessment must state assessmentHorizon, assessedAt, chainScope, chainStatus (actual / extrapolated), forAffectedEntity and assessor.
 - Possibly `discountRate` / `horizonWeighting`, as in climate economics (Stern vs. Nordhaus; from memory, unverified).
 - Long-horizon offsetting counts only if the presence of an agent in the chain is recorded.
 

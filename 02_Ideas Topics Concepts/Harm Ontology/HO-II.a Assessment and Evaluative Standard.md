@@ -19,7 +19,7 @@ Index: [[_Harm Ontology Bookmark Index]] · Parent: [[HO-000 Harm as Perspective
 - **Assessment** is a class, and each instance is **one judgment**. An **EvaluativeStandard** (formerly "TheoryOfHarm", with that name kept as an alias) is the reusable rulebook the judgment applies. The relation is like a legal code and a court verdict.
 
 ## Anticipated direction
-- Assessment properties: assesses (Factor / Role / Effect), underStandard, forPatient, assessor, assessedAt, horizon, chainScope, chainStatus (actual / extrapolated), verdict (Harmful / Beneficial / Mixed / Neutral / Contested).
+- Assessment properties: assesses (Factor / Role / Effect), underStandard, forAffectedEntity, assessor, assessedAt, horizon, chainScope, chainStatus (actual / extrapolated), verdict (Harmful / Beneficial / Mixed / Neutral / Contested).
 - Standards as individuals: Experiential, Comparative, NonComparative, RightsBased, Capacity, plus legal standards (injury-in-fact, reasonable person, loss of chance…).
 - Subclasses: Personal, Moral, Expert, Regulatory, Algorithmic, Judgment (see HO-II.c).
 

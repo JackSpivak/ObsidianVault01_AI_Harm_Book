@@ -48,7 +48,7 @@ Index: [[_Harm Ontology Bookmark Index]] · Parent: [[HO-000 Harm as Perspective
 - Opacity is not a neutral gap. Who withholds what is part of the harm.
 
 ## Open questions
-- Which properties should the core SHACL shape require to be addressed for *every* Assessment (at minimum horizon, scope and patient?)
+- Which properties should the core SHACL shape require to be addressed for *every* Assessment (at minimum horizon, scope and AffectedEntity?)
 
 ## Related
 - [[HO-II.d Perspective - Ten Optional Properties]]

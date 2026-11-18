@@ -54,7 +54,7 @@ Likely, pending a real comparison of the files:
 | Factor (Risk kind) | `airo:Risk`, `dpv:Risk` | close / broader |
 | Factor / CausalRole (source) | `airo:RiskSource` | close |
 | Effect | `airo:Consequence`, `airo:Impact`, DPV consequences/impacts | close; Impact narrower |
-| Patient / affected party | `airo:AISubject`, DPV data-subject / stakeholder terms | close |
+| AffectedEntity (formerly Patient) / affected party | `airo:AISubject`, DPV data-subject / stakeholder terms | close |
 | Effect domain | `airo:ImpactArea` | close |
 | Beneficial assessments | DPV positive consequences (Benefit) | related; v3 puts valence in the assessment, DPV in the term |
 | Controls, mitigations, AI system, purpose, deployer | AIRO / DPV-AI | **import or reference**: v3 doesn't model these itself |

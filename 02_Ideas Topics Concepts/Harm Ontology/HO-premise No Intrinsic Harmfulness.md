@@ -16,7 +16,7 @@ filed: 2026-11-14
 Index: [[_Harm Ontology Bookmark Index]] · Premise
 
 ## Why this is distinct
-- This is the assumption the model depends on most heavily: nothing (no factor, role or effect) is harmful or beneficial in itself. Valence exists only in an assessment, indexed to patient, standard, horizon and scope. If it's false, HO-I.b, HO-II.a, HO-II.b and HO-III.a lose much of their force.
+- This is the assumption the model depends on most heavily: nothing (no factor, role or effect) is harmful or beneficial in itself. Valence exists only in an assessment, indexed to AffectedEntity, standard, horizon and scope. If it's false, HO-I.b, HO-II.a, HO-II.b and HO-III.a lose much of their force.
 
 ## Anticipated direction
 - Test it against hard cases. Are there harms so severe that every standard and every horizon agrees (torture, death)? If so, does universal agreement mean intrinsic harmfulness, or just a convergence of assessments?
