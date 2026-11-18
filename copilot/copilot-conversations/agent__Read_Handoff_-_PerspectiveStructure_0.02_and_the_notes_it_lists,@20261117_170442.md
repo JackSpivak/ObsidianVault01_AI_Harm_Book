@@ -2,12 +2,12 @@
 epoch: 1794960282523
 mode: agent
 backendId: claude
-sessionId: 16b5a33a-ac56-433e-84ec-fd26f05e4b64
-topic: Read Handoff - PerspectiveStructure 0.02 and the notes it li…
+sessionId: "16b5a33a-ac56-433e-84ec-fd26f05e4b64"
+topic: "Read Handoff - PerspectiveStructure 0.02 and the notes it li…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":183415,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":181161,"cacheWriteTokens":2244,"updatedAt":1794973990624}'
+usage: '{"usedTokens":185370,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":0,"cacheWriteTokens":185365,"updatedAt":1794975245618}'
 lastAccessedAt: 1794974457725
 ---
 
@@ -1074,3 +1074,52 @@ Shall I adopt this? If so, I'll show the full revised tree.
 Shall I draft the hub Explanation and an Integral spoke, with a web check of Wilber's levels?
 <!-- copilot-message {"tools":["Bash (execute)"]} -->
 [Timestamp: 2026/11/17 20:52:52]
+
+**user**: do wilbers altitude levels get included somewhere in the voccabulary level?
+[Timestamp: 2026/11/17 21:13:45]
+
+**ai**: Not yet. Nothing in the vault has a row for Wilber's levels. They appear only in 0.01's example values (egocentric · ethnocentric · worldcentric · …), cited from memory. In the vocabulary layer they'd fit in two places, and the second is the more useful one.
+
+## 1. As a spoke on the hub (Wilber's term for the idea)
+```text
+hov:developmentalAltitude
+  ← closeMatch  phil:junzi / oikeiosis      (Confucius, Stoics)
+  ← closeMatch  psy:moralStages             (Kohlberg)
+  ← closeMatch  int:altitude                (Wilber, Integral theory)   ← new; int: = Integral theory
+```
+This records that Wilber names the same idea and gives it a narrative, citation and history like any other spoke.
+
+## 2. As a value scale (the levels themselves)
+Here's the subtler point. `developmentalAltitude` takes a **value**, and each tradition has its own **scale** of values. In SKOS, each scale becomes its own concept scheme, with ordered level concepts:
+
+```text
+SCALE (concept scheme)        LEVELS (ordered concepts)
+int:altitudeScale (Wilber)    egocentric → ethnocentric → worldcentric → kosmocentric
+                              (also the colour altitudes: red · amber · orange · green · teal · turquoise …)
+psy:kohlbergStages            pre-conventional → conventional → post-conventional (6 stages)
+phil:oikeiosisCircles         self → household → kin → city → humanity   (Hierocles)
+```
+
+Then the crosswalk can work at the level of **values**, not just concepts:
+```text
+int:worldcentric      ── closeMatch ──   psy:postConventional
+int:ethnocentric      ── closeMatch ──   psy:conventional
+phil:circleHumanity   ── relatedMatch ── int:worldcentric
+```
+
+**Why this matters:** it makes your "whose ranking" rule concrete. A record would say *"worldcentric on Wilber's scale (assessedBy: Integral theory)"*. The ontology could then show where it lines up with *"post-conventional on Kohlberg's scale"*, and where the scales disagree. Gilligan's critique becomes a Divergence between scales, not a footnote.
+
+The same method fits your other two integral properties. Interior/exterior and individual/collective are also Wilber's AQAL axes, so `int:` spokes would sit on those hubs too.
+
+## Caution
+Everything about Wilber here is from memory and unverified: the four levels, the colour names, the AQAL terms and the mappings to Kohlberg. That includes which work introduced the colours; I believe it's *Integral Spirituality* (2006). I'd check all of it on the web before writing it into the note. The Wilber–Kohlberg mappings in particular would be my proposals for you to review, not established facts.
+
+Shall I verify Wilber's levels and AQAL axes, then draft the `int:` spokes and the scale schemes?
+[Timestamp: 2026/11/17 21:13:45]
+
+**user**: yes
+[Timestamp: 2026/11/17 21:15:31]
+
+**ai**: 
+<!-- copilot-message {"tools":["WebSearch (fetch)"]} -->
+[Timestamp: 2026/11/17 21:15:31]
