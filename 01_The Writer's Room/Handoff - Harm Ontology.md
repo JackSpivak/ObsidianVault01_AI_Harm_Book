@@ -49,6 +49,9 @@ latest_session: "[[2026-11-14 Harm Ontology Redesign]]"
 - Old **root files** (`Interdisciplinary_Harm_Ontology_Compendium.md`, `Interdisciplinary Harm Ontology.ttl`) are untouched and awaiting an archive decision. Ask before moving or deleting.
 - Watch for **momentum**: the author values reflection over quick agreement.
 
+## Sub-workstreams
+- **PerspectiveType consolidation (HO-II.d.1):** [[Handoff - PerspectiveStructure 0.02]]. Seven council reviews are done and their citations verified; the 0.02 consolidation is next.
+
 ## Read first
 - This note, then [[Harm Ontology v3 - Draft Structure]] and [[Harm Ontology Migration Plan]].
 - Open individual HO notes only as needed.
