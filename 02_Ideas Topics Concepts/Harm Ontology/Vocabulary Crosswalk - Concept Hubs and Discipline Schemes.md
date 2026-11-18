@@ -202,11 +202,14 @@ graph LR
     HUB(("<b>hov:developmentalAltitude</b><br/>cross-discipline hub<br/><i>How widely and reflectively<br/>a lens's values extend concern.</i>"))
     PH["<b>phil:junzi / phil:oikeiosis</b><br/>Philosophy · Confucius; Stoics via Cicero"]
     PS["<b>psy:moralStages</b><br/>Developmental psychology · Kohlberg, 1981"]
+    GI["<b>psy:careStages</b><br/>Developmental psychology · Gilligan, 1982"]
     IN["<b>int:altitude</b><br/>Integral theory · Wilber"]
     HUB ---|closeMatch| PH
     HUB ---|closeMatch| PS
+    HUB ---|closeMatch| GI
     HUB ---|closeMatch| IN
-    G["<b>Divergence, not spoke</b><br/>Gilligan 1982: scale encodes its authors<br/>Laozi: rejects ranking"]
+    IN -. "bands taken from" .-> GI
+    G["<b>Divergences</b><br/>Kohlberg vs Gilligan: which voice ranks higher<br/>Laozi: rejects ranking"]
     HUB -.-> G
 ```
 
@@ -217,7 +220,7 @@ graph LR
 | Documents | `ho:developmentalAltitude` (an Assessment, with `assessedBy` → the scale and its PerspectiveType) |
 | Definition | How widely and how reflectively a lens's value structure extends concern, independently of the size of the group it addresses. |
 | Example | Two national AI strategies with the same social scope, one framed around competitive advantage, the other around global welfare. |
-| Explanation | Several traditions, working independently, describe the same thing: values that widen from self, to one's own group, to all people, and sometimes beyond. Confucius made *junzi* a rank of cultivation rather than birth; the Stoics described concern widening outward from oneself; Kohlberg measured stages of moral reasoning; Wilber's Integral theory names the sequence egocentric, ethnocentric, worldcentric. The author's distinction holds across all of them: a tribe-sized lens can hold world-centric values, so altitude is not size. The attribute is powerful because a lens organized around self-interest really does differ from one organized around universal concern, and the difference shapes which harms it counts. It is dangerous because every scale is built from inside a tradition and tends to put that tradition near the top. Gilligan's critique of Kohlberg is the documented case. So the ontology never stores altitude as a bare value: each value belongs to a named scale, is an Assessment with `assessedBy`, and disagreements between scales are recorded as Divergences. For the book, it matters when AI developers claim their systems align to "universal" or "higher" values: the question is always whose scale. |
+| Explanation | Several traditions, working independently, describe the same thing: values that widen from self, to one's own group, to all people, and sometimes beyond. Confucius made *junzi* a rank of cultivation rather than birth; the Stoics described concern widening outward from oneself; Kohlberg measured stages of moral reasoning, and Gilligan answered with stages of care; Wilber's Integral theory takes Gilligan's four stages as the bands egocentric, ethnocentric, worldcentric and kosmocentric. The author's distinction holds across all of them: a tribe-sized lens can hold world-centric values, so altitude is not size. The attribute is powerful because a lens organized around self-interest really does differ from one organized around universal concern, and the difference shapes which harms it counts. It is dangerous because every scale is built from inside a tradition and tends to put that tradition near the top. Gilligan's critique of Kohlberg is the documented case. So the ontology never stores altitude as a bare value: each value belongs to a named scale, is an Assessment with `assessedBy`, and disagreements between scales are recorded as Divergences. For the book, it matters when AI developers claim their systems align to "universal" or "higher" values: the question is always whose scale. |
 | Status | candidate |
 
 ### Spokes
@@ -228,12 +231,30 @@ graph LR
 | Term (altLabels) | *junzi* 君子 vs *xiaoren* 小人; *oikeiōsis* | stages of moral development; pre-conventional, conventional, post-conventional | altitude; egocentric, ethnocentric, worldcentric, kosmocentric; colour altitudes |
 | Definition | Degree of moral cultivation, shown in how widely concern extends | Developmental levels of moral reasoning | The level of development, marked by how widely a person or perspective identifies and cares |
 | Example | "The junzi understands what is right; the xiaoren understands what is profitable" | The Heinz dilemma | A tribe-scale group holding worldcentric values |
-| Citation | *Analects* 4.16; Cicero, *De Finibus* III.16–22 | Kohlberg, *Essays on Moral Development*, vol. 1 (Harper & Row, 1981); Gilligan (1982) | Wilber, *Sex, Ecology, Spirituality* (1995) for AQAL; *Integral Spirituality* (2006) for the colour altitudes; Wilber, "The Leading Edge of the Unknown in the Human Being" (essay, date not confirmed) |
-| Citation verified | Classical review, `developmentalAltitude` row | Ethics review, `developmentalAltitude` row | Web 2026-11-17, partly verified. The four-level sequence is confirmed by [Wikipedia: Worldcentrism](https://en.wikipedia.org/wiki/Worldcentrism) and by Wilber's own essay ([PDF](http://integral-life-home.s3.amazonaws.com/Wilber-WakeUpGrowUp-TheEdgeOfTheUnknown.pdf), surfaced but not opened). The colours and their link to the 2006 book are confirmed only through secondary sources ([Visser](https://www.integralworld.net/visser101.html), [Sloww summary](https://www.sloww.co/integral-spirituality-ken-wilber/)). SES 1995 as the origin of AQAL is confirmed by [Wikipedia](https://en.wikipedia.org/wiki/Sex,_Ecology,_Spirituality). |
-| Historical note | Confucius moralized *junzi* (5th c. BCE); Stoic *oikeiōsis* preserved by Cicero (45 BCE) | Built on Piaget (1932); 1958 dissertation with an all-male sample; revised by neo-Kohlbergians (Rest, 1999) | Wilber links the stages to Kohlberg's (worldcentric ≈ post-conventional) and partly to Gilligan's; his colours resemble Spiral Dynamics but aren't identical |
-| Key thinkers | Confucius; Mencius; Zeno; Chrysippus; Cicero | Jean Piaget; Lawrence Kohlberg; Carol Gilligan; James Rest | Ken Wilber; Clare Graves and Spiral Dynamics (colour precursor); Frank Visser (critic) |
+| Citation | *Analects* 4.16; Cicero, *De Finibus* III.16–22 | Kohlberg, *Essays on Moral Development*, vol. 1 (Harper & Row, 1981); Gilligan (1982) | **Primary:** Wilber, "The Leading Edge of the Unknown in the Human Being" (talk transcript, Integral Life, undated) for bands, Gebser stages and tiers; Wilber, "Integral Semiotics" (excerpt from unpublished vol. 2 of the Kosmos Trilogy, undated) for colours red/amber/orange/green/indigo and quadrants. **Secondary:** Wilber, *The Religion of Tomorrow* (2017), p. 349, for the 12-colour sequence, as quoted by Visser. AQAL origin: *Sex, Ecology, Spirituality* (1995). |
+| Citation verified | Classical review, `developmentalAltitude` row | Ethics review, `developmentalAltitude` row | Primary texts read in full 2026-11-17: [Leading Edge PDF](http://integral-life-home.s3.amazonaws.com/Wilber-WakeUpGrowUp-TheEdgeOfTheUnknown.pdf); [Integral Semiotics PDF](https://integral-life-home.s3.amazonaws.com/Ken%20Wilber%20-%20Integral%20Semiotics.pdf). 12-colour sequence: secondary only ([Visser](https://www.integralworld.net/visser101.html)); book not seen. SES 1995 as AQAL origin: [Wikipedia](https://en.wikipedia.org/wiki/Sex,_Ecology,_Spirituality). |
+| Historical note | Confucius moralized *junzi* (5th c. BCE); Stoic *oikeiōsis* preserved by Cicero (45 BCE) | Built on Piaget (1932); 1958 dissertation with an all-male sample; revised by neo-Kohlbergians (Rest, 1999) | Wilber says his four bands are Gilligan's four stages, "a condensed version of the more standard 6-to-8 levels", and takes stage names from Gebser. The colour scheme and level numbering change between texts (e.g. red is "Level 10" in "Integral Semiotics"). His colours resemble Spiral Dynamics but aren't identical. |
+| Key thinkers | Confucius; Mencius; Zeno; Chrysippus; Cicero | Jean Piaget; Lawrence Kohlberg; Carol Gilligan; James Rest | Ken Wilber; Jean Gebser (stage names); Carol Gilligan (bands); Clare Graves and Spiral Dynamics (colour precursor); Frank Visser (critic) |
 | Scope note (how it differs) | Cultivation of a person, extended here to lenses | Reasoning about justice; criticised for ranking care lower | Applies to whole perspectives as well as persons; the most comprehensive scale, and the most contested |
-| meaningAsOf · assertedBy | 5th c. BCE / 45 BCE · Classical Council | 1981 · Ethics Council | 1995/2006 · Claude Opus 5.5 (this session) |
+| meaningAsOf · assertedBy | 5th c. BCE / 45 BCE · Classical Council | 1981 · Ethics Council | per text (undated talk; 2017 for colours) · Claude Opus 5.5 (this session) |
+
+**Added spoke: `psy:careStages`** (Gilligan; moved from Divergence to spoke on 2026-11-17, because Wilber builds his bands on it)
+
+| Field | `psy:careStages` |
+|---|---|
+| Discipline | Developmental psychology (ethics of care) |
+| Grade + reason | **closeMatch**: stages of widening care, the most direct match to the hub's definition |
+| Term (altLabels) | selfish → care → universal care → integrated (Wilber's rendering); ethics of care; "different voice" |
+| Definition | Stages of moral development described in the voice of care and responsibility, from care for oneself to care for all |
+| Example | A caregiver who moves from protecting only her own family to caring about everyone's children |
+| Citation | Gilligan, *In a Different Voice* (Harvard UP, 1982); stage labels as rendered in Wilber, "The Leading Edge of the Unknown in the Human Being" |
+| Citation verified | Gilligan 1982: Ethics review, `normativeForm: relational` row. The four labels are Wilber's rendering, read in his primary text; Gilligan's own wording of her levels has not been checked. |
+| Historical note | Written as an answer to Kohlberg, whose scale scored care reasoning lower |
+| Key thinkers | Carol Gilligan; Nel Noddings; Ken Wilber (adopter) |
+| Scope note (how it differs) | Built from the care voice; Wilber's labels may simplify Gilligan's own |
+| meaningAsOf · assertedBy | 1982 · Claude Opus 5.5 (this session) |
+
+**Explanation (new draft).** Gilligan's *In a Different Voice* answered Kohlberg's scale by describing moral development in the voice of care and responsibility, not only rights and justice. As Wilber renders her, the stages run from selfish (care for oneself), to care (care extended to one's own group), to universal care (care for all people), to integrated (both voices brought together). As a spoke, it matters for two reasons. First, it is the most direct match to the hub: its stages are defined by how widely care extends. Second, it is the scale Wilber says his own four bands come from, so the Integral bands and Gilligan's stages can be mapped one-to-one on Wilber's authority. That reverses how the first draft of this note treated Gilligan, as only a critic recorded under Divergences. The Kohlberg–Gilligan dispute stays a Divergence, but Gilligan's scale is now a spoke in its own right. One caution: the four labels here are Wilber's paraphrase. Gilligan's own description of her levels should be checked before any of her wording is quoted in the book.
 
 **Explanations (100–200 words each):** the first two are quoted verbatim from the council review rows; the third is new.
 
@@ -241,22 +262,38 @@ graph LR
 
 **`psy:moralStages`** (verbatim, [[v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01|Ethics review]]). Developmental altitude is the most powerful and most dangerous attribute in the structure. Powerful because it captures something real: lenses differ in how widely and reflectively they extend concern, and a lens organised around self-interest is not equivalent to one organised around universal principles. Dangerous because every scale is built from somewhere. Kohlberg's stages, developed from interviews with boys and men, placed rule- and rights-based reasoning at the top and relational reasoning lower, so women's responses scored lower. Gilligan's critique is a documented case of an altitude scale encoding its authors' perspective, and it parallels the Confucian and Stoic rankings noted in the Classical review. For AI, altitude matters because developers increasingly claim their systems reason at a "higher" moral level, or align to "universal" values. Modelling implication: `developmentalAltitude` should never be stored as a bare value. It should always be an assessed property with `assessedBy` pointing to the scale and its PerspectiveType, so that the ontology records "post-conventional according to Kohlberg's scale" rather than "post-conventional". Rival altitude scales then become comparable, and their disagreements become Divergences.
 
-**`int:altitude`** (new draft). Wilber's Integral theory is where the author's term comes from. In it, "altitude" means level of development, and the moral sequence runs egocentric (care for oneself), ethnocentric (care for one's own group), worldcentric (care for all people, regardless of race, sex or creed) and kosmocentric (care for all sentient beings). Wilber presents the scale as a measure of how widely a person identifies, and he links worldcentric to Kohlberg's post-conventional stage. As a spoke, it contributes the most comprehensive scale and the clearest statement of the size-versus-altitude distinction. A tribe can be worldcentric; an empire can be ethnocentric. Its colour altitudes (red, amber, orange, green, teal, turquoise and beyond, from *Integral Spirituality*, 2006) give a finer-grained vocabulary, though they overlap confusingly with Spiral Dynamics. Two cautions travel with it. Its correlations with other scales are Wilber's claims, and critics such as Frank Visser contest some of them. And as a scale built from inside one tradition, it is subject to the same "whose ranking" rule as Kohlberg's. Its AQAL quadrants also supply the other two integral properties, interior/exterior and individual/collective.
+**`int:altitude`** (new draft). Wilber's Integral theory is where the author's term comes from. In it, "altitude" means level of development, and the moral sequence runs egocentric (care for oneself), ethnocentric (care for one's own group), worldcentric (care for all people, regardless of race, sex or creed) and kosmocentric (care for all sentient beings). Wilber presents the scale as a measure of how widely a person identifies. In his own text, the four bands are Gilligan's four stages, and they group Gebser's finer stages: "the archaic and magic stages are both egocentric; the mythic stage … is ethnocentric; the rational and pluralistic stages are worldcentric; and the integral stage is integrated or kosmocentric." As a spoke, it contributes the most comprehensive scale and the clearest statement of the size-versus-altitude distinction. A tribe can be worldcentric; an empire can be ethnocentric. Its colour altitudes give a still finer vocabulary: 12 colours from infrared to white in *The Religion of Tomorrow* (2017), as quoted by Visser, though the scheme and its numbering change between Wilber's texts and overlap confusingly with Spiral Dynamics. Two cautions travel with it. Its correlations with other scales are Wilber's claims, and critics such as Frank Visser contest some of them. And as a scale built from inside one tradition, it is subject to the same "whose ranking" rule as Kohlberg's. Its AQAL quadrants also supply the other two integral properties, interior/exterior and individual/collective.
 
 ### Value scales (concept schemes with ordered levels)
 | Scale (scheme) | Levels, lowest to highest | Source | Verified |
 |---|---|---|---|
-| `int:altitudeScale` (moral) | egocentric → ethnocentric → worldcentric → kosmocentric | Wilber | Yes, through secondary sources and an unopened primary essay |
-| `int:colourAltitude` | (infrared · magenta ·) red → amber → orange → green → teal → turquoise → … | Wilber, *Integral Spirituality* (2006) | Partly: secondary sources only; the lower colours and the exact sequence beyond turquoise are inconsistent across sources |
+| `int:moralBands` | egocentric → ethnocentric → worldcentric → kosmocentric | Wilber, "Leading Edge" | **Yes, primary text** |
+| `int:gebserStages` | archaic → magic → mythic → rational → pluralistic → integral (1st tier = first 5–6; integral = 2nd tier) | Wilber, "Leading Edge", after Gebser | **Yes, primary text** |
+| `int:colourAltitude` | infrared → magenta → red → amber → orange → green → teal → turquoise → indigo → violet → ultraviolet → white | Wilber, *The Religion of Tomorrow* (2017), p. 349 | Partly: red, amber, orange, green and indigo confirmed in a primary text ("Integral Semiotics"); the full sequence only through Visser's quotation. Names for teal and turquoise conflict between sources. |
+| `psy:careStages` | selfish → care → universal care → integrated | Gilligan (1982), as rendered by Wilber | Wilber's rendering confirmed in primary text; Gilligan's own wording not checked |
 | `psy:kohlbergLevels` | pre-conventional → conventional → post-conventional (two stages each, six in all) | Kohlberg (1981) | Yes (Ethics review row) |
+
+**Band ↔ stage ↔ colour (within the Integral scale).** Bands to Gebser stages are Wilber's own grouping (primary text). Stages to colours follow "Integral Semiotics" for red, amber, orange and green; the rest are from secondary sources.
+
+| Band | Gebser stage | Colour |
+|---|---|---|
+| egocentric | archaic · magic (· magic-mythic) | infrared · magenta · red ("tribal red") |
+| ethnocentric | mythic | amber ("religious traditionalism") |
+| worldcentric | rational · pluralistic | orange ("modern science") · green ("postmodernism + multiculturalism") |
+| kosmocentric | integral (2nd tier) | teal · turquoise |
+| kosmocentric? | (3rd tier, not in "Leading Edge") | indigo · violet · ultraviolet · white (secondary only) |
 | `phil:oikeiosisCircles` | self → household → kin → city → humanity | Hierocles (Stoic), as presented in the Classical review dialogue | No: Hierocles appears only in council dialogue, which wasn't fact-checked |
 
 ### Proposed value-level mappings (Claude's proposals, for the author to review)
 | From | Grade | To | Reason |
 |---|---|---|---|
-| `int:egocentric` | closeMatch | `psy:preConventional` | Wilber links them; both centre on the self |
-| `int:ethnocentric` | closeMatch | `psy:conventional` | Both centre on the norms of one's own group |
-| `int:worldcentric` | closeMatch | `psy:postConventional` | Wilber explicitly equates them |
+| `int:egocentric` | exactMatch | `psy:selfish` | Wilber equates them (primary text) |
+| `int:ethnocentric` | exactMatch | `psy:care` | Wilber equates them (primary text) |
+| `int:worldcentric` | exactMatch | `psy:universalCare` | Wilber equates them (primary text) |
+| `int:kosmocentric` | closeMatch | `psy:integrated` | Wilber equates them, but adds that other developmentalists extend this stage to "all sentient beings and all life", which goes beyond Gilligan's integration of two voices |
+| `int:egocentric` | closeMatch | `psy:preConventional` | Claude's proposal; both centre on the self |
+| `int:ethnocentric` | closeMatch | `psy:conventional` | Claude's proposal; both centre on the norms of one's own group |
+| `int:worldcentric` | closeMatch | `psy:postConventional` | Claude's proposal; a secondary source reports Wilber linking them, not checked in a primary text |
 | `int:kosmocentric` | (no match) | | Kohlberg's scale has no level beyond the universal human; this gap is itself a Divergence between the scales |
 | `phil:circleHumanity` | relatedMatch | `int:worldcentric` | Stoic concern for humanity is close, but framed as the widening of one's own affinity, not as a stage |
 
@@ -320,7 +357,8 @@ graph LR
 - Congruence grades reviewed 2026-11-17: Kant changed to closeMatch; the other four accepted.
 - Blind-spot grades (eight spokes) to review.
 - Hub renamed from `blindSpot` to `omission` on 2026-11-17, with three branches (out of frame, blind spot, accepted harm); "blind spot" now means visible but missed.
-- Developmental altitude: review the three spoke grades and five value-level mappings; verify Wilber's colour sequence against *Integral Spirituality* itself; check Hierocles before using his circles as a scale.
+- Developmental altitude: review the four spoke grades and the value-level mappings; verify the 12-colour sequence and the teal/turquoise names against *The Religion of Tomorrow* itself; check Gilligan's own wording of her stages; check Hierocles before using his circles as a scale.
+- Is the 3rd tier (indigo to white) kosmocentric, or beyond the band scheme? The "Leading Edge" text doesn't say.
 - Interior/exterior and individual/collective: build hubs with `int:` spokes from AQAL (*Sex, Ecology, Spirituality*, 1995).
 - Which hubs come next: accountability locus, consent to be seen?
 - Should discipline scheme index notes be created now or only as hubs accumulate?
