@@ -7,7 +7,7 @@ topic: "Read Handoff - PerspectiveStructure 0.02 and the notes it li…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":84297,"contextWindow":1000000,"inputTokens":2,"outputTokens":6,"cacheReadTokens":83169,"cacheWriteTokens":1120,"updatedAt":1794960364075}'
+usage: '{"usedTokens":91867,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":90623,"cacheWriteTokens":1239,"updatedAt":1794961251548}'
 ---
 
 **user**: Read Handoff - PerspectiveStructure 0.02 and the notes it lists, then propose the 0.02 structure.
@@ -166,3 +166,80 @@ That leaves about 75 named attributes. Only the 4 in Core are required, and abou
 Once you approve or adjust this, I'll write PerspectiveStructure 0.02 with the Idea template and file it. I'll then offer to log the type/instance split, the size-vs-altitude split and the table format in [[Decisions_Log]].
 <!-- copilot-message {"tools":["Read (read): 01_The Writer's Room/Handoff - PerspectiveStructure 0.02.md","Glob (read)","Read (read): 02_Ideas Topics Concepts/Harm Ontology/PerspectiveStructure 0.01.md","Grep (read): 02_Ideas Topics Concepts/Harm Ontology","Read (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 ClassicalCouncil Review of - PerspectiveStructure 0.01.md","Read (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01.md","Read (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 LegalCouncil Review of - PerspectiveStructure 0.01.md","Read (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 LogicCouncil Review of - PerspectiveStructure 0.01.md","Read (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 PhysicsCouncil Review of - PerspectiveStructure 0.01.md","Read (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 SciFiCouncil Review of - PerspectiveStructure 0.01.md","Read (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 CognitiveCouncil Review of - PerspectiveStructure 0.01.md"]} -->
 [Timestamp: 2026/11/17 17:04:42]
+
+**user**: i dont yet want to go.  as you point out, some od these have alignment across several disciplines/domains. i had proposed we have some self documenting approach to acknowledging/reconciling this  and also with  the recognition that each domain used their own terminology. i proposed at a minimum we have skos:altLabel for each domain but maybe a domain profile with many such properties satisfies. how would you handle this and what does domain profiles entail and offer
+[Timestamp: 2026/11/17 17:20:14]
+
+**ai**: You're right to stop me. In my proposal, "profile" and "terminology" got blurred together. They solve two different problems, and your altLabel idea addresses one that domain profiles don't.
+
+## Two separate problems
+
+| Problem | Example | What solves it |
+|---|---|---|
+| **A. The same idea under different names** | Confucius's *misnaming*, Kant's *maxim*, Fuller's *congruence*, Arendt's *Sprachregelung* and Feynman's *cargo cult* | A **vocabulary layer**: each domain's labels, with mappings |
+| **B. Each domain needs different attributes** | Law needs `standardOfProof`; an AI model needs `trainingProvenance` | **Domain profiles**: rules about which attributes are required or added |
+
+## What a domain profile entails (from HO-II.e)
+A profile is a SHACL shape, a validation rule set for one kind of record, such as `LegalInstitutional` or `LearnedModel`. It does four things:
+- **Adds** attributes that only that domain needs.
+- **Requires** certain attributes to be *addressed*, meaning given a value or a missingness status (Unknown, Undisclosed, Disputed, and so on). In HO-II.e's words, "must be addressed, not must be known."
+- **Constrains** values, for example `standardOfProof` must be one of {preponderance · clear and convincing · beyond reasonable doubt}.
+- **Stacks:** COMPAS could be validated against both the Legal and the LearnedModel profiles.
+
+**What it offers:**
+- a small core;
+- domain completeness checks;
+- missing information that becomes visible evidence, not silent blanks.
+
+**What it doesn't do:** say what anything *means* or how one domain's term relates to another's. A shape only checks properties.
+
+So profiles alone don't satisfy your terminology goal. They can help, because a profile could choose which label to *display* to its domain. But the mappings need to live elsewhere. One attribute appears in many profiles, and many domains have a term for an attribute even where no profile exists.
+
+## How I'd handle the terminology: hub and spoke
+1. **Hub:** each attribute in the structure is a `skos:Concept` with one neutral `prefLabel`, for example `congruence`. This is the ontology's own name.
+2. **Spokes:** each domain's term is recorded as its own object, not as a bare altLabel. Plain `skos:altLabel` can't say *which* domain a label belongs to, or when or where it comes from. Two standard ways to fix that (both from memory, not checked against the specs this session):
+   - **SKOS-XL labels:** a label becomes a resource that can carry domain, citation, `meaningAsOf` and key thinkers.
+   - **Domain concepts with mapping links:** for example `law:congruence skos:closeMatch hub:congruence`.
+3. **Graded matches** make the reconciliation self-documenting: `exactMatch`, `closeMatch`, `broadMatch`/`narrowMatch`, `relatedMatch`. This matters because the five witnesses aren't synonyms. Cargo cult is about *form without substance*, and *Sprachregelung* is *deliberate euphemism*. Graded matches respect Dworkin's warning that disagreement shouldn't be disguised as translation. A `scopeNote` on each mapping can state what differs.
+4. **Convergence is derived, not asserted.** How many independent domains map to a hub concept measures its cross-disciplinary support. Each mapping also records `assertedBy`, so the caveat that "all seven councils were voiced by one model" stays attached to the evidence.
+
+Sketch of one spoke:
+```text
+hub:congruence  (prefLabel "congruence")
+  ← closeMatch   law:congruence        domain Law       Fuller 1964   meaningAsOf 1964
+  ← closeMatch   conf:zhengming        domain Classical Analects 13.3
+  ← relatedMatch eth:operativeMaxim    domain Ethics    Kant 1785     note: about the agent's principle, not institutional practice
+  ← relatedMatch pol:Sprachregelung    domain Political Arendt 1963   note: deliberate euphemism regime
+  ← relatedMatch sci:cargoCult         domain Science   Feynman 1974  note: form without substance
+  convergence: 5 domains · assertedBy Claude Opus 5.5 (councils not independent) · status: candidate
+```
+
+You already have most of this. Each row of the councils' vocabulary tables, with its Term (altLabels), Citation, Historical note and Key thinkers, is essentially a spoke record. Consolidating 0.02 then means **mapping the existing rows to hub concepts**, not rewriting them.
+
+## Recommendation
+Use both, each for its own job:
+- a **vocabulary layer** (hub concepts, per-domain labels with provenance, graded mappings, derived convergence);
+- **profiles** for requiredness, with an optional "display labels from domain X" setting.
+
+The 0.02 tree I proposed would stay as it is, but each node becomes a hub concept with its spokes listed.
+
+## Questions for you
+1. **Hub names:** should they be neutral coinages like `congruence`, or should each one borrow the strongest domain's term? Neutral names are fairer to all domains, but harder to recognize.
+2. **Mapping grade:** should I assign `exact`/`close`/`related` when consolidating, or should every mapping start as `related` until you review it?
+3. **Domains:** should a domain be one of the seven councils, or a real discipline (law, ethics, cognitive science…)? Councils are convenient but artificial. I'd use real disciplines and record the council only as provenance.
+
+If this direction fits, it's probably worth its own bookmark (a Vocabulary/Crosswalk note under HO-II.d.1) before 0.02, so the structure can refer to it. I can draft it after you answer these.
+<!-- copilot-message {"tools":["Read (read): 02_Ideas Topics Concepts/Harm Ontology/HO-II.e Missingness Statuses and Domain Profiles.md"]} -->
+[Timestamp: 2026/11/17 17:20:14]
+
+**user**: the bookmark is a good  idea  yes. but  first can you show a small example as a visual graph of a rich sample section showing hub and spoke with narrative content and the common naming convention
+[Timestamp: 2026/11/17 17:27:44]
+
+**ai**: **Error:** Credit balance is too low
+[Timestamp: 2026/11/17 17:27:44]
+
+**user**: repeat previous
+[Timestamp: 2026/11/17 17:28:52]
+
+**ai**: 
+[Timestamp: 2026/11/17 17:28:52]
