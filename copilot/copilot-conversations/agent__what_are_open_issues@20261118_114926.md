@@ -9,7 +9,7 @@ tags:
   - copilot-conversation
 sessionId: "ses_e1001f457ffenvFWPIJO88zZRW"
 carriedMessages: 12
-usage: '{"usedTokens":165708,"contextWindow":1000000,"updatedAt":1795031399026}'
+usage: '{"usedTokens":166217,"contextWindow":1000000,"updatedAt":1795031651099}'
 ---
 
 **user**: what are open issues
@@ -555,3 +555,24 @@ Do you want me to do items 3 and 4 before you start the new chat?
 The vault changes are still uncommitted. I haven't committed or pushed anything. The next chat can start from [[Handoff - Harm Ontology]]. The suggested first step there is the optional Chain toy test (one chain at two horizons). The non-expert subagent test comes after it.
 <!-- copilot-message {"tools":["edit (edit): 01_The Writer's Room/2026-11-18 Harm Ontology v3 Toy Case Results.md","grep (search): 00_Claude_Admin/Decisions_Log.md","edit (edit): 00_Claude_Admin/Decisions_Log.md"]} -->
 [Timestamp: 2026/11/18 12:49:42]
+
+**user**: ok everything is committed and pushed;. anything else?
+[Timestamp: 2026/11/18 12:54:06]
+
+**ai**: Nothing more is needed for the handoff, but a few small things are left.
+
+**For the new chat**
+- Attach [[Handoff - Harm Ontology]] and start with the optional Chain toy test, then the non-expert subagent test.
+- The non-expert test should see only the schema and the questions. Don't let it read the design notes.
+
+**Optional housekeeping**
+- **Old scripts folder:** Once you've run the suite from the vault copy yourself, delete `~/harm-ontology-scripts/`. Keep the third-party `.ttl` downloads outside the vault if you add any.
+- **Transcript for this chat:** This chat's transcript is saved under `copilot/copilot-conversations/`. If you want a session note, close the session with your Session template checklist, which includes the harvest watermark. I haven't done a harvest for the toy-case thinking, and the HO-006 and run 3 details are only in the notes I wrote. Nothing is lost, but the close-out steps haven't run.
+- **Variant A:** It still hasn't been extended for run 3. That's fine if the non-expert test is the next gate, but note it if you want a fair A/B comparison later.
+
+**Things to keep in mind**
+- All the test data is fictional. The legal and anthropological details in the CQ7 cases are unverified stand-ins.
+- Nothing from tests 1–8 has been logged as a decision, except the script move. That is deliberate under the handoff's caution.
+
+Nothing is outstanding on my side.
+[Timestamp: 2026/11/18 12:54:06]

@@ -276,6 +276,22 @@ toy:M2 a ho:Assessment ; ho:assesses toy:AISys1 ; ho:aboutAttribute hoa:moralCir
 toy:Z1 a ho:CausalAssessment ; ho:assesses toy:E11 ; ho:aboutAttribute hoa:cause ; ho:value toy:Grid1 ; ho:causalRole ho:Conduit ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:usesProcedure toy:ProcForensic ; ho:hasEvidence toy:Ev2 ; ho:assessedAt "2015-05-01"^^xsd:date .
 toy:Z2 a ho:CausalAssessment ; ho:assesses toy:E11 ; ho:aboutAttribute hoa:cause ; ho:value toy:F1 ; ho:takenFrom toy:P5 ; ho:assessorOrganisation toy:Court ; ho:usesProcedure toy:ProcCourt ; ho:hasEvidence toy:Ev4 ; ho:assessedAt "2021-04-01"^^xsd:date .
 
+# ---------- Chain toy test (HO-006, 2026-11-18). TEST ONLY, fictional. ----------
+# A thin Chain (identifier + label). Chain-level claim: net outcome, assessed WITH A HORIZON (years).
+# Horizon (ho:assessmentHorizon) is part of the claim key. Expected: horizon 2 and horizon 20 are separate claims.
+hoa:netOutcome ho:appliesTo ho:Chain .
+toy:Ch1 a ho:Chain ; rdfs:label "Sync bug -> shortfalls -> branch closures -> consolidated, better-run network (fictional)" .
+# Horizon 2: P2 and P6 see a net benefit (short-term clean-up); they agree.
+toy:H1 a ho:Assessment ; ho:assesses toy:Ch1 ; ho:aboutAttribute hoa:netOutcome ; ho:value ho:NetBeneficial ; ho:assessmentHorizon 2 ;
+    ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:usesProcedure toy:ProcForensic ; ho:hasEvidence toy:Ev2 ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:H2 a ho:Assessment ; ho:assesses toy:Ch1 ; ho:aboutAttribute hoa:netOutcome ; ho:value ho:NetBeneficial ; ho:assessmentHorizon 2 ;
+    ho:takenFrom toy:P6 ; ho:assessorOrganisation toy:AuditFirmZ ; ho:usesProcedure toy:ProcForensic ; ho:hasEvidence toy:Ev5 ; ho:assessedAt "2016-03-01"^^xsd:date .
+# Horizon 20: P2 later looks further and sees net harm; P1 still sees net benefit -> genuine same-horizon conflict.
+toy:H3 a ho:Assessment ; ho:assesses toy:Ch1 ; ho:aboutAttribute hoa:netOutcome ; ho:value ho:NetHarmful ; ho:assessmentHorizon 20 ;
+    ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:usesProcedure toy:ProcForensic ; ho:hasEvidence toy:Ev2 ; ho:assessedAt "2017-05-01"^^xsd:date .
+toy:H4 a ho:Assessment ; ho:assesses toy:Ch1 ; ho:aboutAttribute hoa:netOutcome ; ho:value ho:NetBeneficial ; ho:assessmentHorizon 20 ;
+    ho:takenFrom toy:P1 ; ho:assessorOrganisation toy:CompanyX ; ho:usesProcedure toy:ProcInternal ; ho:hasEvidence toy:Ev3 ; ho:assessedAt "2018-09-01"^^xsd:date .
+
 # ---------- Evidence ----------
 toy:Ev1 a ho:Evidence ; rdfs:label "Internal review memo 2010 (fictional)" .
 toy:Ev2 a ho:Evidence ; rdfs:label "Forensic report, firm Y (fictional)" .

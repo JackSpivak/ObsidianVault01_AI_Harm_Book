@@ -37,6 +37,7 @@ def assessments(g):
             persp=one(g, a, HO.takenFrom), org=one(g, a, HO.assessorOrganisation),
             proc=one(g, a, HO.usesProcedure), evidence=one(g, a, HO.hasEvidence),
             repeats=one(g, a, HO.repeats), revised=one(g, a, HO.revisedBecause),
+            horizon=(int(one(g, a, HO.assessmentHorizon)) if one(g, a, HO.assessmentHorizon) is not None else None),
             date=one(g, a, HO.assessedAt).toPython()))
     return out
 
@@ -162,7 +163,8 @@ def display(st):
 def claims(g, al):
     groups = {}
     for a in al:
-        key = (a["target"], a["attr"], root_entity(g, a["entity"]))
+        # HO-006 chain test: horizon joins the claim key only when given, so existing 3-part keys are unchanged
+        key = (a["target"], a["attr"], root_entity(g, a["entity"])) + ((a["horizon"],) if a["horizon"] is not None else ())
         groups.setdefault(key, []).append(a)
     return groups
 
@@ -302,6 +304,27 @@ def run_b(path):
     sep_ok = sep[0][1] == {TOY.Couple1} and sep[1][1] == {TOY.Partner1} and sep[2][1] == {TOY.Partner2}
     results.append(sep_ok)
     print("PASS" if sep_ok else "FAIL", " couple harm and each partner's harm are separate Effects")
+
+    print("\n-- Checks 7: HO-006 chain test: horizon is part of the claim key --")
+    expect("Ch1 netOutcome at horizon 2: P2 and P6 agree -> not a conflict", (TOY.Ch1, HOA.netOutcome, None, 2), "!Disputed", "NetBeneficial")
+    expect("Ch1 netOutcome at horizon 20: P2 NetHarmful vs P1 NetBeneficial (same horizon) -> Disputed", (TOY.Ch1, HOA.netOutcome, None, 20), "Disputed")
+    ch_keys = sorted(k[3] for k in cl if k[0] == TOY.Ch1 and k[1] == HOA.netOutcome)
+    ok = ch_keys == [2, 20]
+    results.append(ok)
+    print("PASS" if ok else "FAIL", f" two horizons are two separate claims (keys: {ch_keys})")
+    naive = [a for a in al if a["target"] == TOY.Ch1 and a["attr"] == HOA.netOutcome]
+    st_naive, _, _ = status(g, naive, None, today)
+    ok = st_naive == "Disputed"
+    results.append(ok)
+    print("PASS" if ok else "FAIL", f" control: with horizon IGNORED, one claim -> {st_naive} (this is the false-dispute / lost-verdict risk the key prevents)")
+    p2 = [a for a in naive if a["persp"] == TOY.P2]
+    st_p2 = {a["horizon"]: short(a["value"]) for a in p2}
+    ok = st_p2 == {2: "NetBeneficial", 20: "NetHarmful"}
+    results.append(ok)
+    print("PASS" if ok else "FAIL", f" P2 holds both verdicts at once, one per horizon (Sai Weng flip stays visible): {st_p2}")
+    ok = all((a["horizon"] is not None) for a in naive)
+    results.append(ok)
+    print("PASS" if ok else "FAIL", " every chain-level assessment declares its horizon (none silent)")
 
     print(f"\nSUMMARY: {sum(results)} passed, {len(results) - sum(results)} failed, of {len(results)} checks")
 
