@@ -7,7 +7,7 @@ topic: "Read Handoff - PerspectiveStructure 0.02 and the notes it li…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":314573,"contextWindow":1000000,"inputTokens":2,"outputTokens":564,"cacheReadTokens":312370,"cacheWriteTokens":1637,"updatedAt":1794982265182}'
+usage: '{"usedTokens":314725,"contextWindow":1000000,"inputTokens":4,"outputTokens":7,"cacheReadTokens":0,"cacheWriteTokens":314714,"updatedAt":1794983169782}'
 lastAccessedAt: 1794974457725
 ---
 
@@ -2080,3 +2080,52 @@ I've rewritten the decision entry in [[Decisions_Log]] to cover the whole chain:
 2. **The filing plan:** 0.02 as HO-II.d.3 and the altitude scale as HO-II.d.2.a, plus the 0.01 header line and archiving the handoff.
 <!-- copilot-message {"tools":["Edit (edit): 00_Claude_Admin/Decisions_Log.md","Edit (edit): 02_Ideas Topics Concepts/_Unfiled Ideas/PerspectiveStructure 0.02.md"]} -->
 [Timestamp: 2026/11/17 23:10:43]
+
+**user**: im still not fully understanding the ovelap. lets start with "shot" itself.  I think we need to rework that name. it makes sense but only to someone immersed in the context of this conversation. first, would it be correct to call it a PerspectiveSnapshot? ... literally the viewpoint of the perspective holder (photographer) at the exact location, direction, time, focus, lens, etc - the specifications for the perspective with which an assessment is made?
+[Timestamp: 2026/11/17 23:25:54]
+
+**ai**: Your definition is right. The **name** "snapshot" has one trap, though, and it's worth seeing before choosing.
+
+## What fits
+A Perspective is the full set of **specifications under which one assessment is made**:
+- **Position:** standpoint, direction;
+- **Time:** when it was taken, the horizon;
+- **Optics:** framing, resolution, sensitivity;
+- **Purpose:** intent, standard, fitness;
+- **Operator:** who is assessing.
+
+"Snapshot" captures well that it's tied to one moment and one situation, not a general tradition.
+
+## The trap
+In the photo analogy there are **two** things:
+
+| Photo analogy | In the ontology |
+|---|---|
+| The camera's **settings** (position, lens, focus, time, photographer) | **Perspective** |
+| The **picture** that results | **Assessment** (the verdict: Harmful, Beneficial …) |
+
+In everyday English a "snapshot" is the *picture*, not the settings. Readers may hear "PerspectiveSnapshot" as the judgment itself, which is the Assessment.
+
+**A smaller point:** v3 defines Perspective as **reusable**. The same settings can be applied to many assessments, such as one reviewer's fixed protocol across 50 cases. "Snapshot" suggests a one-off.
+
+## Name options
+| Name | Strength | Weakness |
+|---|---|---|
+| PerspectiveSnapshot | Vivid; clearly a moment, not a tradition | Sounds like the picture (Assessment); implies one-off |
+| **PerspectiveSpecification** | Exactly your definition: the specs an assessment is made under | Dry |
+| PerspectiveSetting(s) | Matches the camera-settings metaphor | "Setting" also means a place |
+| Viewpoint | Plain English, readable | Close to `standpoint`, which is one of its own properties |
+| Perspective (keep) | Pairs naturally with PerspectiveType (type and instance) | Too general for outsiders, who'll take it to mean the tradition |
+
+**My recommendation:** **PerspectiveSpecification** as the formal name, with plain-English labels:
+- `skos:prefLabel` "perspective specification";
+- `skos:altLabel` "viewpoint" and "perspective snapshot".
+
+So your term stays findable, but the formal name can't be confused with the result.
+
+Seeing the two classes side by side should also make the overlap question easier:
+- **PerspectiveType** ("tradition") *recommends* a standard by default;
+- **PerspectiveSpecification** *records which standard was actually used* this time.
+
+Which name would you like? I'll update the glossary and log once you choose.
+[Timestamp: 2026/11/17 23:25:54]
