@@ -7,7 +7,8 @@ topic: "Read Handoff - PerspectiveStructure 0.02 and the notes it li…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":166430,"contextWindow":1000000,"inputTokens":4,"outputTokens":5,"cacheReadTokens":165107,"cacheWriteTokens":1314,"updatedAt":1794963784812}'
+usage: '{"usedTokens":175410,"contextWindow":1000000,"inputTokens":4,"outputTokens":8,"cacheReadTokens":175359,"cacheWriteTokens":39,"updatedAt":1794973497841}'
+lastAccessedAt: 1794973192676
 ---
 
 **user**: Read Handoff - PerspectiveStructure 0.02 and the notes it lists, then propose the 0.02 structure.
@@ -235,7 +236,7 @@ If this direction fits, it's probably worth its own bookmark (a Vocabulary/Cross
 **user**: the bookmark is a good  idea  yes. but  first can you show a small example as a visual graph of a rich sample section showing hub and spoke with narrative content and the common naming convention
 [Timestamp: 2026/11/17 17:27:44]
 
-**ai**: **Error:** Credit balance is too low
+**ai**: Credit balance is too low
 [Timestamp: 2026/11/17 17:27:44]
 
 **user**: repeat previous
@@ -636,6 +637,240 @@ Shall I restructure the hub this way? Or would you rather keep "blind spot" as t
 **user**: yes. your way
 [Timestamp: 2026/11/17 18:05:26]
 
-**ai**: **Error:** API Error: Can't reach the API server — check your internet or DNS (ENOTFOUND)
+**ai**: API Error: Can't reach the API server — check your internet or DNS (ENOTFOUND)
 <!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/Vocabulary Crosswalk - Concept Hubs and Discipline Schemes.md"]} -->
 [Timestamp: 2026/11/17 18:05:26]
+
+**user**: please provide visual graph showing perspective with placeholder for explanation narrative
+[Timestamp: 2026/11/17 20:40:55]
+
+**ai**: The diagram below is the proposed 0.02 structure, drawn as hubs. It includes today's changes: `congruence` and `omission`, with omission's three branches. Every hub has an explanation slot. It's chat-only for now; nothing is saved.
+
+```mermaid
+graph TD
+    PT(["<b>PerspectiveType</b><br/>the lens tradition<br/>📝 Explanation: [placeholder]"])
+    P(["<b>Perspective</b><br/>one shot · HO-II.d<br/>overrides type defaults<br/>📝 Explanation: [placeholder]"])
+    P -- instantiates --> PT
+
+    subgraph G0["0 CORE · required"]
+        C1["name ★<br/>📝 [placeholder]"]
+        C2["canonicalSource ★<br/>📝 [placeholder]"]
+        C3["objectOfAttention ★<br/>📝 [placeholder]"]
+        C4["foundationalCommitments ★<br/>📝 [placeholder]"]
+    end
+
+    subgraph G1["1 RELATIONS"]
+        R1["divergesFrom / convergesWith ★<br/>📝 [placeholder]"]
+        R2["specializes · partOf<br/>📝 [placeholder]"]
+        R3["complements · definedAgainst<br/>📝 [placeholder]"]
+        R4["coupledWith · correctedBy<br/>📝 [placeholder]"]
+    end
+
+    subgraph G2["2 IDENTITY & LINEAGE"]
+        I1["nameByDomain · definitionByDomain<br/>📝 [placeholder]"]
+        I2["conceptStructure + exemplars<br/>📝 [placeholder]"]
+        I3["lensKind · lineage · transmissionMode<br/>📝 [placeholder]"]
+    end
+
+    subgraph G3["3 AIM & NORMATIVE CORE"]
+        A1["statedPurpose ★<br/>📝 [placeholder]"]
+        A2["normativeForm ★ · valueTheory<br/>📝 [placeholder]"]
+        A3["unitOfMeasure ★ + commensurability<br/>📝 [placeholder]"]
+        A4["intentWeighting ★<br/>📝 [placeholder]"]
+    end
+
+    subgraph G4["4 POSITION & SCOPE"]
+        S1["socialScope · moralCircle ★<br/>📝 [placeholder]"]
+        S2["assumedPositionality<br/>📝 [placeholder]"]
+        S3["spatial · systemic · temporal scope<br/>+ scaleValidity<br/>📝 [placeholder]"]
+    end
+
+    subgraph G5["5 EPISTEMICS"]
+        E1["method + instrumentResponse ★<br/>📝 [placeholder]"]
+        E2["criterionOfTruth · causalModel<br/>📝 [placeholder]"]
+        E3["errorHandling · factHandling<br/>📝 [placeholder]"]
+    end
+
+    subgraph G6["6 STANCE · holder's side"]
+        H1["bearerRole · controlLocus<br/>📝 [placeholder]"]
+        H2["effectOnHolder ★<br/>📝 [placeholder]"]
+    end
+
+    subgraph G7["7 SUBJECT'S SIDE"]
+        U1["standingOfSubjects ★<br/>📝 [placeholder]"]
+        U2["consentToBeSeen ★ · legibility<br/>📝 [placeholder]"]
+        U3["adaptiveResponse<br/>📝 [placeholder]"]
+    end
+
+    subgraph G8["8 POWER"]
+        W1["authority + authorityBasis<br/>📝 [placeholder]"]
+        W2["whoseInterests ★ · costBearer ★ · whoseVoice ★<br/>📝 [placeholder]"]
+        W3["accountabilityLocus ★<br/>📝 [placeholder]"]
+    end
+
+    subgraph G9["9 DYNAMICS & MATERIALITY"]
+        D1["performativity ★<br/>📝 [placeholder]"]
+        D2["infrastructureDependence · validFrom/To<br/>📝 [placeholder]"]
+    end
+
+    subgraph G10["10 ASSESSMENTS · assessedBy"]
+        X1["<b>congruence ★★</b><br/>📝 drafted · HO-II.d.2"]
+        X2["<b>omission ★</b><br/>📝 drafted · HO-II.d.2"]
+        X2a["outOfFrame"]
+        X2b["blindSpot<br/>negligent · suppressed"]
+        X2c["acceptedHarm"]
+        X3["developmentalAltitude<br/>📝 [placeholder]"]
+        X4["epistemicStanding · proceduralIntegrity<br/>📝 [placeholder]"]
+        X2 --- X2a
+        X2 --- X2b
+        X2 --- X2c
+    end
+
+    subgraph G11["11 PROVENANCE & TRUST"]
+        V1["sources · PROV · verification<br/>📝 [placeholder]"]
+    end
+
+    PT --> G0
+    PT --> G1
+    PT --> G2
+    PT --> G3
+    PT --> G4
+    PT --> G5
+    PT --> G6
+    PT --> G7
+    PT --> G8
+    PT --> G9
+    PT --> G10
+    PT --> G11
+
+    PR1{{"Profile: LegalInstitutional<br/>📝 [placeholder]"}}
+    PR2{{"Profile: LearnedModel<br/>📝 [placeholder]"}}
+    PR1 -. adds and requires .-> PT
+    PR2 -. adds and requires .-> PT
+```
+
+**Key:**
+- **★** marks the leading tier, and **★★** marks congruence, the first-class attribute.
+- **📝 [placeholder]** is where each hub's Explanation goes: the neutral definition plus its 100–200-word narrative. The spokes hang off these hubs.
+- **📝 drafted** means the hub is already written in [[Vocabulary Crosswalk - Concept Hubs and Discipline Schemes]].
+- **Hexagons** are profiles, which add attributes and set which ones must be addressed.
+
+Grouped nodes such as "socialScope · moralCircle" would each become separate hubs in the real note. I combined them here only so the diagram stays readable.
+
+Do you want this diagram added to the crosswalk note (or kept for the 0.02 note)? Or should we fill one group's placeholders next, Core for example?
+[Timestamp: 2026/11/17 20:40:55]
+
+**user**: dont add this diAgramm to anything yet
+[Timestamp: 2026/11/17 20:42:21]
+
+**ai**: Understood. The diagram stays in this chat only, and I haven't added it to any note.
+[Timestamp: 2026/11/17 20:42:21]
+
+**user**: please display diagram only
+[Timestamp: 2026/11/17 20:44:45]
+
+**ai**: 
+
+```mermaid
+graph TD
+    PT(["<b>PerspectiveType</b><br/>the lens tradition<br/>📝 Explanation: [placeholder]"])
+    P(["<b>Perspective</b><br/>one shot · HO-II.d<br/>overrides type defaults<br/>📝 Explanation: [placeholder]"])
+    P -- instantiates --> PT
+
+    subgraph G0["0 CORE · required"]
+        C1["name ★<br/>📝 [placeholder]"]
+        C2["canonicalSource ★<br/>📝 [placeholder]"]
+        C3["objectOfAttention ★<br/>📝 [placeholder]"]
+        C4["foundationalCommitments ★<br/>📝 [placeholder]"]
+    end
+
+    subgraph G1["1 RELATIONS"]
+        R1["divergesFrom / convergesWith ★<br/>📝 [placeholder]"]
+        R2["specializes · partOf<br/>📝 [placeholder]"]
+        R3["complements · definedAgainst<br/>📝 [placeholder]"]
+        R4["coupledWith · correctedBy<br/>📝 [placeholder]"]
+    end
+
+    subgraph G2["2 IDENTITY & LINEAGE"]
+        I1["nameByDomain · definitionByDomain<br/>📝 [placeholder]"]
+        I2["conceptStructure + exemplars<br/>📝 [placeholder]"]
+        I3["lensKind · lineage · transmissionMode<br/>📝 [placeholder]"]
+    end
+
+    subgraph G3["3 AIM & NORMATIVE CORE"]
+        A1["statedPurpose ★<br/>📝 [placeholder]"]
+        A2["normativeForm ★ · valueTheory<br/>📝 [placeholder]"]
+        A3["unitOfMeasure ★ + commensurability<br/>📝 [placeholder]"]
+        A4["intentWeighting ★<br/>📝 [placeholder]"]
+    end
+
+    subgraph G4["4 POSITION & SCOPE"]
+        S1["socialScope · moralCircle ★<br/>📝 [placeholder]"]
+        S2["assumedPositionality<br/>📝 [placeholder]"]
+        S3["spatial · systemic · temporal scope<br/>+ scaleValidity<br/>📝 [placeholder]"]
+    end
+
+    subgraph G5["5 EPISTEMICS"]
+        E1["method + instrumentResponse ★<br/>📝 [placeholder]"]
+        E2["criterionOfTruth · causalModel<br/>📝 [placeholder]"]
+        E3["errorHandling · factHandling<br/>📝 [placeholder]"]
+    end
+
+    subgraph G6["6 STANCE · holder's side"]
+        H1["bearerRole · controlLocus<br/>📝 [placeholder]"]
+        H2["effectOnHolder ★<br/>📝 [placeholder]"]
+    end
+
+    subgraph G7["7 SUBJECT'S SIDE"]
+        U1["standingOfSubjects ★<br/>📝 [placeholder]"]
+        U2["consentToBeSeen ★ · legibility<br/>📝 [placeholder]"]
+        U3["adaptiveResponse<br/>📝 [placeholder]"]
+    end
+
+    subgraph G8["8 POWER"]
+        W1["authority + authorityBasis<br/>📝 [placeholder]"]
+        W2["whoseInterests ★ · costBearer ★ · whoseVoice ★<br/>📝 [placeholder]"]
+        W3["accountabilityLocus ★<br/>📝 [placeholder]"]
+    end
+
+    subgraph G9["9 DYNAMICS & MATERIALITY"]
+        D1["performativity ★<br/>📝 [placeholder]"]
+        D2["infrastructureDependence · validFrom/To<br/>📝 [placeholder]"]
+    end
+
+    subgraph G10["10 ASSESSMENTS · assessedBy"]
+        X1["<b>congruence ★★</b><br/>📝 drafted · HO-II.d.2"]
+        X2["<b>omission ★</b><br/>📝 drafted · HO-II.d.2"]
+        X2a["outOfFrame"]
+        X2b["blindSpot<br/>negligent · suppressed"]
+        X2c["acceptedHarm"]
+        X3["developmentalAltitude<br/>📝 [placeholder]"]
+        X4["epistemicStanding · proceduralIntegrity<br/>📝 [placeholder]"]
+        X2 --- X2a
+        X2 --- X2b
+        X2 --- X2c
+    end
+
+    subgraph G11["11 PROVENANCE & TRUST"]
+        V1["sources · PROV · verification<br/>📝 [placeholder]"]
+    end
+
+    PT --> G0
+    PT --> G1
+    PT --> G2
+    PT --> G3
+    PT --> G4
+    PT --> G5
+    PT --> G6
+    PT --> G7
+    PT --> G8
+    PT --> G9
+    PT --> G10
+    PT --> G11
+
+    PR1{{"Profile: LegalInstitutional<br/>📝 [placeholder]"}}
+    PR2{{"Profile: LearnedModel<br/>📝 [placeholder]"}}
+    PR1 -. adds and requires .-> PT
+    PR2 -. adds and requires .-> PT
+```
+[Timestamp: 2026/11/17 20:44:45]
