@@ -1,8 +1,8 @@
 [
   "terminal",
   "obsidian-git",
-  "copilot",
   "nexus-ai-chat-importer",
   "metadata-menu",
-  "convert-to-markdown"
+  "convert-to-markdown",
+  "copilot"
 ]

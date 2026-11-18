@@ -159,6 +159,20 @@
       "providerId": "d4580fea-45fc-4ff1-886c-649a92b5ffed",
       "addedAt": 1793736346399,
       "apiKeyKeychainId": "copilot-va7a77fb4-provider-anthropic-api-key"
+    },
+    "2c02745e-00f8-4068-87dc-3edf8efb2346": {
+      "providerType": "google",
+      "displayName": "Google",
+      "baseUrl": "https://generativelanguage.googleapis.com",
+      "enableCors": true,
+      "requiresApiKey": true,
+      "origin": {
+        "kind": "byok",
+        "catalogProviderId": "google"
+      },
+      "providerId": "2c02745e-00f8-4068-87dc-3edf8efb2346",
+      "addedAt": 1795014993745,
+      "apiKeyKeychainId": "copilot-va7a77fb4-provider-google-api-key"
     }
   },
   "configuredModels": [
@@ -275,6 +289,39 @@
       },
       "configuredModelId": "76abdaee-2169-4d48-8701-fd9217b9e418",
       "configuredAt": 1794933873263
+    },
+    {
+      "configuredModelId": "97ef8785-3be9-4a87-8796-eda7d2f52f22",
+      "providerId": "2c02745e-00f8-4068-87dc-3edf8efb2346",
+      "info": {
+        "id": "gemini-4-argon",
+        "displayName": "Gemini 4 Argon",
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "audio",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "limits": {
+          "context": 1048576,
+          "output": 32768
+        },
+        "reasoning": true,
+        "toolCall": true,
+        "releaseDate": "2026-10-13",
+        "cost": {
+          "input": 2,
+          "output": 10,
+          "cacheRead": 0.1
+        }
+      },
+      "configuredAt": 1795015158616
     }
   ],
   "backends": {
@@ -289,13 +336,15 @@
     "chat": {
       "enabledModels": [
         "4d9c4a96-7971-4385-9f16-20f26dc48845",
-        "8dc5d9d7-0536-496d-af50-07796fbe293d"
+        "8dc5d9d7-0536-496d-af50-07796fbe293d",
+        "97ef8785-3be9-4a87-8796-eda7d2f52f22"
       ]
     },
     "opencode": {
       "enabledModels": [
         "4d9c4a96-7971-4385-9f16-20f26dc48845",
-        "8dc5d9d7-0536-496d-af50-07796fbe293d"
+        "8dc5d9d7-0536-496d-af50-07796fbe293d",
+        "97ef8785-3be9-4a87-8796-eda7d2f52f22"
       ]
     }
   },
