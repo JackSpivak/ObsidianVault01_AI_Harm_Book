@@ -50,7 +50,7 @@ latest_session: "[[2026-11-14 Harm Ontology Redesign]]"
 - Watch for **momentum**: the author values reflection over quick agreement.
 
 ## Sub-workstreams
-- **PerspectiveType consolidation (HO-II.d.1):** [[Handoff - PerspectiveStructure 0.02]]. Seven council reviews are done and their citations verified; the 0.02 consolidation is next.
+- **PerspectiveType consolidation (HO-II.d):** done 2026-11-17: [[PerspectiveStructure 0.02]] (HO-II.d.3), the vocabulary crosswalk (HO-II.d.2) and the [[Integral Altitude Scale]] (HO-II.d.2.a). Follow-ups: [[Handoff - Perspective Vocabulary and v3 Follow-ups]]. (Previous handoff, archived: [[Handoff - PerspectiveStructure 0.02]].)
 
 ## Read first
 - This note, then [[Harm Ontology v3 - Draft Structure]] and [[Harm Ontology Migration Plan]].
