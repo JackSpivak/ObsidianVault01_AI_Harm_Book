@@ -96,7 +96,7 @@ latest_session: "[[2026-11-18 Harm Ontology v3 Toy Case Results]]"
 ## Read first
 - This note, then [[HO-002.a Assessment-Everywhere Test Strategy]] (Author decisions, Variant B design, Variant A baseline) and [[2026-11-18 Harm Ontology v3 Toy Case Results]].
 - [[Harm Ontology v3 Test Summary]] for why and how the v3 tests were run, and which files they used.
-- **If the task is producing the first v3 `.ttl` and a generated Compendium (new chat): attach this handoff and [[Harm Ontology v3 Provisional Release Brief]] together.** The brief lists every file the build needs, including [[Decisions_Log]] and [[PerspectiveStructure 0.02]]. A three-layer worked example (core, profiles, vocabulary, loader; not yet opened in Protégé) is described in [[Harm Ontology v3 Three-Layer Mini Example Brief]]. The handoff alone is not enough for that task: its "Next step" list is about testing.
+- **If the task is producing the first v3 `.ttl` and a generated Compendium (new chat): attach this handoff and [[Harm Ontology v3 Provisional Release Brief]] together.** The brief lists every file the build needs, including [[Decisions_Log]] and [[PerspectiveStructure 0.02]]. A three-layer worked example (core, profiles, vocabulary, loader) is described in [[Harm Ontology v3 Three-Layer Mini Example Brief]]. **Author's Protégé check, 2026-11-18: negative.** Hard to navigate; the mini core had no domains or ranges, so properties showed no links. Narrative placement is open again and was not logged. The handoff alone is not enough for that task: its "Next step" list is about testing.
 - [[Harm Ontology v3 - Draft Structure]] and [[Harm Ontology Migration Plan]] as needed.
 
 ## Previous sessions

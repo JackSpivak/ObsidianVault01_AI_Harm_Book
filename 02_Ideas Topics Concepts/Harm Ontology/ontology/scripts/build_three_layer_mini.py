@@ -1,4 +1,4 @@
-"""Build the three-layer MINI EXAMPLE (core / profiles / vocabulary / loader) for Protege.
+"""Build the three-layer MINI EXAMPLE (schema / profiles / vocabulary / loader) for Protege.
 TEST ARTEFACT, NOT THE V3 RELEASE. Placeholder IRIs (example.org). Nothing here is a design decision.
 
 Usage (from the vault root):
@@ -24,7 +24,7 @@ SRC = ROOT / "Vocabulary Crosswalk - Concept Hubs and Discipline Schemes.md"
 OUT = ROOT / "ontology/tests/three_layer_mini"
 
 BASE = "https://example.org/harm-ontology/v3-mini/"
-HO = Namespace(BASE + "core#")
+HO = Namespace(BASE + "schema#")
 HOSH = Namespace(BASE + "profiles#")
 HOV = Namespace(BASE + "vocab#")
 SH = Namespace("http://www.w3.org/ns/shacl#")
@@ -35,8 +35,8 @@ DISC = {  # discipline prefix -> (label)
     "psy": "Developmental psychology vocabulary", "int": "Integral theory vocabulary",
 }
 NS = {k: Namespace(BASE + k + "#") for k in DISC}
-ONT_CORE, ONT_PROF, ONT_VOCAB, ONT_ALL = (URIRef(BASE + n) for n in
-                                           ("ho-core-mini", "ho-profiles-mini", "ho-vocabulary-mini", "ho-all-mini"))
+ONT_SCHEMA, ONT_PROF, ONT_VOCAB, ONT_ALL = (URIRef(BASE + n) for n in
+                                           ("ho-schema-mini", "ho-profiles-mini", "ho-vocabulary-mini", "ho-all-mini"))
 GRADES = {g: getattr(SKOS, g) for g in ("exactMatch", "closeMatch", "narrowMatch", "broadMatch", "relatedMatch")}
 SPLIT = re.compile(r"(?<!\\)\|")
 EXPECTED = []  # (subject, predicate, text, lang) for the verbatim check
@@ -131,7 +131,7 @@ def build_vocab():
                     "Hubs, spokes, discipline schemes and value scales parsed from the vault note 'Vocabulary Crosswalk - "
                     "Concept Hubs and Discipline Schemes' (HO-II.d.2). TEST ARTEFACT: placeholder IRIs; statuses are the "
                     "note's own ('candidate'). Mapping grades are Claude's proposals as reviewed in that note.",
-                    imports=[ONT_CORE])
+                    imports=[ONT_SCHEMA])
     # custom annotation / object properties
     for name, label in (("explanation", "explanation"), ("explanationProvenance", "explanation provenance"),
                         ("citationVerification", "citation verification"), ("verificationNote", "verification note"),
@@ -339,10 +339,10 @@ def build_vocab():
     return g, summary, n
 
 
-# ------------------------------------------------------------------ core, profiles, loader
-def build_core(vocab_notes):
+# ------------------------------------------------------------------ schema, profiles, loader
+def build_schema(vocab_notes):
     g = Graph(); bind(g); declare_skos(g)
-    ontology_header(g, ONT_CORE, "Harm Ontology mini example: ontology layer (OWL, ho:)",
+    ontology_header(g, ONT_SCHEMA, "Harm Ontology mini example: schema layer (OWL, ho:)",
                     "A handful of elements only, to show how the layers tie together. Short definitions are copied from the vault "
                     "(Decisions_Log, Canon_and_Continuity glossary, draft structure, hub 'Documents' fields), with sources. "
                     "Domains and ranges are NOT modelled in this mini example.", imports=[])
@@ -384,7 +384,7 @@ def build_profiles():
     g = Graph(); bind(g)
     ontology_header(g, ONT_PROF, "Harm Ontology mini example: profiles layer (SHACL, hosh:)",
                     "DEMO shapes only, to show the layer. They check that the vocabulary examples are complete. They are NOT design "
-                    "decisions and not the LegalInstitutional / LearnedModel profiles of PerspectiveStructure 0.02.", imports=[ONT_CORE])
+                    "decisions and not the LegalInstitutional / LearnedModel profiles of PerspectiveStructure 0.02.", imports=[ONT_SCHEMA])
     g.add((SH.NodeShape, RDF.type, OWL.Class))
     def shape(s, label, target, needs):
         g.add((s, RDF.type, SH.NodeShape)); lit(g, s, RDFS.label, label, check=False)
@@ -402,14 +402,14 @@ def build_profiles():
 def build_loader():
     g = Graph(); bind(g)
     ontology_header(g, ONT_ALL, "Harm Ontology mini example: loader",
-                    "Open THIS file in Protege. It only imports the three layers: core (OWL), profiles (SHACL), vocabulary (SKOS).",
-                    imports=[ONT_CORE, ONT_PROF, ONT_VOCAB])
+                    "Open THIS file in Protege. It only imports the three layers: schema (OWL), profiles (SHACL), vocabulary (SKOS).",
+                    imports=[ONT_SCHEMA, ONT_PROF, ONT_VOCAB])
     return g
 
 
 def catalog():
     items = "".join(f'  <uri id="User Entered Import Resolution" name="{o}" uri="{f}"/>\n'
-                    for o, f in ((ONT_CORE, "ho-core-mini.ttl"), (ONT_PROF, "ho-profiles-mini.ttl"),
+                    for o, f in ((ONT_SCHEMA, "ho-schema-mini.ttl"), (ONT_PROF, "ho-profiles-mini.ttl"),
                                  (ONT_VOCAB, "ho-vocabulary-mini.ttl"), (ONT_ALL, "ho-all-mini.ttl")))
     return ('<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n'
             '<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">\n' + items + '</catalog>\n')
@@ -423,7 +423,7 @@ def main():
         for o in vg.objects(HOV[hub], SKOS.note):
             if str(o).startswith("Documents: "):
                 notes[hub] = str(o)[len("Documents: "):]
-    out = {"ho-core-mini.ttl": build_core(notes), "ho-profiles-mini.ttl": build_profiles(),
+    out = {"ho-schema-mini.ttl": build_schema(notes), "ho-profiles-mini.ttl": build_profiles(),
            "ho-vocabulary-mini.ttl": vg, "ho-all-mini.ttl": build_loader()}
     for name, g in out.items():
         g.serialize(OUT / name, format="turtle")

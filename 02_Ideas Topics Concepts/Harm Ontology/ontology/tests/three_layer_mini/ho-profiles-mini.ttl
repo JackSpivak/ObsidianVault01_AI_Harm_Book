@@ -10,40 +10,40 @@
 <https://example.org/harm-ontology/v3-mini/ho-profiles-mini> a owl:Ontology ;
     dcterms:title "Harm Ontology mini example: profiles layer (SHACL, hosh:)"@en ;
     rdfs:comment "DEMO shapes only, to show the layer. They check that the vocabulary examples are complete. They are NOT design decisions and not the LegalInstitutional / LearnedModel profiles of PerspectiveStructure 0.02."@en ;
-    owl:imports <https://example.org/harm-ontology/v3-mini/ho-core-mini> ;
+    owl:imports <https://example.org/harm-ontology/v3-mini/ho-schema-mini> ;
     owl:versionIRI <https://example.org/harm-ontology/v3-mini/ho-profiles-mini/0.1> ;
     owl:versionInfo "mini example 0.1 (2026-11-18). Not the v3 release." .
 
 hosh:HubShape a sh:NodeShape ;
     rdfs:label "Hub completeness (demo)"@en ;
     sh:property [ sh:minCount 1 ;
-            sh:path skos:definition ],
-        [ sh:minCount 1 ;
-            sh:path skos:example ],
-        [ sh:minCount 1 ;
             sh:path hov:status ],
         [ sh:minCount 1 ;
             sh:path hov:explanation ],
         [ sh:minCount 1 ;
-            sh:path hov:documents ] ;
+            sh:path skos:definition ],
+        [ sh:minCount 1 ;
+            sh:path hov:documents ],
+        [ sh:minCount 1 ;
+            sh:path skos:example ] ;
     sh:targetSubjectsOf hov:documents .
 
 hosh:SpokeShape a sh:NodeShape ;
     rdfs:label "Spoke completeness (demo)"@en ;
     sh:property [ sh:minCount 1 ;
+            sh:path skos:example ],
+        [ sh:minCount 1 ;
             sh:path dcterms:bibliographicCitation ],
-        [ sh:minCount 1 ;
-            sh:path skos:inScheme ],
-        [ sh:minCount 1 ;
-            sh:path hov:explanation ],
-        [ sh:minCount 1 ;
-            sh:path hov:discipline ],
         [ sh:minCount 1 ;
             sh:path skos:definition ],
         [ sh:minCount 1 ;
-            sh:path skos:example ],
-        [ sh:minCount 1 ;
             sh:path hov:meaningAsOf ],
+        [ sh:minCount 1 ;
+            sh:path skos:inScheme ],
+        [ sh:minCount 1 ;
+            sh:path hov:discipline ],
+        [ sh:minCount 1 ;
+            sh:path hov:explanation ],
         [ sh:minCount 1 ;
             sh:path hov:citationVerification ] ;
     sh:targetSubjectsOf hov:assertedBy .

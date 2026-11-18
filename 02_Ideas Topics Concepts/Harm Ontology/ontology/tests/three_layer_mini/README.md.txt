@@ -2,7 +2,8 @@ Three-layer MINI EXAMPLE for Protege (test artefact, 2026-11-18). Not the v3 rel
 
 PURPOSE
   Show how the three layers decided on 2026-11-17 (Decisions_Log) look in an ontology editor and how they are tied together:
-    1. ontology   (OWL,  ho:)    ho-core-mini.ttl        a handful of elements, with short definitions, designStatus, sources
+    1. schema     (OWL,  ho:)    ho-schema-mini.ttl      a handful of elements, with short definitions, designStatus, sources
+                                 (schema = classes, properties, hierarchy, domain/range: the bare backbone; renamed from "core"/"ontology", 2026-11-18)
     2. profiles   (SHACL, hosh:) ho-profiles-mini.ttl    DEMO shapes only (not design decisions)
     3. vocabulary (SKOS, hov: + law:, eth:, phil:, pol:, sci:, cog:, lit:, soc:, psy:, int:)
                                  ho-vocabulary-mini.ttl  the three fleshed-out hubs, all spokes, value scales, original wording

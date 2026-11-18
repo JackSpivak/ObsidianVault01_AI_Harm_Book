@@ -1,5 +1,5 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ho: <https://example.org/harm-ontology/v3-mini/core#> .
+@prefix ho: <https://example.org/harm-ontology/v3-mini/schema#> .
 @prefix hov: <https://example.org/harm-ontology/v3-mini/vocab#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -63,6 +63,12 @@ skos:relatedMatch a owl:ObjectProperty .
 
 skos:scopeNote a owl:AnnotationProperty .
 
+<https://example.org/harm-ontology/v3-mini/ho-schema-mini> a owl:Ontology ;
+    dcterms:title "Harm Ontology mini example: schema layer (OWL, ho:)"@en ;
+    rdfs:comment "A handful of elements only, to show how the layers tie together. Short definitions are copied from the vault (Decisions_Log, Canon_and_Continuity glossary, draft structure, hub 'Documents' fields), with sources. Domains and ranges are NOT modelled in this mini example."@en ;
+    owl:versionIRI <https://example.org/harm-ontology/v3-mini/ho-schema-mini/0.1> ;
+    owl:versionInfo "mini example 0.1 (2026-11-18). Not the v3 release." .
+
 ho:Assessment a owl:Class ;
     rdfs:label "Assessment"@en ;
     dcterms:source "Harm Ontology v3 - Draft Structure; Decisions_Log 2026-11-14"@en ;
@@ -106,12 +112,6 @@ ho:omission a owl:ObjectProperty ;
     rdfs:seeAlso hov:omission ;
     skos:definition "`ho:omission` (an Assessment of a PerspectiveType, typed by branch and kind, with `assessedBy`); replaces `blindSpot` from 0.01 as the umbrella"@en ;
     ho:designStatus "candidate" .
-
-<https://example.org/harm-ontology/v3-mini/ho-core-mini> a owl:Ontology ;
-    dcterms:title "Harm Ontology mini example: ontology layer (OWL, ho:)"@en ;
-    rdfs:comment "A handful of elements only, to show how the layers tie together. Short definitions are copied from the vault (Decisions_Log, Canon_and_Continuity glossary, draft structure, hub 'Documents' fields), with sources. Domains and ranges are NOT modelled in this mini example."@en ;
-    owl:versionIRI <https://example.org/harm-ontology/v3-mini/ho-core-mini/0.1> ;
-    owl:versionInfo "mini example 0.1 (2026-11-18). Not the v3 release." .
 
 ho:PerspectiveSpecification a owl:Class ;
     rdfs:label "PerspectiveSpecification"@en ;

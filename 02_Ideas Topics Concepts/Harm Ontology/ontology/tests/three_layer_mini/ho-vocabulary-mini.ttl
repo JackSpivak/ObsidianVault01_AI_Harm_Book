@@ -1,7 +1,7 @@
 @prefix cog: <https://example.org/harm-ontology/v3-mini/cog#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix eth: <https://example.org/harm-ontology/v3-mini/eth#> .
-@prefix ho: <https://example.org/harm-ontology/v3-mini/core#> .
+@prefix ho: <https://example.org/harm-ontology/v3-mini/schema#> .
 @prefix hov: <https://example.org/harm-ontology/v3-mini/vocab#> .
 @prefix int: <https://example.org/harm-ontology/v3-mini/int#> .
 @prefix law: <https://example.org/harm-ontology/v3-mini/law#> .
@@ -79,7 +79,7 @@ skos:scopeNote a owl:AnnotationProperty .
     dcterms:source "Obsidian Copilot agent session \"Read Handoff - PerspectiveStructure 0.02 and the notes it lists\", 2026-11-17 (`copilot/copilot-conversations/agent__Read_Handoff_-_PerspectiveStructure_0.02_and_the_notes_it_lists,@20261117_170442.md`)."@en ;
     dcterms:title "Harm Ontology mini example: vocabulary layer (SKOS, hov:)"@en ;
     rdfs:comment "Hubs, spokes, discipline schemes and value scales parsed from the vault note 'Vocabulary Crosswalk - Concept Hubs and Discipline Schemes' (HO-II.d.2). TEST ARTEFACT: placeholder IRIs; statuses are the note's own ('candidate'). Mapping grades are Claude's proposals as reviewed in that note."@en ;
-    owl:imports <https://example.org/harm-ontology/v3-mini/ho-core-mini> ;
+    owl:imports <https://example.org/harm-ontology/v3-mini/ho-schema-mini> ;
     owl:versionIRI <https://example.org/harm-ontology/v3-mini/ho-vocabulary-mini/0.1> ;
     owl:versionInfo "mini example 0.1 (2026-11-18). Not the v3 release." .
 
@@ -865,40 +865,22 @@ hov:SourceQuote a owl:Class ;
 skos:Concept a owl:Class .
 
 [] a owl:Axiom ;
-    rdfs:comment "the same idea, but restricted to rule systems and their officials"@en ;
-    owl:annotatedProperty skos:closeMatch ;
-    owl:annotatedSource hov:congruence ;
-    owl:annotatedTarget law:congruence .
-
-[] a owl:Axiom ;
     rdfs:comment "(author, 2026-11-17): a lens's operative purpose is read as its maxim; Kant's own term concerns an individual agent's principle"@en ;
     owl:annotatedProperty skos:closeMatch ;
     owl:annotatedSource hov:congruence ;
     owl:annotatedTarget eth:operativeMaxim .
 
 [] a owl:Axiom ;
-    rdfs:comment "what a paradigm sets aside, which may be negligent or merely premature"@en ;
-    owl:annotatedProperty skos:relatedMatch ;
-    owl:annotatedSource hov:negligentBlindSpot ;
-    owl:annotatedTarget sci:anomaly .
-
-[] a owl:Axiom ;
     rdfs:comment "Wilber equates them (primary text)"@en ;
     owl:annotatedProperty skos:exactMatch ;
-    owl:annotatedSource int:egocentric ;
-    owl:annotatedTarget psy:selfish .
+    owl:annotatedSource int:ethnocentric ;
+    owl:annotatedTarget psy:care .
 
 [] a owl:Axiom ;
-    rdfs:comment "the same gap, located in names and titles"@en ;
-    owl:annotatedProperty skos:closeMatch ;
-    owl:annotatedSource hov:congruence ;
-    owl:annotatedTarget phil:zhengming .
-
-[] a owl:Axiom ;
-    rdfs:comment "cultivation shown in how widely concern extends"@en ;
-    owl:annotatedProperty skos:closeMatch ;
-    owl:annotatedSource hov:developmentalAltitude ;
-    owl:annotatedTarget phil:junzi .
+    rdfs:comment "accepted harm located in places and communities"@en ;
+    owl:annotatedProperty skos:narrowMatch ;
+    owl:annotatedSource hov:acceptedHarm ;
+    owl:annotatedTarget soc:sacrificeZone .
 
 [] a owl:Axiom ;
     rdfs:comment "usefulness through emptiness is the constitutive kind"@en ;
@@ -913,76 +895,16 @@ skos:Concept a owl:Class .
     owl:annotatedTarget sci:agnotology .
 
 [] a owl:Axiom ;
-    rdfs:comment "stages of widening care, the most direct match to the hub's definition"@en ;
-    owl:annotatedProperty skos:closeMatch ;
-    owl:annotatedSource hov:developmentalAltitude ;
-    owl:annotatedTarget psy:careStages .
-
-[] a owl:Axiom ;
-    rdfs:comment "Claude's proposal; both centre on the norms of one's own group"@en ;
-    owl:annotatedProperty skos:closeMatch ;
-    owl:annotatedSource int:ethnocentric ;
-    owl:annotatedTarget psy:conventional .
-
-[] a owl:Axiom ;
-    rdfs:comment "the sequence is defined by widening identity and care; the source of the author's term"@en ;
-    owl:annotatedProperty skos:closeMatch ;
-    owl:annotatedSource hov:developmentalAltitude ;
-    owl:annotatedTarget int:altitude .
-
-[] a owl:Axiom ;
-    rdfs:comment "Wilber equates them, but adds that other developmentalists extend this stage to \"all sentient beings and all life\", which goes beyond Gilligan's integration of two voices"@en ;
-    owl:annotatedProperty skos:closeMatch ;
-    owl:annotatedSource int:kosmocentric ;
-    owl:annotatedTarget psy:integrated .
-
-[] a owl:Axiom ;
-    rdfs:comment "internal agents that stop thoughts forming"@en ;
-    owl:annotatedProperty skos:closeMatch ;
-    owl:annotatedSource hov:suppressedBlindSpot ;
-    owl:annotatedTarget cog:censors .
-
-[] a owl:Axiom ;
-    rdfs:comment "one legal test for deliberate avoidance of knowledge"@en ;
-    owl:annotatedProperty skos:narrowMatch ;
-    owl:annotatedSource hov:suppressedBlindSpot ;
-    owl:annotatedTarget law:willfulBlindness .
-
-[] a owl:Axiom ;
-    rdfs:comment "levels of moral reasoning, not of concern directly"@en ;
-    owl:annotatedProperty skos:closeMatch ;
-    owl:annotatedSource hov:developmentalAltitude ;
-    owl:annotatedTarget psy:moralStages .
-
-[] a owl:Axiom ;
-    rdfs:comment "one kind of incongruence, deliberate euphemism"@en ;
-    owl:annotatedProperty skos:narrowMatch ;
-    owl:annotatedSource hov:congruence ;
-    owl:annotatedTarget pol:sprachregelung .
-
-[] a owl:Axiom ;
-    rdfs:comment "Wilber equates them (primary text)"@en ;
-    owl:annotatedProperty skos:exactMatch ;
-    owl:annotatedSource int:ethnocentric ;
-    owl:annotatedTarget psy:care .
-
-[] a owl:Axiom ;
-    rdfs:comment "Claude's proposal; both centre on the self"@en ;
-    owl:annotatedProperty skos:closeMatch ;
-    owl:annotatedSource int:egocentric ;
-    owl:annotatedTarget psy:preConventional .
+    rdfs:comment "a standard for judging conduct, not a property of a lens"@en ;
+    owl:annotatedProperty skos:relatedMatch ;
+    owl:annotatedSource hov:negligentBlindSpot ;
+    owl:annotatedTarget law:negligence .
 
 [] a owl:Axiom ;
     rdfs:comment "about epistemic form vs substance, not a stated moral purpose"@en ;
     owl:annotatedProperty skos:relatedMatch ;
     owl:annotatedSource hov:congruence ;
     owl:annotatedTarget sci:cargoCultScience .
-
-[] a owl:Axiom ;
-    rdfs:comment "accepted harm located in places and communities"@en ;
-    owl:annotatedProperty skos:narrowMatch ;
-    owl:annotatedSource hov:acceptedHarm ;
-    owl:annotatedTarget soc:sacrificeZone .
 
 [] a owl:Axiom ;
     rdfs:comment "Stoic concern for humanity is close, but framed as the widening of one's own affinity, not as a stage"@en ;
@@ -997,20 +919,98 @@ skos:Concept a owl:Class .
     owl:annotatedTarget psy:universalCare .
 
 [] a owl:Axiom ;
+    rdfs:comment "the same gap, located in names and titles"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource hov:congruence ;
+    owl:annotatedTarget phil:zhengming .
+
+[] a owl:Axiom ;
+    rdfs:comment "stages of widening care, the most direct match to the hub's definition"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource hov:developmentalAltitude ;
+    owl:annotatedTarget psy:careStages .
+
+[] a owl:Axiom ;
+    rdfs:comment "Claude's proposal; both centre on the self"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource int:egocentric ;
+    owl:annotatedTarget psy:preConventional .
+
+[] a owl:Axiom ;
+    rdfs:comment "Wilber equates them (primary text)"@en ;
+    owl:annotatedProperty skos:exactMatch ;
+    owl:annotatedSource int:egocentric ;
+    owl:annotatedTarget psy:selfish .
+
+[] a owl:Axiom ;
+    rdfs:comment "one kind of incongruence, deliberate euphemism"@en ;
+    owl:annotatedProperty skos:narrowMatch ;
+    owl:annotatedSource hov:congruence ;
+    owl:annotatedTarget pol:sprachregelung .
+
+[] a owl:Axiom ;
+    rdfs:comment "one legal test for deliberate avoidance of knowledge"@en ;
+    owl:annotatedProperty skos:narrowMatch ;
+    owl:annotatedSource hov:suppressedBlindSpot ;
+    owl:annotatedTarget law:willfulBlindness .
+
+[] a owl:Axiom ;
     rdfs:comment "Claude's proposal; a secondary source reports Wilber linking them, not checked in a primary text"@en ;
     owl:annotatedProperty skos:closeMatch ;
     owl:annotatedSource int:worldcentric ;
     owl:annotatedTarget psy:postConventional .
 
 [] a owl:Axiom ;
-    rdfs:comment "a standard for judging conduct, not a property of a lens"@en ;
-    owl:annotatedProperty skos:relatedMatch ;
-    owl:annotatedSource hov:negligentBlindSpot ;
-    owl:annotatedTarget law:negligence .
+    rdfs:comment "levels of moral reasoning, not of concern directly"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource hov:developmentalAltitude ;
+    owl:annotatedTarget psy:moralStages .
+
+[] a owl:Axiom ;
+    rdfs:comment "Wilber equates them, but adds that other developmentalists extend this stage to \"all sentient beings and all life\", which goes beyond Gilligan's integration of two voices"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource int:kosmocentric ;
+    owl:annotatedTarget psy:integrated .
+
+[] a owl:Axiom ;
+    rdfs:comment "the sequence is defined by widening identity and care; the source of the author's term"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource hov:developmentalAltitude ;
+    owl:annotatedTarget int:altitude .
 
 [] a owl:Axiom ;
     rdfs:comment "a seen harm, knowingly accepted for a benefit"@en ;
     owl:annotatedProperty skos:closeMatch ;
     owl:annotatedSource hov:acceptedHarm ;
     owl:annotatedTarget lit:omelas .
+
+[] a owl:Axiom ;
+    rdfs:comment "cultivation shown in how widely concern extends"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource hov:developmentalAltitude ;
+    owl:annotatedTarget phil:junzi .
+
+[] a owl:Axiom ;
+    rdfs:comment "what a paradigm sets aside, which may be negligent or merely premature"@en ;
+    owl:annotatedProperty skos:relatedMatch ;
+    owl:annotatedSource hov:negligentBlindSpot ;
+    owl:annotatedTarget sci:anomaly .
+
+[] a owl:Axiom ;
+    rdfs:comment "Claude's proposal; both centre on the norms of one's own group"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource int:ethnocentric ;
+    owl:annotatedTarget psy:conventional .
+
+[] a owl:Axiom ;
+    rdfs:comment "internal agents that stop thoughts forming"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource hov:suppressedBlindSpot ;
+    owl:annotatedTarget cog:censors .
+
+[] a owl:Axiom ;
+    rdfs:comment "the same idea, but restricted to rule systems and their officials"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource hov:congruence ;
+    owl:annotatedTarget law:congruence .
 

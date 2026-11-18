@@ -34,7 +34,7 @@ Read each element of [[Harm Ontology v3 - Draft Structure]] against [[Decisions_
 
 Include `decided` and `open` elements, flagged. Include `pending`, `proposedUntested` and `v4Proposed` **only if the author wants them**, and always flagged. Never present a test result as a design decision.
 
-**Left out by default:** the test-only machinery (Procedure, Evidence, Observation, Claim, ScopeDeclaration, Band, BandMapping, the `hoa:` attribute vocabulary, `assessmentBasis`, derived statuses). If the author wants them, put them in a **separate optional module** (`ho-test-extension.ttl`), not in the core. The status calculation stays outside the ontology (it lives in `toy_status.py`).
+**Left out by default:** the test-only machinery (Procedure, Evidence, Observation, Claim, ScopeDeclaration, Band, BandMapping, the `hoa:` attribute vocabulary, `assessmentBasis`, derived statuses). If the author wants them, put them in a **separate optional module** (`ho-test-extension.ttl`), not in the schema file. The status calculation stays outside the ontology (it lives in `toy_status.py`).
 
 ## Decisions needed from the author before building
 1. Include `pending` / `proposedUntested` / `v4Proposed` elements (flagged), or only `decided` and `open`? (Recommended: flagged, so informal use against real data can try them.)
@@ -42,17 +42,17 @@ Include `decided` and `open` elements, flagged. Include `pending`, `proposedUnte
 3. Namespace IRI and `owl:versionIRI` (the plan says a versioned namespace). The tests used `https://example.org/harm-ontology/v3-test#`, which must **not** be reused.
 4. Declare `airo:`, `dpv:` and `vair:` prefixes now (the Migration Plan advises it), even though no mappings are built yet?
 5. Hand-written Turtle in sections, or built by a small script from a table of elements? (Recommended: script, because v4 will change the table and the Compendium is generated anyway.)
-6. **Narrative placement: leaning decided (author, 2026-11-18: "option 1"; after opening the mini example in Protégé: "nope looks great." Not yet logged in Decisions_Log).** Follows the three-layers decision ([[Decisions_Log]] 2026-11-17): **separate files by layer**, tied by a loader. Layer 1 core (OWL, `ho:`) keeps a **short definition, altLabels, `designStatus` and source on each element**, plus an `rdfs:seeAlso` pointer to its hub; layer 3 vocabulary (SKOS, `hov:` hubs, discipline schemes) holds the **long narrative** (explanation, examples, history, citations, spokes, mapping grades); layer 2 profiles (SHACL, `hosh:`). The Compendium generator merges all three. A working mini example is in `ontology/tests/three_layer_mini/` (see its README), built by `ontology/scripts/build_three_layer_mini.py`. Not yet opened in Protege.
+6. **Narrative placement: OPEN again.** The author leaned to option 1 (2026-11-18), then opened the mini example in Protégé and found it "awful. very difficult to visualize and navigate/understand", with no domains or ranges visible on the properties (see [[Harm Ontology v3 Three-Layer Mini Example Brief]]). Do not treat the layout below as settled. Not logged in Decisions_Log. The text that follows is the earlier leaning, kept for reference. Follows the three-layers decision ([[Decisions_Log]] 2026-11-17): **separate files by layer**, tied by a loader. Layer 1 **schema** (OWL, `ho:`; named "schema" by the author, 2026-11-18, in place of "core" or "ontology") keeps a **short definition, altLabels, `designStatus` and source on each element**, plus an `rdfs:seeAlso` pointer to its hub; layer 3 vocabulary (SKOS, `hov:` hubs, discipline schemes) holds the **long narrative** (explanation, examples, history, citations, spokes, mapping grades); layer 2 profiles (SHACL, `hosh:`). The Compendium generator merges all three. A working mini example is in `ontology/tests/three_layer_mini/` (see its README), built by `ontology/scripts/build_three_layer_mini.py`. Not yet opened in Protege.
 7. Is a transcript sweep wanted for explanations that never reached a note? (Recommended: not in the first release; list it as a follow-up.)
 
 ## File layout: three layers, one loader
 Per [[Decisions_Log]] 2026-11-17 (three layers) and the leaning decision 6 below. Each layer is its own small ontology with its own ontology IRI and version IRI; a tiny loader imports all three, and **that loader is the file to open in Protégé**.
-- `ho-core.ttl`: layer 1, OWL, `ho:`; imports nothing from the other layers, so it works alone. D1 goes here.
-- `ho-profiles.ttl`: layer 2, SHACL, `hosh:`; imports the core.
-- `ho-vocabulary.ttl`: layer 3, SKOS, `hov:` hubs plus one scheme per discipline (`law:`, `eth:`, `phil:` …); imports the core. D1b goes here.
+- `ho-schema.ttl`: layer 1, OWL, `ho:`; the bare backbone (classes, properties, hierarchy, **domain and range**, short label and definition); imports nothing from the other layers, so it works alone. D1 goes here.
+- `ho-profiles.ttl`: layer 2, SHACL, `hosh:`; imports the schema.
+- `ho-vocabulary.ttl`: layer 3, SKOS, `hov:` hubs plus one scheme per discipline (`law:`, `eth:`, `phil:` …); imports the schema. D1b goes here.
 - `ho-all.ttl`: only `owl:imports` of the three. Plus a `catalog-v001.xml` mapping each ontology IRI to its local file, so imports resolve offline.
 - **Namespaces name things; `owl:imports` loads files.** Prefixes load nothing.
-- **Worked example to copy** (brief: [[Harm Ontology v3 Three-Layer Mini Example Brief]]): `ontology/tests/three_layer_mini/` (four files, the catalog and a README), built by `ontology/scripts/build_three_layer_mini.py`. The vocabulary file there is **parsed from the crosswalk note**, so hub, spoke, explanation, value-scale and original-wording text is verbatim; a post-build check confirms it. The new chat can reuse that parsing approach for the remaining hubs. Not yet opened in Protégé; its SHACL shapes are demo only.
+- **Worked example to copy** (brief: [[Harm Ontology v3 Three-Layer Mini Example Brief]]): `ontology/tests/three_layer_mini/` (four files, the catalog and a README), built by `ontology/scripts/build_three_layer_mini.py`. The vocabulary file there is **parsed from the crosswalk note**, so hub, spoke, explanation, value-scale and original-wording text is verbatim; a post-build check confirms it. The new chat can reuse that parsing approach for the remaining hubs. Opened in Protégé by the author: hard to navigate, and the schema had no domains or ranges (so properties showed no links). **A real schema with domains and ranges, and a way to view the layers together, are needed before this layout is used.** Its SHACL shapes are demo only.
 - Only three hubs exist (`congruence`, `omission`, `developmentalAltitude`). The other ★ attributes still need hubs and spokes built (new work; mapping grades proposed by Claude, reviewed by the author).
 
 ## Narrative layer (D1b): what keeps it from being a naked schema
@@ -134,7 +134,7 @@ Per [[Decisions_Log]] 2026-11-17 (three layers) and the leaning decision 6 below
 - A skeleton in a file can look more settled than it is. Keep `designStatus` visible in both D1 and D2.
 - **Do not edit** the old root files (`Interdisciplinary_Harm_Ontology_Compendium.md`, `Interdisciplinary Harm Ontology.ttl`); they await an archive decision.
 - Large files: build in sections or by script and write straight to the vault (see Migration Plan, Tooling).
-- Tooling: conda env `harm-ontology` (`python -I`, rdflib, pyshacl); scripts in `ontology/scripts/`; test files in `ontology/tests/`, outside the core.
+- Tooling: conda env `harm-ontology` (`python -I`, rdflib, pyshacl); scripts in `ontology/scripts/`; test files in `ontology/tests/`, outside the schema.
 
 ## Related
 - [[Handoff - Harm Ontology]]
