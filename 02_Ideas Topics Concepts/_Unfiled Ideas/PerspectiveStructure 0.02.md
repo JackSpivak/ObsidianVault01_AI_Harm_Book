@@ -197,7 +197,7 @@ PerspectiveType  (prefLabel "tradition" · altLabel "lens")
 ## Open questions
 - **v3 integration:**
   - Standard overlap: make PerspectiveType's `embedsStandard` the default and the shot's `standard` the override?
-  - Omission and causal selection: **decided 2026-11-17.** v3 `Attribution` merges into `CausalAssessment`, with `attributedCause` → Factor and `leftOut` → Factor; each left-out factor may carry an omission assessment. Tradition-level omission patterns act as defaults that cases confirm or contradict.
+  - Omission and causal selection: **decided 2026-11-17.** v3 `Attribution` merges into `CausalAssessment`, with `attributedCause` and `leftOut` → `CausalCandidate` (Factor or FactorAssembly, formerly CausalAssembly, now a thin container whose membership and origin are assessed); each left-out item may carry an omission assessment. Tradition-level omission patterns act as defaults that cases confirm or contradict.
 - Can a shot instantiate more than one tradition (mixed lenses)?
 - Rename `nameByDomain` / `definitionByDomain` to `…ByDiscipline`?
 - Still open from the handoff: statement-level provenance (RDF-star or named graphs) · attribute-space / embedding model for comparing traditions · the ontology as an instance of its own PerspectiveType · new Divergence subtypes for HO-III.a.

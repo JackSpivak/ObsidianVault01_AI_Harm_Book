@@ -7,7 +7,7 @@ topic: "Read Handoff - PerspectiveStructure 0.02 and the notes it li…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":311184,"contextWindow":1000000,"inputTokens":4,"outputTokens":8,"cacheReadTokens":0,"cacheWriteTokens":311172,"updatedAt":1794981992994}'
+usage: '{"usedTokens":314573,"contextWindow":1000000,"inputTokens":2,"outputTokens":564,"cacheReadTokens":312370,"cacheWriteTokens":1637,"updatedAt":1794982265182}'
 lastAccessedAt: 1794974457725
 ---
 
@@ -2058,3 +2058,25 @@ If membership is assessed, membership can't decide **identity**. Then when are t
 
 Does that clear it up? If so, are you happy with option 2 (the thin container), and should I amend the logged decision?
 [Timestamp: 2026/11/17 23:06:17]
+
+**user**: i think so.  its an identifier like a URI that organizes a relevant collection of information
+[Timestamp: 2026/11/17 23:10:43]
+
+**ai**: Yes, that's it: a stable identifier, like a URI, that a set of rival assessments all point to.
+
+I've rewritten the decision entry in [[Decisions_Log]] to cover the whole chain:
+1. `Attribution` merges into `CausalAssessment`, with `attributedCause` and `leftOut`.
+2. There's a new parent class, `CausalCandidate`, over Factor and FactorAssembly, so one query finds either. A SHACL rule allows only those two.
+3. `CausalAssembly` is renamed `FactorAssembly`, with "causal assembly" kept as an altLabel.
+4. FactorAssembly is a thin container. Membership, sufficiency, innocuousness, unknown members, origin and orchestrator all come from assessments, and derived shortcuts are used where the assessments agree.
+5. The Valence/Responsibility split stays pending.
+
+0.02's open questions now point to this decision.
+
+**Not yet changed:** [[Harm Ontology v3 - Draft Structure]] still shows `Attribution` and `CausalAssembly`, and [[HO-003 Causal Assembly - the Perfect Storm]] and [[HO-005 Assessed Membership and Systematic Omission]] don't mention it. Should I update the v3 draft and add a short revision callout to HO-003 and HO-005?
+
+**Still waiting from earlier:**
+1. **The standard overlap:** the tradition's `embedsStandard` as the default, and the shot's `standard` as an override?
+2. **The filing plan:** 0.02 as HO-II.d.3 and the altitude scale as HO-II.d.2.a, plus the 0.01 header line and archiving the handoff.
+<!-- copilot-message {"tools":["Edit (edit): 00_Claude_Admin/Decisions_Log.md","Edit (edit): 02_Ideas Topics Concepts/_Unfiled Ideas/PerspectiveStructure 0.02.md"]} -->
+[Timestamp: 2026/11/17 23:10:43]
