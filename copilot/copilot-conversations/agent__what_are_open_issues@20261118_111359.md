@@ -7,7 +7,7 @@ model: '{"baseModelId":"google/gemini-4-hydrogen","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Open issues in Harm Ontology"
-usage: '{"usedTokens":18019,"contextWindow":1048576,"updatedAt":1795025878446}'
+usage: '{"usedTokens":19011,"contextWindow":1048576,"updatedAt":1795026550787}'
 ---
 
 **user**: what are open issues
@@ -79,3 +79,37 @@ If you're ready to decide on this rule for the test:
 Would you like me to implement this rule in `toy_status.py` and `toy_branch_ledger_B.ttl`—and while we're in there, add the **Toy run 2** cases (revision trigger `revisedBecause`, date interval overlap, and `repeats` / `Corroborated` / `Incommensurable`)?
 <!-- copilot-message {"tools":["glob (search)","read (read): 01_The Writer's Room/2026-11-18 Harm Ontology v3 Toy Case Results.md","grep (search): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md","read (read)"]} -->
 [Timestamp: 2026/11/18 11:15:09]
+
+**user**: one clarification. does the idea that if the values of single valued attributes are all mutually exclusive they would inherently trigger a disputed status.
+[Timestamp: 2026/11/18 11:26:18]
+
+**ai**: **Yes—if an attribute is genuinely single-valued and its values are mutually exclusive (disjoint), then two different values inherently contradict each other and should trigger `Disputed`.**
+
+The problem in `toy_status.py` was that it treated **all** non-graded attributes as if they were single-valued and mutually exclusive. In reality, there are two exceptions:
+
+1. **Multi-valued (additive) attributes** like `cause` and `answerability`: Multiple values can be true at the same time, so naming different values isn't a conflict unless one assessment explicitly denies a value or claims sole cause/answerability.
+2. **Compatible or underspecified values** on a single-valued attribute:
+   * `Unclassified` (lack of classification) vs. a specific `type` isn't a contradiction.
+   * A supertype vs. a subtype (e.g., `Harm` vs. `FinancialLoss`) aren't mutually exclusive.
+   * Overlapping date intervals (e.g., `2009–2014` vs. `2012–2014`) are compatible rather than conflicting.
+
+So only **single-valued, mutually exclusive** attributes should inherently trigger `Disputed` on differing values. Would you like to proceed with updating `toy_status.py` and `toy_branch_ledger_B.ttl` for Toy Run 2?
+[Timestamp: 2026/11/18 11:26:18]
+
+**user**: so the fix would be to allow certain values to be non-mutually-exclusive?
+[Timestamp: 2026/11/18 11:28:00]
+
+**ai**: **Yes, exactly.** Specifically:
+
+* **At the attribute level:** Mark multi-valued attributes like `cause` and `answerability` as **non-exclusive** (additive), so different values don't trigger `Disputed` unless an assessment explicitly **denies** a value or claims it is the **only** one.
+* **At the value level (for single-valued attributes):** Treat `Unclassified` as compatible with a specific `type`, and compare date intervals by **overlap** rather than exact string equality.
+
+Ready for me to implement this in `toy_status.py` and `toy_branch_ledger_B.ttl` along with the other Toy Run 2 cases?
+[Timestamp: 2026/11/18 11:28:00]
+
+**user**: yes please implement then can we retest?
+[Timestamp: 2026/11/18 11:29:38]
+
+**ai**: 
+<!-- copilot-message {"tools":["C:\\Users\\conta\\anaconda3\\envs\\harm-ontology\\python.exe -I C:\\Users\\conta\\harm-ontology-scripts\\toy_status.py \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\toy_branch_ledger_A.ttl\" \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\toy_branch_ledger_B.ttl\" (execute)"]} -->
+[Timestamp: 2026/11/18 11:29:38]
