@@ -32,6 +32,7 @@ Click the arrow beside an item to open or close its branch.
 					- [[v-0.01 PhysicsCouncil Review of - PerspectiveStructure 0.01|HO-II.d.1.e — Physics Council review]]: proposes invariants and transformation rules (a test for perspectival vs factual divergence), performativity and feedback, scale of validity, anomalies and observer cost.
 					- [[v-0.01 SciFiCouncil Review of - PerspectiveStructure 0.01|HO-II.d.1.f — Sci-Fi Council review]] (physics-bounded): proposes a Subject's side group, Power and Infrastructure facets, accepted harm as distinct from blind spots, and manipulability.
 					- [[v-0.01 CognitiveCouncil Review of - PerspectiveStructure 0.01|HO-II.d.1.g — Cognitive Council review]]: proposes AI systems as recordable lenses (training provenance), suppressors as a fourth kind of blind spot, precision weighting, intent weighting, stance toward the object, and degeneracy as a Divergence subtype.
+				- [[Vocabulary Crosswalk - Concept Hubs and Discipline Schemes|HO-II.d.2 — Vocabulary crosswalk]]: hub-and-spoke vocabulary (SKOS concept hubs, discipline schemes, graded mappings), separating the ontology, profiles and vocabulary layers. Worked example: congruence across five disciplines.
 		- [[HO-II.e Missingness Statuses and Domain Profiles|HO-II.e — Missingness and domain profiles]]: open world, SHACL "addressed, not known", Unknown / NotApplicable / Undisclosed / Disputed / Pending.
 	- **HO-III — Meta layer** (tier): relations between judgments, and to other vocabularies.
 		- [[HO-III.a Divergence and Integration - True but Partial|HO-III.a — Divergence and integration]]: typed disagreement between assessments. The main value-add.
@@ -53,6 +54,7 @@ Click the arrow beside an item to open or close its branch.
 ## Cross-references
 - **HO-II.b and HO-III.a:** horizon is one of the axes a Divergence can turn on (the neighbours vs. the old man).
 - **HO-II.d.1 and HO-II.d:** a Perspective (one shot) instantiates a PerspectiveType (the tradition). Type-level values are defaults the shot may override.
+- **HO-II.d.2 and HO-II.e:** profiles set which properties are required; the crosswalk sets what they mean. A profile may display one discipline's labels.
 - **HO-II.c and HO-II.b:** legal finality is law's way of closing the horizon.
 - **HO-001 and [[_AI Governance & Safety Bookmark Index|002.II.a]]:** rubber-stamping is captured assent in an oversight setting.
 - **HO-000 and [[_AI Governance & Safety Bookmark Index|003]]:** 003 covers building tooling for an ontology; this index covers the ontology's design.

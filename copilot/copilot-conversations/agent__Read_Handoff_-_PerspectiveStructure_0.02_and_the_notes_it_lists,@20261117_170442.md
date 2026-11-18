@@ -7,7 +7,7 @@ topic: "Read Handoff - PerspectiveStructure 0.02 and the notes it li…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":135868,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":134477,"cacheWriteTokens":1386,"updatedAt":1794962924565}'
+usage: '{"usedTokens":165927,"contextWindow":1000000,"inputTokens":2,"outputTokens":818,"cacheReadTokens":164463,"cacheWriteTokens":644,"updatedAt":1794963563403}'
 ---
 
 **user**: Read Handoff - PerspectiveStructure 0.02 and the notes it lists, then propose the 0.02 structure.
@@ -471,3 +471,123 @@ The letters a–g under HO-II.d.1 are peer reviews *of 0.01*. The crosswalk isn'
 Approve this as HO-II.d.2? Or would you rather have HO-II.d.1.h as you first suggested?
 <!-- copilot-message {"tools":["Read (read): 00_Claude_Admin/Templates/Idea.md","Read (read): 00_Claude_Admin/FileClasses/Idea.md","Grep (read): 02_Ideas Topics Concepts/Harm Ontology","Read (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 ClassicalCouncil Review of - PerspectiveStructure 0.01.md","Read (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 LogicCouncil Review of - PerspectiveStructure 0.01.md","Read (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 PhysicsCouncil Review of - PerspectiveStructure 0.01.md","Grep (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01.md","Read (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01.md","Write (edit): 02_Ideas Topics Concepts/_Unfiled Ideas/Vocabulary Crosswalk - Concept Hubs and Discipline Schemes.md","Skill (other)","Grep (read)","Grep (read): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md"]} -->
 [Timestamp: 2026/11/17 17:45:05]
+
+**user**: your recommend
+[Timestamp: 2026/11/17 17:50:08]
+
+**ai**: The crosswalk is filed as **HO-II.d.2**, a sibling of PerspectiveStructure 0.01. I checked afterwards that its ID resolves to exactly one note.
+
+**Files changed:**
+- **[[Vocabulary Crosswalk - Concept Hubs and Discipline Schemes]]:** new note, moved into `02_Ideas Topics Concepts/Harm Ontology/`. It's set to `bookmark: HO-II.d.2` and `status: seed`, with an index/parent line at the top.
+- **[[_Harm Ontology Bookmark Index]]:** a new HO-II.d.2 entry, plus a cross-reference saying that profiles set what's required and the crosswalk sets what things mean.
+
+**What's in the note:**
+- the three layers: ontology (`ho:`), profiles (`hosh:`) and vocabulary (`hov:` plus a prefix per discipline);
+- your decisions: simple hub names, discipline terms kept in the narrative, real disciplines as domains with councils only as provenance;
+- the five mapping grades;
+- the congruence worked example: a diagram, the hub with its Explanation, and five spokes, each with a full row and a 100–200-word Explanation.
+
+**Things to check:**
+- **Spoke citations** are copied from the council rows already verified on 2026-11-17, and each spoke names the row it comes from. I didn't run new web searches.
+- **Dropped claim:** I removed my unverified paraphrase of Fuller's causes of incongruence rather than checking it.
+- **One reading of Kant is mine.** Treating a lens as an institution's maxim is labelled in the note as this ontology's interpretation, not Kant's.
+- **The five grades are proposals for you to review.** They're listed under Open questions.
+- **I read "yes mapping grades" as option A:** I propose a grade for each mapping with a reason, and you review it.
+
+**Decisions to offer for [[Decisions_Log]].** Shall I add these?
+- the three-layer model;
+- simple hub names, with discipline terms in the narrative;
+- disciplines, not councils, as domains;
+- graded mappings that I propose and you review.
+
+**Next options:**
+1. Review the five congruence grades.
+2. Build the next hub (blind spot, with its four kinds).
+3. Go back to the 0.02 proposal, where each node now becomes a hub.
+<!-- copilot-message {"tools":["PowerShell (other)","Read (read): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/Vocabulary Crosswalk - Concept Hubs and Discipline Schemes.md","Grep (read)"]} -->
+[Timestamp: 2026/11/17 17:50:08]
+
+**user**: yes to all
+[Timestamp: 2026/11/17 17:53:57]
+
+**ai**: I've added four entries to the top of [[Decisions_Log]], all dated 2026-11-17 and linked to HO-II.d.2:
+- the three-layer model;
+- simple hub names, with discipline terms in the narrative;
+- disciplines, not councils, as domains;
+- graded mappings that I propose and you review.
+
+For the next steps, the grade review needs your answers, so here it is first:
+
+## Congruence grades to review
+
+| Spoke | Proposed grade | Reason |
+|---|---|---|
+| `law:congruence` (Fuller) | **closeMatch** | The same idea, but restricted to rule systems and their officials |
+| `phil:zhengming` (Confucius) | **closeMatch** | The same gap, located in names and titles |
+| `eth:operativeMaxim` (Kant) | **relatedMatch** | About one agent's principle of action, not a lens's public identity |
+| `pol:sprachregelung` (Arendt) | **narrowMatch** | One kind of incongruence: deliberate euphemism |
+| `sci:cargoCultScience` (Feynman) | **relatedMatch** | Epistemic form vs substance, not stated purpose |
+
+**Accept all five, or change any?** The one I'm least sure of is Kant. It could be **closeMatch** if you see a lens's operative purpose as the same thing as a maxim.
+
+After that, I'll build the **blind spot** hub with its four kinds: constitutive (Laozi), negligent, accepted (Le Guin) and suppressed (Minsky). It'll use the same format, and I'll check any new citations on the web. Then we'll go back to the 0.02 proposal, where each node becomes a hub.
+<!-- copilot-message {"tools":["Grep (read): 00_Claude_Admin/Decisions_Log.md","PowerShell (other)","Read (read): 00_Claude_Admin/Decisions_Log.md","Edit (edit): 00_Claude_Admin/Decisions_Log.md"]} -->
+[Timestamp: 2026/11/17 17:53:57]
+
+**user**: kant close match
+[Timestamp: 2026/11/17 17:56:08]
+
+**ai**: Updating the Kant spoke to closeMatch in the note.I've changed Kant to **closeMatch** in [[Vocabulary Crosswalk - Concept Hubs and Discipline Schemes]]. That covers the diagram, the grade cell (marked as your decision), the sentence in the Explanation that gave the old grade, and the Open questions line, which now says the review is done.
+
+The other four grades were left as I proposed them. I've taken that as acceptance; tell me if you meant to keep reviewing them.
+
+Final congruence grades:
+- **closeMatch:** Fuller, Confucius, Kant
+- **narrowMatch:** Arendt
+- **relatedMatch:** Feynman
+
+Next is the **blind spot** hub with its four kinds, in the same format, with new citations checked on the web. Shall I go ahead?
+<!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/Vocabulary Crosswalk - Concept Hubs and Discipline Schemes.md"]} -->
+[Timestamp: 2026/11/17 17:56:08]
+
+**user**: yes
+[Timestamp: 2026/11/17 17:56:35]
+
+**ai**: Both new legal citations are confirmed: *Global-Tech* through the Cornell LII syllabus, and *Donoghue* through several secondary sources. I'm writing the blind-spot hub into the crosswalk note now.I paraphrased one of my own quotes in Original wording. Replacing it with the exact text.The blind-spot hub is now in [[Vocabulary Crosswalk - Concept Hubs and Discipline Schemes]], below the congruence example.
+
+**How it differs from congruence: the hub has kinds.** `hov:blindSpot` has four narrower concepts: constitutive, negligent, accepted and suppressed. Each discipline term maps to the kind it fits, not to the hub directly. The hub's Explanation sets out the main reason for typing them: each kind needs a different response.
+- **Constitutive:** another lens has to cover what this one leaves out.
+- **Negligent:** better instruments or more care.
+- **Accepted:** moral and political argument.
+- **Suppressed:** transparency and whistleblower protection.
+
+## Eight spokes to review
+
+| Kind | Spoke | Proposed grade | Reason |
+|---|---|---|---|
+| constitutive | `phil:wu` (Laozi, *Daodejing* ch. 11) | closeMatch | Usefulness through emptiness *is* the constitutive kind |
+| negligent | `law:negligence` (*Donoghue v Stevenson*, 1932) | relatedMatch | Judges a person's conduct; the ontology borrows only the foreseeability test |
+| negligent | `sci:anomaly` (Kuhn, 1962) | relatedMatch | Setting an anomaly aside isn't always negligent |
+| accepted | `lit:omelas` (Le Guin, 1973) | closeMatch | A harm that is seen and knowingly accepted |
+| accepted | `soc:sacrificeZone` (Lerner, 2010) | narrowMatch | Accepted harm tied to a particular place and community |
+| suppressed | `cog:censors` (Minsky, 1986) | closeMatch | Internal agents that stop thoughts forming |
+| suppressed | `sci:agnotology` (Proctor & Schiebinger, 2008) | closeMatch | Ignorance produced at institutional scale |
+| suppressed | `law:willfulBlindness` (*Global-Tech v. SEB*, 2011) | narrowMatch | A legal test for deliberately avoiding knowledge |
+
+## Citations
+Six spokes reuse rows the councils already verified, and each row is named in the note. I checked two new ones on the web today:
+- ***Global-Tech*:** confirmed from the Cornell LII syllabus. The two requirements are a subjective belief in a high probability that the fact exists, and deliberate action to avoid learning it. The Court said this goes beyond recklessness and negligence ([Cornell LII](https://www.law.cornell.edu/supct/html/10-6.ZS.html), [Patently-O](https://patentlyo.com/patent/2011/05/)).
+- ***Donoghue v Stevenson*:** confirmed only through secondary study sources, for example [Brodies](https://brodies.com/insights/litigation/happy-90th-birthday-donoghue-v-stevenson/) and [Open University](https://www.open.edu/openlearn/mod/oucontent/view.php?id=68381&section=1). I didn't open the judgment itself, and the note says so.
+
+Two examples are marked illustrative (data centres and a platform) because I haven't researched any real case for them.
+
+## Something I'd question
+An accepted harm is *seen*, so calling it a "blind spot" is strictly wrong. I kept the plain name, but the note offers `exclusion` or `omission` as alternatives. `omission` would line up with [[HO-005 Assessed Membership and Systematic Omission|HO-005]].
+
+**Your calls:**
+1. Accept the eight grades, or change any?
+2. Keep `blindSpot` as the hub name, or rename it?
+
+After that, we either build another hub (accountability locus or consent to be seen) or go back to the 0.02 proposal.
+<!-- copilot-message {"tools":["Grep (read): 02_Ideas Topics Concepts/Harm Ontology","Bash (execute)","ToolSearch (other)","WebSearch (fetch)","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/Vocabulary Crosswalk - Concept Hubs and Discipline Schemes.md"]} -->
+[Timestamp: 2026/11/17 17:56:35]
