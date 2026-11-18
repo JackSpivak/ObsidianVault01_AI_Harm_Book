@@ -636,6 +636,6 @@ Shall I restructure the hub this way? Or would you rather keep "blind spot" as t
 **user**: yes. your way
 [Timestamp: 2026/11/17 18:05:26]
 
-**ai**: 
+**ai**: **Error:** API Error: Can't reach the API server — check your internet or DNS (ENOTFOUND)
 <!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/Vocabulary Crosswalk - Concept Hubs and Discipline Schemes.md"]} -->
 [Timestamp: 2026/11/17 18:05:26]
