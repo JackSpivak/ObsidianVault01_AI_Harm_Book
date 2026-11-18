@@ -10,7 +10,7 @@ source: "[[Harm Ontology v3 Provisional Release Brief]]"
 # Harm Ontology v3: Three-Layer Mini Example Brief
 
 > [!warning] Test artefact, not the v3 release
-> A small worked example built on 2026-11-18 to show how the three layers decided on 2026-11-17 ([[Decisions_Log]]) look in an ontology editor and how they are tied together. Placeholder IRIs (`example.org`). Nothing here is a design decision. **Not yet opened in Protégé**, so how it displays is unchecked. Full-build scope is in [[Harm Ontology v3 Provisional Release Brief]]; this note records the experiment.
+> A small worked example built on 2026-11-18 to show how the three layers decided on 2026-11-17 ([[Decisions_Log]]) look in an ontology editor and how they are tied together. Placeholder IRIs (`example.org`). Nothing here is a design decision. **Opened in Protégé by the author on 2026-11-18, whose verdict was "nope looks great."** No detail was reported (for example whether the catalog resolved the imports without prompting), so only that overall verdict is recorded. Full-build scope is in [[Harm Ontology v3 Provisional Release Brief]]; this note records the experiment.
 
 ## Why it exists
 - The author asked what the layers look like literally in Protégé, whether all three files must be loaded, and how the vocabulary can be seen beside the classes and attributes it describes.
@@ -73,10 +73,9 @@ source: "[[Harm Ontology v3 Provisional Release Brief]]"
 - Mapping grades are those proposed in the crosswalk note and reviewed there (congruence reviewed 2026-11-17; omission and altitude grades still marked for review in that note).
 
 ## Next steps
-1. **Author opens `ho-all-mini.ttl` in Protégé** and reports what is clear, awkward or missing (the real test of the layout).
-2. Adjust the layout or the builder accordingly.
-3. Reuse the parsing approach for the remaining hubs and for the full build ([[Harm Ontology v3 Provisional Release Brief]], D1 and D1b).
-4. If the layout works, confirm the narrative-placement decision (option 1) and log it.
+1. ~~Author opens `ho-all-mini.ttl` in Protégé~~ **Done 2026-11-18: "nope looks great."** No changes requested.
+2. Reuse the parsing approach for the remaining hubs and for the full build ([[Harm Ontology v3 Provisional Release Brief]], D1 and D1b).
+3. **Log the narrative-placement decision** (option 1: short definition on each core element, long narrative in the vocabulary layer, separate files by layer, tied by a loader) in [[Decisions_Log]]: drafted, awaiting the author's go-ahead.
 
 ## Rebuild
 From the vault root, in the conda env `harm-ontology`:
