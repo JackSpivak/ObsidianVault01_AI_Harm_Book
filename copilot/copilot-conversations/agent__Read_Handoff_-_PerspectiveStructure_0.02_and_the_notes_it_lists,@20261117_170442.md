@@ -7,7 +7,7 @@ topic: "Read Handoff - PerspectiveStructure 0.02 and the notes it li…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":305488,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":303077,"cacheWriteTokens":2406,"updatedAt":1794979579566}'
+usage: '{"usedTokens":306750,"contextWindow":1000000,"inputTokens":4,"outputTokens":3,"cacheReadTokens":0,"cacheWriteTokens":306743,"updatedAt":1794980591684}'
 lastAccessedAt: 1794974457725
 ---
 
@@ -1905,3 +1905,42 @@ Also still waiting:
 - the filing plan for the two new notes;
 - the standard-overlap recommendation (tradition default, shot override), which isn't decided yet.
 [Timestamp: 2026/11/17 22:26:06]
+
+**user**: not yet.  i like A but i dont like that queries would have to ask for both.  is there a way embody or implement or model this to require the eitherOr ness in such a way that a casual query could find either?
+[Timestamp: 2026/11/17 22:42:52]
+
+**ai**: Yes. The standard way is to give Factor and CausalAssembly a **shared parent class**, and point `attributedCause` at the parent. A query then asks for the parent, and both kinds come back.
+
+## The pattern: a common superclass
+```text
+CausalCandidate  (new parent class)        "anything that can be assessed as a cause"
+   ├── Factor              (existing; single contributor)
+   └── CausalAssembly      (existing; jointly sufficient set)
+
+CausalAssessment
+   ├── attributedCause → CausalCandidate     exactly what was selected (factor OR assembly)
+   └── leftOut         → CausalCandidate
+```
+
+- **A casual query asks only for the parent**, for example "show every attributed cause, of any kind":
+  ```sparql
+  ?assessment ho:attributedCause ?cause .
+  ?cause a ho:CausalCandidate .
+  ```
+  Factors and assemblies both come back.
+- **A query that needs the difference** can still ask for `Factor` or `CausalAssembly` specifically. The FactorLevel vs AssemblyLevel Divergence relies on this.
+
+## Enforcing the either/or
+- **The ontology (OWL):** declare Factor and CausalAssembly as subclasses of CausalCandidate, and set the range of `attributedCause` to CausalCandidate.
+- **A profile rule (SHACL):** require each `attributedCause` value to be *either* a Factor *or* a CausalAssembly (`sh:or`). Nothing else gets through, such as a Patient or a free-text string.
+- **One technical caveat:** finding both kinds through the parent relies on inference (an RDFS reasoner) or on a query that follows subclass links (`rdf:type/rdfs:subClassOf*`). Without a reasoner, the simple fix is to store the parent type on each record explicitly as well. A validation step can check that it's always there.
+
+## An alternative, if you prefer properties to classes
+Give `attributedCause` two sub-properties, `attributedFactor` and `attributedAssembly`. Querying the parent property finds both, and the sub-properties keep the distinction. It also needs inference. I think the superclass is cleaner, because it describes what the things *are* and not just how they're linked.
+
+## Two choices for you
+1. **The parent's name.** I suggest **`CausalCandidate`**. It stays neutral: something is a *candidate* until an assessment selects it, which fits "causehood only as assessed". Other options are `CausalUnit`, `CausalRelatum` and `Causant`.
+2. **Whether Effect belongs under it too.** In v3, effects can also cause further effects (cascades), and `CausalRole` can be borne by a Factor *or* an Effect. Since Factor and Effect aren't disjoint, an effect that causes something can simply also be typed as a Factor. Alternatively, put Effect explicitly under CausalCandidate. I'd keep it simple and rely on the overlap, but it's your call.
+
+If you agree, I'll amend the logged decision to use the superclass, under the name you pick.
+[Timestamp: 2026/11/17 22:42:52]
