@@ -7,7 +7,7 @@ topic: "read Harm Ontology v3 handoff"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":84090,"contextWindow":1000000,"inputTokens":2,"outputTokens":7,"cacheReadTokens":83765,"cacheWriteTokens":316,"updatedAt":1794986714864}'
+usage: '{"usedTokens":86842,"contextWindow":1000000,"inputTokens":4,"outputTokens":3,"cacheReadTokens":85572,"cacheWriteTokens":1263,"updatedAt":1794987345775}'
 ---
 
 **user**: read Harm Ontology v3 handoff
@@ -370,3 +370,108 @@ How would you like to proceed?
 - When there are about five test notes, we'll reconsider a separate Testing folder or index.
 <!-- copilot-message {"tools":["Bash (execute)","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md","Grep (read)"]} -->
 [Timestamp: 2026/11/18 00:24:52]
+
+**user**: does cq7 also allow "persons" to be organizations or groups or communities or cultures or ecosystems? etc?
+[Timestamp: 2026/11/18 00:28:59]
+
+**ai**: As written, no. CQ7 says "this person", which is too narrow. The v3 model already covers more than individuals, so the question should too.
+
+**What the v3 Patient list covers today** (from [[Harm Ontology v3 - Draft Structure]]):
+- SentientIndividual
+- CollectiveArtificialPerson (organisations, companies, legal entities)
+- NonSentientSystem (could cover ecosystems)
+- FutureGeneration (?), AISystem (?) and Relationship (?), all marked tentative
+
+**What's missing:** communities, cultures, peoples and informal groups. These aren't artificial persons with a legal form, and they aren't individuals. They currently have no clear home. That's a gap in the model, not just in CQ7.
+
+**Why widening CQ7 makes it a better test:** for a person, the observable core is solid: someone was affected. For collectives, even the **boundary** is assessed. Who counts as "the subpostmaster community", "the culture" or "the ecosystem" depends on the perspective. So the line between observation and assessment shifts as you move from individuals to collectives, and that's exactly what the test should probe.
+
+**Proposed rewording:**
+
+> **CQ7: Does this entity (an individual, organisation, community, culture, ecosystem, future generation…) count as a Patient, and according to whom?**
+> Pass: the observed core is kept apart from the assessed reading (moral-circle membership). For collective Patients, the **boundary of the collective** is returned as an assessment with its perspective, not asserted as fact.
+
+**One possible addition to the open items:** add a Patient subtype for communities and cultures, perhaps `CollectiveNaturalGroup`, as distinct from `CollectiveArtificialPerson`. I'd treat it as a proposal to test, not a decision.
+
+Should I update CQ7 in [[HO-002.a Assessment-Everywhere Test Strategy]] and add the missing Patient subtype to its open questions?
+[Timestamp: 2026/11/18 00:28:59]
+
+**user**: does the ... sufficiently expand the criterion to include some other structure, like tribe for example? what is the value of ...
+[Timestamp: 2026/11/18 00:30:57]
+
+**ai**: Not really. The "…" works in conversation, because a human reader fills it in. In an ontology test it does no work, and it's actually risky: it implies coverage the model may not have. That's the silent-omission problem again. The gap disappears into the dots.
+
+**A test needs two things the "…" can't give:**
+1. **A defined list** of the Patient types the model actually has, so each one can be checked.
+2. **An explicit rule for what isn't on the list.** When something new turns up, the model has to handle it visibly, not squeeze it into the nearest type or drop it.
+
+**"Tribe" shows why this matters.** It doesn't sit cleanly in either collective type:
+- In anthropology it's a social group: kinship, culture, shared identity. That points to the proposed `CollectiveNaturalGroup`.
+- In law, some tribes are also political or legal entities with recognised self-government. In the US, for example, federally recognised tribes have a sovereign status of their own. (That's from memory and I haven't verified it. It would need sourcing before it went in the book.) That points to `CollectiveArtificialPerson`, or to something else altogether.
+
+So which type a tribe is depends on the perspective. The **type of a Patient is itself assessed**, not just whether the Patient counts in the moral circle. That fits the v3 premise. It also suggests the subtype list belongs in the vocabulary layer (hubs that map "tribe", "nation", "clan", "community" across disciplines), not fixed in the ontology.
+
+**Proposed CQ7 without the "…":**
+
+> **CQ7: Does this entity count as a Patient, of what kind, and according to whom?**
+> Pass:
+> - (a) The observed core is kept apart from the assessed reading (moral-circle membership).
+> - (b) For collectives, the boundary is returned as an assessment with its perspective.
+> - (c) The Patient type is returned as an assessment, and conflicting types are shown as Disputed. A tribe classified as a social group by anthropology and as a political or legal entity by law should come back with both.
+> - (d) **Unlisted-type check:** an entity whose kind isn't in the Patient list is recorded as `Unclassified`, visibly, not forced into the nearest type or dropped.
+
+Point (d) is the real answer to the question about the "…": the test should deliberately include a kind of entity the model doesn't yet know.
+
+Should I update CQ7 in [[HO-002.a Assessment-Everywhere Test Strategy]] with this wording? I'd also add "the Patient type as assessed, with subtypes in the vocabulary layer" to its open questions.
+[Timestamp: 2026/11/18 00:30:57]
+
+**user**: it seems that we need to resolve the tentative status on the  last line "future generation, aisystem ...
+also would nonsentientsystem include electric grid, internet, LAN, WAN, mobile networks...
+[Timestamp: 2026/11/18 00:35:25]
+
+**ai**: You're right. Both questions have the same answer, and I think that answer settles all three tentative types at once.
+
+## The principle that resolves the "(?)"s
+
+In v3, nothing is harmful in itself; it's only judged harmful. The same logic applies to **who or what can be harmed**. So the ontology doesn't need to decide whether a future generation, an AI system or a power grid *can really* be harmed. It only needs to let a perspective *treat* them as Patients and record that as an assessment.
+
+That gives a simple rule: **the list of Patient types is inclusive, and standing is assessed.** Being on the list means "some perspective may treat this as harmed", not "this can really be harmed".
+
+## The three tentative types
+
+| Type | Include? | Why | What the assessment carries |
+|---|---|---|---|
+| **FutureGeneration** | Yes | Climate, debt and long-term AI risk all depend on it. Its standing is contested (the non-identity problem). That's a debate to record, not one to settle in the schema. | standing; how far into the future; the specific people vs the generation as a whole |
+| **AISystem** | Yes | Model-welfare debates are live and central to the book. Excluding AI systems would take a side quietly. | standing; basis (sentience, interests, relational) |
+| **Relationship** | Yes | Some harms land between people: trust between a parent and child, a community's social fabric, a working relationship damaged by surveillance. Splitting them into two individual harms loses something. | which relationship; between whom |
+
+## NonSentientSystem and infrastructure
+
+Yes, it would include the electric grid, the internet, LANs, WANs and mobile networks. But they're different from ecosystems in a way worth modelling:
+
+- **Split NonSentientSystem** into **NaturalSystem** (ecosystems, rivers, the climate) and **EngineeredSystem** (grids, networks, platforms, supply chains).
+- **Add an assessed `patientStanding: Direct | Derivative`:**
+  - **Direct:** the system is harmed in its own right. Some environmental ethics and rights-of-nature law treat ecosystems this way. (That's from memory; it would need sourcing for the book.)
+  - **Derivative:** the system's damage matters only through the people or beings who depend on it. Most traditions would see a grid outage this way.
+  - Which applies is assessed per perspective, so the disagreement is visible.
+- **Infrastructure plays two roles.** The same grid can be a *Patient* (an attack damages it) and a *Factor*, specifically a Conduit, through which harm reaches hospitals. Factor and Patient shouldn't be exclusive. Effect and Factor already aren't.
+
+## Testing this
+- Add this to **CQ7**: a grid outage should come back as a Derivative Patient under most perspectives and as a Conduit Factor in the causal account, with no conflict between the two.
+- Add an AI system as a Patient whose standing is disputed between perspectives.
+
+## Recommendation
+"Inclusive types, assessed standing" follows directly from the v3 premise, so I think it can be **logged as a decision now**. The split of NonSentientSystem, `patientStanding` and the communities/tribes subtype stay **proposed until tested**.
+
+Should I:
+1. update CQ7 and the open questions in [[HO-002.a Assessment-Everywhere Test Strategy]],
+2. add the decision to [[Decisions_Log]], and
+3. remove the "(?)" marks from the Patient line in [[Harm Ontology v3 - Draft Structure]] with a revision note?
+[Timestamp: 2026/11/18 00:35:25]
+
+**user**: do animals count as sentient beings?
+would a married couple harmed by a poor pscotheriputic intervention by a therapist or by the IRS via an unfair married status tax burden be on the list asa relationship?
+[Timestamp: 2026/11/18 00:37:23]
+
+**ai**: 
+[Timestamp: 2026/11/18 00:37:23]
