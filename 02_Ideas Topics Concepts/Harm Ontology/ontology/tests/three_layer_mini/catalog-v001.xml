@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <uri id="User Entered Import Resolution" name="https://example.org/harm-ontology/v3-mini/ho-core-mini" uri="ho-core-mini.ttl"/>
+  <uri id="User Entered Import Resolution" name="https://example.org/harm-ontology/v3-mini/ho-profiles-mini" uri="ho-profiles-mini.ttl"/>
+  <uri id="User Entered Import Resolution" name="https://example.org/harm-ontology/v3-mini/ho-vocabulary-mini" uri="ho-vocabulary-mini.ttl"/>
+  <uri id="User Entered Import Resolution" name="https://example.org/harm-ontology/v3-mini/ho-all-mini" uri="ho-all-mini.ttl"/>
+</catalog>

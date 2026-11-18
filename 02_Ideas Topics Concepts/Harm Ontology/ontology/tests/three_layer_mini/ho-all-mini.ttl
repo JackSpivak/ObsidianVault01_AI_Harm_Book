@@ -1,0 +1,13 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://example.org/harm-ontology/v3-mini/ho-all-mini> a owl:Ontology ;
+    dcterms:title "Harm Ontology mini example: loader"@en ;
+    rdfs:comment "Open THIS file in Protege. It only imports the three layers: core (OWL), profiles (SHACL), vocabulary (SKOS)."@en ;
+    owl:imports <https://example.org/harm-ontology/v3-mini/ho-core-mini>,
+        <https://example.org/harm-ontology/v3-mini/ho-profiles-mini>,
+        <https://example.org/harm-ontology/v3-mini/ho-vocabulary-mini> ;
+    owl:versionIRI <https://example.org/harm-ontology/v3-mini/ho-all-mini/0.1> ;
+    owl:versionInfo "mini example 0.1 (2026-11-18). Not the v3 release." .
+

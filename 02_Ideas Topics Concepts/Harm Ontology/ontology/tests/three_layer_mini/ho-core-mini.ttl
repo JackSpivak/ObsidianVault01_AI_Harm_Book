@@ -1,0 +1,130 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ho: <https://example.org/harm-ontology/v3-mini/core#> .
+@prefix hov: <https://example.org/harm-ontology/v3-mini/vocab#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+dcterms:bibliographicCitation a owl:AnnotationProperty .
+
+dcterms:creator a owl:AnnotationProperty .
+
+dcterms:references a owl:AnnotationProperty .
+
+dcterms:source a owl:AnnotationProperty .
+
+dcterms:title a owl:AnnotationProperty .
+
+rdfs:comment a owl:AnnotationProperty .
+
+rdfs:label a owl:AnnotationProperty .
+
+rdfs:seeAlso a owl:AnnotationProperty .
+
+skos:Concept a owl:Class .
+
+skos:ConceptScheme a owl:Class .
+
+skos:OrderedCollection a owl:Class .
+
+skos:altLabel a owl:AnnotationProperty .
+
+skos:broadMatch a owl:ObjectProperty .
+
+skos:broader a owl:ObjectProperty .
+
+skos:closeMatch a owl:ObjectProperty .
+
+skos:definition a owl:AnnotationProperty .
+
+skos:editorialNote a owl:AnnotationProperty .
+
+skos:exactMatch a owl:ObjectProperty .
+
+skos:example a owl:AnnotationProperty .
+
+skos:historyNote a owl:AnnotationProperty .
+
+skos:inScheme a owl:ObjectProperty .
+
+skos:memberList a owl:ObjectProperty .
+
+skos:narrowMatch a owl:ObjectProperty .
+
+skos:narrower a owl:ObjectProperty .
+
+skos:note a owl:AnnotationProperty .
+
+skos:prefLabel a owl:AnnotationProperty .
+
+skos:related a owl:ObjectProperty .
+
+skos:relatedMatch a owl:ObjectProperty .
+
+skos:scopeNote a owl:AnnotationProperty .
+
+ho:Assessment a owl:Class ;
+    rdfs:label "Assessment"@en ;
+    dcterms:source "Harm Ontology v3 - Draft Structure; Decisions_Log 2026-11-14"@en ;
+    skos:definition "one judgment = one instance"@en ;
+    ho:designStatus "decided" .
+
+ho:PerspectiveType a owl:Class ;
+    rdfs:label "PerspectiveType"@en ;
+    dcterms:source "Canon_and_Continuity glossary; Decisions_Log 2026-11-17"@en ;
+    rdfs:subClassOf ho:Perspective ;
+    owl:disjointWith ho:PerspectiveSpecification ;
+    skos:altLabel "lens"@en ;
+    skos:definition "A reusable way of seeing and judging, with a lineage: Utilitarianism, Tort Law, Public Health, a trained AI model. Subclass of Perspective; prefLabel \"tradition\"; altLabel \"lens\"."@en ;
+    skos:prefLabel "tradition"@en ;
+    ho:designStatus "decided" .
+
+ho:assessedBy a owl:ObjectProperty ;
+    rdfs:label "assessedBy"@en ;
+    skos:definition "Referred to in the hub 'Documents' fields; its domain and range are not modelled in this mini example."@en .
+
+ho:congruence a owl:ObjectProperty ;
+    rdfs:label "congruence"@en ;
+    dcterms:source "Vocabulary Crosswalk (hub 'Documents' field); status is the hub's own"@en ;
+    rdfs:seeAlso hov:congruence ;
+    skos:definition "`ho:congruence` (an Assessment of a PerspectiveType, with `assessedBy`)"@en ;
+    ho:designStatus "candidate" .
+
+ho:designStatus a owl:AnnotationProperty ;
+    rdfs:label "design status"@en .
+
+ho:developmentalAltitude a owl:ObjectProperty ;
+    rdfs:label "developmentalAltitude"@en ;
+    dcterms:source "Vocabulary Crosswalk (hub 'Documents' field); status is the hub's own"@en ;
+    rdfs:seeAlso hov:developmentalAltitude ;
+    skos:definition "`ho:developmentalAltitude` (an Assessment, with `assessedBy` → the scale and its PerspectiveType)"@en ;
+    ho:designStatus "candidate" .
+
+ho:omission a owl:ObjectProperty ;
+    rdfs:label "omission"@en ;
+    dcterms:source "Vocabulary Crosswalk (hub 'Documents' field); status is the hub's own"@en ;
+    rdfs:seeAlso hov:omission ;
+    skos:definition "`ho:omission` (an Assessment of a PerspectiveType, typed by branch and kind, with `assessedBy`); replaces `blindSpot` from 0.01 as the umbrella"@en ;
+    ho:designStatus "candidate" .
+
+<https://example.org/harm-ontology/v3-mini/ho-core-mini> a owl:Ontology ;
+    dcterms:title "Harm Ontology mini example: ontology layer (OWL, ho:)"@en ;
+    rdfs:comment "A handful of elements only, to show how the layers tie together. Short definitions are copied from the vault (Decisions_Log, Canon_and_Continuity glossary, draft structure, hub 'Documents' fields), with sources. Domains and ranges are NOT modelled in this mini example."@en ;
+    owl:versionIRI <https://example.org/harm-ontology/v3-mini/ho-core-mini/0.1> ;
+    owl:versionInfo "mini example 0.1 (2026-11-18). Not the v3 release." .
+
+ho:PerspectiveSpecification a owl:Class ;
+    rdfs:label "PerspectiveSpecification"@en ;
+    dcterms:source "Harm Ontology v3 - Draft Structure; Decisions_Log 2026-11-17"@en ;
+    rdfs:subClassOf ho:Perspective ;
+    skos:altLabel "perspective snapshot"@en,
+        "viewpoint"@en ;
+    skos:definition "Reusable; all properties optional (draft structure). altLabels: \"viewpoint\", \"perspective snapshot\"."@en ;
+    ho:designStatus "decided" .
+
+ho:Perspective a owl:Class ;
+    rdfs:label "Perspective"@en ;
+    dcterms:source "Canon_and_Continuity glossary; Decisions_Log 2026-11-17"@en ;
+    skos:definition "Abstract umbrella class with no direct members: either a tradition (PerspectiveType) or a perspective specification (PerspectiveSpecification). Carries only a definition and Explanation."@en ;
+    ho:designStatus "decided" .
+

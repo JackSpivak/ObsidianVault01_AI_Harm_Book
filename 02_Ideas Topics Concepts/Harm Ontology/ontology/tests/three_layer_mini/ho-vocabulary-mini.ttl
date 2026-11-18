@@ -1,0 +1,1016 @@
+@prefix cog: <https://example.org/harm-ontology/v3-mini/cog#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix eth: <https://example.org/harm-ontology/v3-mini/eth#> .
+@prefix ho: <https://example.org/harm-ontology/v3-mini/core#> .
+@prefix hov: <https://example.org/harm-ontology/v3-mini/vocab#> .
+@prefix int: <https://example.org/harm-ontology/v3-mini/int#> .
+@prefix law: <https://example.org/harm-ontology/v3-mini/law#> .
+@prefix lit: <https://example.org/harm-ontology/v3-mini/lit#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix phil: <https://example.org/harm-ontology/v3-mini/phil#> .
+@prefix pol: <https://example.org/harm-ontology/v3-mini/pol#> .
+@prefix psy: <https://example.org/harm-ontology/v3-mini/psy#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sci: <https://example.org/harm-ontology/v3-mini/sci#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix soc: <https://example.org/harm-ontology/v3-mini/soc#> .
+
+dcterms:bibliographicCitation a owl:AnnotationProperty .
+
+dcterms:creator a owl:AnnotationProperty .
+
+dcterms:references a owl:AnnotationProperty .
+
+dcterms:source a owl:AnnotationProperty .
+
+dcterms:title a owl:AnnotationProperty .
+
+rdf:value a owl:AnnotationProperty .
+
+skos:altLabel a owl:AnnotationProperty .
+
+skos:broadMatch a owl:ObjectProperty .
+
+skos:broader a owl:ObjectProperty .
+
+skos:definition a owl:AnnotationProperty .
+
+skos:editorialNote a owl:AnnotationProperty .
+
+skos:example a owl:AnnotationProperty .
+
+skos:historyNote a owl:AnnotationProperty .
+
+skos:inScheme a owl:ObjectProperty .
+
+skos:memberList a owl:ObjectProperty .
+
+skos:narrower a owl:ObjectProperty .
+
+skos:note a owl:AnnotationProperty .
+
+skos:prefLabel a owl:AnnotationProperty .
+
+skos:related a owl:ObjectProperty .
+
+skos:scopeNote a owl:AnnotationProperty .
+
+<https://example.org/harm-ontology/v3-mini/ho-vocabulary-mini> a owl:Ontology ;
+    dcterms:references hov:quote01,
+        hov:quote02,
+        hov:quote03,
+        hov:quote04,
+        hov:quote05,
+        hov:quote06,
+        hov:quote07,
+        hov:quote08,
+        hov:quote09,
+        hov:quote10,
+        hov:quote11,
+        hov:quote12,
+        hov:quote13,
+        hov:quote14,
+        hov:quote15,
+        hov:quote16,
+        hov:quote17,
+        hov:quote18,
+        hov:quote19 ;
+    dcterms:source "Obsidian Copilot agent session \"Read Handoff - PerspectiveStructure 0.02 and the notes it lists\", 2026-11-17 (`copilot/copilot-conversations/agent__Read_Handoff_-_PerspectiveStructure_0.02_and_the_notes_it_lists,@20261117_170442.md`)."@en ;
+    dcterms:title "Harm Ontology mini example: vocabulary layer (SKOS, hov:)"@en ;
+    rdfs:comment "Hubs, spokes, discipline schemes and value scales parsed from the vault note 'Vocabulary Crosswalk - Concept Hubs and Discipline Schemes' (HO-II.d.2). TEST ARTEFACT: placeholder IRIs; statuses are the note's own ('candidate'). Mapping grades are Claude's proposals as reviewed in that note."@en ;
+    owl:imports <https://example.org/harm-ontology/v3-mini/ho-core-mini> ;
+    owl:versionIRI <https://example.org/harm-ontology/v3-mini/ho-vocabulary-mini/0.1> ;
+    owl:versionInfo "mini example 0.1 (2026-11-18). Not the v3 release." .
+
+int:colourAltitudeOrder a skos:OrderedCollection ;
+    skos:memberList ( int:infrared int:magenta int:red int:amber int:orange int:green int:teal int:turquoise int:indigo int:violet int:ultraviolet int:white ) ;
+    skos:prefLabel "int:colourAltitude (order, lowest to highest)"@en .
+
+int:gebserStagesOrder a skos:OrderedCollection ;
+    skos:memberList ( int:archaic int:magic int:mythic int:rational int:pluralistic int:integral ) ;
+    skos:prefLabel "int:gebserStages (order, lowest to highest)"@en .
+
+int:moralBandsOrder a skos:OrderedCollection ;
+    skos:editorialNote "Band ↔ stage ↔ colour (within the Integral scale).** Bands to Gebser stages are Wilber's own grouping (primary text). Stages to colours follow \"Integral Semiotics\" for red, amber, orange and green; the rest are from secondary sources."@en ;
+    skos:memberList ( int:egocentric int:ethnocentric int:worldcentric int:kosmocentric ) ;
+    skos:prefLabel "int:moralBands (order, lowest to highest)"@en .
+
+phil:oikeiosisCirclesOrder a skos:OrderedCollection ;
+    skos:memberList ( phil:circleSelf phil:circleHousehold phil:circleKin phil:circleCity phil:circleHumanity ) ;
+    skos:prefLabel "phil:oikeiosisCircles (order, lowest to highest)"@en .
+
+psy:careStagesScaleOrder a skos:OrderedCollection ;
+    skos:memberList ( psy:selfish psy:care psy:universalCare psy:integrated ) ;
+    skos:prefLabel "psy:careStages (order, lowest to highest)"@en .
+
+psy:kohlbergLevelsOrder a skos:OrderedCollection ;
+    skos:memberList ( psy:preConventional psy:conventional psy:postConventional ) ;
+    skos:prefLabel "psy:kohlbergLevels (order, lowest to highest)"@en .
+
+hov:assertedBy a owl:AnnotationProperty ;
+    rdfs:label "asserted by"@en .
+
+hov:bandsTakenFrom a owl:ObjectProperty ;
+    rdfs:label "bands taken from"@en .
+
+hov:boundaryTests a owl:AnnotationProperty ;
+    rdfs:label "boundary tests"@en .
+
+hov:citationVerification a owl:AnnotationProperty ;
+    rdfs:label "citation verification"@en .
+
+hov:discipline a owl:AnnotationProperty ;
+    rdfs:label "discipline"@en .
+
+hov:documents a owl:ObjectProperty ;
+    rdfs:label "documents"@en .
+
+hov:explanation a owl:AnnotationProperty ;
+    rdfs:label "explanation"@en .
+
+hov:explanationProvenance a owl:AnnotationProperty ;
+    rdfs:label "explanation provenance"@en .
+
+hov:glossLine a owl:AnnotationProperty ;
+    rdfs:label "gloss line (from the diagram)"@en .
+
+hov:keyThinkers a owl:AnnotationProperty ;
+    rdfs:label "key thinkers"@en .
+
+hov:meaningAsOf a owl:AnnotationProperty ;
+    rdfs:label "meaning as of"@en .
+
+hov:omission a skos:Concept ;
+    skos:definition "Something bearing on a lens's verdicts that the lens leaves out, whether by design, oversight, suppression or choice."@en ;
+    skos:example "A benchmark that measures accuracy and leaves out dignity."@en ;
+    skos:inScheme hov:hubs ;
+    skos:narrower hov:acceptedHarm,
+        hov:blindSpot,
+        hov:outOfFrame ;
+    skos:note "Documents: `ho:omission` (an Assessment of a PerspectiveType, typed by branch and kind, with `assessedBy`); replaces `blindSpot` from 0.01 as the umbrella"@en ;
+    skos:prefLabel "omission"@en ;
+    skos:scopeNote "Cross-discipline concept hub, with three branches: out of frame, blind spot (negligent or suppressed), accepted harm"@en ;
+    hov:boundaryTests "**Out of frame vs blind spot:** could this lens, used with reasonable care, have seen it? **Negligent vs suppressed:** did the lens suspect it and take deliberate steps not to find out (the *Global-Tech* test)? **Blind spot vs accepted harm:** was it seen and traded off?"@en ;
+    hov:documents ho:omission ;
+    hov:explanation "Every lens leaves things out; the question is how and why. The council reviews found four kinds of exclusion that the 0.01 structure lumped together as `blindSpot`. Taking a blind spot in its ordinary sense, something visible but missed, sorts them into three branches. **Out of frame:** excluded by design and not visible to this lens at all, as a map must leave things out (constitutive). **Blind spot:** visible, but missed, either through lack of reasonable care (negligent) or because the lens suspected it and arranged not to look (suppressed). **Accepted harm:** seen and tolerated as the price of a benefit. Each calls for a different response: out-of-frame omissions need another lens to cover them; negligent blind spots need better instruments or care; suppressed ones need transparency, disclosure and whistleblower protection; accepted harms need moral and political argument. Keeping them apart stops the worse kinds hiding behind the better ones, for example \"out of scope\" used as an alibi for suppression. Which branch applies is a judgement, so it is always an Assessment with `assessedBy`. Links: [[HO-005 Assessed Membership and Systematic Omission|HO-005]], [[HO-004 Criticality, Leverage and the Limits of Scope|HO-004]]."@en ;
+    hov:glossLine "What a lens leaves out of its verdicts."@en ;
+    hov:status "candidate"@en .
+
+hov:status a owl:AnnotationProperty ;
+    rdfs:label "status"@en .
+
+hov:verificationNote a owl:AnnotationProperty ;
+    rdfs:label "verification note"@en .
+
+cog:scheme a skos:ConceptScheme ;
+    skos:prefLabel "Cognitive science vocabulary"@en .
+
+eth:scheme a skos:ConceptScheme ;
+    skos:prefLabel "Ethics vocabulary"@en .
+
+int:amber a skos:Concept ;
+    skos:broadMatch int:ethnocentric ;
+    skos:inScheme int:colourAltitude ;
+    skos:prefLabel "amber"@en .
+
+int:archaic a skos:Concept ;
+    skos:broadMatch int:egocentric ;
+    skos:inScheme int:gebserStages ;
+    skos:prefLabel "archaic"@en .
+
+int:green a skos:Concept ;
+    skos:broadMatch int:worldcentric ;
+    skos:inScheme int:colourAltitude ;
+    skos:prefLabel "green"@en .
+
+int:indigo a skos:Concept ;
+    skos:inScheme int:colourAltitude ;
+    skos:prefLabel "indigo"@en ;
+    skos:relatedMatch int:kosmocentric .
+
+int:infrared a skos:Concept ;
+    skos:broadMatch int:egocentric ;
+    skos:inScheme int:colourAltitude ;
+    skos:prefLabel "infrared"@en .
+
+int:integral a skos:Concept ;
+    skos:broadMatch int:kosmocentric ;
+    skos:inScheme int:gebserStages ;
+    skos:prefLabel "integral"@en .
+
+int:magenta a skos:Concept ;
+    skos:broadMatch int:egocentric ;
+    skos:inScheme int:colourAltitude ;
+    skos:prefLabel "magenta"@en .
+
+int:magic a skos:Concept ;
+    skos:broadMatch int:egocentric ;
+    skos:inScheme int:gebserStages ;
+    skos:prefLabel "magic"@en .
+
+int:mythic a skos:Concept ;
+    skos:broadMatch int:ethnocentric ;
+    skos:inScheme int:gebserStages ;
+    skos:prefLabel "mythic"@en .
+
+int:orange a skos:Concept ;
+    skos:broadMatch int:worldcentric ;
+    skos:inScheme int:colourAltitude ;
+    skos:prefLabel "orange"@en .
+
+int:pluralistic a skos:Concept ;
+    skos:broadMatch int:worldcentric ;
+    skos:inScheme int:gebserStages ;
+    skos:prefLabel "pluralistic"@en .
+
+int:rational a skos:Concept ;
+    skos:broadMatch int:worldcentric ;
+    skos:inScheme int:gebserStages ;
+    skos:prefLabel "rational"@en .
+
+int:red a skos:Concept ;
+    skos:broadMatch int:egocentric ;
+    skos:inScheme int:colourAltitude ;
+    skos:prefLabel "red"@en .
+
+int:scheme a skos:ConceptScheme ;
+    skos:prefLabel "Integral theory vocabulary"@en .
+
+int:teal a skos:Concept ;
+    skos:broadMatch int:kosmocentric ;
+    skos:inScheme int:colourAltitude ;
+    skos:prefLabel "teal"@en .
+
+int:turquoise a skos:Concept ;
+    skos:broadMatch int:kosmocentric ;
+    skos:inScheme int:colourAltitude ;
+    skos:prefLabel "turquoise"@en .
+
+int:ultraviolet a skos:Concept ;
+    skos:inScheme int:colourAltitude ;
+    skos:prefLabel "ultraviolet"@en ;
+    skos:relatedMatch int:kosmocentric .
+
+int:violet a skos:Concept ;
+    skos:inScheme int:colourAltitude ;
+    skos:prefLabel "violet"@en ;
+    skos:relatedMatch int:kosmocentric .
+
+int:white a skos:Concept ;
+    skos:inScheme int:colourAltitude ;
+    skos:prefLabel "white"@en ;
+    skos:relatedMatch int:kosmocentric .
+
+lit:scheme a skos:ConceptScheme ;
+    skos:prefLabel "Literature vocabulary"@en .
+
+phil:circleCity a skos:Concept ;
+    skos:inScheme phil:oikeiosisCircles ;
+    skos:prefLabel "city"@en .
+
+phil:circleHousehold a skos:Concept ;
+    skos:inScheme phil:oikeiosisCircles ;
+    skos:prefLabel "household"@en .
+
+phil:circleKin a skos:Concept ;
+    skos:inScheme phil:oikeiosisCircles ;
+    skos:prefLabel "kin"@en .
+
+phil:circleSelf a skos:Concept ;
+    skos:inScheme phil:oikeiosisCircles ;
+    skos:prefLabel "self"@en .
+
+pol:scheme a skos:ConceptScheme ;
+    skos:prefLabel "Political theory vocabulary"@en .
+
+soc:scheme a skos:ConceptScheme ;
+    skos:prefLabel "Sociology vocabulary"@en .
+
+hov:blindSpot a skos:Concept ;
+    skos:definition "visible but missed"@en ;
+    skos:inScheme hov:hubs ;
+    skos:narrower hov:negligentBlindSpot,
+        hov:suppressedBlindSpot ;
+    skos:prefLabel "blindSpot"@en .
+
+hov:quote01 a hov:SourceQuote ;
+    dcterms:creator "Author"@en ;
+    rdf:value "i had proposed we have some self documenting approach to acknowledging/reconciling this  and also with  the recognition that each domain used their own terminology. i proposed at a minimum we have skos:altLabel for each domain but maybe a domain profile with many such properties satisfies."@en .
+
+hov:quote02 a hov:SourceQuote ;
+    dcterms:creator "Claude: Opus 5.5 (claude-opus-5-5)"@en ;
+    rdf:value "**Concept hub (row):** reconciles one idea across disciplines. This is where convergence, graded matches and \"what differs\" live."@en .
+
+hov:quote03 a hov:SourceQuote ;
+    dcterms:creator "Claude: Opus 5.5 (claude-opus-5-5)"@en ;
+    rdf:value "**Discipline scheme (column):** collects every term one discipline uses, in its own vocabulary, with its own definitions. It's what a lawyer would browse."@en .
+
+hov:quote04 a hov:SourceQuote ;
+    dcterms:creator "Author"@en ;
+    rdf:value "simple naming with the relevant discipline specific terminology preserved in the vocABULARY narrative. disciplines instead of council yes. i dont know what mapping grades are"@en .
+
+hov:quote05 a hov:SourceQuote ;
+    dcterms:creator "Claude: Opus 5.5 (claude-opus-5-5)"@en ;
+    rdf:value "**Why it matters:** without grades, five terms linked to one hub look like five synonyms. Grades preserve the differences between disciplines, which is part of what you wanted acknowledged."@en .
+
+hov:quote06 a hov:SourceQuote ;
+    dcterms:creator "Author (read as: Claude proposes a grade per mapping with a reason; the author reviews)"@en ;
+    rdf:value "yes mapping grades"@en .
+
+hov:quote07 a hov:SourceQuote ;
+    dcterms:creator "Author"@en ;
+    rdf:value "kant close match"@en .
+
+hov:quote08 a hov:SourceQuote ;
+    dcterms:creator "Claude: Opus 5.5 (claude-opus-5-5)"@en ;
+    rdf:value "Next is the **blind spot** hub with its four kinds, in the same format, with new citations checked on the web. Shall I go ahead?"@en .
+
+hov:quote09 a hov:SourceQuote ;
+    dcterms:creator "Author (approving the blind-spot hub)"@en ;
+    rdf:value "yes"@en .
+
+hov:quote10 a hov:SourceQuote ;
+    dcterms:creator "Author"@en ;
+    rdf:value "a blind spot might reasonably be thought of as something visible but missed. do you see this differently"@en .
+
+hov:quote11 a hov:SourceQuote ;
+    dcterms:creator "Claude: Opus 5.5 (claude-opus-5-5); the three things listed were what's outside the frame, what's in the frame but missed, and what's seen and tolerated"@en ;
+    rdf:value "So I'd say my hub put three different things under one name:"@en .
+
+hov:quote12 a hov:SourceQuote ;
+    dcterms:creator "Author (approving the rename to `omission` with three branches)"@en ;
+    rdf:value "yes. your way"@en .
+
+hov:quote13 a hov:SourceQuote ;
+    dcterms:creator "Author"@en ;
+    rdf:value "do wilbers altitude levels get included somewhere in the voccabulary level?"@en .
+
+hov:quote14 a hov:SourceQuote ;
+    dcterms:creator "Claude: Opus 5.5 (claude-opus-5-5)"@en ;
+    rdf:value "Shall I verify Wilber's levels and AQAL axes, then draft the `int:` spokes and the scale schemes?"@en .
+
+hov:quote15 a hov:SourceQuote ;
+    dcterms:creator "Author"@en ;
+    rdf:value "yes"@en .
+
+hov:quote16 a hov:SourceQuote ;
+    dcterms:creator "Author"@en ;
+    rdf:value "im concerned about the integral altitudes.  the altitudes listed seem to correspond to macro level groupings of a 12 level color scheme with their own names, definitions, explanation and example"@en .
+
+hov:quote17 a hov:SourceQuote ;
+    dcterms:creator "Author"@en ;
+    rdf:value "can you verify with primary text references?"@en .
+
+hov:quote18 a hov:SourceQuote ;
+    dcterms:creator "Ken Wilber, \"The Leading Edge of the Unknown in the Human Being\" (primary text, quoted by Claude: Opus 5.5 in this session)"@en ;
+    rdf:value "the archaic and magic stages are both egocentric; the mythic stage, as we just pointed out, is ethnocentric; the rational and pluralistic stages are worldcentric; and the integral stage is integrated or kosmocentric."@en .
+
+hov:quote19 a hov:SourceQuote ;
+    dcterms:creator "Author (approving the corrections, the Gilligan spoke and the primary citations)"@en ;
+    rdf:value "yes"@en .
+
+cog:censors a skos:Concept ;
+    dcterms:bibliographicCitation "Minsky, *The Society of Mind* (1986), ch. 27"@en ;
+    skos:altLabel "censors"@en,
+        "suppressors"@en ;
+    skos:definition "Mechanisms within a mind that prevent certain thoughts or observations from forming"@en ;
+    skos:example "A team culture in which some failure reports are never filed"@en ;
+    skos:historyNote "Minsky, ch. 27 \"Censors and Jokes\""@en ;
+    skos:inScheme cog:scheme ;
+    skos:prefLabel "censors"@en ;
+    skos:scopeNote "Individual mind; extended here to institutions by analogy"@en ;
+    hov:assertedBy "Cognitive Council"@en ;
+    hov:citationVerification "Cognitive review, `suppressors` row"@en ;
+    hov:discipline "Cognitive science"@en ;
+    hov:explanation "In *The Society of Mind* (1986), Minsky described the mind as a society of smaller agents, including censors and suppressors that stop certain thoughts from forming at all. As a spoke, it defines the suppressed kind: the lens could see something, but a mechanism inside it prevents the observation from forming or being recorded. That distinguishes suppression from the other three. It isn't the price of focus (constitutive), a failure of care (negligent), or a seen and defended trade-off (accepted). The extension from minds to institutions is this ontology's analogy, not Minsky's claim, but it fits: organizations have internal censors too, in incentives, review processes and what gets logged. For AI harm, it explains why some blind spots don't yield to better instruments. If a team is discouraged from filing certain failure reports, a better detector changes nothing. Suppressed blind spots call for transparency, disclosure duties and whistleblower protection. Because suppression is easy to allege and hard to prove, it must always be an Assessment with evidence and `assessedBy`."@en ;
+    hov:keyThinkers "Marvin Minsky"@en ;
+    hov:meaningAsOf "1986"@en .
+
+eth:operativeMaxim a skos:Concept ;
+    dcterms:bibliographicCitation "Kant, *Groundwork of the Metaphysics of Morals* (1785), Ak. 4:421"@en ;
+    skos:altLabel "hidden maxim"@en,
+        "maxim vs stated end"@en,
+        "operative maxim"@en ;
+    skos:definition "The subjective principle an agent actually acts on, which may differ from the end they profess"@en ;
+    skos:example "A lens stated as \"safety\" whose maxim is \"observe everyone, in case\""@en ;
+    skos:historyNote "The categorical imperative tests maxims, not stated goals"@en ;
+    skos:inScheme eth:scheme ;
+    skos:prefLabel "operative maxim"@en ;
+    skos:scopeNote "One agent's principle of action, not institutional practice"@en ;
+    hov:assertedBy "Ethics Council"@en ;
+    hov:citationVerification "Ethics review, `normativeForm: deontic` row (Ak. 4:421)"@en ;
+    hov:discipline "Ethics"@en ;
+    hov:explanation "For Kant, the moral test applies to the maxim, the principle an agent actually acts on, not to the end the agent professes. Someone can sincerely state a good end while acting on a maxim that couldn't be willed as universal law. As a spoke, it adds the idea that incongruence can be hidden from the agent itself, not only from others. Kant's concept concerns one agent's will, while the hub concerns a lens's public identity and institutional operation, but the two meet closely enough to grade it closeMatch. They meet when a lens is treated as the maxim of an institution: a lens stated as \"safety\" whose working principle is \"observe everyone, in case\". That reading is an interpretation for this ontology, not Kant's own application. It explains why stated purpose and operative purpose should be recorded separately, with the operative side as an Assessment. For AI it matters because a deployer's stated purpose is usually sincere and still uninformative about what the system is optimized to do."@en ;
+    hov:keyThinkers "Immanuel Kant; Christine Korsgaard"@en ;
+    hov:meaningAsOf "1785"@en .
+
+int:altitude a skos:Concept ;
+    dcterms:bibliographicCitation "**Primary:** Wilber, \"The Leading Edge of the Unknown in the Human Being\" (talk transcript, Integral Life, undated) for bands, Gebser stages and tiers; Wilber, \"Integral Semiotics\" (excerpt from unpublished vol. 2 of the Kosmos Trilogy, undated) for colours red/amber/orange/green/indigo and quadrants. **Secondary:** Wilber, *The Religion of Tomorrow* (2017), p. 349, for the 12-colour sequence, as quoted by Visser. AQAL origin: *Sex, Ecology, Spirituality* (1995)."@en ;
+    skos:altLabel "altitude"@en,
+        "colour altitudes"@en,
+        "egocentric, ethnocentric, worldcentric, kosmocentric"@en ;
+    skos:definition "The level of development, marked by how widely a person or perspective identifies and cares"@en ;
+    skos:example "A tribe-scale group holding worldcentric values"@en ;
+    skos:historyNote "Wilber says his four bands are Gilligan's four stages, \"a condensed version of the more standard 6-to-8 levels\", and takes stage names from Gebser. The colour scheme and level numbering change between texts (e.g. red is \"Level 10\" in \"Integral Semiotics\"). His colours resemble Spiral Dynamics but aren't identical."@en ;
+    skos:inScheme int:scheme ;
+    skos:prefLabel "altitude"@en ;
+    skos:scopeNote "Applies to whole perspectives as well as persons; the most comprehensive scale, and the most contested"@en ;
+    hov:assertedBy "Claude Opus 5.5 (this session)"@en ;
+    hov:bandsTakenFrom psy:careStages ;
+    hov:citationVerification "Primary texts read in full 2026-11-17: [Leading Edge PDF](http://integral-life-home.s3.amazonaws.com/Wilber-WakeUpGrowUp-TheEdgeOfTheUnknown.pdf); [Integral Semiotics PDF](https://integral-life-home.s3.amazonaws.com/Ken%20Wilber%20-%20Integral%20Semiotics.pdf). 12-colour sequence: secondary only ([Visser](https://www.integralworld.net/visser101.html)); book not seen. SES 1995 as AQAL origin: [Wikipedia](https://en.wikipedia.org/wiki/Sex,_Ecology,_Spirituality)."@en ;
+    hov:discipline "Integral theory"@en ;
+    hov:explanation "Wilber's Integral theory is where the author's term comes from. In it, \"altitude\" means level of development, and the moral sequence runs egocentric (care for oneself), ethnocentric (care for one's own group), worldcentric (care for all people, regardless of race, sex or creed) and kosmocentric (care for all sentient beings). Wilber presents the scale as a measure of how widely a person identifies. In his own text, the four bands are Gilligan's four stages, and they group Gebser's finer stages: \"the archaic and magic stages are both egocentric; the mythic stage … is ethnocentric; the rational and pluralistic stages are worldcentric; and the integral stage is integrated or kosmocentric.\" As a spoke, it contributes the most comprehensive scale and the clearest statement of the size-versus-altitude distinction. A tribe can be worldcentric; an empire can be ethnocentric. Its colour altitudes give a still finer vocabulary: 12 colours from infrared to white in *The Religion of Tomorrow* (2017), as quoted by Visser, though the scheme and its numbering change between Wilber's texts and overlap confusingly with Spiral Dynamics. Two cautions travel with it. Its correlations with other scales are Wilber's claims, and critics such as Frank Visser contest some of them. And as a scale built from inside one tradition, it is subject to the same \"whose ranking\" rule as Kohlberg's. Its AQAL quadrants also supply the other two integral properties, interior/exterior and individual/collective."@en ;
+    hov:explanationProvenance "new draft"@en ;
+    hov:keyThinkers "Ken Wilber; Jean Gebser (stage names); Carol Gilligan (bands); Clare Graves and Spiral Dynamics (colour precursor); Frank Visser (critic)"@en ;
+    hov:meaningAsOf "per text (undated talk; 2017 for colours)"@en .
+
+law:congruence a skos:Concept ;
+    dcterms:bibliographicCitation "Fuller, *The Morality of Law* (Yale UP, 1964; rev. ed. 1969)"@en ;
+    skos:altLabel "congruence"@en,
+        "congruence between official action and declared rule"@en,
+        "the eighth desideratum"@en ;
+    skos:definition "The requirement that officials actually apply the rules that have been declared"@en ;
+    skos:example "A content policy enforced against one community but not another"@en ;
+    skos:historyNote "Set out through the parable of King Rex; followed the Hart–Fuller debate (1958)"@en ;
+    skos:inScheme law:scheme ;
+    skos:prefLabel "congruence"@en ;
+    skos:scopeNote "Rule systems and their officials, not persons' intentions"@en ;
+    hov:assertedBy "Legal Council"@en ;
+    hov:citationVerification "Legal review, `proceduralIntegrity` row"@en ;
+    hov:discipline "Law"@en ;
+    hov:explanation "Fuller's eighth desideratum asks whether the rules officials actually apply are the rules that were declared. As a spoke of the congruence hub, it contributes the most precise and testable version of the idea: compare the published rule with observed official action. That makes congruence something you can measure from enforcement records, not only argue about, and it connects directly to Holmes's `enforcementReality` and to Pound's distinction between law in books and law in action. It differs from the hub in scope. Fuller audits rule systems and the officials who run them. He doesn't ask about one agent's private maxim, as Kant does, or about deliberate euphemism, as Arendt does. For AI harm the test applies almost unchanged: a platform's published content policy against its moderation logs, or a model card's stated purpose against how the model is actually deployed. Hart's caution carries over too. A perfectly congruent system can still be unjust, so congruence is necessary for integrity but not sufficient for goodness."@en ;
+    hov:keyThinkers "Lon Fuller; H. L. A. Hart (critic); Joseph Raz"@en ;
+    hov:meaningAsOf "1964"@en .
+
+law:negligence a skos:Concept ;
+    dcterms:bibliographicCitation "*Donoghue v Stevenson* [1932] AC 562 (HL)"@en ;
+    skos:altLabel "failure of reasonable care"@en,
+        "foreseeability"@en,
+        "negligence"@en,
+        "the neighbour principle"@en ;
+    skos:definition "Failing to take reasonable care against harm one could reasonably foresee"@en ;
+    skos:example "A deployer who could foresee harm to a group of users and didn't look"@en ;
+    skos:historyNote "Lord Atkin's neighbour principle, House of Lords, 3–2, 26 May 1932; later structured by *Caparo v Dickman* (1990)"@en ;
+    skos:inScheme law:scheme ;
+    skos:prefLabel "negligence"@en ;
+    skos:scopeNote "Judges a person's conduct; the ontology borrows its foreseeability standard"@en ;
+    hov:assertedBy "Claude Opus 5.5 (this session)"@en ;
+    hov:citationVerification "Web 2026-11-17, secondary sources only (study guides; full judgment on BAILII not opened)"@en ;
+    hov:discipline "Law"@en ;
+    hov:explanation "Lord Atkin's neighbour principle in *Donoghue v Stevenson* (1932) holds that you must take reasonable care to avoid acts or omissions that you can reasonably foresee would injure your neighbour, meaning anyone so closely and directly affected that you ought to have them in mind. As a spoke, it gives the negligent kind a tested standard: the question is not whether a lens saw a harm, but whether it ought reasonably to have seen it. That makes \"negligent\" assessable rather than merely accusatory. The grade is relatedMatch because negligence judges a person's conduct, while the hub concerns what a lens leaves out; the ontology borrows the foreseeability test, not the tort. The fit with AI is direct. A deployer who could foresee harm to a group of users and built no way of looking for it has a negligent blind spot in this sense. The later *Caparo* test (1990) adds proximity and whether a duty would be fair, just and reasonable, which shows how much judgement even the legal version contains."@en ;
+    hov:keyThinkers "Lord Atkin"@en ;
+    hov:meaningAsOf "1932"@en .
+
+law:willfulBlindness a skos:Concept ;
+    dcterms:bibliographicCitation "*Global-Tech Appliances, Inc. v. SEB S.A.*, 563 U.S. 754 (2011)"@en ;
+    skos:altLabel "conscious avoidance"@en,
+        "deliberate ignorance"@en,
+        "willful blindness"@en ;
+    skos:definition "Believing a fact is highly probable and acting deliberately to avoid confirming it"@en ;
+    skos:example "A platform that avoids checking whether known harmful content is still circulating (illustrative)"@en ;
+    skos:historyNote "Doctrine borrowed from criminal law; 8–1, Kennedy dissenting"@en ;
+    skos:inScheme law:scheme ;
+    skos:prefLabel "willful blindness"@en ;
+    skos:scopeNote "A legal test, narrower than suppression in general"@en ;
+    hov:assertedBy "Claude Opus 5.5 (this session)"@en ;
+    hov:citationVerification "Web 2026-11-17, Cornell LII syllabus"@en ;
+    hov:discipline "Law"@en ;
+    hov:explanation "In *Global-Tech Appliances v. SEB* (2011), the US Supreme Court set two requirements for willful blindness: the defendant must subjectively believe there is a high probability that a fact exists, and must take deliberate actions to avoid learning of it. The Court said this standard goes beyond recklessness and negligence. As a spoke, it is a narrow, tested case of the suppressed kind, with a useful feature: it separates suppression from negligence by requiring both belief and deliberate avoidance. That gives the ontology a concrete test for the hardest boundary in this hub. A lens that never suspected a harm may be negligent; a lens that suspected it and arranged not to find out is suppressing. The grade is narrowMatch because the doctrine is a legal standard for imputing knowledge, narrower than suppression in general. Justice Kennedy's dissent, that willful blindness is not knowledge, is worth recording too: it marks the line between what a lens knew and what it can be held to have known."@en ;
+    hov:keyThinkers "(Supreme Court majority); Justice Kennedy (dissent)"@en ;
+    hov:meaningAsOf "2011"@en .
+
+lit:omelas a skos:Concept ;
+    dcterms:bibliographicCitation "Le Guin, \"The Ones Who Walk Away from Omelas\", *New Dimensions 3* (1973)"@en ;
+    skos:altLabel "Omelas"@en,
+        "accepted harm"@en,
+        "the child in the basement"@en ;
+    skos:definition "A harm the lens's holders know about and accept as the price of a benefit"@en ;
+    skos:example "Known error rates for some groups, accepted for overall accuracy"@en ;
+    skos:historyNote "Drew on William James (1891); Hugo Award 1974"@en ;
+    skos:inScheme lit:scheme ;
+    skos:prefLabel "Omelas"@en ;
+    skos:scopeNote "Fiction; the mechanism, not a real case"@en ;
+    hov:assertedBy "Sci-Fi Council"@en ;
+    hov:citationVerification "Sci-Fi review, `acceptedHarm` row"@en ;
+    hov:discipline "Literature"@en ;
+    hov:explanation "In Le Guin's story, a city's happiness depends on one child kept in misery, and everyone knows. That isn't a blind spot; it is an accepted harm, seen and agreed to as the price of a benefit. As a spoke, it defines the accepted kind and shows why it must be kept apart from the others. A blind spot calls for better instruments. An accepted harm calls for moral and political argument, because nothing is hidden: the lens has made a trade-off and needs to defend it. Lumping the two together lets accepted harm shelter behind the excuse of ignorance. The story also names a response the other kinds lack: walking away, or exit. For AI, many harms are accepted, not missed: known error rates for some groups, known trauma to content moderators, known environmental costs of training. Recording them as accepted, linked to `costBearer` and `differentialBurden`, makes the trade-off explicit. The grade is closeMatch, with the caveat that it is fiction: it gives the mechanism, not evidence of any real case."@en ;
+    hov:keyThinkers "Ursula K. Le Guin; William James"@en ;
+    hov:meaningAsOf "1973"@en .
+
+phil:circleHumanity a skos:Concept ;
+    skos:inScheme phil:oikeiosisCircles ;
+    skos:prefLabel "humanity"@en ;
+    skos:relatedMatch int:worldcentric .
+
+phil:junzi a skos:Concept ;
+    dcterms:bibliographicCitation "*Analects* 4.16; Cicero, *De Finibus* III.16–22"@en ;
+    skos:altLabel "junzi 君子 vs xiaoren 小人"@en,
+        "oikeiōsis"@en ;
+    skos:definition "Degree of moral cultivation, shown in how widely concern extends"@en ;
+    skos:editorialNote "The source note records this spoke jointly with phil:oikeiosis as one combined column; kept here as one record under phil:junzi."@en ;
+    skos:example "\"The junzi understands what is right; the xiaoren understands what is profitable\""@en ;
+    skos:historyNote "Confucius moralized *junzi* (5th c. BCE); Stoic *oikeiōsis* preserved by Cicero (45 BCE)"@en ;
+    skos:inScheme phil:scheme ;
+    skos:prefLabel "junzi 君子 vs xiaoren 小人"@en ;
+    skos:scopeNote "Cultivation of a person, extended here to lenses"@en ;
+    hov:assertedBy "Classical Council"@en ;
+    hov:citationVerification "Classical review, `developmentalAltitude` row"@en ;
+    hov:discipline "Philosophy (Confucian; Stoic)"@en ;
+    hov:explanation "Confucius performed a quiet revolution: *junzi* had meant someone noble by birth, and he made it mean someone noble by cultivation. The Stoics independently described moral growth as widening appropriation, from caring for one's own body to caring for humanity. Both traditions give strong ancient precedent for the author's idea that perspectives differ in the inclusivity of their value structure, independently of the size of the group they address. That distinction, accepted by the author, is one of the most useful in the structure. **For AI harm:** the same social scope can be held at very different altitudes, for example a national AI strategy framed around competitive advantage versus one framed around global welfare. **Limit, and it is serious:** every altitude scale is built from inside a tradition, and it places that tradition near the top. Confucian, Stoic, Kohlbergian and Integral scales disagree about what \"higher\" means; the Ethics review documents how Kohlberg's scale ranked care reasoning lower. Modelling implication: never assert altitude as a bare fact. Make it a qualified, assessed value with `assessedBy` → PerspectiveType, so every ranking states whose ranking it is, and disagreements become Divergences."@en ;
+    hov:explanationProvenance "verbatim, [[v-0.01 ClassicalCouncil Review of - PerspectiveStructure 0.01|Classical review]]"@en ;
+    hov:keyThinkers "Confucius; Mencius; Zeno; Chrysippus; Cicero"@en ;
+    hov:meaningAsOf "5th c. BCE / 45 BCE"@en .
+
+phil:wu a skos:Concept ;
+    dcterms:bibliographicCitation "*Daodejing* ch. 11"@en ;
+    skos:altLabel "the empty vessel"@en,
+        "usefulness of emptiness"@en,
+        "wu 無 (non-being)"@en ;
+    skos:definition "An exclusion that makes the lens usable"@en ;
+    skos:example "A map that leaves out most of the territory so it can be read"@en ;
+    skos:historyNote "Text dated c. 4th c. BCE; Guodian slips (excavated 1993)"@en ;
+    skos:inScheme phil:scheme ;
+    skos:prefLabel "wu 無 (non-being)"@en ;
+    skos:scopeNote "Applies to the lens's design, not its users"@en ;
+    hov:assertedBy "Classical Council"@en ;
+    hov:citationVerification "Classical review, `blindSpot (constitutive)` row (partly verified: Lau edition not confirmed)"@en ;
+    hov:discipline "Philosophy (Daoist)"@en ;
+    hov:explanation "In chapter 11 of the *Daodejing*, the usefulness of a cart, a pot and a room comes from their empty space: thirty spokes share one hub, and it is the emptiness at the centre that makes the wheel turn. As a spoke, this gives the constitutive kind its clearest image. A lens is useful because of what it leaves out. A map that showed everything would be as large as the territory and useless. This reverses the 0.01 structure's assumption that a blind spot is a defect. Some exclusions are the price of a lens working at all, and the right response to them is not to repair the lens but to make sure another lens covers what it leaves out. The danger is that the image can be borrowed as an excuse. \"Out of scope\" sounds constitutive even when the exclusion serves the lens-holder's interests. That is why the kind is assessed, not declared: a lens's own claim that an exclusion is constitutive is evidence, not a verdict. For AI harm, a benchmark that measures accuracy legitimately ignores dignity only if some other lens is watching dignity."@en ;
+    hov:keyThinkers "Laozi (traditional); Wang Bi"@en ;
+    hov:meaningAsOf "c. 4th c. BCE"@en .
+
+phil:zhengming a skos:Concept ;
+    dcterms:bibliographicCitation "*Analects* 13.3; *Xunzi* ch. 22"@en ;
+    skos:altLabel "correcting names"@en,
+        "rectification of names"@en,
+        "zhengming 正名"@en ;
+    skos:definition "The demand that names match the realities and duties they claim"@en ;
+    skos:example "A \"trust & safety\" team whose real remit is reputational risk"@en ;
+    skos:historyNote "Confucius's answer on what he would do first in government; Xunzi made names conventions enforced by rulers"@en ;
+    skos:inScheme phil:scheme ;
+    skos:prefLabel "rectification of names"@en ;
+    skos:scopeNote "Names and titles, not operations directly"@en ;
+    hov:assertedBy "Classical Council"@en ;
+    hov:citationVerification "Classical review, `name` row"@en ;
+    hov:discipline "Philosophy (Confucian)"@en ;
+    hov:explanation "In *Analects* 13.3 Confucius says the first act of government would be to rectify names, because when names are wrong, speech and affairs fail. As a spoke, it locates incongruence in naming: a name is a promise about function, and a name that claims a virtue the practice lacks corrupts everything done under it. It maps closely to the hub but starts from the other end. Law checks action against a declared rule; *zhengming* checks a name against the reality and duties it claims. Xunzi sharpened it into a political point: names are conventions enforced by those with power, so deciding which name is \"correct\" is itself a perspective. That is why the ontology should record naming disputes as Divergences, not silently pick a winner. For AI harm the pattern is common: \"safety\" that means brand protection, \"personalization\" that means surveillance, \"responsible AI\" that means a principles page. The spoke supplies the vocabulary of `nameIntegrity`: apt, euphemistic, inflated, captured."@en ;
+    hov:keyThinkers "Confucius; Xunzi"@en ;
+    hov:meaningAsOf "c. 5th c. BCE"@en .
+
+pol:sprachregelung a skos:Concept ;
+    dcterms:bibliographicCitation "Arendt, *Eichmann in Jerusalem* (1963), ch. VI"@en ;
+    skos:altLabel "Sprachregelung"@en,
+        "doublespeak"@en,
+        "euphemism"@en,
+        "language rule"@en ;
+    skos:definition "Official rules of language that make harmful practices sound neutral or benign"@en ;
+    skos:example "\"Content moderation\" for removal; \"engagement optimization\" for attention capture"@en ;
+    skos:historyNote "Arendt's term for Nazi euphemisms such as \"final solution\" and \"special treatment\""@en ;
+    skos:inScheme pol:scheme ;
+    skos:prefLabel "language rule"@en ;
+    skos:scopeNote "Deliberate concealment only; honest drift doesn't count"@en ;
+    hov:assertedBy "Logic Council"@en ;
+    hov:citationVerification "Logic review, `languageRules` row"@en ;
+    hov:discipline "Political theory"@en ;
+    hov:explanation "Arendt used the Nazi bureaucracy's *Sprachregelungen*, language rules such as \"final solution\" and \"special treatment\", to show how official vocabulary let people take part in atrocity without naming it. As a spoke, it is a narrower case of incongruence: deliberate, organized euphemism that conceals what is done and by whom. Honest drift between name and practice doesn't count, which is why it is graded narrowMatch. The extreme historical case must not be equated with ordinary AI vocabulary, but the mechanism is the same, and it adds something the other spokes lack: incongruence as a managed system of words, maintained by rules, not just an accidental gap. Orwell's essay on political language and the later word \"doublespeak\" belong to the same family. For the book, candidates include \"content moderation\" for removal, \"engagement optimization\" for attention capture and \"hallucination\" for fabrication. Euphemism is sometimes a legitimate softening, so the attribute should record function and context, not condemn by default."@en ;
+    hov:keyThinkers "Hannah Arendt; George Orwell; William Lutz"@en ;
+    hov:meaningAsOf "1963"@en .
+
+psy:moralStages a skos:Concept ;
+    dcterms:bibliographicCitation "Kohlberg, *Essays on Moral Development*, vol. 1 (Harper & Row, 1981); Gilligan (1982)"@en ;
+    skos:altLabel "pre-conventional, conventional, post-conventional"@en,
+        "stages of moral development"@en ;
+    skos:definition "Developmental levels of moral reasoning"@en ;
+    skos:example "The Heinz dilemma"@en ;
+    skos:historyNote "Built on Piaget (1932); 1958 dissertation with an all-male sample; revised by neo-Kohlbergians (Rest, 1999)"@en ;
+    skos:inScheme psy:scheme ;
+    skos:prefLabel "stages of moral development"@en ;
+    skos:scopeNote "Reasoning about justice; criticised for ranking care lower"@en ;
+    hov:assertedBy "Ethics Council"@en ;
+    hov:citationVerification "Ethics review, `developmentalAltitude` row"@en ;
+    hov:discipline "Developmental psychology"@en ;
+    hov:explanation "Developmental altitude is the most powerful and most dangerous attribute in the structure. Powerful because it captures something real: lenses differ in how widely and reflectively they extend concern, and a lens organised around self-interest is not equivalent to one organised around universal principles. Dangerous because every scale is built from somewhere. Kohlberg's stages, developed from interviews with boys and men, placed rule- and rights-based reasoning at the top and relational reasoning lower, so women's responses scored lower. Gilligan's critique is a documented case of an altitude scale encoding its authors' perspective, and it parallels the Confucian and Stoic rankings noted in the Classical review. For AI, altitude matters because developers increasingly claim their systems reason at a \"higher\" moral level, or align to \"universal\" values. Modelling implication: `developmentalAltitude` should never be stored as a bare value. It should always be an assessed property with `assessedBy` pointing to the scale and its PerspectiveType, so that the ontology records \"post-conventional according to Kohlberg's scale\" rather than \"post-conventional\". Rival altitude scales then become comparable, and their disagreements become Divergences."@en ;
+    hov:explanationProvenance "verbatim, [[v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01|Ethics review]]"@en ;
+    hov:keyThinkers "Jean Piaget; Lawrence Kohlberg; Carol Gilligan; James Rest"@en ;
+    hov:meaningAsOf "1981"@en .
+
+psy:scheme a skos:ConceptScheme ;
+    skos:prefLabel "Developmental psychology vocabulary"@en .
+
+sci:agnotology a skos:Concept ;
+    dcterms:bibliographicCitation "Proctor & Schiebinger (eds.), *Agnotology* (Stanford UP, 2008); McGoey, *The Unknowers* (Zed, 2019)"@en ;
+    skos:altLabel "agnotology"@en,
+        "manufactured doubt"@en,
+        "strategic ignorance"@en ;
+    skos:definition "The study of ignorance deliberately produced or maintained"@en ;
+    skos:example "Avoiding data collection on harms that would create obligations"@en ;
+    skos:historyNote "\"Agnotology\" coined 1992; tobacco industry's manufactured doubt as the founding case"@en ;
+    skos:inScheme sci:scheme ;
+    skos:prefLabel "agnotology"@en ;
+    skos:scopeNote "Institutional and strategic"@en ;
+    hov:assertedBy "Cognitive Council"@en ;
+    hov:citationVerification "Cognitive review, `suppressors` row"@en ;
+    hov:discipline "History of science"@en ;
+    hov:explanation "Agnotology is the study of ignorance that is produced or maintained, not simply not-yet-known. Proctor developed it from the tobacco industry's efforts to manufacture doubt about the harms of smoking; McGoey extended it to \"strategic ignorance\" in organizations. As a spoke, it gives the suppressed kind its institutional, evidence-based form. Where Minsky describes the mechanism inside one mind, agnotology documents how institutions arrange not to know: funding counter-research, avoiding studies whose results would create obligations, and designing record-keeping so that certain facts never exist on paper. It is graded closeMatch because it describes the same thing as the kind, at the scale the ontology cares about. For AI harm the pattern is plausible and worth watching: companies that avoid measuring harms that would trigger duties, or systems built so certain data are never logged. Any claim about a specific organization needs its own sourced research. The link to HO-II.e matters here: a value that is Undisclosed, held by the party with most to lose, can be evidence of suppression."@en ;
+    hov:keyThinkers "Robert Proctor; Londa Schiebinger; Linsey McGoey"@en ;
+    hov:meaningAsOf "2008"@en .
+
+sci:anomaly a skos:Concept ;
+    dcterms:bibliographicCitation "Kuhn, *The Structure of Scientific Revolutions* (1962), ch. VI"@en ;
+    skos:altLabel "anomaly"@en,
+        "outlier"@en,
+        "residual"@en ;
+    skos:definition "An observation a lens can't explain and tends to set aside"@en ;
+    skos:example "Early complaints about an algorithm that fit no recognized harm category"@en ;
+    skos:historyNote "Kuhn argued accumulating anomalies precede scientific revolutions"@en ;
+    skos:inScheme sci:scheme ;
+    skos:prefLabel "anomaly"@en ;
+    skos:scopeNote "Names what is set aside, not why"@en ;
+    hov:assertedBy "Physics Council"@en ;
+    hov:citationVerification "Physics review, `anomalies` row"@en ;
+    hov:discipline "Philosophy of science"@en ;
+    hov:explanation "Kuhn argued that normal science sets aside observations its paradigm can't explain, and that these anomalies accumulate until they force a revolution. Curie's pitchblende, more radioactive than its uranium could explain, is the classic case of an anomaly taken seriously. As a spoke, it maps to the negligent kind with relatedMatch, because setting an anomaly aside isn't always negligent: sometimes it is reasonable, and the anomaly is noise. What it adds is a way to see negligence as it forms. Anomalies are the visible residue of a blind spot, the cases the lens couldn't place. For AI harm, they are often individual complaints that fit no recognized harm category, unusual model behaviour, or patterns among users that no lens has a concept for. These are frequently the first evidence of a new kind of harm. Recording anomalies, rather than letting them drop, is how a lens's negligent blind spots become visible before the damage does. It links this hub to `epistemicStanding` in the Assessments group."@en ;
+    hov:keyThinkers "Thomas Kuhn; Marie Curie"@en ;
+    hov:meaningAsOf "1962"@en .
+
+sci:cargoCultScience a skos:Concept ;
+    dcterms:bibliographicCitation "Feynman, \"Cargo Cult Science\", *Engineering and Science* 37(7) (1974): 10–13"@en ;
+    skos:altLabel "cargo cult science"@en,
+        "form without substance"@en,
+        "scientism"@en ;
+    skos:definition "A practice that imitates the forms of rigorous inquiry without the integrity that makes them work"@en ;
+    skos:example "AI benchmarks reported to decimal precision on contaminated test sets"@en ;
+    skos:historyNote "Feynman's 1974 Caltech commencement address"@en ;
+    skos:inScheme sci:scheme ;
+    skos:prefLabel "cargo cult science"@en ;
+    skos:scopeNote "Scientific form and method, not stated purpose"@en ;
+    hov:assertedBy "Physics Council"@en ;
+    hov:citationVerification "Physics review, `cargoCult` row"@en ;
+    hov:discipline "Philosophy of science"@en ;
+    hov:explanation "Feynman's 1974 commencement address compared some research to islanders building imitation runways in the hope that planes would land: the form of science without the integrity that makes it work. As a spoke, it adds incongruence between method and substance. A lens can carry every outward sign of rigour (metrics, benchmarks, papers, decimal places) while lacking controls, replication and honest reporting of failure. It is graded relatedMatch because it concerns epistemic practice rather than a stated moral purpose, though the two often travel together when a lens's scientific form is what licenses its authority. For AI the risk is high: benchmarks and evaluations are abundant, while independent replication and reported failures are scarce. The spoke links congruence to the Epistemics group, especially Popper's falsifiers and corroboration. Because \"cargo cult\" is an accusation, it must be recorded as an Assessment with `assessedBy`, never as a plain fact about a lens."@en ;
+    hov:keyThinkers "Richard Feynman"@en ;
+    hov:meaningAsOf "1974"@en .
+
+soc:sacrificeZone a skos:Concept ;
+    dcterms:bibliographicCitation "Lerner, *Sacrifice Zones* (MIT Press, 2010)"@en ;
+    skos:altLabel "sacrifice zone"@en,
+        "tolerated cost"@en ;
+    skos:definition "A place or community whose harm is accepted for others' benefit"@en ;
+    skos:example "Communities near data centres bearing water and power costs (illustrative)"@en ;
+    skos:historyNote "Term from Cold War nuclear sites, applied to environmental justice"@en ;
+    skos:inScheme soc:scheme ;
+    skos:prefLabel "sacrifice zone"@en ;
+    skos:scopeNote "Geographic and community-bound"@en ;
+    hov:assertedBy "Sci-Fi Council"@en ;
+    hov:citationVerification "Sci-Fi review, `acceptedHarm` row"@en ;
+    hov:discipline "Sociology (environmental justice)"@en ;
+    hov:explanation "\"Sacrifice zone\" began as a term for Cold War nuclear sites and was taken up by the environmental justice movement for communities exposed to pollution so that others could benefit. Lerner's *Sacrifice Zones* (2010) documents such places in the United States. As a spoke, it is a narrower case of accepted harm: the tolerated cost falls on a particular place and the people who live there. It adds geography and distribution to the accepted kind. An accepted harm is rarely spread evenly; it is usually concentrated where the people bearing it have the least power to refuse. That connects the hub to the Power group, especially `costBearer`, `differentialBurden` and `whoseVoice`. For AI, the physical infrastructure of computation (data centres, power and water use, mining for hardware) raises the same pattern, though any specific claim about a specific place would need its own research before the book uses it. The example in the table is illustrative only."@en ;
+    hov:keyThinkers "Steve Lerner"@en ;
+    hov:meaningAsOf "2010"@en .
+
+hov:outOfFrame a skos:Concept ;
+    skos:closeMatch phil:wu ;
+    skos:definition "excluded by design; not visible to this lens"@en ;
+    skos:inScheme hov:hubs ;
+    skos:prefLabel "outOfFrame"@en .
+
+skos:exactMatch a owl:ObjectProperty .
+
+skos:narrowMatch a owl:ObjectProperty .
+
+law:scheme a skos:ConceptScheme ;
+    skos:prefLabel "Law vocabulary"@en .
+
+phil:scheme a skos:ConceptScheme ;
+    skos:prefLabel "Philosophy vocabulary"@en .
+
+psy:care a skos:Concept ;
+    skos:inScheme psy:careStagesScale ;
+    skos:prefLabel "care"@en .
+
+psy:careStages a skos:Concept ;
+    dcterms:bibliographicCitation "Gilligan, *In a Different Voice* (Harvard UP, 1982); stage labels as rendered in Wilber, \"The Leading Edge of the Unknown in the Human Being\""@en ;
+    skos:altLabel "\"different voice\""@en,
+        "ethics of care"@en,
+        "selfish → care → universal care → integrated (Wilber's rendering)"@en ;
+    skos:definition "Stages of moral development described in the voice of care and responsibility, from care for oneself to care for all"@en ;
+    skos:example "A caregiver who moves from protecting only her own family to caring about everyone's children"@en ;
+    skos:historyNote "Written as an answer to Kohlberg, whose scale scored care reasoning lower"@en ;
+    skos:inScheme psy:scheme ;
+    skos:prefLabel "selfish → care → universal care → integrated (Wilber's rendering)"@en ;
+    skos:scopeNote "Built from the care voice; Wilber's labels may simplify Gilligan's own"@en ;
+    hov:assertedBy "Claude Opus 5.5 (this session)"@en ;
+    hov:citationVerification "Gilligan 1982: Ethics review, `normativeForm: relational` row. The four labels are Wilber's rendering, read in his primary text; Gilligan's own wording of her levels has not been checked."@en ;
+    hov:discipline "Developmental psychology (ethics of care)"@en ;
+    hov:explanation "Gilligan's *In a Different Voice* answered Kohlberg's scale by describing moral development in the voice of care and responsibility, not only rights and justice. As Wilber renders her, the stages run from selfish (care for oneself), to care (care extended to one's own group), to universal care (care for all people), to integrated (both voices brought together). As a spoke, it matters for two reasons. First, it is the most direct match to the hub: its stages are defined by how widely care extends. Second, it is the scale Wilber says his own four bands come from, so the Integral bands and Gilligan's stages can be mapped one-to-one on Wilber's authority. That reverses how the first draft of this note treated Gilligan, as only a critic recorded under Divergences. The Kohlberg–Gilligan dispute stays a Divergence, but Gilligan's scale is now a spoke in its own right. One caution: the four labels here are Wilber's paraphrase. Gilligan's own description of her levels should be checked before any of her wording is quoted in the book."@en ;
+    hov:explanationProvenance "new draft"@en ;
+    hov:keyThinkers "Carol Gilligan; Nel Noddings; Ken Wilber (adopter)"@en ;
+    hov:meaningAsOf "1982"@en .
+
+psy:conventional a skos:Concept ;
+    skos:inScheme psy:kohlbergLevels ;
+    skos:prefLabel "conventional"@en .
+
+psy:integrated a skos:Concept ;
+    skos:inScheme psy:careStagesScale ;
+    skos:prefLabel "integrated"@en .
+
+psy:kohlbergLevels a skos:ConceptScheme ;
+    dcterms:source "Kohlberg (1981)"@en ;
+    skos:note "Levels note: two stages each, six in all"@en ;
+    skos:prefLabel "psy:kohlbergLevels"@en ;
+    hov:verificationNote "Yes (Ethics review row)"@en .
+
+psy:postConventional a skos:Concept ;
+    skos:inScheme psy:kohlbergLevels ;
+    skos:prefLabel "post-conventional"@en .
+
+psy:preConventional a skos:Concept ;
+    skos:inScheme psy:kohlbergLevels ;
+    skos:prefLabel "pre-conventional"@en .
+
+psy:selfish a skos:Concept ;
+    skos:inScheme psy:careStagesScale ;
+    skos:prefLabel "selfish"@en .
+
+psy:universalCare a skos:Concept ;
+    skos:inScheme psy:careStagesScale ;
+    skos:prefLabel "universal care"@en .
+
+sci:scheme a skos:ConceptScheme ;
+    skos:prefLabel "Science studies vocabulary (philosophy and history of science)"@en .
+
+hov:acceptedHarm a skos:Concept ;
+    skos:closeMatch lit:omelas ;
+    skos:definition "seen, and tolerated"@en ;
+    skos:inScheme hov:hubs ;
+    skos:narrowMatch soc:sacrificeZone ;
+    skos:prefLabel "acceptedHarm"@en .
+
+hov:negligentBlindSpot a skos:Concept ;
+    skos:definition "should have been seen"@en ;
+    skos:inScheme hov:hubs ;
+    skos:prefLabel "negligentBlindSpot"@en ;
+    skos:relatedMatch law:negligence,
+        sci:anomaly .
+
+skos:relatedMatch a owl:ObjectProperty .
+
+int:moralBands a skos:ConceptScheme ;
+    dcterms:source "Wilber, \"Leading Edge\""@en ;
+    skos:prefLabel "int:moralBands"@en ;
+    hov:verificationNote "**Yes, primary text**"@en .
+
+psy:careStagesScale a skos:ConceptScheme ;
+    dcterms:source "Gilligan (1982), as rendered by Wilber"@en ;
+    skos:editorialNote "Scheme IRI has the suffix 'Scale' to avoid clashing with the spoke concept psy:careStages."@en ;
+    skos:prefLabel "psy:careStages"@en ;
+    hov:verificationNote "Wilber's rendering confirmed in primary text; Gilligan's own wording not checked"@en .
+
+hov:developmentalAltitude a skos:Concept ;
+    skos:closeMatch int:altitude,
+        phil:junzi,
+        psy:careStages,
+        psy:moralStages ;
+    skos:definition "How widely and how reflectively a lens's value structure extends concern, independently of the size of the group it addresses."@en ;
+    skos:example "Two national AI strategies with the same social scope, one framed around competitive advantage, the other around global welfare."@en ;
+    skos:inScheme hov:hubs ;
+    skos:note "Documents: `ho:developmentalAltitude` (an Assessment, with `assessedBy` → the scale and its PerspectiveType)"@en ;
+    skos:prefLabel "developmentalAltitude"@en ;
+    skos:scopeNote "Cross-discipline concept hub; one of three scope axes with `socialScope` (size) and `moralCircle` (which beings count)"@en ;
+    hov:documents ho:developmentalAltitude ;
+    hov:explanation "Several traditions, working independently, describe the same thing: values that widen from self, to one's own group, to all people, and sometimes beyond. Confucius made *junzi* a rank of cultivation rather than birth; the Stoics described concern widening outward from oneself; Kohlberg measured stages of moral reasoning, and Gilligan answered with stages of care; Wilber's Integral theory takes Gilligan's four stages as the bands egocentric, ethnocentric, worldcentric and kosmocentric. The author's distinction holds across all of them: a tribe-sized lens can hold world-centric values, so altitude is not size. The attribute is powerful because a lens organized around self-interest really does differ from one organized around universal concern, and the difference shapes which harms it counts. It is dangerous because every scale is built from inside a tradition and tends to put that tradition near the top. Gilligan's critique of Kohlberg is the documented case. So the ontology never stores altitude as a bare value: each value belongs to a named scale, is an Assessment with `assessedBy`, and disagreements between scales are recorded as Divergences. For the book, it matters when AI developers claim their systems align to \"universal\" or \"higher\" values: the question is always whose scale."@en ;
+    hov:glossLine "How widely and reflectively a lens's values extend concern."@en ;
+    hov:status "candidate"@en .
+
+hov:suppressedBlindSpot a skos:Concept ;
+    skos:closeMatch cog:censors,
+        sci:agnotology ;
+    skos:definition "suspected, and deliberately not looked at"@en ;
+    skos:inScheme hov:hubs ;
+    skos:narrowMatch law:willfulBlindness ;
+    skos:prefLabel "suppressedBlindSpot"@en .
+
+int:ethnocentric a skos:Concept ;
+    skos:closeMatch psy:conventional ;
+    skos:exactMatch psy:care ;
+    skos:inScheme int:moralBands ;
+    skos:prefLabel "ethnocentric"@en .
+
+phil:oikeiosisCircles a skos:ConceptScheme ;
+    dcterms:source "Hierocles (Stoic), as presented in the Classical review dialogue"@en ;
+    skos:prefLabel "phil:oikeiosisCircles"@en ;
+    hov:verificationNote "No: Hierocles appears only in council dialogue, which wasn't fact-checked"@en .
+
+hov:congruence a skos:Concept ;
+    skos:closeMatch eth:operativeMaxim,
+        law:congruence,
+        phil:zhengming ;
+    skos:definition "The degree to which what a lens says it is and does (its name, stated purpose, declared rules) matches what it actually does in practice."@en ;
+    skos:example "A \"trust & safety\" function whose real remit is reputational protection."@en ;
+    skos:inScheme hov:hubs ;
+    skos:narrowMatch pol:sprachregelung ;
+    skos:note "Documents: `ho:congruence` (an Assessment of a PerspectiveType, with `assessedBy`)"@en ;
+    skos:prefLabel "congruence"@en ;
+    skos:relatedMatch sci:cargoCultScience ;
+    skos:scopeNote "Cross-discipline concept hub"@en ;
+    hov:documents ho:congruence ;
+    hov:explanation "Five disciplines, working from very different starting points, name the same gap between a lens's declared identity and its actual operation. Law calls it congruence between declared rule and official action; Confucian philosophy, the rectification of names; Kantian ethics, the difference between a professed end and the maxim actually acted on; political theory, the language rules that hide what is done; philosophy of science, cargo cult science, the form of rigour without its substance. The hub gives the idea a plain name so that no discipline's term is privileged, and each spoke keeps its own vocabulary and says where it differs. For the book this is central: many AI harms are carried by names (\"safety\", \"alignment\", \"personalization\") that a practice can claim without earning. Because judging incongruence is an evaluation, the ontology records it as an Assessment with `assessedBy`, never as a plain fact about the lens. The five-way convergence is the strongest in the council reviews, but all five were voiced by one model, so it counts as a candidate, not as independent confirmation."@en ;
+    hov:glossLine "The fit between what a lens says it does and what it actually does."@en ;
+    hov:status "candidate"@en .
+
+skos:OrderedCollection a owl:Class .
+
+int:gebserStages a skos:ConceptScheme ;
+    dcterms:source "Wilber, \"Leading Edge\", after Gebser"@en ;
+    skos:note "Levels note: 1st tier = first 5–6; integral = 2nd tier"@en ;
+    skos:prefLabel "int:gebserStages"@en ;
+    hov:verificationNote "**Yes, primary text**"@en .
+
+int:egocentric a skos:Concept ;
+    skos:closeMatch psy:preConventional ;
+    skos:exactMatch psy:selfish ;
+    skos:inScheme int:moralBands ;
+    skos:prefLabel "egocentric"@en .
+
+hov:hubs a skos:ConceptScheme ;
+    skos:prefLabel "Concept hubs"@en .
+
+int:kosmocentric a skos:Concept ;
+    skos:closeMatch psy:integrated ;
+    skos:editorialNote "No match in psy:kohlbergLevels: Kohlberg's scale has no level beyond the universal human; this gap is itself a Divergence between the scales"@en,
+        "Third-tier colours (indigo to white): the source note marks the band 'kosmocentric?' (uncertain; secondary sources only)."@en ;
+    skos:inScheme int:moralBands ;
+    skos:prefLabel "kosmocentric"@en .
+
+int:worldcentric a skos:Concept ;
+    skos:closeMatch psy:postConventional ;
+    skos:exactMatch psy:universalCare ;
+    skos:inScheme int:moralBands ;
+    skos:prefLabel "worldcentric"@en .
+
+int:colourAltitude a skos:ConceptScheme ;
+    dcterms:source "Wilber, *The Religion of Tomorrow* (2017), p. 349"@en ;
+    skos:prefLabel "int:colourAltitude"@en ;
+    hov:verificationNote "Partly: red, amber, orange, green and indigo confirmed in a primary text (\"Integral Semiotics\"); the full sequence only through Visser's quotation. Names for teal and turquoise conflict between sources."@en .
+
+skos:closeMatch a owl:ObjectProperty .
+
+skos:ConceptScheme a owl:Class .
+
+hov:SourceQuote a owl:Class ;
+    rdfs:label "source quote (original wording)"@en .
+
+skos:Concept a owl:Class .
+
+[] a owl:Axiom ;
+    rdfs:comment "the same idea, but restricted to rule systems and their officials"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource hov:congruence ;
+    owl:annotatedTarget law:congruence .
+
+[] a owl:Axiom ;
+    rdfs:comment "(author, 2026-11-17): a lens's operative purpose is read as its maxim; Kant's own term concerns an individual agent's principle"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource hov:congruence ;
+    owl:annotatedTarget eth:operativeMaxim .
+
+[] a owl:Axiom ;
+    rdfs:comment "what a paradigm sets aside, which may be negligent or merely premature"@en ;
+    owl:annotatedProperty skos:relatedMatch ;
+    owl:annotatedSource hov:negligentBlindSpot ;
+    owl:annotatedTarget sci:anomaly .
+
+[] a owl:Axiom ;
+    rdfs:comment "Wilber equates them (primary text)"@en ;
+    owl:annotatedProperty skos:exactMatch ;
+    owl:annotatedSource int:egocentric ;
+    owl:annotatedTarget psy:selfish .
+
+[] a owl:Axiom ;
+    rdfs:comment "the same gap, located in names and titles"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource hov:congruence ;
+    owl:annotatedTarget phil:zhengming .
+
+[] a owl:Axiom ;
+    rdfs:comment "cultivation shown in how widely concern extends"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource hov:developmentalAltitude ;
+    owl:annotatedTarget phil:junzi .
+
+[] a owl:Axiom ;
+    rdfs:comment "usefulness through emptiness is the constitutive kind"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource hov:outOfFrame ;
+    owl:annotatedTarget phil:wu .
+
+[] a owl:Axiom ;
+    rdfs:comment "produced ignorance at institutional scale"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource hov:suppressedBlindSpot ;
+    owl:annotatedTarget sci:agnotology .
+
+[] a owl:Axiom ;
+    rdfs:comment "stages of widening care, the most direct match to the hub's definition"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource hov:developmentalAltitude ;
+    owl:annotatedTarget psy:careStages .
+
+[] a owl:Axiom ;
+    rdfs:comment "Claude's proposal; both centre on the norms of one's own group"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource int:ethnocentric ;
+    owl:annotatedTarget psy:conventional .
+
+[] a owl:Axiom ;
+    rdfs:comment "the sequence is defined by widening identity and care; the source of the author's term"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource hov:developmentalAltitude ;
+    owl:annotatedTarget int:altitude .
+
+[] a owl:Axiom ;
+    rdfs:comment "Wilber equates them, but adds that other developmentalists extend this stage to \"all sentient beings and all life\", which goes beyond Gilligan's integration of two voices"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource int:kosmocentric ;
+    owl:annotatedTarget psy:integrated .
+
+[] a owl:Axiom ;
+    rdfs:comment "internal agents that stop thoughts forming"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource hov:suppressedBlindSpot ;
+    owl:annotatedTarget cog:censors .
+
+[] a owl:Axiom ;
+    rdfs:comment "one legal test for deliberate avoidance of knowledge"@en ;
+    owl:annotatedProperty skos:narrowMatch ;
+    owl:annotatedSource hov:suppressedBlindSpot ;
+    owl:annotatedTarget law:willfulBlindness .
+
+[] a owl:Axiom ;
+    rdfs:comment "levels of moral reasoning, not of concern directly"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource hov:developmentalAltitude ;
+    owl:annotatedTarget psy:moralStages .
+
+[] a owl:Axiom ;
+    rdfs:comment "one kind of incongruence, deliberate euphemism"@en ;
+    owl:annotatedProperty skos:narrowMatch ;
+    owl:annotatedSource hov:congruence ;
+    owl:annotatedTarget pol:sprachregelung .
+
+[] a owl:Axiom ;
+    rdfs:comment "Wilber equates them (primary text)"@en ;
+    owl:annotatedProperty skos:exactMatch ;
+    owl:annotatedSource int:ethnocentric ;
+    owl:annotatedTarget psy:care .
+
+[] a owl:Axiom ;
+    rdfs:comment "Claude's proposal; both centre on the self"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource int:egocentric ;
+    owl:annotatedTarget psy:preConventional .
+
+[] a owl:Axiom ;
+    rdfs:comment "about epistemic form vs substance, not a stated moral purpose"@en ;
+    owl:annotatedProperty skos:relatedMatch ;
+    owl:annotatedSource hov:congruence ;
+    owl:annotatedTarget sci:cargoCultScience .
+
+[] a owl:Axiom ;
+    rdfs:comment "accepted harm located in places and communities"@en ;
+    owl:annotatedProperty skos:narrowMatch ;
+    owl:annotatedSource hov:acceptedHarm ;
+    owl:annotatedTarget soc:sacrificeZone .
+
+[] a owl:Axiom ;
+    rdfs:comment "Stoic concern for humanity is close, but framed as the widening of one's own affinity, not as a stage"@en ;
+    owl:annotatedProperty skos:relatedMatch ;
+    owl:annotatedSource phil:circleHumanity ;
+    owl:annotatedTarget int:worldcentric .
+
+[] a owl:Axiom ;
+    rdfs:comment "Wilber equates them (primary text)"@en ;
+    owl:annotatedProperty skos:exactMatch ;
+    owl:annotatedSource int:worldcentric ;
+    owl:annotatedTarget psy:universalCare .
+
+[] a owl:Axiom ;
+    rdfs:comment "Claude's proposal; a secondary source reports Wilber linking them, not checked in a primary text"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource int:worldcentric ;
+    owl:annotatedTarget psy:postConventional .
+
+[] a owl:Axiom ;
+    rdfs:comment "a standard for judging conduct, not a property of a lens"@en ;
+    owl:annotatedProperty skos:relatedMatch ;
+    owl:annotatedSource hov:negligentBlindSpot ;
+    owl:annotatedTarget law:negligence .
+
+[] a owl:Axiom ;
+    rdfs:comment "a seen harm, knowingly accepted for a benefit"@en ;
+    owl:annotatedProperty skos:closeMatch ;
+    owl:annotatedSource hov:acceptedHarm ;
+    owl:annotatedTarget lit:omelas .
+
