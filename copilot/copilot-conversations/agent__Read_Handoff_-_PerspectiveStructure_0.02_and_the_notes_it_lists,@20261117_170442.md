@@ -7,7 +7,7 @@ topic: "Read Handoff - PerspectiveStructure 0.02 and the notes it li…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":165927,"contextWindow":1000000,"inputTokens":2,"outputTokens":818,"cacheReadTokens":164463,"cacheWriteTokens":644,"updatedAt":1794963563403}'
+usage: '{"usedTokens":166430,"contextWindow":1000000,"inputTokens":4,"outputTokens":5,"cacheReadTokens":165107,"cacheWriteTokens":1314,"updatedAt":1794963784812}'
 ---
 
 **user**: Read Handoff - PerspectiveStructure 0.02 and the notes it lists, then propose the 0.02 structure.
@@ -591,3 +591,51 @@ An accepted harm is *seen*, so calling it a "blind spot" is strictly wrong. I ke
 After that, we either build another hub (accountability locus or consent to be seen) or go back to the 0.02 proposal.
 <!-- copilot-message {"tools":["Grep (read): 02_Ideas Topics Concepts/Harm Ontology","Bash (execute)","ToolSearch (other)","WebSearch (fetch)","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/Vocabulary Crosswalk - Concept Hubs and Discipline Schemes.md"]} -->
 [Timestamp: 2026/11/17 17:56:35]
+
+**user**: a blind spot might reasonably be thought of as something visible but missed. do you see this differently
+[Timestamp: 2026/11/17 18:02:48]
+
+**ai**: Mostly I agree with you, and following your definition through improves the hub.
+
+## Two everyday meanings of "blind spot"
+- **The driver's blind spot:** a car beside you that *is* visible and would show with a head check, but you miss it. This is your sense: visible but missed.
+- **The eye's blind spot** (the optic disc): a gap that's built into the eye. You can't see there no matter what you do, and the brain fills it in, so you don't notice the gap. This is closer to the constitutive kind.
+
+The first is the common meaning, and it fits the book better, because it implies the miss could have been avoided. That's where responsibility lies.
+
+## Testing the four kinds against "visible but missed"
+
+| Kind | Visible to this lens? | Missed? | A blind spot in your sense? |
+|---|---|---|---|
+| **Negligent** | Yes, with reasonable care | Yes | **Yes**, the clearest case |
+| **Suppressed** | Yes, but prevented from being seen or recorded | Yes, on purpose | **Yes**. It's the deliberate version: not checking over your shoulder because you'd rather not know. Willful blindness is literally named this way. |
+| **Constitutive** | No. It's outside the lens's frame by design | Not missed, but excluded | **No.** It's a frame or scope limit, the eye's built-in gap |
+| **Accepted** | Yes | No, it's seen and tolerated | **No.** That's a trade-off, not a blind spot |
+
+So I'd say my hub put three different things under one name:
+- what's **outside the frame**;
+- what's **in the frame but missed**;
+- what's **seen and tolerated**.
+
+## Proposed restructure
+- Rename the hub **`omission`**: whatever a lens leaves out of its verdicts. This also lines up with [[HO-005 Assessed Membership and Systematic Omission|HO-005]].
+- Give it three branches:
+  - **`outOfFrame`**: the constitutive kind (Laozi). It links to scope, `scaleValidity` and `observabilityLimit`.
+  - **`blindSpot`**: visible but missed, used in your sense. It has two kinds:
+    - **negligent**: Donoghue, Kuhn's anomalies;
+    - **suppressed**: Minsky, agnotology, willful blindness.
+  - **`acceptedHarm`**: seen and tolerated (Omelas, sacrifice zones). The Sci-Fi review had already proposed this as a separate item, a sibling of blind spot rather than a kind of it.
+
+The eight spokes keep their grades. Only where they attach changes.
+
+The question this raises is where negligent ends and suppressed begins. *Global-Tech* gives a usable test: suspecting the fact and deliberately avoiding finding out counts as suppressed.
+
+Shall I restructure the hub this way? Or would you rather keep "blind spot" as the hub name and narrow its definition, moving constitutive and accepted out as separate hubs?
+[Timestamp: 2026/11/17 18:02:48]
+
+**user**: yes. your way
+[Timestamp: 2026/11/17 18:05:26]
+
+**ai**: 
+<!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/Vocabulary Crosswalk - Concept Hubs and Discipline Schemes.md"]} -->
+[Timestamp: 2026/11/17 18:05:26]

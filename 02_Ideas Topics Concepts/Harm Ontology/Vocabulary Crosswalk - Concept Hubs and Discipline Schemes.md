@@ -121,21 +121,23 @@ Citations are taken from the council review rows named in "Citation verified"; t
 
 **`sci:cargoCultScience`.** Feynman's 1974 commencement address compared some research to islanders building imitation runways in the hope that planes would land: the form of science without the integrity that makes it work. As a spoke, it adds incongruence between method and substance. A lens can carry every outward sign of rigour (metrics, benchmarks, papers, decimal places) while lacking controls, replication and honest reporting of failure. It is graded relatedMatch because it concerns epistemic practice rather than a stated moral purpose, though the two often travel together when a lens's scientific form is what licenses its authority. For AI the risk is high: benchmarks and evaluations are abundant, while independent replication and reported failures are scarce. The spoke links congruence to the Epistemics group, especially Popper's falsifiers and corroboration. Because "cargo cult" is an accusation, it must be recorded as an Assessment with `assessedBy`, never as a plain fact about a lens.
 
-## Worked example: `hov:blindSpot`
+## Worked example: `hov:omission`
 
-This hub has **kinds**. The hub has four narrower concepts (`skos:narrower`), one per kind of blind spot, and each discipline term maps to the kind it fits, not to the hub directly. The kinds came from the council reviews: constitutive (Laozi), negligent (Classical), accepted (Le Guin), suppressed (Minsky).
+This hub has **branches**. It has narrower concepts (`skos:narrower`), and each discipline term maps to the branch it fits, not to the hub directly. The four kinds came from the council reviews: constitutive (Laozi), negligent (Classical), accepted (Le Guin), suppressed (Minsky). On 2026-11-17 the author defined a blind spot as "something visible but missed". The kinds were therefore regrouped: only negligent and suppressed omissions are blind spots; constitutive ones are out of frame; accepted ones are seen and tolerated.
 
 ```mermaid
 graph LR
-    HUB(("<b>hov:blindSpot</b><br/>cross-discipline hub<br/><i>What a lens leaves out<br/>of its verdicts.</i>"))
-    K1(["<b>hov:constitutiveBlindSpot</b><br/>exclusion that makes<br/>the lens work"])
-    K2(["<b>hov:negligentBlindSpot</b><br/>exclusion the lens<br/>should have seen"])
-    K3(["<b>hov:acceptedBlindSpot</b><br/>seen, and tolerated"])
-    K4(["<b>hov:suppressedBlindSpot</b><br/>could be seen,<br/>actively prevented"])
+    HUB(("<b>hov:omission</b><br/>cross-discipline hub<br/><i>What a lens leaves out<br/>of its verdicts.</i>"))
+    K1(["<b>hov:outOfFrame</b><br/>excluded by design;<br/>not visible to this lens"])
+    BS(["<b>hov:blindSpot</b><br/>visible but missed"])
+    K2(["<b>hov:negligentBlindSpot</b><br/>should have been seen"])
+    K4(["<b>hov:suppressedBlindSpot</b><br/>suspected, and deliberately<br/>not looked at"])
+    K3(["<b>hov:acceptedHarm</b><br/>seen, and tolerated"])
     HUB --- K1
-    HUB --- K2
+    HUB --- BS
     HUB --- K3
-    HUB --- K4
+    BS --- K2
+    BS --- K4
     K1 ---|closeMatch| P1["<b>phil:wu</b><br/>Philosophy · Laozi, Daodejing ch. 11"]
     K2 ---|relatedMatch| L1["<b>law:negligence</b><br/>Law · Donoghue v Stevenson, 1932"]
     K2 ---|relatedMatch| S1["<b>sci:anomaly</b><br/>Phil. of science · Kuhn, 1962"]
@@ -147,20 +149,20 @@ graph LR
 ```
 
 ### Hub
-| Field | `hov:blindSpot` |
+| Field | `hov:omission` |
 |---|---|
-| Scope | Cross-discipline concept hub, with four kinds |
-| Documents | `ho:blindSpot` (an Assessment of a PerspectiveType, typed by kind, with `assessedBy`) |
-| Definition | Something within a lens's object of attention that the lens leaves out of its verdicts, whether by design, oversight, choice or suppression. |
+| Scope | Cross-discipline concept hub, with three branches: out of frame, blind spot (negligent or suppressed), accepted harm |
+| Documents | `ho:omission` (an Assessment of a PerspectiveType, typed by branch and kind, with `assessedBy`); replaces `blindSpot` from 0.01 as the umbrella |
+| Definition | Something bearing on a lens's verdicts that the lens leaves out, whether by design, oversight, suppression or choice. |
 | Example | A benchmark that measures accuracy and leaves out dignity. |
-| Explanation | Every lens excludes; the question is how and why. The council reviews found four different kinds of exclusion that the 0.01 structure lumped together as a single defect. **Constitutive:** the exclusion is what makes the lens usable, as a map must leave things out. **Negligent:** the lens should have seen something and didn't. **Accepted:** the lens sees the harm and tolerates it as the price of a benefit. **Suppressed:** the lens could see it, but something inside it prevents the observation from forming or being recorded. The kinds matter because each calls for a different response: a constitutive blind spot needs another lens to cover it; a negligent one needs better instruments or care; an accepted one needs moral and political argument; a suppressed one needs transparency, disclosure and whistleblower protection. Lumping them lets the worse kinds hide behind the better ones, for example "out of scope" used as an alibi for suppression. Which kind applies is a judgement, so it is always an Assessment with `assessedBy`. Links: [[HO-005 Assessed Membership and Systematic Omission\|HO-005]], [[HO-004 Criticality, Leverage and the Limits of Scope\|HO-004]]. |
-| Naming caveat | An accepted harm is *seen*, so "blind spot" is strictly a misnomer for that kind. The hub keeps the plain name; the kind name and its definition say what differs. Alternative hub names: `exclusion`, `omission` (see Open questions). |
+| Explanation | Every lens leaves things out; the question is how and why. The council reviews found four kinds of exclusion that the 0.01 structure lumped together as `blindSpot`. Taking a blind spot in its ordinary sense, something visible but missed, sorts them into three branches. **Out of frame:** excluded by design and not visible to this lens at all, as a map must leave things out (constitutive). **Blind spot:** visible, but missed, either through lack of reasonable care (negligent) or because the lens suspected it and arranged not to look (suppressed). **Accepted harm:** seen and tolerated as the price of a benefit. Each calls for a different response: out-of-frame omissions need another lens to cover them; negligent blind spots need better instruments or care; suppressed ones need transparency, disclosure and whistleblower protection; accepted harms need moral and political argument. Keeping them apart stops the worse kinds hiding behind the better ones, for example "out of scope" used as an alibi for suppression. Which branch applies is a judgement, so it is always an Assessment with `assessedBy`. Links: [[HO-005 Assessed Membership and Systematic Omission\|HO-005]], [[HO-004 Criticality, Leverage and the Limits of Scope\|HO-004]]. |
+| Boundary tests | **Out of frame vs blind spot:** could this lens, used with reasonable care, have seen it? **Negligent vs suppressed:** did the lens suspect it and take deliberate steps not to find out (the *Global-Tech* test)? **Blind spot vs accepted harm:** was it seen and traded off? |
 | Status | candidate |
 
-### Kinds and spokes
+### Branches and spokes
 | Field | `phil:wu` | `law:negligence` | `sci:anomaly` | `lit:omelas` | `soc:sacrificeZone` | `cog:censors` | `sci:agnotology` | `law:willfulBlindness` |
 |---|---|---|---|---|---|---|---|---|
-| Kind | constitutive | negligent | negligent | accepted | accepted | suppressed | suppressed | suppressed |
+| Maps to | `outOfFrame` | `blindSpot` › negligent | `blindSpot` › negligent | `acceptedHarm` | `acceptedHarm` | `blindSpot` › suppressed | `blindSpot` › suppressed | `blindSpot` › suppressed |
 | Discipline | Philosophy (Daoist) | Law | Philosophy of science | Literature | Sociology (environmental justice) | Cognitive science | History of science | Law |
 | Grade + reason | **closeMatch**: usefulness through emptiness is the constitutive kind | **relatedMatch**: a standard for judging conduct, not a property of a lens | **relatedMatch**: what a paradigm sets aside, which may be negligent or merely premature | **closeMatch**: a seen harm, knowingly accepted for a benefit | **narrowMatch**: accepted harm located in places and communities | **closeMatch**: internal agents that stop thoughts forming | **closeMatch**: produced ignorance at institutional scale | **narrowMatch**: one legal test for deliberate avoidance of knowledge |
 | Term (altLabels) | *wu* 無 (non-being); the empty vessel; usefulness of emptiness | negligence; failure of reasonable care; the neighbour principle; foreseeability | anomaly; residual; outlier | Omelas; the child in the basement; accepted harm | sacrifice zone; tolerated cost | censors; suppressors | agnotology; manufactured doubt; strategic ignorance | willful blindness; deliberate ignorance; conscious avoidance |
@@ -219,6 +221,15 @@ graph LR
 > "yes"
 - **Attribution:** Author (approving the blind-spot hub)
 
+> "a blind spot might reasonably be thought of as something visible but missed. do you see this differently"
+- **Attribution:** Author
+
+> "So I'd say my hub put three different things under one name:"
+- **Attribution:** Claude: Opus 5.5 (claude-opus-5-5); the three things listed were what's outside the frame, what's in the frame but missed, and what's seen and tolerated
+
+> "yes. your way"
+- **Attribution:** Author (approving the rename to `omission` with three branches)
+
 - **Source:** Obsidian Copilot agent session "Read Handoff - PerspectiveStructure 0.02 and the notes it lists", 2026-11-17 (`copilot/copilot-conversations/agent__Read_Handoff_-_PerspectiveStructure_0.02_and_the_notes_it_lists,@20261117_170442.md`).
 - **External references:** [[v-0.01 LegalCouncil Review of - PerspectiveStructure 0.01]], [[v-0.01 ClassicalCouncil Review of - PerspectiveStructure 0.01]], [[v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01]], [[v-0.01 LogicCouncil Review of - PerspectiveStructure 0.01]], [[v-0.01 PhysicsCouncil Review of - PerspectiveStructure 0.01]] (citation rows); W3C SKOS and SHACL (from memory, unverified).
 
@@ -232,7 +243,7 @@ graph LR
 ## Open questions
 - Congruence grades reviewed 2026-11-17: Kant changed to closeMatch; the other four accepted.
 - Blind-spot grades (eight spokes) to review.
-- Hub name for blind spot: keep `blindSpot`, or use `exclusion` / `omission`, since an accepted harm is seen?
+- Hub renamed from `blindSpot` to `omission` on 2026-11-17, with three branches (out of frame, blind spot, accepted harm); "blind spot" now means visible but missed.
 - Which hubs come next: accountability locus, consent to be seen?
 - Should discipline scheme index notes be created now or only as hubs accumulate?
 - Is `congruence` plain enough as a hub name, or does it read as legal?
