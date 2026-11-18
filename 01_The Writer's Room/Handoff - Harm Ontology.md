@@ -48,16 +48,22 @@ latest_session: "[[2026-11-18 Harm Ontology v3 Toy Case Results]]"
   - B passed every question where A failed silently (CQ1 naive, CQ2, CQ7) and cost no more on the CQ8 control.
   - Files: `ontology/tests/toy_branch_ledger_A.ttl`, `…_B.ttl`; script `~/harm-ontology-scripts/toy_status.py`.
 
+## Done in the toy case (2026-11-18, runs 2–3; test only, nothing logged as a decision)
+- **Finding 1 (false causal disputes), fixed in the test:** attributes can be *non-exclusive* (`cause`, `answerable`). Different values are additive; conflict only if an assessment **denies** a value (`deniesValue`) or claims it is the **sole** one (`soleValue`). Also checked on `answerable`.
+- **Finding 6 (dates), fixed in the test:** interval attribute `occurredDuring` ("YYYY-YYYY"): overlap is compatible (agreed value = intersection), disjoint is Disputed. `occurredStart` (a point) still conflicts on different years.
+- **Finding 5 (revision trigger), in the test:** `revisedBecause`; the script reports each changed value with its trigger and flags a change with none (P4's, deliberately).
+- **Finding 7 (untested paths), covered:** independence (same firm without `repeats`; `repeats` across firms), Corroborated (missing evidence; different procedures), PartiallyAssessed, Incommensurable, and Settled (E8, first time reached). CQ4: Settled (2016) reopened as Disputed (2020).
+- **Exclusive attributes (entity `type`):** disjoint types conflict; a subtype with its supertype and `Unclassified` with a specific type do not.
+- **CQ6 beyond causes** (omission on a severity assessment) and **CQ7 cases** (tribe, grid, AI system, animal/herd, therapy couple, tax household, partnership, LLC, boundary, moral circle, observed core vs assessed reading) run on made-up stand-ins.
+- Result: 42 of 42 checks pass; a deliberate-breakage run made 4 fail, so the checks can fail. See [[2026-11-18 Harm Ontology v3 Toy Case Results]].
+- **Limits:** CQ7 cases have no procedure or evidence, so they test conflict vs no conflict only (mostly SingleSource); `affectedStanding` is treated as exclusive (a test choice); variant A was not extended; legal and anthropological content is unverified.
+
 ## Next step
-1. **Causal-conflict rule (toy finding 1, major).** B marked "who caused it?" as Disputed only because two perspectives named *different* causes (policy vs bug), which can both be true. That contradicts HO-003.
-   - Proposal, not decided: causal values conflict only when an assessment **denies** a cause or claims a cause is the **only** one.
-   - Do any other categorical attributes (answerability, type) have the same problem?
-2. **Toy run 2:**
-   - add a revision trigger (finding 5, e.g. `revisedBecause`)
-   - add cases that test independence / `repeats`, Corroborated and Incommensurable (finding 7)
-   - compare date intervals by overlap (finding 6)
-3. Then the **non-expert subagent test** (CQ1, CQ2, CQ8, given the schema only). It must check whether depending on script-generated snapshots causes silent failures (finding 8).
-4. Then **Horizon R01**, which needs sourced research first.
+1. **Non-expert subagent test** (CQ1, CQ2, CQ8, given the schema only). It must check whether depending on script-generated snapshots causes silent failures (finding 8). B cannot be adopted until this passes.
+2. **SHACL validation:** nodes with no assessment, shortcuts with no status.
+3. **Score** against the pre-written criteria (HO-002.a).
+4. **Horizon R01**, which needs sourced research first (new chat). Also checks whether anything reaches Settled in real data.
+5. Re-read author decisions 5–21, then decide the pending items below.
 - Alternative track: Migration Phase 0, continued (open `# Master Formal Ontology of Harm (Part 1…)`, compare v1 and v2, and extract inventories by script).
 
 ## Pending (proposed, not decided; see [[HO-005 Assessed Membership and Systematic Omission]])

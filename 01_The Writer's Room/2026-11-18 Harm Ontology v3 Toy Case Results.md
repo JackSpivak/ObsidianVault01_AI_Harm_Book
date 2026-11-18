@@ -41,6 +41,23 @@ workstream: Harm Ontology
 7. **Untested paths.** Independence (`repeats`, same firm) and Corroborated never decided an outcome, because Disputed came first; Incommensurable didn't occur after the fixes. The next toy run needs cases for these.
 8. **The status logic lives in a Python script, not in queries.** Non-experts depend on the generated snapshots; the non-expert test (step 6) must check that.
 
+### Run 3 update (same day): findings 1, 5, 6 and 7 addressed in the test
+Script `toy_status.py` and `toy_branch_ledger_B.ttl` were extended; 42 checks, all pass. A deliberate-breakage run (deny, sole and subtype links removed from a temp copy) made 4 fail, so the checks can fail.
+
+| Finding | What was done in the test | Result |
+|---|---|---|
+| 1 False causal disputes | `cause` and `answerable` typed `ho:NonExclusiveAttribute`: values are additive; conflict only on `deniesValue` or `soleValue` | E1 cause is now Corroborated {F1, F3}; deny (E4, E5) and sole (E4, E5) cases give Disputed; E11 Grid (Conduit) plus F1 is additive |
+| 5 Revision trigger | `revisedBecause` read and reported per changed value | P1's change has a trigger (Ev3); P4's is flagged "NO TRIGGER RECORDED" |
+| 6 Dates | `ho:IntervalAttribute` (`occurredDuring`): overlap compatible, value = intersection; disjoint = Disputed | 2009–2014 vs 2012–2014 → Corroborated(2012–2014); 2009–2010 vs 2012–2014 → Disputed. `occurredStart` as a point still conflicts |
+| 7 Untested paths | Cases E6–E9 | Same firm without `repeats` → SingleSource; `repeats` across firms → SingleSource; missing evidence → Corroborated; all agree with evidence → **Settled(High)** (first time); E1 severity among P2,P3,P6 → PartiallyAssessed; E3 → Incommensurable |
+| CQ4 reopening | as-of 2016 vs 2020, scope P2,P6,P1,P4 | Settled(High) → Disputed |
+| Other attributes (type) | subtype collapses into the more specific; `Unclassified` ignored when a specific type exists | Person1, Collective2 not disputed; Tribe1 and Partnership1 Disputed |
+| CQ6 non-causal | `leftOut` on a severity assessment (N6a, AcceptedHarm) | Returned with its omission type |
+| CQ7 cases | tribe, grid (also a Conduit factor), AI system (standing Disputed), animal and herd, therapy couple (Relationship primary, partners separate Effects), tax household (Household primary, Relationship derivative), partnership, LLC, boundary, moral circle with observed core untouched | All as expected (made-up stand-ins) |
+
+- **Limits:** CQ7 cases carry no procedure or evidence, so most read SingleSource (they test conflict vs no conflict). `affectedStanding` is treated as exclusive, a test choice that the AI-system dispute depends on. Variant A was not extended. Legal and anthropological content is unverified.
+- **Still open:** finding 8 (non-expert test of the generated snapshots); SHACL validation; Horizon R01; whether strict settlement leaves almost nothing Settled in real data (E8 settles only because it is built to).
+
 ### Interim reading (Claude's interpretation, not a decision)
 - B passed every question where A failed silently (CQ1 naive, CQ2, CQ7), and cost no more on the CQ8 control.
 - But B's first visible answer to "who caused it?" was **wrong in kind** (finding 1). Visible but false disputes are a different failure from silent omission, and could be as misleading. Fix before Horizon.

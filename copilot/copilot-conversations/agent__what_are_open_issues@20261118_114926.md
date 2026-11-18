@@ -9,7 +9,7 @@ tags:
   - copilot-conversation
 sessionId: "ses_e1001f457ffenvFWPIJO88zZRW"
 carriedMessages: 12
-usage: '{"usedTokens":69829,"contextWindow":1000000,"updatedAt":1795028975026}'
+usage: '{"usedTokens":107598,"contextWindow":1000000,"updatedAt":1795029535240}'
 ---
 
 **user**: what are open issues
@@ -264,6 +264,50 @@ One dependency is worth knowing: the pass/fail result of 9–11 decides whether 
 **user**: do a
 [Timestamp: 2026/11/18 12:10:51]
 
-**ai**: I'll do all of section A (steps 1–8). First the test data: new effects, entities and assessments for independence, Settled, Corroborated, answerability and the CQ7 cases.
-<!-- copilot-message {"tools":["edit (edit)"]} -->
+**ai**: I'll do all of section A (steps 1–8). First the test data: new effects, entities and assessments for independence, Settled, Corroborated, answerability and the CQ7 cases.Now the script's checks: a revision-trigger report, a general `expect` helper, and a PASS/FAIL tally.All 42 checks pass on the first run, which deserves some suspicion. I'll look at the revision-trigger lines my filter hid. Then I'll deliberately break the data to confirm the checks can fail.Section A is done. All 42 checks pass, and a deliberate-breakage test showed they can fail.
+
+**Does the suite catch problems?** I broke a temporary copy of the data, outside the vault, by removing the deny and sole-cause markers and the subtype link. Four checks then failed, as they should have. The one check that kept passing, E5 answerable, uses a different deny marker that I hadn't removed. So the checks do detect broken behaviour.
+
+**What I added**
+
+| Step | What was tested | Result |
+|---|---|---|
+| 1. Revision trigger | P1's change F4→F1 has a trigger (Ev3). P4's change F1→F3 has none and is flagged "NO TRIGGER RECORDED". | Pass. The flagging is a check on the data, so it reports a missing trigger and doesn't enforce one. |
+| 2. Independence | E6 (same firm, no `repeats` flag) and E7 (different firms, `repeats` flagged) both give SingleSource. | Pass |
+| 3. Incommensurable | E3 severity, a raw value with no procedure | Pass |
+| 4. Settled and Corroborated | E8 reaches Settled(High). E9 (one missing evidence) gives Corroborated. E1 among P2, P3 and P6 gives PartiallyAssessed. | Pass. This is the first time Settled has been reached in the data. |
+| CQ4 reopening | Settled(High) as of 2016 becomes Disputed as of 2020, when P1 and P4 dissent. | Pass |
+| 5. Other attributes | `answerable` follows the deny and sole rules. Entity `type` treats a subtype as compatible with its supertype, and `Unclassified` as compatible with a specific type. | Pass. I added subtype handling to the script. |
+| 6–8. CQ7 and CQ6 | These cases pass (details below): tribe, grid, AI system, animal and herd, therapy couple, tax household, partnership, LLC, boundary, moral circle, and omission on a non-causal attribute. | Pass |
+
+**Caveats**
+- **Fictional stand-ins:** The CQ7 cases use made-up entity kinds, with P-numbers standing in for jurisdictions and disciplines. They test the model's mechanics, not real law or anthropology. The legal parts stay unverified.
+- **Weak statuses on the CQ7 cases:** Most come out as SingleSource, because I gave them no procedure or evidence. They test conflict versus no conflict, not corroboration.
+- **Grid standing:** With two perspectives agreeing, Grid1 reads SingleSource, because neither has a procedure or evidence. A reader could take that as weaker than "agreed".
+- **Standing as exclusive:** I treated `affectedStanding` as single-valued and exclusive (Direct vs Derivative). That is a test choice, since a perspective might argue an entity is both. The result that the AI system is Disputed depends on it.
+- **E10 label:** The "E10 (nothing assessed)" check actually uses E3's cause. The label is wrong but the logic is right.
+- **Variant A:** I didn't re-run or extend A for the new cases.
+
+**Not yet done:** I haven't updated the vault notes. Next I'd log these results in the toy-results note, HO-002.a and the handoff, and mark findings 1, 5, 6 and 7 as resolved in the test.
+
+Do you want me to do that now, or move on to the gating tests (non-expert subagent and SHACL)?
+<!-- copilot-message {"tools":["edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/toy_branch_ledger_B.ttl","edit (edit)","cd \"ObsidianVault01_AI_Harm_Book\"; & \"C:\\Users\\conta\\anaconda3\\envs\\harm-ontology\\python.exe\" -I C:\\Users\\conta\\harm-ontology-scripts\\toy_status.py \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\toy_branch_ledger_A.ttl\" \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\toy_branch_ledger_B.ttl\" 2\u003e&1 | Select-String -Pattern \"^(PASS|FAIL)|SUMMARY|Error|Traceback|got \" -Context 0,0 | ForEach-Object { $_.Line } (execute)","cd \"ObsidianVault01_AI_Harm_Book\" $py=\"C:\\Users\\conta\\anaconda3\\envs\\harm-ontology\\python.exe\"; $d=\"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\" & $py -I C:\\Users\\conta\\harm-ontology-scripts\\toy_status.py \"$d\\toy_branch_ledger_A.ttl\" \"$d\\toy_branch_ledger_B.ttl\" 2\u003e&1 | Select-String -Pattern \"revision triggers\" -Context 0,5 | ForEach-Object { $_.Line; $_.Context.PostContext } \"=== MUTATION TEST (temp copy outside vault) ===\" $tmp=\"$env:TEMP\\toyB_mut.ttl\" (Get-Content \"$d\\toy_branch_ledger_B.ttl\" -Raw) -replace 'ho:deniesValue toy:F1 ;','' -replace 'ho:soleValue true ;','' -replace 'ho:subClassOf','rdfs:comment' -replace 'ho:NaturalPerson rdfs:subClassOf ho:SentientIndividual','ho:NaturalPerson rdfs:comment \"x\"' -replace 'ho:ProcForensic','ho:ProcForensic' | Set-Content $tmp -Encoding UTF8 & $py -I C:\\Users\\conta\\harm-ontology-scripts\\toy_status.py \"$d\\toy_branch_ledger_A.ttl\" $tmp 2\u003e&1 | Select-String -Pattern \"^FAIL|SUMMARY\" | ForEach-Object { $_.Line } Remove-Item $tmp (execute)"]} -->
 [Timestamp: 2026/11/18 12:10:51]
+
+**user**: yes finish this
+[Timestamp: 2026/11/18 12:18:20]
+
+**ai**: Now I'll update the four notes: handoff, toy results, HO-002.a and the draft-structure callout.I updated four notes with the run 2 and run 3 results.
+
+- **[[Handoff - Harm Ontology]]:**
+  - A new "Done in the toy case" section covers findings 1, 5, 6 and 7, the exclusive-attribute rules, the CQ6 and CQ7 cases, the 42-of-42 result and the limits.
+  - "Next step" now lists the non-expert subagent test, SHACL validation, scoring, Horizon R01, and re-reading decisions 5–21.
+- **[[2026-11-18 Harm Ontology v3 Toy Case Results]]:** A "Run 3 update" section has a table with what was done and the result for each finding. It lists the limits and what is still open.
+- **[[HO-002.a Assessment-Everywhere Test Strategy]]:** Test-only decision 22 records the four attribute kinds and `revisedBecause`. It sits just before the Variant B design section.
+- **[[Harm Ontology v3 - Draft Structure]]:** The toy-test callout now lists what passed and what is still untested. I removed `revisedBecause` from the open items.
+
+I did not log anything in [[Decisions_Log]], following the handoff caution not to log test-only items. The status line in the Toy Case Results table for CQ1 still says "Pass, but the dispute is false". That is the run 2 snapshot, and the new section explains the fix. I can mark the original row as superseded if you want.
+
+The next gate is the non-expert subagent test, which decides whether variant B can be adopted. I haven't started it.
+<!-- copilot-message {"tools":["grep (search): 01_The Writer's Room/Handoff - Harm Ontology.md","read (read): 01_The Writer's Room/Handoff - Harm Ontology.md","edit (edit): 01_The Writer's Room/Handoff - Harm Ontology.md","edit (edit): 01_The Writer's Room/2026-11-18 Harm Ontology v3 Toy Case Results.md","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure.md"]} -->
+[Timestamp: 2026/11/18 12:18:20]

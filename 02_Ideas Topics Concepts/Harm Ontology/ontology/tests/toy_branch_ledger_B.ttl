@@ -177,6 +177,105 @@ toy:D4 a ho:Assessment ; ho:assesses toy:E5 ; ho:aboutAttribute hoa:occurredDuri
     ho:takenFrom toy:P1 ; ho:assessorOrganisation toy:CompanyX ; ho:usesProcedure toy:ProcInternal ;
     ho:hasEvidence toy:Ev3 ; ho:assessedAt "2018-09-01"^^xsd:date .
 
+# ---------- Toy run 3 additions (2026-11-18): section A of the pre-v3 test list ----------
+# FICTIONAL. Perspectives P1..P6 are stand-ins (e.g. P5 "court" stands for a jurisdiction, P2 for an anthropologist).
+# Nothing here is a claim about real law or real entities.
+
+hoa:affectedStanding  ho:appliesTo ho:Effect .          # Direct | Derivative, per Effect x AffectedEntity (assessed)
+hoa:moralCircleMember ho:appliesTo ho:AffectedEntity .  # assessed reading; the observed core is ho:affects
+hoa:boundary          ho:appliesTo ho:AffectedEntity .  # who is inside a collective, as an assessment
+hoa:sentience         ho:appliesTo ho:AffectedEntity .
+ho:NaturalPerson rdfs:subClassOf ho:SentientIndividual .  # subtype vs supertype must NOT conflict
+
+# --- Independence / settlement paths (all severity of an Effect, AllOperators, ProcForensic) ---
+toy:E6 a ho:Effect ; rdfs:label "TEST: two perspectives, same firm, NOT marked repeats" ; ho:affects toy:AllOperators .
+toy:E7 a ho:Effect ; rdfs:label "TEST: different firms, but second marked as repeating the first" ; ho:affects toy:AllOperators .
+toy:E8 a ho:Effect ; rdfs:label "TEST: all forensic perspectives agree with evidence -> Settled" ; ho:affects toy:AllOperators .
+toy:E9 a ho:Effect ; rdfs:label "TEST: agreement but one lacks evidence -> Corroborated" ; ho:affects toy:AllOperators .
+
+# E6: P2 and P3 share a firm (strict independence needs different organisations) -> SingleSource
+# N6a also leaves out an Effect (omission on a NON-causal attribute; CQ6).
+toy:N6a a ho:Assessment ; ho:assesses toy:E6 ; ho:aboutAttribute hoa:severity ; ho:value "serious" ; ho:forAffectedEntity toy:AllOperators ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:usesProcedure toy:ProcForensic ; ho:hasEvidence toy:Ev2 ; ho:leftOut toy:E3 ; ho:omissionType ho:AcceptedHarm ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:N6b a ho:Assessment ; ho:assesses toy:E6 ; ho:aboutAttribute hoa:severity ; ho:value "serious" ; ho:forAffectedEntity toy:AllOperators ; ho:takenFrom toy:P3 ; ho:assessorOrganisation toy:AuditFirmY ; ho:usesProcedure toy:ProcForensic ; ho:hasEvidence toy:Ev2 ; ho:assessedAt "2016-01-10"^^xsd:date .
+# E7: different firms, but P6 is flagged as a repeat of P2 -> not independent -> SingleSource
+toy:N7a a ho:Assessment ; ho:assesses toy:E7 ; ho:aboutAttribute hoa:severity ; ho:value "serious" ; ho:forAffectedEntity toy:AllOperators ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:usesProcedure toy:ProcForensic ; ho:hasEvidence toy:Ev2 ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:N7b a ho:Assessment ; ho:assesses toy:E7 ; ho:aboutAttribute hoa:severity ; ho:value "serious" ; ho:forAffectedEntity toy:AllOperators ; ho:takenFrom toy:P6 ; ho:assessorOrganisation toy:AuditFirmZ ; ho:usesProcedure toy:ProcForensic ; ho:hasEvidence toy:Ev5 ; ho:repeats toy:N7a ; ho:assessedAt "2016-03-01"^^xsd:date .
+# E8: P2, P3, P6 (every perspective that uses ProcForensic) agree, all with evidence, two firms -> Settled(High)
+toy:N8a a ho:Assessment ; ho:assesses toy:E8 ; ho:aboutAttribute hoa:severity ; ho:value "serious" ; ho:forAffectedEntity toy:AllOperators ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:usesProcedure toy:ProcForensic ; ho:hasEvidence toy:Ev2 ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:N8b a ho:Assessment ; ho:assesses toy:E8 ; ho:aboutAttribute hoa:severity ; ho:value "serious" ; ho:forAffectedEntity toy:AllOperators ; ho:takenFrom toy:P3 ; ho:assessorOrganisation toy:AuditFirmY ; ho:usesProcedure toy:ProcForensic ; ho:hasEvidence toy:Ev2 ; ho:assessedAt "2016-01-10"^^xsd:date .
+toy:N8c a ho:Assessment ; ho:assesses toy:E8 ; ho:aboutAttribute hoa:severity ; ho:value "serious" ; ho:forAffectedEntity toy:AllOperators ; ho:takenFrom toy:P6 ; ho:assessorOrganisation toy:AuditFirmZ ; ho:usesProcedure toy:ProcForensic ; ho:hasEvidence toy:Ev5 ; ho:assessedAt "2016-03-01"^^xsd:date .
+# E9: as E8 but P3 gives no evidence pointer -> cannot settle -> Corroborated
+toy:N9a a ho:Assessment ; ho:assesses toy:E9 ; ho:aboutAttribute hoa:severity ; ho:value "serious" ; ho:forAffectedEntity toy:AllOperators ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:usesProcedure toy:ProcForensic ; ho:hasEvidence toy:Ev2 ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:N9b a ho:Assessment ; ho:assesses toy:E9 ; ho:aboutAttribute hoa:severity ; ho:value "serious" ; ho:forAffectedEntity toy:AllOperators ; ho:takenFrom toy:P3 ; ho:assessorOrganisation toy:AuditFirmY ; ho:usesProcedure toy:ProcForensic ; ho:assessedAt "2016-01-10"^^xsd:date .
+toy:N9c a ho:Assessment ; ho:assesses toy:E9 ; ho:aboutAttribute hoa:severity ; ho:value "serious" ; ho:forAffectedEntity toy:AllOperators ; ho:takenFrom toy:P6 ; ho:assessorOrganisation toy:AuditFirmZ ; ho:usesProcedure toy:ProcForensic ; ho:hasEvidence toy:Ev5 ; ho:assessedAt "2016-03-01"^^xsd:date .
+
+# --- Non-exclusive rule applied to `answerable` (finding 1 follow-up) ---
+# E4: P1 says Manager; P5 says CompanyX and claims it is the ONLY answerable party -> Disputed (sole)
+# E5: P1 says Manager; P5 says CompanyX and DENIES Manager -> Disputed (deny)
+toy:R3 a ho:ResponsibilityAssessment ; ho:assesses toy:E4 ; ho:aboutAttribute hoa:answerable ; ho:value toy:Manager ; ho:takenFrom toy:P1 ; ho:assessorOrganisation toy:CompanyX ; ho:assessedAt "2018-09-01"^^xsd:date .
+toy:R4 a ho:ResponsibilityAssessment ; ho:assesses toy:E4 ; ho:aboutAttribute hoa:answerable ; ho:value toy:CompanyX ; ho:soleValue true ; ho:takenFrom toy:P5 ; ho:assessorOrganisation toy:Court ; ho:assessedAt "2021-04-01"^^xsd:date .
+toy:R5 a ho:ResponsibilityAssessment ; ho:assesses toy:E5 ; ho:aboutAttribute hoa:answerable ; ho:value toy:Manager ; ho:takenFrom toy:P1 ; ho:assessorOrganisation toy:CompanyX ; ho:assessedAt "2018-09-01"^^xsd:date .
+toy:R6 a ho:ResponsibilityAssessment ; ho:assesses toy:E5 ; ho:aboutAttribute hoa:answerable ; ho:value toy:CompanyX ; ho:deniesValue toy:Manager ; ho:takenFrom toy:P5 ; ho:assessorOrganisation toy:Court ; ho:assessedAt "2021-04-01"^^xsd:date .
+
+# --- CQ7 cases: AffectedEntity type, standing, boundary, moral circle (entity kinds are made-up stand-ins) ---
+toy:Tribe1 a ho:AffectedEntity ; rdfs:label "TEST: a tribe" .
+toy:Grid1 a ho:AffectedEntity , ho:Factor ; rdfs:label "TEST: electric grid (an AffectedEntity AND a Factor)" .
+toy:AISys1 a ho:AffectedEntity ; rdfs:label "TEST: an AI system" .
+toy:Dog1 a ho:AffectedEntity ; rdfs:label "TEST: an animal" .
+toy:Herd1 a ho:AffectedEntity ; rdfs:label "TEST: a herd / population (collective, not an individual)" .
+toy:Couple1 a ho:AffectedEntity ; rdfs:label "TEST: a couple (a Relationship)" .
+toy:Partner1 a ho:AffectedEntity ; rdfs:label "TEST: partner 1" .
+toy:Partner2 a ho:AffectedEntity ; rdfs:label "TEST: partner 2" .
+toy:Household1 a ho:AffectedEntity ; rdfs:label "TEST: a status-defined household (joint filers)" .
+toy:Partnership1 a ho:AffectedEntity ; rdfs:label "TEST: a business partnership" .
+toy:LLC1 a ho:AffectedEntity ; rdfs:label "TEST: an LLC" .
+toy:Person1 a ho:AffectedEntity ; rdfs:label "TEST: a person (subtype vs supertype)" .
+toy:Collective2 a ho:AffectedEntity ; rdfs:label "TEST: Unclassified vs a specific type" .
+
+toy:E11 a ho:Effect ; rdfs:label "TEST: grid outage" ; ho:affects toy:Grid1 , toy:AISys1 .
+toy:E12 a ho:Effect ; rdfs:label "TEST: couple harmed by poor therapy" ; ho:affects toy:Couple1 .
+toy:E13 a ho:Effect ; rdfs:label "TEST: therapy harm to partner 1 (separate Effect)" ; ho:affects toy:Partner1 .
+toy:E14 a ho:Effect ; rdfs:label "TEST: therapy harm to partner 2 (separate Effect)" ; ho:affects toy:Partner2 .
+toy:E15 a ho:Effect ; rdfs:label "TEST: marriage tax penalty" ; ho:affects toy:Household1 .
+
+# Type of entity (exclusive attribute). Tribe: social group (P2, anthropology) vs legal entity (P5) -> Disputed.
+toy:Y1 a ho:Assessment ; ho:assesses toy:Tribe1 ; ho:aboutAttribute hoa:entityType ; ho:value ho:CollectiveNaturalGroup ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:Y2 a ho:Assessment ; ho:assesses toy:Tribe1 ; ho:aboutAttribute hoa:entityType ; ho:value ho:CollectiveArtificialPerson ; ho:takenFrom toy:P5 ; ho:assessorOrganisation toy:Court ; ho:assessedAt "2021-04-01"^^xsd:date .
+# Tribe boundary as an assessment with its perspective -> Disputed
+toy:Y3 a ho:Assessment ; ho:assesses toy:Tribe1 ; ho:aboutAttribute hoa:boundary ; ho:value "ClanA" ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:Y4 a ho:Assessment ; ho:assesses toy:Tribe1 ; ho:aboutAttribute hoa:boundary ; ho:value "ClansAandB" ; ho:takenFrom toy:P5 ; ho:assessorOrganisation toy:Court ; ho:assessedAt "2021-04-01"^^xsd:date .
+# Animal: an individual; sentience assessed per perspective. A herd is a collective, not an individual.
+toy:Y5 a ho:Assessment ; ho:assesses toy:Dog1 ; ho:aboutAttribute hoa:entityType ; ho:value ho:SentientIndividual ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:Y6 a ho:Assessment ; ho:assesses toy:Dog1 ; ho:aboutAttribute hoa:sentience ; ho:value "yes" ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:usesProcedure toy:ProcForensic ; ho:hasEvidence toy:Ev2 ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:Y7 a ho:Assessment ; ho:assesses toy:Dog1 ; ho:aboutAttribute hoa:sentience ; ho:value "yes" ; ho:takenFrom toy:P6 ; ho:assessorOrganisation toy:AuditFirmZ ; ho:usesProcedure toy:ProcForensic ; ho:hasEvidence toy:Ev5 ; ho:assessedAt "2016-03-01"^^xsd:date .
+toy:Y8 a ho:Assessment ; ho:assesses toy:Herd1 ; ho:aboutAttribute hoa:entityType ; ho:value ho:CollectiveNaturalGroup ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:assessedAt "2015-05-01"^^xsd:date .
+# Partnership: legal personality depends on jurisdiction (P2 vs P5 stand in for two jurisdictions) -> Disputed. LLC: both agree.
+toy:Y9 a ho:Assessment ; ho:assesses toy:Partnership1 ; ho:aboutAttribute hoa:entityType ; ho:value ho:CollectiveArtificialPerson ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:Y10 a ho:Assessment ; ho:assesses toy:Partnership1 ; ho:aboutAttribute hoa:entityType ; ho:value ho:JointIndividuals ; ho:takenFrom toy:P5 ; ho:assessorOrganisation toy:Court ; ho:assessedAt "2021-04-01"^^xsd:date .
+toy:Y11 a ho:Assessment ; ho:assesses toy:LLC1 ; ho:aboutAttribute hoa:entityType ; ho:value ho:CollectiveArtificialPerson ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:Y12 a ho:Assessment ; ho:assesses toy:LLC1 ; ho:aboutAttribute hoa:entityType ; ho:value ho:CollectiveArtificialPerson ; ho:takenFrom toy:P5 ; ho:assessorOrganisation toy:Court ; ho:assessedAt "2021-04-01"^^xsd:date .
+# Subtype vs supertype (Person1) and Unclassified vs specific (Collective2) must NOT be disputes
+toy:Y13 a ho:Assessment ; ho:assesses toy:Person1 ; ho:aboutAttribute hoa:entityType ; ho:value ho:SentientIndividual ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:Y14 a ho:Assessment ; ho:assesses toy:Person1 ; ho:aboutAttribute hoa:entityType ; ho:value ho:NaturalPerson ; ho:takenFrom toy:P5 ; ho:assessorOrganisation toy:Court ; ho:assessedAt "2021-04-01"^^xsd:date .
+toy:Y15 a ho:Assessment ; ho:assesses toy:Collective2 ; ho:aboutAttribute hoa:entityType ; ho:value ho:Unclassified ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:Y16 a ho:Assessment ; ho:assesses toy:Collective2 ; ho:aboutAttribute hoa:entityType ; ho:value ho:CollectiveNaturalGroup ; ho:takenFrom toy:P4 ; ho:assessorOrganisation toy:Assoc ; ho:assessedAt "2019-02-01"^^xsd:date .
+
+# Standing, per Effect x entity. Grid: Derivative under both perspectives (no conflict). AI system: Direct vs Derivative -> Disputed.
+toy:G1 a ho:Assessment ; ho:assesses toy:E11 ; ho:aboutAttribute hoa:affectedStanding ; ho:value ho:Derivative ; ho:forAffectedEntity toy:Grid1 ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:G2 a ho:Assessment ; ho:assesses toy:E11 ; ho:aboutAttribute hoa:affectedStanding ; ho:value ho:Derivative ; ho:forAffectedEntity toy:Grid1 ; ho:takenFrom toy:P1 ; ho:assessorOrganisation toy:CompanyX ; ho:assessedAt "2018-09-01"^^xsd:date .
+toy:G3 a ho:Assessment ; ho:assesses toy:E11 ; ho:aboutAttribute hoa:affectedStanding ; ho:value ho:Direct ; ho:forAffectedEntity toy:AISys1 ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:G4 a ho:Assessment ; ho:assesses toy:E11 ; ho:aboutAttribute hoa:affectedStanding ; ho:value ho:Derivative ; ho:forAffectedEntity toy:AISys1 ; ho:takenFrom toy:P1 ; ho:assessorOrganisation toy:CompanyX ; ho:assessedAt "2018-09-01"^^xsd:date .
+# Couple harmed by therapy: Relationship is the primary entity. Tax: Household primary; Relationship only derivative.
+toy:G5 a ho:Assessment ; ho:assesses toy:E12 ; ho:aboutAttribute hoa:affectedStanding ; ho:value ho:Direct ; ho:forAffectedEntity toy:Couple1 ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:G6 a ho:Assessment ; ho:assesses toy:E15 ; ho:aboutAttribute hoa:affectedStanding ; ho:value ho:Direct ; ho:forAffectedEntity toy:Household1 ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:G7 a ho:Assessment ; ho:assesses toy:E15 ; ho:aboutAttribute hoa:affectedStanding ; ho:value ho:Derivative ; ho:forAffectedEntity toy:Couple1 ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:assessedAt "2015-05-01"^^xsd:date .
+# Moral-circle membership is an ASSESSED reading; the observed core (E11 ho:affects AISys1) stays fixed. -> Disputed
+toy:M1 a ho:Assessment ; ho:assesses toy:AISys1 ; ho:aboutAttribute hoa:moralCircleMember ; ho:value "yes" ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:M2 a ho:Assessment ; ho:assesses toy:AISys1 ; ho:aboutAttribute hoa:moralCircleMember ; ho:value "no" ; ho:takenFrom toy:P1 ; ho:assessorOrganisation toy:CompanyX ; ho:assessedAt "2018-09-01"^^xsd:date .
+# Grid as a Conduit Factor in the causal account of E11, alongside F1 -> additive, no conflict
+toy:Z1 a ho:CausalAssessment ; ho:assesses toy:E11 ; ho:aboutAttribute hoa:cause ; ho:value toy:Grid1 ; ho:causalRole ho:Conduit ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:usesProcedure toy:ProcForensic ; ho:hasEvidence toy:Ev2 ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:Z2 a ho:CausalAssessment ; ho:assesses toy:E11 ; ho:aboutAttribute hoa:cause ; ho:value toy:F1 ; ho:takenFrom toy:P5 ; ho:assessorOrganisation toy:Court ; ho:usesProcedure toy:ProcCourt ; ho:hasEvidence toy:Ev4 ; ho:assessedAt "2021-04-01"^^xsd:date .
+
 # ---------- Evidence ----------
 toy:Ev1 a ho:Evidence ; rdfs:label "Internal review memo 2010 (fictional)" .
 toy:Ev2 a ho:Evidence ; rdfs:label "Forensic report, firm Y (fictional)" .

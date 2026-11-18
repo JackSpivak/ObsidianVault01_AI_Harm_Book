@@ -155,8 +155,8 @@ BOX D — Vocabulary layer (2026-11-17) → [[Vocabulary Crosswalk - Concept Hub
 >   2. *Non-exclusive* (`cause`, `answerable`): different values are additive, not a conflict (per [[HO-003 Causal Assembly - the Perfect Storm]]). Conflict only if an assessment **denies** a value (`deniesValue`) or claims it is the **sole** one (`soleValue`).
 >   3. *Interval* (`occurredDuring`): conflict only if intervals are disjoint; agreed value is the intersection.
 >   Everything else is single-valued and mutually exclusive; `Unclassified` is not a competing value.
-> - **Passed in the toy run:** cause deny → Disputed; sole-cause claim → Disputed; differing causes with neither → Corroborated; interval overlap → compatible; disjoint intervals → Disputed. Toy data is fictional.
-> - **Still untested or unbuilt:** a revision trigger (`revisedBecause`, finding 5), dedicated tests for independence/`repeats` and Incommensurable (finding 7), whether `answerability` and entity `type` need the same rules in real data, the non-expert subagent test, and the Horizon (R01) slice.
+> - **Passed in the toy runs (42 of 42 checks; fictional data):** deny and sole-cause (on `cause` and `answerable`) → Disputed; differing causes with neither → Corroborated; interval overlap compatible, disjoint Disputed; subtype/supertype and `Unclassified` not conflicts; independence (`repeats`, same firm) → SingleSource; missing evidence → Corroborated; Settled reached; Incommensurable; `revisedBecause` reported (and a missing trigger flagged); Settled → reopened as Disputed over time; CQ6 omission on a non-causal attribute; CQ7 cases (tribe, grid, AI system, animal, couple, household, partnership, LLC) on made-up stand-ins.
+> - **Still untested or unbuilt:** the non-expert subagent test (gates adopting B), SHACL validation, the Horizon (R01) slice, and whether strict settlement leaves almost nothing Settled in real data. Test-only choice to revisit: `affectedStanding` treated as exclusive. Variant A was not extended for run 3.
 
 ## Open and pending (summary)
 - **Pending, deliberately not logged:**
@@ -175,7 +175,6 @@ BOX D — Vocabulary layer (2026-11-17) → [[Vocabulary Crosswalk - Concept Hub
   - the legal layer
   - the evidence anchor against the regress
 - **Open from toy runs (2026-11-18):**
-  - the revision trigger for changed assessments (`revisedBecause`)
   - whether the strict settlement rule leaves almost nothing Settled in real cases
   - the non-expert test (script-generated snapshots must not fail silently), which gates adopting variant B
   - sourced Horizon research (R01)
