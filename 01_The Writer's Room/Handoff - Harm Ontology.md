@@ -19,7 +19,7 @@ latest_session: "[[2026-11-18 Harm Ontology v3 Toy Case Results]]"
   - agreement rule v1 complete
   - variant B designed
   - variant A baseline written
-  - **toy case run once**
+  - **toy case run three times** (run 3: 42 of 42 checks pass; findings 1, 5, 6, 7 addressed in the test)
 - **Migration Phase 0** is partly done: the v1 `.ttl` is repaired and validated, and the tooling is ready.
 - **Nothing is adopted.** Variant B can't be adopted until the non-expert test passes.
 
@@ -46,7 +46,7 @@ latest_session: "[[2026-11-18 Harm Ontology v3 Toy Case Results]]"
   - Effect `occurredDuring`
 - **Toy case "Branch ledger"** (fictional): [[2026-11-18 Harm Ontology v3 Toy Case Results]].
   - B passed every question where A failed silently (CQ1 naive, CQ2, CQ7) and cost no more on the CQ8 control.
-  - Files: `ontology/tests/toy_branch_ledger_A.ttl`, `…_B.ttl`; script `~/harm-ontology-scripts/toy_status.py`.
+  - Files: `ontology/tests/toy_branch_ledger_A.ttl`, `…_B.ttl`; script `ontology/scripts/toy_status.py`.
 
 ## Done in the toy case (2026-11-18, runs 2–3; test only, nothing logged as a decision)
 - **Finding 1 (false causal disputes), fixed in the test:** attributes can be *non-exclusive* (`cause`, `answerable`). Different values are additive; conflict only if an assessment **denies** a value (`deniesValue`) or claims it is the **sole** one (`soleValue`). Also checked on `answerable`.
@@ -59,6 +59,7 @@ latest_session: "[[2026-11-18 Harm Ontology v3 Toy Case Results]]"
 - **Limits:** CQ7 cases have no procedure or evidence, so they test conflict vs no conflict only (mostly SingleSource); `affectedStanding` is treated as exclusive (a test choice); variant A was not extended; legal and anthropological content is unverified.
 
 ## Next step
+0. *Optional, small, do first:* the **Chain toy test** ([[HO-006 Causal Chain - an Assessed Selection with a Horizon]]): one chain assessed at two horizons; pass if the horizons are separate claims and a same-horizon conflict still shows Disputed. Keeps the schema stable before the non-expert test.
 1. **Non-expert subagent test** (CQ1, CQ2, CQ8, given the schema only). It must check whether depending on script-generated snapshots causes silent failures (finding 8). B cannot be adopted until this passes.
 2. **SHACL validation:** nodes with no assessment, shortcuts with no status.
 3. **Score** against the pre-written criteria (HO-002.a).
@@ -86,7 +87,7 @@ latest_session: "[[2026-11-18 Harm Ontology v3 Toy Case Results]]"
 
 ## Tooling
 - Conda environment `harm-ontology`: `~/anaconda3/envs/harm-ontology/python.exe -I …` (rdflib, pyshacl).
-- Scripts go in `~/harm-ontology-scripts/`, outside the vault. Test `.ttl` files go in `02_Ideas Topics Concepts/Harm Ontology/ontology/tests/`.
+- Scripts now live **in the vault** (so they reach GitHub) in `02_Ideas Topics Concepts/Harm Ontology/ontology/scripts/` (`toy_status.py`, `validate_ttl.py`, `inventory.py`, `inventory_v1_v2a.csv`, and `README.md.txt` with run commands). Test `.ttl` files go in `…/ontology/tests/`. The old `~/harm-ontology-scripts/` copy is a duplicate; edit the vault copy. Third-party `.ttl` downloads stay outside the vault.
 
 ## Sub-workstreams
 - **PerspectiveType consolidation (HO-II.d):** done 2026-11-17. Follow-ups: [[Handoff - Perspective Vocabulary and v3 Follow-ups]].

@@ -14,14 +14,14 @@ workstream: Harm Ontology
 
 ## Summary
 - Toy case for [[HO-002.a Assessment-Everywhere Test Strategy]] (pre-test step 5), comparing variant A (attributes asserted) and variant B (assessment everywhere) on the same fictional scenario.
-- **Files:** `02_Ideas Topics Concepts/Harm Ontology/ontology/tests/toy_branch_ledger_A.ttl`, `…/toy_branch_ledger_B.ttl`; script `~/harm-ontology-scripts/toy_status.py` (outside the vault). Run with the `harm-ontology` conda env, `python -I`.
+- **Files:** `02_Ideas Topics Concepts/Harm Ontology/ontology/tests/toy_branch_ledger_A.ttl`, `…/toy_branch_ledger_B.ttl`; script `02_Ideas Topics Concepts/Harm Ontology/ontology/scripts/toy_status.py` (moved into the vault 2026-11-18; see `README.md.txt` there). Run with the `harm-ontology` conda env, `python -I`.
 - **Scenario:** Factors F1 software sync bug, F2 slow reconciliation, F3 liability policy, F4 operator error. Effects E1 financial loss, E2 reputational damage (dates disputed), E3 stress illness (no assessments). Perspectives P1 internal review, P2/P3 forensic auditors from the same firm, P6 auditor from another firm, P4 operators' association (opinion), P5 appeal court. Timeline 2010–2021.
 - **Two runs.** Run 1 exposed script bugs and design gaps (see below); run 2 is the result reported here.
 
 ### Results by competency question (run 2)
 | CQ | Variant A | Variant B | Verdict for B |
 |---|---|---|---|
-| CQ1 cause of E1 | Naive query returns **F1 only**, as fact (silent) | **Disputed**, all five perspectives shown | Pass, **but the dispute is false** (finding 1) |
+| CQ1 cause of E1 | Naive query returns **F1 only**, as fact (silent) | Run 2: **Disputed**, all five perspectives shown. **Superseded in run 3:** Corroborated {F1, F3}, all perspectives still shown (see Run 3 update) | Run 2: Pass, **but the dispute was false** (finding 1). Run 3: Pass, finding 1 fixed in the test |
 | CQ2 severe Effects | Returns **E2 only**; E1 (disputed) and E3 (unassessed) silently missing | Snapshot shows E1 Disputed, E2 Open (SingleSource, Extreme), E3 Open (NotAssessed); counts shown | Pass |
 | CQ3 agreement | Can't be written | Severity of E1: **Disputed** (all) → **PartiallyAssessed** (P2, P3, P6) → **Settled High** (P2, P6) | Pass; shows that scope picks the result |
 | CQ4 change over time | Dated causal assessments listed; asserted attributes have no history | As-of queries trace SingleSource (2011) → Disputed (2013 on) | Partly: **no revision trigger** (finding 5) |

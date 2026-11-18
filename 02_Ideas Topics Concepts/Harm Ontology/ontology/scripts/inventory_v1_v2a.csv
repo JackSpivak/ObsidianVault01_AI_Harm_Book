@@ -1,0 +1,225 @@
+iri,kind,parent,section,in_v1,in_v2a,v2a_line,prefLabel,v1_annotations
+harm:ExperientialHarm,class,harm:Harm,Meta-Category I: `harm:ExperientialHarm`,yes,yes,68,Experiential & Subjective Harm (Conscious Suffering),prefLabel;altLabel;definition;note;scopeNote;historyNote;bibliographicCitation
+harm:HedonicHarm,class,harm:ExperientialHarm,Meta-Category I: `harm:ExperientialHarm`,yes,yes,78,Experiential Harm (Hedonic / Phenomenological Harm),prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:DignitaryRelationalHarm,class,harm:ExperientialHarm,Meta-Category I: `harm:ExperientialHarm`,yes,yes,88,Dignitary and Relational Harm,prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:PsychologicalEmotionalTrauma,class,harm:ExperientialHarm,Meta-Category I: `harm:ExperientialHarm`,yes,yes,98,Psychological & Emotional Trauma,prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:NuisanceSensoryOffense,class,harm:ExperientialHarm,Meta-Category I: `harm:ExperientialHarm`,yes,yes,108,Nuisance and Sensory Offense,prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:VicariousMoralInjury,class,harm:ExperientialHarm,Meta-Category I: `harm:ExperientialHarm`,yes,yes,118,"Vicarious, Secondary & Moral Injury",prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:NonComparativeHarm,class,harm:ExperientialHarm,Meta-Category I: `harm:ExperientialHarm`,,yes,128,,
+harm:WelfareInterestHarm,class,harm:Harm,Meta-Category II: `harm:WelfareInterestHarm`,yes,yes,142,Welfare & Interest-Based Harm (Counterfactual Setbacks),prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:InterestSetbackHarm,class,harm:WelfareInterestHarm,Meta-Category II: `harm:WelfareInterestHarm`,yes,yes,152,Interest-Based Harm (The Counterfactual Comparative Account),prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:PublicCriminalHarm,class,harm:WelfareInterestHarm,Meta-Category II: `harm:WelfareInterestHarm`,yes,yes,161,Public Harm (Criminal / Societal Harm),prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:PrivateTortiousHarm,class,harm:WelfareInterestHarm,Meta-Category II: `harm:WelfareInterestHarm`,yes,yes,171,Private Harm (Tortious / Civil Injury),prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:ExpectationRelianceHarm,class,harm:WelfareInterestHarm,Meta-Category II: `harm:WelfareInterestHarm`,yes,yes,182,Expectation and Reliance Harm (Contractual / Economic Harm),prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:ProbabilisticRiskHarm,class,harm:WelfareInterestHarm,Meta-Category II: `harm:WelfareInterestHarm`,yes,yes,192,Probabilistic and Risk-Based Harm,prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:CollectiveEnvironmentalHarm,class,harm:WelfareInterestHarm,Meta-Category II: `harm:WelfareInterestHarm`,yes,yes,203,"Collective, Diffuse, and Environmental Harm",prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:OpportunityCostChoiceHarm,class,harm:WelfareInterestHarm,Meta-Category II: `harm:WelfareInterestHarm`,yes,yes,213,Opportunity Cost & Choice Architecture Harm,prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:DeontologicalRightsHarm,class,harm:Harm,Meta-Category III: `harm:DeontologicalRightsHarm`,yes,yes,225,Deontological & Rights-Based Harm (Normative Wrongs),prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:KantianDeontologicalHarm,class,harm:DeontologicalRightsHarm,Meta-Category III: `harm:DeontologicalRightsHarm`,yes,yes,235,Deontological Harm (Rights-Based / Dignitary Harm),prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:InjuriaSineDamnoHarm,class,harm:DeontologicalRightsHarm,Meta-Category III: `harm:DeontologicalRightsHarm`,yes,yes,244,Rights-Based Harm Without Loss (Injuria Sine Damno),prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:EpistemicTestimonialHarm,class,harm:DeontologicalRightsHarm,Meta-Category III: `harm:DeontologicalRightsHarm`,yes,yes,255,Epistemic and Testimonial Harm,prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:FiduciaryBetrayalHarm,class,harm:DeontologicalRightsHarm,Meta-Category III: `harm:DeontologicalRightsHarm`,yes,yes,265,Fiduciary and Betrayal Harm,prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:CulturalEpistemicideHarm,class,harm:DeontologicalRightsHarm,Meta-Category III: `harm:DeontologicalRightsHarm`,,yes,275,,
+harm:CognitiveLibertyHarm,class,harm:DeontologicalRightsHarm,Meta-Category III: `harm:DeontologicalRightsHarm`,,yes,287,,
+harm:TeleologicalDeprivationHarm,class,harm:Harm,Meta-Category IV: `harm:TeleologicalDeprivationHarm`,yes,yes,300,Teleological & Deprivation Harm (Privation of Good & Flourishing),prefLabel;altLabel;definition;note;scopeNote;historyNote;bibliographicCitation
+harm:PerfectionistTeleologicalHarm,class,harm:TeleologicalDeprivationHarm,Meta-Category IV: `harm:TeleologicalDeprivationHarm`,yes,yes,309,Teleological Harm (Perfectionist / Eudaimonic Harm),prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:DeprivationHarm,class,harm:TeleologicalDeprivationHarm,Meta-Category IV: `harm:TeleologicalDeprivationHarm`,yes,yes,318,Harm by Deprivation (Comparative Non-Existence / Omission),prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:CapabilityStructuralHarm,class,harm:TeleologicalDeprivationHarm,Meta-Category IV: `harm:TeleologicalDeprivationHarm`,yes,yes,327,Capability Deprivation & Structural Harm,prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:WrongfulDeathConsortiumHarm,class,harm:TeleologicalDeprivationHarm,Meta-Category IV: `harm:TeleologicalDeprivationHarm`,yes,yes,336,Wrongful Death & Loss of Consortium,prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:ParensPatriaePaternalisticHarm,class,harm:TeleologicalDeprivationHarm,Meta-Category IV: `harm:TeleologicalDeprivationHarm`,yes,yes,345,Parens Patriae & Paternalistic Harm Prevention,prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:AttachmentDevelopmentalHarm,class,harm:TeleologicalDeprivationHarm,Meta-Category IV: `harm:TeleologicalDeprivationHarm`,yes,yes,354,"Attachment, Developmental & Relational Deprivation",prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:SystemicCyberneticHarm,class,harm:Harm,Meta-Category V: `harm:SystemicCyberneticHarm`,yes,yes,365,"Systemic, Emergent & Cybernetic Harm (Network & Equilibrium Failures)",prefLabel;altLabel;definition;note;scopeNote;historyNote;bibliographicCitation
+harm:ExternalityCoordinationHarm,class,harm:SystemicCyberneticHarm,Meta-Category V: `harm:SystemicCyberneticHarm`,yes,yes,373,Negative Externalities & Coordination Failures,prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:InformationAsymmetryHarm,class,harm:SystemicCyberneticHarm,Meta-Category V: `harm:SystemicCyberneticHarm`,yes,yes,382,Information Asymmetry & Adverse Selection Harm,prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:AlgorithmicAlignmentHarm,class,harm:SystemicCyberneticHarm,Meta-Category V: `harm:SystemicCyberneticHarm`,yes,yes,391,"Algorithmic, Alignment & Emergent Scale Harm",prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:EpistemicPollutionHarm,class,harm:SystemicCyberneticHarm,Meta-Category V: `harm:SystemicCyberneticHarm`,yes,yes,400,Epistemic Pollution & Attention Hijacking,prefLabel;altLabel;definition;note;scopeNote;example;historyNote;bibliographicCitation
+harm:ValueCapture,class,,B.3 Attributes,,yes,636,,
+harm:ExperientialGain,class,,B.4 Class descriptions *(stage 2)*,,yes,671,,
+harm:GratificationGain,class,harm:ExperientialGain,B.4 Class descriptions *(stage 2)*,,yes,679,,
+harm:DominanceSatisfactionGain,class,harm:ExperientialGain,B.4 Class descriptions *(stage 2)*,,yes,686,,
+harm:MaterialPecuniaryGain,class,,B.4 Class descriptions *(stage 2)*,,yes,693,,
+harm:DirectProfitGain,class,harm:MaterialPecuniaryGain,B.4 Class descriptions *(stage 2)*,,yes,701,,
+harm:AvoidedCostGain,class,harm:MaterialPecuniaryGain,B.4 Class descriptions *(stage 2)*,,yes,707,,
+harm:AssetDataAccumulationGain,class,harm:MaterialPecuniaryGain,B.4 Class descriptions *(stage 2)*,,yes,715,,
+harm:WrongfulGain,class,,B.4 Class descriptions *(stage 2)*,,yes,723,,
+harm:UnjustEnrichmentGain,class,harm:WrongfulGain,B.4 Class descriptions *(stage 2)*,,yes,731,,
+harm:FiduciaryBreachGain,class,harm:WrongfulGain,B.4 Class descriptions *(stage 2)*,,yes,737,,
+harm:CapabilityPositionalGain,class,,B.4 Class descriptions *(stage 2)*,,yes,745,,
+harm:CompetitiveAdvantageGain,class,harm:CapabilityPositionalGain,B.4 Class descriptions *(stage 2)*,,yes,752,,
+harm:PowerInfluenceGain,class,harm:CapabilityPositionalGain,B.4 Class descriptions *(stage 2)*,,yes,757,,
+harm:OpportunityCaptureGain,class,harm:CapabilityPositionalGain,B.4 Class descriptions *(stage 2)*,,yes,762,,
+harm:SystemicRentGain,class,,B.4 Class descriptions *(stage 2)*,,yes,768,,
+harm:RentExtractionGain,class,harm:SystemicRentGain,B.4 Class descriptions *(stage 2)*,,yes,775,,
+harm:NetworkLockInGain,class,harm:SystemicRentGain,B.4 Class descriptions *(stage 2)*,,yes,781,,
+harm:AttentionCaptureGain,class,harm:SystemicRentGain,B.4 Class descriptions *(stage 2)*,,yes,786,,
+harm:RegulatoryArbitrageGain,class,harm:SystemicRentGain,B.4 Class descriptions *(stage 2)*,,yes,793,,
+harm:Harm,class,,,yes,,,Harm,prefLabel;definition
+harm:hasComparativeBaseline,property,,Domain A: Epistemic & Causal Structure,yes,yes,415,Comparative Baseline (Attribute 1),prefLabel;definition;scopeNote
+harm:hasCausationMechanism,property,,Domain A: Epistemic & Causal Structure,yes,yes,420,"Causation, Proximity, and Attribution (Attribute 2)",prefLabel;definition;scopeNote
+harm:hasCausalVector,property,,Domain A: Epistemic & Causal Structure,,yes,424,,
+harm:hasPhenomenologicalTransparency,property,,Domain A: Epistemic & Causal Structure,yes,yes,430,Phenomenological Transparency (Attribute 3),prefLabel;definition;scopeNote
+harm:hasSystemOpacity,property,,Domain A: Epistemic & Causal Structure,yes,yes,434,System Opacity & Legibility (Attribute 4),prefLabel;definition;scopeNote
+harm:hasTemporalTrajectory,property,,"Domain B: Dynamic, Scaling & Magnitude Behavior",yes,yes,442,Temporal Trajectory (Attribute 5),prefLabel;definition;scopeNote
+harm:hasDistributionAggregation,property,,"Domain B: Dynamic, Scaling & Magnitude Behavior",yes,yes,447,Distribution & Aggregation (Attribute 6),prefLabel;definition;scopeNote
+harm:hasFeedbackDynamics,property,,"Domain B: Dynamic, Scaling & Magnitude Behavior",yes,yes,451,Feedback & Amplification Dynamics (Attribute 7),prefLabel;definition;scopeNote
+harm:hasConsequentialCascade,property,,"Domain B: Dynamic, Scaling & Magnitude Behavior",,yes,455,,
+harm:hasScalabilityAsymmetry,property,,"Domain B: Dynamic, Scaling & Magnitude Behavior",yes,yes,462,Marginal Cost & Scalability Asymmetry (Attribute 8),prefLabel;definition;scopeNote
+harm:hasReversibility,property,,"Domain B: Dynamic, Scaling & Magnitude Behavior",yes,yes,466,Reversibility & Hysteresis (Attribute 9),prefLabel;definition;scopeNote
+harm:hasSeverityMagnitude,property,,"Domain B: Dynamic, Scaling & Magnitude Behavior",yes,yes,471,Severity & Magnitude (Attribute 10),prefLabel;definition;scopeNote
+harm:hasNormativeStatus,property,,Domain C: Normative & Strategic Context,yes,yes,479,Normativity vs. Non-Normativity (Attribute 11),prefLabel;definition;scopeNote
+harm:hasModality,property,,Domain C: Normative & Strategic Context,yes,yes,483,Modality: Actualized vs. Probabilistic Risk (Attribute 12),prefLabel;definition;scopeNote
+harm:hasIncentiveAlignment,property,,Domain C: Normative & Strategic Context,yes,yes,488,Incentive & Strategic Alignment (Attribute 13),prefLabel;definition;scopeNote
+harm:hasCognitiveExploitability,property,,Domain C: Normative & Strategic Context,yes,yes,492,Cognitive & Volitional Exploitability (Attribute 14),prefLabel;definition;scopeNote
+harm:hasConsentStatus,property,,Domain C: Normative & Strategic Context,,yes,496,,
+harm:hasPatientOntology,property,,"Domain D: Relational Roles, Object & Standing",yes,yes,507,Patient Ontology (Attribute 15),prefLabel;definition;scopeNote
+harm:hasPerpetrator,property,,"Domain D: Relational Roles, Object & Standing",yes,yes,511,Moral & Legal Agency / Perpetrator (Attribute 16),prefLabel;definition;scopeNote
+harm:hasSecondaryAgent,property,,"Domain D: Relational Roles, Object & Standing",,yes,515,,
+harm:hasBeneficiaryRole,property,,"Domain D: Relational Roles, Object & Standing",,yes,522,,
+harm:hasVictim,property,,"Domain D: Relational Roles, Object & Standing",yes,yes,529,Victimhood & Standing / Recipient (Attribute 17),prefLabel;definition;scopeNote
+harm:hasObjectOfHarm,property,,"Domain D: Relational Roles, Object & Standing",yes,yes,533,Object of Harm / Locus of Injury / Protected Substrate (Attribute 18),prefLabel;definition;scopeNote
+harm:hasRemedialDutyBearer,property,,"Domain D: Relational Roles, Object & Standing",yes,yes,538,Remedial & Protective Duty-Bearing / Mitigator / Restorer (Attribute 19),prefLabel;definition;scopeNote
+harm:hasMitigatingMechanism,property,,"Domain E: Protection, Remedy & Accountability *(v2)*",,yes,548,,
+harm:hasAccountabilityMechanism,property,,"Domain E: Protection, Remedy & Accountability *(v2)*",,yes,555,,
+harm:hasValueRelation,property,,B.3 Attributes,,yes,617,,
+harm:hasEventTemporalTrajectory,property,,B.3 Attributes,,yes,623,,
+harm:hasEventDistributionAggregation,property,,B.3 Attributes,,yes,624,,
+harm:hasEventFeedbackDynamics,property,,B.3 Attributes,,yes,625,,
+harm:hasEventScalabilityAsymmetry,property,,B.3 Attributes,,yes,626,,
+harm:hasEventReversibility,property,,B.3 Attributes,,yes,627,,
+harm:hasEventMagnitude,property,,B.3 Attributes,,yes,628,,
+harm:hasEventNormativeStatus,property,,B.3 Attributes,,yes,629,,
+harm:hasEventModality,property,,B.3 Attributes,,yes,630,,
+harm:hasEventIncentiveAlignment,property,,B.3 Attributes,,yes,631,,
+harm:hasEventPhenomenologicalTransparency,property,,B.3 Attributes,,yes,632,,
+harm:hasEventSystemOpacity,property,,B.3 Attributes,,yes,633,,
+harm:hasEventConsequentialCascade,property,,B.3 Attributes,,yes,634,,
+harm:hasValueCaptureChannel,property,,B.3 Attributes,,yes,640,,
+harm:hasFormOfValue,property,,B.3 Attributes,,yes,641,,
+harm:hasBeneficiaryOntology,property,,B.3 Attributes,,yes,642,,
+harm:hasBeneficiaryStanding,property,,B.3 Attributes,,yes,643,,
+harm:hasGainBaseline,property,,B.3 Attributes,,yes,644,,
+harm:hasCaptureAttribution,property,,B.3 Attributes,,yes,645,,
+harm:hasBeneficiaryKnowledge,property,,B.3 Attributes,,yes,646,,
+harm:hasValueCaptureIntermediary,property,,B.3 Attributes,,yes,647,,
+harm:hasCaptureBarrier,property,,B.3 Attributes,,yes,648,,
+harm:hasRecaptureMechanism,property,,B.3 Attributes,,yes,649,,
+harm:CounterfactualBaseline,value,harm:ComparativeBaselineValue,Domain A: Epistemic & Causal Structure,yes,yes,416,Counterfactual Comparison (Actual vs. What Would Have Been),prefLabel
+harm:TemporalBaseline,value,harm:ComparativeBaselineValue,Domain A: Epistemic & Causal Structure,yes,yes,416,Temporal Comparison (Before vs. After),prefLabel
+harm:NonComparativeBaseline,value,harm:hasComparativeBaseline,Domain A: Epistemic & Causal Structure,,yes,418,,
+harm:OverdeterminedCausation,value,harm:CausationMechanismValue,Domain A: Epistemic & Causal Structure,yes,yes,421,Overdetermined Causation,prefLabel
+harm:StructuralAttribution,value,harm:CausationMechanismValue,Domain A: Epistemic & Causal Structure,yes,yes,421,Institutional / Structural Attribution,prefLabel
+harm:ProximateCausation,value,harm:CausationMechanismValue,Domain A: Epistemic & Causal Structure,yes,yes,421,Proximate / Foreseeable Legal Causation,prefLabel
+harm:FactualButForCausation,value,harm:CausationMechanismValue,Domain A: Epistemic & Causal Structure,yes,yes,421,Factual Causation ('But-For'),prefLabel
+harm:KineticVector,value,harm:hasCausalVector,Domain A: Epistemic & Causal Structure,,yes,425,,
+harm:ChemicalBiologicalVector,value,harm:hasCausalVector,Domain A: Epistemic & Causal Structure,,yes,425,,
+harm:InformationalAlgorithmicVector,value,harm:hasCausalVector,Domain A: Epistemic & Causal Structure,,yes,425,,
+harm:FinancialEconomicVector,value,harm:hasCausalVector,Domain A: Epistemic & Causal Structure,,yes,425,,
+harm:InstitutionalNormativeVector,value,harm:hasCausalVector,Domain A: Epistemic & Causal Structure,,yes,425,,
+harm:RelationalBehavioralVector,value,harm:hasCausalVector,Domain A: Epistemic & Causal Structure,,yes,425,,
+harm:NeurotechnicalVector,value,harm:hasCausalVector,Domain A: Epistemic & Causal Structure,,yes,425,,
+harm:PerceivedSubjective,value,harm:PhenomenologicalTransparencyValue,Domain A: Epistemic & Causal Structure,yes,yes,431,Perceived / Subjective Conscious Awareness,prefLabel
+harm:UnperceivedObjective,value,harm:PhenomenologicalTransparencyValue,Domain A: Epistemic & Causal Structure,yes,yes,431,Unperceived / Objective External Setback,prefLabel
+harm:BlackBoxOpaque,value,harm:SystemOpacityValue,Domain A: Epistemic & Causal Structure,yes,yes,435,Black-Box / Opaque System,prefLabel
+harm:TransparentLegible,value,harm:SystemOpacityValue,Domain A: Epistemic & Causal Structure,yes,yes,435,Transparent / Inspectable Mechanism,prefLabel
+harm:LatentTrajectory,value,harm:TemporalTrajectoryValue,"Domain B: Dynamic, Scaling & Magnitude Behavior",yes,yes,443,Latent Trajectory (Delayed Manifestation),prefLabel
+harm:SlowAccumulativeTrajectory,value,harm:TemporalTrajectoryValue,"Domain B: Dynamic, Scaling & Magnitude Behavior",yes,yes,443,Slow / Accumulative Trajectory (Generational),prefLabel
+harm:AcuteTrajectory,value,harm:TemporalTrajectoryValue,"Domain B: Dynamic, Scaling & Magnitude Behavior",yes,yes,443,Acute Trajectory (Immediate Impact),prefLabel
+harm:ChronicPersistentTrajectory,value,harm:hasTemporalTrajectory,"Domain B: Dynamic, Scaling & Magnitude Behavior",,yes,445,,
+harm:TransientEpisodicTrajectory,value,harm:hasTemporalTrajectory,"Domain B: Dynamic, Scaling & Magnitude Behavior",,yes,445,,
+harm:DiffuseThreshold,value,harm:DistributionAggregationValue,"Domain B: Dynamic, Scaling & Magnitude Behavior",yes,yes,448,Diffuse / Threshold Aggregation,prefLabel
+harm:NarrowConcentrated,value,harm:DistributionAggregationValue,"Domain B: Dynamic, Scaling & Magnitude Behavior",yes,yes,448,Narrow / Concentrated (Single Target),prefLabel
+harm:NonLinearAmplifying,value,harm:FeedbackDynamicsValue,"Domain B: Dynamic, Scaling & Magnitude Behavior",yes,yes,452,Non-Linear / Self-Reinforcing Amplification,prefLabel
+harm:LinearStatic,value,harm:FeedbackDynamicsValue,"Domain B: Dynamic, Scaling & Magnitude Behavior",yes,yes,452,Linear / Static Impact,prefLabel
+harm:DirectConsequential,value,harm:hasConsequentialCascade,"Domain B: Dynamic, Scaling & Magnitude Behavior",,yes,456,,
+harm:CrossDomainCascade,value,harm:hasConsequentialCascade,"Domain B: Dynamic, Scaling & Magnitude Behavior",,yes,456,,
+harm:VulnerabilityAmplification,value,harm:hasConsequentialCascade,"Domain B: Dynamic, Scaling & Magnitude Behavior",,yes,456,,
+harm:RemoteCutoff,value,harm:hasConsequentialCascade,"Domain B: Dynamic, Scaling & Magnitude Behavior",,yes,456,,
+harm:ZeroMarginalCostReplication,value,harm:ScalabilityAsymmetryValue,"Domain B: Dynamic, Scaling & Magnitude Behavior",yes,yes,463,Zero-Marginal-Cost Replication,prefLabel
+harm:HighFrictionProportional,value,harm:ScalabilityAsymmetryValue,"Domain B: Dynamic, Scaling & Magnitude Behavior",yes,yes,463,High-Friction / Proportional Effort,prefLabel
+harm:RestorableElastic,value,harm:ReversibilityValue,"Domain B: Dynamic, Scaling & Magnitude Behavior",yes,yes,467,Restorable / Elastic Baseline,prefLabel
+harm:IrreversibleHysteresis,value,harm:ReversibilityValue,"Domain B: Dynamic, Scaling & Magnitude Behavior",yes,yes,467,Irreversible / Hysteresis State Shift,prefLabel
+harm:PartiallyMitigable,value,harm:hasReversibility,"Domain B: Dynamic, Scaling & Magnitude Behavior",,yes,469,,
+harm:CatastrophicExistential,value,harm:SeverityMagnitudeValue,"Domain B: Dynamic, Scaling & Magnitude Behavior",yes,yes,472,Catastrophic / Existential,prefLabel
+harm:SevereRuinous,value,harm:SeverityMagnitudeValue,"Domain B: Dynamic, Scaling & Magnitude Behavior",yes,yes,472,Severe / Ruinous,prefLabel
+harm:ModerateCompensable,value,harm:SeverityMagnitudeValue,"Domain B: Dynamic, Scaling & Magnitude Behavior",yes,yes,472,Moderate / Compensable,prefLabel
+harm:DeMinimisTrivial,value,harm:SeverityMagnitudeValue,"Domain B: Dynamic, Scaling & Magnitude Behavior",yes,yes,472,De Minimis / Trivial,prefLabel
+harm:NormativeWrongful,value,harm:NormativeStatusValue,Domain C: Normative & Strategic Context,yes,yes,480,Normative Harm (Wrongful Breach of Right/Duty),prefLabel
+harm:NonNormativeSetback,value,harm:NormativeStatusValue,Domain C: Normative & Strategic Context,yes,yes,480,Non-Normative Setback (Damnum Absque Injuria),prefLabel
+harm:ProbabilisticRisk,value,harm:ModalityValue,Domain C: Normative & Strategic Context,yes,yes,484,Probabilistic Risk Imposition,prefLabel
+harm:ActualizedHarm,value,harm:ModalityValue,Domain C: Normative & Strategic Context,yes,yes,484,Actualized Harm (Materialized Outcome),prefLabel
+harm:ImminentThreat,value,harm:hasModality,Domain C: Normative & Strategic Context,,yes,486,,
+harm:StructurallyAlignedEmergent,value,harm:IncentiveAlignmentValue,Domain C: Normative & Strategic Context,yes,yes,489,Structurally Aligned / Emergent Equilibrium,prefLabel
+harm:NegligentCareless,value,harm:IncentiveAlignmentValue,Domain C: Normative & Strategic Context,yes,yes,489,Negligent / Careless Disregard,prefLabel
+harm:MaliciousIntentional,value,harm:IncentiveAlignmentValue,Domain C: Normative & Strategic Context,yes,yes,489,Malicious / Deliberate Intent,prefLabel
+harm:OvertCoercion,value,harm:CognitiveExploitabilityValue,Domain C: Normative & Strategic Context,yes,yes,493,Overt Coercion / Force,prefLabel
+harm:SubversiveExploitation,value,harm:CognitiveExploitabilityValue,Domain C: Normative & Strategic Context,yes,yes,493,Subversive Bias / Addiction Exploitation,prefLabel
+harm:ValidConsent,value,harm:hasConsentStatus,Domain C: Normative & Strategic Context,,yes,497,,
+harm:CoercedConsent,value,harm:hasConsentStatus,Domain C: Normative & Strategic Context,,yes,497,,
+harm:DeceivedConsent,value,harm:hasConsentStatus,Domain C: Normative & Strategic Context,,yes,497,,
+harm:SubvertedConsent,value,harm:hasConsentStatus,Domain C: Normative & Strategic Context,,yes,497,,
+harm:IncapableOfConsent,value,harm:hasConsentStatus,Domain C: Normative & Strategic Context,,yes,497,,
+harm:CaptiveExposure,value,harm:hasConsentStatus,Domain C: Normative & Strategic Context,,yes,497,,
+harm:NonSentientSystem,value,harm:PatientOntologyValue,"Domain D: Relational Roles, Object & Standing",yes,yes,508,Non-Sentient System (Ecosystem / Future Generations),prefLabel
+harm:SentientIndividual,value,harm:PatientOntologyValue,"Domain D: Relational Roles, Object & Standing",yes,yes,508,Sentient Individual (Human / Animal),prefLabel
+harm:CollectiveArtificialPerson,value,harm:PatientOntologyValue,"Domain D: Relational Roles, Object & Standing",yes,yes,508,Collective / Artificial Person (Corporation / State / Group),prefLabel
+harm:UnitaryIntentionalAgent,value,harm:PerpetratorRoleValue,"Domain D: Relational Roles, Object & Standing",yes,yes,512,Unitary Intentional or Negligent Agent,prefLabel
+harm:VicariouslyLiablePrincipal,value,harm:PerpetratorRoleValue,"Domain D: Relational Roles, Object & Standing",yes,yes,512,Vicariously Liable Principal (Institutional / Respondeat Superior),prefLabel
+harm:DiffuseCollectivePerpetrator,value,harm:PerpetratorRoleValue,"Domain D: Relational Roles, Object & Standing",yes,yes,512,Diffuse / Collective Perpetration,prefLabel
+harm:NonAgenticAutonomousSource,value,harm:PerpetratorRoleValue,"Domain D: Relational Roles, Object & Standing",yes,yes,512,Non-Agentic / Autonomous Causal Source (Nature / AI System),prefLabel
+harm:MaterialFacilitation,value,harm:hasSecondaryAgent,"Domain D: Relational Roles, Object & Standing",,yes,516,,
+harm:VicariousAgency,value,harm:hasSecondaryAgent,"Domain D: Relational Roles, Object & Standing",,yes,516,,
+harm:InstigationConspiracy,value,harm:hasSecondaryAgent,"Domain D: Relational Roles, Object & Standing",,yes,516,,
+harm:GatekeeperNegligence,value,harm:hasSecondaryAgent,"Domain D: Relational Roles, Object & Standing",,yes,516,,
+harm:SystemicContribution,value,harm:hasSecondaryAgent,"Domain D: Relational Roles, Object & Standing",,yes,516,,
+harm:PerpetratorBeneficiary,value,harm:hasBeneficiaryRole,"Domain D: Relational Roles, Object & Standing",,yes,523,,
+harm:PrincipalInstitutionalBeneficiary,value,harm:hasBeneficiaryRole,"Domain D: Relational Roles, Object & Standing",,yes,523,,
+harm:DownstreamMarketBeneficiary,value,harm:hasBeneficiaryRole,"Domain D: Relational Roles, Object & Standing",,yes,523,,
+harm:NoBeneficiary,value,harm:hasBeneficiaryRole,"Domain D: Relational Roles, Object & Standing",,yes,523,,
+harm:SecondaryRelationalVictim,value,harm:VictimRoleValue,"Domain D: Relational Roles, Object & Standing",yes,yes,530,Secondary / Relational Victim (Bystander / Dependent),prefLabel
+harm:DiffuseRepresentativeClass,value,harm:VictimRoleValue,"Domain D: Relational Roles, Object & Standing",yes,yes,530,Diffuse / Proxy-Represented Class (Public / Future Generations / Ecosystem),prefLabel
+harm:DirectPrimaryVictim,value,harm:VictimRoleValue,"Domain D: Relational Roles, Object & Standing",yes,yes,530,Direct / Primary Victim,prefLabel
+harm:OpportunityCapabilitySubstrate,value,harm:ObjectOfHarmValue,"Domain D: Relational Roles, Object & Standing",yes,yes,534,"Opportunity, Capability & Future Substrate (Development, Survival Odds)",prefLabel
+harm:SomaticBiologicalSubstrate,value,harm:ObjectOfHarmValue,"Domain D: Relational Roles, Object & Standing",yes,yes,534,"Somatic & Biological Substrate (Body, Health, Life)",prefLabel
+harm:NormativeStatusSubstrate,value,harm:ObjectOfHarmValue,"Domain D: Relational Roles, Object & Standing",yes,yes,534,"Normative & Status Substrate (Constitutional Rights, Legal Standing, Agency)",prefLabel
+harm:DignitaryRelationalSubstrate,value,harm:ObjectOfHarmValue,"Domain D: Relational Roles, Object & Standing",yes,yes,534,"Dignitary, Reputational & Relational Substrate (Standing, Privacy, Trust)",prefLabel
+harm:PsychologicalCognitiveSubstrate,value,harm:ObjectOfHarmValue,"Domain D: Relational Roles, Object & Standing",yes,yes,534,"Psychological & Cognitive Substrate (Mental Peace, Attention, Rationality)",prefLabel
+harm:MaterialPecuniarySubstrate,value,harm:ObjectOfHarmValue,"Domain D: Relational Roles, Object & Standing",yes,yes,534,"Material & Pecuniary Substrate (Property, Wealth, Contract Expectancy)",prefLabel
+harm:SystemicEnvironmentalSubstrate,value,harm:ObjectOfHarmValue,"Domain D: Relational Roles, Object & Standing",yes,yes,534,"Systemic & Environmental Substrate (Ecosystems, Institutions, Epistemic Commons)",prefLabel
+harm:CulturalCollectiveIdentitySubstrate,value,harm:hasObjectOfHarm,"Domain D: Relational Roles, Object & Standing",,yes,536,,
+harm:InstitutionalSovereignGuarantor,value,harm:RemedialDutyBearerValue,"Domain D: Relational Roles, Object & Standing",yes,yes,539,Institutional & Sovereign Guarantor (State / Regulator / Public Fund),prefLabel
+harm:PerpetratorAsRestorer,value,harm:RemedialDutyBearerValue,"Domain D: Relational Roles, Object & Standing",yes,yes,539,The Perpetrator as Restorer (Corrective Justice),prefLabel
+harm:SpecialRelationshipRescuer,value,harm:RemedialDutyBearerValue,"Domain D: Relational Roles, Object & Standing",yes,yes,539,Special-Relationship Rescuer (Fiduciary / Parent / Carrier / Peril-Creator),prefLabel
+harm:VictimDutyToMitigate,value,harm:RemedialDutyBearerValue,"Domain D: Relational Roles, Object & Standing",yes,yes,539,The Victim's Own Duty to Mitigate (Avoidable Consequences),prefLabel
+harm:RegulatoryAuthority,value,harm:hasRemedialDutyBearer,"Domain D: Relational Roles, Object & Standing",,yes,541,,
+harm:Whistleblower,value,harm:hasRemedialDutyBearer,"Domain D: Relational Roles, Object & Standing",,yes,541,,
+harm:RestorativeAgent,value,harm:hasRemedialDutyBearer,"Domain D: Relational Roles, Object & Standing",,yes,541,,
+harm:TechnicalControl,value,harm:hasMitigatingMechanism,"Domain E: Protection, Remedy & Accountability *(v2)*",,yes,549,,
+harm:ProceduralProtocol,value,harm:hasMitigatingMechanism,"Domain E: Protection, Remedy & Accountability *(v2)*",,yes,549,,
+harm:LegalInstrument,value,harm:hasMitigatingMechanism,"Domain E: Protection, Remedy & Accountability *(v2)*",,yes,549,,
+harm:DesignFriction,value,harm:hasMitigatingMechanism,"Domain E: Protection, Remedy & Accountability *(v2)*",,yes,549,,
+harm:CompensatoryDamages,value,harm:hasAccountabilityMechanism,"Domain E: Protection, Remedy & Accountability *(v2)*",,yes,556,,
+harm:NominalPunitiveDamages,value,harm:hasAccountabilityMechanism,"Domain E: Protection, Remedy & Accountability *(v2)*",,yes,556,,
+harm:Disgorgement,value,harm:hasAccountabilityMechanism,"Domain E: Protection, Remedy & Accountability *(v2)*",,yes,556,,
+harm:StructuralInjunction,value,harm:hasAccountabilityMechanism,"Domain E: Protection, Remedy & Accountability *(v2)*",,yes,556,,
+harm:CriminalSanction,value,harm:hasAccountabilityMechanism,"Domain E: Protection, Remedy & Accountability *(v2)*",,yes,556,,
+harm:RegulatorySanction,value,harm:hasAccountabilityMechanism,"Domain E: Protection, Remedy & Accountability *(v2)*",,yes,556,,
+harm:RestorativeRecognition,value,harm:hasAccountabilityMechanism,"Domain E: Protection, Remedy & Accountability *(v2)*",,yes,556,,
+harm:SeverityMagnitudeValue,value-scheme,,,yes,,,Severity & Magnitude Vocabulary,prefLabel
+harm:CausationMechanismValue,value-scheme,,,yes,,,Causation Mechanism Vocabulary,prefLabel
+harm:ObjectOfHarmValue,value-scheme,,,yes,,,Object of Harm (Protected Substrate) Vocabulary,prefLabel
+harm:PerpetratorRoleValue,value-scheme,,,yes,,,Perpetrator Role Vocabulary,prefLabel
+harm:PatientOntologyValue,value-scheme,,,yes,,,Patient Ontology Vocabulary,prefLabel
+harm:ReversibilityValue,value-scheme,,,yes,,,Reversibility Vocabulary,prefLabel
+harm:FeedbackDynamicsValue,value-scheme,,,yes,,,Feedback Dynamics Vocabulary,prefLabel
+harm:DistributionAggregationValue,value-scheme,,,yes,,,Distribution & Aggregation Vocabulary,prefLabel
+harm:ScalabilityAsymmetryValue,value-scheme,,,yes,,,Scalability Asymmetry Vocabulary,prefLabel
+harm:VictimRoleValue,value-scheme,,,yes,,,Victim Role Vocabulary,prefLabel
+harm:IncentiveAlignmentValue,value-scheme,,,yes,,,Incentive Alignment Vocabulary,prefLabel
+harm:RemedialDutyBearerValue,value-scheme,,,yes,,,Remedial Duty-Bearer Vocabulary,prefLabel
+harm:ModalityValue,value-scheme,,,yes,,,Modality Vocabulary,prefLabel
+harm:PhenomenologicalTransparencyValue,value-scheme,,,yes,,,Phenomenological Transparency Vocabulary,prefLabel
+harm:TemporalTrajectoryValue,value-scheme,,,yes,,,Temporal Trajectory Vocabulary,prefLabel
+harm:CognitiveExploitabilityValue,value-scheme,,,yes,,,Cognitive Exploitability Vocabulary,prefLabel
+harm:SystemOpacityValue,value-scheme,,,yes,,,System Opacity Vocabulary,prefLabel
+harm:NormativeStatusValue,value-scheme,,,yes,,,Normative Status Vocabulary,prefLabel
+harm:ComparativeBaselineValue,value-scheme,,,yes,,,Comparative Baseline Vocabulary,prefLabel
