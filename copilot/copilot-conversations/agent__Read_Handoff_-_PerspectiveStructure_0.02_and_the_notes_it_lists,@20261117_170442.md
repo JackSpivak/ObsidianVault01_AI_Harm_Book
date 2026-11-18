@@ -7,7 +7,7 @@ topic: "Read Handoff - PerspectiveStructure 0.02 and the notes it li…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":272456,"contextWindow":1000000,"inputTokens":4,"outputTokens":3,"cacheReadTokens":269079,"cacheWriteTokens":3370,"updatedAt":1794977646625}'
+usage: '{"usedTokens":292854,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":286508,"cacheWriteTokens":6336,"updatedAt":1794978327284}'
 lastAccessedAt: 1794974457725
 ---
 
@@ -1608,3 +1608,133 @@ The type/instance split is still unlogged. It's the first open decision in the 0
 - `instantiates` with overridable defaults;
 - subclasses only for kinds of lens.
 [Timestamp: 2026/11/17 21:53:47]
+
+**user**: we have talked about a domain, discipline, lens, tradition, and shot how do these compare
+[Timestamp: 2026/11/17 21:58:07]
+
+**ai**: Five words, but three things, plus an overloaded fourth. Here's how they line up.
+
+| Term | What it is in this ontology | Formal home | Example |
+|---|---|---|---|
+| **Discipline** | A field of knowledge that owns a **vocabulary** | Vocabulary layer: a discipline scheme (`law:`, `eth:` …) | Law · Ethics · Cognitive science |
+| **Tradition** | A reusable **way of seeing and judging**, with a lineage | Ontology: an individual of class **PerspectiveType** | Tort Law · Utilitarianism · Care ethics · Integral theory |
+| **Lens** | Plain-English synonym for **tradition** (sometimes used loosely for a shot) | None; informal | "the public-health lens" |
+| **Shot** | One **actual use** of a tradition in one judgment | Ontology: an individual of class **Perspective** | "The CDC's risk review of product X, 2023" |
+| **Domain** | **Overloaded**: currently used for three different things (below) | Varies | Healthcare · Law · a SHACL profile |
+
+## How they relate
+```text
+DISCIPLINE (Law)  ── supplies vocabulary to ──►  TRADITION / PerspectiveType (Tort Law)
+                                                    │  applies in ► DOMAIN OF APPLICABILITY (product safety, medicine)
+                                                    ▼ instantiates
+                                                  SHOT / Perspective ("Judge Y, Smith v. Jones, 2021")
+                                                    ▼ takenFrom
+                                                  Assessment (verdict: Harmful)
+```
+- A discipline contains **many traditions**. Law includes tort law, criminal law and law and economics.
+- A tradition can draw on **several disciplines**. Public health draws on medicine, statistics and ethics.
+- A tradition has **many shots**, but each shot instantiates one tradition, or more if mixed lenses are allowed. That's an open question.
+- **Discipline is not tradition:** "Ethics" is a field, and "Utilitarianism" is a tradition within it.
+
+## The problem with "domain"
+It's currently used in three places:
+1. **`domainOfApplicability`** (0.01): *where* a tradition is applied, for example credit scoring or medicine.
+2. **Domain profiles** (HO-II.e): SHACL rule sets such as LegalInstitutional or ThreatAssessment.
+3. **The crosswalk's first draft**, where "domain" meant discipline. You replaced that with "discipline" today.
+
+OWL adds a fourth meaning: the **domain of a property**, meaning the class it applies to.
+
+## Recommended terms
+- **Discipline:** a field of knowledge and its vocabulary.
+- **PerspectiveType:** the formal name, with **tradition** as its plain-English label. Use **lens** only informally, always meaning the tradition.
+- **Perspective:** the formal name, with **shot** as its plain-English label.
+- **Field of application:** rename `domainOfApplicability` to `fieldOfApplication`, to free up the word "domain".
+- **Profile:** drop "domain" from "domain profiles" and just say **profiles**.
+- **Domain:** reserved for its OWL technical meaning only.
+
+Should I log these terms in [[Decisions_Log]], together with the type/instance decision from my last message? I'd also offer to add them to `Canon_and_Continuity.md` as glossary entries.
+[Timestamp: 2026/11/17 21:58:07]
+
+**user**: lets use these recommendations except list tradition as skos:prefLabel and lens as skos:altLabel
+[Timestamp: 2026/11/17 22:00:17]
+
+**ai**: I've logged two decisions in [[Decisions_Log]]:
+
+1. **The PerspectiveType/Perspective split:**
+   - both are classes;
+   - traditions and shots are individuals;
+   - `instantiates`, with defaults the shot can override;
+   - subclasses only for kinds of tradition.
+2. **Terminology:**
+   - **PerspectiveType:** class name; `skos:prefLabel` "tradition"; `skos:altLabel` "lens".
+   - **Perspective:** class name; plain-English label "shot".
+   - **Discipline:** a field of knowledge and its vocabulary.
+   - **Renames:** `domainOfApplicability` becomes `fieldOfApplication`; "domain profiles" become "profiles"; "domain" is kept for its OWL meaning only.
+
+I gave "shot" no SKOS labels. If you'd like "shot" as Perspective's prefLabel, mirroring tradition, I can add it.
+
+**Not changed yet:** existing notes still use the old wording. That includes "Domain Profiles" in the title of [[HO-II.e Missingness Statuses and Domain Profiles]], and "domain" in 0.01 and the v3 draft.
+- I'd apply the new terms when writing 0.02 and leave the frozen 0.01 alone.
+- Renaming the HO-II.e note would break links, so I'd only do it with your OK.
+
+Do you want me to add these terms to `Canon_and_Continuity.md` as glossary entries?
+<!-- copilot-message {"tools":["Edit (edit): 00_Claude_Admin/Decisions_Log.md"]} -->
+[Timestamp: 2026/11/17 22:00:17]
+
+**user**: yes
+[Timestamp: 2026/11/17 22:01:11]
+
+**ai**: I've added a **Glossary (harm ontology terms)** section to `Canon_and_Continuity.md`, after Places. It has seven entries: discipline, tradition (PerspectiveType), lens, shot (Perspective), field of application, profile and domain. Each one links to its source note or to the 2026-11-17 Decisions_Log entry.
+
+Still waiting on you:
+- **The three issues from placing PerspectiveType in v3:**
+  - the overlap between the type's standard and the shot's;
+  - how omission relates to Attribution;
+  - the regrouping into groups 3 (integral axes) and 4 (extents).
+- **The Integral group (group 3) in 0.02:** we revised it together, but you haven't formally confirmed it.
+- **What next:** the full 12-level *Integral Altitude Scale* note, or writing PerspectiveStructure 0.02 itself.
+<!-- copilot-message {"tools":["Read (read): 00_Claude_Admin/Canon_and_Continuity.md","Edit (edit): 00_Claude_Admin/Canon_and_Continuity.md"]} -->
+[Timestamp: 2026/11/17 22:01:11]
+
+**user**: integral group confirmed. altitude  note then write perspective structure
+[Timestamp: 2026/11/17 22:03:09]
+
+**ai**: No existing note covers either one. I'll write the Integral Altitude Scale note first.Now PerspectiveStructure 0.02.Both notes are written and waiting in `_Unfiled Ideas/` with `bookmark: draft`:
+
+- **[[Integral Altitude Scale]]**
+  - Contents:
+    - a sources table showing how far each source is verified;
+    - the three nested schemes (bands, Gebser stages, colours), with Gilligan's stages alongside;
+    - a record for each of the 12 levels, with definition, example, Explanation and verification status;
+    - mappings to other scales;
+    - a rule for use.
+  - What's left out:
+    - **Turquoise and the third tier (indigo to white) have no Explanations.** The primary texts I read don't describe them, so I left them as placeholders rather than invent content.
+    - **Wilber's population percentages** are marked as his own estimates.
+- **[[PerspectiveStructure 0.02]]**
+  - Contents:
+    - the decisions it applies;
+    - the consolidation rules;
+    - the full structure: Core plus groups 1–12 and two profiles, with your confirmed Integral group as group 3;
+    - what was dropped or folded in;
+    - its place in v3;
+    - the remaining open questions.
+  - The two unresolved v3 issues (the standard overlap, and omission vs Attribution) are listed as open questions, not decided.
+
+## Filing plan (needs one OK)
+
+| Note | ID | Move to | Index entry |
+|---|---|---|---|
+| PerspectiveStructure 0.02 | **HO-II.d.3** | `Harm Ontology/` (name unchanged) | Under HO-II.d, after the crosswalk: "consolidated PerspectiveType: minimal core, 12 display groups, 2 profiles; placed in v3" |
+| Integral Altitude Scale | **HO-II.d.2.a** | `Harm Ontology/` (name unchanged) | Under the crosswalk: "Wilber's scale as value records: 4 bands, 6 Gebser stages, 12 colours; mapped to Gilligan" |
+
+I'd number 0.02 as a sibling (HO-II.d.3) rather than a child of 0.01, because 0.01 is frozen and its children are reviews of it.
+
+The plan also includes these follow-ups:
+- **Add a "Next version: [[PerspectiveStructure 0.02]]" line to 0.01's header.** I'd leave 0.01's content untouched.
+- **Mark [[Handoff - PerspectiveStructure 0.02]] as `status: archived`.** The handoff itself says to archive it once 0.02 exists.
+- **No links need rewriting.** Both notes are new.
+
+Go ahead with this plan?
+<!-- copilot-message {"tools":["Glob (read)","Write (edit): 02_Ideas Topics Concepts/_Unfiled Ideas/Integral Altitude Scale.md","Write (edit): 02_Ideas Topics Concepts/_Unfiled Ideas/PerspectiveStructure 0.02.md"]} -->
+[Timestamp: 2026/11/17 22:03:09]
