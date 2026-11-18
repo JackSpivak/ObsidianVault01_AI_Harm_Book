@@ -2,12 +2,13 @@
 epoch: 1794988172008
 mode: agent
 backendId: claude
-sessionId: "841afc39-c000-456b-b41a-2172cc5d1fea"
-topic: "read harm ontology v3 handoff. rename chat to Harm Ontology…"
+sessionId: 841afc39-c000-456b-b41a-2172cc5d1fea
+topic: read harm ontology v3 handoff. rename chat to Harm Ontology…
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
 usage: '{"usedTokens":149859,"contextWindow":1000000,"inputTokens":2,"outputTokens":394,"cacheReadTokens":146399,"cacheWriteTokens":3064,"updatedAt":1794991927976}'
+lastAccessedAt: 1795025499093
 ---
 
 **user**: read harm ontology v3 handoff.  rename chat to Harm Ontology v3 testing
