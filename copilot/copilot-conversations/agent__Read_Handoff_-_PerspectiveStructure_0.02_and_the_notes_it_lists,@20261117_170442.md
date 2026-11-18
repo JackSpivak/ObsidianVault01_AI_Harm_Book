@@ -7,7 +7,7 @@ topic: "Read Handoff - PerspectiveStructure 0.02 and the notes it li…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":101042,"contextWindow":1000000,"inputTokens":4,"outputTokens":7,"cacheReadTokens":99330,"cacheWriteTokens":1701,"updatedAt":1794962147814}'
+usage: '{"usedTokens":135868,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":134477,"cacheWriteTokens":1386,"updatedAt":1794962924565}'
 ---
 
 **user**: Read Handoff - PerspectiveStructure 0.02 and the notes it lists, then propose the 0.02 structure.
@@ -368,3 +368,106 @@ I'd use both, but not as alternatives:
 
 So, to settle the design: do you want **concept hubs plus discipline schemes (rows and columns)**, as I recommend? Or did you mean something else by "one hub per domain", for example a separate ontology per domain?
 [Timestamp: 2026/11/17 17:35:31]
+
+**user**: would the ontology approach be a new namespace and a hub become like a class that collects properties and narrative for that domain? im adkin for clarification of your proposal not making a different recommendation where/how is an ontology used
+[Timestamp: 2026/11/17 17:40:53]
+
+**ai**: I was using "hub" loosely, so here is what each layer would be. There are three, each with a different job.
+
+## The three layers
+
+| Layer | What it is | Namespace | Holds | Used for |
+|---|---|---|---|---|
+| **1. Ontology (OWL)** | The *structure*: classes and properties | `ho:` | `ho:PerspectiveType` (class), `ho:Assessment` (class), `ho:congruence` (property), with domain and range | Reasoning and querying: "which lenses are incongruent?", computing Divergence |
+| **2. Profiles (SHACL)** | *Rules* over the structure | `hosh:` (shapes) | `hosh:LegalInstitutionalProfile`: which properties must be addressed, and allowed values | Validation: "is this Legal record complete?" |
+| **3. Vocabulary (SKOS)** | *Words and meaning* | `hov:` for the hubs; `law:`, `eth:`, `phil:` … for disciplines | Hub concepts, discipline terms, labels, definitions, narrative, mappings | Human understanding, cross-domain reconciliation, the explanations |
+
+## Answers to your questions
+- **Is a hub a new namespace?** Yes. The hubs would get their own vocabulary namespace (`hov:`), separate from the ontology's `ho:`. Using `ho:congruence` for the hub was my mistake, because it blurred two things:
+  - `ho:congruence`: the **property** a record actually uses (an Assessment of a PerspectiveType).
+  - `hov:congruence`: the **hub concept** that explains and reconciles that property across disciplines. It links to the property with something like `rdfs:isDefinedBy` or a `documents` link.
+- **Is a hub a class?** No. A hub is a `skos:Concept`: a documented idea, not a container with properties. Classes such as `PerspectiveType` and `Assessment` live only in the ontology layer. The narrative (definition, Explanation, history note, examples) is attached to the hub as annotations.
+- **Is a discipline namespace (`law:`) an ontology for that domain?** No. It's a **concept scheme**, the list of a discipline's terms with their own definitions. It doesn't define new classes or properties. The legal *attributes* that law adds, such as `standardOfProof`, still belong to the ontology (`ho:`). The Legal profile then selects and requires them. So law contributes **words** (scheme) and **requirements** (profile), but no separate ontology.
+
+## How the layers connect for one item
+```text
+ONTOLOGY     ho:PerspectiveType ──ho:congruence──► ho:Assessment     (structure; queried)
+                                       ▲
+VOCABULARY   hov:congruence ───documents┘                             (hub: neutral definition,
+              ▲  ▲  ▲  ▲  ▲                                           Explanation, convergence)
+              │  │  │  │  └ sci:cargoCultScience  (in scheme: Phil. of science)
+              │  │  │  └── pol:sprachregelung    (in scheme: Political theory)
+              │  │  └───── phil:zhengming        (in scheme: Philosophy)
+              │  └──────── eth:operativeMaxim    (in scheme: Ethics)
+              └─────────── law:congruence        (in scheme: Law)   ← match type + scopeNote on each link
+
+PROFILE      hosh:LegalInstitutionalProfile: requires ho:congruence to be addressed;
+             displays labels from scheme law:
+```
+
+## Where this lives in the vault
+None of this has to be RDF yet. For now:
+- each hub is one note;
+- each discipline scheme is an index note;
+- the ontology structure is the PerspectiveStructure note;
+- the frontmatter and tables follow the conventions above, so an export to RDF later is mechanical.
+
+If this is clear, I'll write the layer model into the Vocabulary/Crosswalk bookmark note, so 0.02 can refer to it. Before I do: is the three-layer split (ontology, profiles, vocabulary) what you want recorded? And do you still want to answer the three earlier questions first (hub naming, mapping grades, disciplines vs councils)?
+[Timestamp: 2026/11/17 17:40:53]
+
+**user**: simple naming with the relevant discipline specific terminology preserved in the vocABULARY narrative. disciplines instead of council yes. i dont know what mapping grades are
+[Timestamp: 2026/11/17 17:44:46]
+
+**ai**: Both are settled: hubs get simple names, and each discipline's own terms live in the vocabulary narrative. Domains are real disciplines, and councils appear only as provenance.
+
+## What mapping grades are
+When a discipline's term is linked to a hub, the grade says **how closely the two match**. SKOS has five standard grades. Here they are applied to the congruence hub:
+
+| Grade | Meaning | Example |
+|---|---|---|
+| **exactMatch** | The same idea; the terms are interchangeable | (none in this set) |
+| **closeMatch** | Nearly the same; usable in most contexts | Fuller's *congruence*: the same idea, applied to rule systems |
+| **narrowMatch** | The discipline's term is a **narrower case** of the hub | Arendt's *Sprachregelung*: a deliberate-euphemism case of incongruence |
+| **broadMatch** | The discipline's term is **wider** than the hub | (none here) |
+| **relatedMatch** | Connected, but a different idea | Feynman's *cargo cult science*: form without substance, which overlaps with but isn't the same as incongruence |
+
+**Why it matters:** without grades, five terms linked to one hub look like five synonyms. Grades preserve the differences between disciplines, which is part of what you wanted acknowledged.
+
+## Your choice
+- **A. I propose grades as I draft, each with a one-line reason, and you review them.** This is my recommendation.
+- **B. Everything starts as relatedMatch** (the safest claim), and we upgrade mappings only when you've looked at them.
+- **C. Skip grades for now.** Every spoke simply links to its hub, and a scope note says how it differs.
+
+Once you pick, the next step is the Vocabulary/Crosswalk bookmark note, filed under HO-II.d.1. It would record:
+- the three-layer model (ontology, profiles, vocabulary);
+- the naming rules (simple hub names, discipline terms in the narrative);
+- disciplines as domains, with councils as provenance;
+- your choice on grades;
+- congruence as the worked example, with the hub and five spokes and their Explanations, verified before saving.
+
+Shall I go ahead with that once you've chosen?
+[Timestamp: 2026/11/17 17:44:46]
+
+**user**: yes mapping grades
+[Timestamp: 2026/11/17 17:45:05]
+
+**ai**: I'll read it as option A: I propose a grade for each mapping with a reason, and you review them. First, the template and the allowed frontmatter values.Next, the citation rows the five spokes depend on. The councils verified these on 2026-11-17.Now filing it into the Harm Ontology index.The index resolved by exact `canonical_id` match, and no note already covers this (the only `ho-vocabulary-crosswalk` match is the new note itself). One placement question before I touch the index.
+
+## Filing plan (needs your OK)
+
+**Placement: I recommend HO-II.d.2, not HO-II.d.1.h.**
+The letters a–g under HO-II.d.1 are peer reviews *of 0.01*. The crosswalk isn't a review. It's a method that 0.02 and every later version will depend on. Filing it under 0.01 would tie it to a frozen version. As HO-II.d.2 it sits beside PerspectiveStructure 0.01, and 0.02 can point to it.
+
+| Item | Change |
+|---|---|
+| Note frontmatter | `bookmark: draft` → `HO-II.d.2`; status stays `seed`; add alias `HO-II.d.2` |
+| File name | Unchanged: *Vocabulary Crosswalk - Concept Hubs and Discipline Schemes.md*. This follows the council reviews, which keep descriptive names without an ID prefix. |
+| Folder | `_Unfiled Ideas/` → `02_Ideas Topics Concepts/Harm Ontology/` |
+| Index entry (after the HO-II.d.1 block) | `[[Vocabulary Crosswalk - Concept Hubs and Discipline Schemes\|HO-II.d.2 — Vocabulary crosswalk]]`: hub-and-spoke vocabulary (SKOS concept hubs, discipline schemes, graded mappings), separating the ontology, profiles and vocabulary layers. Worked example: congruence across five disciplines. |
+| Cross-reference added to the index | HO-II.d.2 and HO-II.e: profiles set requiredness, the crosswalk sets meaning, and a profile may display one discipline's labels. |
+| Master index | No change (same index) |
+| Links to rewrite | None. The note is new and nothing links to it yet. |
+
+Approve this as HO-II.d.2? Or would you rather have HO-II.d.1.h as you first suggested?
+<!-- copilot-message {"tools":["Read (read): 00_Claude_Admin/Templates/Idea.md","Read (read): 00_Claude_Admin/FileClasses/Idea.md","Grep (read): 02_Ideas Topics Concepts/Harm Ontology","Read (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 ClassicalCouncil Review of - PerspectiveStructure 0.01.md","Read (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 LogicCouncil Review of - PerspectiveStructure 0.01.md","Read (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 PhysicsCouncil Review of - PerspectiveStructure 0.01.md","Grep (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01.md","Read (read): 02_Ideas Topics Concepts/Harm Ontology/v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01.md","Write (edit): 02_Ideas Topics Concepts/_Unfiled Ideas/Vocabulary Crosswalk - Concept Hubs and Discipline Schemes.md","Skill (other)","Grep (read)","Grep (read): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md"]} -->
+[Timestamp: 2026/11/17 17:45:05]
