@@ -7,7 +7,7 @@ topic: "read harm ontology v3 handoff. rename chat to Harm Ontology…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":100858,"contextWindow":1000000,"inputTokens":2,"outputTokens":184,"cacheReadTokens":100127,"cacheWriteTokens":545,"updatedAt":1794990408364}'
+usage: '{"usedTokens":113235,"contextWindow":1000000,"inputTokens":2,"outputTokens":5,"cacheReadTokens":110343,"cacheWriteTokens":2885,"updatedAt":1794990943841}'
 ---
 
 **user**: read harm ontology v3 handoff.  rename chat to Harm Ontology v3 testing
@@ -609,3 +609,209 @@ Do you choose (a) or (b)? And should the toy case use the stricter definition of
 For the toy case, should I use the strict definition, with each assessment tagged with its organisation?
 <!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md"]} -->
 [Timestamp: 2026/11/18 01:26:39]
+
+**user**: recommended
+[Timestamp: 2026/11/18 01:28:06]
+
+**ai**: I've recorded it in HO-002.a as Author decision 17 (test-only): independence needs different perspective specifications **and** no shared assessor or organisation.
+
+## Next open item: time (which assessment counts?)
+Perspectives change their minds. Courts get overturned, and auditors revise their findings. When a perspective has several assessments of the same claim over time, which one counts?
+
+**Example (made up):** a court rules "user error" in 2010, and an appeal court rules "software fault" in 2021.
+
+**Proposal:**
+- **Latest wins, per perspective:** only each perspective's most recent assessment counts, so in 2026 that court perspective says "software fault".
+- **Recalculated, never stored:** statuses are worked out each time a query runs. A new dissent automatically reopens a Settled claim (CQ4).
+- **"As of" date:** a query can ask "what was the status **in 2012**?" It then uses only assessments made by that date, and returns "user error", possibly Settled.
+- **Earlier assessments are kept, never deleted**, so CQ4 can trace the sequence of changes and what triggered each one.
+
+**One question inside this:** does "latest" mean the date the assessment was **made**, or the date it was **recorded in our data**? They differ when we enter a 2010 ruling in 2026.
+- **(a) Only the date it was made** (recommended for the test). It's simpler.
+- **(b) Both dates.** This lets you ask "what did *we* know in 2024?" That's useful later, but heavier.
+
+Do you agree with the proposal, and do you choose (a) or (b)?
+<!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md"]} -->
+[Timestamp: 2026/11/18 01:28:06]
+
+**user**: recommended
+[Timestamp: 2026/11/18 01:29:10]
+
+**ai**: I've recorded it in HO-002.a as Author decision 18 (test-only): latest assessment per perspective, recalculated at query time, an "as of" date, history kept, and the date the assessment was made. Adding the recorded date is deferred.
+
+**Two items left:** the evidence requirement and the status set. They're closely linked, so here they are together.
+
+## 1. Evidence requirement
+**Proposal:** a claim can be Settled only if **every** agreeing assessment has an **evidence pointer**: the document, log, dataset or record it relies on. Without evidence, agreement is only shared opinion.
+- If the **evidence itself** is contested (e.g. disputed Horizon logs), that's a **separate claim**, about the Observation, with its own status. A dispute over evidence then shows up visibly instead of quietly undermining the main claim.
+
+## 2. Status set
+Our decisions have produced more statuses than the original three:
+
+| Status | Meaning | Decided in |
+|---|---|---|
+| Settled(value) | ≥2 independent in-scope assessments, same Procedure and version, same band, each with evidence, no dissent, nobody silent | 7, 13, 15–17 |
+| Disputed | conflicting verdicts on the same claim, under any procedure | 10, 12 |
+| Incommensurable | verdicts that can't be lined up at all | 10 |
+| PartiallyAssessed | agreement so far, but some in-scope perspectives are silent | 15 |
+| SingleSource | one uncontradicted assessment | 16 |
+| NotAssessed | no assessments | — |
+
+There's one gap: assessments that **agree but can't settle**, because they use different procedures or have no evidence. I'd call that **Corroborated**: "agree, but not under the conditions needed to settle".
+
+**Display question:** seven statuses is a lot for someone asking a naive question.
+- **(a) Show all seven** everywhere.
+- **(b) Two layers** (recommended): naive views show three, **Settled / Disputed / Open**, where Open covers Corroborated, PartiallyAssessed, SingleSource, NotAssessed and Incommensurable. Each item can be opened to see its detailed status. Counts per status appear in every view (the earlier mitigation 4).
+
+**My concern about (b):** grouping five statuses under "Open" can hide the difference between "nobody has looked" and "people agree, unofficially". The non-expert test (step 5) should check whether that misleads people. If it does, show all seven instead.
+
+Do you agree with the evidence requirement? And do you choose (a) or (b) for display?
+<!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md","Grep (read): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md"]} -->
+[Timestamp: 2026/11/18 01:29:10]
+
+**user**: b
+[Timestamp: 2026/11/18 01:30:27]
+
+**ai**: I've recorded the last two items in [[HO-002.a Assessment-Everywhere Test Strategy]] (test-only), so **agreement rule v1 is complete**:
+- **Decision 20:** your choice of **(b)**. The detailed statuses (now including Corroborated) are shown in two layers: Settled / Disputed / Open. The non-expert test will check whether "Open" misleads people.
+- **Decision 19:** the evidence requirement. You didn't answer this one directly. I recorded it because it's already part of the CQ3 pass criteria you agreed earlier. Say if you'd like it changed.
+
+## Agreement rule v1 in one paragraph
+A claim is identified by its target, attribute and scope, and overlapping scopes count as the same claim. It's **Settled** only when at least 2 strictly independent, in-scope assessments, using the same Procedure and version, agree at the level of shared bands. Each one needs evidence, and nobody in scope can disagree or be silent. It's **Disputed** whenever two in-scope assessments conflict, under any procedure, including unstandardized ones. Everything else is **Open**, with a detailed status underneath. Only each perspective's latest assessment counts, statuses are recalculated at query time, and the scope is always shown.
+
+## A reflection before moving on
+That's 18 decisions in one sitting, mostly by accepting my recommendation. The handoff warns about **momentum**, so I'll flag it. The rule is now strict enough that in Horizon **almost nothing may ever reach Settled**. That might be honest, or it might make the model useless. The toy case should show which. It may be worth reading decisions 5–20 in the note once, slowly, before we build on them.
+
+## Next steps (pre-test steps 3–4)
+1. **Finish designing variant B:** where Procedure, the evidence pointer, the band mapping and the status calculation live in the classes.
+2. **Variant A baseline:** write down the current draft as it stands, for comparison.
+3. Then the **toy case** (about 3 factors, 2 effects, 3 perspectives, with a timeline built in).
+
+Do you want to review the decisions first, or go on to the variant B design?
+<!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md"]} -->
+[Timestamp: 2026/11/18 01:30:27]
+
+**user**: b design
+[Timestamp: 2026/11/18 01:31:44]
+
+**ai**: Here's a draft design for variant B. It's in chat only; I haven't written it to any note yet. I've built it from decisions 3 and 5–20 and the attribute triage in the handoff.
+
+## 1. What changes, in one line
+Entities (Factor, Effect, AffectedEntity, FactorAssembly) become **thin**: an identifier and label, plus an observable core where the triage allows one. **Everything else lives on Assessments.** Statuses are **worked out from those assessments**, never entered by hand.
+
+## 2. Classes
+
+| Class | Role | New or changed |
+|---|---|---|
+| **Assessment** | one judgement about one attribute of one target | gets new properties (below) |
+| **Procedure** | *how* something is checked: id, version, `implementsStandard → EvaluativeStandard`, `usesScale`, `hasBandMapping` | new (decision 7) |
+| **BandMapping** | maps a Procedure's scale onto the shared bands (e.g. "serious" → High) | new (decision 13); **can itself be assessed**, so it's open to challenge |
+| **Band** (vocabulary) | Low · Medium · High · Extreme | new SKOS concept scheme |
+| **Evidence** | pointer to a document, log, dataset or record | new (decision 19) |
+| **Observation** | *defined*, not asserted: any Assessment with a Procedure **and** Evidence | new (status, not kind) |
+| **Claim** | thin, **generated** node: target + attribute + scope. The thing a status attaches to | new; see question A |
+| **ScopeDeclaration** | the set of perspectives included in a view or query; default is "all in data" | new (decision 14) |
+| **Divergence** | **generated** whenever a claim is Disputed; `divergesOn` Procedure, EvaluativeStandard, scope or evidence | existing, now produced automatically |
+| **CausalRole** | folded into CausalAssessment as a structured part | removed as a separate class (proposed in HO-002.a) |
+
+## 3. New properties on Assessment
+- `assesses` → target (existing) · `aboutAttribute` → which attribute (severity, cause…) · `value` (the raw value, as given)
+- `band` → Band (**derived** through the Procedure's BandMapping)
+- `usesProcedure` → Procedure · `hasEvidence` → Evidence
+- `forAffectedEntity` (existing) · `scopePeriod` (time interval) → together with target and attribute these make up the claim
+- `assessedAt` (the date it was made, decision 18) · `assessor` → Agent · `assessorOrganisation` → Agent
+- `repeats` → Assessment (marks a copy, so it doesn't count as independent; decision 17)
+- `assessmentBasis` (**derived**: Stated / Inherited / Unstandardized, decision 6)
+
+## 4. How a status is worked out (for each claim, scope and as-of date)
+1. Gather the assessments for this claim, **including overlapping scopes** (decision 12), that are in the declared scope and dated on or before the as-of date.
+2. For each perspective, keep only its **latest** assessment (decision 18).
+3. Any conflicting bands or verdicts → **Disputed**, and generate a Divergence.
+4. Otherwise, if none can be lined up → **Incommensurable**.
+5. Otherwise, all agree. Then:
+   - no assessments at all → **NotAssessed**
+   - only 1, or no 2 that are independent → **SingleSource**
+   - different Procedures or versions, or any without Evidence → **Corroborated**
+   - an in-scope perspective using the Procedure is silent → **PartiallyAssessed**
+   - otherwise → **Settled(band)**
+6. Display: Settled / Disputed / Open, plus counts per status and the scope label (decisions 14 and 20).
+
+This step order is my proposal. For example, it puts Disputed ahead of everything else, in line with "quick to show disagreement".
+
+## 5. Three design questions for you
+
+**A. Should Claim be a real node?**
+- **Yes, generated by script** (recommended). Statuses, Divergences and shortcuts need something to attach to. Without a Claim node, every query has to rebuild the claim from four joins, which is exactly the expert-only trap you warned about.
+- No: compute the claim only inside queries.
+
+**B. Shortcuts vs "never stored" (a tension I created):**
+Mitigation 1 asks for a status shortcut on every node. Decision 18 says statuses are never stored.
+- **Recommended:** a script regenerates **snapshot** shortcuts, each stamped with its scope ("all in data") and date. These are read-only and rebuilt on every run. Live queries with other scopes or dates are always computed.
+- Alternative: no stored shortcuts at all, only named views. That's purer, but naive queries then find nothing on the nodes.
+
+**C. How to name the attribute an assessment is about:**
+- **A small vocabulary of attribute concepts** (`hoa:severity`, `hoa:reversibility`…) (recommended). It's clean, and SHACL can check it.
+- Point at the old property IRIs themselves. That's shorter, but it mixes classes and data in an awkward way (OWL "punning").
+
+Do you agree with the design, and with A, B and C? Once you've answered, I'll save it as a "Variant B design" section in HO-002.a, or as its own note in `ontology/` if you'd rather keep HO-002.a short.
+[Timestamp: 2026/11/18 01:31:44]
+
+**user**: recommended
+[Timestamp: 2026/11/18 01:33:37]
+
+**ai**: I've saved the design as a new section, **"Variant B design"**, in [[HO-002.a Assessment-Everywhere Test Strategy]], just above the AffectedEntity model. It's marked test-only and records that it was my proposal, which you accepted.
+
+**What the section covers:**
+- **Principle:** entities are thin, and statuses are derived.
+- **Classes:** the 10-row table, with your choices built in:
+  - **Claim** as a node generated by script
+  - **Attribute concepts** in an `hoa:` vocabulary
+  - **Snapshot shortcuts**, stamped with their scope and date, which resolve the conflict with "never stored"
+- **New Assessment properties.**
+- **The 6-step status calculation.**
+
+I also updated the "agreement rule v1" line to say the design is done.
+
+I put it in HO-002.a rather than a new note, so it stays next to the decisions it's built on. That makes the note long. If you'd prefer a separate design note in `ontology/`, I can move it there.
+
+## Next: variant A baseline (pre-test step 4)
+Variant A is the draft as it stands: attributes stored directly on entities, with no Claim, Procedure or status calculation. The baseline would set out:
+1. how each CQ would be answered in A, and what's missing
+2. the predicted failures (e.g. CQ2 quietly drops disputed severity, and CQ3 can't be answered)
+
+This would be a short section in HO-002.a, written **before** any modelling, so the comparison isn't biased by the results. Should I draft it?
+<!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md"]} -->
+[Timestamp: 2026/11/18 01:33:37]
+
+**user**: yes
+[Timestamp: 2026/11/18 01:35:02]
+
+**ai**: I've added the variant A baseline to HO-002.a as **"Variant A baseline"**. It's labelled as my predictions, written before any modelling, to be checked against the toy case.
+
+**The predictions in brief:**
+- **Fails outright:**
+  - CQ2 "severe": disputed and unassessed effects drop out silently
+  - CQ3 "agreement": no rule exists, so the query can't be written
+  - CQ7 "type": a fixed class, which can't be disputed and has no `Unclassified`
+- **Partly works:**
+  - CQ1 causes: but the asserted `causes` property gives a silent single answer
+  - CQ4 time: asserted attributes have no history
+  - CQ5 basis
+  - CQ6 omission: causes only
+  - CQ9 responsibility
+- **Simplest in A:** CQ8.
+- **Most of A's failures are silent.** That's the risk you raised.
+
+I added two cautions. First, I designed B, so this baseline may be unfair to A. The non-expert run is the check on that. Second, I found a gap that affects **both** variants.
+
+## The gap: Effect has no occurrence date
+CQ8 asks "**when** did Effect X occur?", but the draft structure gives Effect only `temporalStatus` (has it happened yet?) and `temporalTrajectory` (how it develops). There's **no date**. CQ8 can't serve as a fair control until this is fixed.
+
+**Options:**
+- **(a) Observable core plus an assessed reading** (recommended): add `occurredDuring` (a time interval) as the observable core, such as the dates of recorded shortfalls. Also allow assessments of it, because *when harm began* is often disputed. In Horizon, did the harm begin with the first shortfall, the first prosecution, or the first suspicion? That matches how the triage handles `temporalTrajectory`.
+- **(b) Fully assessed:** treat the date only as an assessment. That's consistent with B, but it makes the control question harder in B, so it would unfairly count against B.
+- **(c) Reword CQ8** to avoid dates. That's easiest, but it removes a real control.
+
+Do you choose (a), (b) or (c)? If you choose (a), I'll add it to both variants in HO-002.a, and as a proposed item in the draft structure, not a decided one.
+<!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md"]} -->
+[Timestamp: 2026/11/18 01:35:02]
