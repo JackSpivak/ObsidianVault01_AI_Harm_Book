@@ -4,9 +4,9 @@ status: developing
 tags: [handoff, ontology/harm]
 aliases: [Harm Ontology Handoff]
 created: 2026-11-15
-updated: 2026-11-15
+updated: 2026-11-18
 workstream: Harm Ontology
-latest_session: "[[2026-11-14 Harm Ontology Redesign]]"
+latest_session: "[[2026-11-18 Harm Ontology v3 Toy Case Results]]"
 ---
 
 # Handoff — Harm Ontology
@@ -14,71 +14,81 @@ latest_session: "[[2026-11-14 Harm Ontology Redesign]]"
 *Rolling, forward-facing note. Overwrite it at each session close; history lives in the session notes and in git. Attach this note to start a new chat.*
 
 ## Status
-- The v3 **design** is drafted and logged. No v3 `.ttl` exists yet.
-- **Migration Phase 0** is partly done: v1 `.ttl` repaired and validated, tooling ready.
-- **Nothing in the model has been tested yet.**
+- The v3 **design** is drafted in [[Harm Ontology v3 - Draft Structure]]. No production v3 `.ttl` exists yet.
+- **Assessment-everywhere test** ([[HO-002.a Assessment-Everywhere Test Strategy]]):
+  - agreement rule v1 complete
+  - variant B designed
+  - variant A baseline written
+  - **toy case run once**
+- **Migration Phase 0** is partly done: the v1 `.ttl` is repaired and validated, and the tooling is ready.
+- **Nothing is adopted.** Variant B can't be adopted until the non-expert test passes.
 
-## Where we are
-- **Design:** [[Harm Ontology v3 - Draft Structure]] is the consolidated model. Its rationale is in the HO notes ([[_Harm Ontology Bookmark Index]]) and [[Decisions_Log]] (2026-11-14 and 2026-11-15).
-- **Key commitments:**
-  - harm is judged, never intrinsic
-  - Factor → CausalRole / CausalAssembly → Effect → Outcome
-  - Assessment taken from a Perspective
-  - Divergence is first-class
-  - deliberately asymmetric in time
-  - scope never Complete
-- **Files:** `02_Ideas Topics Concepts/Harm Ontology/ontology/` (repaired v1 `.ttl` v1.0.1, v3 draft structure, migration plan).
-- **Tooling:** conda environment `harm-ontology` (`~/anaconda3/envs/harm-ontology/python.exe -I …`, rdflib, pyshacl). Scripts go in `~/harm-ontology-scripts/` (outside the vault).
+## Done 2026-11-18 (session "Harm Ontology v3 testing")
+- **Logged in [[Decisions_Log]]:** Patient renamed **AffectedEntity**, with:
+  - altLabels "patient" and "moral patient"
+  - `patientStanding` → `affectedStanding`
+  - `forPatient` → `forAffectedEntity`
+  - `standingOfSubjects {agent · affected · datum}`
+- **Where the rename has been applied:** the draft structure, [[PerspectiveStructure 0.02]] and HO-002.a. The other ~17 notes and the v1 `.ttl` are deferred to migration (memory list item 10). Propose those edits as a list first, and never change verbatim quotes.
+- **Test-only decisions in HO-002.a (Author decisions 5–21):**
+  - `assessmentBasis: Stated | Inherited | Unstandardized`, derived by script
+  - Procedure as a separate class
+  - **asymmetric rule** for every attribute: settling needs the same Procedure and version; disputing needs only a conflict, under any procedure
+  - unstandardized dissent counts
+  - same-claim test is target + attribute + scope, and overlapping scopes count as the same claim
+  - graded values compared through shared bands
+  - scope is declared and shown
+  - silence blocks settlement
+  - settling needs ≥2 strictly independent assessments
+  - latest assessment per perspective, with an as-of date
+  - evidence required
+  - statuses shown in two layers (Settled / Disputed / Open)
+  - Effect `occurredDuring`
+- **Toy case "Branch ledger"** (fictional): [[2026-11-18 Harm Ontology v3 Toy Case Results]].
+  - B passed every question where A failed silently (CQ1 naive, CQ2, CQ7) and cost no more on the CQ8 control.
+  - Files: `ontology/tests/toy_branch_ledger_A.ttl`, `…_B.ttl`; script `~/harm-ontology-scripts/toy_status.py`.
+
+## Next step
+1. **Causal-conflict rule (toy finding 1, major).** B marked "who caused it?" as Disputed only because two perspectives named *different* causes (policy vs bug), which can both be true. That contradicts HO-003.
+   - Proposal, not decided: causal values conflict only when an assessment **denies** a cause or claims a cause is the **only** one.
+   - Do any other categorical attributes (answerability, type) have the same problem?
+2. **Toy run 2:**
+   - add a revision trigger (finding 5, e.g. `revisedBecause`)
+   - add cases that test independence / `repeats`, Corroborated and Incommensurable (finding 7)
+   - compare date intervals by overlap (finding 6)
+3. Then the **non-expert subagent test** (CQ1, CQ2, CQ8, given the schema only). It must check whether depending on script-generated snapshots causes silent failures (finding 8).
+4. Then **Horizon R01**, which needs sourced research first.
+- Alternative track: Migration Phase 0, continued (open `# Master Formal Ontology of Harm (Part 1…)`, compare v1 and v2, and extract inventories by script).
 
 ## Pending (proposed, not decided; see [[HO-005 Assessed Membership and Systematic Omission]])
-- Splitting Assessment into Causal / Valence / Responsibility.
+- Splitting Assessment into Causal / Valence / Responsibility. The toy case used a separate ResponsibilityAssessment, test only.
 - Causal standards (but-for, NESS, INUS…) as a second family of standards.
 - Reifying `participatesIn` as a claim.
 - HO-003's "jointly sufficient" becoming "as assessed".
-- An evidence anchor against the regress ("everything is a view").
-
-## Open item: assessment-everywhere and the silent-omission query risk (2026-11-18)
-*Proposed in chat, agreed in principle by the author, not logged and not tested. Source: Obsidian Copilot agent session "read Harm Ontology v3 handoff", 2026-11-18 (`copilot/copilot-conversations/agent__read_Harm_Ontology_v3_handoff@20261117_235104.md`).*
-- **Scope:** extend the FactorAssembly thin-container move (decided 2026-11-17) to the attributes still asserted on Factor, CausalRole, Effect and Patient in [[Harm Ontology v3 - Draft Structure]]. The 2026-11-17 transcript never discussed these (checked by grep).
-- **Attribute triage (draft):**
-  - Assessed: Factor kind, `causes`, `observability`; all CausalRole attributes; Effect `leadsTo`, `hasObjectOfHarm`, `experienceability`, `isDispositional`, `severity`, `reversibility`, `temporalStatus` (belongs on the Assessment).
-  - Observable core plus assessed reading: `isContinuous`, `hasAgent`, Effect kind, `affects`, `temporalTrajectory`, Patient subtype.
-  - Observation (derived): `isPosthumous`, `isStatistical`.
-  - Handle, not a claim: identifier and label.
-  - Unclear: Effect `modality`. Check its source note.
-- **"Fact" is a status, not a kind:** everything is an Assessment. An **Observation** is an assessment under a shared, checkable procedure with an evidence pointer (the HO-005 evidence anchor). A claim is **settled** when every perspective in scope that uses the procedure agrees. Settled can always be reopened.
-- **`standardBasis: Explicit | Implicit | None`:** distinguishes judgement against a standard, judgement against a tradition's unstated default, and opinion.
-- **CausalRole may fold into CausalAssessment** as a structured component, because it has no attributes left that aren't assessed.
-- **Risk (the author's point):** only an expert would know that joins and agreement rules are needed. Naive queries return nothing, or, through agreed-only shortcuts, return the settled cases and silently drop the disputed and unassessed ones. That is systematic omission produced by the query layer itself.
-- **Proposed mitigation:**
-  1. No bare shortcuts. Every shortcut carries `Settled(value) | Disputed | NotAssessed`, generated by script for every node.
-  2. Named query views with the joins built in.
-  3. SHACL shapes that flag nodes with no assessment, or a shortcut with no status.
-  4. Every view reports counts of settled, disputed and not assessed.
-  - Recommended: 1 and 2, with 3 as the safety net.
-- **Still to design:** the agreement rules (what counts as "agree").
-- **Test:** in Horizon (R01), a naive "who caused the shortfalls?" query should return disputed attributions labelled as disputed, not only the courts' finding.
-- **Test plan filed:** [[HO-002.a Assessment-Everywhere Test Strategy]] (competency questions CQ1–CQ8, scoring, Patient test cases). Pre-test steps: (1) record agreements, done 2026-11-18; (2) author decisions on CQ3 "agree", a responsibility question (CQ9), CQ4 scope and `modality`, done 2026-11-18 (recorded in HO-002.a); (3) design variant B in detail, starting with the agreement rule; (4) variant A baseline; (5) toy case; (6) tooling; (7) non-expert protocol.
-- **Logged 2026-11-18:** Patient types inclusive, standing assessed ([[Decisions_Log]]). Other Patient changes proposed, untested.
-
-## Next step (choose one)
-1. **Migration Phase 0, continued:** pick the authoritative source for each part. Open `# Master Formal Ontology of Harm (Part 1…)` (never read), compare v1 and v2, and extract inventories by script.
-2. **First re-attribution test:** research the UK Post Office Horizon case, with sources, and model it roughly as a sequence of causal assessments ([[HO-002 Ontology Stress-Test Suite]] R01). The results should decide the pending items.
+- The evidence anchor. It's now built into the test design as Evidence plus Observation, but not decided.
+- AffectedEntity proposals listed in HO-002.a: type as an assessment, `Unclassified`, NaturalSystem / EngineeredSystem, `affectedStanding`, CollectiveNaturalGroup, Household.
 
 ## Cautions
+- **Momentum:** 21 test decisions were made in one sitting, mostly by accepting Claude's recommendations. The author values reflection over quick agreement. Consider re-reading decisions 5–21 before building more on them.
+- The rule is strict enough that in real cases **almost nothing may reach Settled**. That might be honest, or it might make the model useless. Watch for this in Horizon.
+- Toy data is **fiction**: it resembles Horizon on purpose but makes no claims about it.
 - Claims that the structure "blocks" traps are **hypotheses**. Run tests, don't assert.
-- **Don't log the pending items** until tested.
-- Many references are **from memory, unverified**: legal cases, Wilber, NESS/INUS, the vocabularies, Lorenz, Meadows, and the war ending of the Sai Weng parable.
-- Both early stress tests ran against **v1**, not v2. Re-check findings against v2.
+- **Don't log test-only decisions or pending items** until they've been tested.
+- Many references are **from memory, unverified**: legal cases, Horizon details, Wilber, NESS/INUS, the vocabularies, Lorenz, Meadows, and the war ending of the Sai Weng parable.
 - Old **root files** (`Interdisciplinary_Harm_Ontology_Compendium.md`, `Interdisciplinary Harm Ontology.ttl`) are untouched and awaiting an archive decision. Ask before moving or deleting.
-- Watch for **momentum**: the author values reflection over quick agreement.
+
+## Tooling
+- Conda environment `harm-ontology`: `~/anaconda3/envs/harm-ontology/python.exe -I …` (rdflib, pyshacl).
+- Scripts go in `~/harm-ontology-scripts/`, outside the vault. Test `.ttl` files go in `02_Ideas Topics Concepts/Harm Ontology/ontology/tests/`.
 
 ## Sub-workstreams
-- **PerspectiveType consolidation (HO-II.d):** done 2026-11-17: [[PerspectiveStructure 0.02]] (HO-II.d.3), the vocabulary crosswalk (HO-II.d.2) and the [[Integral Altitude Scale]] (HO-II.d.2.a). Follow-ups: [[Handoff - Perspective Vocabulary and v3 Follow-ups]]. (Previous handoff, archived: [[Handoff - PerspectiveStructure 0.02]].)
+- **PerspectiveType consolidation (HO-II.d):** done 2026-11-17. Follow-ups: [[Handoff - Perspective Vocabulary and v3 Follow-ups]].
 
 ## Read first
-- This note, then [[Harm Ontology v3 - Draft Structure]] and [[Harm Ontology Migration Plan]].
-- Open individual HO notes only as needed.
+- This note, then [[HO-002.a Assessment-Everywhere Test Strategy]] (Author decisions, Variant B design, Variant A baseline) and [[2026-11-18 Harm Ontology v3 Toy Case Results]].
+- [[Harm Ontology v3 - Draft Structure]] and [[Harm Ontology Migration Plan]] as needed.
 
 ## Previous sessions
+- 2026-11-18 "Harm Ontology v3 testing": `copilot/copilot-conversations/agent__read_harm_ontology_v3_handoff._rename_chat_to_Harm_Ontology@20261118_004932.md`
+- 2026-11-17/18 "read Harm Ontology v3 handoff": `copilot/copilot-conversations/agent__read_Harm_Ontology_v3_handoff@20261117_235104.md`
 - [[2026-11-14 Harm Ontology Redesign]] (transcript: `copilot/copilot-conversations/agent__philosopher_adverse_stress_test_harm_ontology@20261114_071639.md`; read selectively, don't reopen the chat)

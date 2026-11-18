@@ -7,7 +7,7 @@ topic: "read harm ontology v3 handoff. rename chat to Harm Ontology…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":115523,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":114137,"cacheWriteTokens":1376,"updatedAt":1794991107912}'
+usage: '{"usedTokens":149859,"contextWindow":1000000,"inputTokens":2,"outputTokens":394,"cacheReadTokens":146399,"cacheWriteTokens":3064,"updatedAt":1794991927976}'
 ---
 
 **user**: read harm ontology v3 handoff.  rename chat to Harm Ontology v3 testing
@@ -860,6 +860,80 @@ Do you approve the scenario? Anything to add or remove before I build it?
 **user**: approve
 [Timestamp: 2026/11/18 01:39:00]
 
-**ai**: The first run turned up bugs in my script and in the design. I'll fix the script bugs and rerun, and keep the design findings for the results note.
+**ai**: The first run turned up bugs in my script and in the design. I'll fix the script bugs and rerun, and keep the design findings for the results note.I built and ran the toy case. B did better than A wherever A failed silently, but its main answer had the wrong kind of dispute. Results are in [[2026-11-18 Harm Ontology v3 Toy Case Results]], and HO-002.a links to that note.
+
+**Files created:**
+- `ontology/tests/toy_branch_ledger_A.ttl` and `toy_branch_ledger_B.ttl`: the same fictional scenario, labelled as fiction.
+- `~/harm-ontology-scripts/toy_status.py`: works out the statuses and runs the questions (CQs) on both variants. It's outside the vault.
+
+I ran it twice. The first run exposed bugs, mostly in my script, which I fixed. The results below are from the second run.
+
+## Results
+| Question | A | B |
+|---|---|---|
+| CQ1 who caused it? | naive query gives **F1 only**, as if it were fact (silent) | **Disputed**, all views shown |
+| CQ2 which are severe? | returns E2 only; the disputed and unassessed effects **quietly vanish** | all three shown with statuses and counts |
+| CQ3 what do all agree on? | can't be written | **Disputed → PartiallyAssessed → Settled**, depending on the declared scope |
+| CQ7 unlisted kind | forced into the wrong type, silently | `Unclassified`, visible |
+| CQ9 answerability | can't be separated from cause | Disputed, separate from cause |
+| CQ8 control (when, who) | easy | just as easy |
+
+## What the test found
+1. **False causal disputes (the big one).** B calls "who caused it?" Disputed only because the association names the *policy* while the others name the *bug*. Both can be causes at once, so this isn't a disagreement. It contradicts HO-003's causal-assembly idea. **An answer can be visible and still wrong in kind.** That's a different failure from silent omission, but possibly as misleading. Proposed fix: causal answers conflict only when one assessment **denies** a cause or claims a cause is the **only** one.
+2. Bands must apply **only to graded attributes**. Without that, the first run treated causes and years as incomparable.
+3. Each attribute needs to say **what it applies to**. Otherwise the summary lists nonsense like "entity type of an Effect".
+4. In B, `affects` must be part of the **observable core**, or the control question gets harder.
+5. **CQ4 gap:** neither variant records *why* a perspective changed its view.
+6. Dates are compared as exact values, so overlapping time periods aren't handled.
+7. **Not yet tested:** independence (`repeats`, same firm), Corroborated and Incommensurable. Disputed always came first, so these never decided an outcome.
+8. The status logic lives in a script, not in queries. The non-expert test has to check whether that's a problem.
+
+Fixes 2–4 are only in the test data. **Nothing has been decided or logged.** B can't be adopted until the non-expert test.
+
+**Suggested next step:** decide the causal-conflict rule (finding 1). Then do a second toy run that adds cases for finding 7 and a revision trigger (finding 5). Do you want to start with finding 1?
 <!-- copilot-message {"tools":["PowerShell (other)","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/toy_branch_ledger_B.ttl","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/toy_branch_ledger_A.ttl","Write (edit)","Edit (edit)","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/toy_branch_ledger_B.ttl","Write (edit): 01_The Writer's Room/2026-11-18 Harm Ontology v3 Toy Case Results.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md"]} -->
 [Timestamp: 2026/11/18 01:39:00]
+
+**user**: what is size? should we switch to new cchat?
+[Timestamp: 2026/11/18 01:50:49]
+
+**ai**: I can't see an exact token count for this chat. It's long, though: about 30 exchanges, several full file reads, and two long script outputs. If it keeps growing, older parts will get summarized automatically, and that can lose detail.
+
+**I'd switch to a new chat now.** This is a natural break:
+- The toy case is done, and the results are saved in [[2026-11-18 Harm Ontology v3 Toy Case Results]].
+- All 21 decisions, the variant B design and the variant A baseline are in [[HO-002.a Assessment-Everywhere Test Strategy]].
+- The next task, the causal-conflict rule, is a new question that doesn't need this chat's history.
+
+**First, I'd update [[Handoff - Harm Ontology]]**, which is meant to be overwritten when a session closes. It's out of date: it still says `standardBasis`, and it doesn't mention the AffectedEntity rename, agreement rule v1, the toy case, or the next step. The update would cover:
+- **Status:** rule v1 is complete, the variant B design and A baseline are done, and the toy case has been run once.
+- **Logged today:** the AffectedEntity rename. Everything else is test-only.
+- **Next step:** the causal-conflict rule (finding 1), then a second toy run covering findings 5 and 7.
+- **Cautions:** keep the momentum warning (21 decisions in one sitting), and remember the toy data is fiction.
+- This session added as the latest one, with its transcript path.
+
+Should I update the handoff? Then you can open a new chat and attach it.
+[Timestamp: 2026/11/18 01:50:49]
+
+**user**: ues
+[Timestamp: 2026/11/18 01:51:20]
+
+**ai**: I've rewritten [[Handoff - Harm Ontology]] for a new chat.
+
+**What it now covers:**
+- **Status:** rule v1 is complete, the variant B design and A baseline are done, and the toy case has run once. Nothing is adopted.
+- **Done today:** the AffectedEntity rename (logged, and where it's been applied) and test-only decisions 5–21 in brief.
+- **The toy case:** results and files.
+- **Next steps, in order:**
+  1. the causal-conflict rule
+  2. toy run 2 (findings 5–7)
+  3. the non-expert test
+  4. Horizon R01
+- **Cautions:** I added the momentum warning (21 decisions in one sitting), the "almost nothing reaches Settled" risk, and that the toy data is fiction.
+- **Read first:** HO-002.a and the toy-case results note.
+- **Previous sessions:** this chat's transcript path is listed.
+
+**Dropped from the old version:** the long 2026-11-18 "open item" section. Everything in it now lives in HO-002.a, and git still has the old version.
+
+To continue, start a new chat with the handoff attached and begin with the causal-conflict rule.
+<!-- copilot-message {"tools":["Write (edit): 01_The Writer's Room/Handoff - Harm Ontology.md"]} -->
+[Timestamp: 2026/11/18 01:51:20]
