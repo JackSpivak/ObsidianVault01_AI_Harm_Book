@@ -7,7 +7,7 @@ topic: "Read Handoff - PerspectiveStructure 0.02 and the notes it li…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":294054,"contextWindow":1000000,"inputTokens":4,"outputTokens":8,"cacheReadTokens":0,"cacheWriteTokens":294042,"updatedAt":1794978686117}'
+usage: '{"usedTokens":305488,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":303077,"cacheWriteTokens":2406,"updatedAt":1794979579566}'
 lastAccessedAt: 1794974457725
 ---
 
@@ -1798,3 +1798,110 @@ Both questions get the same answer from the pattern you already approved. **The 
 
 The filing plan for the two new notes is still waiting for your OK.
 [Timestamp: 2026/11/17 22:11:06]
+
+**user**: would attribution be the same as attributedCause?
+[Timestamp: 2026/11/17 22:17:18]
+
+**ai**: Not quite. And to be clear, `attributedCause` doesn't exist anywhere in the vault yet. I searched the HO notes, the v3 draft, the migration and crosswalk notes, and the v1 `.ttl`. If you have it from somewhere else, such as the v2a Compendium outside the vault, tell me where and I'll check it.
+
+Here's how the two would relate if `attributedCause` were added.
+
+## A class versus a property
+- **Attribution** (v3 class, from HO-004) is the *act or record* of selecting causes. It's one thing per judgment: "Perspective P, looking at Effect E, names these factors as the cause."
+- **`attributedCause`** would naturally be the *property* that points from that record to each factor selected.
+
+```text
+Attribution_17  (class: Attribution)
+  ├── forEffect ......... → Effect: crash injury
+  ├── madeFrom .......... → Perspective: product-liability shot, 2025
+  ├── attributedCause ... → Factor: sensor defect          (selected)
+  ├── leftOut ........... → Factor: road design            (omission: outOfFrame)
+  └── leftOut ........... → Factor: unlogged near-misses   (omission: blindSpot › suppressed)
+```
+
+So the Attribution is the whole selection. `attributedCause` lists what was put *in*, and `leftOut` lists what was left *out*. That's how the omission link I recommended would work.
+
+## A naming problem
+"Attribution" is already used in three other ways:
+- the **quote-attribution** lines in every note (Author / Claude);
+- **PROV's `wasAttributedTo`** in group 12 (who made a record);
+- v1's **`StructuralAttribution`** (a causation mechanism).
+
+To avoid confusion, I'd recommend:
+- **renaming the class to `CausalAttribution`**, with "attribution" as an altLabel;
+- **using `attributedCause`** as its property for the selected factors, with `leftOut` as the counterpart.
+
+Should I fold this into the v3 open questions in 0.02, together with the two integration recommendations (default plus override; linking omission and Attribution)? The filing plan for the two new notes is also still waiting.
+<!-- copilot-message {"tools":["Grep (read)","Grep (read): 02_Ideas Topics Concepts/Harm Ontology","Grep (read): 02_Ideas Topics Concepts/Harm Ontology/ontology"]} -->
+[Timestamp: 2026/11/17 22:17:18]
+
+**user**: sorry,  i meant semantically woud Attribution be the same as AttributedCause.  i am wondering about a less ambiguous formal name
+[Timestamp: 2026/11/17 22:18:59]
+
+**ai**: Semantically, no. The two names point at different things, and that's a useful reason to choose carefully.
+
+## What each name implies
+| Name | Reads as | Kind of thing |
+|---|---|---|
+| **Attribution** | The *act or record* of assigning a cause: "P attributes E to A" | A judgment (an event, or its record) |
+| **AttributedCause** | The *thing* that was assigned: "A, the attributed cause" | A factor seen in one role |
+
+v3's definition, "factors a perspective calls 'the cause' (bounded selection)", sits between the two. That's where the ambiguity comes from.
+
+## Why "AttributedCause" is risky as a class name
+As a class, `AttributedCause` invites modelling the *factor itself* as a type: "the sensor defect **is an** AttributedCause." That would make causehood a property of the factor. But v3 holds that factors are neutral, and that causehood, like harmfulness, exists only *as assessed* (HO-005). The sensor defect is the cause *according to* product liability, and not according to transport safety. A class of "attributed causes" quietly drops the "according to whom".
+
+The phrase works well as a **property** or **role**, though: `attributedCause → Factor` hangs off a record that names who made the attribution.
+
+## The record is probably a kind of Assessment
+v3 already has a **pending split** of Assessment into **CausalAssessment**, ValenceAssessment and ResponsibilityAssessment (HO-005). A causal assessment's output *is* the selection of causes. Attribution may not need to be a separate class at all.
+
+## Options for the formal name
+| Option | Name | Fits when | My view |
+|---|---|---|---|
+| A | **CausalAttribution** | You keep a separate class for the selection | Clear, and avoids clashing with quote attribution and PROV's `wasAttributedTo` |
+| B | **CauseSelection** | You want to stress that it's a bounded choice (HO-004) | Plain and accurate, but less standard |
+| C | **CausalAssessment** (merge) | You adopt the pending Assessment split | Best fit with v3's own logic: one fewer class, and "according to whom" comes built in |
+| — | AttributedCause | — | Avoid as a class; use `attributedCause` as the property |
+
+**Recommendation:** C if you adopt the Assessment split, and A if you don't. Either way:
+- `attributedCause → Factor`: what was selected;
+- `leftOut → Factor`: what was left out, each item carrying its omission branch.
+
+Shall I add this to 0.02's open questions, together with the other two integration points? The filing plan for the two notes is also still waiting for your OK.
+[Timestamp: 2026/11/17 22:18:59]
+
+**user**: lets decide c.
+[Timestamp: 2026/11/17 22:22:33]
+
+**ai**: 
+<!-- copilot-message {"tools":["Edit (edit): 00_Claude_Admin/Decisions_Log.md","Edit (edit): 02_Ideas Topics Concepts/_Unfiled Ideas/PerspectiveStructure 0.02.md"]} -->
+[Timestamp: 2026/11/17 22:22:33]
+
+**user**: attributedCause might be problematic unless attributedCause simply is a zeroth order of attributedCausalAssembly or something can have attributedCause= "placeholder" and attributedCausalAssembly= "N/A"    since either a cause or a causal assembly might be assessed
+[Timestamp: 2026/11/17 22:26:06]
+
+**ai**: I've logged decision C in [[Decisions_Log]] and updated 0.02's open questions. `Attribution` merges into `CausalAssessment`, with `attributedCause` and `leftOut`.
+
+Your new point is a good one, though. I wrote `attributedCause → Factor` as if a cause were always a single factor. v3 also allows a **CausalAssembly** (HO-003): factors that only together are sufficient. A causal assessment might name either one. So the logged entry needs amending, and the question is how.
+
+## Three ways to handle "cause or assembly"
+
+| Option | How it works | Problem |
+|---|---|---|
+| **A. One property, either target** (my recommendation) | `attributedCause` → Factor **or** CausalAssembly. Whether the assessment names a single factor or an assembly is read from the target's type. | Minor: queries need to look at both types. |
+| B. Always an assembly ("zeroth order") | A single cause is an assembly of one. Everything goes through `attributedCausalAssembly`. | Creates many trivial one-member assemblies. v3's assembly properties (`individuallyInnocuous`, `origin: Emergent/Exploited/Engineered`) make little sense for them. |
+| C. Two properties, one filled | `attributedCause` = placeholder and `attributedCausalAssembly` = "N/A", or the other way round. | Two fields for one answer can contradict each other, for example if both get filled. It also misuses missingness: "NotApplicable" is meant for questions that don't apply, not for "answered in the other field". |
+
+**Why A works:**
+- Picking an assembly or its member factors is already a meaningful difference in v3. The Divergence pattern "FactorLevel vs AssemblyLevel" exists for exactly this: one tradition blames the sensor, another blames the whole storm.
+- With A, that difference is visible from the target's type, and nothing else is needed.
+- `leftOut` gets the same either-target range, since a tradition can leave out a whole assembly.
+- A missing answer uses the normal missingness statuses: Unknown, Disputed, Pending.
+
+Shall I amend the logged decision to option A (Factor or CausalAssembly for both `attributedCause` and `leftOut`)?
+
+Also still waiting:
+- the filing plan for the two new notes;
+- the standard-overlap recommendation (tradition default, shot override), which isn't decided yet.
+[Timestamp: 2026/11/17 22:26:06]

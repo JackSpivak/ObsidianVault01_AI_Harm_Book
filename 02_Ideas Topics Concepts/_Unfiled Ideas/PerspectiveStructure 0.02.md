@@ -163,7 +163,7 @@ PerspectiveType  (prefLabel "tradition" · altLabel "lens")
 
 ### Place in Harm Ontology v3
 - New class **PerspectiveType** beside the existing **Perspective**; `Perspective instantiates PerspectiveType`.
-- Links: `embedsStandard` → EvaluativeStandard · `moralCircle` ↔ Patient · omission ↔ Attribution and HO-005 · `accountabilityLocus`, `lineage` → Agent · `remedy` → LegalResponse · LegalInstitutional profile ↔ Judgment profile (HO-II.c) · LearnedModel ↔ Agent.AutonomousSystem (?).
+- Links: `embedsStandard` → EvaluativeStandard · `moralCircle` ↔ Patient · omission ↔ CausalAssessment.`leftOut` (formerly Attribution) and HO-005 · `accountabilityLocus`, `lineage` → Agent · `remedy` → LegalResponse · LegalInstitutional profile ↔ Judgment profile (HO-II.c) · LearnedModel ↔ Agent.AutonomousSystem (?).
 - New use of Assessment: assessments *of* traditions. New box: the vocabulary layer (HO-II.d.2).
 
 ## Original wording
@@ -179,6 +179,12 @@ PerspectiveType  (prefLabel "tradition" · altLabel "lens")
 > "integral group confirmed. altitude  note then write perspective structure"
 - **Attribution:** Author
 
+> "sorry,  i meant semantically woud Attribution be the same as AttributedCause.  i am wondering about a less ambiguous formal name"
+- **Attribution:** Author
+
+> "lets decide c."
+- **Attribution:** Author (choosing to merge v3 Attribution into CausalAssessment)
+
 - **Source:** Obsidian Copilot agent session "Read Handoff - PerspectiveStructure 0.02 and the notes it lists", 2026-11-17 (`copilot/copilot-conversations/agent__Read_Handoff_-_PerspectiveStructure_0.02_and_the_notes_it_lists,@20261117_170442.md`); earlier session "Name this chatWhat is Perspective", 2026-11-17.
 - **External references:** the seven council reviews ([[v-0.01 ClassicalCouncil Review of - PerspectiveStructure 0.01|Classical]], [[v-0.01 EthicsCouncil Review of - PerspectiveStructure 0.01|Ethics]], [[v-0.01 LegalCouncil Review of - PerspectiveStructure 0.01|Legal]], [[v-0.01 LogicCouncil Review of - PerspectiveStructure 0.01|Logic]], [[v-0.01 PhysicsCouncil Review of - PerspectiveStructure 0.01|Physics]], [[v-0.01 SciFiCouncil Review of - PerspectiveStructure 0.01|Sci-Fi]], [[v-0.01 CognitiveCouncil Review of - PerspectiveStructure 0.01|Cognitive]]) and their verified citation tables; Wilber primary texts as listed in [[Integral Altitude Scale]].
 
@@ -191,7 +197,7 @@ PerspectiveType  (prefLabel "tradition" · altLabel "lens")
 ## Open questions
 - **v3 integration:**
   - Standard overlap: make PerspectiveType's `embedsStandard` the default and the shot's `standard` the override?
-  - Omission and Attribution: link what a tradition leaves out to what it selects as "the cause"?
+  - Omission and causal selection: **decided 2026-11-17.** v3 `Attribution` merges into `CausalAssessment`, with `attributedCause` → Factor and `leftOut` → Factor; each left-out factor may carry an omission assessment. Tradition-level omission patterns act as defaults that cases confirm or contradict.
 - Can a shot instantiate more than one tradition (mixed lenses)?
 - Rename `nameByDomain` / `definitionByDomain` to `…ByDiscipline`?
 - Still open from the handoff: statement-level provenance (RDF-star or named graphs) · attribute-space / embedding model for comparing traditions · the ontology as an instance of its own PerspectiveType · new Divergence subtypes for HO-III.a.
