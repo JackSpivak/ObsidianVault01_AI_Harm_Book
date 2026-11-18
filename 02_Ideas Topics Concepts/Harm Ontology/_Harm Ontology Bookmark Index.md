@@ -17,6 +17,7 @@ Click the arrow beside an item to open or close its branch.
 - [[HO-000 Harm as Perspective-Relative Assessment|HO-000 — Root: harm as perspective-relative assessment]]: theories of harm describe harm rather than classify it. Neutral factors, roles and effects are judged by assessments taken from perspectives.
 	- **HO-I — Core model** (tier, no page of its own): what exists in a harm situation (neutral of verdicts).
 		- [[HO-I.a Factor and CausalRole|HO-I.a — Factor and CausalRole]]: neutral factors (Act, Process, Omission, Condition, Structure, Risk) bear roles in specific causal chains.
+			- [[HO-006 Causal Chain - an Assessed Selection with a Horizon|HO-006 — Causal chain]] (also under top-level HO-006; v4 proposed): the missing Chain class that CausalRole refers to.
 		- [[HO-I.b Effect and Cascades|HO-I.b — Effect and cascades]]: neutral effects with patient-specific properties. Effects can bear roles and lead to further effects.
 		- [[HO-I.c Phenomenality - Observability and Experienceability|HO-I.c — Phenomenality]]: Phenomenal / NonPhenomenal / ConditionallyPhenomenal, applied separately to observability and experienceability.
 	- **HO-II — Judging layer** (tier): how anything comes to count as harmful or beneficial.
@@ -46,6 +47,7 @@ Click the arrow beside an item to open or close its branch.
 - [[HO-004 Criticality, Leverage and the Limits of Scope|HO-004 — Criticality, leverage and the limits of scope]]: time makes the model asymmetric (settled past, open future). Scope can never be asserted complete; inclusion by leverage, not only magnitude; sensitivity as an attack vector.
 - [[HO-005 Assessed Membership and Systematic Omission|HO-005 — Assessed membership and systematic omission]]: which factors count as causes is itself assessed, and omission is the norm. Re-attribution cases as the test method. Revises HO-003 (pending).
 	- [[HO-002.a Assessment-Everywhere Test Strategy|HO-002.a — Assessment-everywhere test strategy]] (also under HO-002): tests HO-005's pending items.
+- [[HO-006 Causal Chain - an Assessed Selection with a Horizon|HO-006 — Causal chain: an assessed selection with a horizon]] (**v4 proposed**, not decided): v3 has CausalRole "in one chain" but no Chain class. A thin Chain, bounded by a horizon (finite `maxHorizon`), with horizon part of the claim key. (also under HO-I.a)
 
 ## Ontology files
 - [[Harm Ontology v3 - Draft Structure]]: the consolidated v3 model.
@@ -70,6 +72,9 @@ Click the arrow beside an item to open or close its branch.
 - **HO-004 and HO-003:** the most dangerous pattern is an assembly of individually innocuous, sub-threshold factors placed at critical points.
 - **HO-005 and HO-003:** HO-005 revises HO-003's "jointly sufficient" to "as assessed" (pending tests).
 - **HO-002 and every other entry:** each design claim in this index should eventually have a test case in HO-002. [[The Self-Revising Harm Ontology]] is test T17.
+- **HO-006 and HO-I.a / HO-II.b:** a Chain would give CausalRole something to point at (`withinChain`), and horizon bounds the chain. Horizon must be part of the claim key, or a chain assessed at two horizons shows a false Disputed.
+- **HO-006 and HO-004:** a finite horizon means *declared and bounded*, not *complete*; the limit concepts (full causal past and future) and "scope is never complete" stay.
+- **HO-006 and HO-003 / HO-002.a:** Chain is a thin container like FactorAssembly; its first test is one chain at two horizons in the toy case.
 - **HO-002.a and HO-II.e:** shortcut status values (Settled / Disputed / NotAssessed) extend the missingness statuses.
 
 ## Summary

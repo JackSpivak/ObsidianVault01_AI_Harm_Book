@@ -174,6 +174,7 @@ BOX D — Vocabulary layer (2026-11-17) → [[Vocabulary Crosswalk - Concept Hub
   - consent
   - the legal layer
   - the evidence anchor against the regress
+- **v4 proposed (not decided):** a thin Chain class bounded by a horizon, which `CausalRole` would point to. See [[HO-006 Causal Chain - an Assessed Selection with a Horizon]].
 - **Open from toy runs (2026-11-18):**
   - whether the strict settlement rule leaves almost nothing Settled in real cases
   - the non-expert test (script-generated snapshots must not fail silently), which gates adopting variant B

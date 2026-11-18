@@ -70,6 +70,7 @@ latest_session: "[[2026-11-18 Harm Ontology v3 Toy Case Results]]"
 - Splitting Assessment into Causal / Valence / Responsibility. The toy case used a separate ResponsibilityAssessment, test only.
 - Causal standards (but-for, NESS, INUS…) as a second family of standards.
 - Reifying `participatesIn` as a claim.
+- **v4 proposed: a Chain class.** v3 has `CausalRole` "in one chain" but no Chain object. Idea: a thin Chain bounded by a horizon (finite `maxHorizon`), horizon part of the claim key; first test is one chain at two horizons in the toy case. See [[HO-006 Causal Chain - an Assessed Selection with a Horizon]].
 - HO-003's "jointly sufficient" becoming "as assessed".
 - The evidence anchor. It's now built into the test design as Evidence plus Observation, but not decided.
 - AffectedEntity proposals listed in HO-002.a: type as an assessment, `Unclassified`, NaturalSystem / EngineeredSystem, `affectedStanding`, CollectiveNaturalGroup, Household.

@@ -9,7 +9,7 @@ tags:
   - copilot-conversation
 sessionId: "ses_e1001f457ffenvFWPIJO88zZRW"
 carriedMessages: 12
-usage: '{"usedTokens":107598,"contextWindow":1000000,"updatedAt":1795029535240}'
+usage: '{"usedTokens":138472,"contextWindow":1000000,"updatedAt":1795030959252}'
 ---
 
 **user**: what are open issues
@@ -311,3 +311,110 @@ I did not log anything in [[Decisions_Log]], following the handoff caution not t
 The next gate is the non-expert subagent test, which decides whether variant B can be adopted. I haven't started it.
 <!-- copilot-message {"tools":["grep (search): 01_The Writer's Room/Handoff - Harm Ontology.md","read (read): 01_The Writer's Room/Handoff - Harm Ontology.md","edit (edit): 01_The Writer's Room/Handoff - Harm Ontology.md","edit (edit): 01_The Writer's Room/2026-11-18 Harm Ontology v3 Toy Case Results.md","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure.md"]} -->
 [Timestamp: 2026/11/18 12:18:20]
+
+**user**: i notice thatt we currently have CausalRole which characterizes the role a factor might play in a chain. but i amnot aware that we have a thing(classs) representing a chain how can this be
+[Timestamp: 2026/11/18 12:33:10]
+
+**ai**: You're right. There is no Chain class in the draft, and "chain" is used in the notes without being defined.
+
+**What "chain" currently is**
+- **A chain is not an object.** It is the graph formed by the links `Factor causes → Factor | Effect` and `Effect leadsTo → Effect`. Anything reachable by following those links counts as a chain.
+- **`CausalRole` says "in one chain" but has nothing to point to.** Its properties are `borneBy → Factor|Effect` and `contributesTo → Effect`. So "one chain" is really "one Factor–Effect pair", or a path implied by following links. [[HO-I.a Factor and CausalRole]] says a factor plays different roles in different chains, but the model can't say which chain.
+- **Assessments refer to chains by a label.** An Assessment carries `chainScope` and `chainStatus: Actual | Extrapolated`, and the horizon notes talk about "following the chain". Those properties describe a chain that has no node to attach to. That is why the trap in [[HO-II.b Assessment Horizon - the Sai Weng Trap]] (where the judge stops following the chain) is only stated as properties.
+
+**Why it may be a gap, and why it may not be**
+- **The gap:** Chain-level questions can't be asked directly. Examples are "which chain did this assessment cover?", "do two perspectives mean the same chain?", "where does this chain stop?" and "net result across a chain". [[HO-I.b Effect and Cascades]] lists that last one as open: "should net results across a chain ever be assessed".
+- **Why it may be deliberate:** Effects ramify into an open future and causes converge into a settled past ([[HO-004 Criticality, Leverage and the Limits of Scope]]). So a complete chain is a limit concept and is never instantiated. A Chain class risks implying completeness.
+- **A possible fit with what we have:** `Outcome` is already "a cut across the ramification at a horizon". A chain might be the equivalent: a selected path, chosen by a perspective. It would be an assessed selection rather than a thing in the world, and a thin container like `FactorAssembly` would work. Candidate names are `CausalChain` or `CausalPath`. They'd have thin identity, with `members`, `from`, `to` and `stoppedAt` supplied by assessments. That would also let `CausalRole` point at something (`withinChain`), the way it has a `withinAssembly (?)` marker now.
+
+**One thing I'm not sure about:** I have only searched the HO notes for "chain". I haven't checked the other notes, the v1 `.ttl`, or the council reviews, so a Chain concept may exist somewhere I haven't looked.
+
+This is a design question, so I haven't changed anything. If you want to take it up, it sits next to the assessed-membership and "assessment everywhere" work and would be a new bookmark, probably near HO-005. Should I check the other notes for an existing Chain idea and add it to the bookmark index as a pending item?
+<!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology"]} -->
+[Timestamp: 2026/11/18 12:33:10]
+
+**user**: first, any assessment of the collective outcome of a chain could be assessed with respect to a specific horizon. and we don't have to go to a limit, some maxHorizon could pin it at some finite timescale
+[Timestamp: 2026/11/18 12:37:44]
+
+**ai**: That fits the model and resolves my objection, with one point about where the horizon lives.
+
+**What it resolves**
+- **The limit-concept worry goes away.** A Chain would not claim to be the whole causal future. It would be a selection: this path, followed to this horizon. The unreachable limit stays a limit concept in [[HO-004 Criticality, Leverage and the Limits of Scope]], and a finite `maxHorizon` gives a real, bounded object to assess.
+- **It matches the Sai Weng point.** [[HO-II.b Assessment Horizon - the Sai Weng Trap]] says the point where a judge stops decides the verdict. Making the stopping point an explicit value is the honest way to model that.
+- **`scopeAdequacy` can still never be Complete.** A finite horizon means "declared and bounded", not "complete". The two ideas don't conflict.
+
+**Where it gets subtle**
+1. **Horizon already exists in two places.** It is `exposure (horizon)` on PerspectiveSpecification, and HO-II.b says every Assessment must state `assessmentHorizon`. So the chain proposal should reuse these rather than add a third. A perspective can assess the same chain at several horizons (1 year vs 20 years), so the horizon belongs on the assessment, not only on the perspective.
+2. **`maxHorizon` and the assessor's chosen horizon are different things.**
+   - *The assessor's horizon:* how far this judgment looked.
+   - *A ceiling:* the longest horizon a standard, procedure or query will entertain, such as foreseeability or a limitation period.
+   
+   Both are useful. The ceiling is a rule (it could sit on `Procedure` or `EvaluativeStandard`), and the assessment's horizon must not exceed it.
+3. **Horizon must be part of the same-claim test.** Decision 11 matches claims on target, attribute and scope (entity and time period). If horizon is not part of the key, "net beneficial at 2 years" and "net harmful at 20 years" would show as **Disputed**. That is the false dispute from toy finding 1 again, and it would also hide the Sai Weng effect. So a chain-level claim needs horizon in the key.
+4. **Open sub-questions:**
+   - Is the horizon measured from the factor, the effect, or `assessedAt`?
+   - A horizon past today forces `chainStatus: Extrapolated`.
+   - Does a horizon cut the chain at a time, a number of links, or a level of probability?
+
+**What I'd suggest.** Treat this as one design item: a thin Chain (like `FactorAssembly`) whose members, endpoints and `stoppedAt` come from assessments, with horizon as part of the claim key. That would be the first thing to test in the toy case, since it is where a false dispute is most likely. It would also give `CausalRole` something to point at.
+
+I haven't changed any notes. If you want, I can add it as a pending item in [[HO-005 Assessed Membership and Systematic Omission]] and the bookmark index. I can also extend the toy case with one chain assessed at two horizons to see whether horizon-in-the-key removes the false dispute. Which would you like?
+[Timestamp: 2026/11/18 12:37:44]
+
+**user**: lets capture all these thoughts about what to do about chains in an idea note and bookmark it appropriately as a v4 proposed feature
+[Timestamp: 2026/11/18 12:40:43]
+
+**ai**: Before proposing a placement, I'll check for an existing page on this idea and read the Idea template and its allowed fields.I haven't written anything yet. Your bookmark skill requires a confirmed placement before I touch the index. A check for an existing page on this idea (`canonical_id` and title) found none, so this would be a new page.
+
+**Proposed plan**
+- **ID:** **HO-006**, a new top-level bookmark.
+  - It is a new cross-cutting question, not a descendant of one item. That matches HO-003, HO-004 and HO-005.
+  - The Chain class is a core-model element, so I'd add "(also under HO-I.a)".
+  - The alternative is HO-I.d under the Core model tier, which treats it as a sibling of Factor and CausalRole. I'd avoid that, because the idea also depends on the judging layer (horizon) and the scope notes.
+- **File:** `02_Ideas Topics Concepts/Harm Ontology/HO-006 Causal Chain - an Assessed Selection with a Horizon.md`
+- **Frontmatter:** `fileClass: Idea`, `type: idea`, `status: seed`, `bookmark: HO-006`, `canonical_id: ho-006-causal-chain-assessed-selection`, `territory: new`, `tags: [ontology/harm, ontology/v4-proposed]`.
+  - The Idea fileClass has no version field, and I'd rather not invent one. The `ontology/v4-proposed` tag plus a visible "v4 proposed, not decided" callout carries it.
+- **Content, as discussed:**
+  - **The gap:** no Chain class. `CausalRole` says "in one chain" with nothing to point at, and `chainScope` / `chainStatus` describe an object that doesn't exist.
+  - **Your point:** a chain assessment is relative to a horizon, and a finite `maxHorizon` pins it, so no limit concept is needed.
+  - **My caveats:**
+    - Reuse the existing horizon properties instead of adding a third.
+    - Separate the assessor's chosen horizon from a ceiling set by a standard or procedure.
+    - Horizon must be part of the same-claim key, or "good at 2 years, bad at 20" gives a false dispute.
+    - Open sub-questions: what the horizon is measured from, and whether it cuts by time, links or probability.
+  - **Design sketch:** a thin Chain container like `FactorAssembly`, with members, endpoints and `stoppedAt` supplied by assessments, and `CausalRole withinChain`.
+  - **First test:** one chain assessed at two horizons in the toy case.
+  - **Original wording:** your two messages, quoted verbatim, plus the source session.
+- **Index changes:** a new HO-006 entry after HO-005, with an "(also under HO-I.a)" line, and cross-references to HO-I.a, HO-II.b, HO-004, HO-005 and HO-002.a.
+- **Not changed:** [[Decisions_Log]] (this is pending, not decided) and the v3 tree.
+
+Two optional extras you can accept or decline:
+1. Add a one-line "v4 proposed: see HO-006" marker to [[Harm Ontology v3 - Draft Structure]]'s open list.
+2. Add a "Chain" item to the handoff's pending list.
+
+Is HO-006 right, or should it go under HO-I.d? Once you confirm, I'll create the note and update the index.
+<!-- copilot-message {"tools":["skill (other)","read (read): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md","grep (search): .","read (read): 00_Claude_Admin/Templates/Idea.md","read (read): 00_Claude_Admin/FileClasses/Idea.md"]} -->
+[Timestamp: 2026/11/18 12:40:43]
+
+**user**: acce[t
+[Timestamp: 2026/11/18 12:42:00]
+
+**ai**: I created [[HO-006 Causal Chain - an Assessed Selection with a Horizon]] and filed it as HO-006, a v4 proposed feature. I didn't re-run the exact-match check on `canonical_id` afterwards. I also haven't confirmed that each wikilink in the note resolves, but they use the existing note titles.
+
+**New note**
+- **Frontmatter:** `status: seed`, `bookmark: HO-006`, `canonical_id: ho-006-causal-chain-assessed-selection`, tags `ontology/harm` and `ontology/v4-proposed`.
+- **Top callout:** says it is not decided and not tested.
+- **Content:** the gap, your horizon and `maxHorizon` point, my four caveats, the thin-container sketch, the first test (one chain at two horizons), your three messages quoted as original wording, and open questions.
+
+**Index ([[_Harm Ontology Bookmark Index]])**
+- **New entry:** a top-level HO-006 entry after HO-005.
+- **Secondary entry:** one under HO-I.a, marked "(also under top-level HO-006)".
+- **Cross-references:** three new ones, to HO-I.a, HO-II.b, HO-004, HO-003 and HO-002.a.
+
+**Other notes**
+- **[[Harm Ontology v3 - Draft Structure]]:** a "v4 proposed" bullet in the open list. The tree is unchanged.
+- **[[Handoff - Harm Ontology]]:** a v4 Chain item in the pending list.
+
+I did not touch [[Decisions_Log]]. The note records that only the HO notes were searched for "chain", so an existing Chain concept elsewhere in the vault is still possible. The most useful next step is the toy-case test of one chain at two horizons, since it checks the false-dispute risk. Do you want me to build it?
+<!-- copilot-message {"tools":["write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-006 Causal Chain - an Assessed Selection with a Horizon.md","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure.md","edit (edit): 01_The Writer's Room/Handoff - Harm Ontology.md"]} -->
+[Timestamp: 2026/11/18 12:42:00]
