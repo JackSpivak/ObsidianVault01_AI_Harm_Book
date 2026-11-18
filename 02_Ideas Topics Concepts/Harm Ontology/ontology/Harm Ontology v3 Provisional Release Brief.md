@@ -79,6 +79,12 @@ Per [[Decisions_Log]] 2026-11-17 (three layers) and the leaning decision 6 below
 
 **Staging:** build D1 and review it first, then add the narrative one source group at a time (HO notes → Decisions Log → PerspectiveStructure and the council tables), checking coverage after each.
 
+## Editor-first requirement (author, 2026-11-18)
+The model must be readable, maintainable and extensible **in an OWL editor (Protégé)**, not through scripts or generated pages: "i am not interested in the script approach at all. it is a miserable way to interact with the data if someone wanted to maintain or extend the ontology in an editor." This overrides D2 (generated Compendium) as a way of *reading* the model, and the "generated views" idea. A generated document may still be produced later as a publication, but nothing the author needs to understand or edit may depend on it. Scripts are acceptable for one-off migration of existing content, not for day-to-day use. Consequences: structure, grouping, domain and range, and the narrative must all be visible and editable inside the editor; the three-layer layout and the narrative placement (decision 6) must be re-judged against that.
+
+## Property groupings must survive (author, 2026-11-18)
+The attribute groups are "essential to understanding" (the author). They are: the 12 display groups of [[PerspectiveStructure 0.02]] (with sub-groups 3.1, 3.2 and 12a–c, the ★ / ★★ tiers, group 0 as the required minimum, and the profiles), and the Position / Time / Optics / Purpose / Operator facets of PerspectiveSpecification in the [[Harm Ontology v3 - Draft Structure]]. A flat property list loses them. PerspectiveStructure 0.02 decided that groups are **display facets, not OWL classes**. How to carry them in the schema is an open design question (options in the chat of 2026-11-18): abstract grouping super-properties, an annotation such as `ho:displayGroup` with a group number and order, SKOS collections, or generated views. Whatever is chosen must reproduce the group tree and the tiers so the reader can see it.
+
 ## Content rules
 - **Names:** AffectedEntity (altLabels "patient", "moral patient"), `affectedStanding`, `forAffectedEntity`. No `Patient` IRIs. Subtype names unchanged.
 - **Other renames to carry:** FactorAssembly (altLabel "causal assembly"), EvaluativeStandard (altLabel "theory of harm"), PerspectiveType (prefLabel "tradition", altLabel "lens"), PerspectiveSpecification (altLabels "viewpoint", "perspective snapshot"), CausalCandidate, Attribution merged into CausalAssessment.
