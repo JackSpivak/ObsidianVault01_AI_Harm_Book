@@ -17,7 +17,7 @@
   "deepseekApiKey": "",
   "siliconflowApiKey": "",
   "defaultChainType": "llm_chain",
-  "defaultModelKey": "",
+  "defaultModelKey": "8a0315e1-34e0-4284-b316-005a6474f1ef",
   "contextTurns": 15,
   "userSystemPrompt": "",
   "openAIProxyBaseUrl": "",
