@@ -59,6 +59,7 @@ HARM ONTOLOGY v3 (draft, 2026-11-15; revised 2026-11-17)
 │   props: leadsTo → Effect (cascades; open-ended) · affects → AffectedEntity · hasObjectOfHarm ·
 │          experienceability (box A) · isPosthumous · isStatistical · isDispositional ·
 │          severity · reversibility · temporalTrajectory · modality · temporalStatus: Actual|Extrapolated|Pending
+│   proposed 2026-11-18, untested (→ HO-002.a): occurredDuring (time interval; observable core + assessed reading)
 │   (Effect and Factor are not disjoint)
 │
 ├── Outcome ........................................ a cut across the ramification at a horizon → Decisions 2026-11-14

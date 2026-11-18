@@ -1,0 +1,137 @@
+# Toy case "Branch ledger" — VARIANT B (assessment everywhere)
+# FICTIONAL DATA. Not a claim about any real case. Test only (HO-002.a, 2026-11-18).
+
+@prefix ho:   <https://example.org/harm-ontology/v3-test#> .
+@prefix hoa:  <https://example.org/harm-ontology/v3-test/attr#> .
+@prefix toy:  <https://example.org/harm-ontology/toy#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# ---------- Bands ----------
+ho:Low ho:bandRank 1 . ho:Medium ho:bandRank 2 . ho:High ho:bandRank 3 . ho:Extreme ho:bandRank 4 .
+
+# ---------- Attribute concepts (hoa:) ----------
+# Added after run 1: bands apply only to graded attributes; each attribute declares what it applies to.
+hoa:severity      a ho:GradedAttribute ; ho:appliesTo ho:Effect .
+hoa:cause         ho:appliesTo ho:Effect .
+hoa:answerable    ho:appliesTo ho:Effect .
+hoa:occurredStart ho:appliesTo ho:Effect .
+hoa:entityType    ho:appliesTo ho:AffectedEntity .
+
+# ---------- Thin entities ----------
+toy:F1 a ho:Factor ; rdfs:label "Software sync bug" .
+toy:F2 a ho:Factor ; rdfs:label "Manager's slow manual reconciliation" .
+toy:F3 a ho:Factor ; rdfs:label "Policy holding operators liable for shortfalls" .
+toy:F4 a ho:Factor ; rdfs:label "Operator error" .
+
+# Observable core per the triage: affects, occurredDuring (added after run 1: CQ8 needs `affects` in the core)
+toy:E1 a ho:Effect ; rdfs:label "Financial loss to operators" ; ho:affects toy:AllOperators .
+toy:E2 a ho:Effect ; rdfs:label "Reputational damage to operators" ; ho:affects toy:AllOperators ;
+    ho:occurredStart "2009"^^xsd:gYear ; ho:occurredEnd "2014"^^xsd:gYear .
+toy:E3 a ho:Effect ; rdfs:label "Stress-related illness among operators" ; ho:affects toy:AllOperators .  # TRAP: no assessments
+
+toy:AllOperators  a ho:AffectedEntity ; rdfs:label "All branch operators" .
+toy:SomeOperators a ho:AffectedEntity ; rdfs:label "Some branch operators" ; ho:subgroupOf toy:AllOperators .
+toy:AidCircle     a ho:AffectedEntity ; rdfs:label "Operators' informal mutual-aid circle" .  # TRAP: unlisted kind
+
+toy:CompanyX a ho:Agent ; rdfs:label "CompanyX" .
+toy:Manager  a ho:Agent ; rdfs:label "Branch manager" .
+toy:AuditFirmY a ho:Agent ; rdfs:label "Audit firm Y" .
+toy:AuditFirmZ a ho:Agent ; rdfs:label "Audit firm Z" .
+toy:Assoc  a ho:Agent ; rdfs:label "Operators' association" .
+toy:Court  a ho:Agent ; rdfs:label "Appeal court" .
+
+# ---------- Standards, traditions, procedures ----------
+toy:StdContract a ho:EvaluativeStandard . toy:StdAudit a ho:EvaluativeStandard . toy:StdLegalCause a ho:EvaluativeStandard .
+toy:ForensicAccounting a ho:PerspectiveType ; ho:defaultEvaluativeStandard toy:StdAudit .
+toy:CorporateGovernance a ho:PerspectiveType ; ho:defaultEvaluativeStandard toy:StdContract .
+
+toy:ProcInternal a ho:Procedure ; ho:version "1" ; ho:implementsStandard toy:StdContract ;
+    ho:mapsValue [ ho:fromValue "2/10" ; ho:toBand ho:Low ] , [ ho:fromValue "4/10" ; ho:toBand ho:Medium ] ,
+                 [ ho:fromValue "7/10" ; ho:toBand ho:High ] .
+toy:ProcForensic a ho:Procedure ; ho:version "2" ; ho:implementsStandard toy:StdAudit ;
+    ho:mapsValue [ ho:fromValue "mild" ; ho:toBand ho:Low ] , [ ho:fromValue "moderate" ; ho:toBand ho:Medium ] ,
+                 [ ho:fromValue "serious" ; ho:toBand ho:High ] , [ ho:fromValue "critical" ; ho:toBand ho:Extreme ] .
+toy:ProcCourt a ho:Procedure ; ho:version "1" ; ho:implementsStandard toy:StdLegalCause .
+# Band mappings are made up for the toy case (decision 13).
+
+# ---------- Perspective specifications ----------
+toy:P1 a ho:PerspectiveSpecification ; rdfs:label "CompanyX internal review" ;
+    ho:instantiates toy:CorporateGovernance ; ho:appliedEvaluativeStandard toy:StdContract ; ho:usesProcedure toy:ProcInternal .
+toy:P2 a ho:PerspectiveSpecification ; rdfs:label "Forensic auditor 1 (firm Y)" ;
+    ho:instantiates toy:ForensicAccounting ; ho:usesProcedure toy:ProcForensic .
+toy:P3 a ho:PerspectiveSpecification ; rdfs:label "Forensic auditor 2 (firm Y, same firm)" ;
+    ho:instantiates toy:ForensicAccounting ; ho:usesProcedure toy:ProcForensic .
+toy:P4 a ho:PerspectiveSpecification ; rdfs:label "Operators' association (opinion)" .
+toy:P5 a ho:PerspectiveSpecification ; rdfs:label "Appeal court" ;
+    ho:appliedEvaluativeStandard toy:StdLegalCause ; ho:usesProcedure toy:ProcCourt .
+toy:P6 a ho:PerspectiveSpecification ; rdfs:label "Forensic auditor 3 (firm Z)" ;
+    ho:instantiates toy:ForensicAccounting ; ho:usesProcedure toy:ProcForensic .
+
+# ---------- Assessments ----------
+# Causal: who/what caused E1 (timeline for CQ4)
+toy:C1 a ho:CausalAssessment ; ho:assesses toy:E1 ; ho:aboutAttribute hoa:cause ; ho:value toy:F4 ;
+    ho:takenFrom toy:P1 ; ho:assessorOrganisation toy:CompanyX ; ho:usesProcedure toy:ProcInternal ;
+    ho:hasEvidence toy:Ev1 ; ho:assessedAt "2010-03-01"^^xsd:date ; ho:leftOut toy:F1 ; ho:omissionType ho:BlindSpot .
+toy:C5 a ho:CausalAssessment ; ho:assesses toy:E1 ; ho:aboutAttribute hoa:cause ; ho:value toy:F1 ;
+    ho:takenFrom toy:P4 ; ho:assessorOrganisation toy:Assoc ; ho:assessedAt "2012-06-01"^^xsd:date .
+toy:C2 a ho:CausalAssessment ; ho:assesses toy:E1 ; ho:aboutAttribute hoa:cause ; ho:value toy:F1 ;
+    ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:usesProcedure toy:ProcForensic ;
+    ho:hasEvidence toy:Ev2 ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:C6 a ho:CausalAssessment ; ho:assesses toy:E1 ; ho:aboutAttribute hoa:cause ; ho:value toy:F1 ;
+    ho:takenFrom toy:P3 ; ho:assessorOrganisation toy:AuditFirmY ; ho:usesProcedure toy:ProcForensic ;
+    ho:hasEvidence toy:Ev2 ; ho:repeats toy:C2 ; ho:assessedAt "2016-01-10"^^xsd:date .
+toy:C3 a ho:CausalAssessment ; ho:assesses toy:E1 ; ho:aboutAttribute hoa:cause ; ho:value toy:F1 ;
+    ho:takenFrom toy:P1 ; ho:assessorOrganisation toy:CompanyX ; ho:usesProcedure toy:ProcInternal ;
+    ho:hasEvidence toy:Ev3 ; ho:assessedAt "2018-09-01"^^xsd:date .
+toy:C7 a ho:CausalAssessment ; ho:assesses toy:E1 ; ho:aboutAttribute hoa:cause ; ho:value toy:F3 ;
+    ho:takenFrom toy:P4 ; ho:assessorOrganisation toy:Assoc ; ho:assessedAt "2019-02-01"^^xsd:date .
+toy:C4 a ho:CausalAssessment ; ho:assesses toy:E1 ; ho:aboutAttribute hoa:cause ; ho:value toy:F1 ;
+    ho:takenFrom toy:P5 ; ho:assessorOrganisation toy:Court ; ho:usesProcedure toy:ProcCourt ;
+    ho:hasEvidence toy:Ev4 ; ho:assessedAt "2021-04-01"^^xsd:date .
+
+# Severity of E1 (bands, overlapping scope, scope test)
+toy:S1 a ho:Assessment ; ho:assesses toy:E1 ; ho:aboutAttribute hoa:severity ; ho:value "4/10" ;
+    ho:forAffectedEntity toy:AllOperators ; ho:takenFrom toy:P1 ; ho:assessorOrganisation toy:CompanyX ;
+    ho:usesProcedure toy:ProcInternal ; ho:hasEvidence toy:Ev3 ; ho:assessedAt "2018-09-01"^^xsd:date .
+toy:S2 a ho:Assessment ; ho:assesses toy:E1 ; ho:aboutAttribute hoa:severity ; ho:value "serious" ;
+    ho:forAffectedEntity toy:AllOperators ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ;
+    ho:usesProcedure toy:ProcForensic ; ho:hasEvidence toy:Ev2 ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:S3 a ho:Assessment ; ho:assesses toy:E1 ; ho:aboutAttribute hoa:severity ; ho:value "serious" ;
+    ho:forAffectedEntity toy:AllOperators ; ho:takenFrom toy:P6 ; ho:assessorOrganisation toy:AuditFirmZ ;
+    ho:usesProcedure toy:ProcForensic ; ho:hasEvidence toy:Ev5 ; ho:assessedAt "2016-03-01"^^xsd:date .
+toy:S5 a ho:Assessment ; ho:assesses toy:E1 ; ho:aboutAttribute hoa:severity ; ho:value ho:Low ;
+    ho:forAffectedEntity toy:SomeOperators ; ho:takenFrom toy:P4 ; ho:assessorOrganisation toy:Assoc ;
+    ho:assessedAt "2019-02-01"^^xsd:date .
+
+# Severity of E2: only one assessment (SingleSource)
+toy:S6 a ho:Assessment ; ho:assesses toy:E2 ; ho:aboutAttribute hoa:severity ; ho:value "critical" ;
+    ho:forAffectedEntity toy:AllOperators ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ;
+    ho:usesProcedure toy:ProcForensic ; ho:hasEvidence toy:Ev2 ; ho:assessedAt "2015-05-01"^^xsd:date .
+
+# When E2 began (assessed reading of occurredDuring)
+toy:T1 a ho:Assessment ; ho:assesses toy:E2 ; ho:aboutAttribute hoa:occurredStart ; ho:value "2012" ;
+    ho:takenFrom toy:P1 ; ho:assessorOrganisation toy:CompanyX ; ho:usesProcedure toy:ProcInternal ;
+    ho:hasEvidence toy:Ev3 ; ho:assessedAt "2018-09-01"^^xsd:date .
+toy:T2 a ho:Assessment ; ho:assesses toy:E2 ; ho:aboutAttribute hoa:occurredStart ; ho:value "2009" ;
+    ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:usesProcedure toy:ProcForensic ;
+    ho:hasEvidence toy:Ev2 ; ho:assessedAt "2015-05-01"^^xsd:date .
+
+# AffectedEntity type of an unlisted kind
+toy:K1 a ho:Assessment ; ho:assesses toy:AidCircle ; ho:aboutAttribute hoa:entityType ; ho:value ho:Unclassified ;
+    ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:assessedAt "2015-05-01"^^xsd:date .
+
+# Responsibility (CQ9), kept apart from cause
+toy:R1 a ho:ResponsibilityAssessment ; ho:assesses toy:E1 ; ho:aboutAttribute hoa:answerable ; ho:value toy:Manager ;
+    ho:takenFrom toy:P1 ; ho:assessorOrganisation toy:CompanyX ; ho:usesProcedure toy:ProcInternal ;
+    ho:hasEvidence toy:Ev3 ; ho:assessedAt "2018-09-01"^^xsd:date .
+toy:R2 a ho:ResponsibilityAssessment ; ho:assesses toy:E1 ; ho:aboutAttribute hoa:answerable ; ho:value toy:CompanyX ;
+    ho:takenFrom toy:P5 ; ho:assessorOrganisation toy:Court ; ho:usesProcedure toy:ProcCourt ;
+    ho:hasEvidence toy:Ev4 ; ho:assessedAt "2021-04-01"^^xsd:date .
+
+# ---------- Evidence ----------
+toy:Ev1 a ho:Evidence ; rdfs:label "Internal review memo 2010 (fictional)" .
+toy:Ev2 a ho:Evidence ; rdfs:label "Forensic report, firm Y (fictional)" .
+toy:Ev3 a ho:Evidence ; rdfs:label "Internal review revision 2018 (fictional)" .
+toy:Ev4 a ho:Evidence ; rdfs:label "Appeal judgment 2021 (fictional)" .
+toy:Ev5 a ho:Evidence ; rdfs:label "Forensic report, firm Z (fictional)" .

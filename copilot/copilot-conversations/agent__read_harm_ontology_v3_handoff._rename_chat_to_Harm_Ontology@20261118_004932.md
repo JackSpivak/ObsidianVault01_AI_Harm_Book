@@ -7,7 +7,7 @@ topic: "read harm ontology v3 handoff. rename chat to Harm Ontology…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":113235,"contextWindow":1000000,"inputTokens":2,"outputTokens":5,"cacheReadTokens":110343,"cacheWriteTokens":2885,"updatedAt":1794990943841}'
+usage: '{"usedTokens":115523,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":114137,"cacheWriteTokens":1376,"updatedAt":1794991107912}'
 ---
 
 **user**: read harm ontology v3 handoff.  rename chat to Harm Ontology v3 testing
@@ -815,3 +815,51 @@ CQ8 asks "**when** did Effect X occur?", but the draft structure gives Effect on
 Do you choose (a), (b) or (c)? If you choose (a), I'll add it to both variants in HO-002.a, and as a proposed item in the draft structure, not a decided one.
 <!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md"]} -->
 [Timestamp: 2026/11/18 01:35:02]
+
+**user**: recommended
+[Timestamp: 2026/11/18 01:38:04]
+
+**ai**: I've added Effect `occurredDuring` for the test:
+- **HO-002.a:** recorded as Author decision 21 and marked resolved in the baseline cautions. In A the date is asserted. In B the core sits on the Effect, and readings are Assessments. The decision sits **directly under the baseline section** rather than with decisions 1–20, because that's where the gap came up. I can move it if you'd prefer all decisions together.
+- **[[Harm Ontology v3 - Draft Structure]]:** added under Effect as "proposed 2026-11-18, untested". It's not decided and not logged.
+
+## Next: the toy case (step 5)
+The aim is to find structural bugs cheaply, using **made-up** data that's clearly labelled as fiction. It shouldn't be Horizon, which needs sourced research first. Here's a proposed scenario:
+
+**"Branch ledger" (fictional):** an accounting system shows cash shortfalls at small shop branches.
+- **3 Factors:** a software sync bug · a manager's slow manual reconciliation · a company policy that holds operators liable for shortfalls
+- **2 Effects:** financial loss to operators · damage to operators' reputations (with an occurrence date, disputed)
+- **3–4 perspectives:**
+  - the company's internal review
+  - an independent forensic auditor
+  - a second auditor from the **same firm**, to test the strict independence rule
+  - an operators' association giving an **Unstandardized** opinion
+- **A timeline (for CQ4):**
+  - 2010: internal review says "user error"
+  - 2015: forensic audit says "software fault"
+  - 2018: internal review changes its view
+  - 2021: appeal ruling
+- **Built-in traps:**
+  - one Effect with no assessments, for CQ2
+  - a severity dispute across different scales, for the bands
+  - overlapping groups (all operators vs some), for decision 12
+  - an entity of an unlisted kind, for CQ7 `Unclassified`
+  - a report that only repeats another (`repeats`)
+
+The scenario is deliberately *like* Horizon, so the toy case rehearses R01. Its facts are invented and won't be read as claims about the real case.
+
+**What I'd produce next:**
+1. Two small `.ttl` files in `ontology/tests/` (variant A and variant B) with the same scenario.
+2. A Python script in `~/harm-ontology-scripts/` that works out statuses and runs the CQ queries.
+3. A results note.
+
+Do you approve the scenario? Anything to add or remove before I build it?
+<!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure.md"]} -->
+[Timestamp: 2026/11/18 01:38:04]
+
+**user**: approve
+[Timestamp: 2026/11/18 01:39:00]
+
+**ai**: The first run turned up bugs in my script and in the design. I'll fix the script bugs and rerun, and keep the design findings for the results note.
+<!-- copilot-message {"tools":["PowerShell (other)","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/toy_branch_ledger_B.ttl","Write (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/toy_branch_ledger_A.ttl","Write (edit)","Edit (edit)","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/toy_branch_ledger_B.ttl","Write (edit): 01_The Writer's Room/2026-11-18 Harm Ontology v3 Toy Case Results.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md"]} -->
+[Timestamp: 2026/11/18 01:39:00]

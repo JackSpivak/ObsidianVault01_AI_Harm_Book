@@ -1,0 +1,42 @@
+# Toy case "Branch ledger" — VARIANT A (current draft: attributes asserted on entities)
+# FICTIONAL DATA. Not a claim about any real case. Test only (HO-002.a, 2026-11-18).
+# Same scenario as variant B, entered the way the current draft allows.
+
+@prefix ho:   <https://example.org/harm-ontology/v3-test#> .
+@prefix toy:  <https://example.org/harm-ontology/toy#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+toy:F1 a ho:Factor ; rdfs:label "Software sync bug" ; ho:causes toy:E1 .   # asserted; the latest editor's view
+toy:F2 a ho:Factor ; rdfs:label "Manager's slow manual reconciliation" .
+toy:F3 a ho:Factor ; rdfs:label "Policy holding operators liable for shortfalls" .
+toy:F4 a ho:Factor ; rdfs:label "Operator error" .
+
+# One asserted value per attribute; the modeller had to pick one (here: the internal review's).
+toy:E1 a ho:Effect ; rdfs:label "Financial loss to operators" ; ho:severity ho:Medium ; ho:affects toy:AllOperators .
+toy:E2 a ho:Effect ; rdfs:label "Reputational damage to operators" ; ho:severity ho:Extreme ;
+    ho:occurredStart "2009"^^xsd:gYear ; ho:occurredEnd "2014"^^xsd:gYear ; ho:affects toy:AllOperators .
+toy:E3 a ho:Effect ; rdfs:label "Stress-related illness among operators" ; ho:affects toy:AllOperators .
+
+toy:AllOperators  a ho:CollectiveArtificialPerson ; rdfs:label "All branch operators" .   # forced into nearest type
+toy:SomeOperators a ho:CollectiveArtificialPerson ; rdfs:label "Some branch operators" .
+toy:AidCircle     a ho:CollectiveArtificialPerson ; rdfs:label "Operators' informal mutual-aid circle" .  # forced; no Unclassified in A
+
+toy:StdContract a ho:EvaluativeStandard . toy:StdAudit a ho:EvaluativeStandard . toy:StdLegalCause a ho:EvaluativeStandard .
+toy:ForensicAccounting a ho:PerspectiveType ; ho:defaultEvaluativeStandard toy:StdAudit .
+toy:CorporateGovernance a ho:PerspectiveType ; ho:defaultEvaluativeStandard toy:StdContract .
+
+toy:P1 a ho:PerspectiveSpecification ; rdfs:label "CompanyX internal review" ; ho:instantiates toy:CorporateGovernance ; ho:appliedEvaluativeStandard toy:StdContract .
+toy:P2 a ho:PerspectiveSpecification ; rdfs:label "Forensic auditor 1 (firm Y)" ; ho:instantiates toy:ForensicAccounting .
+toy:P4 a ho:PerspectiveSpecification ; rdfs:label "Operators' association (opinion)" .
+toy:P5 a ho:PerspectiveSpecification ; rdfs:label "Appeal court" ; ho:appliedEvaluativeStandard toy:StdLegalCause .
+
+# CausalAssessment exists in the draft (adopted 2026-11-17)
+toy:C1 a ho:CausalAssessment ; ho:assesses toy:E1 ; ho:attributedCause toy:F4 ; ho:leftOut toy:F1 ; ho:takenFrom toy:P1 ; ho:assessedAt "2010-03-01"^^xsd:date .
+toy:C2 a ho:CausalAssessment ; ho:assesses toy:E1 ; ho:attributedCause toy:F1 ; ho:takenFrom toy:P2 ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:C3 a ho:CausalAssessment ; ho:assesses toy:E1 ; ho:attributedCause toy:F1 ; ho:takenFrom toy:P1 ; ho:assessedAt "2018-09-01"^^xsd:date .
+toy:C7 a ho:CausalAssessment ; ho:assesses toy:E1 ; ho:attributedCause toy:F3 ; ho:takenFrom toy:P4 ; ho:assessedAt "2019-02-01"^^xsd:date .
+toy:C4 a ho:CausalAssessment ; ho:assesses toy:E1 ; ho:attributedCause toy:F1 ; ho:takenFrom toy:P5 ; ho:assessedAt "2021-04-01"^^xsd:date .
+
+# Valence assessment (exists in the draft); responsibility not separable in A
+toy:V1 a ho:Assessment ; ho:assesses toy:E1 ; ho:verdict ho:Harmful ; ho:forAffectedEntity toy:AllOperators ; ho:takenFrom toy:P5 ; ho:assessedAt "2021-04-01"^^xsd:date .
