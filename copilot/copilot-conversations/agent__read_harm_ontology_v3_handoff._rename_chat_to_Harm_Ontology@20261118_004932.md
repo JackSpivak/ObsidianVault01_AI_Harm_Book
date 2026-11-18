@@ -7,7 +7,7 @@ topic: "read harm ontology v3 handoff. rename chat to Harm Ontology…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":59915,"contextWindow":1000000,"inputTokens":4,"outputTokens":5,"cacheReadTokens":59348,"cacheWriteTokens":558,"updatedAt":1794989164325}'
+usage: '{"usedTokens":86014,"contextWindow":1000000,"inputTokens":2,"outputTokens":346,"cacheReadTokens":84984,"cacheWriteTokens":682,"updatedAt":1794989829988}'
 ---
 
 **user**: read harm ontology v3 handoff.  rename chat to Harm Ontology v3 testing
@@ -236,6 +236,217 @@ Two decisions for you: (1) apply the asymmetric rule generally, not just to caus
 **user**: a
 [Timestamp: 2026/11/18 01:07:18]
 
-**ai**: 
+**ai**: I've recorded both decisions in [[HO-002.a Assessment-Everywhere Test Strategy]] as test-only Author decisions:
+- **Item 8:** hard case 3 shows as **Disputed**. The mechanism I proposed for it (a Divergence record with `divergesOn → Procedure`) is noted as my proposal, not yours.
+- **Item 9:** **option (a)**. Unstandardized dissent counts, `assessmentBasis` appears next to the status, and declared scope controls who is included.
+
+**Still need your answer on question 1:** should the asymmetric rule (settling is hard, disputing is easy) apply to **every attribute** or only to causal questions? I've listed it in the note as "proposed, awaiting author decision". I'd recommend every attribute.
+
+After that, these parts of rule v1 are still open. I can take them one at a time or put them all forward as a single package:
+1. Same-claim test (same target, attribute and scope)
+2. Graded values compared through shared bands
+3. Declared scope for each view or query
+4. Abstention blocks settlement (status `PartiallyAssessed`)
+5. At least 2 assessments to settle
+6. Latest assessment per perspective, recalculated as of a date
+7. Status set: six internal statuses, collapsed to three for display
 <!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md"]} -->
 [Timestamp: 2026/11/18 01:07:18]
+
+**user**: explain better
+[Timestamp: 2026/11/18 01:08:37]
+
+**ai**: Here's question 1 in plainer terms, with an example.
+
+## The question
+When two assessments **disagree**, when should the model label the claim **"Disputed"**?
+
+You've already answered this for one case (hard case 3): **who caused the Horizon shortfalls?** The Post Office's internal review says "the sub-postmasters". An independent forensic audit says "the software". They used different methods, but you chose "Disputed", so anyone asking the question sees there's a conflict.
+
+The question is whether that answer applies **only to "who caused it?" questions**, or **to every kind of question**.
+
+## Example of the difference
+Same two sources, a different question: **how severe was the harm to sub-postmasters?**
+- The internal review uses a financial-loss method and says "moderate".
+- An independent study uses a method that includes health, reputation and family impacts, and says "severe".
+
+| | Rule for causal questions only | Rule for all questions |
+|---|---|---|
+| "Who caused it?" | **Disputed** ✔ | **Disputed** ✔ |
+| "How severe?" | **Incommensurable**: the methods differ, so the model says it "can't compare" | **Disputed** ✔ |
+
+Under the causal-only rule, a naive query for "severe harms" could treat this case as unknown, so the disagreement **disappears from view**. That's the silent omission you raised earlier, coming back for every attribute that isn't causal.
+
+## The rule I'm proposing (the "asymmetric" rule)
+- **Calling something a fact (Settled) is hard.** Several sources must give the same answer using the *same* method, with evidence.
+- **Calling something Disputed is easy.** Any two in-scope sources giving conflicting answers is enough, *whatever method they used*.
+- **"Incommensurable"** is kept only for real non-comparisons. For example, one source answers a different question altogether, or uses a scale that can't be lined up with the other.
+
+In one sentence: **the model should be slow to declare facts and quick to show disagreement.** If it gets things wrong, it should show too much dispute, never a quiet false consensus.
+
+## What you're deciding
+- **All questions (recommended):** "Disputed" works the same way for severity, reversibility, patient type, and so on.
+- **Causal questions only:** narrower, but disagreements about other attributes can drop out of view.
+
+Which do you choose?
+[Timestamp: 2026/11/18 01:08:37]
+
+**user**: recommended
+[Timestamp: 2026/11/18 01:10:07]
+
+**ai**: I've recorded it in [[HO-002.a Assessment-Everywhere Test Strategy]] as Author decision 10, test-only, with the severity example. The asymmetric rule now applies to every attribute.
+
+## Next open item: when are two assessments about the same claim?
+This has to be settled first, because the rule above only works if we know when two assessments are answering the same question.
+
+**Example:** two sources on Horizon:
+- Source 1: "The harm was **severe** for **sub-postmasters**, **1999–2015**."
+- Source 2: "The harm was **minor** for **the Post Office as a company**, **2015**."
+
+Is that a dispute? No. They're about different people and different periods, so both can be true. If the model compared them anyway, it would show a **false dispute**.
+
+**Proposal:** two assessments are about the same claim only if they match on:
+1. **What** is assessed (the same Effect, Factor, etc.)
+2. **Which attribute** (severity, cause, reversibility…)
+3. **Scope**: the same Patient and an overlapping time period
+
+If any of the three differ, they're separate claims, and each gets its own status.
+
+**A harder case:** source 1 says "severe for sub-postmasters" and source 2 says "minor for *some* sub-postmasters". One group contains the other. The options are:
+- **(a)** treat them as different claims (simple, but it can hide a real conflict)
+- **(b)** treat them as the **same claim, shown as Disputed** whenever the groups or periods overlap (recommended, in line with "quick to show disagreement")
+
+Do you agree with the three-part match and with (b)?
+<!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md"]} -->
+[Timestamp: 2026/11/18 01:10:07]
+
+**user**: should we really be using the language patient here?  wouldn't impactedParty be better (and not say harmed party since they could be impacted beneficcially?_
+[Timestamp: 2026/11/18 01:12:31]
+
+**ai**: Good catch. I agree the name should change, but I'd suggest something other than `impactedParty`.
+
+## What's wrong with "Patient"
+- **Philosophy:** "moral patient" usually means *an entity whose interests count* or *that can be wronged*. That builds standing into the name, which contradicts the decision that **standing is assessed** (2026-11-18).
+- **Everyday reading:** most people hear "hospital".
+- **In its favour:** in linguistics, "patient" just means *whatever undergoes the action*, with no positive or negative charge. That's probably why it was chosen. But few readers will hear it that way.
+
+## Why not `impactedParty`
+- **"Party"** suggests a person or legal entity: someone who could sign a contract or join a lawsuit. It sounds odd for a river, an ecosystem, an electric grid or a future generation, all of which are on the inclusive list.
+- **"Impact"** is fairly neutral, but in everyday speech it often leans negative ("the impact of the cuts").
+- You're right that "harmed party" is out. Since 2026-11-14, valence lives only in the assessment ([[Decisions_Log]]), so the name has to cover beneficial effects too.
+
+## Options
+| Name | Neutral valence | Fits non-persons | Notes |
+|---|---|---|---|
+| **AffectedEntity** (recommended) | ✔ | ✔ | Matches the existing property `affects` (Effect `affects` → AffectedEntity), so the model reads naturally |
+| ImpactedEntity | mostly | ✔ | Similar, but "impact" leans slightly negative |
+| ImpactedParty | mostly | ✘ | "Party" suggests a person or legal entity |
+| Patient (keep, clearly defined) | ✔ in linguistics | ✔ | Familiar to philosophers, confusing to everyone else |
+
+I'd keep **"patient"** and **"moral patient"** as alternative labels (`altLabel`), so people coming from philosophy can still find it.
+
+## What the rename would involve
+- "Patient" appears **about 70 times across 19 notes**, including the draft structure, HO-002.a, the council reviews and the v1 `.ttl`. It's also in the Patient decision in [[Decisions_Log]].
+- That makes this a **design decision**, not a test-only one. It should be logged.
+- To keep the momentum low, I suggest:
+  1. You choose the name now.
+  2. I log it and use the new name in the v3 test files and in HO-002.a from now on.
+  3. The full rename across the other notes and the `.ttl` goes on the migration plan's list. I'll propose those edits as a list first, as the vault rules require.
+- Subtypes keep their names (SentientIndividual, Household, NaturalSystem…). Only the umbrella class changes, along with `patientStanding`, which would become `affectedStanding` or `standing`.
+
+Do you want **AffectedEntity**? Once you've chosen, I'll come back to the same-claim question, using the new name.
+<!-- copilot-message {"tools":["Grep (read): 00_Claude_Admin/Decisions_Log.md","Grep (read): 02_Ideas Topics Concepts/Harm Ontology"]} -->
+[Timestamp: 2026/11/18 01:12:31]
+
+**user**: yes to all
+[Timestamp: 2026/11/18 01:13:38]
+
+**ai**: Patient is now **AffectedEntity**. Here's what changed:
+
+- **[[Decisions_Log]]:** new 2026-11-18 entry. Patient becomes AffectedEntity (altLabels "patient" and "moral patient"), and `patientStanding` becomes `affectedStanding`. Subtype names don't change. The entry quotes your reasons verbatim. It replaces the class name in the earlier "inclusive types" entry, but that decision itself still stands.
+- **[[HO-002.a Assessment-Everywhere Test Strategy]]:** every non-quote "Patient" now reads AffectedEntity: the CQ7 row, the model section (renamed, with a pointer to the log) and the test-case table. Verbatim quotes are untouched.
+- **Migration list:** the full rename across the other notes and the v1 `.ttl` (about 70 occurrences in 19 notes) is added as item 10 in the migration-plan running list. I'll propose those edits as a list before making them.
+
+You said "yes to all", so I picked **`affectedStanding`** rather than plain `standing`. Plain `standing` could be confused with legal standing (locus standi). Say if you'd prefer the shorter name.
+
+## Back to: when are two assessments about the same claim?
+Proposal: two assessments are about the same claim only if they match on:
+1. **What** is assessed (the same Effect, Factor…)
+2. **Which attribute** (severity, cause…)
+3. **Scope**: the same **AffectedEntity** and an overlapping time period
+
+**Harder case:** "severe for sub-postmasters" vs "minor for *some* sub-postmasters".
+- **(a)** treat them as different claims (simple, but it can hide a real conflict)
+- **(b)** treat them as the **same claim, shown as Disputed** when the groups or periods overlap (recommended: quick to show disagreement)
+
+Do you agree with the three-part match and with (b)?
+<!-- copilot-message {"tools":["Read (read): 00_Claude_Admin/Decisions_Log.md","Read (read)","Grep (read): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md","Edit (edit): 00_Claude_Admin/Decisions_Log.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md","Edit (edit)"]} -->
+[Timestamp: 2026/11/18 01:13:38]
+
+**user**: do any of the attributes use patient
+[Timestamp: 2026/11/18 01:14:33]
+
+**ai**: Yes, a few. Here's everything in the ontology files, sorted by type (from a grep of `ontology/` and [[PerspectiveStructure 0.02]]):
+
+## Properties (attributes) that use "patient"
+| Where | Attribute | Proposed new name |
+|---|---|---|
+| [[Harm Ontology v3 - Draft Structure]] line 104 | `forPatient` (on Assessment: whose harm the verdict is about) | `forAffectedEntity` |
+| Draft structure line 71 | `patientStanding` | `affectedStanding` (already decided) |
+| Draft structure line 59 | `affects → Patient` | name unchanged; only the target becomes AffectedEntity |
+| Draft structure line 88; PerspectiveStructure 0.02 line 171 | `moralCircle ↔ Patient` | name unchanged; only the link target changes |
+| v1 `.ttl` lines 875–883 | `hasPatientOntology`, `PatientOntologyValue` (v1's "Attribute 15") | handle during migration: becomes AffectedEntity type, with the old IRIs deprecated, not edited in place |
+
+## Two places that should probably not change
+- **v1 `.ttl` lines 258–259:** "a patient's survival odds" (the Loss of Chance example). That's a real **medical** patient, so it stays.
+- **PerspectiveStructure 0.02 line 121:** `standingOfSubjects {agent · patient · datum}`. This is the classic philosophical pair *agent* (one who acts) and *patient* (one acted on). It describes how a tradition sees subjects, not our class. Options:
+  - **(a)** keep "patient" here (recommended, because it's the standard term in that pair)
+  - **(b)** change it to "affected", for consistency
+
+## Everything else
+The rest are mentions in prose: the draft structure's class tree (lines 67–72) and notes, the crosswalk pilot, the migration plan, and the HO notes. Those go in the planned rename list.
+
+**Decisions for you:**
+1. Rename `forPatient` to `forAffectedEntity`?
+2. Keep "patient" in `standingOfSubjects`, (a) or (b)?
+
+After that we can go back to the same-claim question.
+<!-- copilot-message {"tools":["Grep (read): 02_Ideas Topics Concepts/Harm Ontology","Grep (read): 02_Ideas Topics Concepts/Harm Ontology/ontology","Grep (read): 02_Ideas Topics Concepts/Harm Ontology/PerspectiveStructure 0.02.md"]} -->
+[Timestamp: 2026/11/18 01:14:32]
+
+**user**: yes are you making this change in Harm Ontology v3 as well or only in the test version
+[Timestamp: 2026/11/18 01:15:45]
+
+**ai**: I've added `forPatient` → `forAffectedEntity` to the AffectedEntity entry in [[Decisions_Log]] and to the migration rename list.
+
+## Your question: v3, or only the test version?
+**So far, neither.** The plan we agreed was:
+- **The test version:** use the new names. But no test files exist yet (`ontology/tests/` is empty), so there's nothing to change there yet.
+- **HO-002.a:** already updated.
+- **[[Harm Ontology v3 - Draft Structure]]:** **not changed yet.** It went on the deferred rename list with everything else.
+
+## I'd change that
+The draft structure isn't just another note. It's the **v3 design** itself, and the test files will be built from it. Since the rename is logged as a design decision, leaving the draft with the old names means:
+- the source of truth would contradict [[Decisions_Log]]
+- the test files would be built from a note that uses names we've already retired
+
+**Proposal:** update the draft structure **now**: about 8 lines (59, 67, 70–72, 88, 104, 128, 153), plus an "applied decisions" line like the existing one at line 138. Keep the full rename across the **other 18 notes and the v1 `.ttl`** deferred to migration, as planned. The v1 `.ttl` should never be edited in place anyway: its old IRIs get deprecated.
+
+**Two things to confirm:**
+1. Update the draft structure now?
+2. Your "yes" covered `forPatient`. For `standingOfSubjects {agent · patient · datum}` in [[PerspectiveStructure 0.02]], should I keep "patient", as the standard philosophical pair (a), or change it to "affected" (b)?
+<!-- copilot-message {"tools":["Edit (edit): 00_Claude_Admin/Decisions_Log.md","Edit (edit)"]} -->
+[Timestamp: 2026/11/18 01:15:45]
+
+**user**: change to affected
+[Timestamp: 2026/11/18 01:16:55]
+
+**ai**: I've made the change and logged it:
+- **[[PerspectiveStructure 0.02]] line 121:** now reads `standingOfSubjects ★ {agent · affected · datum}`, with a dated note that it replaces "patient".
+- **[[Decisions_Log]]:** added to the AffectedEntity entry.
+
+Line 171 of that note still says `moralCircle ↔ Patient`. That's a link target, so it changes together with the draft structure.
+
+**Still open: should I update [[Harm Ontology v3 - Draft Structure]] now?** That's about 8 lines (`affects → AffectedEntity`, the class tree, `affectedStanding`, `moralCircle ↔ AffectedEntity`, `forAffectedEntity`, `experienceability`, and the "patients" line in the notes), plus an "applied decisions" line. I'd also fix line 171 of PerspectiveStructure 0.02 at the same time. The other 17 notes and the v1 `.ttl` stay deferred to migration. Should I go ahead?
+<!-- copilot-message {"tools":["Read (read): 02_Ideas Topics Concepts/Harm Ontology/PerspectiveStructure 0.02.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/PerspectiveStructure 0.02.md","Edit (edit): 00_Claude_Admin/Decisions_Log.md"]} -->
+[Timestamp: 2026/11/18 01:16:55]

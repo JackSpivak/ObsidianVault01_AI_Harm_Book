@@ -118,7 +118,7 @@ Perspective (abstract umbrella)
 │   └── effectOnHolder ★ {affective · dispositional · cognitive · physical/observer cost}
 │
 ├── 8  SUBJECT'S SIDE ───────────────────────────────────────────────────────
-│   ├── standingOfSubjects ★ {agent · patient · datum}
+│   ├── standingOfSubjects ★ {agent · affected · datum}   ("patient" → "affected", 2026-11-18)
 │   ├── modelOfSubject · legibility (+ interfaceAbstraction)
 │   ├── consentToBeSeen ★ (qualified by powerAsymmetry)
 │   ├── adaptiveResponse
