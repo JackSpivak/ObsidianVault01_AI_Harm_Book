@@ -291,11 +291,11 @@
       "configuredAt": 1794933873263
     },
     {
-      "configuredModelId": "97ef8785-3be9-4a87-8796-eda7d2f52f22",
+      "configuredModelId": "8a0315e1-34e0-4284-b316-005a6474f1ef",
       "providerId": "2c02745e-00f8-4068-87dc-3edf8efb2346",
       "info": {
-        "id": "gemini-4-argon",
-        "displayName": "Gemini 4 Argon",
+        "id": "gemini-4-hydrogen",
+        "displayName": "Gemini 4 Hydrogen",
         "modalities": {
           "input": [
             "text",
@@ -310,18 +310,18 @@
         },
         "limits": {
           "context": 1048576,
-          "output": 32768
+          "output": 65536
         },
         "reasoning": true,
         "toolCall": true,
-        "releaseDate": "2026-10-13",
+        "releaseDate": "2026-11-12",
         "cost": {
-          "input": 2,
-          "output": 10,
-          "cacheRead": 0.1
+          "input": 1.5,
+          "output": 7.5,
+          "cacheRead": 0.075
         }
       },
-      "configuredAt": 1795015158616
+      "configuredAt": 1795015832066
     }
   ],
   "backends": {
@@ -337,14 +337,14 @@
       "enabledModels": [
         "4d9c4a96-7971-4385-9f16-20f26dc48845",
         "8dc5d9d7-0536-496d-af50-07796fbe293d",
-        "97ef8785-3be9-4a87-8796-eda7d2f52f22"
+        "8a0315e1-34e0-4284-b316-005a6474f1ef"
       ]
     },
     "opencode": {
       "enabledModels": [
         "4d9c4a96-7971-4385-9f16-20f26dc48845",
         "8dc5d9d7-0536-496d-af50-07796fbe293d",
-        "97ef8785-3be9-4a87-8796-eda7d2f52f22"
+        "8a0315e1-34e0-4284-b316-005a6474f1ef"
       ]
     }
   },
