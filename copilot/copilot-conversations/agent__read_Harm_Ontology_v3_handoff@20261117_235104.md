@@ -7,7 +7,7 @@ topic: "read Harm Ontology v3 handoff"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":86842,"contextWindow":1000000,"inputTokens":4,"outputTokens":3,"cacheReadTokens":85572,"cacheWriteTokens":1263,"updatedAt":1794987345775}'
+usage: '{"usedTokens":108040,"contextWindow":1000000,"inputTokens":2,"outputTokens":541,"cacheReadTokens":107125,"cacheWriteTokens":372,"updatedAt":1794988004929}'
 ---
 
 **user**: read Harm Ontology v3 handoff
@@ -473,5 +473,132 @@ Should I:
 would a married couple harmed by a poor pscotheriputic intervention by a therapist or by the IRS via an unfair married status tax burden be on the list asa relationship?
 [Timestamp: 2026/11/18 00:37:23]
 
-**ai**: 
+**ai**: **Animals:** yes, they fit under SentientIndividual. But under the principle we just reached, *whether* a given animal counts as sentient is itself assessed, and perspectives draw the line differently:
+- Most traditions accept mammals and birds.
+- Fish, octopuses, crabs and insects are increasingly argued over. UK law, for example, recognised vertebrates, cephalopods and decapod crustaceans as sentient in 2022. (That's from memory and needs verifying before use.)
+- So the model should allow an animal as a SentientIndividual, with sentience as an assessed property that varies by species and by perspective.
+
+One more distinction: a **species** or a **herd** harmed as a whole (extinction, loss of a population) isn't an individual. It's a collective, closer to NaturalSystem or a collective type.
+
+**The married couple: these are two different cases.**
+
+| Case | Primary Patient | Why |
+|---|---|---|
+| **Poor therapy** | **Relationship**, yes | The intervention targets the bond itself: trust, communication, whether they stay together. The harm to the couple isn't just the sum of two individual harms. Each partner may also be harmed individually, recorded as separate Effects. |
+| **Unfair tax burden** ("marriage penalty") | The **couple as a legal or financial unit** (a household), not mainly the Relationship | The tax system acts on a legal *status*, joint filing, and the loss is financial to the household. The Relationship is harmed only **derivatively**: if the penalty pushes people not to marry, or to divorce, the bond itself is affected. |
+
+The tax case shows the list is missing something. A **couple or household as a unit** is neither the bond between people (Relationship) nor an organisation (CollectiveArtificialPerson). It's a status-based unit created by law or administration. Two options:
+1. **Add a `Household` type** (a small, status-defined collective). It's clearer, and also useful for benefits, housing and credit scoring.
+2. **Treat it as CollectiveArtificialPerson**, since the unit is created by law. It's simpler, but it lumps a couple together with a company.
+
+I'd recommend option 1, as proposed and to be tested.
+
+Both cases are good test material. Each should return the right **primary** Patient plus the **derivative** ones, with `patientStanding` assessed. That makes them natural additions to CQ7.
+
+Should I add these to the list of pending changes for [[HO-002.a Assessment-Everywhere Test Strategy]]? The changes for HO-002.a and the v3 draft are piling up, and I'm happy to apply them in one go whenever you say:
+- the CQ7 rewording, with the unlisted-type check and the tribe example
+- inclusive types with assessed standing
+- the NaturalSystem / EngineeredSystem split
+- `patientStanding: Direct | Derivative`
+- a collective type for communities and tribes
+- a Household type
+- test cases: the grid as Patient and Conduit, an AI system, an animal, therapy harming a relationship, and the tax burden on a household
 [Timestamp: 2026/11/18 00:37:23]
+
+**user**: how about a busines partnership.  or a small organization like an LLC. would that be CollectiveArtificialPerson?
+[Timestamp: 2026/11/18 00:40:46]
+
+**ai**: **An LLC: yes.** It's a legal entity separate from its owners, so it's a CollectiveArtificialPerson, whatever its size. A one-person LLC still counts, because size isn't the test; separate legal personality is.
+
+**A business partnership: it depends on the jurisdiction,** which makes it another good test case. From memory (needs verifying):
+- In England and Wales, a general partnership has no legal personality separate from its partners. In Scotland it does.
+- A limited liability partnership (LLP) is a separate entity.
+- US law treats partnerships as an entity for some purposes and as just the partners for others.
+
+So a partnership can be read three ways:
+
+| Reading | Patient type | When it applies |
+|---|---|---|
+| A separate legal entity | CollectiveArtificialPerson | where the law gives it personality (an LLP, a Scottish partnership) |
+| The partners jointly | the individuals, or a status-based unit like Household | where it has no separate personality |
+| The working bond between partners | Relationship | e.g. a mediator's bad advice that destroys the partners' trust |
+
+**The useful pattern:** this gives a scale of how "entity-like" a Patient is:
+
+sole trader (just the individual) → partnership (depends on jurisdiction) → LLC (an entity) → corporation (an entity)
+
+The same business can be a different Patient type under different legal perspectives. That's more evidence that **the Patient type is assessed** and that the subtypes belong in the vocabulary layer, mapped by discipline and jurisdiction, not fixed in the ontology.
+
+**For the test:** a partnership harmed by a bad contract should come back as Disputed between CollectiveArtificialPerson and the partners jointly, depending on jurisdiction, with the Relationship as a possible derivative Patient.
+
+I'll add the partnership and LLC cases to the pending list for HO-002.a. Should I apply the whole batch now?
+[Timestamp: 2026/11/18 00:40:46]
+
+**user**: ok. what do we need to do before testing to implement all this?
+[Timestamp: 2026/11/18 00:41:49]
+
+**ai**: Here's what has to happen before testing, in order. It's mostly design decisions; the file-writing comes at the end.
+
+## 1. Write down what we've agreed (quick, mechanical)
+- Apply the pending batch to [[HO-002.a Assessment-Everywhere Test Strategy]]: the new CQ7, the extra test cases (tribe, grid, AI system, animal, couple in therapy, couple and tax, partnership, LLC) and the open questions.
+- Log the one decision ("inclusive Patient types, assessed standing") in [[Decisions_Log]].
+- Mark the proposed changes in [[Harm Ontology v3 - Draft Structure]] as "(proposed 2026-11-18, untested)".
+- Update [[Handoff - Harm Ontology]].
+
+## 2. Your open decisions (short, but only you can make them)
+- **CQ3:** what counts as "agree" (my provisional answer is same verdict under the same procedure).
+- **A responsibility question:** add one? It would also test the Valence/Responsibility split.
+- **CQ4:** run it on the toy case, or wait for Horizon?
+- **Effect `modality`:** I check its source note and report back.
+
+## 3. Design variant B in enough detail to build (the real work)
+The test can't run until each of these has a concrete shape:
+- **Observation:** which properties it has (procedure, evidence pointer, who observed, when).
+- **The agreement rule (v0):** how "settled", "Disputed" and "NotAssessed" are worked out from the assessments. **This is the biggest unknown.** It's fine for v0 to be crude, because the test will show where it fails.
+- **Shortcut status values:** the exact form of `Settled(value)` and the script that generates them for every node.
+- **`standardBasis`:** where it attaches, and how Implicit links to a tradition's default standard.
+- **CausalRole inside CausalAssessment:** the structure of a role entry ("Factor X, role Trigger, necessity …").
+- **Patient:** the type list (including NaturalSystem / EngineeredSystem, a collective natural group, Household), the Patient type as an assessment, `patientStanding`, and `Unclassified`.
+
+## 4. Variant A baseline (mechanical)
+- Take the current v3 draft as it is, with attributes asserted on the classes. No new design is needed; this is the comparison point.
+
+## 5. The toy case (moderate)
+- Design a small made-up scenario that touches every CQ and every edge case: a few factors, effects and perspectives, plus the unusual Patients. One scenario covering everything beats many small ones.
+
+## 6. Tooling (mechanical, once steps 3–5 are fixed)
+- Two `.ttl` files (A and B) in `ontology/tests/`.
+- Expert SPARQL queries and the named views for each CQ.
+- SHACL shapes.
+- A runner script in `~/harm-ontology-scripts/` (in the existing `harm-ontology` conda environment).
+- A scoring sheet.
+
+## 7. The non-expert protocol (small)
+- Fix exactly what the subagent sees (schema and questions only) and the prompt it gets, so the run can be repeated.
+
+## Where to start
+**Steps 1 and 2 now**, here: they're cheap and they settle the ground. **Step 3 is where the thinking is.** I'd do it as a design session, one item at a time, starting with the agreement rule, because everything else depends on it. That session would fit in this chat. Steps 4–7 can then be done in one go, possibly in a fresh chat with the handoff attached.
+
+Should I do step 1 now and check `modality`, then ask you the step 2 questions?
+[Timestamp: 2026/11/18 00:41:49]
+
+**user**: lets do 1 and 2
+[Timestamp: 2026/11/18 00:42:19]
+
+**ai**: Steps 1 and 2 are done.
+
+**What you decided (step 2):**
+- **CQ3, "agree":** same verdict under the same procedure. This is agreement rule v0.
+- **New CQ9:** "Who is answerable for Effect X, and according to whom?" It passes only if answerability is kept apart from the causal question (CQ1) and from whether the effect is judged harmful. A perspective may name a cause without naming anyone answerable, and the reverse.
+- **CQ4:** runs in full in the toy case. That's a step up from my recommendation, so the toy case now needs a timeline with several revisions.
+- **`modality`:** defined as actual vs risk, kept separate from `temporalStatus` (whether the effect has happened yet). Both are assessed.
+
+**Where they're recorded:**
+- In [[HO-002.a Assessment-Everywhere Test Strategy]]: the CQ9 row, a new "Author decisions" section, the adoption rule updated to CQ1–CQ7 plus CQ9, and the `modality` question closed.
+- I marked steps 1 and 2 done in [[Handoff - Harm Ontology]].
+
+I treated these as decisions about how the test runs, not ontology decisions, so they're not in [[Decisions_Log]]. The one exception is "Patient types inclusive, standing assessed", which you approved for the log earlier.
+
+**Next is step 3:** working out variant B in detail, starting with the agreement rule. That's the main thinking session. We can start it here, or in a fresh chat with [[Handoff - Harm Ontology]] attached, since the handoff now covers everything from this session.
+<!-- copilot-message {"tools":["Read (read): 00_Claude_Admin/Decisions_Log.md","Grep (read): 02_Ideas Topics Concepts/Harm Ontology","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md","Edit (edit): 00_Claude_Admin/Decisions_Log.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure.md","Edit (edit): 01_The Writer's Room/Handoff - Harm Ontology.md","Answered: Same verdict, same procedure (Recommended); Add as CQ9 (Recommended); Full in toy case; Define it, keep separate (Recommended) (other)"]} -->
+[Timestamp: 2026/11/18 00:42:19]

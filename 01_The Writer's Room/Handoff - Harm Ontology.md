@@ -58,6 +58,8 @@ latest_session: "[[2026-11-14 Harm Ontology Redesign]]"
   - Recommended: 1 and 2, with 3 as the safety net.
 - **Still to design:** the agreement rules (what counts as "agree").
 - **Test:** in Horizon (R01), a naive "who caused the shortfalls?" query should return disputed attributions labelled as disputed, not only the courts' finding.
+- **Test plan filed:** [[HO-002.a Assessment-Everywhere Test Strategy]] (competency questions CQ1–CQ8, scoring, Patient test cases). Pre-test steps: (1) record agreements, done 2026-11-18; (2) author decisions on CQ3 "agree", a responsibility question (CQ9), CQ4 scope and `modality`, done 2026-11-18 (recorded in HO-002.a); (3) design variant B in detail, starting with the agreement rule; (4) variant A baseline; (5) toy case; (6) tooling; (7) non-expert protocol.
+- **Logged 2026-11-18:** Patient types inclusive, standing assessed ([[Decisions_Log]]). Other Patient changes proposed, untested.
 
 ## Next step (choose one)
 1. **Migration Phase 0, continued:** pick the authoritative source for each part. Open `# Master Formal Ontology of Harm (Part 1…)` (never read), compare v1 and v2, and extract inventories by script.

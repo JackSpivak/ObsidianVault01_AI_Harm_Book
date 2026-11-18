@@ -65,7 +65,11 @@ HARM ONTOLOGY v3 (draft, 2026-11-15; revised 2026-11-17)
 │   props: hasEffect → Effect · selectedBy → PerspectiveSpecification (framing, resolution)
 │
 ├── Patient ........................................ SentientIndividual · CollectiveArtificialPerson · NonSentientSystem ·
-│                                                    FutureGeneration (?) · AISystem (?) · Relationship (?)
+│                                                    FutureGeneration · AISystem · Relationship
+│   types are inclusive; standing is assessed (decided 2026-11-18)
+│   proposed 2026-11-18, untested (→ HO-002.a): Patient type as assessed · Unclassified ·
+│          NonSentientSystem → NaturalSystem | EngineeredSystem · patientStanding: Direct|Derivative ·
+│          CollectiveNaturalGroup (communities, cultures, tribes) · Household · Factor and Patient not disjoint
 ├── ObjectOfHarm (values) .......................... Somatic · PsychologicalCognitive · Assent/Judgment (?) · MaterialPecuniary ·
 │                                                    DignitaryRelational · NormativeStatus · OpportunityCapability · SystemicEnvironmental
 │
@@ -132,6 +136,9 @@ BOX D — Vocabulary layer (2026-11-17) → [[Vocabulary Crosswalk - Concept Hub
 
 > [!note] Revision 2026-11-17
 > Applied decisions from [[Decisions_Log]] (2026-11-17): Perspective as abstract umbrella over PerspectiveType and PerspectiveSpecification; default and applied evaluative standards; CausalCandidate; CausalAssembly renamed FactorAssembly (thin container); Attribution merged into CausalAssessment; vocabulary layer (Box D). The 2026-11-15 structure is in the note's git history.
+
+> [!warning] Proposed 2026-11-18, untested
+> **Assessment everywhere:** the attributes still asserted on Factor, CausalRole, Effect and Patient above would move into assessments, extending the FactorAssembly thin container. "Fact" becomes a status (settled Observation), not a kind; `standardBasis: Explicit | Implicit | None`; CausalRole may fold into CausalAssessment; shortcuts always carry `Settled | Disputed | NotAssessed`. The tree above is **not yet changed** for this. Test plan: [[HO-002.a Assessment-Everywhere Test Strategy]]. Decided on 2026-11-18: Patient types inclusive, standing assessed ([[Decisions_Log]]).
 
 ## Open and pending (summary)
 - **Pending, deliberately not logged:**
