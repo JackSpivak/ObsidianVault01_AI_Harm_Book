@@ -56,7 +56,7 @@ HARM ONTOLOGY v3 (draft, 2026-11-15; revised 2026-11-17)
 ├── Effect ......................................... neutral; one consequence among many  → HO-I.b
 │   kinds: SleepLoss · ReputationalDamage · Deskilling · CapturedAssent (?) · Death · …
 │   HarmfulEffect — optional, inferred from ≥1 Harmful assessment
-│   props: leadsTo → Effect (cascades; open-ended) · affects → Patient · hasObjectOfHarm ·
+│   props: leadsTo → Effect (cascades; open-ended) · affects → AffectedEntity · hasObjectOfHarm ·
 │          experienceability (box A) · isPosthumous · isStatistical · isDispositional ·
 │          severity · reversibility · temporalTrajectory · modality · temporalStatus: Actual|Extrapolated|Pending
 │   (Effect and Factor are not disjoint)
@@ -64,12 +64,13 @@ HARM ONTOLOGY v3 (draft, 2026-11-15; revised 2026-11-17)
 ├── Outcome ........................................ a cut across the ramification at a horizon → Decisions 2026-11-14
 │   props: hasEffect → Effect · selectedBy → PerspectiveSpecification (framing, resolution)
 │
-├── Patient ........................................ SentientIndividual · CollectiveArtificialPerson · NonSentientSystem ·
-│                                                    FutureGeneration · AISystem · Relationship
+├── AffectedEntity ................................. SentientIndividual · CollectiveArtificialPerson · NonSentientSystem ·
+│   (formerly Patient; altLabels "patient",          FutureGeneration · AISystem · Relationship
+│    "moral patient"; renamed 2026-11-18)
 │   types are inclusive; standing is assessed (decided 2026-11-18)
-│   proposed 2026-11-18, untested (→ HO-002.a): Patient type as assessed · Unclassified ·
-│          NonSentientSystem → NaturalSystem | EngineeredSystem · patientStanding: Direct|Derivative ·
-│          CollectiveNaturalGroup (communities, cultures, tribes) · Household · Factor and Patient not disjoint
+│   proposed 2026-11-18, untested (→ HO-002.a): AffectedEntity type as assessed · Unclassified ·
+│          NonSentientSystem → NaturalSystem | EngineeredSystem · affectedStanding: Direct|Derivative ·
+│          CollectiveNaturalGroup (communities, cultures, tribes) · Household · Factor and AffectedEntity not disjoint
 ├── ObjectOfHarm (values) .......................... Somatic · PsychologicalCognitive · Assent/Judgment (?) · MaterialPecuniary ·
 │                                                    DignitaryRelational · NormativeStatus · OpportunityCapability · SystemicEnvironmental
 │
@@ -85,7 +86,7 @@ HARM ONTOLOGY v3 (draft, 2026-11-15; revised 2026-11-17)
 │   ├── PerspectiveType ............................ prefLabel "tradition" · altLabel "lens"     → [[PerspectiveStructure 0.02]]
 │   │   e.g. Utilitarianism · Tort Law · Public Health · a trained AI model
 │   │   groups 0–12 + profiles (LegalInstitutional · LearnedModel); key links:
-│   │   defaultEvaluativeStandard → EvaluativeStandard · moralCircle ↔ Patient ·
+│   │   defaultEvaluativeStandard → EvaluativeStandard · moralCircle ↔ AffectedEntity ·
 │   │   accountabilityLocus / lineage → Agent · remedy → LegalResponse ·
 │   │   group 11 = Assessments of the tradition (congruence · omission · developmentalAltitude …)
 │   │
@@ -101,7 +102,7 @@ HARM ONTOLOGY v3 (draft, 2026-11-15; revised 2026-11-17)
 │
 ├── Assessment (one judgment = one instance) ....... → HO-II.a
 │   props: assesses → Factor|CausalRole|Effect|Outcome|FactorAssembly|PerspectiveType · takenFrom → PerspectiveSpecification ·
-│          forPatient · chainScope · chainStatus: Actual|Extrapolated ·
+│          forAffectedEntity · chainScope · chainStatus: Actual|Extrapolated ·
 │          verdict: Harmful|Beneficial|Mixed|Neutral|Contested · verdictStatus: Provisional|Final (+ closedBy) ·
 │          declaredScope · acknowledgedExclusions · scopeAdequacy (never Complete) ·
 │          sensitivity/leverage · criticality (as assessed) · confidence · suppliedBy
@@ -125,7 +126,7 @@ HARM ONTOLOGY v3 (draft, 2026-11-15; revised 2026-11-17)
 └── LegalResponse (later) .......................... CauseOfAction · Doctrine · Remedy
 
 BOX A — Phenomenality (property): Phenomenal | NonPhenomenal | ConditionallyPhenomenal
-        observability (+ observableBy · revealedBy · hiddenFrom) · experienceability (patient-relative)
+        observability (+ observableBy · revealedBy · hiddenFrom) · experienceability (relative to the affected entity)
 BOX B — Missingness: (absent)=not considered · Unknown · NotApplicable · Undisclosed · Disputed · Pending
 BOX C — Reuse: own namespace; map (skos:closeMatch); candidates BFO · PROV-O · OWL-Time · SHACL · OBO RO ·
         legal (LKIF, Akoma Ntoso) · cyber (STIX, ATT&CK, CVSS) · AI incidents (AIID, CSET, MIT) — all unverified
@@ -137,8 +138,11 @@ BOX D — Vocabulary layer (2026-11-17) → [[Vocabulary Crosswalk - Concept Hub
 > [!note] Revision 2026-11-17
 > Applied decisions from [[Decisions_Log]] (2026-11-17): Perspective as abstract umbrella over PerspectiveType and PerspectiveSpecification; default and applied evaluative standards; CausalCandidate; CausalAssembly renamed FactorAssembly (thin container); Attribution merged into CausalAssessment; vocabulary layer (Box D). The 2026-11-15 structure is in the note's git history.
 
+> [!note] Revision 2026-11-18
+> Applied decision from [[Decisions_Log]] (2026-11-18): Patient renamed **AffectedEntity** (altLabels "patient", "moral patient"); `patientStanding` → `affectedStanding`; `forPatient` → `forAffectedEntity`; `moralCircle` and `affects` now point to AffectedEntity. Subtype names unchanged. The rename in other notes and the v1 `.ttl` is deferred to migration.
+
 > [!warning] Proposed 2026-11-18, untested
-> **Assessment everywhere:** the attributes still asserted on Factor, CausalRole, Effect and Patient above would move into assessments, extending the FactorAssembly thin container. "Fact" becomes a status (settled Observation), not a kind; `standardBasis: Explicit | Implicit | None`; CausalRole may fold into CausalAssessment; shortcuts always carry `Settled | Disputed | NotAssessed`. The tree above is **not yet changed** for this. Test plan: [[HO-002.a Assessment-Everywhere Test Strategy]]. Decided on 2026-11-18: Patient types inclusive, standing assessed ([[Decisions_Log]]).
+> **Assessment everywhere:** the attributes still asserted on Factor, CausalRole, Effect and AffectedEntity above would move into assessments, extending the FactorAssembly thin container. "Fact" becomes a status (settled Observation), not a kind; `assessmentBasis: Stated | Inherited | Unstandardized` (formerly `standardBasis`; test-only, see HO-002.a); CausalRole may fold into CausalAssessment; shortcuts always carry `Settled | Disputed | NotAssessed`. The tree above is **not yet changed** for this. Test plan: [[HO-002.a Assessment-Everywhere Test Strategy]]. Decided on 2026-11-18: AffectedEntity (then Patient) types inclusive, standing assessed ([[Decisions_Log]]).
 
 ## Open and pending (summary)
 - **Pending, deliberately not logged:**
@@ -150,7 +154,7 @@ BOX D — Vocabulary layer (2026-11-17) → [[Vocabulary Crosswalk - Concept Hub
   - the Condition split
   - role types and causal share
   - Agent and AI systems
-  - future generations, AI systems and relationships as patients
+  - future generations, AI systems and relationships as affected entities
   - Assent/Judgment as an object of harm
   - worldviews as standards
   - consent

@@ -168,7 +168,7 @@ Perspective (abstract umbrella)
 
 ### Place in Harm Ontology v3
 - **Perspective** becomes an abstract umbrella over **PerspectiveType** (new) and **PerspectiveSpecification** (the former Perspective); `PerspectiveSpecification instantiates PerspectiveType`.
-- Links: `defaultEvaluativeStandard` → EvaluativeStandard · `moralCircle` ↔ Patient · omission ↔ CausalAssessment.`leftOut` (formerly Attribution) and HO-005 · `accountabilityLocus`, `lineage` → Agent · `remedy` → LegalResponse · LegalInstitutional profile ↔ Judgment profile (HO-II.c) · LearnedModel ↔ Agent.AutonomousSystem (?).
+- Links: `defaultEvaluativeStandard` → EvaluativeStandard · `moralCircle` ↔ AffectedEntity · omission ↔ CausalAssessment.`leftOut` (formerly Attribution) and HO-005 · `accountabilityLocus`, `lineage` → Agent · `remedy` → LegalResponse · LegalInstitutional profile ↔ Judgment profile (HO-II.c) · LearnedModel ↔ Agent.AutonomousSystem (?).
 - New use of Assessment: assessments *of* traditions. New box: the vocabulary layer (HO-II.d.2).
 
 ## Original wording

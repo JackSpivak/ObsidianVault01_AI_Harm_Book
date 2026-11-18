@@ -7,7 +7,7 @@ topic: "read harm ontology v3 handoff. rename chat to Harm Ontology…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":86014,"contextWindow":1000000,"inputTokens":2,"outputTokens":346,"cacheReadTokens":84984,"cacheWriteTokens":682,"updatedAt":1794989829988}'
+usage: '{"usedTokens":100858,"contextWindow":1000000,"inputTokens":2,"outputTokens":184,"cacheReadTokens":100127,"cacheWriteTokens":545,"updatedAt":1794990408364}'
 ---
 
 **user**: read harm ontology v3 handoff.  rename chat to Harm Ontology v3 testing
@@ -450,3 +450,162 @@ Line 171 of that note still says `moralCircle ↔ Patient`. That's a link target
 **Still open: should I update [[Harm Ontology v3 - Draft Structure]] now?** That's about 8 lines (`affects → AffectedEntity`, the class tree, `affectedStanding`, `moralCircle ↔ AffectedEntity`, `forAffectedEntity`, `experienceability`, and the "patients" line in the notes), plus an "applied decisions" line. I'd also fix line 171 of PerspectiveStructure 0.02 at the same time. The other 17 notes and the v1 `.ttl` stay deferred to migration. Should I go ahead?
 <!-- copilot-message {"tools":["Read (read): 02_Ideas Topics Concepts/Harm Ontology/PerspectiveStructure 0.02.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/PerspectiveStructure 0.02.md","Edit (edit): 00_Claude_Admin/Decisions_Log.md"]} -->
 [Timestamp: 2026/11/18 01:16:55]
+
+**user**: yes
+[Timestamp: 2026/11/18 01:18:21]
+
+**ai**: I've updated [[Harm Ontology v3 - Draft Structure]], and a grep shows "Patient" now appears only in the labels that record the old name.
+
+**Changes in the draft structure:**
+- `affects → AffectedEntity` (Effect props)
+- The class tree reads **AffectedEntity**, with "formerly Patient", the altLabels "patient" and "moral patient", and the rename date. Proposed items now use `affectedStanding` and "Factor and AffectedEntity not disjoint".
+- `moralCircle ↔ AffectedEntity` (PerspectiveType)
+- `forAffectedEntity` (Assessment)
+- Box A: "experienceability (relative to the affected entity)"
+- A new **Revision 2026-11-18** callout listing the applied decision, like the existing 2026-11-17 one.
+- The "assessment everywhere" warning callout now says AffectedEntity and `assessmentBasis` (marked test-only).
+- The open list: "…as affected entities"
+
+**[[PerspectiveStructure 0.02]] line 171:** `moralCircle ↔ AffectedEntity`.
+
+**Something I noticed:** the draft's **Open** list still includes "future generations, AI systems and relationships as affected entities". The 2026-11-18 decision already confirmed them as types. If that item is about something still unresolved, such as their *standing*, it should be reworded. If not, it could move off the Open list. I've left it as it is. Should I reword it, remove it, or leave it?
+
+**Back to the same-claim question:** should two assessments count as the same claim when they match on **what** is assessed, **which attribute** and **scope** (AffectedEntity plus an overlapping time period)? And when groups overlap ("severe for sub-postmasters" vs "minor for *some* sub-postmasters"), should that be **(b) the same claim, Disputed** (recommended), or (a) separate claims?
+<!-- copilot-message {"tools":["Read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/PerspectiveStructure 0.02.md","Grep (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure.md"]} -->
+[Timestamp: 2026/11/18 01:18:21]
+
+**user**: leave
+[Timestamp: 2026/11/18 01:20:43]
+
+**ai**: I'll leave it as it is.
+
+The same-claim question is still waiting for your answer:
+
+1. **Three-part match:** two assessments are about the same claim only if they share **what** is assessed, **which attribute**, and **scope** (AffectedEntity plus an overlapping time period). Do you agree?
+2. **Overlapping groups**, e.g. "severe for sub-postmasters" vs "minor for *some* sub-postmasters":
+   - **(a)** treat them as separate claims
+   - **(b)** treat them as the same claim, shown as **Disputed** (recommended, because it shows the disagreement instead of hiding it)
+[Timestamp: 2026/11/18 01:20:43]
+
+**user**: 1
+[Timestamp: 2026/11/18 01:21:36]
+
+**ai**: I've recorded the three-part match in [[HO-002.a Assessment-Everywhere Test Strategy]] as Author decision 11 (test-only).
+
+I read your "1" as agreeing with question 1, so question 2 is still open. I've listed it in the note as open. The question is what to do when the groups overlap.
+
+**Example:** source A says the harm was "severe for sub-postmasters". Source B says it was "minor for *some* sub-postmasters".
+- **(a) Separate claims:** each gets its own status, and the model shows no conflict. That's simple, but a reader never learns that B partly contradicts A.
+- **(b) Same claim, Disputed** (recommended): because the groups overlap, the model flags the conflict. A Divergence record notes that the scopes differ (whole group vs subgroup), so an expert can see the dispute might come from the difference in scope rather than real disagreement.
+
+Do you choose (a) or (b)?
+<!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md"]} -->
+[Timestamp: 2026/11/18 01:21:36]
+
+**user**: b
+[Timestamp: 2026/11/18 01:22:51]
+
+**ai**: I've recorded it in HO-002.a as Author decision 12 (test-only): overlapping scopes count as the same claim, shown as Disputed, with a Divergence record noting the scope difference.
+
+## Next open item: comparing graded values
+Some attributes are graded (severity, reversibility). Two sources rarely use the same scale. When do their answers count as the **same verdict**, which matters for Settled, or as **conflicting**, which matters for Disputed?
+
+**Example (made up):**
+- Source A, financial method: severity **7 out of 10**
+- Source B, clinical method: severity **"serious"** on a 4-step scale (mild, moderate, serious, critical)
+
+Do they agree?
+
+**Options:**
+- **(a) Exact match only:** the scales differ, so they can never agree. Settling then becomes almost impossible, and every pair looks like a conflict.
+- **(b) Shared bands** (recommended): each Procedure maps its scale onto a shared coarse scale, e.g. **Low / Medium / High / Extreme**. A's 7/10 maps to High and B's "serious" maps to High, so they **agree**. Each original value is kept on its assessment, so no detail is lost.
+- **(c) Tolerance:** answers within some distance count as agreeing. That only works when both scales are numeric, so it doesn't fit here.
+
+**One consequence of (b):** someone has to decide each mapping, e.g. that "serious" equals High. That mapping is itself a judgement. Under the assessment-everywhere approach it should be **recorded with the Procedure and open to challenge**, not hidden. For the toy case, I'd make the mappings up and label them as such.
+
+Do you choose (a), (b) or (c)?
+<!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md"]} -->
+[Timestamp: 2026/11/18 01:22:51]
+
+**user**: b
+[Timestamp: 2026/11/18 01:23:58]
+
+**ai**: I've recorded it in HO-002.a as Author decision 13 (test-only): shared bands, original values kept, and the mapping recorded with the Procedure and open to challenge.
+
+## Next open item: declared scope
+**Rule v0 says:** a claim is Settled when every perspective *in scope* agrees. But who decides which perspectives are in scope?
+
+**Example:** "What caused the Horizon shortfalls?"
+- If the scope is **only the Post Office's own reviews**, every assessment says "user error", so the claim is **Settled**.
+- If the scope also includes **the forensic audit and the sub-postmasters**, the claim is **Disputed**.
+
+Same data, opposite answers. Whoever picks the scope picks the result. If the scope is left unstated, "Settled" really means "settled among whoever we happened to include". That's silent omission again.
+
+**Options:**
+- **(a) Implicit:** every perspective in the data is in scope. It's simple, but the result depends on what happened to be entered, and nobody sees that.
+- **(b) Declared and shown** (recommended): every query or view **declares its scope**, meaning which perspectives are included. The result **displays that scope** next to each status, e.g. "Settled *among: Post Office reviews*". If no scope is given, the default is **everything in the data**, and the result says so.
+- **(c) Declared, not shown:** scope is declared but only visible to experts. That brings back the original risk.
+
+(b) also fits two earlier decisions: *Assessment `declaredScope`* (draft structure line 106) and your option (a) on unstandardized dissent, where scope is the place to decide who counts.
+
+Do you choose (a), (b) or (c)?
+<!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md"]} -->
+[Timestamp: 2026/11/18 01:23:58]
+
+**user**: b
+[Timestamp: 2026/11/18 01:25:12]
+
+**ai**: I've recorded it in HO-002.a as Author decision 14 (test-only): scope is declared, shown next to each status, and defaults to everything in the data, with the result saying so.
+
+## Next open item: silence (abstention)
+Say a perspective is **in scope** and uses the right Procedure, but **hasn't assessed** this claim. Does its silence stop the claim from being Settled?
+
+**Example:** three forensic auditors are in scope and all use the same audit procedure. Two say "software fault" and the third hasn't looked at this branch yet.
+- **(a) Silence is ignored:** two agree, nobody disagrees, so the claim is **Settled**.
+- **(b) Silence blocks settlement** (recommended): the status is **PartiallyAssessed** ("2 of 3 agree, 1 not assessed"). It still counts as agreement so far, but it isn't called a fact.
+
+**Why I recommend (b):** under (a), adding *more* perspectives to the scope can never weaken a Settled claim unless they actively disagree. Gaps disappear without a trace. (b) keeps those gaps visible, in line with "slow to declare facts".
+
+**The cost:** with a wide scope, almost nothing will ever be fully Settled. Two things ease that. Scope is declared (decision 14), so you can narrow it on purpose and openly. And PartiallyAssessed still shows agreement so far.
+
+Do you choose (a) or (b)?
+<!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md"]} -->
+[Timestamp: 2026/11/18 01:25:12]
+
+**user**: b
+[Timestamp: 2026/11/18 01:25:53]
+
+**ai**: I've recorded it in HO-002.a as Author decision 15 (test-only): silence blocks settlement, and the status is PartiallyAssessed.
+
+## Next open item: minimum number of assessments
+Can a **single** assessment settle a claim?
+
+**Example:** only one forensic audit exists, and it says "software fault". No other perspective in scope uses that procedure, so nobody is silent and nobody disagrees. Under the rules so far, it would count as **Settled**.
+
+- **(a) One is enough:** an Observation with evidence under a checkable procedure is Settled on its own.
+- **(b) At least 2 independent assessments** (recommended): one alone is **SingleSource**. That says "uncontradicted, but nobody has checked it".
+
+**Why I recommend (b):** a "checkable procedure" only means something if someone has actually checked it. A single audit, even a good one, is one view. That matters for Horizon: for years the only "procedure" applied was the Post Office's own. My summary of that is from memory and unverified until we research it.
+
+**A related point:** what does "independent" mean? Two auditors employed by the same firm, or one report quoted by another, aren't really two. Options:
+- treat "independent" as **different PerspectiveSpecifications** (simple, but it can be gamed)
+- also require **no shared assessor or organisation** (stricter)
+
+For the toy case, I'd use the stricter version and tag each assessment with its organisation.
+
+Do you choose (a) or (b)? And should the toy case use the stricter definition of independence?
+<!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md"]} -->
+[Timestamp: 2026/11/18 01:25:53]
+
+**user**: b
+[Timestamp: 2026/11/18 01:26:39]
+
+**ai**: I've recorded it in HO-002.a as Author decision 16 (test-only): settling needs at least 2 independent assessments, and a lone assessment is SingleSource.
+
+**Still open, a quick one:** what does "independent" mean?
+- **Loose:** any two different PerspectiveSpecifications count, even if they come from the same firm.
+- **Strict** (recommended): they must also share **no assessor or organisation**. A report that only repeats another report doesn't count.
+
+For the toy case, should I use the strict definition, with each assessment tagged with its organisation?
+<!-- copilot-message {"tools":["Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md"]} -->
+[Timestamp: 2026/11/18 01:26:39]
