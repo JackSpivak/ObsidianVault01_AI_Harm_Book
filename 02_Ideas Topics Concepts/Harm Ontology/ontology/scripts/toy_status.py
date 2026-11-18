@@ -149,8 +149,11 @@ def status(g, claim_as, scope, as_of):
 
 def why(g, st, rows, scope):
     """Run 7: say WHY a claim is not settled (reader-facing). Mirrors the tail of status(); text only, no new rule."""
-    if st in ("Settled", "Disputed", "NotAssessed"):
+    if st in ("Disputed", "NotAssessed"):
         return ""
+    if st == "Settled":
+        n = len({a["org"] for a in rows})
+        return f"settled because {len(rows)} assessors from {n} independent organisations use the same method and version, all give evidence, and no perspective using that method is silent"
     if st == "Incommensurable":
         bad = [short(a["persp"]) for a in rows if band(g, a) is None]
         return "cannot be put on a common scale: " + ", ".join(bad)
@@ -175,7 +178,7 @@ def why(g, st, rows, scope):
         procs = {(short(a["proc"]), str(one(g, a["proc"], HO.version)) if a["proc"] else None) for a in rows}
         out = []
         if len(procs) > 1:
-            out.append("different methods or versions: " + ", ".join(sorted(f"{p} v{v}" for p, v in procs)))
+            out.append("different methods or versions: " + ", ".join(sorted(f"{p} v{v}" if v else "no stated method" for p, v in procs)))
         noev = [short(a["persp"]) for a in rows if a["evidence"] is None]
         if noev:
             out.append("no evidence from " + ", ".join(noev))
@@ -231,7 +234,7 @@ def run_b(path):
     # (not assessed) shown beside the assessed readings; plain status words; NotAssessed kept
     # separate from the other "Open" kinds (all seven statuses shown); earlier views counted.
     plain = {"Settled": "SETTLED", "Disputed": "DISPUTED", "Corroborated": "AGREE-BUT-NOT-SETTLED",
-             "SingleSource": "ONE-INDEPENDENT-SOURCE", "PartiallyAssessed": "PARTLY-ASSESSED",
+             "SingleSource": "UNDER-TWO-INDEPENDENT-SOURCES", "PartiallyAssessed": "PARTLY-ASSESSED",
              "Incommensurable": "NOT-COMPARABLE", "NotAssessed": "NOT-ASSESSED"}
     print("LEGEND (read this first)\n"
           "  Each Effect block shows (1) its CORE: facts recorded without an assessor (who it affects, recorded dates),\n"
@@ -241,7 +244,7 @@ def run_b(path):
           "    SETTLED                 two or more independent assessors, same method and version, evidence given, nobody in scope silent\n"
           "    DISPUTED                at least one real conflict among the views\n"
           "    AGREE-BUT-NOT-SETTLED   no conflict, but the methods differ or evidence is missing (the values shown can hold together, e.g. two causes at once)\n"
-          "    ONE-INDEPENDENT-SOURCE  fewer than two independent organisations (several assessors from one firm, or one marked as repeating another, count as one), even if they agree\n"
+          "    UNDER-TWO-INDEPENDENT-SOURCES  fewer than two independent organisations (several assessors from one firm, or one marked as repeating another, count as one), even if they agree\n"
           "    PARTLY-ASSESSED         agreement, but a perspective that uses the same method has not spoken\n"
           "    NOT-COMPARABLE          the values cannot be put on a common scale (e.g. a raw score with no method)\n"
           "    NOT-ASSESSED            nobody has assessed it. This is a gap, not a finding.\n"
@@ -265,7 +268,7 @@ def run_b(path):
                 print(f"   {short(at)}{who}: {plain[st]}{'(' + short(val) + ')' if val is not None else ''} [layer: {display(st).upper() if display(st) != 'Open' else 'OPEN'}]  views: {fmt(rows)}{f'  (+{earlier} earlier)' if earlier else ''}")
                 reason = why(g, st, rows, None)
                 if reason:
-                    print(f"      why not settled: {reason}")
+                    print(f"      {'why' if st == 'Settled' else 'why not settled'}: {reason}")
         if unassessed:
             print("   NOT-ASSESSED: " + ", ".join(unassessed))
     print("Counts:", {plain[k]: v for k, v in counts.items()})
@@ -353,8 +356,8 @@ def run_b(path):
     expect("E1 severity as of 2020-12-31, same scope: P1 (2018) and P4 (2019) dissent -> reopened as Disputed", k, "Disputed", scope=scope4, as_of=date(2020, 12, 31))
     print("   revision triggers (a changed value must say why):")
     for p, old, new in revisions(al, TOY.E1, HOA.cause):
-        why = short(new["revised"]) if new["revised"] is not None else "NO TRIGGER RECORDED"
-        print(f"      {short(p)}: {short(old['value'])} ({old['date'].year}) -> {short(new['value'])} ({new['date'].year}); because: {why}")
+        trigger = short(new["revised"]) if new["revised"] is not None else "NO TRIGGER RECORDED"
+        print(f"      {short(p)}: {short(old['value'])} ({old['date'].year}) -> {short(new['value'])} ({new['date'].year}); because: {trigger}")
         want_trigger = (short(p) == "P1")  # P1 gave a trigger (Ev3); P4 deliberately did not
         ok = (new["revised"] is not None) == want_trigger
         results.append(ok)
