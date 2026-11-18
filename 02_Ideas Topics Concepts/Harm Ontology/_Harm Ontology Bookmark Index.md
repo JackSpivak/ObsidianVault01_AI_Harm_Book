@@ -41,9 +41,11 @@ Click the arrow beside an item to open or close its branch.
 		- [[HO-III.b Reusing Expert Domain Vocabularies|HO-III.b — Reusing expert vocabularies]]: map by default, reference identifiers, import only small cores.
 - [[HO-001 Harm by Habituation and Captured Assent|HO-001 — Harm by habituation and captured assent]]: AI's typical harm may be the self you are trained into, not a loss you suffer.
 - [[HO-002 Ontology Stress-Test Suite|HO-002 — Ontology stress-test suite]]: the one place where the model is tested against hard cases (Pass / Partial / Fail / Untested). It turns design claims into tests.
+	- [[HO-002.a Assessment-Everywhere Test Strategy|HO-002.a — Assessment-everywhere test strategy]]: competency questions with pass criteria written in advance, variant A vs B, toy case then Horizon, non-expert query test for silent omission.
 - [[HO-003 Causal Assembly - the Perfect Storm|HO-003 — Causal assembly: the perfect storm]]: factors `participatesIn` a jointly sufficient assembly. Engineered or exploited assemblies of harmless parts are an attack vector.
 - [[HO-004 Criticality, Leverage and the Limits of Scope|HO-004 — Criticality, leverage and the limits of scope]]: time makes the model asymmetric (settled past, open future). Scope can never be asserted complete; inclusion by leverage, not only magnitude; sensitivity as an attack vector.
 - [[HO-005 Assessed Membership and Systematic Omission|HO-005 — Assessed membership and systematic omission]]: which factors count as causes is itself assessed, and omission is the norm. Re-attribution cases as the test method. Revises HO-003 (pending).
+	- [[HO-002.a Assessment-Everywhere Test Strategy|HO-002.a — Assessment-everywhere test strategy]] (also under HO-002): tests HO-005's pending items.
 
 ## Ontology files
 - [[Harm Ontology v3 - Draft Structure]]: the consolidated v3 model.
@@ -68,6 +70,7 @@ Click the arrow beside an item to open or close its branch.
 - **HO-004 and HO-003:** the most dangerous pattern is an assembly of individually innocuous, sub-threshold factors placed at critical points.
 - **HO-005 and HO-003:** HO-005 revises HO-003's "jointly sufficient" to "as assessed" (pending tests).
 - **HO-002 and every other entry:** each design claim in this index should eventually have a test case in HO-002. [[The Self-Revising Harm Ontology]] is test T17.
+- **HO-002.a and HO-II.e:** shortcut status values (Settled / Disputed / NotAssessed) extend the missingness statuses.
 
 ## Summary
 Created 2026-11-14 from the harm ontology redesign session ([[2026-11-14 Harm Ontology Redesign]]). Its decisions are logged in [[Decisions_Log]].

@@ -7,7 +7,7 @@ topic: "read Harm Ontology v3 handoff"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":56864,"contextWindow":1000000,"inputTokens":4,"outputTokens":3,"cacheReadTokens":56269,"cacheWriteTokens":588,"updatedAt":1794986238790}'
+usage: '{"usedTokens":84090,"contextWindow":1000000,"inputTokens":2,"outputTokens":7,"cacheReadTokens":83765,"cacheWriteTokens":316,"updatedAt":1794986714864}'
 ---
 
 **user**: read Harm Ontology v3 handoff
@@ -275,3 +275,98 @@ Comparing A with B shows what the change actually buys and costs. Testing B alon
 
 Should I start with step 1 and draft the competency questions for you to review?
 [Timestamp: 2026/11/18 00:17:01]
+
+**user**: yes
+[Timestamp: 2026/11/18 00:19:44]
+
+**ai**: Here are draft competency questions for you to review. Each one names the claim it tests and has a pass rule decided in advance. The same questions run against both variants: A (attributes asserted on the classes) and B (assessment-everywhere).
+
+## Draft competency questions
+
+| # | Question | Tests | Pass (for B) |
+|---|---|---|---|
+| CQ1 | **Who or what caused Effect X?** | causehood only as assessed; CausalRole folded in | Every attribution is returned with its perspective, standard and status. Conflicting causes appear side by side, and neither is picked as "the" cause. |
+| CQ2 | **Which Effects are severe?** (asked naively) | silent omission; shortcut status values | Settled, disputed and not-assessed Effects all appear, with their status shown. Nothing disappears without a sign. |
+| CQ3 | **What do all perspectives agree on about this case?** | fact as a status; settled | Returns only claims that are settled under a shared procedure, each with an evidence pointer. Returns nothing settled where there's no evidence pointer. |
+| CQ4 | **How did perspective P's verdict on X change over time, and what changed it?** | assessments as dated claims; reopening settled claims | The sequence of assessments can be traced in time order, with what triggered each revision. A claim that was once settled and later reopened shows both states. |
+| CQ5 | **Which judgements rest on an explicit standard, an implicit one, or none?** | `standardBasis` | Every assessment returns one of the three values. Implicit ones point to the tradition's default standard. |
+| CQ6 | **What did perspective P leave out?** | omission (`leftOut`, the omission hub) | Returns the left-out candidates with their omission type: out of frame, blind spot, or accepted harm. |
+| CQ7 | **Does this person count as a Patient, and according to whom?** | Patient subtype as observation plus assessment | The observed core (a person was affected) is kept apart from the assessed reading (moral-circle membership). |
+| CQ8 *(control)* | **When did Effect X occur, and who was directly affected?** | the cost of B | Should be about as easy in B as in A. If B makes this simple question hard, that counts against B. |
+
+## Scoring
+- **For each question, in A and in B:** answerable correctly (yes / partly / no), how complex the query is (number of joins), and whether a naive query fails silently or visibly.
+- **The non-expert subagent run** applies to CQ1, CQ2 and CQ8. A silent partial answer in B is a **fail** for B, however elegant the expert query is.
+- **What B must show to be adopted:** it passes CQ1–CQ7, it shows no silent failure in the subagent run, and on CQ8 it costs no more than A plus the use of a named view.
+
+## Points for you to decide
+1. **Anything missing?** One candidate is responsibility ("who is answerable?"). I left it out because the Valence/Responsibility split is still pending. Adding it would test that split at the same time.
+2. **Is CQ4 too ambitious for the toy case?** It may only become meaningful with Horizon's real timeline.
+3. **What counts as "agree" in CQ3:** same verdict, same standard, or both? I'd provisionally say same verdict under the same procedure, and see if that breaks.
+
+Once you're happy with the questions, I'll save them in a session note, `2026-11-18 v3 Assessment Test Plan`, and move on to the toy case.
+[Timestamp: 2026/11/18 00:19:44]
+
+**user**: can we make a new idea note with all this test strategy and competancy rules and scoring content and bookmark it
+[Timestamp: 2026/11/18 00:21:06]
+
+**ai**: I've created the idea note in the inbox: `_Unfiled Ideas/v3 Assessment-Everywhere Test Strategy.md`. It has the Summary (the seven-step strategy, CQ1–CQ8, scoring, your open decisions) and the Original wording (verbatim quotes, each attributed to you or to Claude: Opus 5.5). I've checked the Harm Ontology index and there's no existing note for this. Before filing it, I need your OK on where it goes.
+
+**Proposed filing:**
+- **ID:** `HO-002.a`, as a child of [[HO-002 Ontology Stress-Test Suite]]. HO-002 is "the one place where the model is tested", and this is the protocol for one set of tests.
+- **Also listed under** [[HO-005 Assessed Membership and Systematic Omission|HO-005]], because it tests HO-005's pending items.
+- **New name and location:** `02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md`
+- **Frontmatter:** `bookmark: HO-002.a`, `canonical_id: ho-002a-assessment-everywhere-test-strategy`. Status stays `seed`. The old name is added as an alias.
+- **Index entries in [[_Harm Ontology Bookmark Index]]:**
+  - Under HO-002: "HO-002.a — Assessment-everywhere test strategy: competency questions with pass criteria written in advance, variant A vs B, toy case then Horizon, non-expert query test for silent omission."
+  - Under HO-005: the same entry, marked "(also under HO-002)".
+  - A cross-reference: "HO-002.a and HO-II.e: shortcut status values (Settled / Disputed / NotAssessed) extend the missingness statuses."
+- **Links:** nothing links to the note yet, so nothing needs rewriting.
+
+**One alternative:** a new top-level `HO-006`, if you see the assessment-everywhere design itself (not just its test) as a new idea. I'd keep it under HO-002 for now and promote it if the design passes testing.
+
+The note's `bookmark` is still set to `draft`. Normally you mark it `ready` yourself, but since you asked for it to be filed, I'll file it now if you approve. Should I go ahead with HO-002.a?
+<!-- copilot-message {"tools":["Read (read): 00_Claude_Admin/Templates/Idea.md","Read (read): 00_Claude_Admin/FileClasses/Idea.md","Write (edit): 02_Ideas Topics Concepts/_Unfiled Ideas/v3 Assessment-Everywhere Test Strategy.md","Skill (other)","Grep (read): 02_Ideas Topics Concepts/Harm Ontology","Read (read): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md"]} -->
+[Timestamp: 2026/11/18 00:21:06]
+
+**user**: wondering if Harm Ontology Stress Testing is better as a new bookmark index and folder?
+[Timestamp: 2026/11/18 00:22:59]
+
+**ai**: Reasonable thought, but my recommendation is **not yet**.
+
+**For a separate index:**
+- Testing will grow: test plans, a toy case, the Horizon slice, results, and `.ttl` test files. A subfolder of its own would keep the design folder tidy.
+- Tests are a different *kind* of note from design ideas. They're procedures and evidence, not concepts.
+
+**Against, for now:**
+- **Tests are worth most next to the claims they test.** HO-002's rule is that every design claim in the index should eventually have a test. In a separate index, each test is cut off from its claim, and the links have to be kept up across two indices. That's the drift problem the bookmark system is meant to avoid.
+- **Test results aren't really ideas.** Results belong in session notes or result notes linked from HO-002, not as bookmarks. A testing index would mostly hold non-ideas.
+- **There's only one test note so far.** By the skill's own rule, a new index is warranted when nothing existing fits. HO-002 fits.
+- **Moving HO-002 out** means renaming it, rewriting links and registering a new index in the master index. It's real work, and it's easier once the shape is clear.
+
+**Middle option:** keep the bookmarks in the HO index, but put HO-002 and its children in a subfolder, `Harm Ontology/Testing/`. That gives you the tidiness without splitting the index.
+
+**When to revisit:** once there are about five test notes, or if testing starts producing its own ideas (methods, fair comparison of variants, how to simulate a non-expert) that aren't about the ontology itself. At that point a separate index would be justified.
+
+How would you like to proceed?
+1. File it as HO-002.a in the HO index, as proposed.
+2. Same, but in a new `Testing/` subfolder, which means moving HO-002 there too (one rename/move, with link checks).
+3. A new testing index anyway.
+[Timestamp: 2026/11/18 00:22:59]
+
+**user**: lets go with your recommendation and tidy up later as it needs tidying
+[Timestamp: 2026/11/18 00:24:52]
+
+**ai**: The test strategy is filed as **HO-002.a** in [[_Harm Ontology Bookmark Index]], under HO-002, with a second listing under HO-005.
+
+**Files changed:**
+- **The note:** moved from `_Unfiled Ideas/` to `02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md`. I set `bookmark: HO-002.a` and `canonical_id: ho-002a-assessment-everywhere-test-strategy`, and added the old title as an alias. Status stays `seed`.
+- **`_Harm Ontology Bookmark Index.md`:** the entry under HO-002, the second listing under HO-005, and a new cross-reference linking HO-002.a's shortcut status values (Settled / Disputed / NotAssessed) to the missingness statuses in HO-II.e.
+
+**Checks:** a search on the new `canonical_id` finds exactly one note. No vault note linked to the old title. The only other match was this chat's own transcript, which is left unchanged as a historical record.
+
+**Still to do:**
+- Your three decisions on the competency questions (whether to add a responsibility question, whether CQ4 is too much for the toy case, and what "agree" means in CQ3). Once those are settled, the next step is the toy case.
+- When there are about five test notes, we'll reconsider a separate Testing folder or index.
+<!-- copilot-message {"tools":["Bash (execute)","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md","Grep (read)"]} -->
+[Timestamp: 2026/11/18 00:24:52]
