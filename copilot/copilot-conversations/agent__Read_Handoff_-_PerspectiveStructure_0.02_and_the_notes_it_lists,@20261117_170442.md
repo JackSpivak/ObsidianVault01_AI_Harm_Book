@@ -1144,3 +1144,9 @@ Shall I verify Wilber's levels and AQAL axes, then draft the `int:` spokes and t
 2. Whether to build the interior/exterior and individual/collective hubs next, with `int:` spokes from AQAL. This would also settle restoring group 3 Integral position in 0.02, which you haven't confirmed yet.
 <!-- copilot-message {"tools":["WebSearch (fetch)","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/Vocabulary Crosswalk - Concept Hubs and Discipline Schemes.md"]} -->
 [Timestamp: 2026/11/17 21:15:31]
+
+**user**: im concerned about the integral altitudes.  the altitudes listed seem to correspond to macro level groupings of a 12 level color scheme with their own names, definitions, explanation and example
+[Timestamp: 2026/11/17 21:36:07]
+
+**ai**: 
+[Timestamp: 2026/11/17 21:36:07]
