@@ -13,7 +13,7 @@ The consolidated v3 model as of the end of session [[2026-11-14 Harm Ontology Re
 - **(?)** open question
 - **(pending)** proposed but deliberately *not* logged; to be decided after testing
 
-No element has been tested yet (see [[HO-002 Ontology Stress-Test Suite]]).
+Nothing here is adopted yet. A toy-case test of the "assessment everywhere" variant (B) has been run and partly re-run (see the 2026-11-18 toy-run note below); the sourced Horizon test and the non-expert test are still to do. See [[HO-002 Ontology Stress-Test Suite]] and [[HO-002.a Assessment-Everywhere Test Strategy]].
 
 > [!warning] Status
 > This is a design draft, not an ontology file. No v3 `.ttl` exists yet. Building one is Phase 1 of [[Harm Ontology Migration Plan]].
@@ -29,7 +29,7 @@ No element has been tested yet (see [[HO-002 Ontology Stress-Test Suite]]).
 ## Structure
 
 ```text
-HARM ONTOLOGY v3 (draft, 2026-11-15; revised 2026-11-17)
+HARM ONTOLOGY v3 (draft, 2026-11-15; revised 2026-11-17 and 2026-11-18)
 │
 ├── CausalCandidate (2026-11-17) ................... parent of Factor and FactorAssembly; anything a
 │                                                    CausalAssessment may select or leave out
@@ -59,7 +59,7 @@ HARM ONTOLOGY v3 (draft, 2026-11-15; revised 2026-11-17)
 │   props: leadsTo → Effect (cascades; open-ended) · affects → AffectedEntity · hasObjectOfHarm ·
 │          experienceability (box A) · isPosthumous · isStatistical · isDispositional ·
 │          severity · reversibility · temporalTrajectory · modality · temporalStatus: Actual|Extrapolated|Pending
-│   proposed 2026-11-18, untested (→ HO-002.a): occurredDuring (time interval; observable core + assessed reading)
+│   proposed 2026-11-18, untested (→ HO-002.a): occurredDuring (time interval; observable core + assessed reading; in the toy test, readings "YYYY-YYYY" are compatible if they overlap, Disputed only if disjoint)
 │   (Effect and Factor are not disjoint)
 │
 ├── Outcome ........................................ a cut across the ramification at a horizon → Decisions 2026-11-14
@@ -145,6 +145,19 @@ BOX D — Vocabulary layer (2026-11-17) → [[Vocabulary Crosswalk - Concept Hub
 > [!warning] Proposed 2026-11-18, untested
 > **Assessment everywhere:** the attributes still asserted on Factor, CausalRole, Effect and AffectedEntity above would move into assessments, extending the FactorAssembly thin container. "Fact" becomes a status (settled Observation), not a kind; `assessmentBasis: Stated | Inherited | Unstandardized` (formerly `standardBasis`; test-only, see HO-002.a); CausalRole may fold into CausalAssessment; shortcuts always carry `Settled | Disputed | NotAssessed`. The tree above is **not yet changed** for this. Test plan: [[HO-002.a Assessment-Everywhere Test Strategy]]. Decided on 2026-11-18: AffectedEntity (then Patient) types inclusive, standing assessed ([[Decisions_Log]]).
 
+> [!note] Toy-case test of variant B, 2026-11-18 (test only; nothing decided)
+> Results in [[2026-11-18 Harm Ontology v3 Toy Case Results]]; design in [[HO-002.a Assessment-Everywhere Test Strategy]]. What the test model currently contains, beyond the tree above:
+> - **Test-only classes:** Procedure (id, version, `implementsStandard`), Evidence, Observation (an Assessment with a Procedure and Evidence), Claim (script-generated: target + attribute + scope), ScopeDeclaration, Band (Low/Medium/High/Extreme), BandMapping.
+> - **Assessment properties added for the test:** `aboutAttribute` (attribute concepts in a separate `hoa:` vocabulary), `value`, `usesProcedure`, `hasEvidence`, `assessedAt`, `assessorOrganisation`, `repeats`, derived `assessmentBasis: Stated | Inherited | Unstandardized`.
+> - **Status is derived, never stored:** NotAssessed · SingleSource · Corroborated · PartiallyAssessed · Settled · Disputed · Incommensurable; naive views show Settled / Disputed / Open. Settling is slow (≥2 independent assessments, same Procedure and version, evidence, no silent in-scope perspective); disputing is quick.
+> - **Three attribute kinds (added in toy run 2, after finding 1 and 6):**
+>   1. *Graded* (e.g. severity): compared through shared bands.
+>   2. *Non-exclusive* (`cause`, `answerable`): different values are additive, not a conflict (per [[HO-003 Causal Assembly - the Perfect Storm]]). Conflict only if an assessment **denies** a value (`deniesValue`) or claims it is the **sole** one (`soleValue`).
+>   3. *Interval* (`occurredDuring`): conflict only if intervals are disjoint; agreed value is the intersection.
+>   Everything else is single-valued and mutually exclusive; `Unclassified` is not a competing value.
+> - **Passed in the toy run:** cause deny → Disputed; sole-cause claim → Disputed; differing causes with neither → Corroborated; interval overlap → compatible; disjoint intervals → Disputed. Toy data is fictional.
+> - **Still untested or unbuilt:** a revision trigger (`revisedBecause`, finding 5), dedicated tests for independence/`repeats` and Incommensurable (finding 7), whether `answerability` and entity `type` need the same rules in real data, the non-expert subagent test, and the Horizon (R01) slice.
+
 ## Open and pending (summary)
 - **Pending, deliberately not logged:**
   - splitting Assessment into Causal / Valence / Responsibility
@@ -161,6 +174,11 @@ BOX D — Vocabulary layer (2026-11-17) → [[Vocabulary Crosswalk - Concept Hub
   - consent
   - the legal layer
   - the evidence anchor against the regress
+- **Open from toy runs (2026-11-18):**
+  - the revision trigger for changed assessments (`revisedBecause`)
+  - whether the strict settlement rule leaves almost nothing Settled in real cases
+  - the non-expert test (script-generated snapshots must not fail silently), which gates adopting variant B
+  - sourced Horizon research (R01)
 
 ## Summary
 - This note puts in one place the structure that was otherwise spread across the Decisions Log and the HO notes, so that it survives the end of the session.

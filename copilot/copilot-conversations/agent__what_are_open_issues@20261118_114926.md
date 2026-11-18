@@ -9,7 +9,7 @@ tags:
   - copilot-conversation
 sessionId: "ses_e1001f457ffenvFWPIJO88zZRW"
 carriedMessages: 12
-usage: '{"usedTokens":41422,"contextWindow":1000000,"updatedAt":1795028172097}'
+usage: '{"usedTokens":69829,"contextWindow":1000000,"updatedAt":1795028975026}'
 ---
 
 **user**: what are open issues
@@ -197,3 +197,73 @@ Tuple printing is also fixed, so values now show as `{F1, F3}`.
 - I haven't updated the handoff note with these results. I can do that next. Still open from Toy Run 2: the `revisedBecause` trigger (finding 5) and a dedicated `Incommensurable` test.
 <!-- copilot-message {"tools":["read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/toy_branch_ledger_B.ttl","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/toy_branch_ledger_B.ttl","edit (edit)","cd \"ObsidianVault01_AI_Harm_Book\"; & \"C:\\Users\\conta\\anaconda3\\envs\\harm-ontology\\python.exe\" -I C:\\Users\\conta\\harm-ontology-scripts\\toy_status.py \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\toy_branch_ledger_A.ttl\" \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\toy_branch_ledger_B.ttl\" 2\u003e&1 | Select-String -Pattern \"Run 2 checks\" -Context 0,22; \"---\"; & \"C:\\Users\\conta\\anaconda3\\envs\\harm-ontology\\python.exe\" -I C:\\Users\\conta\\harm-ontology-scripts\\toy_status.py \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\toy_branch_ledger_A.ttl\" \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\toy_branch_ledger_B.ttl\" 2\u003e&1 | Select-String -Pattern \"^E[1-5] |Counts\" (execute)"]} -->
 [Timestamp: 2026/11/18 11:55:18]
+
+**user**: please update Harm Ontology v3 — Draft Structure with current structure
+[Timestamp: 2026/11/18 12:06:01]
+
+**ai**: I updated [[Harm Ontology v3 - Draft Structure]]. I didn't change the main tree, because the note says it isn't changed until the tests are finished and nothing has been decided.
+
+**Changes**
+1. **Test status line:** The note used to say no element had been tested. It now says the toy-case test of variant B has run, and that the Horizon and non-expert tests are still to do.
+2. **Effect `occurredDuring`:** The line now says "YYYY-YYYY" readings are compatible if they overlap and Disputed only if disjoint.
+3. **New callout, "Toy-case test of variant B":**
+   - **Test-only classes and properties:** Procedure, Evidence, Observation, Claim, Band and the rest, plus `assessmentBasis`.
+   - **Derived statuses:** the seven statuses and the three-way Settled / Disputed / Open display.
+   - **Three attribute kinds:** graded, non-exclusive (the deny and sole-cause rule) and interval. All other attributes are single-valued and exclusive.
+   - **What passed in the toy run, and what is untested.**
+4. **Open items:** I added `revisedBecause`, the risk that the settlement rule is too strict, the non-expert test that gates variant B, and the Horizon research.
+5. **Tree header:** The revision date now reads 2026-11-17 and 2026-11-18.
+
+**Things to know**
+- I wrote the callout from the toy results and from HO-002.a. I left the tree unchanged so it doesn't suggest a decision that hasn't been made.
+- HO-002.a, the toy results note and the handoff don't yet mention the run 2 additions: the deny and sole-cause rule, interval overlap, and the E4 and E5 test cases. I can update them next if you'd like.
+<!-- copilot-message {"tools":["read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure.md","glob (search)","read (read): 02_Ideas Topics Concepts/Harm Ontology/HO-002.a Assessment-Everywhere Test Strategy.md","read (read): 01_The Writer's Room/2026-11-18 Harm Ontology v3 Toy Case Results.md","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure.md"]} -->
+[Timestamp: 2026/11/18 12:06:01]
+
+**user**: what tests do we still need to do before writing finished v3
+[Timestamp: 2026/11/18 12:09:24]
+
+**ai**: This list comes from [[HO-002.a Assessment-Everywhere Test Strategy]], the toy results note and the run we just did. I haven't re-read the wider [[HO-002 Ontology Stress-Test Suite]] (T-series) or [[Harm Ontology Migration Plan]] this session, so check them for tests I've missed.
+
+### A. Finish the toy case (cheap, do first)
+1. **Revision trigger (finding 5):** Add `revisedBecause` and test CQ4 so each change of view shows what caused it.
+2. **Independence and `repeats`:** Build a case where the `repeats` or same-firm rule decides the outcome. In run 2 it never did, because Disputed came first.
+3. **Incommensurable:** Build a case where it is the real outcome. It didn't occur after the fixes.
+4. **Corroborated and Settled paths:** Confirm the full Settled path is reached. I haven't verified this after the run 2 changes.
+5. **Other non-exclusive attributes:** Check whether `answerable` and entity `type` need deny and sole handling. The deny and sole tests so far only exercised `cause`.
+6. **CQ7 parts (a), (b) and (e):** These were not tested. They cover the observed core vs assessed reading, collective boundaries, and primary vs derivative `affectedStanding`.
+7. **CQ6 beyond causes:** Omission is tested only for causes. Both variants behave the same, so it's a weak result.
+8. **CQ7 case list:** Run the tribe, grid outage, AI system, animal, couple, partnership and LLC cases. Only the unlisted-kind case has run.
+
+### B. Gating tests (they decide whether B is adopted)
+9. **Non-expert subagent test:** A fresh agent gets only the schema and the questions (CQ1, CQ2, CQ8, schema-only). Any silent partial answer is a fail for B.
+10. **SHACL validation:** Flag nodes with no assessment and shortcuts with no status.
+11. **Score against the pre-written criteria:** B must pass CQ1–CQ7 and CQ9, show no silent failure, and cost no more than A on CQ8.
+
+### C. Real-world test
+12. **Horizon (R01):** First do sourced research, because the current knowledge is from memory. Then build a slice with 4–5 perspectives.
+13. **Over-strict settlement:** Check whether anything reaches `Settled` in real data. This is the main risk the toy case can't answer.
+14. **Verify references:** The legal cases, NESS/INUS, Wilber, vocabularies and other items flagged as unverified.
+
+### D. Before logging decisions
+15. **Re-read author decisions 5–21:** They were made quickly in one sitting.
+16. **Decide the pending items:**
+    - splitting Assessment into Causal / Valence / Responsibility
+    - causal standards
+    - reifying `participatesIn`
+    - "as assessed" in place of "jointly sufficient"
+    - the evidence anchor
+    - the AffectedEntity proposals
+
+### Suggested order
+Steps 1–5 (a toy run 3), then 9–11, then 12–13 in a new chat, then 15–16. Steps 6–8 can go in run 3 or wait for Horizon.
+
+One dependency is worth knowing: the pass/fail result of 9–11 decides whether the structure draft changes at all, so it's worth doing 1–5 first so the non-expert test runs on a stable schema.
+[Timestamp: 2026/11/18 12:09:24]
+
+**user**: do a
+[Timestamp: 2026/11/18 12:10:51]
+
+**ai**: I'll do all of section A (steps 1–8). First the test data: new effects, entities and assessments for independence, Settled, Corroborated, answerability and the CQ7 cases.
+<!-- copilot-message {"tools":["edit (edit)"]} -->
+[Timestamp: 2026/11/18 12:10:51]
