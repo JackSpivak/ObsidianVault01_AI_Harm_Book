@@ -9,7 +9,7 @@ tags:
   - copilot-conversation
 sessionId: "ses_e1001f457ffenvFWPIJO88zZRW"
 carriedMessages: 12
-usage: '{"usedTokens":22567,"contextWindow":1000000,"updatedAt":1795027951600}'
+usage: '{"usedTokens":41422,"contextWindow":1000000,"updatedAt":1795028172097}'
 ---
 
 **user**: what are open issues
@@ -145,3 +145,55 @@ Please retry in 13h11m19.622474084s.
 Next I can check the TTL for `NonExclusiveAttribute`, add it to `cause` and `answerable` if it's absent, and rerun the test. Want me to go ahead?
 <!-- copilot-message {"tools":["read (read)","grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests"]} -->
 [Timestamp: 2026/11/18 11:52:23]
+
+**user**: yes
+[Timestamp: 2026/11/18 11:52:59]
+
+**ai**: The earlier edit did save. `hoa:cause` and `hoa:answerable` are both typed `ho:NonExclusiveAttribute`. Now I'll rerun the test.The fix is implemented and the retest confirms it works. The run exited with code 1, but that comes from the `Select-Object` pipe, not from the script.
+
+**Results after the fix**
+- **Cause of E1:** The status is now `Corroborated` with the values F1 and F3 together. Before, it was `Disputed`. Both causes are kept, which matches HO-003.
+- **Answerable for E1:** The status is `Corroborated` with Manager and CompanyX together, so it no longer disputes.
+- **CQ4 (cause over time):** The cause set builds up and no longer flips to disputed. In 2011 it is F4 only. By 2013 it is F4 and F1. From 2020 it is F1 and F3.
+- **Genuine disputes are preserved:** E1 severity is still `Disputed`. E2 `occurredStart` is still `Disputed` (2009 vs 2012).
+
+**Remaining issues**
+1. **E2 `occurredStart` is only "correctly" disputed by accident.** The values are compared as exact strings, so interval overlap (finding 6) is still not implemented. 2009 vs 2012 should depend on the intervals.
+2. **Output is cosmetically messy.** Values print as `rdflib.term.URIRef(...)` inside tuples. I can fix that with `short()`.
+3. **No test of the deny/sole path.** No assessment in the data uses `deniesValue` or `soleValue`, so that branch hasn't been exercised. A test case where one perspective denies F3 or says F1 is the sole cause should return `Disputed`.
+4. **Still not done:** `revisedBecause` (finding 5) and test cases for `repeats` and `Incommensurable`.
+
+Next I can add a deny case and a sole-cause case to the TTL, tidy the tuple printing, and then do date-interval overlap. Should I?
+<!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/toy_branch_ledger_B.ttl","cd \"ObsidianVault01_AI_Harm_Book\"; & \"C:\\Users\\conta\\anaconda3\\envs\\harm-ontology\\python.exe\" -I C:\\Users\\conta\\harm-ontology-scripts\\toy_status.py \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\toy_branch_ledger_A.ttl\" \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\toy_branch_ledger_B.ttl\" 2\u003e&1 | Select-Object -First 70 (execute)"]} -->
+[Timestamp: 2026/11/18 11:52:59]
+
+**user**: yes do that.  is the code for these tests well commented to capture the complex intent here?
+[Timestamp: 2026/11/18 11:55:18]
+
+**ai**: Honest answer first: no. The script has few comments, and none explain why `cause` and `answerable` are non-exclusive or what `deniesValue` and `soleValue` mean. I'll add comments as I make the changes. First I'll read the TTL.I'll add new test effects so the existing results stay comparable. E4 tests deny, E5 tests sole-cause, and E2 and E5 test interval overlap with a new `occurredDuring` attribute. First, the TTL.Now the script: add interval handling, comment the status logic, fix tuple printing, and add the new CQs.All five new checks pass.
+
+| Check | Result |
+|---|---|
+| E4 cause: P4 denies F1, which P2 named | Disputed (PASS) |
+| E5 cause: sole-cause claim vs a second cause | Disputed (PASS) |
+| E1 cause: F1 and F3 with no deny or sole claim | Corroborated {F1, F3} (PASS) |
+| E2 `occurredDuring`: 2009–2014 vs 2012–2014 | Corroborated, narrowed to 2012–2014 (PASS) |
+| E5 `occurredDuring`: 2009–2010 vs 2012–2014 | Disputed (PASS) |
+
+Tuple printing is also fixed, so values now show as `{F1, F3}`.
+
+**Added or changed**
+- **TTL:** New effects E4 and E5. New `hoa:occurredDuring` attribute, typed `IntervalAttribute`. Assessments X1–X4 and D1–D4. Comments in the file explain why each case exists.
+- **Script:** Interval-overlap branch. A comment block in `status()` explains the three attribute kinds (non-exclusive, interval, single-valued exclusive) and why each is treated that way. A `Run 2 checks` section prints PASS or FAIL against expected results.
+
+**On your comment question:** Comments are better now, but gaps remain.
+- The older parts of the script (`band`, `basis`, and the `Corroborated` / `Settled` ladder in `status()`) still have few comments about their intent.
+- The checks hardcode expected statuses, and nothing links them back to the finding numbers or decisions.
+- Ask me and I'll do a commenting pass on those parts, tying each to HO-002.a and HO-003.
+
+**Caveats**
+- `occurredStart` (a point value) still treats 2009 vs 2012 as a conflict, which seems right for a single point, but it is a design choice you may want to confirm.
+- Interval parsing assumes plain `YYYY-YYYY` years. It doesn't handle full dates or open-ended intervals.
+- I haven't updated the handoff note with these results. I can do that next. Still open from Toy Run 2: the `revisedBecause` trigger (finding 5) and a dedicated `Incommensurable` test.
+<!-- copilot-message {"tools":["read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/toy_branch_ledger_B.ttl","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/toy_branch_ledger_B.ttl","edit (edit)","cd \"ObsidianVault01_AI_Harm_Book\"; & \"C:\\Users\\conta\\anaconda3\\envs\\harm-ontology\\python.exe\" -I C:\\Users\\conta\\harm-ontology-scripts\\toy_status.py \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\toy_branch_ledger_A.ttl\" \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\toy_branch_ledger_B.ttl\" 2\u003e&1 | Select-String -Pattern \"Run 2 checks\" -Context 0,22; \"---\"; & \"C:\\Users\\conta\\anaconda3\\envs\\harm-ontology\\python.exe\" -I C:\\Users\\conta\\harm-ontology-scripts\\toy_status.py \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\toy_branch_ledger_A.ttl\" \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\toy_branch_ledger_B.ttl\" 2\u003e&1 | Select-String -Pattern \"^E[1-5] |Counts\" (execute)"]} -->
+[Timestamp: 2026/11/18 11:55:18]

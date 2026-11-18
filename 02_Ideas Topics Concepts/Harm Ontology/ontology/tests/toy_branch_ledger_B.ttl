@@ -15,7 +15,8 @@ ho:Low ho:bandRank 1 . ho:Medium ho:bandRank 2 . ho:High ho:bandRank 3 . ho:Extr
 hoa:severity      a ho:GradedAttribute ; ho:appliesTo ho:Effect .
 hoa:cause         a ho:NonExclusiveAttribute ; ho:appliesTo ho:Effect .
 hoa:answerable    a ho:NonExclusiveAttribute ; ho:appliesTo ho:Effect .
-hoa:occurredStart ho:appliesTo ho:Effect .
+hoa:occurredStart ho:appliesTo ho:Effect .   # single-valued point: different years genuinely conflict
+hoa:occurredDuring a ho:IntervalAttribute ; ho:appliesTo ho:Effect .  # "YYYY-YYYY": conflict only if disjoint
 hoa:entityType    ho:appliesTo ho:AffectedEntity .
 
 # ---------- Thin entities ----------
@@ -136,6 +137,45 @@ toy:R1 a ho:ResponsibilityAssessment ; ho:assesses toy:E1 ; ho:aboutAttribute ho
 toy:R2 a ho:ResponsibilityAssessment ; ho:assesses toy:E1 ; ho:aboutAttribute hoa:answerable ; ho:value toy:CompanyX ;
     ho:takenFrom toy:P5 ; ho:assessorOrganisation toy:Court ; ho:usesProcedure toy:ProcCourt ;
     ho:hasEvidence toy:Ev4 ; ho:assessedAt "2021-04-01"^^xsd:date .
+
+# ---------- Toy run 2 additions (2026-11-18) ----------
+# WHY: run 1 showed that naming different causes is NOT a conflict (HO-003: causes are additive).
+# Non-exclusive attributes conflict only when an assessment (a) DENIES a value another one names
+# (ho:deniesValue), or (b) claims a value is the ONLY one (ho:soleValue true) while others exist.
+# E4 exercises (a); E5 exercises (b). Expected: both Disputed. E1 (no deny/sole) stays Corroborated.
+toy:E4 a ho:Effect ; rdfs:label "TEST: cause denial" ; ho:affects toy:AllOperators .
+toy:E5 a ho:Effect ; rdfs:label "TEST: sole-cause claim and disjoint dates" ; ho:affects toy:AllOperators .
+
+# E4: P2 names F1; P4 names F3 AND explicitly denies F1 -> Disputed
+toy:X1 a ho:CausalAssessment ; ho:assesses toy:E4 ; ho:aboutAttribute hoa:cause ; ho:value toy:F1 ;
+    ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:usesProcedure toy:ProcForensic ;
+    ho:hasEvidence toy:Ev2 ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:X2 a ho:CausalAssessment ; ho:assesses toy:E4 ; ho:aboutAttribute hoa:cause ; ho:value toy:F3 ;
+    ho:deniesValue toy:F1 ; ho:takenFrom toy:P4 ; ho:assessorOrganisation toy:Assoc ; ho:assessedAt "2019-02-01"^^xsd:date .
+
+# E5: P2 says F1 is the ONLY cause; P5 names F3 -> Disputed (sole claim vs a second value)
+toy:X3 a ho:CausalAssessment ; ho:assesses toy:E5 ; ho:aboutAttribute hoa:cause ; ho:value toy:F1 ;
+    ho:soleValue true ; ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:usesProcedure toy:ProcForensic ;
+    ho:hasEvidence toy:Ev2 ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:X4 a ho:CausalAssessment ; ho:assesses toy:E5 ; ho:aboutAttribute hoa:cause ; ho:value toy:F3 ;
+    ho:takenFrom toy:P5 ; ho:assessorOrganisation toy:Court ; ho:usesProcedure toy:ProcCourt ;
+    ho:hasEvidence toy:Ev4 ; ho:assessedAt "2021-04-01"^^xsd:date .
+
+# Date INTERVALS (finding 6): "YYYY-YYYY" values compare by overlap, not string equality.
+# E2: 2009-2014 vs 2012-2014 overlap -> compatible (value narrows to the intersection 2012-2014).
+toy:D1 a ho:Assessment ; ho:assesses toy:E2 ; ho:aboutAttribute hoa:occurredDuring ; ho:value "2009-2014" ;
+    ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:usesProcedure toy:ProcForensic ;
+    ho:hasEvidence toy:Ev2 ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:D2 a ho:Assessment ; ho:assesses toy:E2 ; ho:aboutAttribute hoa:occurredDuring ; ho:value "2012-2014" ;
+    ho:takenFrom toy:P1 ; ho:assessorOrganisation toy:CompanyX ; ho:usesProcedure toy:ProcInternal ;
+    ho:hasEvidence toy:Ev3 ; ho:assessedAt "2018-09-01"^^xsd:date .
+# E5: 2009-2010 vs 2012-2014 are disjoint -> Disputed
+toy:D3 a ho:Assessment ; ho:assesses toy:E5 ; ho:aboutAttribute hoa:occurredDuring ; ho:value "2009-2010" ;
+    ho:takenFrom toy:P2 ; ho:assessorOrganisation toy:AuditFirmY ; ho:usesProcedure toy:ProcForensic ;
+    ho:hasEvidence toy:Ev2 ; ho:assessedAt "2015-05-01"^^xsd:date .
+toy:D4 a ho:Assessment ; ho:assesses toy:E5 ; ho:aboutAttribute hoa:occurredDuring ; ho:value "2012-2014" ;
+    ho:takenFrom toy:P1 ; ho:assessorOrganisation toy:CompanyX ; ho:usesProcedure toy:ProcInternal ;
+    ho:hasEvidence toy:Ev3 ; ho:assessedAt "2018-09-01"^^xsd:date .
 
 # ---------- Evidence ----------
 toy:Ev1 a ho:Evidence ; rdfs:label "Internal review memo 2010 (fictional)" .
