@@ -7,7 +7,7 @@ topic: "Read Handoff - PerspectiveStructure 0.02 and the notes it li…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":185370,"contextWindow":1000000,"inputTokens":2,"outputTokens":3,"cacheReadTokens":0,"cacheWriteTokens":185365,"updatedAt":1794975245618}'
+usage: '{"usedTokens":198320,"contextWindow":1000000,"inputTokens":2,"outputTokens":4,"cacheReadTokens":191566,"cacheWriteTokens":6748,"updatedAt":1794975573449}'
 lastAccessedAt: 1794974457725
 ---
 
@@ -1120,6 +1120,27 @@ Shall I verify Wilber's levels and AQAL axes, then draft the `int:` spokes and t
 **user**: yes
 [Timestamp: 2026/11/17 21:15:31]
 
-**ai**: 
-<!-- copilot-message {"tools":["WebSearch (fetch)"]} -->
+**ai**: Wilber's levels are confirmed, although mostly through secondary sources. I'm adding the developmental altitude hub to the crosswalk note now.I've added `hov:developmentalAltitude` to [[Vocabulary Crosswalk - Concept Hubs and Discipline Schemes]]. I also never confirmed the earlier change: the blind-spot hub is now `hov:omission`, with its three branches (out of frame, blind spot, accepted harm). Both are in the note.
+
+## What was verified
+- **Wilber's moral sequence (egocentric → ethnocentric → worldcentric → kosmocentric):** confirmed by [Wikipedia: Worldcentrism](https://en.wikipedia.org/wiki/Worldcentrism) and secondary sources. The search also turned up Wilber's own essay ([PDF](http://integral-life-home.s3.amazonaws.com/Wilber-WakeUpGrowUp-TheEdgeOfTheUnknown.pdf)), but I didn't open it. The sources also report that Wilber equates worldcentric with Kohlberg's post-conventional stage.
+- **AQAL quadrants:** confirmed. They were introduced in *Sex, Ecology, Spirituality* (1995) by crossing interior/exterior with individual/collective ([Wikipedia](https://en.wikipedia.org/wiki/Sex,_Ecology,_Spirituality), [Integral World overview](https://www.integralworld.net/helfrich.html)).
+- **Colour altitudes:** only partly confirmed. Red, amber, orange, green, teal and turquoise are linked to *Integral Spirituality* (2006) only through secondary sources ([Visser](https://www.integralworld.net/visser101.html), [Sloww](https://www.sloww.co/integral-spirituality-ken-wilber/)). The lower colours and the ones beyond turquoise vary between sources.
+- **Hierocles's circles:** not verified. They appear only in council dialogue, which was never fact-checked. The scale is marked that way in the note.
+
+## What was added
+- **A hub Explanation (new).** It covers the shared idea, your size-versus-altitude distinction, and the rule that every value must name its scale.
+- **Three spokes, all proposed as closeMatch:**
+  - Confucius and the Stoics, and Kohlberg: Explanations quoted verbatim from the council reviews;
+  - `int:altitude`: a new Explanation.
+- **Gilligan and Laozi** are recorded as Divergences, not as spokes.
+- **Four value scales,** each a concept scheme with ordered levels.
+- **Five value-level mappings across the scales,** for example `int:worldcentric` closeMatch `psy:postConventional`.
+  - **Kosmocentric has no Kohlberg equivalent.** I've recorded that gap as a Divergence between the two scales.
+- **Two new discipline prefixes:** `psy:` (developmental psychology) and `int:` (Integral theory).
+
+## For you to review
+1. The three spoke grades and the five value mappings.
+2. Whether to build the interior/exterior and individual/collective hubs next, with `int:` spokes from AQAL. This would also settle restoring group 3 Integral position in 0.02, which you haven't confirmed yet.
+<!-- copilot-message {"tools":["WebSearch (fetch)","Edit (edit): 02_Ideas Topics Concepts/Harm Ontology/Vocabulary Crosswalk - Concept Hubs and Discipline Schemes.md"]} -->
 [Timestamp: 2026/11/17 21:15:31]
