@@ -7,7 +7,7 @@ topic: "Read Handoff - PerspectiveStructure 0.02 and the notes it li…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":175410,"contextWindow":1000000,"inputTokens":4,"outputTokens":8,"cacheReadTokens":175359,"cacheWriteTokens":39,"updatedAt":1794973497841}'
+usage: '{"usedTokens":183415,"contextWindow":1000000,"inputTokens":2,"outputTokens":8,"cacheReadTokens":181161,"cacheWriteTokens":2244,"updatedAt":1794973990624}'
 lastAccessedAt: 1794973192676
 ---
 
@@ -874,3 +874,203 @@ graph TD
     PR2 -. adds and requires .-> PT
 ```
 [Timestamp: 2026/11/17 20:44:45]
+
+**user**: please display as originally in vertically organized diagram
+[Timestamp: 2026/11/17 20:45:44]
+
+**ai**: 
+
+```text
+PerspectiveType  ◄─ instantiates ─  Perspective (shot, HO-II.d; overrides frame defaults)
+│  📝 Explanation: [placeholder]
+│
+├── 0 CORE (required) ───────────────────────────────────────────────
+│   ├── name ★ ............................. 📝 [placeholder]
+│   ├── canonicalSource ★ .................. 📝 [placeholder]
+│   ├── objectOfAttention ★ ................ 📝 [placeholder]
+│   └── foundationalCommitments ★ .......... 📝 [placeholder]
+│
+├── 1 RELATIONS ─────────────────────────────────────────────────────
+│   ├── divergesFrom / convergesWith ★ ..... 📝 [placeholder]
+│   ├── specializes / generalizes .......... 📝 [placeholder]
+│   ├── partOf / hasSublens ................ 📝 [placeholder]
+│   ├── complements · complementaryWith · definedAgainst ... 📝 [placeholder]
+│   ├── coupledWith ........................ 📝 [placeholder]
+│   └── correctedBy → Community ............ 📝 [placeholder]
+│
+├── 2 IDENTITY & LINEAGE ────────────────────────────────────────────
+│   ├── nameByDomain · definitionByDomain .. 📝 [placeholder]
+│   ├── conceptStructure + exemplars ....... 📝 [placeholder]
+│   ├── lensKind ........................... 📝 [placeholder]
+│   ├── lineage · originatingCircumstance .. 📝 [placeholder]
+│   ├── transmissionMode ................... 📝 [placeholder]
+│   └── historicalNote ..................... 📝 [placeholder]
+│
+├── 3 AIM & NORMATIVE CORE ──────────────────────────────────────────
+│   ├── statedPurpose ★ .................... 📝 [placeholder]
+│   ├── normativeForm ★ .................... 📝 [placeholder]
+│   ├── valueTheory · embedsStandard ....... 📝 [placeholder]
+│   ├── unitOfMeasure ★ + commensurability . 📝 [placeholder]
+│   ├── intentWeighting ★ .................. 📝 [placeholder]
+│   ├── distributiveConcern · conflictResolution ... 📝 [placeholder]
+│   └── domainOfApplicability .............. 📝 [placeholder]
+│
+├── 4 POSITION & SCOPE ──────────────────────────────────────────────
+│   ├── socialScope ........................ 📝 [placeholder]
+│   ├── moralCircle ★ ...................... 📝 [placeholder]
+│   ├── quadrant ........................... 📝 [placeholder]
+│   ├── assumedPositionality ............... 📝 [placeholder]
+│   ├── spatialScope · systemicScope ....... 📝 [placeholder]
+│   ├── temporalScope (+ discountRate) ..... 📝 [placeholder]
+│   └── scaleValidity ...................... 📝 [placeholder]
+│
+├── 5 EPISTEMICS ────────────────────────────────────────────────────
+│   ├── method + instrumentResponse ★ ...... 📝 [placeholder]
+│   ├── criterionOfTruth + inferenceModes .. 📝 [placeholder]
+│   ├── causalModel ........................ 📝 [placeholder]
+│   ├── errorHandling ...................... 📝 [placeholder]
+│   ├── explorationMode .................... 📝 [placeholder]
+│   ├── factHandling ....................... 📝 [placeholder]
+│   └── manipulability ..................... 📝 [placeholder]
+│
+├── 6 STANCE (holder's side) ────────────────────────────────────────
+│   ├── bearerRole · controlLocus .......... 📝 [placeholder]
+│   ├── stanceTowardObject ................. 📝 [placeholder]
+│   ├── governingAnalogies ................. 📝 [placeholder]
+│   └── effectOnHolder ★ ................... 📝 [placeholder]
+│
+├── 7 SUBJECT'S SIDE ────────────────────────────────────────────────
+│   ├── standingOfSubjects ★ ............... 📝 [placeholder]
+│   ├── modelOfSubject · legibility ........ 📝 [placeholder]
+│   ├── consentToBeSeen ★ .................. 📝 [placeholder]
+│   ├── adaptiveResponse ................... 📝 [placeholder]
+│   └── livedExperience .................... 📝 [placeholder]
+│
+├── 8 POWER ─────────────────────────────────────────────────────────
+│   ├── authority + authorityBasis ......... 📝 [placeholder]
+│   ├── whoseInterests ★ ................... 📝 [placeholder]
+│   ├── costBearer ★ (+ differentialBurden)  📝 [placeholder]
+│   ├── whoseVoice ★ (+ precisionWeighting)  📝 [placeholder]
+│   ├── powerAsymmetry ..................... 📝 [placeholder]
+│   ├── accountabilityLocus ★ .............. 📝 [placeholder]
+│   └── remedy ............................. 📝 [placeholder]
+│
+├── 9 DYNAMICS & MATERIALITY ────────────────────────────────────────
+│   ├── performativity ★ ................... 📝 [placeholder]
+│   ├── infrastructureDependence ........... 📝 [placeholder]
+│   ├── validFrom / validTo · changeMode ... 📝 [placeholder]
+│   └── prevalence ......................... 📝 [placeholder]
+│
+├── 10 ASSESSMENTS (each with assessedBy) ───────────────────────────
+│   ├── congruence ★★ ...................... 📝 drafted (HO-II.d.2)
+│   ├── omission ★ ......................... 📝 drafted (HO-II.d.2)
+│   │   ├── outOfFrame
+│   │   ├── blindSpot
+│   │   │   ├── negligent
+│   │   │   └── suppressed
+│   │   └── acceptedHarm
+│   ├── failureMode ........................ 📝 [placeholder]
+│   ├── developmentalAltitude .............. 📝 [placeholder]
+│   ├── epistemicStanding .................. 📝 [placeholder]
+│   ├── proceduralIntegrity ................ 📝 [placeholder]
+│   ├── publicJustifiability ............... 📝 [placeholder]
+│   └── knownCritique ...................... 📝 [placeholder]
+│
+└── 11 PROVENANCE & TRUST ───────────────────────────────────────────
+    ├── 11a Sources ........................ 📝 [placeholder]
+    ├── 11b PROV ........................... 📝 [placeholder]
+    └── 11c verificationStatus · evidenceLabel · confidence · canonStatus ... 📝 [placeholder]
+
+PROFILES (optional add-ons, HO-II.e)
+├── LegalInstitutional ..................... 📝 [placeholder]
+└── LearnedModel ........................... 📝 [placeholder]
+
+★ leading tier   ★★ first-class   📝 Explanation slot (hub narrative)
+```
+[Timestamp: 2026/11/17 20:45:44]
+
+**user**: what happened to integral properties
+1. interior vs exterior
+2. individual vs collective
+3. developmental level
+[Timestamp: 2026/11/17 20:50:25]
+
+**ai**: They're still in the structure, but my 0.02 proposal scattered them and I didn't flag it. That was a mistake, because two of the three come from your original list.
+
+## Where each one went
+
+| Your property | In 0.01 | In my 0.02 proposal | What was lost |
+|---|---|---|---|
+| **Interior vs exterior** | Half of `quadrant` | Still only inside `quadrant`, moved to group 4 Position & Scope | It's no longer an axis of its own |
+| **Individual vs collective** | The other half of `quadrant` | The same: inside `quadrant` | It's no longer an axis of its own |
+| **Developmental level** | `developmentalAltitude` | Moved to group 10 Assessments, because it's contested (Kohlberg–Gilligan, Laozi) | It no longer appears next to its siblings |
+
+The "Integral position" group itself disappeared. Its contents went to two other places.
+
+The quadrant problem started in 0.01. Your list had two separate axes, and 0.01 folded them into one four-value field (UL/UR/LL/LR). That loses something. A lens can attend to **both** interior and exterior, or slide between them, and a single quadrant value can't express that.
+
+## Proposal: restore group 3 Integral position
+
+```text
+├── 3 INTEGRAL POSITION ─────────────────────────────────────────────
+│   ├── interiority ★ {interior · exterior · both} ............ 📝 [placeholder]
+│   ├── collectivity ★ {individual · collective · both} ....... 📝 [placeholder]
+│   ├── quadrant (derived from the two axes) .................. 📝 [placeholder]
+│   ├── socialScope (size) .................................... 📝 [placeholder]
+│   ├── moralCircle ★ (which beings count) .................... 📝 [placeholder]
+│   └── developmentalAltitude (Assessment, assessedBy required) 📝 [placeholder]
+```
+
+- **Two explicit axes.** `quadrant` is computed from them, so it isn't recorded twice.
+- **Developmental level returns to its group,** but it's still typed as an Assessment, so the record always says whose ranking it is. The groups are display facets, so it can be shown here and also listed in group 10 without being stored twice.
+- **The three scope axes sit together:** size, altitude and moral circle, as the Ethics review recommended.
+- Group 4 would then hold only the extents: spatial, systemic and temporal scope, plus scale validity.
+
+One caution: the Integral framing comes from Wilber's AQAL, and 0.01 cited it from memory without checking. I'd verify it before writing 0.02.
+
+Shall I adopt this? If so, I'll show the full revised tree.
+[Timestamp: 2026/11/17 20:50:25]
+
+**user**: please show me the narrativer content for developmentalAlltitude
+[Timestamp: 2026/11/17 20:52:52]
+
+**ai**: No hub narrative has been written for `developmentalAltitude` yet. The existing material is two rows in the council vocabulary tables. They're quoted verbatim below and would become its first two spokes.
+
+## Spoke 1: `phil:junzi` / `phil:oikeiosis` (Classical review, line 162)
+
+| Field | Content |
+|---|---|
+| Term (altLabels) | *junzi* 君子 vs *xiaoren* 小人; *oikeiōsis* (appropriation, widening affinity) |
+| Definition | Degree of moral cultivation, shown in how widely concern extends |
+| Example | "The junzi understands what is right; the xiaoren understands what is profitable" |
+| Citation | *Analects* 4.16; Cicero, *De Finibus* III.16–22 |
+| Verified | Yes. The Legge translation is confirmed; the Example's wording is a common modern rendering. |
+| Key thinkers | Confucius; Mencius; Zeno; Chrysippus; Cicero |
+
+**Explanation (verbatim):**
+> Confucius performed a quiet revolution: *junzi* had meant someone noble by birth, and he made it mean someone noble by cultivation. The Stoics independently described moral growth as widening appropriation, from caring for one's own body to caring for humanity. Both traditions give strong ancient precedent for the author's idea that perspectives differ in the inclusivity of their value structure, independently of the size of the group they address. That distinction, accepted by the author, is one of the most useful in the structure. **For AI harm:** the same social scope can be held at very different altitudes, for example a national AI strategy framed around competitive advantage versus one framed around global welfare. **Limit, and it is serious:** every altitude scale is built from inside a tradition, and it places that tradition near the top. Confucian, Stoic, Kohlbergian and Integral scales disagree about what "higher" means; the Ethics review documents how Kohlberg's scale ranked care reasoning lower. Modelling implication: never assert altitude as a bare fact. Make it a qualified, assessed value with `assessedBy` → PerspectiveType, so every ranking states whose ranking it is, and disagreements become Divergences.
+
+## Spoke 2: `psy:moralStages` (Ethics review, line 153)
+
+| Field | Content |
+|---|---|
+| Term (altLabels) | stages of moral development (pre-conventional, conventional, post-conventional) |
+| Definition | Developmental levels of moral reasoning |
+| Example | The Heinz dilemma: should Heinz steal a drug to save his wife? |
+| Citation | Kohlberg, *Essays on Moral Development*, vol. 1 (Harper & Row, 1981); Gilligan (1982) |
+| Verified | Yes |
+| Key thinkers | Jean Piaget; Lawrence Kohlberg; Carol Gilligan; James Rest |
+
+**Explanation (verbatim):**
+> Developmental altitude is the most powerful and most dangerous attribute in the structure. Powerful because it captures something real: lenses differ in how widely and reflectively they extend concern, and a lens organised around self-interest is not equivalent to one organised around universal principles. Dangerous because every scale is built from somewhere. Kohlberg's stages, developed from interviews with boys and men, placed rule- and rights-based reasoning at the top and relational reasoning lower, so women's responses scored lower. Gilligan's critique is a documented case of an altitude scale encoding its authors' perspective, and it parallels the Confucian and Stoic rankings noted in the Classical review. For AI, altitude matters because developers increasingly claim their systems reason at a "higher" moral level, or align to "universal" values. Modelling implication: `developmentalAltitude` should never be stored as a bare value. It should always be an assessed property with `assessedBy` pointing to the scale and its PerspectiveType, so that the ontology records "post-conventional according to Kohlberg's scale" rather than "post-conventional". Rival altitude scales then become comparable, and their disagreements become Divergences.
+
+## What's missing
+- **A hub Explanation** for `hov:developmentalAltitude`: a neutral definition plus a narrative covering all the spokes.
+- **The Integral spoke.** Wilber's altitude levels (egocentric, ethnocentric, worldcentric…) are where your original term came from, but no council wrote a row for them, and 0.01 cited AQAL only from memory.
+- **A counter-spoke.** Laozi's rejection of ranking, and Gilligan's care ethics as a rival standard, could be recorded as Divergence links rather than as spokes.
+- **Mapping grades.** Both existing spokes would be **closeMatch** in my view.
+- **`psy:` is a new discipline prefix.** Kohlberg is developmental psychology.
+
+Shall I draft the hub Explanation and an Integral spoke, with a web check of Wilber's levels?
+<!-- copilot-message {"tools":["Bash (execute)"]} -->
+[Timestamp: 2026/11/17 20:52:52]
