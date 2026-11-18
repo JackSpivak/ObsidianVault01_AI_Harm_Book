@@ -7,7 +7,7 @@ topic: "Read Handoff - PerspectiveStructure 0.02 and the notes it li…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":306750,"contextWindow":1000000,"inputTokens":4,"outputTokens":3,"cacheReadTokens":0,"cacheWriteTokens":306743,"updatedAt":1794980591684}'
+usage: '{"usedTokens":309519,"contextWindow":1000000,"inputTokens":4,"outputTokens":8,"cacheReadTokens":308309,"cacheWriteTokens":1198,"updatedAt":1794980922777}'
 lastAccessedAt: 1794974457725
 ---
 
@@ -1944,3 +1944,83 @@ Give `attributedCause` two sub-properties, `attributedFactor` and `attributedAss
 
 If you agree, I'll amend the logged decision to use the superclass, under the name you pick.
 [Timestamp: 2026/11/17 22:42:52]
+
+**user**: that sounds good except that shouldnt we be talking about FactorAssembly instead of CausalAssembly
+[Timestamp: 2026/11/17 22:46:58]
+
+**ai**: Yes, I think you're right, and for the same reason we dropped "AttributedCause".
+
+## Why FactorAssembly is the better name
+- **"CausalAssembly" builds causehood into the type.** It says the set *is* causal. But v3's premise is that factors are neutral and causehood exists only as assessed. HO-005 had already flagged this as pending: "jointly sufficient (as assessed)".
+- **"FactorAssembly" only says what it's made of:** a group of factors. Whether the group is *sufficient for* an effect becomes a claim inside a CausalAssessment, not a fact about the group.
+- **The pair becomes consistent:**
+  - Factor: a neutral single contributor;
+  - FactorAssembly: a neutral group of factors;
+  - CausalCandidate: either one, as something a causal assessment may select.
+
+## What changes
+```text
+CausalCandidate
+   ├── Factor
+   └── FactorAssembly        (formerly CausalAssembly; altLabel "causal assembly", "perfect storm")
+         props: hasMember → Factor · hasUnknownMembers · individuallyInnocuous ·
+                origin {Emergent · Exploited · Engineered} · orchestrator → Agent (?)
+         moved to CausalAssessment: sufficientFor → Effect|Outcome  (sufficiency is assessed)
+
+CausalAssessment
+   ├── attributedCause → CausalCandidate
+   └── leftOut         → CausalCandidate
+```
+
+**One consequence to check:**
+- **Is `origin` a fact or an assessment?** `origin` (Emergent / Exploited / Engineered) says whether someone *built* the assembly. Saying someone engineered it is also partly an assessment.
+- **I'd keep it on FactorAssembly for now.** Like every attribute, it can be Disputed.
+- **It could move later.** If you want it treated like sufficiency, it would move to ResponsibilityAssessment, if that split is ever adopted.
+
+**Note names stay as they are.** [[HO-003 Causal Assembly - the Perfect Storm]] keeps its title. Only the formal class name changes, and "causal assembly" stays as an altLabel so the HO-003 vocabulary still resolves.
+
+Shall I amend the logged decision to cover all of this?
+- the parent class `CausalCandidate`;
+- `CausalAssembly` renamed to `FactorAssembly`;
+- `sufficientFor` moved into CausalAssessment;
+- `attributedCause` and `leftOut` pointing to CausalCandidate.
+[Timestamp: 2026/11/17 22:46:58]
+
+**user**: origin sounds like an assessment to me as well.  are there any downsides to this
+[Timestamp: 2026/11/17 22:48:24]
+
+**ai**: Mostly no. There are a few real costs, plus one wider consequence worth seeing before you decide.
+
+## Downsides of moving `origin` into an assessment
+
+| Downside | How much it matters | Mitigation |
+|---|---|---|
+| **More records.** Even an undisputed case, such as a confessed attack, needs an assessment to say "Engineered". | Small | One assessment with `evidenceLabel: fact` and high confidence. It costs one record and adds provenance. |
+| **Queries take one more hop.** "Find engineered assemblies" has to go through assessments. | Moderate, and it's the same concern you raised about the either/or | A **derived shortcut**: a stored or computed `origin` view, filled in only when all assessments agree, and marked Disputed when they don't. |
+| **No obvious home yet.** ResponsibilityAssessment is still pending. | Moderate | Put it under CausalAssessment for now. How an assembly came about is causal history. Move it if the Responsibility split is adopted. |
+| **`orchestrator` has to move with it.** Naming an Agent as orchestrator is the same kind of claim as "Engineered". | Small, but it shouldn't be forgotten | Move both together. |
+
+**The upside outweighs these.** Conflicting views become recordable. "Exploited" according to the platform and "Engineered" according to the prosecutor is exactly the kind of Divergence the ontology exists to show. As a plain fact, `origin` could hold only one answer.
+
+## The wider consequence: where does this stop?
+Apply the same test to the rest of FactorAssembly:
+- **`individuallyInnocuous`:** innocuous *by whose standard*? That's evaluative, so it's an assessment.
+- **`hasMember`:** HO-005's central claim is that *membership itself is assessed*. Which factors belong in the storm depends on who's looking.
+- **`hasUnknownMembers`:** this is a scope claim, and v3 already treats scope as assessed (`scopeAdequacy`).
+
+Follow this through and almost nothing about a FactorAssembly is a plain fact. It becomes a **thin container**: an identifier and a label, whose contents and character are all supplied by assessments.
+
+**I think that's correct, not a problem.** It's what HO-005 was pointing at. But it changes FactorAssembly from "a thing in the world" into "a grouping that someone proposes". That's a real modelling decision, so I'd rather flag it than slip it in.
+
+## Options
+1. **Move `origin` and `orchestrator` only** (narrow). The other properties stay for now.
+2. **Make FactorAssembly a thin container** (full). Membership, innocuousness, unknown members, origin and orchestrator all become assessed, with derived shortcuts for convenient queries. This is my recommendation, because it's consistent with HO-005 and with "causehood only as assessed".
+3. **Leave everything as it is** for now and decide after HO-002 stress-testing.
+
+Which would you like? Once you choose, I'll amend the logged decision in one entry covering all of it:
+- `CausalCandidate`;
+- `FactorAssembly`;
+- `sufficientFor`;
+- `attributedCause` / `leftOut`;
+- your choice here.
+[Timestamp: 2026/11/17 22:48:24]
