@@ -7,7 +7,7 @@ topic: "Read Handoff - PerspectiveStructure 0.02 and the notes it li…"
 model: '{"baseModelId":"default","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":309519,"contextWindow":1000000,"inputTokens":4,"outputTokens":8,"cacheReadTokens":308309,"cacheWriteTokens":1198,"updatedAt":1794980922777}'
+usage: '{"usedTokens":311184,"contextWindow":1000000,"inputTokens":4,"outputTokens":8,"cacheReadTokens":0,"cacheWriteTokens":311172,"updatedAt":1794981992994}'
 lastAccessedAt: 1794974457725
 ---
 
@@ -2024,3 +2024,37 @@ Which would you like? Once you choose, I'll amend the logged decision in one ent
 - `attributedCause` / `leftOut`;
 - your choice here.
 [Timestamp: 2026/11/17 22:48:24]
+
+**user**: when you say a thin container is that because it offers little value add? I get that it may simply be a grouping category for assessment dimensions/facet is that what you are alluding to?
+[Timestamp: 2026/11/17 23:06:17]
+
+**ai**: Neither, quite. "Thin" refers to how much **data** the thing holds about itself, not how much **value** it adds. And it isn't a grouping of attributes or facets. It's a **shared referent**: a stable "this one" that different assessments can all point at.
+
+## What a thin container is for
+Compare it to a **court case number**. *Case 2025-CV-1187* holds almost nothing in itself: no facts, no verdict. But everything hangs on it. Pleadings, evidence, rulings and appeals all refer to it, and that's how you know they're arguing about the same thing.
+
+A thin FactorAssembly works the same way:
+```text
+FactorAssembly: "Flash-crash storm, 6 May 2010"     ← identifier + label only
+   ▲ about                     ▲ about                    ▲ about
+CausalAssessment (regulator)   CausalAssessment (trader)  CausalAssessment (academic)
+ members: A, B, C               members: A, B              members: A, B, C, D
+ origin: Emergent               origin: Exploited          origin: Emergent
+ sufficientFor: crash           sufficientFor: crash       sufficientFor: crash
+```
+Without that shared referent, you'd have three separate groupings and no formal way to say they're **rival accounts of the same storm**. With it, the ontology can see that they agree on A and B, disagree on C and D, and disagree on origin. That's a Divergence, which is what v3 is built to record.
+
+So the value it adds is **identity and comparability**, not content. The content lives in the assessments, because that's where v3 says it belongs.
+
+## How it differs from a facet grouping
+| | Facet / display group | Thin container (FactorAssembly) |
+|---|---|---|
+| What it groups | **Attributes** (e.g. PerspectiveType's "Power" group) | Nothing by itself. It's a **thing** that assessments are *about*. |
+| Exists in the data? | No. It's a documentation view, not an OWL class. | Yes. It's an individual with an identifier. |
+| Example | "Group 9: Power" | "The flash-crash storm" |
+
+## A question the thin view raises
+If membership is assessed, membership can't decide **identity**. Then when are two assessments about the *same* assembly? It has to be by reference: an assessor says "I'm talking about *that* storm", the way the parties to a lawsuit all cite one case number. That works in practice. It does mean that creating a FactorAssembly is itself a small act of framing, namely "there is a storm here worth naming". That act could carry its own provenance (who proposed it, and when).
+
+Does that clear it up? If so, are you happy with option 2 (the thin container), and should I amend the logged decision?
+[Timestamp: 2026/11/17 23:06:17]
