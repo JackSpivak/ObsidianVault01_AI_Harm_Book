@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology handoff"
-usage: '{"usedTokens":52262,"contextWindow":1000000,"updatedAt":1795126735519}'
+usage: '{"usedTokens":53466,"contextWindow":1000000,"updatedAt":1795126948755}'
 ---
 
 **user**: reads handoff.
@@ -153,3 +153,21 @@ For a form-driven editor, the candidates from my last answer are still the relev
 
 I also need to correct my last edit. I made `ho:Person` a subclass of `ho:Agent`, but the draft structure doesn't list `Person` under `Agent`; it lists `UnitaryIntentionalAgent`, `CollectiveAgent`, and `AutonomousSystem (?)`. That subclass link is my assumption, not a decision in the draft. I can remove it or move `Person` under `UnitaryIntentionalAgent` if you confirm which you want.
 [Timestamp: 2026/11/19 15:18:46]
+
+**user**: this seems tricky from a subclass perspective.  Not all agents are persons and not all persons are agents
+<!-- copilot-message {"notes":["02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure.md"]} -->
+[Timestamp: 2026/11/19 15:21:25]
+
+**ai**: You're right. Under HO-007's working premise, agency is a role a participant plays, not an intrinsic kind. So `Person` shouldn't be a subclass of `Agent`. I'll remove that link now.
+<!-- copilot-message {"tools":["edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/editor_first_mini/ho-editor-mini.ttl"]} -->
+[Timestamp: 2026/11/19 15:21:25]
+
+**user**: ok i think i stopped you.  go ahead and remove
+<!-- copilot-message {"notes":["02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure.md"]} -->
+[Timestamp: 2026/11/19 15:22:12]
+
+**ai**: I removed the `ho:Person rdfs:subClassOf ho:Agent` line from `ho-editor-mini.ttl`. The file still validates (2,321 triples, 0 suspicious IRIs).
+
+`Person` now has no superclass link to `Agent`, and `personName` is still its only property. Whether `Person` should sit under `Agent`, sit beside it, or be modelled as a role played in an event is still open under HO-007. I can add a note in the file to record that.
+<!-- copilot-message {"tools":["edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/editor_first_mini/ho-editor-mini.ttl","~/anaconda3/envs/harm-ontology/python.exe -I \"02_Ideas Topics Concepts/Harm Ontology/ontology/scripts/validate_ttl.py\" \"02_Ideas Topics Concepts/Harm Ontology/ontology/tests/editor_first_mini/ho-editor-mini.ttl\" (execute)"]} -->
+[Timestamp: 2026/11/19 15:22:12]

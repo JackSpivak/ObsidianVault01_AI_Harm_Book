@@ -2273,8 +2273,6 @@ ho:Integration a owl:Class ;
     rdfs:label "Integration"@en ;
     skos:definition "Optional synthesis that integrates assessments, resolves or leaves open divergences."@en .
 
-ho:Person rdfs:subClassOf ho:Agent .
-
 # --- Factor properties ---
 ho:causes a owl:ObjectProperty ;
     rdfs:label "causes"@en ;
