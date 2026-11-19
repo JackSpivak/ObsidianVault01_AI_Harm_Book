@@ -447,15 +447,6 @@
     {
       "providerId": "f43ab59c-66b7-4d4d-8dfe-1cec701c3abd",
       "info": {
-        "id": "opencode/inkling-2-small-free",
-        "displayName": "opencode/Inkling 2 Small Free"
-      },
-      "configuredModelId": "8b6c35ae-cf4e-41ca-a4e2-337ef3818be7",
-      "configuredAt": 1795025401965
-    },
-    {
-      "providerId": "f43ab59c-66b7-4d4d-8dfe-1cec701c3abd",
-      "info": {
         "id": "opencode/longcat-2.5-free",
         "displayName": "opencode/LongCat 2.5 Free"
       },
@@ -497,6 +488,15 @@
       },
       "configuredModelId": "1e224897-d919-4043-9de4-335092b66c1d",
       "configuredAt": 1795025404011
+    },
+    {
+      "providerId": "f43ab59c-66b7-4d4d-8dfe-1cec701c3abd",
+      "info": {
+        "id": "opencode/tidepool-alpha-free",
+        "displayName": "opencode/Tidepool Alpha Free"
+      },
+      "configuredModelId": "9916d26a-319b-4952-98e2-207e3a429ebd",
+      "configuredAt": 1795121387073
     }
   ],
   "backends": {
