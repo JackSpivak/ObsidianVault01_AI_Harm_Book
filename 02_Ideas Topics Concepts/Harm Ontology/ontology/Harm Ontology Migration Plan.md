@@ -49,6 +49,8 @@ Likely crosswalk examples (to be confirmed in Phase 2):
 	- **First step:** download the AIRO and DPV-RISK `.ttl` files to `~/harm-ontology-scripts/` (outside the vault), then load them with rdflib and compare by meaning against the v1 `.ttl` and the v3 skeleton.
 	- **Check before mapping:** whether `airo:Consequence` or `dpv:Harm` build in negative valence. If they do, map with `skos:closeMatch`, not `owl:equivalentClass` ([[HO-premise No Intrinsic Harmfulness]]).
 
+- [ ] **Before Phase 1 (schema `.ttl`), added 2026-11-19:** (a) resolve how Agent, Event and participation are modelled (proposed bookmark HO-007, awaiting author confirmation); (b) give every class its properties with domain and range (the editor-first mini only did PerspectiveType and PerspectiveSpecification); (c) settle narrative placement and how property groups are shown in an editor (editor-first requirement, 2026-11-18); (d) the schema must be readable and editable in Protégé without scripts. See [[Handoff - Harm Ontology]] and [[Harm Ontology v3 Provisional Release Brief]].
+
 ## Reflection: what the external landscape means for this plan (2026-11-16)
 - **Phase 1 (skeleton):** declare `airo:`, `dpv:` and `vair:` prefixes, so later mapping triples don't force a skeleton change.
 - **Phase 2 (crosswalk):** gains a third column. Each row maps v1/v2a → v3 **and** v3 → external IRI, where one exists. Rows with no external match are v3's contribution; list them explicitly.

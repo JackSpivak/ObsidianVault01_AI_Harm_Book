@@ -168,6 +168,7 @@ BOX D — Vocabulary layer (2026-11-17) → [[Vocabulary Crosswalk - Concept Hub
   - the Condition split
   - role types and causal share
   - Agent and AI systems
+  - **Agents, participation and assessing organizations** (raised 2026-11-19; proposed bookmark HO-007, awaiting author confirmation): an Event class; participation of an Agent in an Event that participates in a FactorAssembly (the robbery case); roles in participation; what counts as an agent (a lion, a storm's flood water and debris, an AI system); organizations as `assessor` (audit firms, testing agencies, regulators). Untested; test cases to be added to HO-002. See [[Handoff - Harm Ontology]]
   - future generations, AI systems and relationships as affected entities
   - Assent/Judgment as an object of harm
   - worldviews as standards

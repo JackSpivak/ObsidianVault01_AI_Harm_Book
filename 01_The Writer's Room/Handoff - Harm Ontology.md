@@ -4,7 +4,7 @@ status: developing
 tags: [handoff, ontology/harm]
 aliases: [Harm Ontology Handoff]
 created: 2026-11-15
-updated: 2026-11-18
+updated: 2026-11-19
 workstream: Harm Ontology
 latest_session: "[[2026-11-18 Harm Ontology v3 Toy Case Results]]"
 ---
@@ -77,6 +77,28 @@ latest_session: "[[2026-11-18 Harm Ontology v3 Toy Case Results]]"
 - The evidence anchor. It's now built into the test design as Evidence plus Observation, but not decided.
 - AffectedEntity proposals listed in HO-002.a: type as an assessment, `Unclassified`, NaturalSystem / EngineeredSystem, `affectedStanding`, CollectiveNaturalGroup, Household.
 
+## Which files to use for the property-attachment question (added 2026-11-19)
+**There is no full v3 `.ttl`.** The design lives in [[Harm Ontology v3 - Draft Structure]] (a markdown outline, the source for each class's properties). For how instances get their properties in Protégé, work with **only** this file:
+- **Use:** `02_Ideas Topics Concepts/Harm Ontology/ontology/tests/editor_first_mini/ho-editor-mini.ttl` (an identical RDF/XML copy, `ho-editor-mini.owl`, is beside it; README there). It models only PerspectiveType and PerspectiveSpecification attributes; Assessment, CausalAssessment, Person, Agent and the other classes are stubs, so it is **incomplete on purpose** for this question.
+- **Superseded, do not use for this question:** `ontology/tests/three_layer_mini/` (four files plus catalog; the first mini example; judged "awful" by the author; no domains, ranges or groups).
+- **Not the schema:** `ontology/tests/toy_branch_ledger_A.ttl` and `…_B.ttl` are test data for the assessment-everywhere test (fictional; the `hoa:` attribute vocabulary, Procedure, Evidence and the status script are test-only).
+- **Not v3:** `ontology/Interdisciplinary Harm Ontology v1.ttl` and the root `Interdisciplinary Harm Ontology.ttl` (v1; do not edit; the root one awaits an archive decision).
+- Both minis are **test artefacts with placeholder IRIs**, not the v3 release. The mini's builder scripts are one-off migration tools, not part of day-to-day work.
+
+## Open issues and to-dos added 2026-11-19 (unresolved; track until closed)
+- **Agents, participation and assessing organizations (proposed bookmark HO-007; awaiting author confirmation; no page or index entry yet).**
+  - Raised by the author: a Person (or any Agent) as an agent of harm by participating in an Event that participates in a FactorAssembly (foundational case: robbers in a robbery that causes loss of a pecuniary interest); a lion in a zoo that maims someone who falls into the enclosure; flood water and windblown debris in a storm; whether agency requires sentience; PerspectiveSpecification `assessor` as organizations of all kinds (contracted audit firms, UL-type testing agencies, regulators assessing safety, competence or compliance).
+  - Proposed shape (not decided): one root HO-007 with tiers: **I** what counts as an agent (separate axes: causal capacity, purposive action, capacity to answer); **II** participation in events and roles in it (`Agent → Event → FactorAssembly`; participation is not responsibility, which stays with the pending ResponsibilityAssessment); **III** assessing organizations (independence, authority, capture). Candidate `HO-007-premise`: "agency is a role in an assessed participation, not an intrinsic kind" (a hypothesis, not a decision). Inanimate things (flood water, debris, a grid) are Factors with a CausalRole (Conduit / ProximateCause), not agents.
+  - **To resolve:** bookmark shape (one with tiers, or separate); an Event class (v3 has Factor kinds Act and Process but no Event; 0.02 has `originatingCircumstance → Event` as a stub); a participation relation for Agents and roles in it; what `Agent (?)` covers (Person, organization, animal, AI system); link to the Causal / Valence / Responsibility split.
+  - **Tests to add to HO-002 (pending approval; add and run when implemented):** the robbery; the lion in the zoo; the storm with flood and debris; assessor independence and capture. Unverified from memory: legal participation doctrines (principal, accessory, conspiracy, vicarious liability), linguistic agent / force / instrument roles, the OBO Relation Ontology and BFO "participates in".
+- **Editor-first requirement (author, 2026-11-18): "i am not interested in the script approach at all."** Generated pages are rejected as the way to read or maintain the model; everything must be visible and editable in Protégé. See [[Harm Ontology v3 Three-Layer Mini Example Brief]]. Still open:
+  - The first mini example was judged "awful" and had no domain, range or groups. The **editor-first mini** (`ontology/tests/editor_first_mini/`) was built to fix that. The author then reported not seeing domain, range or the super-property groups; my diagnostic questions (which file is open, which tab) are unanswered.
+  - **Instances show no properties to fill in** (author, 2026-11-19). Cause: the sample gave only PerspectiveType and PerspectiveSpecification their attributes, and OWL attaches no properties to classes anyway. **To resolve:** give every class its properties with domain and range from the draft structure's `props:` lines (Assessment, CausalAssessment, Effect, Factor, Agent…); decide how data entry is guided (template individuals, SHACL profile shapes, or a spreadsheet route such as the Cellfie plugin; none verified).
+  - **Property groups** (the 12 display groups): abstract super-properties plus an annotation is proposed (not approved; 0.02 said groups are "display facets, not OWL classes").
+  - **Narrative placement is open again** (not logged); the three-layers decision (2026-11-17) is being re-judged against the editor-first requirement.
+- **Layer-1 name "schema"** (author, 2026-11-18, replaces "ontology"/"core"): adopted but **not logged in [[Decisions_Log]]**; the log entry of 2026-11-17 still says "ontology (OWL)". Propose a new entry when the author asks.
+- **Full-build briefs:** [[Harm Ontology v3 Provisional Release Brief]] carries the requirements above; it should not be acted on until narrative placement and the schema's domains, ranges and groups are settled.
+
 ## Cautions
 - **Momentum:** 21 test decisions were made in one sitting, mostly by accepting Claude's recommendations. The author values reflection over quick agreement. Consider re-reading decisions 5–21 before building more on them.
 - The rule is strict enough that in real cases **almost nothing may reach Settled**. That might be honest, or it might make the model useless. Watch for this in Horizon.
@@ -96,7 +118,8 @@ latest_session: "[[2026-11-18 Harm Ontology v3 Toy Case Results]]"
 ## Read first
 - This note, then [[HO-002.a Assessment-Everywhere Test Strategy]] (Author decisions, Variant B design, Variant A baseline) and [[2026-11-18 Harm Ontology v3 Toy Case Results]].
 - [[Harm Ontology v3 Test Summary]] for why and how the v3 tests were run, and which files they used.
-- **If the task is producing the first v3 `.ttl` and a generated Compendium (new chat): attach this handoff and [[Harm Ontology v3 Provisional Release Brief]] together.** The brief lists every file the build needs, including [[Decisions_Log]] and [[PerspectiveStructure 0.02]]. A three-layer worked example (core, profiles, vocabulary, loader) is described in [[Harm Ontology v3 Three-Layer Mini Example Brief]]. **Author's Protégé check, 2026-11-18: negative.** Hard to navigate; the mini core had no domains or ranges, so properties showed no links. Narrative placement is open again and was not logged. The handoff alone is not enough for that task: its "Next step" list is about testing.
+- [[Harm Ontology - Explanations from 2026-11-19 (Agents and Instance Properties)]]: the reasoning behind the agent, participation and instance-property questions (reference note; nothing decided).
+- **If the task is producing the first v3 `.ttl` and a generated Compendium (new chat): attach this handoff and [[Harm Ontology v3 Provisional Release Brief]] together.** The brief lists every file the build needs, including [[Decisions_Log]] and [[PerspectiveStructure 0.02]]. A three-layer worked example (schema, profiles, vocabulary, loader) is described in [[Harm Ontology v3 Three-Layer Mini Example Brief]]. **Author's Protégé check, 2026-11-18: negative.** Hard to navigate; the mini schema had no domains or ranges, so properties showed no links. See "Open issues and to-dos added 2026-11-19" above. Narrative placement is open again and was not logged. The handoff alone is not enough for that task: its "Next step" list is about testing.
 - [[Harm Ontology v3 - Draft Structure]] and [[Harm Ontology Migration Plan]] as needed.
 
 ## Previous sessions
