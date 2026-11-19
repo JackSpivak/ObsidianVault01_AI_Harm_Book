@@ -2231,3 +2231,351 @@ ho:PerspectiveType a owl:Class ;
     skos:definition "A reusable way of seeing and judging, with a lineage: Utilitarianism, Tort Law, Public Health, a trained AI model. Subclass of Perspective; prefLabel \"tradition\"; altLabel \"lens\"."@en ;
     skos:prefLabel "tradition"@en .
 
+# =============================================================================
+# Remaining core classes and properties with explicit rdfs:domain / rdfs:range
+# (added from Harm Ontology v3 - Draft Structure)
+# =============================================================================
+
+ho:CausalCandidate a owl:Class ;
+    rdfs:label "CausalCandidate"@en ;
+    skos:definition "Parent of Factor and FactorAssembly; anything a CausalAssessment may select or leave out."@en .
+
+ho:Factor rdfs:subClassOf ho:CausalCandidate .
+
+ho:FactorAssembly a owl:Class ;
+    rdfs:label "FactorAssembly"@en ;
+    rdfs:subClassOf ho:CausalCandidate ;
+    skos:altLabel "causal assembly"@en ;
+    skos:definition "Thin container (identifier + label only), the shared referent rival assessments point to."@en .
+
+ho:CausalRole a owl:Class ;
+    rdfs:label "CausalRole"@en ;
+    skos:definition "Part a factor plays in one chain."@en .
+
+ho:Outcome a owl:Class ;
+    rdfs:label "Outcome"@en ;
+    skos:definition "A cut across the ramification at a horizon."@en .
+
+ho:ObjectOfHarm a owl:Class ;
+    rdfs:label "ObjectOfHarm"@en ;
+    skos:definition "Values harmed (e.g., Somatic, PsychologicalCognitive, MaterialPecuniary, DignitaryRelational, NormativeStatus, OpportunityCapability, SystemicEnvironmental)."@en .
+
+ho:CausalAssessment a owl:Class ;
+    rdfs:label "CausalAssessment"@en ;
+    rdfs:subClassOf ho:Assessment ;
+    skos:definition "Assessment kind that attributes cause, assembly membership, and omissions."@en .
+
+ho:Divergence a owl:Class ;
+    rdfs:label "Divergence"@en ;
+    skos:definition "A structured disagreement between two or more Assessments."@en .
+
+ho:Integration a owl:Class ;
+    rdfs:label "Integration"@en ;
+    skos:definition "Optional synthesis that integrates assessments, resolves or leaves open divergences."@en .
+
+ho:Person rdfs:subClassOf ho:Agent .
+
+# --- Factor properties ---
+ho:causes a owl:ObjectProperty ;
+    rdfs:label "causes"@en ;
+    rdfs:domain ho:Factor ;
+    rdfs:range [ a owl:Class ; owl:unionOf ( ho:Factor ho:Effect ) ] .
+
+ho:isContinuous a owl:DatatypeProperty ;
+    rdfs:label "isContinuous"@en ;
+    rdfs:domain ho:Factor ;
+    rdfs:range xsd:boolean .
+
+ho:observability a owl:DatatypeProperty ;
+    rdfs:label "observability"@en ;
+    rdfs:domain ho:Factor ;
+    rdfs:range xsd:string .
+
+ho:hasAgent a owl:ObjectProperty ;
+    rdfs:label "hasAgent"@en ;
+    rdfs:domain ho:Factor ;
+    rdfs:range ho:Agent .
+
+# --- CausalRole properties ---
+ho:roleType a owl:DatatypeProperty ;
+    rdfs:label "roleType"@en ;
+    rdfs:domain ho:CausalRole ;
+    rdfs:range xsd:string .
+
+ho:borneBy a owl:ObjectProperty ;
+    rdfs:label "borneBy"@en ;
+    rdfs:domain ho:CausalRole ;
+    rdfs:range [ a owl:Class ; owl:unionOf ( ho:Factor ho:Effect ) ] .
+
+ho:contributesTo a owl:ObjectProperty ;
+    rdfs:label "contributesTo"@en ;
+    rdfs:domain ho:CausalRole ;
+    rdfs:range ho:Effect .
+
+ho:causalNecessity a owl:DatatypeProperty ;
+    rdfs:label "causalNecessity"@en ;
+    rdfs:domain ho:CausalRole ;
+    rdfs:range xsd:string .
+
+ho:proximity a owl:DatatypeProperty ;
+    rdfs:label "proximity"@en ;
+    rdfs:domain ho:CausalRole ;
+    rdfs:range xsd:string .
+
+ho:causalShare a owl:DatatypeProperty ;
+    rdfs:label "causalShare"@en ;
+    rdfs:domain ho:CausalRole ;
+    rdfs:range xsd:string .
+
+ho:isDistributed a owl:DatatypeProperty ;
+    rdfs:label "isDistributed"@en ;
+    rdfs:domain ho:CausalRole ;
+    rdfs:range xsd:boolean .
+
+ho:isForeseeable a owl:DatatypeProperty ;
+    rdfs:label "isForeseeable"@en ;
+    rdfs:domain ho:CausalRole ;
+    rdfs:range xsd:boolean .
+
+ho:answerableAgent a owl:ObjectProperty ;
+    rdfs:label "answerableAgent"@en ;
+    rdfs:domain ho:CausalRole ;
+    rdfs:range ho:Agent .
+
+ho:withinAssembly a owl:ObjectProperty ;
+    rdfs:label "withinAssembly"@en ;
+    rdfs:domain ho:CausalRole ;
+    rdfs:range ho:FactorAssembly .
+
+# --- Effect properties ---
+ho:leadsTo a owl:ObjectProperty ;
+    rdfs:label "leadsTo"@en ;
+    rdfs:domain ho:Effect ;
+    rdfs:range ho:Effect .
+
+ho:affects a owl:ObjectProperty ;
+    rdfs:label "affects"@en ;
+    rdfs:domain ho:Effect ;
+    rdfs:range ho:AffectedEntity .
+
+ho:hasObjectOfHarm a owl:ObjectProperty ;
+    rdfs:label "hasObjectOfHarm"@en ;
+    rdfs:domain ho:Effect ;
+    rdfs:range ho:ObjectOfHarm .
+
+ho:experienceability a owl:DatatypeProperty ;
+    rdfs:label "experienceability"@en ;
+    rdfs:domain ho:Effect ;
+    rdfs:range xsd:string .
+
+ho:isPosthumous a owl:DatatypeProperty ;
+    rdfs:label "isPosthumous"@en ;
+    rdfs:domain ho:Effect ;
+    rdfs:range xsd:boolean .
+
+ho:isStatistical a owl:DatatypeProperty ;
+    rdfs:label "isStatistical"@en ;
+    rdfs:domain ho:Effect ;
+    rdfs:range xsd:boolean .
+
+ho:isDispositional a owl:DatatypeProperty ;
+    rdfs:label "isDispositional"@en ;
+    rdfs:domain ho:Effect ;
+    rdfs:range xsd:boolean .
+
+ho:severity a owl:DatatypeProperty ;
+    rdfs:label "severity"@en ;
+    rdfs:domain ho:Effect ;
+    rdfs:range xsd:string .
+
+ho:reversibility a owl:DatatypeProperty ;
+    rdfs:label "reversibility"@en ;
+    rdfs:domain ho:Effect ;
+    rdfs:range xsd:string .
+
+ho:temporalTrajectory a owl:DatatypeProperty ;
+    rdfs:label "temporalTrajectory"@en ;
+    rdfs:domain ho:Effect ;
+    rdfs:range xsd:string .
+
+ho:modality a owl:DatatypeProperty ;
+    rdfs:label "modality"@en ;
+    rdfs:domain ho:Effect ;
+    rdfs:range xsd:string .
+
+ho:temporalStatus a owl:DatatypeProperty ;
+    rdfs:label "temporalStatus"@en ;
+    rdfs:domain ho:Effect ;
+    rdfs:range xsd:string .
+
+ho:occurredDuring a owl:DatatypeProperty ;
+    rdfs:label "occurredDuring"@en ;
+    rdfs:domain ho:Effect ;
+    rdfs:range xsd:string .
+
+# --- Outcome properties ---
+ho:hasEffect a owl:ObjectProperty ;
+    rdfs:label "hasEffect"@en ;
+    rdfs:domain ho:Outcome ;
+    rdfs:range ho:Effect .
+
+ho:selectedBy a owl:ObjectProperty ;
+    rdfs:label "selectedBy"@en ;
+    rdfs:domain ho:Outcome ;
+    rdfs:range ho:PerspectiveSpecification .
+
+# --- Assessment properties ---
+ho:assesses a owl:ObjectProperty ;
+    rdfs:label "assesses"@en ;
+    rdfs:domain ho:Assessment ;
+    rdfs:range [ a owl:Class ; owl:unionOf ( ho:Factor ho:CausalRole ho:Effect ho:Outcome ho:FactorAssembly ho:PerspectiveType ) ] .
+
+ho:takenFrom a owl:ObjectProperty ;
+    rdfs:label "takenFrom"@en ;
+    rdfs:domain ho:Assessment ;
+    rdfs:range ho:PerspectiveSpecification .
+
+ho:forAffectedEntity a owl:ObjectProperty ;
+    rdfs:label "forAffectedEntity"@en ;
+    rdfs:domain ho:Assessment ;
+    rdfs:range ho:AffectedEntity .
+
+ho:chainScope a owl:DatatypeProperty ;
+    rdfs:label "chainScope"@en ;
+    rdfs:domain ho:Assessment ;
+    rdfs:range xsd:string .
+
+ho:chainStatus a owl:DatatypeProperty ;
+    rdfs:label "chainStatus"@en ;
+    rdfs:domain ho:Assessment ;
+    rdfs:range xsd:string .
+
+ho:verdict a owl:DatatypeProperty ;
+    rdfs:label "verdict"@en ;
+    rdfs:domain ho:Assessment ;
+    rdfs:range xsd:string .
+
+ho:verdictStatus a owl:DatatypeProperty ;
+    rdfs:label "verdictStatus"@en ;
+    rdfs:domain ho:Assessment ;
+    rdfs:range xsd:string .
+
+ho:declaredScope a owl:DatatypeProperty ;
+    rdfs:label "declaredScope"@en ;
+    rdfs:domain ho:Assessment ;
+    rdfs:range xsd:string .
+
+ho:acknowledgedExclusions a owl:DatatypeProperty ;
+    rdfs:label "acknowledgedExclusions"@en ;
+    rdfs:domain ho:Assessment ;
+    rdfs:range xsd:string .
+
+ho:scopeAdequacy a owl:DatatypeProperty ;
+    rdfs:label "scopeAdequacy"@en ;
+    rdfs:domain ho:Assessment ;
+    rdfs:range xsd:string .
+
+ho:sensitivityLeverage a owl:DatatypeProperty ;
+    rdfs:label "sensitivityLeverage"@en ;
+    rdfs:domain ho:Assessment ;
+    rdfs:range xsd:string .
+
+ho:criticality a owl:DatatypeProperty ;
+    rdfs:label "criticality"@en ;
+    rdfs:domain ho:Assessment ;
+    rdfs:range xsd:string .
+
+ho:confidence a owl:DatatypeProperty ;
+    rdfs:label "confidence"@en ;
+    rdfs:domain ho:Assessment ;
+    rdfs:range xsd:string .
+
+ho:suppliedBy a owl:ObjectProperty ;
+    rdfs:label "suppliedBy"@en ;
+    rdfs:domain ho:Assessment ;
+    rdfs:range ho:Source .
+
+# --- CausalAssessment properties ---
+ho:attributedCause a owl:ObjectProperty ;
+    rdfs:label "attributedCause"@en ;
+    rdfs:domain ho:CausalAssessment ;
+    rdfs:range ho:CausalCandidate .
+
+ho:leftOut a owl:ObjectProperty ;
+    rdfs:label "leftOut"@en ;
+    rdfs:domain ho:CausalAssessment ;
+    rdfs:range ho:CausalCandidate .
+
+ho:sufficientFor a owl:ObjectProperty ;
+    rdfs:label "sufficientFor"@en ;
+    rdfs:domain ho:CausalAssessment ;
+    rdfs:range [ a owl:Class ; owl:unionOf ( ho:Effect ho:Outcome ) ] .
+
+ho:origin a owl:DatatypeProperty ;
+    rdfs:label "origin"@en ;
+    rdfs:domain ho:CausalAssessment ;
+    rdfs:range xsd:string .
+
+ho:orchestrator a owl:ObjectProperty ;
+    rdfs:label "orchestrator"@en ;
+    rdfs:domain ho:CausalAssessment ;
+    rdfs:range ho:Agent .
+
+ho:individuallyInnocuous a owl:DatatypeProperty ;
+    rdfs:label "individuallyInnocuous"@en ;
+    rdfs:domain ho:CausalAssessment ;
+    rdfs:range xsd:boolean .
+
+# --- Divergence properties ---
+ho:between a owl:ObjectProperty ;
+    rdfs:label "between"@en ;
+    rdfs:domain ho:Divergence ;
+    rdfs:range ho:Assessment .
+
+ho:divergesOn a owl:ObjectProperty ;
+    rdfs:label "divergesOn"@en ;
+    rdfs:domain ho:Divergence ;
+    rdfs:range owl:Thing .
+
+ho:divergenceType a owl:DatatypeProperty ;
+    rdfs:label "divergenceType"@en ;
+    rdfs:domain ho:Divergence ;
+    rdfs:range xsd:string .
+
+ho:reconcilable a owl:DatatypeProperty ;
+    rdfs:label "reconcilable"@en ;
+    rdfs:domain ho:Divergence ;
+    rdfs:range xsd:boolean .
+
+# --- Integration properties ---
+ho:integrates a owl:ObjectProperty ;
+    rdfs:label "integrates"@en ;
+    rdfs:domain ho:Integration ;
+    rdfs:range ho:Assessment .
+
+ho:resolves a owl:ObjectProperty ;
+    rdfs:label "resolves"@en ;
+    rdfs:domain ho:Integration ;
+    rdfs:range ho:Divergence .
+
+ho:leavesOpen a owl:ObjectProperty ;
+    rdfs:label "leavesOpen"@en ;
+    rdfs:domain ho:Integration ;
+    rdfs:range ho:Divergence .
+
+ho:keptInFrame a owl:ObjectProperty ;
+    rdfs:label "keptInFrame"@en ;
+    rdfs:domain ho:Integration ;
+    rdfs:range ho:CausalCandidate .
+
+# --- Agent & Person properties ---
+ho:beneficiaryRole a owl:DatatypeProperty ;
+    rdfs:label "beneficiaryRole"@en ;
+    rdfs:domain ho:Agent ;
+    rdfs:range xsd:string .
+
+ho:personName a owl:DatatypeProperty ;
+    rdfs:label "personName"@en ;
+    rdfs:domain ho:Person ;
+    rdfs:range xsd:string .
+
