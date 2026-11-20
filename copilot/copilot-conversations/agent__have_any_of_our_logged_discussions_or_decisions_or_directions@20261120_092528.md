@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 Re-evaluation of structure"
-usage: '{"usedTokens":116509,"contextWindow":1000000,"updatedAt":1795196900833}'
+usage: '{"usedTokens":117048,"contextWindow":1000000,"updatedAt":1795197341579}'
 ---
 
 **user**: have any of our logged discussions or decisions or directions changed structure, elements, naming or anything else in our current understanding of the Harm Ontology we are discussing since last recorded as Harm Ontology v3 draft structure
@@ -271,3 +271,17 @@ Each narrative attribute goes to whichever level it belongs to. Anything about t
 
 So the hub is conceptual first: a plain-named, cross-discipline idea that documents one ontology property. The `skos:Concept` is how the vocabulary layer records it. The editor-first sample currently puts the same content on the property instead, and that departs from the logged decision. It should be treated as a test, not as the design.
 [Timestamp: 2026/11/20 10:48:16]
+
+**user**: So would it be fair/accurate to say the the hub names and conceptually organizes a collection of descriptive and distinguishing narratives that describe a particular concept (omission for example) that is represented as a property?
+[Timestamp: 2026/11/20 10:55:38]
+
+**ai**: Yes, that is fair, with two refinements.
+
+**What holds:** The hub names one concept, such as omission. It organizes the narratives about that concept: a definition, an explanation, examples, boundary tests that distinguish it from neighbouring concepts, and a status. The concept is represented in the ontology as a property (`ho:omission`). The hub documents that property and its meaning, and the spokes are the discipline-specific narratives attached to the hub.
+
+**Refinement 1: the hub organizes narratives, but it is not only a container for them.** It also says what the concept is for in the ontology and how it is judged. For omission, the hub states that leaving something out is an Assessment with `assessedBy`, not a plain fact. That is a commitment about the concept, not just a description of it.
+
+**Refinement 2: "represented as a property" is the editor-first arrangement, not the logged one.** The logged decision (2026-11-17) makes the hub a `skos:Concept` in the vocabulary layer, and the property is a separate schema element. The hub documents the property, so the property is the thing being described, and the hub is the vocabulary entry that describes it. The editor-first sample merges the two, which is one of the placement questions still open.
+
+So the accurate statement is: the hub is a named concept-level organizer for a set of narratives that describe and distinguish a concept, where the concept is the ontology property it documents. Whether the narratives live on the hub concept or on the property is still open.
+[Timestamp: 2026/11/20 10:55:38]
