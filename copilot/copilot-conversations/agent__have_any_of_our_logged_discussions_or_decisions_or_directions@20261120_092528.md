@@ -6,8 +6,8 @@ sessionId: "ses_e0660ebe3ffeHzMwrWNj54oBoA"
 model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
-topic: "Harm Ontology v3 changes"
-usage: '{"usedTokens":111249,"contextWindow":1000000,"updatedAt":1795195578378}'
+topic: "Harm Ontology v3 Re-evaluation of structure"
+usage: '{"usedTokens":116509,"contextWindow":1000000,"updatedAt":1795196900833}'
 ---
 
 **user**: have any of our logged discussions or decisions or directions changed structure, elements, naming or anything else in our current understanding of the Harm Ontology we are discussing since last recorded as Harm Ontology v3 draft structure
@@ -231,6 +231,43 @@ A PerspectiveType instance would be needed only if you wanted to record a specif
 **user**: i am still confused.  perhaps we can jump up a level.  can you explain the rationale? what function and intent is the "hub" intended to capture?  similarly, the spoke? what conceptual split determines which narrative attributes are captured by each? and why?
 [Timestamp: 2026/11/20 10:42:24]
 
-**ai**: 
+**ai**: The split is about **what is shared and what is particular**. The hub holds what all disciplines agree the concept is. The spoke holds what one discipline says about it, in its own words.
+
+**The hub: one plain-named concept**
+- **Function:** it names the idea once, neutrally, so that no discipline's term is privileged. Example: "congruence" is the hub, while Fuller's "rules declared versus rules applied" is one discipline's version of it.
+- **Content:** the concept's scope note, the cross-discipline explanation, boundary tests (how to tell it apart from its neighbours), status, and a gloss line. For congruence, the hub's explanation says five disciplines name the same gap between a lens's declared identity and what it actually does.
+- **Intent:** to record why the ontology has this property and what it is meant to capture, in terms that are not one discipline's. It is also where the ontology's rule applies: judging incongruence is an Assessment, never a plain fact about the lens.
+- **Counting:** the number of spokes that map to a hub is a measure of cross-disciplinary support.
+
+**The spoke: one discipline's version**
+- **Function:** it keeps one discipline's own term, thinker, source and example, and says how that discipline's version differs from the hub. Example: `law:congruence` (Fuller) and `eth:operativeMaxim` (Kant).
+- **Content:** the discipline's term and label, its definition and example, an explanation of its own, a citation and verification record, a scope note (how it differs from the hub), and the mapping grade to the hub with a one-line reason.
+- **Intent:** to preserve each discipline's vocabulary and sources, so the ontology can reconcile them without flattening them into one.
+
+**The conceptual split**
+- **Hub = common ground.** What the concept is, its boundaries, why it is in the model, and how it is judged.
+- **Spoke = particular ground.** This discipline's name for it, where it comes from, what it adds, and where it differs.
+
+Each narrative attribute goes to whichever level it belongs to. Anything about the concept as a whole goes to the hub. Anything about one discipline's wording, source or scope difference goes to the spoke.
+
+**Why it is built this way**
+1. It prevents one discipline, such as law or ethics, from becoming the official name.
+2. It keeps each discipline's sources and wording intact, so the narrative can be checked against them.
+3. It records disagreement as a set of mapping grades (close, narrow, broad, related) rather than as a choice of winner. This matches the rule that Divergence is a first-class object.
+4. It lets the ontology say how much support a concept has across disciplines, by counting spokes.
+
+**One caveat about the design.** The hub is the vocabulary-level explanation of a property. The schema defines the property itself with a short definition. These two are kept separate on purpose: the schema says what the property is, and the hub says why it is there and what the disciplines make of it. The editor-mini sample puts the hub narrative on the property, while the three-layer sample puts it on a separate concept. That is a placement choice, not a settled decision, and it is the same question as the open narrative-placement decision in the handoff.
 <!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/Vocabulary Crosswalk - Concept Hubs and Discipline Schemes.md"]} -->
 [Timestamp: 2026/11/20 10:42:24]
+
+**user**: is the hub then a conceptual device that is implemented as a skos:concept?
+[Timestamp: 2026/11/20 10:48:16]
+
+**ai**: Yes, in the design that is logged. A hub is a conceptual device, and the vocabulary layer implements it as a `skos:Concept`.
+
+- **Logged decision:** [[Decisions_Log]] (2026-11-17) says "A hub is a `skos:Concept`, not a class; a discipline scheme is not a separate ontology."
+- **In the three-layer mini sample:** each hub, such as `hov:omission`, is a `skos:Concept` in the `hov:hubs` scheme. Its spokes are `skos:Concept`s in their discipline schemes and link to it with `skos:closeMatch`, `skos:narrowMatch` and so on.
+- **In the editor-first mini sample:** there is no `skos:Concept` for a hub. The hub narrative sits on the `ho:` object property itself, such as `ho:omission`. That is a different implementation of the same idea, and it does not match the logged decision.
+
+So the hub is conceptual first: a plain-named, cross-discipline idea that documents one ontology property. The `skos:Concept` is how the vocabulary layer records it. The editor-first sample currently puts the same content on the property instead, and that departs from the logged decision. It should be treated as a test, not as the design.
+[Timestamp: 2026/11/20 10:48:16]
