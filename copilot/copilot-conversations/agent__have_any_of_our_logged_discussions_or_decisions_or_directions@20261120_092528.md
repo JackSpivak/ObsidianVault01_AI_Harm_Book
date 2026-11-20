@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 Re-evaluation of structure"
-usage: '{"usedTokens":110078,"contextWindow":1000000,"updatedAt":1795207732860}'
+usage: '{"usedTokens":110866,"contextWindow":1000000,"updatedAt":1795208281657}'
 ---
 
 **user**: have any of our logged discussions or decisions or directions changed structure, elements, naming or anything else in our current understanding of the Harm Ontology we are discussing since last recorded as Harm Ontology v3 draft structure
@@ -317,3 +317,30 @@ So the scheme is named after the plural ("hubs") and the members are also called
 Decide the design question first (concept-level hubs or scheme-per-hub). The rename can follow whichever you choose.
 <!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/three_layer_mini/ho-vocabulary-mini.ttl"]} -->
 [Timestamp: 2026/11/20 13:48:37]
+
+**user**: ok i think we are leading into the same territory here ourselves. we need to learn how to work better together. can you please restate your previous answer using skos:Concept and skos:ConceptScheme only when you are referring to the semantic implementation within the ontology and reserve the word concept for when you are trying to describe a "meaningful idea" in english
+[Timestamp: 2026/11/20 13:57:57]
+
+**ai**: Here is the restated answer. "Concept" is used only for an idea in plain English. `skos:Concept` and `skos:ConceptScheme` are used only for the implementation.
+
+**What the file does**
+
+- **The collection is a `skos:ConceptScheme`.** `hov:hubs` is the scheme that groups the hub concepts. I have not confirmed the line that declares it as a `skos:ConceptScheme`, so check that in Protégé.
+- **Each hub is a `skos:Concept`.** `hov:omission` and `hov:blindSpot` are `skos:Concept` individuals, placed in `hov:hubs` with `skos:inScheme`. `hov:developmentalAltitude` is the same kind of object.
+
+**Where the naming confuses things**
+
+The scheme is named `hubs` (plural), and its members are also called hubs. Nothing in the file is a direct contradiction. The problem is the wording: "hub" names both the collection and its members.
+
+**Where my earlier explanation went wrong**
+
+I said the hub organizes the narratives about one idea. In the file, that job belongs to the `skos:Concept` `hov:omission`, which holds the definition, explanation and boundary tests. The `skos:ConceptScheme` `hov:hubs` does not hold those narratives. It only groups the hub concepts. I merged the two levels.
+
+**Your alternative**
+
+Make each idea its own `skos:ConceptScheme`, with the hub as a `skos:Concept` at the top and the spokes as narrower `skos:Concept`s. That fits "a scheme organizes concepts" more closely, but it changes the logged decision of 2026-11-17, which says a hub is a `skos:Concept`. It needs your approval before any change.
+
+**Naming fix, if the design stays as it is**
+
+Rename the scheme to name the collection, for example `hov:conceptHubs` or `hov:crossDisciplineHubs`. Keep "concept hub" as the description of one `skos:Concept`. The scope note on `hov:developmentalAltitude` then reads correctly.
+[Timestamp: 2026/11/20 13:57:57]
