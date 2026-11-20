@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 Re-evaluation of structure"
-usage: '{"usedTokens":117048,"contextWindow":1000000,"updatedAt":1795197341579}'
+usage: '{"usedTokens":110078,"contextWindow":1000000,"updatedAt":1795207732860}'
 ---
 
 **user**: have any of our logged discussions or decisions or directions changed structure, elements, naming or anything else in our current understanding of the Harm Ontology we are discussing since last recorded as Harm Ontology v3 draft structure
@@ -285,3 +285,35 @@ So the hub is conceptual first: a plain-named, cross-discipline idea that docume
 
 So the accurate statement is: the hub is a named concept-level organizer for a set of narratives that describe and distinguish a concept, where the concept is the ontology property it documents. Whether the narratives live on the hub concept or on the property is still open.
 [Timestamp: 2026/11/20 10:55:38]
+
+**user**: Please clarify more about the implementation.  I have opened the 3-layerr-mini.ttl in Protege.
+sometimes we have skos:concepts - developmentalAltitude for example - which shows in the skos:scopeNote that it is "Cross-discipline concept hub; one of three scope axes with `socialScope` (size) and `moralCircle` (which beings count)" so this suggests that a skos:concept can be a hub.  and we have skos:ConceptSchemes that have direct instance as Concept hubs.
+
+Either this is bad naming or a direct contradiction.  what is going on?
+also, it seems that the notion of a hub as you articulated above is more aligned with concept scheme.  in the sense that a concept scheme might organize multiple concepts
+[Timestamp: 2026/11/20 13:48:37]
+
+**ai**: **Both, in different places, so this is a naming problem that has become a real ambiguity.** The file uses "hub" for two things, and my earlier explanation blurred them.
+
+**What the file actually contains**
+
+- **`hov:hubs` is a collection.** Hub concepts are placed in it with `skos:inScheme hov:hubs`, for example `hov:omission` (line 147), `hov:blindSpot` (line 292) and others. I did not confirm the line that declares `hov:hubs` as a `skos:ConceptScheme`, so check that in Protégé.
+- **Each hub is a concept.** `hov:omission a skos:Concept`, and the same for `hov:blindSpot`. `hov:developmentalAltitude` is the same kind of object, which is why its scope note calls it a "concept hub".
+
+So the scheme is named after the plural ("hubs") and the members are also called hubs. Nothing in the file is a direct contradiction. The contradiction is only in the wording.
+
+**Your reading is right for the scheme.** A `skos:ConceptScheme` that organizes many concepts is the right home for the collection of hubs. The phrase "a hub organizes a collection of narratives" fits a scheme better than it fits a single concept.
+
+**Where my earlier explanation went wrong.** I said the hub "names and organizes" the narratives about one concept. In the file, that job belongs to the **concept** `hov:omission`, which carries the definition, explanation and boundary tests. The scheme does not organize those narratives. It organizes the hub concepts. I merged the two levels.
+
+**What this means for the design**
+
+1. **Concept level (current):** each hub is a `skos:Concept` with its narratives, and spokes map to it. This matches the logged decision of 2026-11-17.
+2. **Scheme level (current):** `hov:hubs` groups the hub concepts. This is correct SKOS, but the name "hubs" makes it look like a concept.
+3. **Your alternative:** each concept becomes its own scheme, with the hub concept as top concept and its spokes as narrower concepts. That fits "a scheme organizes concepts" more closely, but it changes the logged decision and needs your approval.
+
+**Naming fix I would suggest, without changing the design:** use "concept hub" for the individual concept, and rename the scheme to something that names the collection, such as `hov:conceptHubs` or `hov:crossDisciplineHubs`. Then the scope note "Cross-discipline concept hub" reads correctly as a description of one concept.
+
+Decide the design question first (concept-level hubs or scheme-per-hub). The rename can follow whichever you choose.
+<!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/three_layer_mini/ho-vocabulary-mini.ttl"]} -->
+[Timestamp: 2026/11/20 13:48:37]
