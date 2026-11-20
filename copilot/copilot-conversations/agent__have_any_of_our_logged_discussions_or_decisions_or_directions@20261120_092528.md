@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 Re-evaluation of structure"
-usage: '{"usedTokens":110866,"contextWindow":1000000,"updatedAt":1795208281657}'
+usage: '{"usedTokens":119205,"contextWindow":1000000,"updatedAt":1795209131117}'
 ---
 
 **user**: have any of our logged discussions or decisions or directions changed structure, elements, naming or anything else in our current understanding of the Harm Ontology we are discussing since last recorded as Harm Ontology v3 draft structure
@@ -344,3 +344,53 @@ Make each idea its own `skos:ConceptScheme`, with the hub as a `skos:Concept` at
 
 Rename the scheme to name the collection, for example `hov:conceptHubs` or `hov:crossDisciplineHubs`. Keep "concept hub" as the description of one `skos:Concept`. The scope note on `hov:developmentalAltitude` then reads correctly.
 [Timestamp: 2026/11/20 13:57:57]
+
+**user**: so what you propose sounds exactly backwards with respect to the normal usage of these terrms in vernacular english. schemes usually organize concepts.  concepts are not usually thought of as organizing conceptschemes. arbitrarily renaming ideas as concept schemes in order to enable this is crazy using this as a naming device to logically facilitate the "consistancy" of a conceptual structure in the ontology that "represents" a clustering of concepts in the real world that is described in english in EXACTLY the opposite way?  why do you propose this
+[Timestamp: 2026/11/20 14:05:06]
+
+**ai**: You're right that my last proposal was muddled, and I should say where.
+
+I did not propose that concepts organize schemes. In my alternative, the scheme organizes the concepts: one `skos:ConceptScheme` per idea, containing the hub `skos:Concept` and its spokes. That matches normal usage. The problem is that I described it poorly, and the rename suggestion made it look like I was trying to fit the wording to the structure.
+
+I also had no good reason to rename the existing `hov:hubs` scheme. The name "hubs" is a plural that can be read as the collection, which is what a scheme is. My earlier wording was the problem, not the structure.
+
+The real question, which I should have put to you directly, is about the English idea itself. Is "omission" one idea whose cross-discipline spread is organized around it (a hub), or a cluster of ideas that the vocabulary groups together? If it is one idea with its own spokes, then a scheme per idea fits the English. If it is a cluster, then the current single `hov:hubs` scheme of hub concepts fits better, and the name should describe the cluster.
+
+I'd keep the logged decision (the hub is a `skos:Concept`) unless you want to change it. Which description of the idea do you want the vocabulary to reflect?
+[Timestamp: 2026/11/20 14:05:06]
+
+**user**: not yet.  please give examples. we have something called an Integral Theory vocabulary that is currently an instance of a concept scheme representing the idea of a domain/discipline vocabulary.  then we have two different individuals called developmentalAltitude. which carry different narrative content. and we have another individual called stages of moral development that is a skos:closeMatch but possibly from a different discipline and maybe should be associated with a different domain/discipline vocabulary? what explanation clarifies this? or do we need changes to naming or structure?
+[Timestamp: 2026/11/20 14:11:55]
+
+**ai**: **Short answer:** the two `developmentalAltitude` individuals are not duplicates. They sit at different layers, and the shared name hides that. The "stages of moral development" individual is probably in the wrong scheme, but this is a placement question, not a naming error. The Integral vocabulary is a different kind of scheme from the discipline vocabularies, and that difference is the real issue.
+
+**1. The two `developmentalAltitude` individuals**
+
+- `ho:developmentalAltitude` is an OWL property in the schema layer. It is the recordable thing: an Assessment property with `assessedBy`.
+- `hov:developmentalAltitude` is a `skos:Concept` in the vocabulary layer (around line 771). It is the cross-discipline hub. It carries the explanation, the boundary tests and the spokes' closeMatch links (for example `int:altitude`, `psy:conventional`, `psy:postConventional`).
+
+Both have the same local name, but they are in different namespaces and layers. Nothing is wrong in the logic. The problem is that Protégé shows both as "developmentalAltitude", so the user cannot tell from the label which one they are looking at. The fix is naming, not structure: give the hub a name that marks it as a concept, or show the namespace prefix in Protégé's labels.
+
+**2. "Stages of moral development"**
+
+The individual is `psy:moralStages` (the crosswalk cites it as a row from the Ethics review). Its prefix is `psy:`, which marks it as a psychology scheme term. It is a `closeMatch` to the hub `hov:developmentalAltitude`. In the schema, this is the right kind of link: a discipline term that is close to the hub. I have not confirmed which `skos:inScheme` it carries, so check that in Protégé.
+
+What is unclear is the source. The crosswalk's own text says the Gilligan spoke is Wilber's paraphrase, and the Integral bands are Wilber's grouping of Gilligan's and Gebser's stages. So the same content can be cited from psychology (Kohlberg, Gilligan) or from Integral Theory (Wilber). The question is whether a spoke belongs to the discipline where the idea came from or to the tradition that reports it.
+
+**3. The conceptual split that clarifies this**
+
+- A **discipline scheme** holds terms from a field: `law:`, `eth:`, `phil:`, `psy:`.
+- The **Integral scheme** (`int:`) is not a discipline. It is a theory by one author that reports and reorganizes ideas from several fields. Your own model already has a word for this: a **PerspectiveType** "tradition", with a lineage.
+
+On that reading, `int:` is a tradition vocabulary, and its spokes should describe what Integral Theory says about altitude. Gilligan and Kohlberg's own vocabulary stays in `psy:` and is linked to the hub by closeMatch, with the Integral reading recorded as a separate spoke or as provenance. That would stop one tradition's paraphrase from standing in for the psychology source.
+
+**4. Do we need changes?**
+
+Two options, and you choose:
+
+- **Naming only (minimal):** keep the structure. Add a clear prefix or label to tell hub from schema property, and record in the spoke's explanation that Integral reports the idea and psychology originates it.
+- **Structural (larger):** distinguish discipline schemes from tradition schemes, so `int:` is keyed to the Integral tradition and its PerspectiveType. This is the better fit to the model, but it is a decision and should be logged before any change.
+
+I have not changed any file. Tell me which option you prefer.
+<!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/three_layer_mini/ho-vocabulary-mini.ttl","grep (search): 02_Ideas Topics Concepts/Harm Ontology/Vocabulary Crosswalk - Concept Hubs and Discipline Schemes.md"]} -->
+[Timestamp: 2026/11/20 14:11:55]
