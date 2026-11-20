@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 changes"
-usage: '{"usedTokens":62296,"contextWindow":1000000,"updatedAt":1795192482686}'
+usage: '{"usedTokens":84923,"contextWindow":1000000,"updatedAt":1795193958555}'
 ---
 
 **user**: have any of our logged discussions or decisions or directions changed structure, elements, naming or anything else in our current understanding of the Harm Ontology we are discussing since last recorded as Harm Ontology v3 draft structure
@@ -76,3 +76,40 @@ Two things to check: whether the AffectedEntity rename has been applied to the d
 I did not edit [[Decisions_Log]] or any other note. The rename across other notes and the v1 `.ttl` remains deferred to migration.
 <!-- copilot-message {"tools":["read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure.md","write (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure (rev 2026-11-20).md"]} -->
 [Timestamp: 2026/11/20 09:33:52]
+
+**user**: what is the purpose/meaning of the sections Box A thru Box D in this ontology structure? How is that different from their meaning/purpose/structure in the previous Harm Ontology v3 draft structure
+[Timestamp: 2026/11/20 09:53:17]
+
+**ai**: The four boxes are the same in both versions. I did not change them in the 2026-11-20 revision.
+
+**What each box is**
+
+- **Box A (Phenomenality).** A property with three values (Phenomenal, NonPhenomenal, ConditionallyPhenomenal), applied through two separate properties: *observability* (whether something can be seen, and by whom) and *experienceability* (whether the affected entity can feel it). It is tagged "(box A)" on Factor (observability) and Effect (experienceability). Source: the 2026-11-14 decision in [[Decisions_Log]].
+- **Box B (Missingness).** The statuses for absent information: absent means "not considered", plus Unknown, NotApplicable, Undisclosed, Disputed and Pending. Source: the 2026-11-14 open-world decision, detailed in [[HO-II.e Missingness Statuses and Domain Profiles]]. Unlike Box A, no tree node carries a "(box B)" tag, though the governing commitments point to it.
+- **Box C (Reuse).** The rule to map to existing vocabularies, not import them, followed by a list of candidate vocabularies (BFO, PROV-O, OWL-Time, legal, cyber, AI incident). Every candidate is marked unverified. Source: the 2026-11-14 reuse decision and [[HO-III.b Reusing Expert Domain Vocabularies]].
+- **Box D (Vocabulary layer).** The three-layer rule (ontology, profiles, vocabulary) and graded mappings (exact, close, narrow, broad, related). Source: the 2026-11-17 decision and [[Vocabulary Crosswalk - Concept Hubs and Discipline Schemes]].
+
+**Difference from the 2026-11-15 draft**
+
+The boxes sit outside the tree in both versions. They are cross-cutting rules and property sets that apply to several classes. They are not classes. The differences are:
+- **Box D was already in the original.** It was added in the 2026-11-17 revision, so both versions have it.
+- **Box D's content is repeated in my revision.** The three-layer rule now also appears under "Governing commitments", which duplicates Box D. I should have removed one of them.
+- **Nothing else changed.** The boxes are unchanged in the revision. The changes I made elsewhere, such as the AffectedEntity block, the omission categories and the SHACL rule, are all in the tree.
+
+If you want the boxes to carry the same status as the tree, I can give Box B the same "(box B)" tags and remove the duplicate three-layer line.
+[Timestamp: 2026/11/20 09:53:17]
+
+**user**: we made a provisional investigation into whether to break the structure into 3 ontologies -  a schema, a vocabulary, a shacl  is this still provisional or is it logged as a decision yet?
+[Timestamp: 2026/11/20 09:59:04]
+
+**ai**: It is still provisional. The three-layer idea is logged, but the split into separate files is not.
+
+**Logged (Decisions_Log, 2026-11-17):** Harm ontology uses three layers: ontology (OWL, `ho:`) for structure, profiles (SHACL, `hosh:`) for requiredness, and vocabulary (SKOS, `hov:`) for words and meaning. This is the decision behind the "three layers" in [[Harm Ontology v3 - Draft Structure (rev 2026-11-20)]].
+
+**Not logged:**
+- **Renaming layer 1 from "ontology" to "schema".** On 2026-11-18 I proposed logging it, because "the ontology" also means the whole project. The transcript records your "yes" to the rename, but [[Decisions_Log]] has no entry for it. I asked whether to log it and have not done so.
+- **Separate files and a loader.** The layout (`ho-schema.ttl`, `ho-profiles.ttl`, `ho-vocabulary.ttl`, and `ho-all.ttl` to import them) appears only in [[Harm Ontology v3 Provisional Release Brief]] and in the mini example. The mini example's brief says its layout is not approved. The release brief says it is "not started, not approved".
+
+So the three-way split is a logged layering with a provisional file layout. Logging the schema rename and the file layout would need your confirmation. I can draft those entries for you to approve.
+<!-- copilot-message {"tools":["grep (search)","obsidian-copilot_miyo_search (other)"]} -->
+[Timestamp: 2026/11/20 09:59:04]
