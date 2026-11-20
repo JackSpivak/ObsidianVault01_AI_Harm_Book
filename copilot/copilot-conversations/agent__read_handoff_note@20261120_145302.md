@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 mitigations for v3.1"
-usage: '{"usedTokens":47661,"contextWindow":1000000,"updatedAt":1795215144617}'
+usage: '{"usedTokens":50177,"contextWindow":1000000,"updatedAt":1795215778585}'
 ---
 
 **user**: read handoff note
@@ -296,3 +296,61 @@ Your four dimensions map onto spoke attributes:
 
 This fits what SKOS already provides: a concept with narrower spokes and mapping links. So the model needs no new class. It needs a rule for when a property gets a hub, and a link from the property to it.
 [Timestamp: 2026/11/20 15:52:18]
+
+**user**: here's where i get in trouble.  so could we refer to the hub (for the moment to test) as a skos:topLevel concept called/named PerspectiveRelatedConcepts.  Would spokes be instances that carry LegalPerspectiveRelatedConcepts
+[Timestamp: 2026/11/20 16:00:35]
+
+**ai**: Partly. The hub can be a top concept, but the names are where it goes wrong.
+
+**1. Name the hub for its idea, not the category.**
+A hub is one idea, such as "causation" or "developmental altitude." If it is named `PerspectiveRelatedConcepts`, the name describes the grouping, not the idea, and that is the same confusion we had with `hov:hubs`. For the test, call it something like `causation`, and keep the grouping in the scheme's name.
+
+**2. Put the grouping in a scheme, not in the hub's name.**
+In SKOS, the top concept is declared on the scheme, with `skos:hasTopConcept` on the ConceptScheme and `skos:topConceptOf` on the concept. So the structure is:
+- **ConceptScheme `PerspectiveRelatedConcepts`**: the cross-discipline collection
+- **Hub `causation`**: a `skos:Concept` and a top concept of that scheme
+- **Spokes**: `skos:Concept`s with `skos:broader` pointing to the hub
+
+**3. Spokes are not instances of a class named after the perspective.**
+`LegalPerspectiveRelatedConcepts` would be a class, and the spokes would be its instances. That is the class-versus-individual problem again: the spokes are concepts, not members of a legal class. Their legal origin should be a property, not a name. Either:
+- the spoke is `skos:inScheme` the legal perspective's scheme (for example `LegalConcepts`), or
+- the spoke has a property `heldByPerspective` pointing to the legal PerspectiveType.
+
+**Summary of the test:**
+- Scheme: `PerspectiveRelatedConcepts` (collection)
+- Hub: `causation` (one idea, top concept of the scheme)
+- Spoke: "legal causation," a `skos:Concept` in `LegalConcepts`, `skos:broader` the hub, with its perspective given by property
+
+This keeps the name, the class and the link each doing one job.
+[Timestamp: 2026/11/20 16:00:35]
+
+**user**: hmm.  then you would have the same number of hubs (now toplevel concepts) as properties?
+[Timestamp: 2026/11/20 16:01:45]
+
+**ai**: No, and the rule we set is why. A property gets a hub only when its meaning varies by discipline, so there should be fewer hubs than properties.
+
+The mapping also isn't one-to-one, for two reasons:
+
+- **Several properties can share one idea.** For example, `cause` and `causalRole` may both be about causation. They should point to one hub, not two.
+- **One property can carry more than one idea.** For example, `affects` might mix "harm to an entity" with "moral standing." That property would link to two hubs.
+
+So the hub should be keyed to the **idea**, and properties should link to hubs. A hub is not a copy of a property.
+
+This also means the hubs don't all need to be top concepts. In the scheme, a top concept is an entry point. Hubs that are only reached through a property can sit under a broader concept, or stay outside the hierarchy and be linked directly.
+
+The question for you: is each hub one idea that several properties can point to, or do you want to keep a one-property-one-hub pairing for now as a test?
+[Timestamp: 2026/11/20 16:01:45]
+
+**user**: ok.  so there will be something that we can call core properties that do not vary by discipline? perhaps like a collection of provenance properties for example?
+[Timestamp: 2026/11/20 16:02:54]
+
+**ai**: Yes. Those would be **shared properties**: properties whose meaning is the same across disciplines, so they need no hub. Provenance is a good example. `source`, `creator` and `date` mean the same thing whether a legal, psychological or integral claim is being recorded.
+
+Two cautions:
+
+1. **The test is meaning, not usefulness.** A property is shared if its meaning doesn't vary by discipline, not if it is important. Some provenance does vary. For example, what counts as a "verified" citation may differ between a law review and an empirical study. If so, the verification property needs a hub, even though the source property does not.
+
+2. **Shared does not mean unannotated.** A shared property still carries a definition and a scope note, as any property does. It just doesn't need spokes.
+
+The working rule would be: a property with a stable meaning across disciplines is shared and stays on the schema alone. A property whose meaning varies gets a hub. The word "core" could be used for the same idea, but we'd settle naming later, as you asked.
+[Timestamp: 2026/11/20 16:02:54]
