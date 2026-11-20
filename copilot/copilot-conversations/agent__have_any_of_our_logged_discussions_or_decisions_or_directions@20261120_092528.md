@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 Re-evaluation of structure"
-usage: '{"usedTokens":124716,"contextWindow":1000000,"updatedAt":1795209845260}'
+usage: '{"usedTokens":133879,"contextWindow":1000000,"updatedAt":1795211529846}'
 ---
 
 **user**: have any of our logged discussions or decisions or directions changed structure, elements, naming or anything else in our current understanding of the Harm Ontology we are discussing since last recorded as Harm Ontology v3 draft structure
@@ -419,3 +419,76 @@ I have not changed any file. Tell me which option you prefer.
 Want me to check whether the `.owl` and `.ttl` copies of the editor-mini differ elsewhere?
 <!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests"]} -->
 [Timestamp: 2026/11/20 14:23:53]
+
+**user**: So examining the sample of this approach to keeping useful and meaningful boundaries between these layers has revealed an extremely crippling hot mess of a problem that seems to be related to a poorly designed and poorly executed methodology for implementing what may or may not be a good overall organizing strategy.  untill we define a proper implementation methodology i will not have sufficiently correct and meaningful example samples to evaluate in order to decide if we even agree on the 3 layer strategy as sufficient to enable both machine and human readability.
+
+We need to jump up a level and propose a ruleset or methodology specificatiion for properly categorizing and associating vocabulary elements consistently that prevents things that have unique IRI but non unique human readable names and labels.  also you said you made mistakes generating differences in owl vs turtle. also i believe you said you put one of these in the wrong place but i cannot find where you said that now.
+
+1. are there any external naming specifications that could help us with this?
+2. our current approach is revealed by our sample experiment to be inadequate and inconsistent
+3. what do we need to discuss and propose to resolve this methodology
+[Timestamp: 2026/11/20 14:44:29]
+
+**ai**: **Corrections first**
+
+- **The misplaced item.** I can't find it in this conversation, and I won't guess which one you mean. If you point me to the sentence, I'll say whether it was wrong.
+- **OWL vs Turtle.** I said the `.owl` and `.ttl` copies "may differ" on this point. That was a guess. I only saw that the untyped `rdf:Description` appears in the `.owl` file. I did not compare the two files, so I don't know whether they differ elsewhere.
+
+**1. External naming specifications**
+
+These are the ones that bear on the problem. I checked the OBO Foundry and SKOS references through search. The rest are from memory and unverified.
+
+- **OBO Foundry, principle 12 (naming conventions).** Labels must be unique within an ontology. Each entity has exactly one label, and labels are plain English with spaces. They reject CamelCase and underscores in labels. Their automated check flags any two entities that share a label. This addresses your duplicate-label problem directly.
+- **OBO Foundry, ID policy and principle 3 (IRIs).** IRIs are stable, use a fixed namespace per ontology, and are not reused for a changed meaning. This supports keeping `ho:` and `hov:` IRIs separate.
+- **W3C SKOS Reference.** It states that by convention no two concepts in the same scheme share a notation. It also says a concept can belong to more than one scheme, and that top concepts are declared per scheme (`skos:hasTopConcept`, `skos:topConceptOf`). This bears on whether a hub belongs to one scheme or several.
+- **OWL 2 punning (from memory).** The same IRI may be used as a class, property and individual in OWL 2 DL, under restrictions. This is relevant to item 3 earlier: a second, untyped declaration on the same IRI is legal but easy to misread in an editor.
+- **ISO 25964 (thesauri) and ISO 704 (terminology).** These are the standard terminology references for concept systems and naming. From memory; I have not checked the current text.
+
+**2. Why the current approach fails**
+
+The sample shows four concrete problems:
+- **Same local name, different layers.** `ho:developmentalAltitude` (property) and `hov:developmentalAltitude` (hub concept) are both labelled "developmentalAltitude". The OBO label-uniqueness rule would flag this.
+- **Untyped declarations.** The `rdf:Description` on the schema IRI adds annotations without declaring a type. Protégé shows it inconsistently or not at all.
+- **Scheme placement is undecided.** The Integral vocabulary is a tradition, not a discipline, but it is stored as a discipline-style scheme. The same question affects `psy:moralStages`.
+- **No rule for where narrative goes.** Hub narrative sits on the property in one sample and on a concept in the other. There is no written rule that decides.
+
+**3. What we need to discuss and propose**
+
+1. **Identity rule.** One IRI, one type, one unique label per layer. Choose how to avoid reusing a local name across layers (for example, a suffix or a different hub name).
+2. **Layer rule.** For each element type (property, hub, spoke, scheme, individual), say which layer it lives in and which prefix it uses.
+3. **Scheme rule.** Decide whether a scheme is keyed to a discipline (`law:`, `psy:`) or to a tradition (`int:`, linked to a PerspectiveType). Decide where a spoke belongs when its source and its reporter differ.
+4. **Narrative rule.** A table that says which annotation goes on which element type. Example: definition on the property, explanation on the hub, and citation and verification on the spoke.
+5. **Mapping rule.** Direction of match links (hub to spoke, as the sample uses), and where the reason for each grade lives.
+6. **Check rule.** An automated check (OBO-style) for unique labels, a single type per IRI, no untyped declarations, and every hub in a scheme.
+7. **Test rule.** Judge the samples in Protégé and VocBench against the rules above, not on appearance alone.
+
+Start with items 1 and 3, because the other rules depend on them. Shall I draft a one-page methodology note with these seven rules, marked as proposed, for you to edit?
+<!-- copilot-message {"tools":["websearch (other)"]} -->
+[Timestamp: 2026/11/20 14:44:29]
+
+**user**: how long is this conversation/context.  do we need to start a new chat to mitigate issues we discovered in this preliminary re-evaluation of harm ontology v3 samples?
+[Timestamp: 2026/11/20 14:51:36]
+
+**ai**: I can't measure the exact length, but this chat is long. It contains many large file reads, grep results and long quoted passages, and that is what makes replies slower and less reliable. Starting a new chat is a good idea.
+
+Before you switch, I'd save what we found so the new chat doesn't rebuild it. The main things to carry over are:
+
+- **The findings:** the same local name (`developmentalAltitude`) is used in three places. Those are the schema property (`ho:`, typed `owl:ObjectProperty`), the hub concept (`hov:`, typed `skos:Concept`), and an untyped `rdf:Description` on the schema IRI in the `.owl` file.
+- **Scheme placement:** whether the Integral vocabulary is keyed to a discipline or a tradition, and where `psy:moralStages` belongs.
+- **The seven proposed rules** from the last answer: identity, layer, scheme, narrative, mapping, check and test.
+- **The corrections:** the misplaced item is unidentified, and the `.owl` vs `.ttl` comparison was never done.
+- **The external references:** the OBO Foundry label-uniqueness rule and the SKOS notation and top-concept guidance.
+
+I can write these into a short handoff note for the new chat, marked as a proposal and not logged in `Decisions_Log`. Then you can attach that note plus the rules draft. Should I do that?
+[Timestamp: 2026/11/20 14:51:36]
+
+**user**: yews
+[Timestamp: 2026/11/20 14:51:56]
+
+**ai**: I wrote the handoff note: [[Handoff - Harm Ontology Methodology Re-evaluation]], in `01_The Writer's Room/`. It is marked proposed and is not logged in [[Decisions_Log]].
+
+It covers the sample findings, the corrections from this chat, the external references, and the seven decisions in order. It also says the next step is a one-page methodology draft, with no sample changes until the rules are agreed.
+
+To start the new chat, attach this note together with [[Harm Ontology v3 - Draft Structure (rev 2026-11-20)]].
+<!-- copilot-message {"tools":["write (edit): 01_The Writer's Room/Handoff - Harm Ontology Methodology Re-evaluation.md"]} -->
+[Timestamp: 2026/11/20 14:51:56]
