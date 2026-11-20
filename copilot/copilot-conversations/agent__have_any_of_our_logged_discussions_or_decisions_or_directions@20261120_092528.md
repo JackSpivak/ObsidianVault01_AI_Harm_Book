@@ -227,3 +227,10 @@ Two things are still unknown. I have not checked how Protégé displays these va
 A PerspectiveType instance would be needed only if you wanted to record a specific tradition's own assessments, such as its congruence or altitude. The sample does not include any. I also corrected my earlier mix-up: `hov:` belongs to the three-layer sample, and editor-mini uses `ho:` for its own fields.
 <!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/editor_first_mini/ho-editor-mini.ttl"]} -->
 [Timestamp: 2026/11/20 10:26:11]
+
+**user**: i am still confused.  perhaps we can jump up a level.  can you explain the rationale? what function and intent is the "hub" intended to capture?  similarly, the spoke? what conceptual split determines which narrative attributes are captured by each? and why?
+[Timestamp: 2026/11/20 10:42:24]
+
+**ai**: 
+<!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/Vocabulary Crosswalk - Concept Hubs and Discipline Schemes.md"]} -->
+[Timestamp: 2026/11/20 10:42:24]
