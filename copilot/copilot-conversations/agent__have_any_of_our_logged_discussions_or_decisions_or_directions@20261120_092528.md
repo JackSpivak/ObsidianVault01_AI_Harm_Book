@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 changes"
-usage: '{"usedTokens":96998,"contextWindow":1000000,"updatedAt":1795194545679}'
+usage: '{"usedTokens":104988,"contextWindow":1000000,"updatedAt":1795194839021}'
 ---
 
 **user**: have any of our logged discussions or decisions or directions changed structure, elements, naming or anything else in our current understanding of the Harm Ontology we are discussing since last recorded as Harm Ontology v3 draft structure
@@ -161,3 +161,28 @@ A next step that would not commit anything: load `ho-vocabulary-mini.ttl` into V
 Neither sample has been checked in VocBench 3, and only the three-layer mini has been opened in Protégé.
 <!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/editor_first_mini","read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/three_layer_mini/README.md.txt"]} -->
 [Timestamp: 2026/11/20 10:08:57]
+
+**user**: what classes and properties hold rich narrative and how? for example where do triples describing purpose, explanation and examples attach and how? is this strictly through rdfs:domain
+[Timestamp: 2026/11/20 10:13:45]
+
+**ai**: No. Narrative does not attach through `rdfs:domain`. Domain and range only say which classes a property can link. Purpose, explanation and examples are **annotation assertions**: a triple whose subject is the thing being described, whose predicate is an annotation property such as `skos:definition` or `ho:explanation`, and whose object is a text literal. Annotation properties have no domain, so any entity can carry them. The subject can be a class, a property, a named individual or a concept.
+
+**Where the narrative sits in the two mini samples**
+
+| Element | Subject that carries the narrative | Example predicates | Source |
+|---|---|---|---|
+| **Schema elements** (classes, properties) | The `ho:` class or property | `skos:definition`, `rdfs:comment`, `designStatus`, `source`, `rdfs:seeAlso` | `ho-schema-mini.ttl` |
+| **Hubs** (three-layer) | `hov:omission` and similar, typed `skos:Concept` | `skos:definition`, `skos:example`, `skos:scopeNote`, `skos:note`, `hov:explanation`, `hov:boundaryTests`, `hov:glossLine`, `hov:status` | `ho-vocabulary-mini.ttl` |
+| **Hubs** (editor-first) | The `ho:` object property itself, e.g. `ho:omission` | `skos:definition`, `skos:example`, `skos:scopeNote`, `ho:explanation`, `ho:boundaryTests`, status and gloss | `ho-editor-mini.ttl` |
+| **Spokes** (both) | The discipline individual or concept, e.g. a Minsky or Kant spoke | `skos:example`, `ho:explanation`, `ho:explanationProvenance`, `skos:altLabel`, `dcterms:source` | both files |
+| **Mapping grade** | The spoke-to-hub assertion (`skos:closeMatch`, `skos:relatedMatch`, `skos:narrowMatch` and so on) | A reason annotation on that assertion | per the README |
+
+**Things to know about this**
+- **Two attachment points for hub narrative.** In the three-layer sample, hubs are concept individuals in SKOS. In the editor-first sample, the hub narrative sits on the OWL property. Both work for a machine, but a reader in an editor sees them in different places.
+- **Custom predicates must be declared.** Predicates like `hov:explanation` and `ho:explanation` are declared as `owl:AnnotationProperty` with a label. Without the declaration, an editor may not show them as narrative fields. Undeclared predicates still load, but editors may not show them.
+- **Standard SKOS and custom predicates are mixed.** `skos:definition`, `skos:example` and `skos:scopeNote` are standard. `explanation`, `boundaryTests`, `glossLine`, `status` and `explanationProvenance` are local. A vocabulary tool like VocBench 3 may display only the standard ones, so custom fields could be lost there. I have not tested that.
+- **Assignment to subjects is partly the builder's choice.** The editor-first README says object/data kinds and ranges were assigned by the builder and need review. The same applies to which subject carries which narrative field.
+
+I checked these points against the files and the editor-first README. I did not run Protégé or VocBench 3 on either file.
+<!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/editor_first_mini/ho-editor-mini.ttl","grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/three_layer_mini/ho-schema-mini.ttl"]} -->
+[Timestamp: 2026/11/20 10:13:45]
