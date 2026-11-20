@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 mitigations for v3.1"
-usage: '{"usedTokens":42800,"contextWindow":1000000,"updatedAt":1795213748196}'
+usage: '{"usedTokens":44676,"contextWindow":1000000,"updatedAt":1795214609105}'
 ---
 
 **user**: read handoff note
@@ -194,3 +194,42 @@ This also changes the Rule 3 question. If a PerspectiveType is held by a discipl
 
 Which of these should we settle first? I'd suggest the hub placement, since it determines whether schemes are per-perspective or cross-perspective.
 [Timestamp: 2026/11/20 15:29:03]
+
+**user**: lets test this with an example: say a legal example
+
+Discipline: law and jurisprudence
+PerspectiveType: the point of view that Law and Jurisprudence offer (legal perspective
+ConceptScheme - LegalConcepts - contains LegalVocabulary (and possibly other high level concepts like key Precident and Judgements and Opinions?) as subcategorized concepts organized by the skos:ConceptScheme
+skos:Concept (subcategory of ConceptScheme) example instance might be LegalVocabularyHub (skos:topConcept?)
+skos:Concept  individual concepts representing/describing/associated with annotation attributes like explanation, example, keythinkers, provenance (collection/group of attributes) purpose, etc
+
+is this consistant?  im thinking that perhaps i'm violatiing some crosscutting nature inherent in "hub" concept
+[Timestamp: 2026/11/20 15:43:20]
+
+**ai**: The top of the chain is consistent: Discipline → PerspectiveType → ConceptScheme. Your worry about the hub is right, though, and there are two more problems below it.
+
+**1. The hub is cross-cutting, and a topConcept is not.**
+In the vault, a hub such as `developmentalAltitude` spans several disciplines (Integral, psychology, law). A `LegalVocabularyHub` under `LegalConcepts` is a legal-only entry point. Those are two different things, and using one word for both is what breaks the cross-cutting nature.
+
+- A **topConcept** is structural: the top of one scheme's hierarchy.
+- A **hub** is semantic: one idea that several perspectives address.
+
+If the legal scheme has a top concept, call it a perspective entry point, not a hub. The cross-cutting hub sits in its own scheme and links to the legal spokes by a mapping property.
+
+**2. Annotation attributes should not be concepts.**
+Explanation, example, key thinkers, and provenance are properties of a concept, or annotation values on it. They are not vocabulary terms, so they shouldn't be `skos:Concept`s in the scheme. Group them as display groups on the concept, as the vault's "12 property groups" plan already does.
+
+**3. Precedents, judgements, and opinions are not vocabulary.**
+They are legal sources or authorities. They need their own class, linked to the PerspectiveType (for example, `hasAuthority`). Putting them in the scheme mixes sources with the terms used to describe them.
+
+**Revised version of your example**
+
+- **Discipline:** Law and Jurisprudence
+- **PerspectiveType:** the legal perspective, `heldBy` the discipline
+- **ConceptScheme (the legal vocabulary):** holds legal `skos:Concept`s, with an optional entry-point top concept
+- **Legal concepts:** each has its annotations as properties
+- **Sources:** precedents and opinions linked from the PerspectiveType
+- **Cross-cutting hub (separate scheme):** links to legal spokes by mapping
+
+**Question to test:** Is "legal" a spoke of a cross-cutting hub such as "harm", or is it the legal perspective's own term? If it is a spoke, the hub is the cross-cutting object and the scheme only holds the legal spokes. Which is it?
+[Timestamp: 2026/11/20 15:43:20]
