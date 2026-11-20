@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 mitigations for v3.1"
-usage: '{"usedTokens":50177,"contextWindow":1000000,"updatedAt":1795215778585}'
+usage: '{"usedTokens":62062,"contextWindow":1000000,"updatedAt":1795216422043}'
 ---
 
 **user**: read handoff note
@@ -354,3 +354,100 @@ Two cautions:
 
 The working rule would be: a property with a stable meaning across disciplines is shared and stays on the schema alone. A property whose meaning varies gets a hub. The word "core" could be used for the same idea, but we'd settle naming later, as you asked.
 [Timestamp: 2026/11/20 16:02:54]
+
+**user**: take a look at the groupings of properties we played with here and see how these thoughts fit our thinking
+<!-- copilot-message {"notes":["02_Ideas Topics Concepts/Harm Ontology/PerspectiveStructure 0.02.md"]} -->
+[Timestamp: 2026/11/20 16:06:09]
+
+**ai**: Your groupings fit well, and the file already contains most of the distinction we've been drawing. It just doesn't label it. Here is how the 0.02 groups sort under our rules.
+
+**1. Shared properties (no hub)**
+- **Group 12 (Provenance & Trust)** is already the shared set. The PROV properties in 12b (`wasAttributedTo`, `wasGeneratedBy`, `created/modified`) mean the same thing in every discipline, so they should stay on the schema. Reusing W3C PROV terms would be better than defining our own.
+- **Group 4 (Extent)** and **group 10 (`validFrom`/`validTo`)** look shared, but check `temporalScope` and `discountRate`. Discounting is a discipline-specific practice, so it may need a hub.
+
+**2. Hub candidates (meaning varies by discipline)**
+- **Group 2:** `nameByDomain`, `definitionByDomain`, `conceptStructure`. These are close to the definition of a hub.
+- **Group 5:** `normativeForm`, `intentWeighting`, `conflictResolution`. Deontic versus consequentialist is a textbook discipline split.
+- **Group 6:** `criterionOfTruth`, `method`, `causalModel`.
+- **Group 8 and 9:** `standingOfSubjects`, `authority`, `accountabilityLocus`, `whoseVoice`.
+- **Group 3.2:** `moralCircle`. The file already notes a legal twin, `legalPersonhood`, which is a sign that the same idea varies by discipline.
+- **Group 12c:** `verificationStatus`. A "verified" citation may mean different things to a law review and an empirical study.
+
+Congruence, omission and developmentalAltitude already have hubs.
+
+**3. Not hubs at all**
+- **Group 11 (Assessments)** is already a set of Assessment individuals. The hub and spoke model doesn't apply to them.
+- **Groups 0–12 as a whole** are display facets. Only the properties inside them need the hub rule. Grouping and hubbing are separate decisions.
+
+**Problems the file shows**
+
+- **"Core" is already taken.** Group 0 "CORE" means *required*. What we've been calling "shared" means *doesn't vary by discipline*. Those are different properties, and the word should not be used for both.
+- **Two mechanisms for discipline variation.** The LegalInstitutional profile holds legal-only properties (`causationTest`, `standardOfProof`), while the hub model says variation lives in spokes. We need one rule for when a discipline difference is a profile property and when it is a hub spoke.
+- **Overlapping names, which is the label problem.** `standing` (legal profile) and `standingOfSubjects` (group 8) describe related ideas under near-identical names. `causationTest` (profile) and `causalModel` (group 6) overlap in the same way. These are the first candidates for the identity rule.
+- **Duplicates.** `meaningAsOf` (group 2) and `validFrom/validTo` (group 10) both date-stamp meanings.
+
+The next step would be to tag each of the roughly 120 attributes as shared, hub candidate, assessment, or profile, and to settle the profile-versus-spoke rule first. Would you like me to draft that tagging as a separate proposal note, without changing 0.02?
+<!-- copilot-message {"tools":["read (read): 02_Ideas Topics Concepts/Harm Ontology/PerspectiveStructure 0.02.md"]} -->
+[Timestamp: 2026/11/20 16:06:09]
+
+**user**: Maybe we can use the word Required to mean the requiredshared property category/group  and shared property/group  nice because the required could cleanly get shacl shapes
+[Timestamp: 2026/11/20 16:10:50]
+
+**ai**: Using "Required" for the group 0 meaning is a good fix, since it clears up the word collision. Your SHACL point is right too: a required property can become an `sh:minCount 1` constraint on the PerspectiveType shape, so it can be checked automatically.
+
+But I'd keep "required" and "shared" as two separate categories rather than one combined "required shared" group. They answer different questions:
+
+- **Required** is about *validation*: must this property be present? It maps to SHACL (`sh:minCount 1`).
+- **Shared** is about *meaning*: does this property mean the same thing in every discipline? It determines whether the property needs a hub.
+
+The two can differ. The group 0 properties show this:
+
+- `name` is probably required and shared.
+- `canonicalSource` is required, and it may be shared, but the sources themselves differ by discipline.
+- `foundationalCommitments` is required, but its meaning clearly varies by discipline, so it is not shared and may need a hub.
+
+If we combined them, `foundationalCommitments` would be wrongly treated as shared, and a property with no hub would carry a discipline-specific meaning. Keeping the axes separate means a property can be required without being shared, and shared without being required (provenance is an example of the second case).
+
+So the proposal is:
+- **Required** (validation axis): group 0, with SHACL shapes.
+- **Shared** (meaning axis): no hub needed.
+- **Hub candidate:** not shared, so it needs a hub.
+
+Does `foundationalCommitments` look like a hub candidate to you?
+[Timestamp: 2026/11/20 16:10:50]
+
+**user**: yes required and shared.   I think I was really thiniing of requiredShared and otherShared to put a fine point on it
+[Timestamp: 2026/11/20 16:12:09]
+
+**ai**: I'd check that before we name anything, because your last answer shifts the picture. You agreed that `foundationalCommitments` is a hub candidate, which means it is required but **not** shared. So it would fall in the "required, varies" cell, not in `requiredShared`.
+
+The two axes make a 2×2 grid, so every property lands in exactly one cell:
+
+| | Shared (no hub) | Varies by discipline (hub candidate) |
+|---|---|---|
+| **Required** (SHACL `minCount 1`) | requiredShared | requiredVaries |
+| **Optional** (missingness allowed) | optionalShared | optionalVaries |
+
+Two things about the names:
+
+- **"otherShared" doesn't fit the grid.** It reads as "shared things that aren't required," which is `optionalShared`. It also leaves out the cells where a property varies by discipline, and those are the hub candidates we most need to track.
+- **Name the axes, not the groups.** "Required" and "shared" are properties of a property, so the labels should say which axis they're on, such as `isRequired` and `isShared`. The four cells can then be queries over those two flags, not four separate classes or groups. That also keeps grouping (display facets) separate from these two flags.
+
+So the proposal is two independent boolean flags per property, `isRequired` and `isShared`, with the four cells as the reading of them. Does that match what you had in mind?
+[Timestamp: 2026/11/20 16:12:09]
+
+**user**: I think these perspective categories of properties will help us clarify the model.  does this feel like a productive/important direction to you?
+[Timestamp: 2026/11/20 16:13:37]
+
+**ai**: Yes, I think it's productive, and it addresses the problem you started with. Right now every property looks equally important, and nothing says whether it needs a hub, a profile, or just an annotation. The two flags give each property a checkable answer to those questions, and they tie directly to SHACL and to the hub rule.
+
+Three cautions:
+
+1. **"Shared" is a claim that needs evidence.** Deciding that a property means the same thing in every discipline is a substantive judgment, and it can be wrong. The check would be to find at least one discipline where the meaning differs. If we can't find one, the property is shared. If we can, it needs a hub.
+
+2. **There's a circularity.** To decide whether a property is shared, we need to know how each discipline uses it, which is what the hubs are supposed to record. The practical way out is to start with a few properties, such as the four required ones, and use the first hubs to test the flag.
+
+3. **These are property categories, not perspective categories.** A PerspectiveType doesn't get `isShared`. Only the properties do. Keeping that straight will stop the labels from drifting back into the class-versus-individual confusion.
+
+Next step: tag about ten properties (the four required ones plus a few from group 12 and group 5) against the grid, and see whether the cells are clear. If they are, we can extend the tagging. If they aren't, the flags need a different definition before we build on them.
+[Timestamp: 2026/11/20 16:13:37]
