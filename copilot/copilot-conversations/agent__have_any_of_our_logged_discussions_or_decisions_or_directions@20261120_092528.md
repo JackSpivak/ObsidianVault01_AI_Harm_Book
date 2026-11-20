@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 Re-evaluation of structure"
-usage: '{"usedTokens":119205,"contextWindow":1000000,"updatedAt":1795209131117}'
+usage: '{"usedTokens":124716,"contextWindow":1000000,"updatedAt":1795209845260}'
 ---
 
 **user**: have any of our logged discussions or decisions or directions changed structure, elements, naming or anything else in our current understanding of the Harm Ontology we are discussing since last recorded as Harm Ontology v3 draft structure
@@ -394,3 +394,28 @@ Two options, and you choose:
 I have not changed any file. Tell me which option you prefer.
 <!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/three_layer_mini/ho-vocabulary-mini.ttl","grep (search): 02_Ideas Topics Concepts/Harm Ontology/Vocabulary Crosswalk - Concept Hubs and Discipline Schemes.md"]} -->
 [Timestamp: 2026/11/20 14:11:55]
+
+**user**: i see two entirely seperate individuals named developmentalAltitude one is a typed individual identified as a skos:Concept. the other is untyped.   there is also an independant owl:objectProperty (or possibly dfs:objectProperty ) i cannot find the type listed in the Protege interface  i see three things where you describe 2
+[Timestamp: 2026/11/20 14:23:53]
+
+**ai**: You're right, and I missed one. There are three things, not two. The file is `ho-editor-mini` in some places and `three_layer_mini` in others, so I'll name the file for each.
+
+**1. The typed OWL property (schema layer)**
+- `ho:developmentalAltitude a owl:ObjectProperty` (`ho-schema-mini.ttl`, line 102, and `ho-editor-mini.ttl`, line 1962).
+- This is the thing an Assessment links to. It is the one Protégé shows under the Object properties tab.
+- Protégé does not show a separate "type" field for a property. It appears in the Object properties tree, which may be why you could not find the type.
+
+**2. The typed SKOS concept (vocabulary layer)**
+- `hov:developmentalAltitude a skos:Concept` (`ho-vocabulary-mini.ttl`, line 771).
+- This is the hub. It holds the explanation and the closeMatch links to the spokes. Its prefix is `hov:`, not `ho:`, so it is a different IRI from the property.
+
+**3. The untyped description (the one I missed)**
+- In `ho-editor-mini.owl` (around line 1181) there is `rdf:Description rdf:about=".../schema#developmentalAltitude"`, with a `rdfs:label` and a `dcterms:source`, and no `rdf:type`.
+- It has the same IRI as the typed property in item 1, because it uses the schema namespace (`ho:` in the `.ttl`). So it is not a separate individual. It adds annotations to the property, and an RDF tool merges the two.
+- This matters because Protégé may show the property as having an untyped entry or may hide the annotations. I have not checked how Protégé treats it.
+
+**Summary of what I got wrong:** I described two things with the same name in two layers. The full picture is one property (item 1) plus one hub concept (item 2), with an untyped annotation block on the property's IRI (item 3) that should be typed or merged. Also, the `.owl` and `.ttl` copies are not identical on this point, which is worth checking.
+
+Want me to check whether the `.owl` and `.ttl` copies of the editor-mini differ elsewhere?
+<!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests"]} -->
+[Timestamp: 2026/11/20 14:23:53]
