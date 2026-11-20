@@ -2,12 +2,13 @@
 epoch: 1795191928346
 mode: agent
 backendId: opencode
-sessionId: "ses_e0660ebe3ffeHzMwrWNj54oBoA"
+sessionId: ses_e0660ebe3ffeHzMwrWNj54oBoA
 model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
-topic: "Harm Ontology v3 Re-evaluation of structure"
+topic: Harm Ontology v3 Re-evaluation of structure
 usage: '{"usedTokens":133879,"contextWindow":1000000,"updatedAt":1795211529846}'
+lastAccessedAt: 1795211737184
 ---
 
 **user**: have any of our logged discussions or decisions or directions changed structure, elements, naming or anything else in our current understanding of the Harm Ontology we are discussing since last recorded as Harm Ontology v3 draft structure

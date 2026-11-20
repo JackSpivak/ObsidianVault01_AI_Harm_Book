@@ -6,8 +6,8 @@ sessionId: "ses_e050dacbcffes5LtWuiLfYHG0c"
 model: '{"baseModelId":"google/gemini-4-hydrogen","effort":"low"}'
 tags:
   - copilot-conversation
-topic: "Handoff - Harm Ontology note"
-usage: '{"usedTokens":14209,"contextWindow":1048576,"updatedAt":1795211589167}'
+topic: "Harm Ontology v3 mitigations for v3.1"
+usage: '{"usedTokens":20707,"contextWindow":1048576,"updatedAt":1795212141762}'
 ---
 
 **user**: read handoff note
@@ -26,3 +26,61 @@ usage: '{"usedTokens":14209,"contextWindow":1048576,"updatedAt":1795211589167}'
 What would you like to work on?
 <!-- copilot-message {"tools":["read (read): 01_The Writer's Room/Handoff - Harm Ontology.md"]} -->
 [Timestamp: 2026/11/20 14:53:02]
+
+**user**: Our last exchange in the previous conversation summarized where we need to go next.
+
+I asked:
+
+So examining the sample of this approach to keeping useful and meaningful boundaries between these layers has revealed an extremely crippling hot mess of a problem that seems to be related to a poorly designed and poorly executed methodology for implementing what may or may not be a good overall organizing strategy. untill we define a proper implementation methodology i will not have sufficiently correct and meaningful example samples to evaluate in order to decide if we even agree on the 3 layer strategy as sufficient to enable both machine and human readability.
+
+We need to jump up a level and propose a ruleset or methodology specificatiion for properly categorizing and associating vocabulary elements consistently that prevents things that have unique IRI but non unique human readable names and labels. also you said you made mistakes generating differences in owl vs turtle. also i believe you said you put one of these in the wrong place but i cannot find where you said that now.
+
+are there any external naming specifications that could help us with this?
+our current approach is revealed by our sample experiment to be inadequate and inconsistent
+what do we need to discuss and propose to resolve this methodology
+
+
+can you find your answer or do you need to recreate it?
+[Timestamp: 2026/11/20 14:58:54]
+
+**ai**: I found the answer in the previous conversation (`copilot/copilot-conversations/agent__have_any_of_our_logged_discussions_or_decisions_or_directions@20261120_092528.md`), along with the handoff note created at the end of that session: [[Handoff - Harm Ontology Methodology Re-evaluation]].
+
+Here is the answer from that exchange:
+
+### Corrections first
+- **The misplaced item:** Could not be identified in that conversation without pointing to the specific sentence.
+- **OWL vs. Turtle:** Saying the `.owl` and `.ttl` copies "may differ" was a guess—only the untyped `rdf:Description` in the `.owl` file was observed; the two files were not compared.
+
+### 1. External naming specifications
+- **OBO Foundry, Principle 12 (naming conventions):** Labels must be unique within an ontology. Each entity has exactly one label, in plain English with spaces (no CamelCase or underscores). Automated checks flag any two entities sharing a label.
+- **OBO Foundry, ID policy & Principle 3 (IRIs):** IRIs are stable, use a fixed namespace per ontology, and are not reused for a changed meaning (supporting keeping `ho:` and `hov:` IRIs separate).
+- **W3C SKOS Reference:** By convention, no two concepts in the same scheme share a notation. A concept can belong to more than one scheme, and top concepts are declared per scheme (`skos:hasTopConcept`, `skos:topConceptOf`).
+- **OWL 2 punning (from memory):** The same IRI may be used as a class, property, and individual in OWL 2 DL under restrictions, but a second, untyped declaration on the same IRI is easy to misread in an editor.
+- **ISO 25964 (thesauri) & ISO 704 (terminology) (from memory):** Standard terminology references for concept systems and naming.
+
+### 2. Why the current approach fails
+- **Same local name, different layers:** `ho:developmentalAltitude` (property) and `hov:developmentalAltitude` (hub concept) are both labelled `"developmentalAltitude"`.
+- **Untyped declarations:** The `rdf:Description` on the schema IRI adds annotations without declaring a type, so Protégé shows it inconsistently or not at all.
+- **Scheme placement is undecided:** The Integral vocabulary is a tradition, not a discipline, yet it is stored as a discipline-style scheme (same question for `psy:moralStages`).
+- **No rule for where narrative goes:** Hub narrative sits on the property in one sample and on a concept in another.
+
+### 3. Seven proposed rules to discuss and decide
+1. **Identity rule:** One IRI, one type, one unique label per layer (decide how to avoid reusing local names across layers, e.g. a suffix or distinct hub name).
+2. **Layer rule:** For each element type (property, hub, spoke, scheme, individual), specify which layer it lives in and which prefix it uses.
+3. **Scheme rule:** Decide whether a scheme is keyed to a discipline (`law:`, `psy:`) or a tradition (`int:`, linked to a `PerspectiveType`), and where a spoke belongs when its source and reporter differ.
+4. **Narrative rule:** A table specifying which annotation goes on which element type (e.g., definition on the property, explanation on the hub, citation/verification on the spoke).
+5. **Mapping rule:** Direction of match links (hub to spoke) and where the reason for each grade lives.
+6. **Check rule:** Automated OBO-style check for unique labels, single type per IRI, no untyped declarations, and every hub in a scheme.
+7. **Test rule:** Judge samples in Protégé and VocBench against the rules above, not on appearance alone.
+
+Would you like to start working through items **1 (Identity)** and **3 (Scheme)**, or draft the one-page methodology note?
+<!-- copilot-message {"tools":["glob (search)","grep (search): copilot/copilot-conversations","read (read): copilot/copilot-conversations/agent__have_any_of_our_logged_discussions_or_decisions_or_directions@20261120_092528.md"]} -->
+[Timestamp: 2026/11/20 14:58:54]
+
+**user**: before we proceed, the point of starting a new chat was to minimize context. did you have to load the entire previous transcript? are we now back in the problem of exchanging large context with each turn?
+[Timestamp: 2026/11/20 15:02:02]
+
+**ai**: No—I didn't load the whole transcript. I used `grep` to jump straight to that exchange and read only ~70 lines (lines 424–495), so this session's context is still small and clean.
+
+Ready whenever you'd like to proceed.
+[Timestamp: 2026/11/20 15:02:02]
