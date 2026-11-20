@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 mitigations for v3.1"
-usage: '{"usedTokens":44676,"contextWindow":1000000,"updatedAt":1795214609105}'
+usage: '{"usedTokens":47661,"contextWindow":1000000,"updatedAt":1795215144617}'
 ---
 
 **user**: read handoff note
@@ -233,3 +233,66 @@ They are legal sources or authorities. They need their own class, linked to the 
 
 **Question to test:** Is "legal" a spoke of a cross-cutting hub such as "harm", or is it the legal perspective's own term? If it is a spoke, the hub is the cross-cutting object and the scheme only holds the legal spokes. Which is it?
 [Timestamp: 2026/11/20 15:43:20]
+
+**user**: yes annotation attributes should not be concepts. yet there should be a collection of relevant and structurally associate concepts that describe/explain/deambiguate/clarify each property/attribute, yes?
+[Timestamp: 2026/11/20 15:46:50]
+
+**ai**: Yes, with two conditions.
+
+**The distinction:**
+- An **annotation** is text about an element, such as its definition, example, or citation. It stays a property of that element and is not a concept.
+- A **clarifying concept** is a term in its own right that resolves a confusion about an element. For example, "causation" has several senses (but-for, proximate, NESS), and the attribute `cause` needs to say which one it means. Each sense is a `skos:Concept`, and it is linked to the attribute, not made into an annotation on it.
+
+So the collection is real and useful. It should be a separate scheme, something like an **AttributeGlossary**, whose concepts are *about* the schema's properties. Each concept can carry the disambiguation text, and it is linked to the property it clarifies.
+
+**Conditions:**
+
+1. **Only where needed.** Don't create a glossary concept for every property. Create one only when the property's name is ambiguous, or when its meaning depends on a sense that competing perspectives treat differently. Otherwise the annotation on the property is enough.
+
+2. **Labels must differ.** If a property `cause` and its glossary concept are both labelled "cause", that breaks the identity rule we discussed (one unique label per layer). The glossary concept needs its own label, such as "causation (but-for sense)".
+
+Should the glossary be one scheme for the whole schema, or one per PerspectiveType? My view is one scheme for the schema, since the properties are shared across perspectives, and the sense-specific concepts link back to the perspective that uses them.
+[Timestamp: 2026/11/20 15:46:50]
+
+**user**: you have added the term element.  i would agree if an element is a class.  but we have primarily used these clarifying narratives in association with properties in our example.  properties don't typically have properties unless we reify them in some way.  correct? is this a shortcoming in our present model?
+[Timestamp: 2026/11/20 15:49:28]
+
+**ai**: Yes, that's correct. In OWL, a property can't have properties of its own unless you reify it. But a property can still carry **annotations**. An annotation property such as `skos:definition`, `rdfs:comment` or `skos:scopeNote` can be attached to an `owl:ObjectProperty` just as it can to a class. So the narrative for a property doesn't need a node of its own.
+
+The "element" I used was too loose. You're right that the relevant entities are classes, properties and individuals.
+
+**Where the model is short:**
+
+1. **Narrative as text is enough for one sense.** If a property has one meaning, its definition and explanation can sit on it as annotations.
+2. **A node is needed when the clarification has its own attributes.** Once a clarification needs provenance, a verification status, a citation, or a link to a sense that competing perspectives dispute, the text can't hold that. Then a separate node is needed, and a link from the property to it is an ordinary object property, not a property of a property.
+3. **The model doesn't yet say which case applies.** That is the real gap. The current drafts put narrative on some properties and on hub concepts, without a rule for when to use a separate node.
+
+So the rule to propose is: **annotate the property directly by default, and create a separate clarifying concept only when the clarification needs its own provenance or must link to a disputed sense.** That keeps the glossary small and makes the choice testable.
+[Timestamp: 2026/11/20 15:49:28]
+
+**user**: yes. i think this is key. the whole key is that each of these properties might have nuances that differ among different disciplines in how they are defined, what they mean, how they are applied, what they are applicable to.  i thought that is why we need a hub.  doesn't this function like a node but in concept space?
+[Timestamp: 2026/11/20 15:52:18]
+
+**ai**: Yes, that's the right way to see it, and it resolves the earlier confusion. A hub is the **node in concept space** that a property can't have in OWL. It is where the cross-discipline variation is held.
+
+**How the pieces line up**
+
+- **The property** (for example, `ho:cause`) is the schema's handle. It is what instances use.
+- **The hub** (for example, a `skos:Concept` for "causation") is the node for the idea behind the property. It is where the variation lives.
+- **The spokes** are discipline-specific readings of that idea. Each spoke holds one discipline's definition, meaning, application and applicability.
+
+Your four dimensions map onto spoke attributes:
+- **how defined:** the spoke's definition
+- **what it means:** the spoke's explanation
+- **how applied:** the spoke's example and test
+- **what it applies to:** the spoke's scope note
+
+**The rule this suggests:** a property gets a hub only when its meaning varies by discipline. A property with one meaning keeps its direct annotations, as we agreed.
+
+**Two things to keep separate:**
+
+1. **Property versus idea.** The property is the OWL term. The hub is the idea. Link them with a mapping property, and don't give them the same label, or the one-label rule breaks.
+2. **Hub versus scheme.** A hub is cross-cutting, so it belongs in the cross-discipline space, not inside one perspective's scheme. Each spoke belongs to its discipline's perspective scheme and links back to the hub.
+
+This fits what SKOS already provides: a concept with narrower spokes and mapping links. So the model needs no new class. It needs a rule for when a property gets a hub, and a link from the property to it.
+[Timestamp: 2026/11/20 15:52:18]
