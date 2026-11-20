@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 changes"
-usage: '{"usedTokens":104988,"contextWindow":1000000,"updatedAt":1795194839021}'
+usage: '{"usedTokens":111249,"contextWindow":1000000,"updatedAt":1795195578378}'
 ---
 
 **user**: have any of our logged discussions or decisions or directions changed structure, elements, naming or anything else in our current understanding of the Harm Ontology we are discussing since last recorded as Harm Ontology v3 draft structure
@@ -186,3 +186,44 @@ Neither sample has been checked in VocBench 3, and only the three-layer mini has
 I checked these points against the files and the editor-first README. I did not run Protégé or VocBench 3 on either file.
 <!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/editor_first_mini/ho-editor-mini.ttl","grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/three_layer_mini/ho-schema-mini.ttl"]} -->
 [Timestamp: 2026/11/20 10:13:45]
+
+**user**: you say -Without the declaration, an editor may not show them as narrative fields. Undeclared predicates still load, but editors may not show them. hov:explanation and ho:example you say carry this declaration as owl:AnnotationProperty with a label.   is this actually true in the editor-mini ttl or ar you describing intent or theoretical implementation
+
+should i see the rich narrative values of hov:explanation and ho:example displayed, for example in the description window for a selected class in protege?  if not where should i see them when examining editor-mini.ttl?
+[Timestamp: 2026/11/20 10:23:29]
+
+**ai**: I was describing the intended design, not something I had checked in the file. I have now checked it. The declarations are there, but I mixed up the two samples, so I need to correct the names.
+
+**What the editor-mini file actually contains**
+- **`ho:explanation` is declared.** Lines 643–644 declare it as `owl:AnnotationProperty` with label "explanation". Other narrative fields are declared the same way, including `ho:boundaryTests` (around line 404) and `ho:glossLine` (around line 718).
+- **`ho:example` does not exist.** The example field is `skos:example`, which is declared at line 37.
+- **`hov:` does not appear in this file.** Everything uses the `ho:` prefix. `hov:explanation` and `hov:boundaryTests` belong to the three-layer sample, not to editor-mini. I should not have written them as if they were in both.
+- **The declared fields are ones I checked.** I did not check every predicate in the file.
+
+**Does Protégé show them?** I have not run Protégé, so this part is from memory. Protégé normally lists annotations for the selected entity in its description view, under an annotations section. Declared annotation properties should show with their labels, and long text should wrap. I have not confirmed how the current version handles undeclared predicates, so I would not rely on my earlier statement that undeclared ones may be hidden.
+
+**Where to look in editor-mini**
+- **Spoke explanations** are on the discipline individuals, for example the Minsky-based suppression spoke and the Kant-based spoke. In Protégé, select the individual under its discipline class. In the file, the `ho:explanation` lines sit inside each individual's block. The file has many such blocks, so search for `ho:explanation` and read the subject line above each match.
+- **Hub narrative** is on the `ho:` object property (for example `ho:omission`, `ho:congruence`, `ho:developmentalAltitude`). In Protégé, select it in the Object properties tree. In the file, `ho:boundaryTests` for the omission hub is around line 1939, in the block for that property.
+- **Schema definitions** are on each `ho:` property, with `skos:definition` and `ho:designStatus`.
+
+Two things are still unknown. I have not checked how Protégé displays these values, and I have not checked that each spoke's `ho:explanation` is the only one on that individual. Opening editor-mini in Protégé and selecting one hub property and one spoke individual would settle both.
+<!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/editor_first_mini/ho-editor-mini.ttl","read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/editor_first_mini/ho-editor-mini.ttl"]} -->
+[Timestamp: 2026/11/20 10:23:29]
+
+**user**: so are you saying that i have to create an instance (is that the same as individual) of a perspectivetype for example to see its rich narrative hov:explanation and ho:example?
+[Timestamp: 2026/11/20 10:26:11]
+
+**ai**: No. You do not need to create a PerspectiveType instance to see the narrative.
+
+**What "individual" means here.** In OWL, an individual is an instance. The editor-mini file's individuals are the discipline spokes, such as `law:congruence`, `law:negligence`, `cog:censors` and `phil:junzi`, each typed by a discipline class. They are not PerspectiveType instances. In this sample I did not find any PerspectiveType individuals, such as a named tradition like Utilitarianism.
+
+**Where the hub narrative sits.** The hub narrative (`ho:boundaryTests`, `ho:explanation` and so on) is attached to the `ho:` **property** itself, for example `ho:omission`, `ho:congruence` or `ho:developmentalAltitude`. Those are properties, not instances. You see them by selecting the property in Protégé's Object properties tree, not by creating anything.
+
+**Where the spoke narrative sits.** The `ho:explanation` and `skos:example` values for a spoke sit on that spoke's individual. You see them by selecting the individual under its discipline class.
+
+**So the answer is:** to see the hub narrative, select the property. To see a spoke's narrative, select the spoke individual. Neither requires a PerspectiveType instance.
+
+A PerspectiveType instance would be needed only if you wanted to record a specific tradition's own assessments, such as its congruence or altitude. The sample does not include any. I also corrected my earlier mix-up: `hov:` belongs to the three-layer sample, and editor-mini uses `ho:` for its own fields.
+<!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/editor_first_mini/ho-editor-mini.ttl"]} -->
+[Timestamp: 2026/11/20 10:26:11]
