@@ -84,3 +84,11 @@ Would you like to start working through items **1 (Identity)** and **3 (Scheme)*
 
 Ready whenever you'd like to proceed.
 [Timestamp: 2026/11/20 15:02:02]
+
+**user**: lets start with 3 first. because i think we have issues with naming to make a variety of notions consistent and easy to understand.
+can you find and load just the portion of the previous conversation where we discussed problems of naming related to skos:ConceptScheme, skos:Concept and domain/discipline vocabularies and how these relate to traditions/perspectivetypes?
+[Timestamp: 2026/11/20 15:05:58]
+
+**ai**: 
+<!-- copilot-message {"tools":["grep (search): copilot/copilot-conversations/agent__have_any_of_our_logged_discussions_or_decisions_or_directions@20261120_092528.md"]} -->
+[Timestamp: 2026/11/20 15:05:58]
