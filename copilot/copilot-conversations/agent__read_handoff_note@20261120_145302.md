@@ -7,7 +7,7 @@ model: '{"baseModelId":"google/gemini-4-hydrogen","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 mitigations for v3.1"
-usage: '{"usedTokens":20707,"contextWindow":1048576,"updatedAt":1795212141762}'
+usage: '{"usedTokens":23704,"contextWindow":1048576,"updatedAt":1795212877437}'
 ---
 
 **user**: read handoff note
@@ -89,6 +89,17 @@ Ready whenever you'd like to proceed.
 can you find and load just the portion of the previous conversation where we discussed problems of naming related to skos:ConceptScheme, skos:Concept and domain/discipline vocabularies and how these relate to traditions/perspectivetypes?
 [Timestamp: 2026/11/20 15:05:58]
 
-**ai**: 
-<!-- copilot-message {"tools":["grep (search): copilot/copilot-conversations/agent__have_any_of_our_logged_discussions_or_decisions_or_directions@20261120_092528.md"]} -->
+**ai**: I've loaded that section (lines 322–361). Here is the core of **Rule 3 (Scheme rule)** to resolve first:
+
+### The two questions in Rule 3
+1. **What does a `skos:ConceptScheme` represent?**
+   - **Option A (current logged design):** `hov:hubs` is one `skos:ConceptScheme` that groups all cross-discipline hub `skos:Concept`s (`hov:omission`, `hov:blindSpot`, `hov:developmentalAltitude`, etc.), while discipline/tradition vocabularies (`law:`, `psy:`, `int:`) are separate `skos:ConceptScheme`s holding spoke `skos:Concept`s.
+   - **Option B (scheme-per-idea):** Each idea is its own `skos:ConceptScheme` (e.g., an `omission` scheme), containing the hub `skos:Concept` at the top and its spoke `skos:Concept`s underneath. *(Would require changing the 2026-11-17 logged decision.)*
+
+2. **How are spoke schemes keyed — by discipline or by tradition / `PerspectiveType`?**
+   - Right now, `int:` (Integral) is a **tradition**, not a discipline, yet it is stored as a discipline-style scheme alongside `law:` and `psy:`. The same question applies to `psy:moralStages`.
+   - And when a spoke's **source** (e.g., an Integral theorist) and its **reporter** (e.g., a psychology paper) differ, which scheme does it belong to?
+
+How do you want to key schemes (discipline vs. tradition/`PerspectiveType`), and do you want to keep `hov:hubs` as one scheme of hub `skos:Concept`s or switch to scheme-per-idea?
+<!-- copilot-message {"tools":["grep (search): copilot/copilot-conversations/agent__have_any_of_our_logged_discussions_or_decisions_or_directions@20261120_092528.md","read (read): copilot/copilot-conversations/agent__have_any_of_our_logged_discussions_or_decisions_or_directions@20261120_092528.md"]} -->
 [Timestamp: 2026/11/20 15:05:58]
