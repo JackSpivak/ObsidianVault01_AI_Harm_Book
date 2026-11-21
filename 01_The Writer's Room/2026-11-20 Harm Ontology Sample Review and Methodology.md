@@ -4,7 +4,7 @@ status: closed-for-chat
 workstream: Harm Ontology
 created: 2026-11-20
 source: "copilot/copilot-conversations/agent__have_any_of_our_logged_discussions_or_decisions_or_directions@20261120_092528.md"
-continued_in: "[[Handoff - Harm Ontology Methodology Re-evaluation]]"
+continued_in: "[[Handoff - Harm Ontology]]"
 harvested_through: "2026-11-20 (end of long chat)"
 ---
 

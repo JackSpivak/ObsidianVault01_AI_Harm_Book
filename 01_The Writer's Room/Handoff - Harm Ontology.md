@@ -4,9 +4,9 @@ status: developing
 tags: [handoff, ontology/harm]
 aliases: [Harm Ontology Handoff]
 created: 2026-11-15
-updated: 2026-11-19
+updated: 2026-11-20
 workstream: Harm Ontology
-latest_session: "[[2026-11-18 Harm Ontology v3 Toy Case Results]]"
+latest_session: "[[2026-11-20 Harm Ontology Sample Review and Methodology]]"
 ---
 
 # Handoff — Harm Ontology
@@ -58,6 +58,20 @@ latest_session: "[[2026-11-18 Harm Ontology v3 Toy Case Results]]"
 - **CQ6 beyond causes** (omission on a severity assessment) and **CQ7 cases** (tribe, grid, AI system, animal/herd, therapy couple, tax household, partnership, LLC, boundary, moral circle, observed core vs assessed reading) run on made-up stand-ins.
 - Result: 42 of 42 checks pass; a deliberate-breakage run made 4 fail, so the checks can fail. See [[2026-11-18 Harm Ontology v3 Toy Case Results]].
 - **Limits:** CQ7 cases have no procedure or evidence, so they test conflict vs no conflict only (mostly SingleSource); `affectedStanding` is treated as exclusive (a test choice); variant A was not extended; legal and anthropological content is unverified.
+
+## Sample review and methodology (2026-11-20; proposed, nothing logged)
+Session note: [[2026-11-20 Harm Ontology Sample Review and Methodology]]. Concept note: [[HO-II.d.3 Hub and Spoke Pattern]] (proposed bookmark, not yet in the index). Revised draft: [[Harm Ontology v3 - Draft Structure (rev 2026-11-20)]] (the 2026-11-15 draft is unchanged).
+
+- **Why:** the editor-first and three-layer mini samples, examined in Protégé, show that the three-layer strategy cannot be judged until an implementation methodology is agreed.
+- **Findings:**
+  1. One local name, three elements: `ho:developmentalAltitude` (typed `owl:ObjectProperty`, the recordable property); `hov:developmentalAltitude` (typed `skos:Concept`, the hub); and an untyped `rdf:Description` on the property's IRI in `ho-editor-mini.owl` (around line 1181).
+  2. Scheme placement is undecided. `int:scheme` (Integral) is a discipline-style scheme, but Integral Theory is one author's tradition (closer to a PerspectiveType). `psy:moralStages` is a closeMatch to the hub; its `skos:inScheme` is unchecked.
+  3. Narrative placement differs between samples (on the property in editor-first; on the concept in three-layer). No written rule decides it.
+  4. The scheme `hov:hubs` is named with a plural that reads like a concept.
+- **Corrections (do not carry forward):** a "misplaced item" mentioned earlier was never located; the `.owl` vs `.ttl` difference was never verified (only the untyped `rdf:Description` was seen); editor-first uses `ho:`, while `hov:` belongs to the three-layer sample.
+- **Proposed methodology rules (for a one-page draft, marked proposed):** 1 identity (one IRI, one type, one unique label per layer; OBO principle 12); 2 scheme (keyed to a discipline or a tradition; origin vs reporter); 3 layer (element type → layer and prefix); 4 narrative (annotation → element type); 5 mapping (direction; where the grade's reason lives); 6 check (unique labels, one type per IRI, no untyped declarations, every hub in a scheme); 7 test (judge samples against these rules, not appearance).
+- **External references:** OBO Foundry principles 3 and 12; W3C SKOS Reference (notation uniqueness per scheme; topConceptOf / hasTopConcept). OWL 2 punning and ISO 25964 are from memory.
+- **Next:** a new chat, with this note and the rev 2026-11-20 draft attached, to draft the methodology note. Do not change the samples until the rules are agreed.
 
 ## Next step
 0. **Chain toy test: done** (run 4, 48 of 48 pass; see [[2026-11-18 Harm Ontology v3 Toy Case Results]]). Horizon in the claim key worked in the test. `maxHorizon`, horizon origin and `withinChain` untested. Test only, not logged.

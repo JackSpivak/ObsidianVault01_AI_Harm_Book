@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 Re-evaluation of structure"
-usage: '{"usedTokens":158845,"contextWindow":1000000,"updatedAt":1795237088601}'
+usage: '{"usedTokens":171226,"contextWindow":1000000,"updatedAt":1795237461875}'
 lastAccessedAt: 1795235930178
 ---
 
@@ -554,3 +554,29 @@ I suggest this fix, which I have not made yet:
 Shall I make these changes?
 <!-- copilot-message {"tools":["glob (search)"]} -->
 [Timestamp: 2026/11/20 21:57:57]
+
+**user**: if all of the narrative from the Handoff - Harm Ontology Methodology Re-evaluation is now inclluded appropriately in the standard handoff note then yes, please delete it.  I want to know why you made a mistake.  you said it was a mistake and you had no reason for it.  when we establish a process i expect it to be followed and not deviated for no reason. was my request inadequate?  is the process inadequately described as a rule for this project?
+[Timestamp: 2026/11/20 22:03:27]
+
+**ai**: The standard handoff does not yet contain the methodology material, so I can't delete the separate handoff yet. The check you asked for fails right now. I'll add the material to the standard handoff, check it, and then delete the separate file.The check passes: the findings, corrections, the seven rules, the references and the next step are all in the standard handoff. Now I'll delete the separate file.I checked the standard handoff before deleting anything. It did not yet contain the methodology material, so I added it, verified it, and then deleted the separate file.
+
+**What changed**
+- [[Handoff - Harm Ontology]] now has a section for 2026-11-20. It covers the findings, corrections, the seven proposed rules, the references and the next step. Its `latest_session` and `updated` fields point to today's session note.
+- I deleted `Handoff - Harm Ontology Methodology Re-evaluation.md`. I confirmed that the file no longer exists.
+- The session note's `continued_in` now points to [[Handoff - Harm Ontology]].
+
+**Why I made the mistake**
+
+I did not check the process before writing the file. The logged rule is in [[Decisions_Log]] (2026-11-15): each workstream has one rolling handoff, overwritten at each close. I wrote a second handoff without reading that rule, and I did not check whether it was an exception. My earlier explanation, that it was a task-scoped handoff, was an after-the-fact rationalisation. There was no reason for it.
+
+**Was your request inadequate, or the rule?**
+
+Your request was clear, and the rule exists. The gap is in the rule itself. The vault already contains task-scoped handoffs, such as [[Handoff - PerspectiveStructure 0.02]] and [[Handoff - Perspective Vocabulary and v3 Follow-ups]]. These have a `parent_handoff` link. The 2026-11-15 rule says nothing about them. That made a second handoff look like a normal option to me, when the logged process says it is not.
+
+So the process is inadequately described in two ways:
+1. The rule says "one rolling handoff per workstream", but it does not say whether task-scoped handoffs are allowed. Existing files use them, and that is the ambiguity I acted on.
+2. The rule does not say when a task-scoped handoff should be created or how it should end. The existing ones are not labelled as temporary, and nothing says when to archive or merge them.
+
+I suggest adding one line to the decision log that states the rule as you described it, and deciding explicitly whether task-scoped handoffs are allowed. I would not change that rule without your approval.
+<!-- copilot-message {"tools":["read (read): 01_The Writer's Room/Handoff - Harm Ontology.md","edit (edit): 01_The Writer's Room/Handoff - Harm Ontology.md","grep (search): 01_The Writer's Room/Handoff - Harm Ontology.md","Remove-Item -LiteralPath \"01_The Writer's Room\\Handoff - Harm Ontology Methodology Re-evaluation.md\"; Test-Path -LiteralPath \"01_The Writer's Room\\Handoff - Harm Ontology Methodology Re-evaluation.md\" (execute)","edit (edit): 01_The Writer's Room/2026-11-20 Harm Ontology Sample Review and Methodology.md"]} -->
+[Timestamp: 2026/11/20 22:03:27]
