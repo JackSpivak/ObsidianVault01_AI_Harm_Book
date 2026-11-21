@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 Re-evaluation of structure"
-usage: '{"usedTokens":220450,"contextWindow":1000000,"updatedAt":1795249621554}'
+usage: '{"usedTokens":246877,"contextWindow":1000000,"updatedAt":1795250148910}'
 lastAccessedAt: 1795235930178
 ---
 
@@ -1197,3 +1197,68 @@ Organizational practice also tests the `usedBy → Organization` relation direct
 
 I'd add systems as the first test case in the replication section, with the expected individuals: SystemsTheory (Theory), SystemsDiscipline, SystemsPerspective, SystemsCommunity, and the organizational use. Should I add it to v3.1 that way?
 [Timestamp: 2026/11/21 01:26:56]
+
+**user**: this is such basic foundational territory that i am wondering if we are conceptualizing stumbling fumbling and reinventing the wheel in a conceptual territory that may have already been well considered. there are a collection of "upper ontologies" that include BFO, UFO, SUMO, GFO, gist, DOLCE that cover a lot of territory.  Can you tell from memory if our concepts overlap much?  would we be better served by existing patterns than inventing our own?
+[Timestamp: 2026/11/21 01:33:21]
+
+**ai**: From memory, yes, the overlap is substantial, and we are probably reinventing some of it. I haven't checked these details against current versions, so treat the specifics as leads to verify.
+
+**Where the upper ontologies likely overlap with us**
+
+- **BFO** (Basic Formal Ontology). Its *role* and *disposition* distinctions look like our `heldBy` and `bearerRole`. A practitioner bears a role in a practice, and a perspective is a description the practice uses. BFO also has *information content entity* for theories, plans and descriptions, which is the closest existing home for a Theory or CorePrinciples.
+- **DOLCE**. It has *descriptions* and *social objects*, plus communities and organisations. That covers Community, Organization and the "perspective as a description" idea more directly than most others.
+- **UFO** (Unified Foundational Ontology). It is the most developed on social entities: agents, roles, collectives, intentions, commitments and social relators. Its treatment of *commitments* is close to `foundationalCommitments`, which we should check first.
+- **gist**. Compact and practical, with agent, role, event, place and collection. Its handling of concepts is relevant to our skos/class split, since it also has to separate ideas from things.
+- **SUMO** and **GFO**. Broad but less relevant to the social and perspectival parts. I'm not sure SUMO has a clean Discipline class, so don't assume it does.
+
+**Where we probably add something**
+
+Upper ontologies are generic. They don't usually represent:
+- assessments relative to a perspective, with valence held only in assessments;
+- divergence as a typed object;
+- the vocabulary layer with hubs and discipline spokes;
+- the 0.02 attribute space for comparing perspectives;
+- causal assemblies and assessed omission.
+
+So I'd expect most of the skeleton's *structure* to map onto existing patterns, and our original content to sit in the domain layer above them.
+
+**Would we be better served by existing patterns?** Probably yes for the upper structure. Reinventing agent, role, community, organisation, description and process would waste effort and make alignment harder later. Our value is in the harm-specific layer.
+
+**Suggested next step:** a short mapping table from each skeleton class (Discipline, PerspectiveType, Theory, ConceptualTerritory, FieldOfApplication, CorePrinciples, CollectiveAgent, Assessment) to the nearest BFO and DOLCE terms, with "no match" marked. I'd check the BFO and DOLCE terms online before filling it in, so the table is grounded rather than from memory. Do you want that?
+[Timestamp: 2026/11/21 01:33:21]
+
+**user**: yes, but i have never even heard of gist.  just found it in a search that reported it as "lightweight" which is appealing if it has much of a deployed base
+[Timestamp: 2026/11/21 01:35:27]
+
+**ai**: gist is a real, maintained ontology, but its deployed base is mostly commercial and vendor-reported. The evidence I found:
+
+- **gist** (Semantic Arts): about 100 classes, free under CC BY 4.0, current release 14.1.0 (April 2026). Semantic Arts says it has been refined in over 100 commercial projects. The public GitHub repository has about 250 stars, which is modest. It has been aligned to BFO, and it uses everyday names such as person, organization and agreement rather than philosophical terms.
+- **BFO**: developed at Buffalo, with a large user base in life sciences (OBO Foundry). The defence community is directed to conform to it, which the gist paper reports. Its roles, dispositions and information content entities are the most relevant parts for us.
+- **DOLCE (and its lightweight version, DOLCE+DnS Ultralite)**: the best match to our core concepts. It has explicit classes for Description (with Theory, Norm, Plan and Diagnosis as subclasses), Situation, Community, CollectiveAgent, Organization and Role.
+
+**Candidate matches for our classes** (from the documentation I checked; to verify before use):
+
+| Our class | DOLCE/DUL | gist | BFO |
+|---|---|---|---|
+| Theory | Description › Theory | (none; closest is a document-like class) | information content entity |
+| CorePrinciples | Description › Norm | — | information content entity |
+| PerspectiveType | Description (a frame or view) | — | information content entity |
+| Assessment | Description applied to a Situation | — | information content entity (open) |
+| CollectiveAgent (practitioners) | CollectiveAgent › Community | Group | — (open) |
+| Organization | Organization | Organization | organization (via the Common Core Ontologies, to verify) |
+| Role (holder, user) | Role | Role | role |
+| Event (HO-007) | Event | Event | occurrent (process) |
+| Agent | Agent | Agent | independent continuant |
+| Discipline | no clean match | no clean match | no clean match |
+| ConceptualTerritory | Concept or Collection (open) | — | — (open) |
+| FieldOfApplication | Situation or setting (open) | Place or market (open) | — |
+
+**What this shows.** DOLCE covers the central concepts best. The theory, principles and perspective are descriptions that agents hold, and assessments are descriptions that apply to situations. That is close to our "perspective-relative assessment" design. BFO is strongest on roles and information content. gist is useful for organisation, agent and business settings, but it has no description-level class, so it would leave our theory and perspective concepts to be defined from scratch.
+
+Discipline and ConceptualTerritory have no clean match in any of the three. That is a real gap, and it suggests they are our own contribution, rather than reinvented patterns.
+
+**My recommendation:** use DOLCE-Ultralite as the base for the social and description layer, since it fits the perspective and theory concepts. Use BFO only where the life-science or defence alignment is needed. Use gist if business deployment matters more. Don't mix all three at the top level.
+
+Do you want me to verify these matches against the DOLCE-Ultralite and BFO documentation, and test the physics and Integral coverage using DOLCE-Ultralite as the base?
+<!-- copilot-message {"tools":["websearch (other)"]} -->
+[Timestamp: 2026/11/21 01:35:27]
