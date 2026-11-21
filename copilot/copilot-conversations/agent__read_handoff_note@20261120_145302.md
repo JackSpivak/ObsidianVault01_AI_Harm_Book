@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 mitigations for v3.1"
-usage: '{"usedTokens":62062,"contextWindow":1000000,"updatedAt":1795216422043}'
+usage: '{"usedTokens":64196,"contextWindow":1000000,"updatedAt":1795216760580}'
 ---
 
 **user**: read handoff note
@@ -451,3 +451,47 @@ Three cautions:
 
 Next step: tag about ten properties (the four required ones plus a few from group 12 and group 5) against the grid, and see whether the cells are clear. If they are, we can extend the tagging. If they aren't, the flags need a different definition before we build on them.
 [Timestamp: 2026/11/20 16:13:37]
+
+**user**: before we think about this complexity i want to imagine the visual and navigation.
+
+If we create an instance of a perspective type (for example legal) would it contain all the attributes of all the common properties populated with values from the legal branch of each hub?
+[Timestamp: 2026/11/20 16:16:57]
+
+**ai**: Not as copies. The legal instance would hold **links** to the legal content, not a copy of it. That changes what you see when you navigate.
+
+**What the legal instance would contain**
+
+- **Its own assertions** for the properties that belong to the perspective as a whole, such as its name, canonical source and foundational commitments. These are the values that are specific to law.
+- **One link per hub** to the legal spoke for that idea, for example `legal → hasSpoke → legal causation`. The hub's content stays on the hub and the spoke. The instance doesn't repeat it.
+- **Nothing for properties that were never asserted.** OWL has no list of "all properties" on an instance, so an unfilled attribute is simply absent. That is the missingness point in HO-II.e.
+
+**What you would see in Protégé**
+
+When you select the legal PerspectiveType, you'd see its asserted values and a short list of linked spokes. To read a hub's legal reading, you'd follow the link to the spoke. So the navigation is "perspective, then hub, then spoke," not "perspective, with everything inside it."
+
+**The consequence for the visual**
+
+A full picture of the legal branch, with every attribute and its value in one place, would come from a query or a report, not from the instance itself. Earlier you rejected generated pages as the way to maintain the model, so that view should stay a read-only check, not the source.
+
+If that matches what you want, the next question is which way you'd want to navigate first: from the perspective outward to hubs, or from a hub inward to each discipline's spoke. Each choice gives a different layout in Protégé.
+[Timestamp: 2026/11/20 16:16:57]
+
+**user**: if we don't do something like make instances with links, then each time we want to see a legal version of an attribute we would have to click two links deep. correct?  one to go from the perspective attribute to the associate hub and then from the hub to the legal spoke?
+[Timestamp: 2026/11/20 16:19:14]
+
+**ai**: Yes, if the path runs through the hub, it is two hops: attribute to hub, then hub to legal spoke. But the number of hops depends on how the links are stored, not only on whether we use instances.
+
+**Two ways to shorten it**
+
+1. **Use the reverse direction.** Protégé shows "Usages" for any entity: the places that reference it. If each legal spoke points to its hub, you can select the hub and see all of its spokes in one list, with no clicking through. Each spoke is still one click from the hub, but you never need to go through the property.
+
+2. **Filter by scheme.** Every legal spoke is `skos:inScheme LegalConcepts`. Selecting that scheme gives the whole legal vocabulary in one list, and you can scan it for the attribute you want without going through any hub.
+
+Both routes make the legal reading of an attribute one step away, not two. Neither needs a link from the perspective instance.
+
+**A correction to my last answer**
+
+The legal instance with links doesn't make attribute lookup shorter. It only lets you see the perspective's own values and its list of spokes in one place. For attribute-level navigation, the choice is between the hub-centred route and the scheme-centred route above.
+
+Which view do you need most: "all legal readings of this idea" or "all legal vocabulary"?
+[Timestamp: 2026/11/20 16:19:14]
