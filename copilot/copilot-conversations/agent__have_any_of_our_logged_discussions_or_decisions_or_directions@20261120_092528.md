@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 Re-evaluation of structure"
-usage: '{"usedTokens":179097,"contextWindow":1000000,"updatedAt":1795238205628}'
+usage: '{"usedTokens":198383,"contextWindow":1000000,"updatedAt":1795238857355}'
 lastAccessedAt: 1795235930178
 ---
 
@@ -611,3 +611,77 @@ If you want the 0.02 status settled, the next step is a logged decision that eit
 
 The draft has one part that is not 0.02. **PerspectiveSpecification** lists five groups: Position, Time, Optics, Purpose and Operator. These come from the ten optional properties in [[HO-II.d Perspective - Ten Optional Properties]] (decided 2026-11-14), not from 0.01 or 0.02. So the specification side uses the earlier HO-II.d structure, and the type side uses 0.02.
 [Timestamp: 2026/11/20 22:16:40]
+
+**user**: ok. is it possible to provide a table that shows  the groups and the properties that they 0.01 and 0.02 contain side by side so that we can resolve naming and inclusiion
+[Timestamp: 2026/11/20 22:20:26]
+
+**ai**: Here is the comparison. I read both notes in full: [[PerspectiveStructure 0.01]] (the eight-group base) and [[PerspectiveStructure 0.02]] (the consolidated version the draft uses). Each row is a topic, and the cells show where its properties sit in each version. "Moved" and "renamed" are my reading of the two notes.
+
+| Topic | 0.01 (group: properties) | 0.02 (group: properties) | Change |
+|---|---|---|---|
+| Required core | none (name sits in group 1) | **0 Core:** name ★, canonicalSource ★, objectOfAttention ★, foundationalCommitments ★ | New group; only these four are required |
+| Identity and lineage | **1 Identity:** name, nameByDomain, definitionByDomain, historicalNote, lineage | **2 Identity & lineage:** nameByDomain, definitionByDomain (+meaningAsOf), conceptStructure, lensKind, lineage, originatingCircumstance, transmissionMode, historicalNote | name moved to core; nameByDomain rename to …ByDiscipline pending; conceptStructure, lensKind, transmissionMode added |
+| Relations | **6 Relations:** divergesFrom/convergesWith, specializes/generalizes, complements | **1 Relations:** divergesFrom/convergesWith ★, specializes/generalizes, partOf/hasSublens, complements, complementaryWith, definedAgainst, coupledWith, correctedBy | more relation types; now group 1, not 6 |
+| Aim and purpose | **2 Aim:** objectOfAttention, purpose [A], domainOfApplicability | **5 Aim & normative core:** statedPurpose ★, normativeForm ★, valueTheory, defaultEvaluativeStandard, unitOfMeasure ★, intentWeighting ★, distributiveConcern, conflictResolution, fieldOfApplication | purpose → statedPurpose; domainOfApplicability → fieldOfApplication; objectOfAttention moved to core; normative attributes added |
+| Integral position | **3 Integral position:** quadrant, socialScope, developmentalAltitude | **3 Integral position:** 3.1 interiority ★, collectivity ★, quadrant (derived); 3.2 socialScope, moralCircle ★, developmentalAltitude | quadrant split into two axes; moralCircle added; developmentalAltitude also appears in group 11 |
+| Extent and scope | **4 Scope:** spatialScope, systemicScope, temporalScope | **4 Extent:** spatialScope, systemicScope, temporalScope (+discountRate), scaleValidity | scaleValidity added; name changed from Scope to Extent |
+| Epistemics | **5 Epistemics:** assumption, method, unitOfMeasure, observabilityLimit | **6 Epistemics:** method (+instrumentResponse ★), criterionOfTruth, inferenceModes, causalModel, errorHandling, explorationMode, factHandling, manipulability | assumption moved to core; unitOfMeasure moved to group 5; observabilityLimit not listed in 0.02 (see below) |
+| Stance (holder's side) | none | **7 Stance:** bearerRole, controlLocus, stanceTowardObject, governingAnalogies, effectOnHolder ★ | new group |
+| Subject's side | none | **8 Subject's side:** standingOfSubjects ★, modelOfSubject, legibility, consentToBeSeen ★, adaptiveResponse, livedExperience | new group; standingOfSubjects replaces "patient" (2026-11-18) |
+| Power | **7 Consequence & power:** importance, authority, whoseInterests, blindSpot, knownCritique, status | **9 Power:** authority (+authorityBasis), whoseInterests ★, costBearer ★, whoseVoice ★, powerAsymmetry, accountabilityLocus ★, remedy | importance folded into Power and Dynamics; blindSpot moved to group 11 as omission |
+| Dynamics and materiality | none (status sits in group 7) | **10 Dynamics & materiality:** performativity ★, infrastructureDependence, validFrom/validTo, changeMode, prevalence | status split into prevalence (10) and epistemicStanding (11) |
+| Assessments | none (blindSpot and knownCritique sit in group 7) | **11 Assessments:** congruence ★★, omission ★ (outOfFrame, blindSpot, acceptedHarm), failureMode, epistemicStanding, proceduralIntegrity, publicJustifiability, knownCritique | new group, each item an Assessment with assessedBy |
+| Citation and provenance | **8 Citation & provenance:** 8a sources (foundationalWork, keyReference, citation, Source class); 8b record provenance (wasAttributedTo, wasGeneratedBy, wasDerivedFrom, created/modified, originalWording); 8c trust (verificationStatus, evidenceLabel, confidence, canonStatus) | **12 Provenance & trust:** 12a sources (keyReference, citation, Source class); 12b PROV (same six as 0.01 8b); 12c verification (same four as 0.01 8c) | foundationalWork moved to canonicalSource in core |
+| Profiles | none | **Profiles (HO-II.e):** LegalInstitutional (validity, efficacy, recognitionStatus, …, legalPersonhood); LearnedModel (trainingProvenance, objectiveFunction, comprehensionClaim) | new |
+
+**Points that need a decision before naming is settled**
+1. **Group count.** 0.02 says "twelve display groups", but its numbering runs from 0 to 12, which is thirteen. Either the core is not a display group, or the count is wrong.
+2. **observabilityLimit.** 0.01 has it in group 5. I found no matching property in 0.02. It may have been folded into Box A (observability, experienceability) in the draft, but I have not confirmed that.
+3. **Two names for the same idea.** 0.02 keeps nameByDomain and definitionByDomain, with a rename to "discipline" still pending. The Decisions_Log says "domain" keeps only its OWL meaning. So the rename is not yet decided, and the wording in the two places disagrees.
+4. **Dropped items.** 0.02 lists dropped or folded items (formalCause, reflexiveApplication, dominantFactors, translationLoss, compressionLoss, limitBehavior, futureRobustness, emergentEcosystems, narrativeForm, importance, harmPrincipleRespected, degeneracy, reentrantIntegration, status, blindSpot). 0.01's other properties, such as `assumption`, appear under new names in 0.02. Each dropped item should be checked against the table before it is treated as settled.
+
+I can save this table as a note in the Harm Ontology folder, marked as a comparison, if you want to resolve these points one row at a time.
+<!-- copilot-message {"tools":["read (read): 02_Ideas Topics Concepts/Harm Ontology/PerspectiveStructure 0.02.md","read (read): 02_Ideas Topics Concepts/Harm Ontology/PerspectiveStructure 0.01.md"]} -->
+[Timestamp: 2026/11/20 22:20:26]
+
+**user**: what is involved to resolve whether we use discipline vs domain conceptually?  i frequently say discipline/domain to somewhat intentionally blur the line but also adding any nuance that is not captured by one or the other. i am aware that domain can be confusing with respect to rdfs:domain.  also, properly, the notion of domain that is a differentiating nuance is probably that domain is a conceptual territory studied or discussed or is the focus of the activity of a discipline.  would you agree? additional thoughts?
+[Timestamp: 2026/11/20 22:27:24]
+
+**ai**: I agree with your core distinction, with one refinement. Your sentence has two parts, and they should be separated:
+
+- **Domain** is the territory a discipline studies or discusses: the subject matter, such as harm, or the mind, or markets.
+- **Discipline** is the practice: its community, methods, training, institutions and vocabulary (for example law, ethics or psychology).
+
+The refinement is that a domain is not fully independent of the discipline that claims it. Disciplines partly constitute their domains by deciding what counts as a question in them. So "domain" is the territory, but its boundaries are drawn by disciplines and are contested. That is why it helps to say "the domain a discipline claims" rather than "the domain of a discipline".
+
+**Why this matters for the ontology**
+
+Your vocabulary layer already relies on the difference. The scheme names (`law:`, `eth:`, `psy:`) are disciplines, because their terms come from a practice. The hubs (`hov:congruence`) are about a territory: what the idea is, across disciplines. The current structure uses both words without saying which is meant:
+- 0.01 has `nameByDomain` and `definitionByDomain`. These are really discipline-level wordings, because each discipline names and defines the same thing differently.
+- 0.02 keeps those names, with the rename to "discipline" still pending.
+- The Decisions_Log says "domain" keeps only its OWL meaning (rdfs:domain). That conflicts with the everyday use in the same structure.
+
+**A third term you need**
+
+0.02 also has `fieldOfApplication`, which is where a perspective is applied: a jurisdiction, a setting, a product. That is neither the subject matter nor the practice. So there are three distinct things:
+1. **Domain (territory):** what is studied or discussed.
+2. **Discipline (practice):** who studies it, and with what vocabulary.
+3. **Field of application (setting):** where a lens is used.
+
+Your intentional blur is useful in prose, and I would keep it there. In the ontology, each term needs one meaning, otherwise the same property can be read three ways.
+
+**Other points to consider**
+- **Tradition is not a discipline.** Integral Theory draws on several disciplines and has its own vocabulary. It is closer to a PerspectiveType than to `psy:` or `law:`. This is the case we already flagged in the scheme question.
+- **The "field" word.** "Field" is a natural middle term (a discipline works in a field), but it is vague. It could replace "domain" in prose without the OWL clash.
+- **Protégé will show "domain" everywhere.** The Domain tab and the "domain profiles" term both use the OWL word. The vault term "domain profiles" was already renamed to "profiles" in 0.02, which is a good precedent.
+
+**What resolving it involves**
+1. Agree the three definitions above, and whether "field" is the prose term.
+2. Decide the ontology names: for example `nameByDiscipline` and `definitionByDiscipline`, with `fieldOfApplication` kept, and a term for the territory (`domain` or something else, such as `subjectArea`).
+3. Log the decision in [[Decisions_Log]], and say that "domain" in the ontology means only rdfs:domain.
+4. Find every use of "domain" in the notes that refers to subject matter or to disciplines, and mark which are prose and which are ontology names. I can do this with grep and count them first.
+5. Rename the properties in the draft structure, the 0.02 note and the samples, and rewrite links, following the rename-and-move mechanics in the bookmark skill.
+6. Add a row to the crosswalk showing how the old names map to the new ones.
+
+I would start with steps 1 and 4. Step 4 tells us how much of the vault would change, and that decides whether the rename is worth making now.
+[Timestamp: 2026/11/20 22:27:24]
