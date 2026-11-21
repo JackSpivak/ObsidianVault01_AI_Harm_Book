@@ -2,33 +2,30 @@
 epoch: 1795191928346
 mode: agent
 backendId: opencode
-sessionId: ses_e0660ebe3ffeHzMwrWNj54oBoA
+sessionId: "ses_e0660ebe3ffeHzMwrWNj54oBoA"
 model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
-topic: Harm Ontology v3 Re-evaluation of structure
-usage: '{"usedTokens":133879,"contextWindow":1000000,"updatedAt":1795211529846}'
-lastAccessedAt: 1795211737184
+topic: "Harm Ontology v3 Re-evaluation of structure"
+usage: '{"usedTokens":155745,"contextWindow":1000000,"updatedAt":1795236223683}'
+lastAccessedAt: 1795235930178
 ---
 
 **user**: have any of our logged discussions or decisions or directions changed structure, elements, naming or anything else in our current understanding of the Harm Ontology we are discussing since last recorded as Harm Ontology v3 draft structure
 [Timestamp: 2026/11/20 09:25:28]
 
-**ai**: **Error:** Internal error: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.
-[Timestamp: 2026/11/20 09:25:28]
-
 **user**: please repeat last prompt
-[Timestamp: 2026/11/20 09:29:13]
+[Timestamp: Unknown time]
 
 **ai**: Here is your previous prompt, repeated verbatim:
 
 "have any of our logged discussions or decisions or directions changed structure, elements, naming or anything else in our current understanding of the Harm Ontology we are discussing since last recorded as Harm Ontology v3 draft structure"
 
 I can run that search across your vault if you'd like.
-[Timestamp: 2026/11/20 09:29:13]
+[Timestamp: Unknown time]
 
 **user**: uyes
-[Timestamp: 2026/11/20 09:29:23]
+[Timestamp: Unknown time]
 
 **ai**: Yes. Several decisions made after the v3 draft structure was recorded have changed names and structure, and some proposals are still open. I checked the decision log and the handoffs. I did not re-verify every line of the draft note itself, so check its revision callout before relying on it.
 
@@ -53,10 +50,10 @@ I can run that search across your vault if you'd like.
 
 Two things to check: whether the AffectedEntity rename has been applied to the draft note itself, and whether the Decisions Log's 2026-11-18 "patient" wording still matches the draft.
 <!-- copilot-message {"tools":["obsidian-copilot_miyo_search (other)","grep (search)"]} -->
-[Timestamp: 2026/11/20 09:29:23]
+[Timestamp: Unknown time]
 
 **user**: please review every line of the draft note and then produce a new visual structure based on the style of the note entitled Harm Ontology v3 draft structure representing and incorporating the changes logged above
-[Timestamp: 2026/11/20 09:33:52]
+[Timestamp: Unknown time]
 
 **ai**: I read all 191 lines. I'll write the revised structure as a new note beside the original, so the original stays as the 2026-11-17/18 record.I read all 191 lines of [[Harm Ontology v3 - Draft Structure]] and wrote a revised version as a new note, [[Harm Ontology v3 - Draft Structure (rev 2026-11-20)]]. The original is unchanged.
 
@@ -76,10 +73,10 @@ Two things to check: whether the AffectedEntity rename has been applied to the d
 
 I did not edit [[Decisions_Log]] or any other note. The rename across other notes and the v1 `.ttl` remains deferred to migration.
 <!-- copilot-message {"tools":["read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure.md","write (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure (rev 2026-11-20).md"]} -->
-[Timestamp: 2026/11/20 09:33:52]
+[Timestamp: Unknown time]
 
 **user**: what is the purpose/meaning of the sections Box A thru Box D in this ontology structure? How is that different from their meaning/purpose/structure in the previous Harm Ontology v3 draft structure
-[Timestamp: 2026/11/20 09:53:17]
+[Timestamp: Unknown time]
 
 **ai**: The four boxes are the same in both versions. I did not change them in the 2026-11-20 revision.
 
@@ -98,10 +95,10 @@ The boxes sit outside the tree in both versions. They are cross-cutting rules an
 - **Nothing else changed.** The boxes are unchanged in the revision. The changes I made elsewhere, such as the AffectedEntity block, the omission categories and the SHACL rule, are all in the tree.
 
 If you want the boxes to carry the same status as the tree, I can give Box B the same "(box B)" tags and remove the duplicate three-layer line.
-[Timestamp: 2026/11/20 09:53:17]
+[Timestamp: Unknown time]
 
 **user**: we made a provisional investigation into whether to break the structure into 3 ontologies -  a schema, a vocabulary, a shacl  is this still provisional or is it logged as a decision yet?
-[Timestamp: 2026/11/20 09:59:04]
+[Timestamp: Unknown time]
 
 **ai**: It is still provisional. The three-layer idea is logged, but the split into separate files is not.
 
@@ -113,10 +110,10 @@ If you want the boxes to carry the same status as the tree, I can give Box B the
 
 So the three-way split is a logged layering with a provisional file layout. Logging the schema rename and the file layout would need your confirmation. I can draft those entries for you to approve.
 <!-- copilot-message {"tools":["grep (search)","obsidian-copilot_miyo_search (other)"]} -->
-[Timestamp: 2026/11/20 09:59:04]
+[Timestamp: Unknown time]
 
 **user**: no. not yet. so far i like the idea of maintaining vocabulary as seperate but i am so far unable to see all of the vocaabulary displayed in a way that makes sense in an ontollogy editor like Protege or vocbench3.  the entire narrative collection of properties seems to show up only as skos:relatedConcepts.  is this true?  Is there a better way to understand and visualize this in an ontology editor?
-[Timestamp: 2026/11/20 10:03:37]
+[Timestamp: Unknown time]
 
 **ai**: Partly. The narrative is not stored only as `skos:related`, so the picture you have is not quite right, but the display problem is real.
 
@@ -136,10 +133,10 @@ So the three-way split is a logged layering with a provisional file layout. Logg
 
 A next step that would not commit anything: load `ho-vocabulary-mini.ttl` into VocBench 3 and check whether hubs, spokes, schemes and the `hov:` narrative fields display in a usable way. I can write a short test checklist for that session if you want.
 <!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/three_layer_mini","grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/three_layer_mini/ho-vocabulary-mini.ttl","read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/three_layer_mini/ho-vocabulary-mini.ttl"]} -->
-[Timestamp: 2026/11/20 10:03:37]
+[Timestamp: Unknown time]
 
 **user**: WHAT is the difference between the editor-mini and three-layer-mini test sample
-[Timestamp: 2026/11/20 10:08:57]
+[Timestamp: Unknown time]
 
 **ai**: The two are test samples built the same day (2026-11-18) to answer different questions.
 
@@ -161,10 +158,10 @@ A next step that would not commit anything: load `ho-vocabulary-mini.ttl` into V
 
 Neither sample has been checked in VocBench 3, and only the three-layer mini has been opened in Protégé.
 <!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/editor_first_mini","read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/three_layer_mini/README.md.txt"]} -->
-[Timestamp: 2026/11/20 10:08:57]
+[Timestamp: Unknown time]
 
 **user**: what classes and properties hold rich narrative and how? for example where do triples describing purpose, explanation and examples attach and how? is this strictly through rdfs:domain
-[Timestamp: 2026/11/20 10:13:45]
+[Timestamp: Unknown time]
 
 **ai**: No. Narrative does not attach through `rdfs:domain`. Domain and range only say which classes a property can link. Purpose, explanation and examples are **annotation assertions**: a triple whose subject is the thing being described, whose predicate is an annotation property such as `skos:definition` or `ho:explanation`, and whose object is a text literal. Annotation properties have no domain, so any entity can carry them. The subject can be a class, a property, a named individual or a concept.
 
@@ -186,12 +183,12 @@ Neither sample has been checked in VocBench 3, and only the three-layer mini has
 
 I checked these points against the files and the editor-first README. I did not run Protégé or VocBench 3 on either file.
 <!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/editor_first_mini/ho-editor-mini.ttl","grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/three_layer_mini/ho-schema-mini.ttl"]} -->
-[Timestamp: 2026/11/20 10:13:45]
+[Timestamp: Unknown time]
 
 **user**: you say -Without the declaration, an editor may not show them as narrative fields. Undeclared predicates still load, but editors may not show them. hov:explanation and ho:example you say carry this declaration as owl:AnnotationProperty with a label.   is this actually true in the editor-mini ttl or ar you describing intent or theoretical implementation
 
 should i see the rich narrative values of hov:explanation and ho:example displayed, for example in the description window for a selected class in protege?  if not where should i see them when examining editor-mini.ttl?
-[Timestamp: 2026/11/20 10:23:29]
+[Timestamp: Unknown time]
 
 **ai**: I was describing the intended design, not something I had checked in the file. I have now checked it. The declarations are there, but I mixed up the two samples, so I need to correct the names.
 
@@ -210,10 +207,10 @@ should i see the rich narrative values of hov:explanation and ho:example display
 
 Two things are still unknown. I have not checked how Protégé displays these values, and I have not checked that each spoke's `ho:explanation` is the only one on that individual. Opening editor-mini in Protégé and selecting one hub property and one spoke individual would settle both.
 <!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/editor_first_mini/ho-editor-mini.ttl","read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/editor_first_mini/ho-editor-mini.ttl"]} -->
-[Timestamp: 2026/11/20 10:23:29]
+[Timestamp: Unknown time]
 
 **user**: so are you saying that i have to create an instance (is that the same as individual) of a perspectivetype for example to see its rich narrative hov:explanation and ho:example?
-[Timestamp: 2026/11/20 10:26:11]
+[Timestamp: Unknown time]
 
 **ai**: No. You do not need to create a PerspectiveType instance to see the narrative.
 
@@ -227,10 +224,10 @@ Two things are still unknown. I have not checked how Protégé displays these va
 
 A PerspectiveType instance would be needed only if you wanted to record a specific tradition's own assessments, such as its congruence or altitude. The sample does not include any. I also corrected my earlier mix-up: `hov:` belongs to the three-layer sample, and editor-mini uses `ho:` for its own fields.
 <!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/editor_first_mini/ho-editor-mini.ttl"]} -->
-[Timestamp: 2026/11/20 10:26:11]
+[Timestamp: Unknown time]
 
 **user**: i am still confused.  perhaps we can jump up a level.  can you explain the rationale? what function and intent is the "hub" intended to capture?  similarly, the spoke? what conceptual split determines which narrative attributes are captured by each? and why?
-[Timestamp: 2026/11/20 10:42:24]
+[Timestamp: Unknown time]
 
 **ai**: The split is about **what is shared and what is particular**. The hub holds what all disciplines agree the concept is. The spoke holds what one discipline says about it, in its own words.
 
@@ -259,10 +256,10 @@ Each narrative attribute goes to whichever level it belongs to. Anything about t
 
 **One caveat about the design.** The hub is the vocabulary-level explanation of a property. The schema defines the property itself with a short definition. These two are kept separate on purpose: the schema says what the property is, and the hub says why it is there and what the disciplines make of it. The editor-mini sample puts the hub narrative on the property, while the three-layer sample puts it on a separate concept. That is a placement choice, not a settled decision, and it is the same question as the open narrative-placement decision in the handoff.
 <!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/Vocabulary Crosswalk - Concept Hubs and Discipline Schemes.md"]} -->
-[Timestamp: 2026/11/20 10:42:24]
+[Timestamp: Unknown time]
 
 **user**: is the hub then a conceptual device that is implemented as a skos:concept?
-[Timestamp: 2026/11/20 10:48:16]
+[Timestamp: Unknown time]
 
 **ai**: Yes, in the design that is logged. A hub is a conceptual device, and the vocabulary layer implements it as a `skos:Concept`.
 
@@ -271,10 +268,10 @@ Each narrative attribute goes to whichever level it belongs to. Anything about t
 - **In the editor-first mini sample:** there is no `skos:Concept` for a hub. The hub narrative sits on the `ho:` object property itself, such as `ho:omission`. That is a different implementation of the same idea, and it does not match the logged decision.
 
 So the hub is conceptual first: a plain-named, cross-discipline idea that documents one ontology property. The `skos:Concept` is how the vocabulary layer records it. The editor-first sample currently puts the same content on the property instead, and that departs from the logged decision. It should be treated as a test, not as the design.
-[Timestamp: 2026/11/20 10:48:16]
+[Timestamp: Unknown time]
 
 **user**: So would it be fair/accurate to say the the hub names and conceptually organizes a collection of descriptive and distinguishing narratives that describe a particular concept (omission for example) that is represented as a property?
-[Timestamp: 2026/11/20 10:55:38]
+[Timestamp: Unknown time]
 
 **ai**: Yes, that is fair, with two refinements.
 
@@ -285,14 +282,14 @@ So the hub is conceptual first: a plain-named, cross-discipline idea that docume
 **Refinement 2: "represented as a property" is the editor-first arrangement, not the logged one.** The logged decision (2026-11-17) makes the hub a `skos:Concept` in the vocabulary layer, and the property is a separate schema element. The hub documents the property, so the property is the thing being described, and the hub is the vocabulary entry that describes it. The editor-first sample merges the two, which is one of the placement questions still open.
 
 So the accurate statement is: the hub is a named concept-level organizer for a set of narratives that describe and distinguish a concept, where the concept is the ontology property it documents. Whether the narratives live on the hub concept or on the property is still open.
-[Timestamp: 2026/11/20 10:55:38]
+[Timestamp: Unknown time]
 
 **user**: Please clarify more about the implementation.  I have opened the 3-layerr-mini.ttl in Protege.
 sometimes we have skos:concepts - developmentalAltitude for example - which shows in the skos:scopeNote that it is "Cross-discipline concept hub; one of three scope axes with `socialScope` (size) and `moralCircle` (which beings count)" so this suggests that a skos:concept can be a hub.  and we have skos:ConceptSchemes that have direct instance as Concept hubs.
 
 Either this is bad naming or a direct contradiction.  what is going on?
 also, it seems that the notion of a hub as you articulated above is more aligned with concept scheme.  in the sense that a concept scheme might organize multiple concepts
-[Timestamp: 2026/11/20 13:48:37]
+[Timestamp: Unknown time]
 
 **ai**: **Both, in different places, so this is a naming problem that has become a real ambiguity.** The file uses "hub" for two things, and my earlier explanation blurred them.
 
@@ -317,10 +314,10 @@ So the scheme is named after the plural ("hubs") and the members are also called
 
 Decide the design question first (concept-level hubs or scheme-per-hub). The rename can follow whichever you choose.
 <!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/three_layer_mini/ho-vocabulary-mini.ttl"]} -->
-[Timestamp: 2026/11/20 13:48:37]
+[Timestamp: Unknown time]
 
 **user**: ok i think we are leading into the same territory here ourselves. we need to learn how to work better together. can you please restate your previous answer using skos:Concept and skos:ConceptScheme only when you are referring to the semantic implementation within the ontology and reserve the word concept for when you are trying to describe a "meaningful idea" in english
-[Timestamp: 2026/11/20 13:57:57]
+[Timestamp: Unknown time]
 
 **ai**: Here is the restated answer. "Concept" is used only for an idea in plain English. `skos:Concept` and `skos:ConceptScheme` are used only for the implementation.
 
@@ -344,10 +341,10 @@ Make each idea its own `skos:ConceptScheme`, with the hub as a `skos:Concept` at
 **Naming fix, if the design stays as it is**
 
 Rename the scheme to name the collection, for example `hov:conceptHubs` or `hov:crossDisciplineHubs`. Keep "concept hub" as the description of one `skos:Concept`. The scope note on `hov:developmentalAltitude` then reads correctly.
-[Timestamp: 2026/11/20 13:57:57]
+[Timestamp: Unknown time]
 
 **user**: so what you propose sounds exactly backwards with respect to the normal usage of these terrms in vernacular english. schemes usually organize concepts.  concepts are not usually thought of as organizing conceptschemes. arbitrarily renaming ideas as concept schemes in order to enable this is crazy using this as a naming device to logically facilitate the "consistancy" of a conceptual structure in the ontology that "represents" a clustering of concepts in the real world that is described in english in EXACTLY the opposite way?  why do you propose this
-[Timestamp: 2026/11/20 14:05:06]
+[Timestamp: Unknown time]
 
 **ai**: You're right that my last proposal was muddled, and I should say where.
 
@@ -358,10 +355,10 @@ I also had no good reason to rename the existing `hov:hubs` scheme. The name "hu
 The real question, which I should have put to you directly, is about the English idea itself. Is "omission" one idea whose cross-discipline spread is organized around it (a hub), or a cluster of ideas that the vocabulary groups together? If it is one idea with its own spokes, then a scheme per idea fits the English. If it is a cluster, then the current single `hov:hubs` scheme of hub concepts fits better, and the name should describe the cluster.
 
 I'd keep the logged decision (the hub is a `skos:Concept`) unless you want to change it. Which description of the idea do you want the vocabulary to reflect?
-[Timestamp: 2026/11/20 14:05:06]
+[Timestamp: Unknown time]
 
 **user**: not yet.  please give examples. we have something called an Integral Theory vocabulary that is currently an instance of a concept scheme representing the idea of a domain/discipline vocabulary.  then we have two different individuals called developmentalAltitude. which carry different narrative content. and we have another individual called stages of moral development that is a skos:closeMatch but possibly from a different discipline and maybe should be associated with a different domain/discipline vocabulary? what explanation clarifies this? or do we need changes to naming or structure?
-[Timestamp: 2026/11/20 14:11:55]
+[Timestamp: Unknown time]
 
 **ai**: **Short answer:** the two `developmentalAltitude` individuals are not duplicates. They sit at different layers, and the shared name hides that. The "stages of moral development" individual is probably in the wrong scheme, but this is a placement question, not a naming error. The Integral vocabulary is a different kind of scheme from the discipline vocabularies, and that difference is the real issue.
 
@@ -394,10 +391,10 @@ Two options, and you choose:
 
 I have not changed any file. Tell me which option you prefer.
 <!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/three_layer_mini/ho-vocabulary-mini.ttl","grep (search): 02_Ideas Topics Concepts/Harm Ontology/Vocabulary Crosswalk - Concept Hubs and Discipline Schemes.md"]} -->
-[Timestamp: 2026/11/20 14:11:55]
+[Timestamp: Unknown time]
 
 **user**: i see two entirely seperate individuals named developmentalAltitude one is a typed individual identified as a skos:Concept. the other is untyped.   there is also an independant owl:objectProperty (or possibly dfs:objectProperty ) i cannot find the type listed in the Protege interface  i see three things where you describe 2
-[Timestamp: 2026/11/20 14:23:53]
+[Timestamp: Unknown time]
 
 **ai**: You're right, and I missed one. There are three things, not two. The file is `ho-editor-mini` in some places and `three_layer_mini` in others, so I'll name the file for each.
 
@@ -419,7 +416,7 @@ I have not changed any file. Tell me which option you prefer.
 
 Want me to check whether the `.owl` and `.ttl` copies of the editor-mini differ elsewhere?
 <!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests"]} -->
-[Timestamp: 2026/11/20 14:23:53]
+[Timestamp: Unknown time]
 
 **user**: So examining the sample of this approach to keeping useful and meaningful boundaries between these layers has revealed an extremely crippling hot mess of a problem that seems to be related to a poorly designed and poorly executed methodology for implementing what may or may not be a good overall organizing strategy.  untill we define a proper implementation methodology i will not have sufficiently correct and meaningful example samples to evaluate in order to decide if we even agree on the 3 layer strategy as sufficient to enable both machine and human readability.
 
@@ -428,7 +425,7 @@ We need to jump up a level and propose a ruleset or methodology specificatiion f
 1. are there any external naming specifications that could help us with this?
 2. our current approach is revealed by our sample experiment to be inadequate and inconsistent
 3. what do we need to discuss and propose to resolve this methodology
-[Timestamp: 2026/11/20 14:44:29]
+[Timestamp: Unknown time]
 
 **ai**: **Corrections first**
 
@@ -465,10 +462,10 @@ The sample shows four concrete problems:
 
 Start with items 1 and 3, because the other rules depend on them. Shall I draft a one-page methodology note with these seven rules, marked as proposed, for you to edit?
 <!-- copilot-message {"tools":["websearch (other)"]} -->
-[Timestamp: 2026/11/20 14:44:29]
+[Timestamp: Unknown time]
 
 **user**: how long is this conversation/context.  do we need to start a new chat to mitigate issues we discovered in this preliminary re-evaluation of harm ontology v3 samples?
-[Timestamp: 2026/11/20 14:51:36]
+[Timestamp: Unknown time]
 
 **ai**: I can't measure the exact length, but this chat is long. It contains many large file reads, grep results and long quoted passages, and that is what makes replies slower and less reliable. Starting a new chat is a good idea.
 
@@ -481,10 +478,10 @@ Before you switch, I'd save what we found so the new chat doesn't rebuild it. Th
 - **The external references:** the OBO Foundry label-uniqueness rule and the SKOS notation and top-concept guidance.
 
 I can write these into a short handoff note for the new chat, marked as a proposal and not logged in `Decisions_Log`. Then you can attach that note plus the rules draft. Should I do that?
-[Timestamp: 2026/11/20 14:51:36]
+[Timestamp: Unknown time]
 
 **user**: yews
-[Timestamp: 2026/11/20 14:51:56]
+[Timestamp: Unknown time]
 
 **ai**: I wrote the handoff note: [[Handoff - Harm Ontology Methodology Re-evaluation]], in `01_The Writer's Room/`. It is marked proposed and is not logged in [[Decisions_Log]].
 
@@ -492,4 +489,21 @@ It covers the sample findings, the corrections from this chat, the external refe
 
 To start the new chat, attach this note together with [[Harm Ontology v3 - Draft Structure (rev 2026-11-20)]].
 <!-- copilot-message {"tools":["write (edit): 01_The Writer's Room/Handoff - Harm Ontology Methodology Re-evaluation.md"]} -->
-[Timestamp: 2026/11/20 14:51:56]
+[Timestamp: Unknown time]
+
+**user**: please make a note on the confusion and excellent questions and explanations with examples of the hub and spoke design pattern. also make other notes where needed in general on this conversation and bookmark appropriately
+[Timestamp: 2026/11/20 21:43:11]
+
+**ai**: I created two notes and left the bookmark index unchanged, because the bookmark skill requires your confirmation before any index edit.
+
+**Created**
+- [[HO-II.d.3 Hub and Spoke Pattern]] in `02_Ideas Topics Concepts/Harm Ontology/`. It is a stub, marked as a proposed bookmark under [[HO-II.d Perspective - Ten Optional Properties|HO-II.d]]. It covers the purpose of each level, a table of examples (congruence, operativeMaxim, zhengming, developmentalAltitude, moralStages), the five sources of confusion, and the open questions.
+- [[2026-11-20 Harm Ontology Sample Review and Methodology]] in `01_The Writer's Room/`. It is a session note: summary, proposals (none logged), how the thinking moved, corrections, artifacts touched, and follow-ups. It records the unlocated "misplaced item" as unresolved.
+
+The earlier [[Handoff - Harm Ontology Methodology Re-evaluation]] and the revised draft are unchanged.
+
+**Bookmark placement, for your confirmation**
+- Add `HO-II.d.3 Hub and Spoke Pattern` to [[_Harm Ontology Bookmark Index]] under HO-II.d, next to HO-II.d.2 (Vocabulary Crosswalk). I have not made this edit.
+- Confirm or change the ID. The stub is dated 2026-11-20 and has `status: stub`.
+<!-- copilot-message {"tools":["skill (other)","write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-II.d.3 Hub and Spoke Pattern.md","write (edit): 01_The Writer's Room/2026-11-20 Harm Ontology Sample Review and Methodology.md"]} -->
+[Timestamp: 2026/11/20 21:43:11]
