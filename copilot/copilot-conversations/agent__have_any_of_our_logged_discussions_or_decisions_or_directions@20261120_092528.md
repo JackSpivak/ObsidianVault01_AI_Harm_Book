@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 Re-evaluation of structure"
-usage: '{"usedTokens":155745,"contextWindow":1000000,"updatedAt":1795236223683}'
+usage: '{"usedTokens":158845,"contextWindow":1000000,"updatedAt":1795237088601}'
 lastAccessedAt: 1795235930178
 ---
 
@@ -507,3 +507,50 @@ The earlier [[Handoff - Harm Ontology Methodology Re-evaluation]] and the revise
 - Confirm or change the ID. The stub is dated 2026-11-20 and has `status: stub`.
 <!-- copilot-message {"tools":["skill (other)","write (edit): 02_Ideas Topics Concepts/Harm Ontology/HO-II.d.3 Hub and Spoke Pattern.md","write (edit): 01_The Writer's Room/2026-11-20 Harm Ontology Sample Review and Methodology.md"]} -->
 [Timestamp: 2026/11/20 21:43:11]
+
+**user**: checking on our process. at one point i believe we had something we called a session note and another that was a handoff document that was intended to provide condensed context to carry an ongoing workstream forward in a new chat.  i do not remember the purpose or structure of the session note or where we keep them. is session note in the title?
+[Timestamp: 2026/11/20 21:51:36]
+
+**ai**: "Session" is not in the title. Session notes are named by date and topic, for example "2026-11-14 Harm Ontology Redesign". Handoffs are named "Handoff - <Workstream>".
+
+Here is what the vault's logged process says ([[Decisions_Log]], 2026-11-15, "Sessions, handoffs and closing"):
+
+**Session note**
+- **What it is:** a record of one Copilot chat, from its first message to its formal close. A pause doesn't end the session.
+- **Purpose:** history. It keeps the decisions, reasoning, open questions and sources of that chat, so the chat itself can be closed without losing them.
+- **Structure:** it follows the `Session` template at `00_Claude_Admin/Templates/Session.md`. The sections are Summary, Decisions made, How the thinking moved, Concepts introduced, Open questions, Original wording, External references, Artifacts touched and Follow-ups.
+- **Where:** in `01_The Writer's Room/`, dated and named by topic. It cites the chat transcript in `copilot/copilot-conversations/` as its source. Each session note links to the next one in the same workstream.
+- **Watermark:** a `harvested_through` field records how far the transcript has been processed.
+
+**Handoff**
+- **What it is:** one rolling note per workstream, overwritten at each close. It condenses the current state so a new chat can start from it.
+- **Purpose:** to carry an ongoing workstream forward without attaching the whole old chat.
+- **Structure:** it follows the `Handoff` template in the same templates folder.
+- **Where:** `01_The Writer's Room/Handoff - <Workstream>.md`, for example [[Handoff - Harm Ontology]].
+
+**Two things to check in my own notes**
+- Today I wrote the session note [[2026-11-20 Harm Ontology Sample Review and Methodology]] and the handoff [[Handoff - Harm Ontology Methodology Re-evaluation]] by hand. I followed the section list from the decision log, but I did not open the template files to confirm their exact fields. I also left out the External references section in the session note.
+- The handoff I wrote is a new, separate file. Under the logged process, the workstream handoff is [[Handoff - Harm Ontology]], which is overwritten at each close. So today's handoff may need to be merged into that note or marked as a task-scoped handoff, as the other task handoffs are.
+
+I can check the two templates and tidy both notes to match them, if you want.
+[Timestamp: 2026/11/20 21:51:36]
+
+**user**: then did we not write a session note after ending the most recent conversation on re-evaluating our harm ontology structure, naming and methodology? i don't see a note with the date first in the title.  also i see a note called Handoff - Harm Ontology Methodology Re-evaluation ...  i thought the Handoff - Harm Ontology was the note where we continuously update the conversation history.  which is the most recent handoff?  why the name change.
+[Timestamp: 2026/11/20 21:57:57]
+
+**ai**: The session note exists. It is at `01_The Writer's Room/2026-11-20 Harm Ontology Sample Review and Methodology.md`, and the date is first in the title. You may be looking in a different folder or your file list may not have refreshed.
+
+On the handoff, I made a mistake. The most recent workstream handoff is still [[Handoff - Harm Ontology]]. It is the rolling note, overwritten at each close, and the one you described. Its `latest_session` field still points to the 2026-11-18 toy-case session, so it does not yet reflect today's work.
+
+I created [[Handoff - Harm Ontology Methodology Re-evaluation]] as a separate task handoff. The logged process does not call for that here, since this is the same workstream and the handoff is meant to be overwritten, not multiplied. I had no good reason to rename it. The new file also now duplicates some of what the rolling handoff should say.
+
+The session note's `continued_in` field points to my new handoff, so it would also need correcting.
+
+I suggest this fix, which I have not made yet:
+1. Update [[Handoff - Harm Ontology]] to carry today's state: the sample findings, the proposed methodology rules, the hub and spoke note, and the open decisions.
+2. Point the session note's `continued_in` to [[Handoff - Harm Ontology]].
+3. Remove the separate methodology handoff, or keep it only if you want it as an archived task note. I would not delete it without your confirmation.
+
+Shall I make these changes?
+<!-- copilot-message {"tools":["glob (search)"]} -->
+[Timestamp: 2026/11/20 21:57:57]
