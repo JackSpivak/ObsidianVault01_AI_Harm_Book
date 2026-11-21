@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 Re-evaluation of structure"
-usage: '{"usedTokens":195208,"contextWindow":1000000,"updatedAt":1795247228395}'
+usage: '{"usedTokens":200405,"contextWindow":1000000,"updatedAt":1795247791058}'
 lastAccessedAt: 1795235930178
 ---
 
@@ -972,3 +972,45 @@ Before I create it, I need to know which changes it should contain. Here is what
 Two of these are not decisions. I would carry the rest into v3.1 as proposals, not as logged changes. Which of these should go into v3.1, and should it be a new note beside the rev 2026-11-20 draft or a revision of it?
 <!-- copilot-message {"tools":["glob (search): 02_Ideas Topics Concepts/Harm Ontology","grep (search): 00_Claude_Admin/Decisions_Log.md"]} -->
 [Timestamp: 2026/11/21 00:47:02]
+
+**user**: right now, i am thinking of Harm Ontology v3.1 as a placeholder for all of the changes we have discussed and retain as proposals, open questions and enhancements beyond what currently exists in v3.   it will also be a skeleton schema.  It will probably be best to wait on our open item/task of migrating the narrative content until we have a backbone schema finalized and tested conceptually as we are doing here by comparing physics with integral for coverage
+[Timestamp: 2026/11/21 00:50:43]
+
+**ai**: I created **Harm Ontology v3.1 - Skeleton Schema (proposed)** in `02_Ideas Topics Concepts/Harm Ontology/ontology/`. It is a placeholder for everything discussed since v3 that is not yet logged.
+
+It has four parts:
+- **Governing principles** carried over from v3, unchanged.
+- **Naming rules under consideration**: the three terms (ConceptualTerritory, Discipline, FieldOfApplication), the "domain" rule, and the Perspective suffix convention.
+- **A skeleton schema**: the proposed PerspectiveType relations for Integral and physics, plus the new Discipline, Theory, ConceptualTerritory and FieldOfApplication classes. Each is marked proposed or open.
+- **An overlap table** that maps each proposal against the existing 0.02 groups, so the coverage test has something to check.
+
+It also lists the pending structural and naming changes, the open questions, the enhancements beyond v3, and a test plan. The plan is physics against Integral for coverage, then the overlap and naming tests. Narrative migration is marked deferred until those pass.
+
+Nothing is logged. The 2026-11-21 entry in [[Decisions_Log]] is the only record of a decision from today. I did not change v3, the rev 2026-11-20 draft, or the handoff. Do you want the handoff to point to v3.1 as the current working skeleton?
+<!-- copilot-message {"tools":["write (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3.1 - Skeleton Schema (proposed).md"]} -->
+[Timestamp: 2026/11/21 00:50:43]
+
+**user**: Great.  another "conceptual test"
+
+can we say that all of what we are discussing related to physics and integral would be implemented by creating instances named by the discipline?  for example 
+
+PhysicsPerspectiveType would be a discipline specific instance of PerspectiveType carrying the attributes and attributes of our current PerspectiveStructure 0.02 and populated with initial narrative (and other) values derived primarily from note v-0.01 PhysicsCouncil review of -PerspectiveStructure
+[Timestamp: 2026/11/21 00:56:24]
+
+**ai**: Yes, as a conceptual test, with three adjustments.
+
+**1. Name the perspective, not the discipline.** `PhysicsPerspectiveType` makes physics a subtype of PerspectiveType, which blurs the distinction we just drew. A better form is an individual, `physicsPerspective`, of class PerspectiveType. The discipline is then a separate individual, `Physics` (as a Discipline), and the two are linked, for example `characteristicPerspective`. The same pattern gives `integralPerspective` for Integral. Subclasses are reserved for kinds of tradition, not for individual traditions or disciplines, as already decided on 2026-11-17.
+
+**2. Yes, the attributes come from 0.02.** Every PerspectiveType individual carries the full 0.02 structure, with missingness statuses for anything not yet known. Discipline-specific content does not change the structure, only the values.
+
+**3. Populate structure first, narrative later.** The test is about coverage, so the first instance should have the 0.02 slots filled with structure only: which slots apply, which are unknown, which are required (group 0). Filling narrative from the Physics Council review would bring back the migration we deferred, and it would be built from 0.01 names, which 0.02 has since renamed in places. The review is also not independent evidence: all seven councils were voiced by one model. So the Council review should be a source for later, not the starting values.
+
+**The test itself:** create `physicsPerspective` and `integralPerspective` with the same 0.02 slots. Then check three things:
+- Every slot applies to both, or is explicitly marked not applicable.
+- Anything physics needs that Integral cannot express becomes a gap to resolve.
+- Anything Integral needs that physics cannot express becomes a gap.
+
+If both fit cleanly, the skeleton holds. If one needs a slot the other does not, that is the finding we want.
+
+Do you want me to add a "Coverage test" section to v3.1 with these two instances and the three checks?
+[Timestamp: 2026/11/21 00:56:24]
