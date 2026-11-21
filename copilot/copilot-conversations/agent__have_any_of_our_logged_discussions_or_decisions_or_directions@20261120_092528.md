@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 Re-evaluation of structure"
-usage: '{"usedTokens":201774,"contextWindow":1000000,"updatedAt":1795239413397}'
+usage: '{"usedTokens":184741,"contextWindow":1000000,"updatedAt":1795244410857}'
 lastAccessedAt: 1795235930178
 ---
 
@@ -749,3 +749,18 @@ Do you want me to draft it as a proposal note with that test case?
 
 With the Discipline / ConceptualTerritory / FieldOfApplication distinction, the question becomes whether Integral is a PerspectiveType anchored in several disciplines, with its scales as a tradition's own assessments, and whether its vocabulary should move out of the discipline schemes. Tell me how you see it, and we can check whether the decision holds up against the samples.
 [Timestamp: 2026/11/20 22:36:48]
+
+**user**: so Integral is a perspectiveheld by
+[Timestamp: 2026/11/21 00:00:03]
+
+**ai**: You're mid-sentence, so I'll take it as: Integral is a perspective held by some agent. If so, that is a useful step. It means a tradition needs a holder, separate from its discipline anchors and its origin.
+
+The draft already has pieces for this, but none is called "held by":
+- **Stance (0.02, group 7):** `bearerRole` and `controlLocus` describe the holder's side.
+- **Lineage (0.02, group 2):** `lineage → Person` records originators and contributors. Wilber is the originator of Integral, not necessarily its current holder.
+- **Accountability (0.02, group 9):** `accountabilityLocus` says who answers for the perspective.
+
+These are different relations: origin (who started it), holding (who holds and applies it), and accountability (who answers for it). For Integral they may point to different agents: Wilber as originator, a community of practitioners as holder, and perhaps an institution or no one as accountable.
+
+Before I draft anything, please finish the sentence. Who holds Integral: Wilber, the Integral community, a specific organisation, or something else? And should "held by" be a new relation, or should we use the existing `bearerRole` and `controlLocus`?
+[Timestamp: 2026/11/21 00:00:03]
