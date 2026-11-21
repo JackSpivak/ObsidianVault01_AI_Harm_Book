@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 Re-evaluation of structure"
-usage: '{"usedTokens":184741,"contextWindow":1000000,"updatedAt":1795244410857}'
+usage: '{"usedTokens":188076,"contextWindow":1000000,"updatedAt":1795245169390}'
 lastAccessedAt: 1795235930178
 ---
 
@@ -764,3 +764,68 @@ These are different relations: origin (who started it), holding (who holds and a
 
 Before I draft anything, please finish the sentence. Who holds Integral: Wilber, the Integral community, a specific organisation, or something else? And should "held by" be a new relation, or should we use the existing `bearerRole` and `controlLocus`?
 [Timestamp: 2026/11/21 00:00:03]
+
+**user**: i believe that Integral is a perspective (integralPerspective)
+1. held by a discipline (of integral theorists and practitioners)
+2. used by organizations (to inform strategy and solve issues)
+3. informed by a theory (Integral Theory) invented, devoloped and contrtibuted to by key thinkers
+4. which has a vocabulary
+5. has several fields of application (ethics, governance, politics, business - also as confusing names for ConceptualTerritories)
+
+Maybe it will be good to use camel case IRI names that include the word Perspective as a pattern to distinguish from conceptual territory and field of application
+[Timestamp: 2026/11/21 00:10:32]
+
+**ai**: This is a clearer model than the one we had. Your five points map onto the distinctions we just settled, and they show where the mixing happens.
+
+**1. Held by a discipline.** This is a relation to a Discipline, `heldBy → Discipline`. A discipline is a practice, so the practitioners are the agents who hold it, which the stance group (`bearerRole`) can record. Keep the agents and the discipline separate.
+
+**2. Used by organizations.** This needs a new relation, `usedBy → Agent` (organizations). It is not in the draft yet, and it is the relation that carries "used to inform strategy" without making the organization a holder.
+
+**3. Informed by a theory.** This needs a class for the theory (`IntegralTheory`), with `inventedBy`, `developedBy` and `contributedBy → Person`. Our current `lineage → Person` covers only part of this. The theory is a source, so it fits the 0.02 Source class, but it also needs to be a node in its own right.
+
+**4. Has a vocabulary.** This is the point that settles the scheme question. The vocabulary belongs to the perspective, not to a discipline, so `hasVocabulary → integralPerspective` replaces `int:scheme` as a discipline scheme. The scheme would then be keyed to the tradition, which is the option we flagged earlier.
+
+**5. Fields of application.** The list mixes three kinds of thing, and this is where the confusion is:
+- **Ethics** is a discipline. It belongs in `anchoredIn`, not in `hasFieldOfApplication`.
+- **Governance, politics and business** are settings or territories. Governance and politics overlap as subject matter, while business is a setting.
+- The fix is to keep `hasFieldOfApplication` for settings only, and use `studies` for territories and `anchoredIn` for disciplines.
+
+**The naming pattern.** Using `integralPerspective` as an individual name is workable: a Perspective suffix on the individual marks it as a lens. But it cannot be a class rule, because `Discipline`, `ConceptualTerritory` and `FieldOfApplication` would then need their own suffixes, and the names would get long. I'd treat the suffix as an individual-naming convention for PerspectiveType individuals only, and test it against the methodology rules (one IRI, one type, one label per layer).
+
+**Proposed model for Integral**
+- `integralPerspective` (individual of PerspectiveType)
+- `heldBy` → Discipline (integral practice); `bearerRole` → practitioners
+- `usedBy` → Organization
+- `informedBy` → IntegralTheory, with `developedBy` → Person
+- `hasVocabulary` → the Integral vocabulary scheme
+- `anchoredIn` → psychology, philosophy, ethics (as the disciplines it draws on)
+- `hasFieldOfApplication` → governance, politics, business
+
+I'd log this as a proposal, not a decision, and test it against one discipline (ethics) and this tradition. Do you want me to draft the proposal note with that test?
+[Timestamp: 2026/11/21 00:10:32]
+
+**user**: perhaps you have named core SharedAttributes.  i think these must overlap with several that we already have.  Perspective is already rich
+[Timestamp: 2026/11/21 00:12:42]
+
+**ai**: I didn't name anything "SharedAttributes", so I'll check what I did propose. But your concern holds: several of the relations I proposed for Integral already exist in 0.02 under other names.
+
+| Proposed for Integral | Already in 0.02 | Overlap |
+|---|---|---|
+| `heldBy` → Discipline | `lineage` (group 2), `bearerRole` and `controlLocus` (group 7) | Holding is partly covered by stance. `lineage` covers originators, not the current holders. |
+| `usedBy` → Organization | `accountabilityLocus` (group 9), `authority` (group 9) | Use is not the same as accountability, so this is a real gap, not a duplicate. |
+| `informedBy` → IntegralTheory | `lineage`, `originatingCircumstance`, `transmissionMode` (group 2) | Mostly covered, except that the theory is not yet a node of its own. |
+| `hasVocabulary` | none | Real gap, but it can be modelled through the vocabulary layer rather than as a perspective attribute. |
+| `anchoredIn` → Discipline | `conceptStructure` and `lensKind` (group 2), `nameByDomain` (group 2) | Partly overlapping. The discipline link is missing. |
+| `studies` → ConceptualTerritory | `objectOfAttention` (core), `fieldOfApplication` (group 5) | Close overlap. `objectOfAttention` is the tradition's focus, which is what "studies" means. |
+| `hasFieldOfApplication` | `fieldOfApplication` (group 5) | Already there. It needs a target class, not a new property. |
+
+So the real additions are small: a holder or discipline link, `usedBy`, the theory as a node, and the vocabulary link. Most of what you listed is already in 0.02, but as text or with different names.
+
+Applying 0.02's own pragmatic test (keep an attribute only if a query or decision changes with its value), I would:
+1. Reuse `fieldOfApplication` and `objectOfAttention` instead of adding `studies` or `hasFieldOfApplication`.
+2. Add `usedBy` and `anchoredIn`, since they cover gaps.
+3. Treat `heldBy` as `bearerRole` plus a discipline link, rather than a new relation.
+4. Add `hasVocabulary` at the vocabulary layer, not on the perspective.
+
+That keeps the perspective from growing, and it gives the Integral test the same few attributes the other traditions would use. Do you want me to draft that as a proposal and check it against 0.02's group list?
+[Timestamp: 2026/11/21 00:12:42]
