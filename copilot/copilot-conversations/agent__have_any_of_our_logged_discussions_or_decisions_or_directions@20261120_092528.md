@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 Re-evaluation of structure"
-usage: '{"usedTokens":212253,"contextWindow":1000000,"updatedAt":1795248990168}'
+usage: '{"usedTokens":220450,"contextWindow":1000000,"updatedAt":1795249621554}'
 lastAccessedAt: 1795235930178
 ---
 
@@ -1127,3 +1127,73 @@ And the explanation that you gave and my clarifications that your explanation su
 **Bookmark: proposed, not yet filed.** The note is marked `HO-II.d.2.a` under the vocabulary crosswalk (HO-II.d.2), with a `canonical_id`, but I have not added it to [[_Harm Ontology Bookmark Index]]. Under the bookmark skill, index entries need your confirmation first. Say yes and I'll add it under HO-II.d.2 (or tell me another placement).
 <!-- copilot-message {"tools":["edit (edit): 00_Claude_Admin/Decisions_Log.md","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3.1 - Skeleton Schema (proposed).md","write (edit): 02_Ideas Topics Concepts/Harm Ontology/Classes and Concepts - How Elements Are Represented.md"]} -->
 [Timestamp: 2026/11/21 01:16:08]
+
+**user**: also, one more thing you have Physics as a Discipline.  to be consistant i think the instance should be called PhysicsDiscipline so that the class is distinct from the english overloaded word
+[Timestamp: 2026/11/21 01:17:52]
+
+**ai**: Agreed. The individuals now follow one pattern: a discipline or tradition prefix plus the class name in UpperCamelCase. That keeps them distinct from the English word "physics", which stays free for its overloaded senses.
+
+I updated the names in three places:
+- **[[Decisions_Log]]:** the 2026-11-21 entry now says `PhysicsDiscipline` and `PhysicsPerspective`, and records the naming rule.
+- **[[Harm Ontology v3.1 - Skeleton Schema (proposed)]]:** all occurrences changed. The naming rule now gives the pattern, with `PhysicsDiscipline`, `PhysicsPerspective`, `PhysicsConceptualTerritory` and `IntegralPerspective` as examples, and it is marked as a candidate convention.
+- **[[Classes and Concepts - How Elements Are Represented]]:** the worked table uses `PhysicsDiscipline` and `PhysicsPerspective`.
+
+Two things I did not change:
+- The English sense rows ("physics, the discipline") remain skos:Concepts, because they are words, not individuals.
+- The open-question list still says `Integral` (the Integral practice, to be confirmed) in the coverage test. That needs its own name once we decide the Integral discipline, so I left it for now.
+<!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology","grep (search): 00_Claude_Admin/Decisions_Log.md","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3.1 - Skeleton Schema (proposed).md","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/Classes and Concepts - How Elements Are Represented.md","edit (edit): 00_Claude_Admin/Decisions_Log.md"]} -->
+[Timestamp: 2026/11/21 01:17:52]
+
+**user**: do you agree that we wait to have it be a settled convention until we apply it in v3.1 and see if the coverage test holds water for the different disciplines?
+[Timestamp: 2026/11/21 01:19:37]
+
+**ai**: Yes, I agree. The naming pattern should stay a candidate convention until the coverage test has run on at least two disciplines.
+
+The reasons:
+- **It is untested.** The physics and Integral cases are both still in the planning stage. We haven't yet checked whether the pattern produces clean names in a Protégé tree or causes collisions.
+- **Two cases are not enough to rule out a problem.** Physics and Integral both come from the same discussion, so they may share a bias. A third, different kind of discipline (for example law, which is more institutional) would test the pattern more fairly.
+- **Our methodology already says so.** Rule 1 (one IRI, one type, one unique label per layer) and rule 7 (test against the rules, not appearance) both require the convention to be checked before it is settled.
+
+So the status should stay "proposed" in the v3.1 skeleton and in the Decisions Log entry. The entry already says the naming rule is a candidate. I'd add one clause: "to be confirmed after the coverage test on at least two disciplines."
+
+Do you want me to add that clause to the Decisions Log entry and the v3.1 naming rule?
+[Timestamp: 2026/11/21 01:19:37]
+
+**user**: Also, i am thinking, since it is an interdisciplinary ontology it needs to be a replicable pattern for additional new disciplines.  I am already thinking of opening the structure to consideration by other discipline centered councils.  especially military, business, ecospiritual, systems (theorists and engineers, feminists, psychology)
+[Timestamp: 2026/11/21 01:24:09]
+
+**ai**: I agree, and the list you gave is a useful test set because the councils don't all fit the same categories. Sorting them shows where the pattern is most likely to break:
+
+- **Psychology** is a clear discipline, with its own theories, methods and community. It is the closest match to physics.
+- **Military** is a discipline-like practice, but it is also strongly institutional and tied to settings. It may need `FieldOfApplication` and `accountabilityLocus` more than the discipline core.
+- **Business** is probably a field of application (management, markets) as much as a discipline. It is a good test of whether the setting and the practice can be told apart.
+- **Systems** (theory, engineering, feminist systems thinking) is cross-cutting. It may be better modelled as a Theory that informs many disciplines than as a discipline in its own right.
+- **Ecospiritual** is closer to a tradition than a discipline. It has a lineage and a worldview, but no separate academic practice. It may be an individual of PerspectiveType with no Discipline anchor, which would test whether `anchoredIn` can be empty.
+- **Feminist** work spans several disciplines and traditions at once. It is a good test of multiple `anchoredIn` links and of whether a tradition can be held across disciplines.
+
+So a replicable pattern needs more than the naming rule. It needs a short onboarding procedure, so each new council follows the same steps:
+
+1. Decide which kind of thing the council represents: discipline, tradition, field of application, or theory. Several may apply.
+2. Create the individuals with the agreed prefix pattern, and record which relations are empty or not applicable, with a reason.
+3. Run the 0.02 slots, one by one, as structure only.
+4. Create a vocabulary scheme for its terms, and treat council output as candidate values, not independent evidence.
+
+For v3.1, I'd add a section "Replication pattern and council test set", with the six councils, their expected category, and the question each one tests. Psychology and ecospiritual would be the first two to test, because they are the most different from physics.
+
+Do you want me to add that section?
+[Timestamp: 2026/11/21 01:24:09]
+
+**user**: systems theory is in fact a body of theoretical speculations and tested hypotheses.  however it is absolutely a discipline which has a perspective with core principles and practitioners and researchers in organizations
+[Timestamp: 2026/11/21 01:26:56]
+
+**ai**: You're right, and I had it wrong. I put systems in the cross-cutting category because of its theory-heavy content. But a body of theory is not the same as a discipline. Systems has its own perspective, core principles, a community of practitioners and researchers, and practice inside organizations. So it fits the discipline pattern like physics does.
+
+This also makes systems a stronger test case than I suggested, for two reasons:
+
+1. **It shows the same overloaded-word problem as physics.** "Systems" can mean the theory body (Systems Theory, with its hypotheses), the discipline (SystemsDiscipline), the perspective (SystemsPerspective), the community, or the settings in which it is applied. Each needs its own individual and its own skos:Concept sense, following the physics pattern.
+2. **It tests the Theory class.** Systems Theory is a body of theory that informs the discipline. So it should be a Theory individual that `informedBy` links to, with its status assessed, just as physics's theories are. That tests whether the Theory class and the Discipline class stay separate when the names are close.
+
+Organizational practice also tests the `usedBy → Organization` relation directly, which the Integral case only partly covers.
+
+I'd add systems as the first test case in the replication section, with the expected individuals: SystemsTheory (Theory), SystemsDiscipline, SystemsPerspective, SystemsCommunity, and the organizational use. Should I add it to v3.1 that way?
+[Timestamp: 2026/11/21 01:26:56]

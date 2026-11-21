@@ -31,8 +31,8 @@ Up to now the vault has used "concept" for two things: an OWL class and a `skos:
 ## Worked example: physics
 | Element | Type | Why |
 |---|---|---|
-| `Physics` (the practice) | individual of Discipline | studies a territory; practised in settings; anchored to a perspective |
-| `physicsPerspective` | individual of PerspectiveType | carries the 0.02 structure; held, used and informed |
+| `PhysicsDiscipline` (the practice) | individual of Discipline | studies a territory; practised in settings; anchored to a perspective |
+| `PhysicsPerspective` | individual of PerspectiveType | carries the 0.02 structure; held, used and informed |
 | `PhysicsConceptualTerritory` | individual of ConceptualTerritory | target of `studies` |
 | `PhysicsFieldOfApplication` (e.g. engineering) | individual of FieldOfApplication | target of `practisedIn` |
 | `PhysicsCorePrinciples` | individual or class (open) | a value of `foundationalCommitments`; produces verdicts |
