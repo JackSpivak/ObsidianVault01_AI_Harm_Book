@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 Re-evaluation of structure"
-usage: '{"usedTokens":198383,"contextWindow":1000000,"updatedAt":1795238857355}'
+usage: '{"usedTokens":201774,"contextWindow":1000000,"updatedAt":1795239413397}'
 lastAccessedAt: 1795235930178
 ---
 
@@ -685,3 +685,67 @@ Your intentional blur is useful in prose, and I would keep it there. In the onto
 
 I would start with steps 1 and 4. Step 4 tells us how much of the vault would change, and that decides whether the rename is worth making now.
 [Timestamp: 2026/11/20 22:27:24]
+
+**user**: it seems as though a discipline has a thing alternatively called a Domain or perhaps ConceptualTerritory (to stay away from territory as a metaphor) a discipline also has a thing called a Field of Application or a setting/situation in which the practice of the Discipline is conducted or offered
+[Timestamp: 2026/11/20 22:34:58]
+
+**ai**: Yes, that is a cleaner model than the three loose terms. I'd refine it in three places.
+
+**1. Relations, not containment.** A discipline does not contain a domain. It is oriented to one, so the link is a relation: `Discipline —studies→ ConceptualTerritory`. Several disciplines can study the same territory, and one discipline can study several. Harm is studied by law, ethics and psychology, and each draws the boundary differently. The same applies to settings: `Discipline —practisedIn→ FieldOfApplication`.
+
+**2. The setting belongs to the practice, and it can vary.** Law is practised in courts, legislatures and compliance offices. Psychology is practised in clinics, schools and research labs. So the field of application is strictly a property of a practice in a setting, and a discipline can have several. This also means `fieldOfApplication` in 0.02 should point to a setting object, not to a text value, once it is modelled.
+
+**3. Naming.**
+- **ConceptualTerritory** avoids the metaphor, but it is long. "SubjectMatter" or "ObjectOfStudy" are alternatives. The main test is whether it reads well in a Protégé tree next to `FieldOfApplication`. I'd prefer a short, plain term over a precise one, and I'd test the names in the tree before deciding.
+- **FieldOfApplication** works. "Setting" is clearer for a reader, and it is also a precise OWL class name. Keep one.
+
+**A collision to resolve first.** 0.02 already has `objectOfAttention` as a required core property of a PerspectiveType. It is close to the discipline's territory, but it describes a tradition's focus, not a discipline's. Before adding ConceptualTerritory, decide whether a tradition has its own focus, inherits its discipline's territory, or both. Otherwise the same content will sit in two places.
+
+**Two further points.**
+- A tradition like Integral Theory is anchored in several disciplines and has its own focus. So it should link to disciplines (`anchoredIn`) rather than have its own domain. This is the case we already flagged for the scheme question.
+- Protégé will show "Domain" as a class name alongside the OWL domain tab. A class called Domain is legal, but it adds to the confusion you raised. Using ConceptualTerritory avoids that.
+
+If you agree, the model would be:
+- Discipline, with `studies` → ConceptualTerritory and `practisedIn` → FieldOfApplication (or Setting).
+- PerspectiveType (tradition), with `anchoredIn` → Discipline and its own `objectOfAttention` kept only if it differs from the disciplines it draws on.
+
+I'd record this as a proposal in the decision log, not a decision, until we test it against one discipline and one tradition in the samples.
+[Timestamp: 2026/11/20 22:34:58]
+
+**user**: would it be good to represent this in the model?
+[Timestamp: 2026/11/20 22:35:16]
+
+**ai**: Yes, I think it would help, but only as a small addition with a clear test, not as a full model of every field.
+
+**Why it's worth representing**
+- It settles the naming question in the model rather than in prose. Each term gets one place and one meaning.
+- It supports queries you'll want later: which disciplines study harm, which settings a discipline is practised in, and which traditions draw on which disciplines.
+- It makes the discipline schemes (`law:`, `psy:`) line up with the schema. Right now those schemes hold terms but nothing in the schema says what the discipline is about or where it operates.
+- It gives `fieldOfApplication` (0.02) a proper target, instead of a free-text value.
+
+**Why to keep it small**
+- The hub and spoke pattern already carries discipline content. Adding a full discipline model would duplicate it.
+- Settings can grow without limit (courts, clinics, markets, AI products). Only model the ones the samples need.
+- A Discipline class with many properties would become another stub-heavy area, like the ones we already have.
+
+**A minimal proposal**
+- **Schema:** `Discipline`, `ConceptualTerritory` and `FieldOfApplication` as classes. `studies` links Discipline to ConceptualTerritory, and `practisedIn` links Discipline to FieldOfApplication. A PerspectiveType gets `anchoredIn` → Discipline.
+- **Vocabulary:** each discipline scheme (`law:`, `psy:`) is the discipline's terms, and it is linked to the schema's Discipline individual. Settings are individuals only where a sample needs them.
+- **Test:** one discipline (law), one territory (harm), two settings (courts, compliance), and one tradition (Integral Theory) anchored in several disciplines. Check it in Protégé and in a query.
+
+This would sit in the schema layer, so it would need to be in the samples and the rule set before it's logged. I'd treat it as a proposal to test, not a decision, and it fits the methodology rules we already drafted: one IRI, one type, one label per layer.
+
+Do you want me to draft it as a proposal note with that test case?
+[Timestamp: 2026/11/20 22:35:16]
+
+**user**: I think we have a seperate but related issue with integral theory that i hope we can resolve with this new clarity.  if we can then we should be able to make a decision
+[Timestamp: 2026/11/20 22:36:48]
+
+**ai**: Go ahead. Before you start, here is what I think the Integral question currently involves, so we can check it against your version.
+
+- **Integral is two things in the model.** It is a tradition: a PerspectiveType like Utilitarianism, with its own lineage and commitments. It is also the source of the axes used to describe every tradition: group 3 in 0.02 (interiority, collectivity, socialScope, moralCircle, developmentalAltitude) comes from Wilber's AQAL. So Integral is both one of the lenses being classified and the scheme that does the classifying.
+- **The vocabulary is stored as a discipline.** `int:scheme` is a `skos:ConceptScheme` that sits beside `law:` and `psy:`. The colour and Gebser scales are in it. That placement treats a tradition as if it were a field of practice.
+- **The altitude scales come from more than one source.** Integral's bands and colours, Gilligan's stages and Kohlberg's levels are all in the altitude hub. Integral reports some of them, and their origins are elsewhere, so origin and reporter need to be separated.
+
+With the Discipline / ConceptualTerritory / FieldOfApplication distinction, the question becomes whether Integral is a PerspectiveType anchored in several disciplines, with its scales as a tradition's own assessments, and whether its vocabulary should move out of the discipline schemes. Tell me how you see it, and we can check whether the decision holds up against the samples.
+[Timestamp: 2026/11/20 22:36:48]
