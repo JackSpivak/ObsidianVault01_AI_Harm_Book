@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 Re-evaluation of structure"
-usage: '{"usedTokens":246877,"contextWindow":1000000,"updatedAt":1795250148910}'
+usage: '{"usedTokens":282586,"contextWindow":1000000,"updatedAt":1795250795409}'
 lastAccessedAt: 1795235930178
 ---
 
@@ -1262,3 +1262,86 @@ Discipline and ConceptualTerritory have no clean match in any of the three. That
 Do you want me to verify these matches against the DOLCE-Ultralite and BFO documentation, and test the physics and Integral coverage using DOLCE-Ultralite as the base?
 <!-- copilot-message {"tools":["websearch (other)"]} -->
 [Timestamp: 2026/11/21 01:35:27]
+
+**user**: i don't understand what you mean by don't mix them at the top level?  and looks like we can leave out gist
+[Timestamp: 2026/11/21 01:38:23]
+
+**ai**: Upper ontologies each define the most basic categories everything else sits under. BFO splits things into continuants (things that persist, like a person or a theory document) and occurrents (things that happen, like an event). DOLCE uses different top categories: endurants, perdurants, qualities and abstracts. These are not the same cut, so they don't combine cleanly.
+
+"Don't mix them at the top level" means: pick one as the framework that our classes are actually declared under, as subclasses. If we imported both BFO and DOLCE and made some of our classes subclasses of each, a reasoner could find contradictions, such as a class that is both a continuant and an endurant when the two frameworks say those are disjoint. Fixing that means writing bridging axioms, which is the work an upper ontology is meant to save.
+
+Mapping to another framework is different. We can record that our Theory is close to BFO's information content entity, using a SKOS mapping, without importing BFO or making our class inherit from it. That keeps the alignment visible and the reasoning consistent.
+
+So the working plan would be:
+- **One base** (likely DOLCE-Ultralite): our classes are declared under its categories.
+- **Other frameworks** (BFO, and gist if ever needed): recorded only as mappings, with the matches marked as close, narrow or broad.
+
+Dropping gist is reasonable, since its main strength is enterprise deployment and it has no description-level class to fit our theory and perspective concepts.
+[Timestamp: 2026/11/21 01:38:23]
+
+**user**: ok please verify where we have matches and gaps with dolce-ultralight and show results in a table
+[Timestamp: 2026/11/21 01:40:43]
+
+**ai**: I checked the classes against the DOLCE+DnS Ultralite (DUL) OWL file, version 4.2, from ontologydesignpatterns.org. Each match below is a subclass or relation I read in the file, not from a summary. The name is "DOLCE+DnS Ultralite", often shortened to DUL.
+
+| Our class | DUL match | Verified in file | Status |
+|---|---|---|---|
+| **Theory** | `dul:Theory` ⊑ `dul:Description` (with a component that is a Relation) | Yes | Match |
+| **CorePrinciples** (proposed) | `dul:Norm` ⊑ `dul:Description`, or `dul:Description` in general | Yes (Norm is defined as "a social norm") | Partial: DUL has no principle class, so this is a candidate |
+| **PerspectiveType** (tradition) | `dul:Description` ⊑ `dul:SocialObject` | Yes (Description is defined as a conceptualization, and its comment calls it a "descriptive context") | Partial: no Perspective class; a tradition would be a Description |
+| **PerspectiveSpecification** (a view) | `dul:Description` used as a frame, with `dul:Situation` as the view it satisfies | Yes (Situation: "a view, consistent with a Description") | Match in spirit, via Situation satisfying Description |
+| **Assessment** | `dul:Situation` that `satisfies` a `dul:Description` | Yes (Situation is equivalent to "satisfies some Description") | Match, once a Perspective is a Description |
+| **Concept** (word-sense, class level) | `dul:Concept` ⊑ `dul:SocialObject`, defined in a Description | Yes | Match, but it is a different kind from our skos:Concept |
+| **Agent** | `dul:Agent` | Yes (via SocialAgent ⊑ Agent) | Match |
+| **CollectiveAgent** (practitioners) | `dul:CollectiveAgent` ⊑ `dul:SocialAgent`, with `dul:Community` ⊑ CollectiveAgent | Yes | Match |
+| **Organization** | `dul:Organization` ⊑ `dul:SocialAgent` | Yes | Match |
+| **Role** (holder, user) | `dul:Role` ⊑ `dul:Concept` (classifies an Object) | Yes | Match, with a caveat: DUL makes a Role a kind of Concept |
+| **Event** (HO-007) | `dul:Event` | Yes (class exists; not read in full) | Match |
+| **Place / setting** | `dul:Place` ⊑ `dul:SocialObject`; `dul:hasSetting` and `dul:isSettingFor` between entities and Situations | Yes | Partial: DUL has no Setting class, only settings as Situations |
+| **FieldOfApplication** | `dul:Situation` (as setting) or `dul:Place` | Yes | Partial: a field of application is a setting, which DUL treats as a Situation |
+| **Discipline** | none | Checked the class list: no discipline, practice or science class | **Gap** |
+| **ConceptualTerritory** | none direct: `dul:Collection` (the territory's members) or `dul:Concept` (the territory as a concept) | Yes (both exist) | **Gap** (no clean match) |
+| **Use of a perspective for a purpose** | none: `dul:Task`, `dul:Goal`, `dul:Plan` are close | Yes (Task, Goal, Plan exist) | Partial: `dul:Goal` and `dul:Task` may fit |
+
+**What this shows:**
+- The core structure matches well. Theory, Agent, CollectiveAgent, Organization, Role and Assessment all have DUL classes, and the perspective and situation design fits DUL's description and situation pattern closely.
+- DUL has a clear model of the setting, but only as a Situation. That is a design choice we would have to accept.
+- **Discipline and ConceptualTerritory are gaps.** Neither has a class in DUL, so they remain our own contribution.
+
+**Caveats:**
+- I checked the main file only. DUL has domain-specific modules (for example for plans, legal and information objects), which might add matches I didn't look at.
+- Several matches are partial because DUL has no class for the exact idea. I marked those as partial, not as matches.
+
+Do you want me to run the physics and Integral coverage test against DUL, with these matches as the starting point?
+<!-- copilot-message {"tools":["webfetch (fetch)","grep (search)","read (read)"]} -->
+[Timestamp: 2026/11/21 01:40:43]
+
+**user**: as you said, a lot of overlap and good alignment. two things raise question for me
+1. situation seems to be a bit overloaded and shows up in multiple places in our class catalog. taking advantage of the overlap but not being trapped in the language, could we keep our classes as subclasses of the dolce classes that work?  or are you suggesting that we use theirs directly?
+[Timestamp: 2026/11/21 01:46:27]
+
+**ai**: Our classes should be subclasses of the DUL classes that fit, not the DUL classes used directly. The reasons are practical.
+
+**Why subclassing works better**
+- **Our meaning stays ours.** A subclass can be named and labelled for our purposes, such as `Assessment` or `FieldOfApplication`, while the link to DUL supplies the logic. The label carries our meaning, and the subclass relation carries the alignment.
+- **We inherit only what we accept.** Using a DUL class directly brings in every axiom attached to it. Subclassing lets us choose the parent that fits and check its consequences.
+- **Our additions stay separate.** Discipline and ConceptualTerritory have no DUL parent, so they would be our own roots, not invented inside DUL's namespace.
+
+**How this handles Situation**
+
+The overload you noticed is real. In DUL 4.x a Situation is anything that satisfies a Description, and any entity framed by a Description becomes a Situation. So if we subclass Situation, we inherit that meaning, and we need to say which role we intend.
+
+Proposed rule:
+1. Subclass the DUL class whose *intension* fits, not the one whose *name* fits.
+2. Give our class a name for its role, so Situation never appears as our label.
+3. Record each subclass link with a one-line rationale, and check the inherited axioms with a reasoner.
+
+Applied to the cases we discussed:
+- `Assessment` ⊑ `dul:Situation`, because an assessment is a view that satisfies a perspective's description. Our label is "Assessment".
+- `FieldOfApplication` ⊑ `dul:Place` or `dul:Situation`, depending on whether it is a location or a context. This is the choice that needs a decision.
+- `Theory` ⊑ `dul:Theory`, `PerspectiveType` ⊑ `dul:Description`, and `CollectiveAgent` ⊑ `dul:CollectiveAgent` are all direct.
+
+One caution: a subclass of Concept inherits disjointness from SocialAgent, which matters for Role. We should test those consequences in the coverage test, not assume them.
+
+Do you want me to add this subclassing rule to v3.1, with the first three mappings as examples and FieldOfApplication marked as the open choice?
+[Timestamp: 2026/11/21 01:46:27]
