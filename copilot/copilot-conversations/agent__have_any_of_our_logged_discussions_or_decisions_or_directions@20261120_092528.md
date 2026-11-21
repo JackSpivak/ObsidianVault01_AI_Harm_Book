@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 Re-evaluation of structure"
-usage: '{"usedTokens":191280,"contextWindow":1000000,"updatedAt":1795246401532}'
+usage: '{"usedTokens":195208,"contextWindow":1000000,"updatedAt":1795247228395}'
 lastAccessedAt: 1795235930178
 ---
 
@@ -900,3 +900,75 @@ The territory definition includes "investigation, curiosity and inquisitive thou
 
 This also answers your first question directly: the physics perspective and the Integral perspective have the same shape, so one class covers both.
 [Timestamp: 2026/11/21 00:33:11]
+
+**user**: yes, but i would push back on your statement that the PhysicsPerspective is the PhysicsCorePrinciples. This is not true or sufficiently expressive. We have already gone through a deep exercise describing what a perspective is resulting in PerspectiveStructure 0.02.  owl:CorePrinciples should be  the rdfs:Range of ho:hasCorePrinciples or something like that
+[Timestamp: 2026/11/21 00:38:46]
+
+**ai**: You're right, and I was wrong to equate them. A perspective is the whole structure we defined in 0.02: the core, relations, identity, aim, epistemics, stance, power, assessments and provenance. Core principles are one part of that structure, not the whole.
+
+The 0.02 structure already has a place for them: group 0 (Core) includes `foundationalCommitments`, and group 5 (Aim and normative core) includes `valueTheory` and `normativeForm`. So the principles are a value that a perspective points to, not the perspective itself.
+
+So the model would be:
+- **PhysicsPerspective** (individual of PerspectiveType) carries the 0.02 structure.
+- Its `foundationalCommitments` points to **PhysicsCorePrinciples**, a class in the `ho:` namespace. (It would not be `owl:`, which is the OWL vocabulary itself.)
+- Each principle is an individual of that class, with its own status and support, which gives you the core and fringe distinction.
+
+Before adding a new `hasCorePrinciples` property, we should check whether `foundationalCommitments` already does this job. It is defined in 0.02 as the commitments a lens cannot give up, which is close to what you describe for physics. If it fits, we should reuse it and give it a range, rather than adding a second property with the same meaning.
+[Timestamp: 2026/11/21 00:38:46]
+
+**user**: lets keep this last thought as an open question - i tend to think that CorePrinciples  are associated with and characterize a perspective because the produce value rather being a "value" or expressing a "value" that can be another conversation
+[Timestamp: 2026/11/21 00:42:20]
+
+**ai**: Agreed. I'll keep it as an open question.
+
+Your point is that core principles produce value: they generate the perspective's verdicts and actions, rather than being a value the perspective expresses. That is a different relation from the one `foundationalCommitments` describes, which is closer to "what the perspective holds". Both may be needed, and that would be a separate conversation.
+
+I won't log or file anything yet. I'll add it to the open questions in the 2026-11-20 session note when you're ready.
+[Timestamp: 2026/11/21 00:42:20]
+
+**user**: i love the notion of foundationalCommitments but i think it expresses something quite important but different
+[Timestamp: 2026/11/21 00:43:16]
+
+**ai**: That fits what the 0.02 reviews said about it. Foundational commitments are what a perspective cannot give up without ceasing to be that perspective. The Logic review described them as Lakatos's "hard core": the commitments its practitioners refuse to drop, rather than what is beyond doubt. So they work as identity conditions. They say which lens this is.
+
+If that is the difference you mean, the two relations do different jobs:
+- **Foundational commitments** say what makes the perspective the perspective. They are held, and they are what a disagreement has to touch before it counts as a disagreement with this lens rather than an adjustment to it.
+- **Core principles** are the generative rules that produce verdicts and actions from the perspective's inputs. They are what the perspective does.
+
+Is that the distinction you mean, or is there something else in "foundational" that matters to you? I'd keep this as an open question with both readings recorded, since it bears on whether the two relations need to be separate.
+[Timestamp: 2026/11/21 00:43:16]
+
+**user**: This is absolutely excellent! please record this somewhere as a decision.  This is the kind of thing that needs to persist as narrative definition.  We can have the various councils reflect on what foundationalCommitment might mean more specifically (examples) from the perspective of their discipline
+[Timestamp: 2026/11/21 00:45:41]
+
+**ai**: I've added the decision to [[Decisions_Log]] as a 2026-11-21 entry, above the 2026-11-18 entries. It says that `foundationalCommitments` (identity: what a perspective cannot give up) and core principles (generative rules that produce verdicts) are different relations.
+
+The entry also records the open question of how core principles attach to a perspective, and the next step: each council reflects on what `foundationalCommitments` means in its discipline, with examples. The physics case is included as an illustration, and the entry cites your wording.
+
+I did not create a council task note, because the log entry is the record and you haven't asked for a separate handoff. Tell me if you want one, and I'll write it as a task-scoped handoff with an end condition, as the PerspectiveStructure one does.
+<!-- copilot-message {"tools":["edit (edit): 00_Claude_Admin/Decisions_Log.md"]} -->
+[Timestamp: 2026/11/21 00:45:41]
+
+**user**: lets also go ahead and be sure to add it along with other changes in naming and structure to Harm Ontology v3.1
+[Timestamp: 2026/11/21 00:47:02]
+
+**ai**: I can't find a "Harm Ontology v3.1" yet. There is no file with that name in the Harm Ontology folders, and [[Decisions_Log]] has no reference to it. So I haven't created anything.
+
+Before I create it, I need to know which changes it should contain. Here is what has been discussed and is not yet in the v3 draft:
+
+**Logged decisions to carry in**
+- The 2026-11-21 entry on `foundationalCommitments` versus core principles.
+- The 2026-11-17 and 2026-11-18 decisions already in the rev 2026-11-20 draft.
+
+**Naming changes still pending**
+- `domain` versus `discipline` in `nameByDomain` and `definitionByDomain`. The rename is not yet decided.
+- Whether the vocabulary scheme `hov:hubs` is renamed.
+- Whether `int:` is keyed to a discipline or to the Integral perspective.
+
+**Structural changes proposed but not decided**
+- The Discipline, ConceptualTerritory and FieldOfApplication classes, with `studies`, `practisedIn`, `anchoredIn`, `heldBy` and `usedBy`.
+- Physics and Integral as individuals of PerspectiveType, with the discipline and theory links.
+
+Two of these are not decisions. I would carry the rest into v3.1 as proposals, not as logged changes. Which of these should go into v3.1, and should it be a new note beside the rev 2026-11-20 draft or a revision of it?
+<!-- copilot-message {"tools":["glob (search): 02_Ideas Topics Concepts/Harm Ontology","grep (search): 00_Claude_Admin/Decisions_Log.md"]} -->
+[Timestamp: 2026/11/21 00:47:02]
