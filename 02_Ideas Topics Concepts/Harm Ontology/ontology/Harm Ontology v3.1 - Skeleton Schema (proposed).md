@@ -103,6 +103,30 @@ FIELD OF APPLICATION (proposed, new class)              e.g. engineering, medici
 - v4 Chain class bounded by a horizon (HO-006).
 - Organisations as assessors (`assessor` as organisations, HO-007).
 
+## Top priority: licence check (before any alignment work)
+- **Blocking task.** Confirm the licence of DOLCE+DnS Ultralite (DUL) before we build on it, reference it, or copy any of its files.
+- **Why.** Sources disagree: the TriplyDB copy of the ODP ontology lists Attribution-ShareAlike 3.0; a GMEOW catalogue lists LGPL; the ODP page I could reach showed the licence as "stub". DOLCE full is published with OWL inserts under the ISO/IEC 21838-3 terms.
+- **Steps.**
+  1. Read the licence statement on ontologydesignpatterns.org for DUL (the page's licence field, and any LICENSE file in the repository).
+  2. If still unclear, ask the ODP maintainers (or the LOA) in writing.
+  3. Record the answer in [[Decisions_Log]] with the source URL and date.
+- **Until resolved.** Do not copy or import DUL files into the vault or any output. Referencing DUL by IRI as a subclass parent is the only permitted use, and it should be marked provisional.
+- **Attribution.** Cite DUL (Gangemi; ODP portal) in the sources of any note that uses it, whatever the licence turns out to be.
+- **Status.** Open. Research done 2026-11-21 (see findings below); the licence for DUL is still not established.
+
+### Findings (2026-11-21, read from the sources)
+- **ODP wiki page** (ontologydesignpatterns.org, DUL): "Licensing: stub". No licence stated. Lists version 4.2.
+- **ODP repository on GitHub** (odpa/patterns-repository, EEP/DUL.owl): the OWL file carries no licence statement. Its version history ends at 3.34.
+- **TriplyDB copy of ODP DUL**: "Attribution-ShareAlike 3.0 International", version 3.32.0, last updated about six years ago.
+- **GMEOW catalogue** (a third-party list): LGPL for DUL. Source not checked directly.
+- **appliedontolab/DOLCE** repository (CC BY 4.0): holds DOLCE in OWL (DOLCEbasic, DOLCEepistemic, DOLCEnaryRel, DOLCEtweaks, by Porello, Masolo and colleagues). **It does not contain DUL.** Its CC BY 4.0 licence covers those files, not DUL.
+- **Conclusion so far:** the licence of DUL is unresolved and the sources conflict (stub, CC BY-SA 3.0, LGPL), and the versions differ (4.2, 3.34, 3.32). The one clearly licensed DOLCE OWL is a different, newer axiomatization under CC BY 4.0.
+
+### Next steps (revised)
+1. Ask the ODP maintainers in writing for DUL's licence and current version.
+2. In parallel, evaluate the CC BY 4.0 DOLCE OWL (DOLCEbasic) as a licence-clear alternative. Its class names and structure may differ from DUL, so the subclass mapping in this note would need redoing against it.
+3. Record the outcome in [[Decisions_Log]] with source URLs and dates.
+
 ## Test plan before any logging
 1. **Coverage test: physics vs Integral.** See the section below.
 2. **Overlap test.** Resolve each row of the 0.02 overlap table: reuse, rename or add.

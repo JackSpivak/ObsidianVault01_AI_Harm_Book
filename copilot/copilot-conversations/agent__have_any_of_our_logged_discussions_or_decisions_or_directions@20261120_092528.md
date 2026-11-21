@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 Re-evaluation of structure"
-usage: '{"usedTokens":282586,"contextWindow":1000000,"updatedAt":1795250795409}'
+usage: '{"usedTokens":376796,"contextWindow":1000000,"updatedAt":1795251245827}'
 lastAccessedAt: 1795235930178
 ---
 
@@ -1345,3 +1345,102 @@ One caution: a subclass of Concept inherits disjointness from SocialAgent, which
 
 Do you want me to add this subclassing rule to v3.1, with the first three mappings as examples and FieldOfApplication marked as the open choice?
 [Timestamp: 2026/11/21 01:46:27]
+
+**user**: i think it is a good choice.  is DOLCE free or open use liscense of some sort?
+[Timestamp: 2026/11/21 01:48:35]
+
+**ai**: DOLCE is free to use in practice, but its licence is not clearly stated, so we should check before relying on it.
+
+- **DOLCE (full) and the LOA-hosted OWL files:** no single licence is stated. The ISO/IEC 21838-3 standard publishes OWL and Common Logic versions as free electronic inserts under the ISO Customer Licence Agreement. The standard text itself is sold.
+- **DOLCE+DnS Ultralite (DUL):** sources disagree. The TriplyDB copy of the ODP ontology lists Attribution-ShareAlike 3.0. A GMEOW catalogue lists LGPL. The ODP page I could reach showed the licence field as "stub", so I could not confirm the licence on the source page.
+
+What this means for us:
+- **Referencing DUL by its IRI** (as the subclass parent) is the least risky use. The vault would not copy the file, and our ontology would only point to DUL's classes.
+- **Copying or importing the DUL file** into our vault or published output could trigger the licence terms, which are unclear. We should not do that until the licence is confirmed.
+- **Attribution** is needed whichever licence applies, so we should cite DUL (Gangemi and the ODP portal) in v3.1 regardless.
+
+Next step: check the licence statement on ontologydesignpatterns.org directly, or ask the ODP maintainers, before we publish anything that includes DUL content. I can add a licence check to the v3.1 open questions and cite DUL in the sources.
+<!-- copilot-message {"tools":["websearch (other)"]} -->
+[Timestamp: 2026/11/21 01:48:35]
+
+**user**: add license check as top priority before we put work into using/aligning with it
+[Timestamp: 2026/11/21 01:50:32]
+
+**ai**: I added the licence check to [[Harm Ontology v3.1 - Skeleton Schema (proposed)]] as the top priority, placed before the test plan.
+
+It is a blocking task. Until it is resolved, we should not copy or import DUL files, and any use of DUL should be referencing by IRI only, marked provisional. The steps are:
+1. Read the licence on ontologydesignpatterns.org and any LICENSE file in the repository.
+2. If still unclear, ask the ODP maintainers or the LOA in writing.
+3. Record the answer in [[Decisions_Log]], with the source and date.
+
+It also records the conflicting sources, and it requires DUL to be cited in any note that uses it. The status is open and not yet started.
+<!-- copilot-message {"tools":["edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3.1 - Skeleton Schema (proposed).md"]} -->
+[Timestamp: 2026/11/21 01:50:32]
+
+**user**: can you researrch this more deeply? opening and reading the files youve found?
+[Timestamp: 2026/11/21 01:51:23]
+
+**ai**: I read the sources directly. The licence for DOLCE+DnS Ultralite (DUL) is still not established, and the sources conflict. There is one clearly licensed DOLCE, but it is not DUL.
+
+**What each source says about DUL**
+- **ODP wiki page** (ontologydesignpatterns.org): "Licensing: stub". No licence is stated. It lists version 4.2.
+- **ODP repository on GitHub** (odpa/patterns-repository, EEP/DUL.owl): the OWL file has no licence statement. Its version history ends at 3.34.
+- **TriplyDB copy of ODP DUL**: Attribution-ShareAlike 3.0 International, version 3.32.0, last updated about six years ago.
+- **GMEOW catalogue** (a third-party list): LGPL. I did not check the original.
+
+**The clearly licensed DOLCE**
+The appliedontolab/DOLCE repository is under CC BY 4.0. It holds DOLCE in OWL: DOLCEbasic, DOLCEepistemic, DOLCEnaryRel and DOLCEtweaks, from Porello, Masolo and colleagues. It does **not** contain DUL, so its licence does not cover DUL. It is a newer axiomatization with its own class names, so our subclass mapping would have to be redone against it.
+
+**What I recommend**
+1. Ask the ODP maintainers in writing for DUL's licence and current version. The three versions (4.2, 3.34, 3.32) also need reconciling.
+2. In parallel, assess DOLCEbasic as a licence-clear base, and check whether its classes fit our mappings.
+3. Record the outcome in [[Decisions_Log]] with the source URLs and dates.
+
+I updated the licence section of [[Harm Ontology v3.1 - Skeleton Schema (proposed)]] with these findings and the revised next steps. It is still the top priority, and nothing has been decided.
+<!-- copilot-message {"tools":["webfetch (fetch)","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3.1 - Skeleton Schema (proposed)","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3.1 - Skeleton Schema (proposed).md"]} -->
+[Timestamp: 2026/11/21 01:51:23]
+
+**user**: are you able to assess Dolcebasic as you suggest? with table output?
+[Timestamp: 2026/11/21 01:53:44]
+
+**ai**: I read DOLCEbasic (version 3.5) and DOLCEepistemic from the appliedontolab repository. Both declare `terms:license` as CC BY 4.0 in their ontology metadata. DOLCEepistemic imports DOLCEnaryRel, which I did not check.
+
+**Class-level comparison**
+
+| Our class | DOLCEbasic / DOLCEepistemic class | Status |
+|---|---|---|
+| Theory | none. Closest is `Content` (a `ComplexContent` is a kind of Content, and Content is Abstract), but Content is about classification and observation, not general theories | Gap (weak partial) |
+| CorePrinciples | none | Gap |
+| PerspectiveType | none (`Concept` classifies entities; that is not a perspective) | Gap |
+| PerspectiveSpecification | `Observation` (a NonAgentiveSocialObject with `obsSource` and `obsContent`) | Partial |
+| Assessment | `ObsAssertion` / `Observation` (with source and content) | Partial, probably good: an assessment is an observation with a source and content |
+| Concept (class level) | `Concept` ⊑ `NonAgentiveSocialObject`; it classifies an entity | Match |
+| Agent | `AgentiveSocialObject`, `SocialAgent`, `AgentivePhysicalObject` | Match |
+| CollectiveAgent | `Society` (a collective agentive social object; examples are a nation or a company) | Partial |
+| Organization | `Society` (no separate class) | Partial |
+| Community | none (`Society` is the nearest) | Gap |
+| Role | none. A role would have to be modelled as a Concept | Gap |
+| Event | `Event` and `Process` in DOLCEbasic | Match |
+| Place / setting | `SpatialLocation`, `TemporalLocation` | Partial |
+| FieldOfApplication | none (a setting has no class) | Gap |
+| Discipline | none | Gap |
+| ConceptualTerritory | none | Gap |
+| Situation / Description | none | Gap |
+
+**What this means**
+
+- DOLCEbasic and DOLCEepistemic are **licence-clear** (CC BY 4.0). That is a real advantage over DUL, whose licence is still unresolved.
+- They are **weaker exactly where we most need them**. DUL has `Description`, `Theory`, `Norm`, `Situation` and `Role`, and those carry the perspective, theory and assessment design. DOLCEbasic and DOLCEepistemic have no description or situation layer. Their `Observation` is the nearest match for assessment, but it does not cover perspectives or theories.
+- The subclassing approach still works, but more of our classes would be roots with no DOLCE parent. In practice that means the perspective and theory layer would be our own, and only the agent, event and concept layers would inherit from DOLCE.
+
+**Options**
+
+1. **DOLCEbasic plus DOLCEepistemic as the base**, with our own root classes for Theory, PerspectiveType and Discipline, mapped to DUL by `skos:closeMatch` for reference. This is licence-clean and small.
+2. **Keep DUL**, but only after the licence is confirmed (the top priority in v3.1).
+3. **Use ISO/IEC 21838-3 DOLCE** (the full standard), which the sources say is free to download under the ISO licence terms. I have not checked whether the full DOLCE includes a description or situation layer, or whether its terms allow our use.
+
+My recommendation is to ask the ODP maintainers about DUL's licence (step 1 in the v3.1 note) and, in parallel, check the full ISO DOLCE for the description layer. I would not commit to DOLCEbasic alone, because it would leave the perspective layer with no parent.
+
+Do you want me to add this table and the three options to the v3.1 note?
+<!-- copilot-message {"tools":["webfetch (fetch)","grep (search)","read (read)"]} -->
+[Timestamp: 2026/11/21 01:53:44]
