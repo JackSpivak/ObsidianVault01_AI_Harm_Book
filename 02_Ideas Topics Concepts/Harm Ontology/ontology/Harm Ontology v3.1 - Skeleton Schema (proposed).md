@@ -18,6 +18,9 @@ Placeholder for every change discussed since the v3 draft that is not yet logged
 - Theories of harm describe and judge; they do not classify. No intrinsic harmfulness; valence lives only in assessments.
 - Open world, explicit missingness, profiles rather than domains.
 - Three layers: schema (OWL, `ho:`), profiles (SHACL), vocabulary (SKOS). Layer-1 name "schema" is adopted but not yet logged.
+- **Classes and concepts (2026-11-21, logged; agreed as the working rule):** an element that takes part in a relation is an individual of an OWL class. A word-sense to be defined and mapped is a skos:Concept in the vocabulary. Each sense of an overloaded word gets its own skos:Concept, linked to its individual. An individual is never typed as a skos:Concept. → [[Classes and Concepts - How Elements Are Represented]]
+- **Perspective individuals (2026-11-21, logged):** a discipline's perspective (for example `physicsPerspective`) and a tradition's perspective (for example `integralPerspective`) are individuals of PerspectiveType, not subclasses. Disciplines (`Physics`) are individuals of Discipline.
+- **Foundational commitments (2026-11-21, logged):** `foundationalCommitments` states identity, what a perspective cannot give up. Core principles are a separate relation: they produce verdicts. → [[PerspectiveStructure 0.02]]
 
 ## Naming rules under consideration (proposed)
 - One IRI, one type and one unique label per layer ([[Handoff - Harm Ontology]], methodology rules 1–7).
@@ -86,6 +89,13 @@ FIELD OF APPLICATION (proposed, new class)              e.g. engineering, medici
 - Should "use" be one relation or two: `practisedIn` (settings) and `usedBy` (agents)?
 - Should a theory's status be an Assessment with `assessedBy`, or a fixed value?
 - Statement-level provenance (RDF-star or named graphs), an attribute-space model for comparing traditions, and whether the ontology is an instance of its own PerspectiveType (carried from 0.02).
+
+### Class or concept: how elements are typed (proposed rule, open)
+- **Rule under test:** an element is an individual of an OWL class if it takes part in a relation in the model. It is described by a skos:Concept in the vocabulary if it is a word-sense to be defined, labelled and mapped. Each sense of an overloaded word (for example "physics": territory, field, discipline, principles, community) gets its own skos:Concept, linked to its individual. The individual is not typed as a skos:Concept.
+- **Applied to the physics elements (proposed):** `Physics` → Discipline; `physicsPerspective` → PerspectiveType; `PhysicsConceptualTerritory` → ConceptualTerritory; `PhysicsFieldOfApplication` → FieldOfApplication; `PhysicsCorePrinciples` → CorePrinciples (proposed class); `PhysicsCommunity` → CollectiveAgent.
+- **Open 1:** `CorePrinciples` is not yet in the skeleton. Is it a class with individual principles as members, or a single individual whose members are principles? This connects to the open question on attachment.
+- **Open 2:** `CollectiveAgent` (in v3 under Agent) is not yet linked to a PerspectiveType as its holder. The skeleton needs that link (`heldBy`), and it should be checked against `bearerRole` and `lineage` (see the 0.02 overlap table).
+- **Open 3:** whether the rule holds for elements that are both a participant and a term, such as ConceptualTerritory, where the English word is also a vocabulary sense.
 
 ## Enhancements beyond v3 (proposed)
 - Separate `ResponsibilityAssessment`, `ValenceAssessment` and `CausalAssessment` (pending, HO-005).

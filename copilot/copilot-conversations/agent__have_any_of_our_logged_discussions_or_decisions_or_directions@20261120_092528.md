@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 Re-evaluation of structure"
-usage: '{"usedTokens":204135,"contextWindow":1000000,"updatedAt":1795248260939}'
+usage: '{"usedTokens":212253,"contextWindow":1000000,"updatedAt":1795248990168}'
 lastAccessedAt: 1795235930178
 ---
 
@@ -1066,3 +1066,64 @@ So the pattern is two layers, one for the thing and one for the word:
 
 I'd add this as an open question to v3.1, not a decision: "Class or skos:Concept for each element, decided by whether it takes part in relations or is a term to be defined and mapped." Shall I add it?
 [Timestamp: 2026/11/21 01:04:10]
+
+**user**: I like your distinction as it stands. before logging as a decision, lets examine it in place here.  do you agree with my characterization then that individual disciplines and individual discipline versions of perspective, etc would be instances of their respective classes
+[Timestamp: 2026/11/21 01:08:00]
+
+**ai**: Yes, with three checks that come from applying the rule to each element.
+
+**The rule applied to the physics elements**
+
+| Element | Class (instance of) | Why the class |
+|---|---|---|
+| `Physics` (the practice) | `Discipline` | studies a territory, is practised in settings, is anchored to a perspective |
+| `physicsPerspective` | `PerspectiveType` | carries the 0.02 structure; held, used and informed |
+| `PhysicsConceptualTerritory` | `ConceptualTerritory` | the target of `studies` |
+| `PhysicsFieldOfApplication` (e.g. engineering) | `FieldOfApplication` | the target of `practisedIn` |
+| `PhysicsCorePrinciples` | `CorePrinciples` (proposed class) | a value of `foundationalCommitments`, and it produces verdicts |
+| `PhysicsCommunity` | `CollectiveAgent` (already in v3 under Agent) | the holder of the perspective |
+
+So yes, each is an individual of its respective class.
+
+**Three things to check in place**
+
+1. **Every class needs to exist in the skeleton.** `Discipline`, `PerspectiveType`, `ConceptualTerritory` and `FieldOfApplication` are in v3.1. `CorePrinciples` is proposed. `CollectiveAgent` is in v3 under Agent, but it is not yet linked to the perspective's holder, so the skeleton should show that link.
+2. **The English sense gets a skos:Concept, but not the class.** Each sense of "physics" (territory, field, discipline, principles, community) is a separate skos:Concept in the vocabulary, linked to its individual. The individual is the participant, and the skos:Concept is the wording. The individual should not be typed as a skos:Concept.
+3. **`PhysicsCorePrinciples` is the open case.** It is a collection, so it could be a class with individual principles, or it could be a single individual with principles as members. That is a question about how the principles are counted, and it connects to the open question on attachment.
+
+So the rule holds: individuals of their classes, with a skos:Concept for each word-sense. The two points still to settle are the `CorePrinciples` class and the link from `CollectiveAgent` to the perspective. Shall I add those as open questions in v3.1 before logging anything?
+[Timestamp: 2026/11/21 01:08:00]
+
+**user**: yes
+[Timestamp: 2026/11/21 01:11:15]
+
+**ai**: I added a section to [[Harm Ontology v3.1 - Skeleton Schema (proposed)]] titled "Class or concept: how elements are typed".
+
+It records the rule as proposed, not logged:
+- An element is an individual of an OWL class if it takes part in a relation. It gets a skos:Concept if it is a word-sense to be defined and mapped.
+- Each sense of an overloaded word gets its own skos:Concept, linked to its individual.
+- The physics elements are typed as listed in the earlier answer.
+
+Three open questions follow:
+1. Is `CorePrinciples` a class with principles as members, or one individual with principles as members?
+2. `CollectiveAgent` needs a link to its perspective. That link should be checked against `bearerRole` and `lineage`.
+3. Whether the rule holds for an element that is both a participant and a term, such as ConceptualTerritory.
+
+Nothing is logged. The 2026-11-21 entry in [[Decisions_Log]] is the only decision from today.
+<!-- copilot-message {"tools":["edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3.1 - Skeleton Schema (proposed).md"]} -->
+[Timestamp: 2026/11/21 01:11:15]
+
+**user**: i think we can also log a decision or decisions regarding our agreement on what classes and concepts will be used to represent and how they will be implemented.  i think this decision also needs to live at the Governing Commitments level in the Harm Ontology v3.1
+And the explanation that you gave and my clarifications that your explanation summarized and articulated needs to live as its own idea note and bookmarked appropriately
+[Timestamp: 2026/11/21 01:16:08]
+
+**ai**: I've logged the decision, added it to the v3.1 Governing principles, and created the idea note.
+
+**Changes**
+- **[[Decisions_Log]]:** a 2026-11-21 entry on how elements are represented. It records the rule (individuals of classes for relation participants; skos:Concept per word-sense for defined and mapped terms; no individual typed as a skos:Concept), the physics application, and the three open questions.
+- **[[Harm Ontology v3.1 - Skeleton Schema (proposed)]]:** under Governing principles, three new bullets: the classes-and-concepts rule, the perspective individuals (`physicsPerspective`, `integralPerspective`, `Physics`), and the foundationalCommitments distinction. Each links to its source.
+- **New idea note [[Classes and Concepts - How Elements Are Represented]]:** the reasoning behind the rule, the two kinds of thing, the test, the overloaded-word example, a physics worked table, the open questions, and your wording as original quotes.
+
+**Bookmark: proposed, not yet filed.** The note is marked `HO-II.d.2.a` under the vocabulary crosswalk (HO-II.d.2), with a `canonical_id`, but I have not added it to [[_Harm Ontology Bookmark Index]]. Under the bookmark skill, index entries need your confirmation first. Say yes and I'll add it under HO-II.d.2 (or tell me another placement).
+<!-- copilot-message {"tools":["edit (edit): 00_Claude_Admin/Decisions_Log.md","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3.1 - Skeleton Schema (proposed).md","write (edit): 02_Ideas Topics Concepts/Harm Ontology/Classes and Concepts - How Elements Are Represented.md"]} -->
+[Timestamp: 2026/11/21 01:16:08]
