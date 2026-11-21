@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 Re-evaluation of structure"
-usage: '{"usedTokens":200405,"contextWindow":1000000,"updatedAt":1795247791058}'
+usage: '{"usedTokens":204135,"contextWindow":1000000,"updatedAt":1795248260939}'
 lastAccessedAt: 1795235930178
 ---
 
@@ -1014,3 +1014,55 @@ If both fit cleanly, the skeleton holds. If one needs a slot the other does not,
 
 Do you want me to add a "Coverage test" section to v3.1 with these two instances and the three checks?
 [Timestamp: 2026/11/21 00:56:24]
+
+**user**: yes add coverage test
+[Timestamp: 2026/11/21 00:58:49]
+
+**ai**: I added a **Coverage test** section to [[Harm Ontology v3.1 - Skeleton Schema (proposed)]], under the test plan.
+
+It covers:
+- **Method:** two individuals, `physicsPerspective` and `integralPerspective`, each with the full 0.02 slots. They carry structure only, with no narrative and no values from the Physics Council review.
+- **Discipline links:** `Physics` and `Integral` are separate individuals, linked by `characteristicPerspective`, not subtypes.
+- **Recording rule:** for each slot, a value, a missingness status, or "gap".
+- **Three checks:** applies to both, physics-only needs, and Integral-only needs.
+- **Hypotheses to test:** not claims. For example, Integral's group 3 may be NotApplicable for physics, and physics may need an epistemic-standing assessment that Integral does not.
+
+The status is "not run". I haven't created the two individuals, because you asked only for the test to be written down. Say the word and I'll create them in a test file in the `ontology/tests/` folder, structure only.
+<!-- copilot-message {"tools":["edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3.1 - Skeleton Schema (proposed).md"]} -->
+[Timestamp: 2026/11/21 00:58:49]
+
+**user**: #1 needs more discussion.
+
+I imagine:
+PhysicsDiscipline being an instance of Discipline rather than a subclass
+PhysicsPerspective an instance of a Perspective
+PhysicsConceptualTerritory might be either an instance of a class ConceptualTerritory or a subconcept of a skos:Concept ConceptualTerritory   (i am not sure)
+
+This raises a good question. what distinguishes when we use classes vs concepts - certainly the notion of ConceptualTerritory points toward concept at least for this one
+[Timestamp: 2026/11/21 01:04:10]
+
+**ai**: Your instinct is right that "concept" points toward something real, but the two words name different kinds of thing, and the difference matters for the model.
+
+**What each one is**
+
+- **An OWL class** is a kind that the reasoner can reason over. It has instances, subclasses and restrictions, and relations are declared with domain and range. Examples: `Discipline`, `PerspectiveType`, `FieldOfApplication`.
+- **A skos:Concept** is a unit of meaning in a vocabulary. It has labels, definitions, notes and mappings to other concepts, and it sits in a scheme. The reasoner does not reason over the hierarchy (`broader` and `narrower`). Examples: the hubs `hov:congruence` and `hov:omission`.
+
+**The rule I'd propose**
+
+Use a class (and its individuals) for things that take part in relations: a discipline studies a territory, a perspective is held by a community, a use is for a purpose. Use a skos:Concept for an idea that is named, defined, compared and mapped across disciplines. The question to ask is: *does this thing need to be the subject or object of a relation in the model, or does it need to be described and matched in English?*
+
+**Applied to ConceptualTerritory**
+
+The territory is a relation participant. `studies` needs a target, so `ConceptualTerritory` is an OWL class, and `PhysicsConceptualTerritory` is an individual of it. You are right that the territory is conceptual, but its role in the model is that of a participant, not a vocabulary term.
+
+The English word is a separate matter. "Physics" has at least the five senses you listed, so each sense needs its own skos:Concept with its own label and definition. That is the overloaded-word problem, and SKOS is designed for it: one concept per sense, with the shared word as an altLabel.
+
+So the pattern is two layers, one for the thing and one for the word:
+- `PhysicsConceptualTerritory` (OWL individual) participates in `studies`.
+- A skos:Concept (for example "physics, the territory") in the vocabulary carries the English definition and is linked to the individual.
+
+**On your other points:** a skos:Concept is itself an OWL class, so `PhysicsConceptualTerritory` could be an instance of `skos:Concept` rather than of a subclass. But then the territory cannot take part in OWL relations as easily as a class-typed individual can. So I'd keep the OWL class for the participant and use SKOS only for the wording.
+
+I'd add this as an open question to v3.1, not a decision: "Class or skos:Concept for each element, decided by whether it takes part in relations or is a term to be defined and mapped." Shall I add it?
+[Timestamp: 2026/11/21 01:04:10]

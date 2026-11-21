@@ -94,10 +94,35 @@ FIELD OF APPLICATION (proposed, new class)              e.g. engineering, medici
 - Organisations as assessors (`assessor` as organisations, HO-007).
 
 ## Test plan before any logging
-1. **Coverage test: physics vs Integral.** Build the same skeleton for both. Check that every relation in the skeleton applies to both, and that nothing is needed for one that the other does not have.
+1. **Coverage test: physics vs Integral.** See the section below.
 2. **Overlap test.** Resolve each row of the 0.02 overlap table: reuse, rename or add.
 3. **Naming test.** Check each new name in a Protégé tree next to its neighbours, and against the methodology rules.
 4. Only after 1–3 pass, log decisions and then consider narrative migration.
+
+## Coverage test: physicsPerspective and integralPerspective (proposed, structure only)
+
+**Method.** Create two individuals of PerspectiveType, `physicsPerspective` and `integralPerspective`. Each carries the full PerspectiveStructure 0.02 slots, with values for structure only. No narrative is entered; the Physics Council review (v-0.01) is not used as a source for values yet, because the migration is deferred and the council reviews are not independent evidence.
+
+**Each discipline is a separate individual**, not a subtype: `Physics` (Discipline) and `Integral` (the Integral practice, to be confirmed), linked to their perspectives by `characteristicPerspective`. This follows the rule that subclasses are for kinds of tradition only.
+
+**For each 0.02 slot, record one of:**
+- a value (structure only, for example `physicsPerspective.foundationalCommitments` is present, with a placeholder value)
+- a missingness status: Unknown, NotApplicable, Undisclosed, Disputed or Pending (HO-II.e)
+- or "gap" if neither fits.
+
+**Three checks:**
+1. **Applies to both.** Every slot is either applicable or NotApplicable, with a reason, for both individuals.
+2. **Physics-only needs.** Any slot physics needs that Integral cannot express is listed as a gap to resolve.
+3. **Integral-only needs.** Any slot Integral needs that physics cannot express is listed as a gap to resolve.
+
+**Expected findings to test (hypotheses, not claims):**
+- Integral's group 3 (interiority, collectivity, moralCircle, developmentalAltitude) may be NotApplicable or Unknown for physics, which would be a real divergence, not a gap.
+- Group 11 (assessments of the tradition) should apply to both, but physics may need an assessment of its own epistemic standing (group 6) that Integral does not.
+- Group 9 (power) may be sparse for physics and rich for Integral's organisational use.
+
+**Outcome.** A table with one row per 0.02 slot, and one column per individual, showing the value, the missingness status or the gap. Findings are recorded here, and only confirmed ones are considered for logging.
+
+**Status.** Not run. Waiting for the author's go-ahead to create the two individuals in a test file.
 
 ## Deferred
 - Narrative migration (definitions, explanations, examples, hub and spoke text) into the schema.
