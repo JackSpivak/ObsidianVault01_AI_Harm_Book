@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm Ontology v3 Re-evaluation of structure"
-usage: '{"usedTokens":188076,"contextWindow":1000000,"updatedAt":1795245169390}'
+usage: '{"usedTokens":189232,"contextWindow":1000000,"updatedAt":1795245490456}'
 lastAccessedAt: 1795235930178
 ---
 
@@ -829,3 +829,30 @@ Applying 0.02's own pragmatic test (keep an attribute only if a query or decisio
 
 That keeps the perspective from growing, and it gives the Integral test the same few attributes the other traditions would use. Do you want me to draft that as a proposal and check it against 0.02's group list?
 [Timestamp: 2026/11/21 00:12:42]
+
+**user**: the discipline of physics is informed by a variety of Theories.  (some of these theories are core and widely supported/foundational others are fringe) and has/uses/embraces a certain characteristic Perspective which is held by its practitioners/adherants and used by practitioners/researchers/organizations for certain Purposes
+[Timestamp: 2026/11/21 00:17:56]
+
+**ai**: This gives the discipline side of the model, and it shows that the Integral case is one instance of a general pattern. Physics and Integral Theory have the same shape:
+
+- **A theory informs something.** Physics is informed by theories; Integral Theory informs the Integral perspective.
+- **A perspective is held and applied.** Practitioners hold it and use it for purposes.
+- **The discipline or tradition is anchored to that perspective.**
+
+So the pattern is: **Theory —informs→ Discipline or Perspective**, and **Perspective —heldBy→ Agent**, **Perspective —usedBy→ Agent**, **Use —for→ Purpose**.
+
+**Three points that follow from this**
+
+1. **"Has", "uses" and "embraces" are three different relations, and we need only one.** "Has" describes what the discipline is characterised by. "Uses" describes practitioners applying it. "Embraces" describes adherence. A single relation, `characteristicPerspective` (…`characteristicPerspective`) would cover all three, with the adherence, use and application details carried by the holder and user links.
+
+2. **Core and fringe theories need a status, not separate relations.** Physics is informed by both foundational theories and fringe ones, so `informedBy` should carry a status such as `foundational`, `widelySupported`, `contested` or `fringe`. That status is an assessment, so it fits the Assessment pattern with `assessedBy`, not a fixed label on the theory. Who judges a theory as core also varies by community, which is the same point we made about altitude.
+
+3. **Purpose belongs to the use, not the perspective.** Practitioners use a perspective for different purposes: a researcher for prediction, an organization for strategy, a teacher for training. So the link should be `Use —for→ Purpose`, with the use as its own node, rather than a single `purpose` value on the perspective. 0.02 already has `statedPurpose` in group 5, and the operative side is assessed under congruence, so this fits the existing structure with a use node added.
+
+**Two questions this raises**
+
+- Is physics's perspective a PerspectiveType in the same sense as Integral, or is a discipline's perspective a different kind of thing that the discipline holds? If it is the same kind, `characteristicPerspective` works for both. If not, we need a second class.
+- Does the use node also cover the organizations in the Integral case (`usedBy`), so that one pattern covers both?
+
+I'd test both questions on physics and Integral together before deciding. Shall I draft that comparison?
+[Timestamp: 2026/11/21 00:17:56]
