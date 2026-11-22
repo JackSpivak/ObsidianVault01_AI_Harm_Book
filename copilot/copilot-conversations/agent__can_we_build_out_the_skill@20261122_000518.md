@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm ontology skill building"
-usage: '{"usedTokens":117857,"contextWindow":1000000,"updatedAt":1795333713423}'
+usage: '{"usedTokens":120466,"contextWindow":1000000,"updatedAt":1795334704743}'
 ---
 
 **user**: can we build out the skill?
@@ -783,3 +783,34 @@ To assess these harms a Vajrayana practitioner would need: an account of the age
 
 Should I compare all three runs side by side now, or try a fourth perspective?
 [Timestamp: 2026/11/22 00:47:59]
+
+**user**: draft ontology v3 has no rich explanatory content to do lexical or semantic matching against.  is this skill using exclusively the harm ontology v3 as the only content/context source for harm?  and using the learned ability of the LLM to do the matching/mapping of the article to the ontology?  or are there any other assumptions, knowledge, context or capacities  (other than the requested perspective) brought in from the LLM
+[Timestamp: 2026/11/22 01:04:50]
+
+**ai**: No. The skill as written is not limited to Harm Ontology v3, and the matching is not a formal procedure. Several sources and capacities entered the runs that the skill never declares.
+
+**What the skill declares**
+- **A:** the perspective you name.
+- **B:** the text you paste.
+- **C:** the ontology note you name.
+
+**What I actually used beyond those**
+
+1. **LLM knowledge of the perspective.** The searchlight questions, the canonical sources (Shantideva, Bradford Hill, Clausewitz-style military thinking) and the harm lists come from my training. I did not check any of them against a source.
+2. **LLM knowledge of benchmark frameworks.** EIA, HIA, DALYs, Probabilistic Risk Assessment and the other benchmarks were recalled, not retrieved. Some details may be wrong.
+3. **PerspectiveStructure 0.02.** You asked for this test, but the skill does not list it as an input. I read it as a fourth source.
+4. **The earlier gap groups.** The skill's reference file `GAP_MAPPING_BENCHMARKS.md` restates the four gap groups from the 2026-11-21 session. That is a prior hypothesis, not part of Harm Ontology v3. I used it in the first run and corrected that run, but the skill still ships it, so it acts as a hidden template.
+5. **Pattern-matching on names.** v3's draft gives element names, a few definitions and governing commitments, but almost no explanatory text. So when I wrote that a v3 element "covers" a harm (for example, that `leadsTo` covers escalation), I was matching on the name and on my reading of it. The output does not show that.
+6. **Conversation context.** Earlier sessions shaped the framing (the placement test, the "assessment versus tradition" split). The skill's own description draws on that history.
+
+**The matching is therefore a model judgement with no stated method.** It cannot be reproduced, and a "covered" or "gap" call cannot be checked against v3's definitions because v3 mostly has none. The "gap" findings are as strong as my reading of element names, which is weaker than the tables made it look.
+
+**What I would change, if you want the skill to be auditable**
+- Tag every finding by source: **A**, **B**, **C** (with the quoted element), **LLM knowledge** (unverified), or **inference**.
+- Treat a v3 match as **provisional** when the element has no definition in C. Match only on quoted text, and report "no definition to test against" as a separate outcome.
+- Move the framework and canonical-source claims into a list marked for verification, or require a retrieved source.
+- List PerspectiveStructure 0.02 as an optional input, or drop it.
+- Remove the four gap groups from the reference file, or label them as a prior hypothesis that the run must test rather than assume.
+
+Do you want me to make those changes to the skill file? Nothing has been changed yet.
+[Timestamp: 2026/11/22 01:04:50]
