@@ -191,20 +191,6 @@
       "addedAt": 1795014993745,
       "apiKeyKeychainId": "copilot-va7a77fb4-provider-google-api-key"
     },
-    "faf48af4-acd3-4e3d-b362-da681e310f22": {
-      "providerType": "google",
-      "displayName": "Google",
-      "baseUrl": "https://generativelanguage.googleapis.com",
-      "enableCors": true,
-      "requiresApiKey": true,
-      "origin": {
-        "kind": "byok",
-        "catalogProviderId": "google"
-      },
-      "providerId": "faf48af4-acd3-4e3d-b362-da681e310f22",
-      "addedAt": 1795025346763,
-      "apiKeyKeychainId": "copilot-va7a77fb4-provider-google-api-key-2"
-    },
     "f43ab59c-66b7-4d4d-8dfe-1cec701c3abd": {
       "providerType": "openai-compatible",
       "displayName": "OpenCode",
@@ -367,39 +353,6 @@
       "configuredAt": 1795015832066
     },
     {
-      "configuredModelId": "e5dce410-5326-4438-a9d5-e0c5f8f3ab9c",
-      "providerId": "faf48af4-acd3-4e3d-b362-da681e310f22",
-      "info": {
-        "id": "gemini-4-hydrogen",
-        "displayName": "Gemini 4 Hydrogen",
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "video",
-            "audio",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "limits": {
-          "context": 1048576,
-          "output": 65536
-        },
-        "reasoning": true,
-        "toolCall": true,
-        "releaseDate": "2026-11-12",
-        "cost": {
-          "input": 1.5,
-          "output": 7.5,
-          "cacheRead": 0.075
-        }
-      },
-      "configuredAt": 1795025346768
-    },
-    {
       "providerId": "f43ab59c-66b7-4d4d-8dfe-1cec701c3abd",
       "info": {
         "id": "opencode/beam-free",
@@ -512,8 +465,7 @@
       "enabledModels": [
         "4d9c4a96-7971-4385-9f16-20f26dc48845",
         "8dc5d9d7-0536-496d-af50-07796fbe293d",
-        "8a0315e1-34e0-4284-b316-005a6474f1ef",
-        "e5dce410-5326-4438-a9d5-e0c5f8f3ab9c"
+        "8a0315e1-34e0-4284-b316-005a6474f1ef"
       ]
     },
     "opencode": {
@@ -521,7 +473,6 @@
         "4d9c4a96-7971-4385-9f16-20f26dc48845",
         "8dc5d9d7-0536-496d-af50-07796fbe293d",
         "8a0315e1-34e0-4284-b316-005a6474f1ef",
-        "e5dce410-5326-4438-a9d5-e0c5f8f3ab9c",
         "c4479045-f37b-4925-8da0-769d1db79be0",
         "8583f78e-e9f4-4608-ae79-8b8473850d3c",
         "3bd840da-e669-4007-845f-9ec5a78a0c0d"
