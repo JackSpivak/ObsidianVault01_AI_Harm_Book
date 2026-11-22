@@ -59,6 +59,15 @@ latest_session: "[[2026-11-20 Harm Ontology Sample Review and Methodology]]"
 - Result: 42 of 42 checks pass; a deliberate-breakage run made 4 fail, so the checks can fail. See [[2026-11-18 Harm Ontology v3 Toy Case Results]].
 - **Limits:** CQ7 cases have no procedure or evidence, so they test conflict vs no conflict only (mostly SingleSource); `affectedStanding` is treated as exclusive (a test choice); variant A was not extended; legal and anthropological content is unverified.
 
+## Searchlight, gap identification and method (2026-11-21; proposed, nothing logged)
+Session record: [[2026-11-21 Harm Ontology Searchlight and Gap Session]] (holds the verbatim lists, the question sequence and the method steps).
+
+- **Gap schema:** four candidate attribute groups (Institutional Mandate & Enforcement Authority; Methodological Metric Specification (Valuation & Currency); Procedural Lifecycle & Trigger Rules; Remedial Closure & Prescriptive Output). Draft: [[Harm Ontology v3 Harm Assessment Schema Extensions (Proposed)]]. **Attachment is provisional:** the draft hangs these off PerspectiveType, but they more likely belong on a procedural layer (possibly a `HarmAssessment`). Re-placement not yet done; do not log until the placement test has been applied.
+- **Placement test (for the future gap skill):** does a proposed element describe a tradition (PerspectiveType, defaults only), an act of assessment (HarmAssessment / Assessment), the thing assessed (Factor, Effect, AffectedEntity), or an output (verdict, remedy, closure)? Split elements that fit several; record unclear ones as open placement questions.
+- **Searchlight (content-generation concept):** each discipline-based perspective defines what it asks (questions), what it can and cannot see (competencies and blind spots), and what it returns (findings, consequences, remedies). Tested only on the Classical council so far. Its narrative-generation test is a separate task: [[Perspective Narrative Generation - Searchlight Task]], and it blocks the content migration (Migration Plan to-do).
+- **Keep separate:** the gap skill (identify, place, propose remedial camelCase extensions) and the content-generation task.
+- **Next:** the author decides whether to confirm the bookmark placement (proposed HO-II.d.4 or under HO-II.d.2) and whether to draft the skill outline.
+
 ## Sample review and methodology (2026-11-20; proposed, nothing logged)
 Session note: [[2026-11-20 Harm Ontology Sample Review and Methodology]]. Concept note: [[HO-II.d.3 Hub and Spoke Pattern]] (proposed bookmark, not yet in the index). Revised draft: [[Harm Ontology v3 - Draft Structure (rev 2026-11-20)]] (the 2026-11-15 draft is unchanged).
 
