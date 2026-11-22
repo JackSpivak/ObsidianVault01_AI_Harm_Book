@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-sonnet-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm ontology harm types catalog"
-usage: '{"usedTokens":29053,"contextWindow":1000000,"updatedAt":1795357841991}'
+usage: '{"usedTokens":30901,"contextWindow":1000000,"updatedAt":1795358443159}'
 ---
 
 **user**: from the current snapshot only of the harm ontology, please list types of harm that might be discovered in an assessment of harm that identified a harmful event.  i don't see a catalog or container of harm types that each discipline has identified and shared.  do we hae
@@ -93,3 +93,38 @@ My earlier list of `ObjectOfHarm` values, Effect kinds and `AffectedEntity` type
 
 Do you want me to draft a note proposing a characteristic-profile model for harm types, with the fields a discipline would fill in?
 [Timestamp: 2026/11/22 07:30:34]
+
+**user**: i am thinking that the notion of a harm type might be capture in a distinction. the word harm, itself may be overloaded. if we can agree on an assessment that evaluates an event to be harmful and it does so from a perspective i believe it would be using that disciplines perspective on a type of "Harmfullness" rather than harm.  Harmfulness might have subcategories carrying types of harmfulness as well as many of the attributes - discipline and perspective specific identifiers of characteristics that make an event or situation potentially harmful...  like clues that a perspectives "searchlight" might be scanning for metaphorically
+<!-- copilot-message {"notes":["02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure.md"]} -->
+[Timestamp: 2026/11/22 07:40:28]
+
+**ai**: This distinction fits the snapshot well, and it fixes a problem I had. "Harm" is currently used for three different things:
+
+1. **The judged outcome.** This is the Assessment `verdict: Harmful`.
+2. **The affected thing.** This is `ObjectOfHarm` and `HarmfulEffect`.
+3. **The signs that make a judgment likely.** Nothing in the snapshot holds this yet.
+
+Your "harmfulness" is the third sense. It is the cues a perspective looks for, not the verdict and not the effect.
+
+## How it fits what exists
+
+- **The premise.** The name of HO-premise "No Intrinsic Harmfulness" already uses the word. Harmfulness stays safe only if it is always *harmfulness-as-seen-from a perspective*. A cue is not a property of the event. It is something a perspective treats as significant.
+- **The searchlight already has parts.** `PerspectiveSpecification` has framing, resolution and sensitivity (threshold), plus `inclusionCriteria`. A `PerspectiveType` has `moralCircle` and `defaultEvaluativeStandard`. v3.1 mentions `objectOfAttention` (0.02 core). Together these say where the light points and how bright it is. What's missing is a list of the cues it picks up.
+- **Dispositional and potential harm.** `isDispositional`, `isStatistical` and the `Risk` factor kind already point at "potentially harmful" as something distinct from "harmed".
+
+## A possible shape (a proposal, not in the notes)
+
+- **HarmfulnessIndicator** is a cue: a characteristic a perspective scans for. It has subcategories by type of harmfulness, such as bodily integrity, loss of agency, irreversibility, vulnerability of the affected entity, and breach of a duty. Disciplines and traditions supply their own.
+- **A perspective scans for indicators.** A PerspectiveType would carry `scansFor → HarmfulnessIndicator`, with sensitivity attached per indicator. This is the "searchlight".
+- **An Assessment records which indicators it observed**, as evidence for a verdict. That is the link back to the harm: the indicator supports the verdict and never entails it.
+- **Divergence gets sharper.** Two perspectives can see the same event and light up different indicators. That is a Perspectival divergence at the level of cues, before any verdict differs.
+- **Mapping.** Indicators fit the vocabulary layer (Box D): the discipline's own term, mapped to hub concepts at graded levels. This also answers my earlier question about a shared catalog. It would be a catalog of cues by discipline, not of harms.
+
+## Questions for you
+
+- Is harmfulness a **class** (indicators as individuals that take part in relations), or a **concept scheme** (word-senses to define and map)? Under the 2026-11-21 rule in v3.1, an indicator that is linked to perspectives and assessments should be an individual, and the discipline's word for it should be a concept.
+- Do you want "harm" kept for the verdict only, with "harmfulness" for the cues?
+- Is an indicator ever **absent-but-expected**? This would be a cue a perspective scans for that wasn't found, which connects to omission handling in HO-005.
+
+I can draft this as a short proposal note, structure only, in the style of v3.1.
+[Timestamp: 2026/11/22 07:40:28]
