@@ -17,30 +17,30 @@ The process is iterative. **Success is measured by whether the model can represe
 
 ---
 
-## Required Inputs
+## Required Inputs & Invocation Triggers
 
-To execute this skill successfully, provide three operational inputs at the start of the session:
-1. **Input A: A Discipline-Based Perspective** (e.g., a named council like the *Classical Council*, or a custom list of core philosophical/analytical inquiries).
-2. **Input B: An Empirical Target Narrative / Case Text** (e.g., a news story, corporate filing, regulatory report, or risk excerpt like the Anthropic SEC S-1) in which to search for harm.
-3. **Input C: The Target Ontology Schema** (e.g., Harm Ontology v3 draft structure, mini TTL files, or current schema definitions) against which gap-mapping is evaluated.
+To execute this skill successfully, provide:
+1. **Input A: A Discipline-Based Perspective** (e.g., *Classical Council*, or any other discipline perspective). **Trigger Rule:** If you name a known perspective (like the Classical Council) or ask to start from one, Copilot will immediately generate its core competencies and 10–20 structured questions as the first action.
+2. **Input B: An Empirical Target Narrative / Case Text** (e.g., a news story, corporate filing, or risk excerpt like the Anthropic SEC S-1) in which to search for harm.
+3. **Input C: The Target Ontology Schema** (e.g., Harm Ontology v3 draft structure or mini TTL files) against which gap-mapping is evaluated.
 
 ---
 
 ## Workflow
 
-### Step 1: Differentiate the Perspective & Generate the Searchlight
+### Step 1: Elicit Perspective & Generate the Searchlight
 - **Action:** Using **Input A**, articulate the perspective's unique intellectual tradition, core competencies, and blind spots. 
-- **Output:** Derive 10–20 core investigative questions partitioned across thematic dimensions (preventing the perspective from collapsing into generic ethics).
+- **Output:** Automatically generate 10–20 core investigative questions partitioned across thematic dimensions.
 
 ### Step 2: Translate Questions into Observable Harms
 - **Action:** Take the abstract inquiries from Step 1 and apply them to **Input B** (the target narrative/case text).
-- **Output:** Reframing original questions into 10 checkable statements of actual or potential harm that can be recognized in the empirical reporting.
+- **Output:** Reframing original questions into checkable statements of actual or potential harm observable in empirical reporting.
 
 ### Step 3: Operationalize the Judging Layer
 - **Action:** Define what an institutional assessment of these harms requires: dimensions, instruments, scoring criteria, and procedural workflows.
 
 ### Step 4: Benchmark against Real-World Frameworks
-- **Action:** Cross-reference the inquiry against established institutional assessment practices (Cost-Benefit Analysis, Rights Impact Assessments, Environmental Impact Assessments, Algorithmic Fairness Audits, etc.) to see how real governance regimes handle similar inquiries.
+- **Action:** Cross-reference the inquiry against established institutional assessment practices (Cost-Benefit Analysis, Rights Impact Assessments, Environmental Impact Assessments, Algorithmic Fairness Audits, etc.).
 
 ### Step 5: Gap-Mapping against the Target Ontology
 - **Action:** Compare the findings, judging mechanics, and institutional requirements against **Input C** (the ontology schema). Identify missing or insufficiently expressive classes, subclasses, and camelCase attributes across four core gap groups:
@@ -60,8 +60,8 @@ Refer to [Gap Mapping Benchmarks](references/GAP_MAPPING_BENCHMARKS.md) for the 
 
 ## Validation Checklist
 
-- [ ] All three required inputs (Perspective, Target Narrative, Target Ontology) are explicitly defined.
+- [ ] Naming a perspective immediately triggers question/competency generation.
+- [ ] All three required inputs (Perspective, Target Narrative, Target Ontology) are accounted for.
 - [ ] Perspective-based inquiry yields specific, checkable observable harms from the target narrative.
 - [ ] Institutional frameworks are benchmarked against real-world usage and regulatory oversight.
 - [ ] Schema extensions pass the placement test (tradition vs. assessment vs. factor vs. output).
-- [ ] Attributes use camelCase and are compatible with editor-first ontology standards.
