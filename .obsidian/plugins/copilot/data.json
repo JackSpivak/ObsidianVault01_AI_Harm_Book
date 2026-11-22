@@ -367,15 +367,6 @@
     {
       "providerId": "f43ab59c-66b7-4d4d-8dfe-1cec701c3abd",
       "info": {
-        "id": "opencode/longcat-2.5-free",
-        "displayName": "opencode/LongCat 2.5 Free"
-      },
-      "configuredModelId": "82288ca7-b571-48fa-82fe-7194f4dcd69f",
-      "configuredAt": 1795025401965
-    },
-    {
-      "providerId": "f43ab59c-66b7-4d4d-8dfe-1cec701c3abd",
-      "info": {
         "id": "opencode/mimo-v2.6-flash-free",
         "displayName": "opencode/MiMo-V2.6-Flash Free"
       },
