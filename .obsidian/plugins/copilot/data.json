@@ -320,39 +320,6 @@
       "configuredAt": 1794933873263
     },
     {
-      "configuredModelId": "8a0315e1-34e0-4284-b316-005a6474f1ef",
-      "providerId": "2c02745e-00f8-4068-87dc-3edf8efb2346",
-      "info": {
-        "id": "gemini-4-hydrogen",
-        "displayName": "Gemini 4 Hydrogen",
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "video",
-            "audio",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "limits": {
-          "context": 1048576,
-          "output": 65536
-        },
-        "reasoning": true,
-        "toolCall": true,
-        "releaseDate": "2026-11-12",
-        "cost": {
-          "input": 1.5,
-          "output": 7.5,
-          "cacheRead": 0.075
-        }
-      },
-      "configuredAt": 1795015832066
-    },
-    {
       "providerId": "f43ab59c-66b7-4d4d-8dfe-1cec701c3abd",
       "info": {
         "id": "opencode/beam-free",
@@ -450,6 +417,39 @@
       },
       "configuredModelId": "9916d26a-319b-4952-98e2-207e3a429ebd",
       "configuredAt": 1795121387073
+    },
+    {
+      "configuredModelId": "6aff1df4-d9cb-410f-9e94-3f3d3dd6655c",
+      "providerId": "2c02745e-00f8-4068-87dc-3edf8efb2346",
+      "info": {
+        "id": "gemini-3.5-flash-lite",
+        "displayName": "Gemini 3.5 Flash Lite",
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "audio",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "limits": {
+          "context": 1048576,
+          "output": 65536
+        },
+        "reasoning": true,
+        "toolCall": true,
+        "releaseDate": "2026-07-21",
+        "cost": {
+          "input": 0.3,
+          "output": 2.5,
+          "cacheRead": 0.03
+        }
+      },
+      "configuredAt": 1795320906032
     }
   ],
   "backends": {
@@ -465,17 +465,17 @@
       "enabledModels": [
         "4d9c4a96-7971-4385-9f16-20f26dc48845",
         "8dc5d9d7-0536-496d-af50-07796fbe293d",
-        "8a0315e1-34e0-4284-b316-005a6474f1ef"
+        "6aff1df4-d9cb-410f-9e94-3f3d3dd6655c"
       ]
     },
     "opencode": {
       "enabledModels": [
         "4d9c4a96-7971-4385-9f16-20f26dc48845",
         "8dc5d9d7-0536-496d-af50-07796fbe293d",
-        "8a0315e1-34e0-4284-b316-005a6474f1ef",
         "c4479045-f37b-4925-8da0-769d1db79be0",
         "8583f78e-e9f4-4608-ae79-8b8473850d3c",
-        "3bd840da-e669-4007-845f-9ec5a78a0c0d"
+        "3bd840da-e669-4007-845f-9ec5a78a0c0d",
+        "6aff1df4-d9cb-410f-9e94-3f3d3dd6655c"
       ]
     }
   },
