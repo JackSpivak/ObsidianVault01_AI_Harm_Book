@@ -7,7 +7,13 @@ created: 2026-11-15
 revised: 2026-11-20
 source: "[[Harm Ontology v3 - Draft Structure]]"
 ---
+The **Classical Council** (featuring thinkers like Socrates, Aristotle, Marcus Aurelius, Laozi, Confucius, and Epicurus) offers a distinct competency that sets it apart from the other councils: **examining systems through the lens of character formation, foundational human nature, and the internal harmony of the agent rather than external rules or mechanics.**
 
+While other councils focus on different angles—such as Legal on institutional validity, Physics on detection thresholds, Logic on formal validation, or Ethics on modern normative rules (deontology, utilitarianism)—the Classical Council uniquely brings:
+
+1. **Habituation and Character Formation:** Drawing on Aristotle, it focuses on how repeated actions and structures slowly train a person's underlying dispositions and self-governing capacities (e.g., how gentle dependencies reshape the "chooser" rather than just breaking a rule).
+2. **Assent and Internal Sovereignty:** Drawing on Stoics like Marcus Aurelius, it scrutinizes what happens to an agent's faculty of judgment and assent when external systems automate decision-making.
+3. **Cosmic and Natural Alignment:** Incorporating Eastern and classical views (Laozi, Confucius), it assesses whether an intervention respects natural proportions, relational harmony, and the proper functioning or excellence (*arete*) of a human life, rather than just optimizing utility or complying with statutes.
 # Harm Ontology v3 — Draft Structure (rev 2026-11-20)
 
 Revision of [[Harm Ontology v3 - Draft Structure]] after a line-by-line review on 2026-11-20. It places every decision logged in [[Decisions_Log]] from 2026-11-14 to 2026-11-18, and the 2026-11-19 proposal in [[Handoff - Harm Ontology]], into one tree. The original note is kept unchanged as the 2026-11-17/18 record. Markers:
