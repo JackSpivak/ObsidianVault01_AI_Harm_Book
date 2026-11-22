@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-sonnet-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm ontology harm types catalog"
-usage: '{"usedTokens":28120,"contextWindow":1000000,"updatedAt":1795357711847}'
+usage: '{"usedTokens":29053,"contextWindow":1000000,"updatedAt":1795357841991}'
 ---
 
 **user**: from the current snapshot only of the harm ontology, please list types of harm that might be discovered in an assessment of harm that identified a harmful event.  i don't see a catalog or container of harm types that each discipline has identified and shared.  do we hae
@@ -73,3 +73,23 @@ You could add a `HarmType` concept scheme in the vocabulary layer (SKOS). Each d
 I can draft that as a proposal note, or check the crosswalk note for existing harm-type content. Which would you like?
 <!-- copilot-message {"tools":["read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure.md","read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3.1 - Skeleton Schema (proposed).md"]} -->
 [Timestamp: 2026/11/22 07:28:16]
+
+**user**: avoiding harm types does not, to me, imply that harm is intrinsic - rather that it is characterized by identifying and identifyable characteristics that can be used in an assessment
+<!-- copilot-message {"notes":["02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure.md"]} -->
+[Timestamp: 2026/11/22 07:30:34]
+
+**ai**: You're right, and I conflated two things. My phrase "deliberately avoids" a catalog was a misreading. Nothing in the snapshot says harm types can't be catalogued, and a catalog doesn't make harm intrinsic.
+
+- **Intrinsic harmfulness** means an event or effect is harmful in itself, with no perspective involved. HO-premise rules that out.
+- **Characterized harm** means a harm is described by identifiable characteristics, such as what was affected, how, how severely, whether it can be reversed, and who bears it. An assessment can then use those characteristics. This is compatible with the premise, and it fits the snapshot's own pattern. Effects are neutral and carry observable properties (`severity`, `reversibility`, `temporalTrajectory`, `isStatistical` and others). The Assessment then supplies the verdict.
+
+So a harm type is better treated as a **characteristic profile**, not a class of intrinsically bad things. It is a recognizable pattern of Effect characteristics, plus an `ObjectOfHarm` and an `AffectedEntity` type. A discipline names the pattern, and an assessment can invoke it.
+
+Two cautions from the snapshot:
+- **Don't make `HarmType` a subclass of Effect.** v3 says "describe and judge, they don't classify". If a type's membership depended on a verdict, it would reintroduce intrinsic harm. The type should be defined by characteristics only, with the Harmful or Beneficial judgment staying on the assessment.
+- **Where the type lives is undecided.** Two options fit v3. One is a SKOS concept in the vocabulary layer (Box D), mapped to discipline terms. The other is an attribute value that an Assessment asserts (`aboutAttribute`, as in the toy-test model). The second keeps it perspective-relative: a tort lawyer and a public-health assessor can characterize the same Effect differently, and that shows up as a Divergence, not an error.
+
+My earlier list of `ObjectOfHarm` values, Effect kinds and `AffectedEntity` types is a starting set of those characteristics. It has no discipline provenance and no mapping to the harm types each discipline names.
+
+Do you want me to draft a note proposing a characteristic-profile model for harm types, with the fields a discipline would fill in?
+[Timestamp: 2026/11/22 07:30:34]
