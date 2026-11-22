@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm ontology skill building"
-usage: '{"usedTokens":92626,"contextWindow":1000000,"updatedAt":1795332824403}'
+usage: '{"usedTokens":110893,"contextWindow":1000000,"updatedAt":1795333475422}'
 ---
 
 **user**: can we build out the skill?
@@ -434,3 +434,246 @@ To judge these harms an assessor needs: throughput or capacity before and after 
 
 **Caveats:** This is a design outline checked against an unbuilt model, so these are design gaps, not failures of a tested implementation. The military-strategist searchlight is my own generation and needs your review. I have not written this analysis to the vault. Should I save it as a session note in `01_The Writer's Room/`, and does the skill need the PerspectiveStructure 0.02 check added as a fourth step?
 [Timestamp: 2026/11/22 00:33:19]
+
+**user**: no don't record anywhere
+yes please include the perspectivestructure test and regenerate the output above in the same form.  also assess any differences you obtain when including the perspective structure
+[Timestamp: 2026/11/22 00:41:13]
+
+**ai**: 
+
+# Gap analysis: Military Strategist × Reuters Crimean Bridge report × Harm Ontology v3 Draft Structure, with PerspectiveStructure 0.02 test
+
+Nothing has been written to the vault. The skill file is unchanged.
+
+**Inputs**
+- **A, Perspective:** Military Strategist (logistics, chokepoints, centre of gravity, attrition, network resilience). Tested against the group structure in [[PerspectiveStructure 0.02]].
+- **B, Narrative:** Reuters, 20 Nov (Crimean Bridge road and rail sections, M-14 corridor, Mius River bridges, Azov strikes on locomotives and fuel).
+- **C, Ontology:** [[Harm Ontology v3 - Draft Structure]]. This is a design outline, not a `.ttl` file.
+
+## Step 0: PerspectiveStructure 0.02 test (new)
+
+This step checks the perspective as a PerspectiveType (group 0 core) and a PerspectiveSpecification (groups 3, 4, 5, 9, 11 and 12 applied to the case), and records what each group reveals.
+
+| 0.02 group | Applied to the military strategist | Finding |
+|---|---|---|
+| 0 Core | `name`, `canonicalSource`, `objectOfAttention` (supply lines, the front), `foundationalCommitments` (the adversary is a system to be degraded) | The tradition's sources are not named in the inputs. I have not verified any, so they are left blank. |
+| 5 Aim | `statedPurpose` (isolate Crimea, force settlement); `unitOfMeasure` (throughput, attrition); `commensurability` | Military throughput and civilian harm are not commensurable within this tradition. |
+| 8 Subject's side | `standingOfSubjects`: the adversary as target; Crimean and Ukrainian civilians as affected | Civilians appear as "affected" but the tradition has no column for them. |
+| 9 Power | `whoseVoice`, `costBearer`, `accountabilityLocus` | The voices are analysts and commanders; no Crimean resident is quoted. Anonymous sourcing affects accountability. |
+| 10 Dynamics | `performativity`, `adaptiveResponse` | The strike is partly symbolic, timed before the Putin–Trump–Xi meeting. Dispersion and repairs are adaptive responses. |
+| 11 Assessments | `omission` (outOfFrame, blindSpot, acceptedHarm) | The searchlight has no civilian question, so civilian harm sits outside the frame. |
+| 12 Provenance | `verificationStatus`, `confidence` | Only citations are covered; claims in a narrative are not. |
+
+## Step 1: Searchlight from the Military Strategist
+
+1. **Centre of gravity:** Is the bridge an irreplaceable node, or one redundant node in a distributed network?
+2. **Chokepoint:** Do strikes funnel enemy traffic into predictable, exposed routes ("more traffic means more targets")?
+3. **Attrition vs. interdiction:** Do strikes cause cumulative paralysis of fuel and ammunition supply, or are they absorbed by adaptation (dispersion, night movement)?
+4. **Surge capacity:** When a primary crossing fails, do secondary routes absorb the load, or do they fail under it?
+5. **Adaptation loop:** Does the adversary's countermeasure change the cost of the next strike?
+6. **Evidence of effect:** Can the claimed effects be verified, and by whom?
+7. **Strategic purpose:** Does the strike serve a stated operational goal?
+
+*Test result:* Questions 1 to 7 come from the tradition's `objectOfAttention`. The 0.02 test adds one question the searchlight did not have: **8. Whose costs are outside this frame?** (Group 11, omission.)
+
+## Step 2: Observable harms
+
+| # | Searchlight question | Observable statement in the Reuters text |
+|---|---|---|
+| H1 | Chokepoint | Rerouting rail and road freight onto the M-14 corridor, which is "heavily targeted" (Gady). |
+| H2 | Attrition | Claimed loss of 100 locomotives and 600 tonnes of fuel in the Azov sector (unverified by Reuters). |
+| H3 | Surge capacity | Strikes on smaller Mius River bridges could create bottlenecks and repeated repair cycles (Helin). |
+| H4 | Adaptation | Expected Russian air-defence reinforcement; use of dispersion and night driving. |
+| H5 | Evidence | Anonymous commanders and an unnamed officer; figures not independently verified. |
+| H6 | Purpose | Putin's claim that the bridge is used "exclusively for civilian purposes", against the claim that it carries military cargo. |
+| H7 | Divergence | Analysts disagree: "not game-changing in themselves" vs. "pile pressure … Russia could struggle to mitigate". |
+| **H8** | **Omission (new)** | Fuel shortages on the peninsula and strikes on energy infrastructure in Crimea, and strikes on Dnipro bridges in Kyiv. These are civilian-facing and fall outside the military searchlight. |
+| **H9** | **Symbolic (new)** | The strike's "strong symbolic impact" before a summit, not only its logistical effect. |
+
+## Step 3 and 4: Judging layer and benchmark
+
+To judge these harms an assessor needs: throughput or capacity before and after a strike; route redundancy; time-to-restore; attributed cause; evidential grade for each figure; the assessor's purpose; and whose costs are counted. Institutional analogues are the Environmental Impact Assessment (scope and mitigation), Probabilistic Risk Assessment (likelihood and consequence) and Life Cycle Assessment (system-wide flows). None of these standardises "military throughput", so this is a gap in the benchmark too. A humanitarian or IHL-based assessment would be needed to count civilian costs.
+
+## Step 5: Gap-map against Input C
+
+**Where v3 already fits**
+
+| Narrative element | v3 home |
+|---|---|
+| Strikes, the bridge, rail traffic | Factor: Act and Structure; CausalCandidate |
+| Bridge closure as a cause of rerouting | `causes` on Factor; CausalAssessment (`attributedCause`, `leftOut`) |
+| Rerouting onto M-14 | FactorAssembly, with members and `sufficientFor` |
+| Lost locomotives and fuel | Effect (`MaterialPecuniary`, `SystemicEnvironmental`) |
+| Repeated repairs | Effect `isContinuous`, `temporalTrajectory` |
+| Analysts' disagreement | Divergence (`divergenceType`, `reconcilable`) |
+| Stated operational goal | PerspectiveSpecification `intent` and `appliedEvaluativeStandard` |
+| Who is affected | AffectedEntity (`CollectiveArtificialPerson`, proposed `CollectiveNaturalGroup`) |
+| Civilian fuel shortages (H8) | Effect with AffectedEntity; present once the omission is recorded |
+
+**Gaps, with status after the 0.02 test**
+
+**Gap 1: Network structure.** v3 has `FactorAssembly` but no way to say a corridor is a node with alternatives or capacity. *0.02:* `infrastructureDependence` and `systemicScope` exist only at the tradition level, not on the Factor. **Still a gap, partly covered at tradition level.**
+
+**Gap 2: Operational capacity as an object of harm.** `ObjectOfHarm` has no "sustainment" or "throughput" value. *0.02:* `unitOfMeasure` and `commensurability` (group 5) let the tradition name throughput as its measure. **Narrowed:** the measure can now be recorded, but the harm value is still missing.
+
+**Gap 3: Triggering event.** No Event class (pending HO-007). *0.02:* `originatingCircumstance → Event` is still a stub. **Unchanged.**
+
+**Gap 4: Adaptation and feedback.** No way to link an effect to a counter-act. *0.02:* `adaptiveResponse` (group 8) and `performativity` (group 10) exist, but at tradition level, not as Act-to-Act links. **Partly covered; the feedback link is still missing.**
+
+**Gap 5: Verification of narrative claims.** v3 has `confidence` and `suppliedBy`; the evidence anchor is open. *0.02:* `verificationStatus` covers citations only. **Narrowed, not closed:** claims in a narrative still have no verification status.
+
+**Gap 6: Legal layer for targets.** The legal layer is open and `LegalResponse` is "later". *0.02:* a `LegalInstitutional` profile exists, but there is no international humanitarian law profile. **Partly covered; an IHL profile is needed.**
+
+**Gap 7: Combatant and civilian status.** `standingOfSubjects {agent · affected · datum}` does not cover it. *0.02:* no new coverage. **Unchanged.**
+
+**Gap 8: Operational recommendations as outputs.** v3 has `remedyOrdered` and `verdictStatus`, aimed at legal and verdict outputs. *0.02:* `remedy` → LegalResponse only. **Unchanged.**
+
+## Differences from including the 0.02 test
+
+**Changed findings**
+1. **New observable harms.** H8 (civilian costs) and H9 (symbolic effect) were not in the first run. The omission test (group 11) found H8 by asking what the military frame cannot see.
+2. **Whose voice is missing.** `whoseVoice` (group 9) shows the narrative has no Crimean or Kyiv civilian voice. This is a finding about the source, not the analysis.
+3. **Divergence needs a finer level.** Helin and Gady share a tradition, so their disagreement is between specifications, not traditions. `divergesFrom` at tradition level would miss it. v3's Divergence needs specification-level attributes (timestamp, horizon, framing).
+4. **Accountability.** `accountabilityLocus` flags the anonymous officer and commander as a laundering risk. The first run noted anonymity but did not connect it to accountability.
+
+**Partial closures**
+- Gap 2 is narrowed (unitOfMeasure, commensurability).
+- Gap 4 is partly covered at tradition level.
+- Gap 5 is narrowed to citations only.
+- Gap 6 is partly covered (LegalInstitutional exists; IHL does not).
+
+**Unchanged:** Gaps 1 (mostly), 3, 7 and 8.
+
+**Integration problem found.** 0.02 group 11 says each assessment is `assessedBy → PerspectiveType`. v3 says `takenFrom → PerspectiveSpecification`. These conflict. Under 0.02 the assessor is the tradition; under v3 it is the specification (a specific snapshot). The military case needs both, so the mismatch must be decided before gaps 4 and 8 can be placed. This is a real difference in the ontology, not a wording issue.
+
+**Caveats:** 0.02 is still "developing", and its council reviews were all voiced by one model, so they are not independent evidence. The military tradition's canonical sources are not verified. The searchlight is my generation and needs your review.
+
+Should I run the same test with a different perspective (for example, a Public Health epidemiologist), or stop here?
+<!-- copilot-message {"tools":["read (read): 02_Ideas Topics Concepts/Harm Ontology/PerspectiveStructure 0.02.md"]} -->
+[Timestamp: 2026/11/22 00:41:13]
+
+**user**: yes
+[Timestamp: 2026/11/22 00:44:13]
+
+**ai**: 
+
+# Gap analysis: Public Health Epidemiologist × Reuters Crimean Bridge report × Harm Ontology v3 Draft Structure, with PerspectiveStructure 0.02 test
+
+Nothing has been written to the vault, and the skill is unchanged. The searchlight questions and the 0.02 entries below come from my knowledge of the discipline and are unverified. Canonical sources are named from memory, not checked.
+
+**Inputs**
+- **A, Perspective:** Public Health Epidemiologist (population health burden, exposure and outcome, causal inference, equity, surveillance).
+- **B, Narrative:** Same Reuters report (20 Nov).
+- **C, Ontology:** [[Harm Ontology v3 - Draft Structure]] (design outline, not a `.ttl` file).
+
+## Step 0: PerspectiveStructure 0.02 test
+
+| 0.02 group | Applied to the epidemiologist | Finding |
+|---|---|---|
+| 0 Core | `canonicalSource` (from memory, unverified: Snow's 1854 cholera work; Bradford Hill's 1965 causal criteria); `objectOfAttention` (population health outcomes and their determinants); `foundationalCommitments` (outcomes are measured in populations, with denominators) | The tradition measures outcomes; it does not usually measure logistics. |
+| 5 Aim | `statedPurpose` (reduce disease and injury burden); `unitOfMeasure` (DALYs, QALYs, incidence rates); `commensurability` | Within the discipline, harms are commensurable as health-loss units. This matters for the valuation gap. |
+| 8 Subject's side | `standingOfSubjects`: populations as affected; the adversary is not a subject | Populations are the subject, not individuals or states. |
+| 9 Power | `whoseInterests`, `costBearer`, `whoseVoice`, `distributiveConcern` | The discipline asks who bears the burden. The narrative names no health-affected group. |
+| 10 Dynamics | `performativity`, `infrastructureDependence` | Health services depend on fuel, power and transport. |
+| 11 Assessments | `omission`: blind spot on the operational drivers of exposure | The discipline sees the civilian cost but not the military logic that produces it. |
+| 12 Provenance | `verificationStatus`, `confidence` | Outcome data would need source grading. The narrative has none. |
+
+## Step 1: Searchlight from the Public Health Epidemiologist
+
+1. **Exposure:** What populations are exposed to the disruption (fuel, power, water, medicines, transport), and at what dose and duration?
+2. **Outcome:** What health outcomes would the exposure plausibly produce, and how would we measure them?
+3. **Causal attribution:** Which factors meet causal criteria (strength, consistency, temporality, dose-response, plausibility)?
+4. **Denominator and burden:** How large is the affected population, and what is the attributable burden?
+5. **Distribution:** Who bears the cost (civilians, displaced people, the elderly, children) and who is protected?
+6. **Latency and surveillance:** Which effects appear late, and which data systems would detect them?
+7. **Cascading harms:** Does disruption of one system (power or transport) create health harm in another (hospitals, water, food)?
+8. **Precaution:** Are the risks of inaction on health weighed against the risks of intervention?
+
+*Test result:* the 0.02 omission test adds one question the searchlight would not otherwise have: **9. What operational drivers of exposure lie outside this frame?** (Group 11.)
+
+## Step 2: Observable harms
+
+| # | Searchlight question | Observable statement in the Reuters text |
+|---|---|---|
+| H1 | Exposure | "Widespread shortages" of fuel on the peninsula after tanker attacks. |
+| H2 | Exposure | Strikes on energy infrastructure across Crimea. |
+| H3 | Exposure | Ballistic-missile attack on Kyiv that damaged three Dnipro bridges. |
+| H4 | Outcome | **None stated.** The text reports no health outcome, injury or death from the disruption. |
+| H5 | Distribution | Front-line cities "devastated" by missiles and glide bombs, with no population figures. |
+| H6 | Cascading | Rail and road freight is rerouted, which may carry medicines and food (not stated; inferred). |
+| H7 | Measurement | Figures are unverified and sources are anonymous. |
+| H8 | Precaution | Strike timing alongside a summit. Not a health question as such, but relevant to risk weighing. |
+
+**Key observation:** the narrative gives exposure but no outcome. A public health assessment cannot yet say that any harm occurred, only that exposure is plausible.
+
+## Step 3 and 4: Judging layer and benchmark
+
+To assess these harms an epidemiologist needs: a population denominator; exposure dose and duration; outcome measures (mortality, injury, disease incidence); a comparison group or counterfactual; latency; and a data source with known quality. Institutional analogues are the Health Impact Assessment (HIA), the WHO burden-of-disease method (DALYs), and surveillance systems. These are standard and widely used, and they are a better benchmark here than the military one.
+
+## Step 5: Gap-map against Input C
+
+**Where v3 already fits**
+
+| Narrative element | v3 home |
+|---|---|
+| Fuel shortage, energy strikes | Factor (Act, Structure); Effect with `SystemicEnvironmental` |
+| Civilian exposure | AffectedEntity (`CollectiveNaturalGroup`, proposed); Effect `affects` |
+| Causal attribution | CausalAssessment (`attributedCause`, `leftOut`) |
+| Severity, reversibility | Effect `severity`, `reversibility` |
+| Temporal spread | Effect `temporalTrajectory`, `temporalStatus: Pending` |
+| Missing outcome data | Missingness statuses (Unknown, Pending) |
+
+**Gaps, with status after the 0.02 test**
+
+**Gap A: Population-level measures.** v3 has per-effect severity but no denominator, incidence rate, attributable fraction or burden measure. *0.02:* `unitOfMeasure` (DALYs) is available on the tradition. **Partly covered: the measure can be named, but there is no place in v3 for a population denominator.**
+
+**Gap B: Epidemiological causal standards.** v3's causal standards are pending: ButFor, NESS, INUS, ProbabilityRaising, Mechanistic, Proximate. Bradford Hill's criteria (strength, consistency, dose-response) are not on the list. *0.02:* `causalModel` → CausalGraph (group 6); no Bradford Hill criteria. **Gap remains, and it is specific to this discipline.**
+
+**Gap C: Dose-response.** v3 has no way to express a dose-response relation between Factor intensity and Effect severity. **Gap, new in this run.**
+
+**Gap D: Latency.** `temporalTrajectory` exists, but latency (time from exposure to outcome) is not a named attribute. **Partly covered.**
+
+**Gap E: Equity and distribution.** `distributiveConcern` and `costBearer` exist in 0.02 at tradition level. v3 has no way to record how an Effect is distributed across AffectedEntities. **Partly covered (0.02), not covered in v3.**
+
+**Gap F: Surveillance and measurement quality.** `observability` (Box A) and `instrumentResponse` (0.02 group 6: threshold, false alarm, miss) cover some of this. **Largely covered.**
+
+**Gap G: Cascading harms across systems.** v3 has `leadsTo → Effect` for open-ended cascades, so a power cut leading to a hospital effect is representable. **Covered, but the cascade is not linked to a health standard.**
+
+**Gap H: Precautionary and risk-benefit weighing.** `conflictResolution` (0.02 group 5: lexical, weighing, deadlock) covers the form of weighing. v3 has no precautionary standard. **Partly covered.**
+
+**Gap I: Outcome evidence.** H4 shows the narrative has no outcome data. v3 can represent a missing outcome through `Unknown`, but not as a specific "no outcome data" state for a population. **Gap, related to Gap 5 in the military run.**
+
+## Differences from the military run
+
+**Covered by the epidemiologist but not the military strategist**
+- Population denominators and burden measures.
+- Distribution across groups (equity).
+- Causal criteria beyond counterfactual tests.
+- Dose-response and latency.
+- Surveillance and instrument quality.
+
+**Covered by the military strategist but not the epidemiologist**
+- Network structure and chokepoints (the epidemiologist sees exposure, not the route that causes it).
+- Operational capacity and throughput as harm.
+- Adaptation of the adversary, as a dynamic.
+- Attrition as a strategic aim.
+
+**Blind spots that cross**
+- The military frame missed civilian costs (H8 in the military run). The public-health frame sees them, but does not see the military logic that produces them.
+- The public-health frame cannot assess the narrative's central claim, which is about military capacity. The military frame cannot assess its central cost, which is about human health.
+
+**Changed v3 findings**
+- Gap 2 from the military run (operational capacity) and Gap A here (population denominator) both point to a missing **unit and denominator** on the Effect or Assessment. This may be one gap, not two. It should be decided once, not twice.
+- The public-health run adds three gaps not seen before (dose-response, Bradford Hill criteria, outcome-absence state), so the v3 draft's causal and quantitative attributes look thinner than the military run suggested.
+- The `assessedBy` vs `takenFrom` integration problem from the military run appears here too, unchanged.
+
+**Caveats:** the searchlight and the 0.02 entries are my generation, from memory, and need your review. The narrative contains no health outcome, so the health harms are potential, not observed.
+
+Should I run the same test on a third perspective, or compare the three runs against each other?
+[Timestamp: 2026/11/22 00:44:13]
+
+**user**: from a vajrayana budhist perspective
+[Timestamp: 2026/11/22 00:47:59]
+
+**ai**: 
+[Timestamp: 2026/11/22 00:47:59]
