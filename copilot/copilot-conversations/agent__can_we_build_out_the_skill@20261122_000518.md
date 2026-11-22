@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm ontology skill building"
-usage: '{"usedTokens":110893,"contextWindow":1000000,"updatedAt":1795333475422}'
+usage: '{"usedTokens":117857,"contextWindow":1000000,"updatedAt":1795333713423}'
 ---
 
 **user**: can we build out the skill?
@@ -676,4 +676,110 @@ Should I run the same test on a third perspective, or compare the three runs aga
 [Timestamp: 2026/11/22 00:47:59]
 
 **ai**: 
+
+# Gap analysis: Vajrayana Buddhist Perspective × Reuters Crimean Bridge report × Harm Ontology v3 Draft Structure, with PerspectiveStructure 0.02 test
+
+Nothing has been written to the vault, and the skill is unchanged. The searchlight and the 0.02 entries are a structured reconstruction from my general knowledge of the tradition, not an authoritative account. Canonical sources are named from memory and unverified. Buddhist scholars would dispute some of the formulations, especially the tantric ones.
+
+**Inputs**
+- **A, Perspective:** Vajrayana Buddhist (intention and mind-states, dependent origination, compassion and bodhicitta, skilful means, suffering across all sentient beings, vows).
+- **B, Narrative:** Same Reuters report (20 Nov).
+- **C, Ontology:** [[Harm Ontology v3 - Draft Structure]] (design outline, not a `.ttl` file).
+
+## Step 0: PerspectiveStructure 0.02 test
+
+| 0.02 group | Applied to the Vajrayana perspective | Finding |
+|---|---|---|
+| 0 Core | `canonicalSource` (from memory, unverified: Shantideva's *Bodhicaryavatara*; Nāgārjuna on dependent origination; Vajrayana tantras and lamrim literature); `objectOfAttention` (the minds of beings and the causes of their suffering); `foundationalCommitments` (intention shapes karma; all sentient beings are to be benefited) | The tradition's object is mind, not logistics. |
+| 5 Aim | `statedPurpose` (liberation from suffering for all beings); `intentWeighting ★` = **intent-primary**; `unitOfMeasure`: suffering and mental afflictions, not commensurable with throughput or DALYs | The most important difference: this tradition gives the same outcome a different verdict depending on intention. |
+| 7 Stance | `effectOnHolder`: the practitioner's own mind is the primary effect | The holder's state is an object of assessment, not only a cost. |
+| 8 Subject's side | `standingOfSubjects`: all sentient beings, including the adversary, civilians and non-human beings; `moralCircle ★` is very wide | The widest moral circle of the three runs. |
+| 9 Power | `accountabilityLocus`: the agent who acts (karmic responsibility is individual) | Responsibility is personal, which contrasts with the institutional locus of the military frame. |
+| 10 Dynamics | `performativity`: escalation cycles (a strike provokes a counter-strike) are seen as conditioned chains | Dependent origination makes cycles the default object of attention. |
+| 11 Assessments | `omission`: the tradition sees mental states well and institutional or logistical structures poorly | Blind spot: structural causes (rail, fuel, air defence) are not its object. |
+| 12 Provenance | `verificationStatus`: inner motivations cannot be verified from outside | The tradition holds the most important claim (intention) and has the least access to it. |
+
+## Step 1: Searchlight from the Vajrayana Buddhist perspective
+
+1. **Intention:** Does the act arise from the three poisons (craving, aversion, delusion), or from compassion and bodhicitta?
+2. **Dependent origination:** What chain of conditioned arising does the act set in motion, and does it feed itself?
+3. **Suffering of all beings:** Does the outcome reduce or increase suffering across the widest circle, including non-combatants, animals and future beings?
+4. **Skilful means (upāya):** Is the act a means suited to the beings' capacity and aimed at their welfare, or does it harden their suffering?
+5. **Mental formation:** Does the system cultivate aversion, clinging or delusion in its users and operators?
+6. **Reification:** Do the labels used ("targets", "enemy", "more traffic means more targets") solidify categories that obscure the beings concerned?
+7. **Vows and trust:** Are commitments to others (promises, agreements, samaya) kept or broken?
+8. **Impermanence and grasping:** Does the arrangement treat fragile conditions as permanent, and so breed grasping?
+
+*Test result:* the 0.02 omission test adds one question the searchlight would not otherwise have: **9. Which structures that condition suffering are outside the frame of mind?** (Group 11.)
+
+## Step 2: Observable harms
+
+| # | Searchlight question | Observable statement in the Reuters text |
+|---|---|---|
+| H1 | Intention | Putin "promised to hit back hard" after the bridge strike; the stated aim is retaliation. |
+| H2 | Dependent origination | Strike → rerouting → traffic on M-14 → more strikes ("more traffic means more targets"). A self-feeding chain. |
+| H3 | Suffering | Widespread fuel shortages on the peninsula; energy infrastructure struck across Crimea. |
+| H4 | Escalation | Missile attack on Kyiv damaged three Dnipro bridges after the Crimea strikes. |
+| H5 | Reification | Civilian and military logistics described as "targets", "pressure", and "squeeze". |
+| H6 | Wrong speech | Putin's claim that the bridge is "exclusively civilian" against the claim that it carries military cargo. |
+| H7 | Clinging | Commanders describe the adversary's only help as "the weather"; the framing is one of triumph. |
+| H8 | Unseen beings | No mention of animals, the environment, or the individual health of non-combatants. |
+
+## Step 3 and 4: Judging layer and benchmark
+
+To assess these harms a Vajrayana practitioner would need: an account of the agent's intention (its motivation and its mental formations); the chain of conditioning; the scope of beings affected; the means–end relation (whether the means fit the end); and an honest account of one's own mind. Institutional analogues are weak here. The nearest are Clinical Ethics (intention and non-maleficence) and Rights Impact Assessment (scope of who counts). No standard institutional benchmark measures intention or mental formation.
+
+## Step 5: Gap-map against Input C
+
+**Where v3 already fits**
+
+| Narrative element | v3 home |
+|---|---|
+| Strikes, rerouting, fuel shortages | Factor and Effect (as in the earlier runs) |
+| Escalation chain | Effect `leadsTo` (open-ended cascades); FactorAssembly |
+| Non-combatants, animals, future beings | AffectedEntity (`SentientIndividual`, `FutureGeneration`, `NonSentientSystem`) |
+| Stated intent | PerspectiveSpecification `intent`; 0.02 `intentWeighting` (group 5) |
+| Temporal spread | Effect `temporalTrajectory` |
+| Speech claims | Provenance (group 12) |
+
+**Gaps, with status after the 0.02 test**
+
+**Gap V1: Intention as a non-observable attribute.** Intention is a central Vajrayana attribute, and v3 has no attribute for it. The closest are `intentWeighting` (0.02) and Box A's `NonPhenomenal` observability, which states that intention is not directly observable. v3 needs a way to record intention as an **inferred** attribute, with the evidence for the inference. *Placement:* Assessment (inferred from speech and act). **Gap, and it is one the other two runs did not see.**
+
+**Gap V2: Harm to the actor's mind.** `ObjectOfHarm` has `PsychologicalCognitive`, and `Assent/Judgment` is open. Neither names the agent's own mental formation as an object of harm. *0.02:* `effectOnHolder` covers the tradition's holder, not the actor in a case. **Gap, extending the Assent/Judgment open item.**
+
+**Gap V3: Agent as both affecting and affected.** The tradition holds that the agent is affected by its own act (karma returns to the actor). v3's `AffectedEntity` and `Agent` are separate, and whether one entity may hold both roles is not stated. The draft says "Factor and AffectedEntity not disjoint" but says nothing about Agent. **Gap, needs a decision on whether Agent and AffectedEntity may overlap.**
+
+**Gap V4: Means–end relation (skilful means).** v3 has `intentWeighting` (intent, outcome or mixed) at tradition level, but no class for whether a means fits an end. `conflictResolution` (lexical, weighing, deadlock) is about values, not means. **Gap: a means-end assessment.** The military and public-health runs needed something similar (proportionality), so this may be one gap with three names.
+
+**Gap V5: Vows and commitments.** v3 has no class for promises, agreements or samaya. The military run's legal layer and the public-health precautionary standard would need some commitment logic too. **Gap, and a broader one than the Vajrayana case.**
+
+**Gap V6: Escalation feedback.** Same as Gap 4 in the military run and the feedback point in the public-health run: `leadsTo` is one-directional and open-ended, so a strike that provokes a counter-strike is not a loop. *0.02:* `performativity` is tradition-level only. **Still a gap.**
+
+**Gap V7: Reification in source language.** v3's governing commitments (no intrinsic harmfulness, descriptive not classificatory) match the tradition's anti-reification view, which is a point in v3's favour. But v3 has no way to record that a source's labels (for example "targets") are themselves an object of assessment. **Gap, minor.**
+
+**Gap V8: Structural causes outside mind.** The tradition's blind spot (H8 and the structure of the supply chain) is covered in v3 by Factor and FactorAssembly, not by mind. **Covered, at the cost of the mind-level assessment.**
+
+## Differences from the military and public-health runs
+
+**Covered by the Vajrayana perspective but not the others**
+- **Intention as a verdict-changer** (`intentWeighting ★`): the same outcome can be judged differently. The other two runs assumed outcome-based weighting.
+- **The widest moral circle**, including non-human beings. Public health comes close; the military frame does not.
+- **The actor's own mind** as an object of harm (Gap V2).
+- **Non-observability of the central attribute** (Gap V1): the most important attribute is the least observable.
+
+**Covered by the others but not the Vajrayana perspective**
+- Network structure, chokepoints and throughput (military).
+- Population denominators, dose-response and latency (public health).
+- Structural and logistical causes (both, but the military run is stronger).
+
+**Pattern across the three runs**
+- **Escalation feedback** (V6) is a gap in all three runs, so it is one of the most robust findings.
+- **Means–end proportionality** (V4) appears in the Vajrayana run and in the military run's "proportionate" questions, so it may be one gap.
+- **Agent-patient overlap** (V3) and **the assessedBy/takenFrom mismatch** (from the military run) remain open structural issues.
+- The **unit and denominator** issue from the public-health run recurs as "unit of measure" in all three.
+
+**Caveats:** this perspective is a reconstruction, not a faithful representation of a living tradition, and the tantric material is especially contested. The searchlight and the 0.02 entries need review by someone who practises or studies the tradition.
+
+Should I compare all three runs side by side now, or try a fourth perspective?
 [Timestamp: 2026/11/22 00:47:59]
