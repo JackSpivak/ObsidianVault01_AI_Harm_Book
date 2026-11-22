@@ -3,11 +3,11 @@ epoch: 1795331118027
 mode: agent
 backendId: opencode
 sessionId: "ses_dfdf0c08affew2YioJPNFijtPy"
-model: '{"baseModelId":"google/gemini-3.5-flash-lite","effort":"low"}'
+model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm ontology skill building"
-usage: '{"usedTokens":41861,"contextWindow":1048576,"updatedAt":1795332329094}'
+usage: '{"usedTokens":92626,"contextWindow":1000000,"updatedAt":1795332824403}'
 ---
 
 **user**: can we build out the skill?
@@ -137,3 +137,300 @@ For example, from the perspective of a **military strategist**, core searchlight
 
 You can test any non-vault or entirely novel perspective whenever you want to stress-test your harm ontology against unexpected or highly specialized domains!
 [Timestamp: 2026/11/22 00:25:26]
+
+**user**: great. lets try that now.  gap analysis
+[Timestamp: 2026/11/22 00:28:23]
+
+**ai**: To run the gap analysis using the **`harm-ontology-gap-analyst`** skill, let's establish our three required inputs:
+
+1. **Input A (Perspective):** Let's use the **Military Strategist** perspective we just discussed (or let me know if you'd prefer another one, like the *Classical Council* or a *Public Health Epidemiologist*).
+2. **Input B (Target Narrative / Case Text):** What case text, filing, or reporting should our military strategist analyze for harm? (e.g., the Anthropic SEC S-1 risk factors, a specific AI governance policy, or a custom scenario).
+3. **Input C (Target Ontology Schema):** We will use the Harm Ontology v3 draft structure and proposed schema extensions (`[[Harm Ontology v3 Harm Assessment Schema Extensions (Proposed)]]` / `Handoff - Harm Ontology`).
+
+Whenever you're ready, let me know your chosen **Perspective** and **Target Narrative**, and we will kick off the searchlight and gap-mapping session!
+[Timestamp: 2026/11/22 00:28:23]
+
+**user**: here's the narrative
+[Timestamp: 2026/11/22 00:28:47]
+
+**ai**: It looks like you didn't attach or paste the narrative text yet! 
+
+Please paste the narrative, filing excerpt, or scenario text here (or name a vault note if it's already in your vault), along with your chosen perspective (e.g., the *Military Strategist*, or another perspective of your choice), and we will immediately run the searchlight and gap analysis.
+[Timestamp: 2026/11/22 00:28:47]
+
+**user**: KYIV, Nov 20 (Reuters) - Ukraine's partial destruction of Russia's prized bridge to Crimea bolsters a months-long campaign by Kyiv to sever Moscow's supply lines to the battlefields of southern and eastern Ukraine and the ​occupied Black Sea peninsula.
+While not game-changing in themselves, this week's attacks pile pressure on an already strained logistics network in ways that Russia could struggle to mitigate, ‌two analysts and two Ukrainian commanders said.
+Make sense of global markets with the Trading Day newsletter. Sign up here.
+Hitting the showcase Russian project had a strong symbolic impact, particularly in the build-up to President Vladimir Putin's unprecedented three-way meeting with US President Donald Trump and Chinese President Xi Jinping on Thursday.
+It demonstrated Kyiv's capacity to strike Russian logistics across the Azov Sea and its occupied southeast, said John Helin, a visiting fellow at the Atlantic Council think tank, just as Moscow's battlefield advances slow to a crawl.
+"The more important story ​here is not necessarily the destruction of the Crimean Bridge itself, but the growing pressure Ukraine is putting on Russia's logistics system as a whole," he said.
+Putin said on ​Thursday the bridge was being used exclusively for civilian purposes, and promised to hit back hard. A Russian ballistic-missile attack on the Ukrainian capital overnight ⁠damaged three bridges across the Dnipro River, city officials said on Friday.
+
+'MORE TRAFFIC MEANS MORE TARGETS'
+This week's attacks, which destroyed the bridge's road section, follow a summer of stepped-up strikes aimed ​at isolating Crimea and pressuring Russia to end its nearly five-year war.
+Ukrainian forces systematically targeted massive tankers ferrying fuel to the peninsula, sparking widespread shortages, and struck energy infrastructure across Crimea.
+Months earlier, Ukraine had ​begun targeting Russian supply lines on the key M-14 highway through its occupied south — a major artery feeding Moscow's war effort on a huge swath of the front.
+With the Crimean Bridge partly disabled, Russia now has few alternatives but to force more traffic through that heavily targeted roadway, said Franz-Stefan Gady, a Vienna-based expert with the Center for a New American Security.
+"More traffic means more targets," he said, adding that a "sudden logistical breakdown" would still be unlikely, ​because Russia has developed evasive tactics like dispersion and night driving.
+The commander of a Ukrainian drone unit operating over the highway said he expected Russia to strengthen its air defences there, but ​was confident that Kyiv's forces could continue doing damage.
+Ukraine's rapid development of its mid-range drone capability, operating mostly between 30 and 180 km, has been central to its strikes on Russian logistics.
+"The only thing helping them (the Russians) now ‌is the ⁠weather," he said, citing the recent rain and heavy cloud cover. The commander requested anonymity for security purposes.
+Other priority targets for Kyiv include Russia's ballistic-missile launchers, used to attack Ukraine's energy system, and aircraft that can carry missiles and glide bombs that have devastated front-line cities.
+RAIL LINK IN SIGHTS
+Russia built the 19-km (12-mile) road and rail bridge to link its mainland with Crimea, which it annexed from Ukraine in 2014. Ukraine has damaged it before, with a truck bomb in 2022, sea drones in 2023 and underwater explosives in 2025.
+A destructive new attack on the railway part could force all ​rail cargo through the same land corridor that ​houses the M-14 highway, said an officer ⁠from Ukraine's Grouping of Forces Azov, which targets part of the corridor.
+A strike by Kyiv on Thursday — its third bridge attack this week — forced a suspension of traffic on the rail section. Russian officials gave no other details.
+In recent months, Azov has broadened its mid-range strikes on road logistics ​to include railways. Increased Russian freight traffic through its sector would be a "huge bonus", said the officer from the grouping's drone combat deployment ​center, asking that Reuters withhold ⁠his identity.
+He added that Azov has struck 100 locomotives and destroyed 600 tonnes of fuel within its sector in recent months. Reuters could not independently verify those figures.
+Helin, the Atlantic Council expert, said Russia had already long rerouted much of its military cargo, like fuel and ammunition, from the road and rail bridge to the land corridor.
+But he added that Ukrainian strikes on several smaller bridges over the Mius ⁠River in Russia ​could create new bottlenecks and potentially spark a "game of cat and mouse" by forcing Russia to repeatedly repair crossings.
+For ​Russia, losing access to the Crimean Bridge would ultimately affect military and civilian logistics in Crimea more than Moscow's battlefield operations across southern Ukraine, said Gady, of the Center for a New American Security.
+"The real question is whether Ukraine can ​keep the bridge out while also sustaining pressure on the corridor," he said. "Doing both at once is what would actually squeeze Russia."
+[Timestamp: 2026/11/22 00:28:50]
+
+**ai**: We have our inputs ready:
+1. **Input A (Perspective):** **Military Strategist** (focusing on logistics lines of communication, center of gravity, friction, supply chain resilience, bottlenecks, and asymmetric targeting).
+2. **Input B (Target Narrative):** The Reuters report on Ukraine's attacks on the Crimean Bridge, the M-14 highway corridor, and Russian military logistics.
+3. **Input C (Target Ontology Schema):** Harm Ontology v3 (focusing on the four structural gap groups: Mandate/Authority, Valuation/Metrics, Procedural Triggers, and Remedial Closure/Outputs).
+
+Let's execute the skill workflow:
+
+---
+
+### Step 1: Military Strategist Searchlight & Core Questions
+From a military strategist's perspective, the inquiry is not about abstract ethics, but about **systemic logistics, chokepoints, logistical resilience, and asymmetric degradation**. 
+
+Core searchlight questions generated from this perspective:
+1. *The Center of Gravity Question:* Does the targeted infrastructure constitute an irreplaceable logistical center of gravity, or is it merely a redundant node within a distributed network?
+2. *The Chokepoint Bottleneck Question:* Do interdiction strikes successfully compress enemy supply lines into predictable funnels ("more traffic means more targets"), or do they simply induce temporary friction?
+3. *The Attrition vs. Interdiction Question:* Are strikes achieving cumulative operational paralysis (starving the front of fuel and ammunition), or are they being absorbed by enemy adaptive countermeasures (dispersion, night driving, rapid bridging)?
+4. *The Interlocking Network Vulnerability Question:* When primary transport corridors (bridges/rail) are disabled, does secondary infrastructure (land corridors, smaller river crossings) possess sufficient surge capacity, or does it collapse under redistributed load?
+
+---
+
+### Step 2: Translating Questions into Observable Harms
+Applying these military strategy questions to the Reuters narrative yields the following observable harms / systemic impacts:
+1. **Logistical Chokepoint Amplification:** Forcing military and civilian freight onto a single exposed land corridor (M-14 highway), exponentially increasing target exposure per transit volume.
+2. **Cumulative Supply Chain Degradation (Attrition of Assets):** Systemic destruction of transit assets (e.g., 100 locomotives, 600 tonnes of fuel) creating latent shortages across occupying forces.
+3. **Secondary Infrastructure Bottlenecking:** Creation of tactical vulnerabilities at smaller river crossings (e.g., Mius River bridges) forcing repeated repair cycles and transit delays.
+4. **Resilience & Adaptation Lag:** The vulnerability of supply lines to technological shifts (mid-range drones operating at 30–180 km) where traditional hardening (air defenses) fails to neutralize distributed, low-cost threats.
+
+---
+
+### Step 3 & 4: Operationalizing the Judging Layer & Institutional Benchmarking
+To assess these military and logistical harms rigorously, an institutional framework (akin to **Logistics & Strategic Vulnerability Assessment (LSVA)** or **Probabilistic Risk Assessment (PRA)**) requires:
+- **Metrics & Valuation:** Measuring harm not in monetary terms, but in *operational throughput capacity*, *transit delay duration (hours/days)*, *asset attrition rates*, and *network redundancy ratios*.
+- **Procedural Triggers:** Mandatory assessments triggered by kinetic interdiction milestones or critical supply corridor degradation thresholds.
+
+---
+
+### Step 5 & 6: Gap-Mapping v3 against the Military Strategist Assessment & Placement Test
+When we map these findings against **Harm Ontology v3**, where do the gaps appear across our four institutional gap groups?
+
+1. **Mandate & Enforcement Authority Gap:**
+   - *Finding:* The assessment is conducted by military analysts (Helin, Gady) and Ukrainian command groups (Azov) acting under state defense mandates.
+   - *v3 Gap:* v3's `PerspectiveType` represents traditions/lenses, but cannot natively represent the *statutory/military command mandate*, *legal standing*, or *enforcement authority* of an operational assessment cell issuing a targeting or logistical bottleneck assessment.
+2. **Methodological Metric Specification (Valuation & Currency) Gap:**
+   - *Finding:* The metric currency here is not monetary (CBA) or rights-based (HRIA), but *operational throughput capacity* and *network redundancy/bottlenecking*.
+   - *v3 Gap:* v3 lacks a formalized way to specify non-monetary, network-operational `valuationCurrency` (e.g., throughput percentage, transit capacity) and whether incommensurable military/civilian trade-offs are permitted.
+3. **Procedural Lifecycle & Trigger Rules Gap:**
+   - *Finding:* The assessment is triggered by kinetic events ("this week's attacks") and operates on continuous ex-ante/ex-post monitoring of supply line degradation.
+   - *v3 Gap:* v3 lacks explicit classes for `AssessmentTrigger` (e.g., kinetic interdiction event) or `assessmentTiming` (*continuous / ex-post*).
+4. **Remedial Closure & Prescriptive Output Gap:**
+   - *Finding:* The assessment yields prescriptive military conclusions ("Ukraine must keep the bridge out while sustaining pressure on the corridor") and predicts enemy countermeasures ("repair crossings", "strengthen air defenses").
+   - *v3 Gap:* v3 lacks a structured `RemedialObligation` or `PrescriptiveOutput` class to record what operational recommendations or corrective actions a strategic assessment mandates.
+
+---
+
+### Placement Test Check:
+Applying the **Placement Test** to these proposed gaps confirms they correctly belong on the procedural/assessment layer (e.g., attributes of a `HarmAssessment` or `StrategicAssessment` instance) rather than mistakenly being attached as static properties of the `PerspectiveType` (Military Strategy tradition).
+[Timestamp: 2026/11/22 00:28:50]
+
+**user**: wait a minute.  i didn't input an ontology
+[Timestamp: 2026/11/22 00:29:29]
+
+**ai**: You are completely right, and that is a sharp catch! 
+
+When we ran through that step, I applied the gap categories from the proposed v3 schema extensions we built previously (`Harm Ontology v3 Harm Assessment Schema Extensions (Proposed).md`) as a default template, rather than having you provide an actual schema file or snippet from your vault as **Input C**. 
+
+To keep the process strictly aligned with our required inputs:
+1. **Input A (Perspective):** Military Strategist
+2. **Input B (Target Narrative):** The Reuters bridge/logistics report
+3. **Input C (Target Ontology):** *[Missing in that run]*
+
+If you'd like to test this properly with an actual ontology file or draft structure from your vault as Input C (for example, pointing to the draft structure notes or mini TTL files), let me know which note or file you want to use, and we can re-run the gap-mapping against that exact text!
+[Timestamp: 2026/11/22 00:29:29]
+
+**user**: yes.  it was entirely wrong to use the previous.  that was just the GAPS in the actual ontology.  that makes no sense
+[Timestamp: 2026/11/22 00:30:30]
+
+**ai**: You are completely right, and I appreciate you calling that out. 
+
+Using the *list of gaps itself* as the ontology against which to find gaps is circular and nonsensical. The ontology is supposed to be the actual model (like the v3 draft structure or schema definitions in your vault), and the gap analysis is supposed to discover what is *missing* from that model when tested against real-world scenarios (like our military logistics narrative).
+
+Let's do this right. What actual ontology file or vault note should we use as **Input C** to check against? (For example, we could check the narrative against `[[Harm Ontology v3 - Draft Structure]]` or `PerspectiveStructure 0.02`).
+[Timestamp: 2026/11/22 00:30:30]
+
+**user**: first can you adjust or refine the skill to actually require each of these inputs explicitly and assume nothing from the conversation or other context
+[Timestamp: 2026/11/22 00:31:27]
+
+**ai**: The skill has been successfully updated with the **Strict Input Protocol**, ensuring it never carries over context, never assumes past inputs, and explicitly halts to prompt you for all three distinct inputs (Perspective, Target Narrative, and Target Ontology Schema) whenever invoked. 
+
+Whenever you are ready to test it cleanly from scratch, just let me know or invoke the skill!
+<!-- copilot-message {"tools":["write (edit): copilot/skills/harm-ontology-gap-analyst/SKILL.md"]} -->
+[Timestamp: 2026/11/22 00:31:27]
+
+**user**: yes gap analysis
+[Timestamp: 2026/11/22 00:32:08]
+
+**ai**: To run the gap analysis using the **`harm-ontology-gap-analyst`** skill, I need you to explicitly provide the three required inputs (since the skill strictly assumes nothing from previous context):
+
+1. **Input A (The Discipline-Based Perspective):** What perspective, council, or analytical tradition should we use? (e.g., *Classical Council*, *Military Strategist*, etc.)
+2. **Input B (The Empirical Target Narrative / Case Text):** What text, news story, filing, or scenario should we analyze for harm? (You can paste the text or cite a vault note).
+3. **Input C (The Target Ontology Schema):** Which exact ontology note or schema file in your vault should we evaluate the findings against? (e.g., `Harm Ontology v3 - Draft Structure`, `PerspectiveStructure 0.02`, or another specific file—*not* a list of past gaps).
+
+Please provide these three inputs, and we will begin!
+[Timestamp: 2026/11/22 00:32:08]
+
+**user**: military strategist perspective
+[Timestamp: 2026/11/22 00:32:27]
+
+**ai**: Got it! That gives us **Input A: Military Strategist Perspective**. 
+
+To proceed, we still need the remaining two inputs:
+- **Input B (The Empirical Target Narrative / Case Text):** What text, filing, or scenario should the military strategist analyze? (You can paste the Reuters Crimea bridge article or any other text).
+- **Input C (The Target Ontology Schema):** Which exact ontology note or schema file in your vault should we evaluate the findings against? (e.g., `Harm Ontology v3 - Draft Structure`).
+
+Please provide Input B and Input C so we can move to the searchlight and gap-mapping step!
+[Timestamp: 2026/11/22 00:32:27]
+
+**user**: narrative:
+
+KYIV, Nov 20 (Reuters) - Ukraine's partial destruction of Russia's prized bridge to Crimea bolsters a months-long campaign by Kyiv to sever Moscow's supply lines to the battlefields of southern and eastern Ukraine and the ​occupied Black Sea peninsula.
+While not game-changing in themselves, this week's attacks pile pressure on an already strained logistics network in ways that Russia could struggle to mitigate, ‌two analysts and two Ukrainian commanders said.
+Make sense of global markets with the Trading Day newsletter. Sign up here.
+Hitting the showcase Russian project had a strong symbolic impact, particularly in the build-up to President Vladimir Putin's unprecedented three-way meeting with US President Donald Trump and Chinese President Xi Jinping on Thursday.
+It demonstrated Kyiv's capacity to strike Russian logistics across the Azov Sea and its occupied southeast, said John Helin, a visiting fellow at the Atlantic Council think tank, just as Moscow's battlefield advances slow to a crawl.
+"The more important story ​here is not necessarily the destruction of the Crimean Bridge itself, but the growing pressure Ukraine is putting on Russia's logistics system as a whole," he said.
+Putin said on ​Thursday the bridge was being used exclusively for civilian purposes, and promised to hit back hard. A Russian ballistic-missile attack on the Ukrainian capital overnight ⁠damaged three bridges across the Dnipro River, city officials said on Friday.
+
+'MORE TRAFFIC MEANS MORE TARGETS'
+This week's attacks, which destroyed the bridge's road section, follow a summer of stepped-up strikes aimed ​at isolating Crimea and pressuring Russia to end its nearly five-year war.
+Ukrainian forces systematically targeted massive tankers ferrying fuel to the peninsula, sparking widespread shortages, and struck energy infrastructure across Crimea.
+Months earlier, Ukraine had ​begun targeting Russian supply lines on the key M-14 highway through its occupied south — a major artery feeding Moscow's war effort on a huge swath of the front.
+With the Crimean Bridge partly disabled, Russia now has few alternatives but to force more traffic through that heavily targeted roadway, said Franz-Stefan Gady, a Vienna-based expert with the Center for a New American Security.
+"More traffic means more targets," he said, adding that a "sudden logistical breakdown" would still be unlikely, ​because Russia has developed evasive tactics like dispersion and night driving.
+The commander of a Ukrainian drone unit operating over the highway said he expected Russia to strengthen its air defences there, but ​was confident that Kyiv's forces could continue doing damage.
+Ukraine's rapid development of its mid-range drone capability, operating mostly between 30 and 180 km, has been central to its strikes on Russian logistics.
+"The only thing helping them (the Russians) now ‌is the ⁠weather," he said, citing the recent rain and heavy cloud cover. The commander requested anonymity for security purposes.
+Other priority targets for Kyiv include Russia's ballistic-missile launchers, used to attack Ukraine's energy system, and aircraft that can carry missiles and glide bombs that have devastated front-line cities.
+RAIL LINK IN SIGHTS
+Russia built the 19-km (12-mile) road and rail bridge to link its mainland with Crimea, which it annexed from Ukraine in 2014. Ukraine has damaged it before, with a truck bomb in 2022, sea drones in 2023 and underwater explosives in 2025.
+A destructive new attack on the railway part could force all ​rail cargo through the same land corridor that ​houses the M-14 highway, said an officer ⁠from Ukraine's Grouping of Forces Azov, which targets part of the corridor.
+A strike by Kyiv on Thursday — its third bridge attack this week — forced a suspension of traffic on the rail section. Russian officials gave no other details.
+In recent months, Azov has broadened its mid-range strikes on road logistics ​to include railways. Increased Russian freight traffic through its sector would be a "huge bonus", said the officer from the grouping's drone combat deployment ​center, asking that Reuters withhold ⁠his identity.
+He added that Azov has struck 100 locomotives and destroyed 600 tonnes of fuel within its sector in recent months. Reuters could not independently verify those figures.
+Helin, the Atlantic Council expert, said Russia had already long rerouted much of its military cargo, like fuel and ammunition, from the road and rail bridge to the land corridor.
+But he added that Ukrainian strikes on several smaller bridges over the Mius ⁠River in Russia ​could create new bottlenecks and potentially spark a "game of cat and mouse" by forcing Russia to repeatedly repair crossings.
+For ​Russia, losing access to the Crimean Bridge would ultimately affect military and civilian logistics in Crimea more than Moscow's battlefield operations across southern Ukraine, said Gady, of the Center for a New American Security.
+"The real question is whether Ukraine can ​keep the bridge out while also sustaining pressure on the corridor," he said. "Doing both at once is what would actually squeeze Russia."
+[Timestamp: 2026/11/22 00:32:38]
+
+**ai**: That gives us **Input B (Target Narrative)**: the Reuters report on the Crimean Bridge strikes and military logistics.
+
+Now we just need **Input C (Target Ontology Schema)**: Which exact note, draft structure, or schema file in your vault should we evaluate these findings against? (e.g., `Harm Ontology v3 - Draft Structure`, `PerspectiveStructure 0.02`, or another specific note). 
+
+Once you name Input C, we will run the searchlight, translate the observable harms, benchmark them, and perform the gap analysis against that exact schema!
+[Timestamp: 2026/11/22 00:32:38]
+
+**user**: Harm Ontology v3
+[Timestamp: 2026/11/22 00:32:49]
+
+**ai**: **Error:** Internal error: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 250000, model: gemini-3.5-flash-lite, description: Generate content input tokens per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.
+Please retry in 5.135963311s.
+more message: Internal error: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 250000, model: gemini-3.5-flash-lite, description: Generate content input tokens per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.
+Please retry in 5.135963311s.
+<!-- copilot-message {"tools":["obsidian-copilot_miyo_search (other)","read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure.md"]} -->
+[Timestamp: 2026/11/22 00:32:49]
+
+**user**: please execute previous instruction
+[Timestamp: 2026/11/22 00:33:19]
+
+**ai**: 
+
+# Gap analysis: Military Strategist × Reuters Crimean Bridge report × Harm Ontology v3 Draft Structure
+
+**Inputs**
+- **A, Perspective:** Military Strategist (logistics, chokepoints, centre of gravity, attrition, network resilience).
+- **B, Narrative:** Reuters, 20 Nov (Crimean Bridge road and rail sections, M-14 corridor, Mius River bridges, Azov strikes on locomotives and fuel).
+- **C, Ontology:** [[Harm Ontology v3 - Draft Structure]]. This is a design outline, not a `.ttl` file. I checked it against the element list in its Structure block, including the 2026-11-17 and 2026-11-18 revisions. I did not check [[PerspectiveStructure 0.02]] (the PerspectiveType groups), so any claim about PerspectiveType is unverified.
+
+## Step 1: Searchlight from the Military Strategist
+
+1. **Centre of gravity:** Is the bridge an irreplaceable node, or one redundant node in a distributed network?
+2. **Chokepoint:** Do strikes funnel enemy traffic into predictable, exposed routes ("more traffic means more targets")?
+3. **Attrition vs. interdiction:** Do strikes cause cumulative paralysis of fuel and ammunition supply, or are they absorbed by adaptation (dispersion, night movement)?
+4. **Surge capacity:** When a primary crossing fails, do secondary routes (M-14, Mius crossings, land corridor) absorb the load, or do they fail under it?
+5. **Adaptation loop:** Does the adversary's countermeasure (air defence, repair) change the cost of the next strike?
+6. **Evidence of effect:** Can the claimed effects (locomotives, fuel) be verified, and by whom?
+7. **Strategic purpose:** Does the strike serve a stated operational goal (isolating Crimea, forcing a settlement)?
+
+## Step 2: Observable harms in the narrative
+
+| # | Searchlight question | Observable statement in the Reuters text |
+|---|---|---|
+| H1 | Chokepoint | Rerouting rail and road freight onto the M-14 corridor, which is "heavily targeted" (Gady). |
+| H2 | Attrition | Claimed loss of 100 locomotives and 600 tonnes of fuel in the Azov sector (unverified by Reuters). |
+| H3 | Surge capacity | Strikes on smaller Mius River bridges could create bottlenecks and repeated repair cycles (Helin). |
+| H4 | Adaptation | Expected Russian air-defence reinforcement; use of dispersion and night driving. |
+| H5 | Evidence | Anonymous commanders and an unnamed officer; figures not independently verified. |
+| H6 | Purpose | Putin's claim that the bridge is used "exclusively for civilian purposes", against the claim that it carries military cargo. |
+| H7 | Divergence | Analysts disagree: "not game-changing in themselves" vs. "pile pressure … Russia could struggle to mitigate". |
+
+## Step 3 and 4: Judging layer and benchmark
+
+To judge these harms an assessor needs: throughput or capacity before and after a strike; route redundancy; time-to-restore; attributed cause (strike, weather, Russian decision); evidential grade for each figure; and the assessor's purpose. Institutional analogues are the Environmental Impact Assessment (scope and mitigation), Probabilistic Risk Assessment (likelihood and consequence) and Life Cycle Assessment (system-wide flows). None of these has a standard for "military throughput", so this is a gap in the benchmark too.
+
+## Step 5: Gap-map against Input C
+
+**Where v3 already fits**
+
+| Narrative element | v3 home |
+|---|---|
+| Strikes, the bridge, rail traffic | Factor: Act and Structure; CausalCandidate |
+| Bridge closure as a cause of rerouting | `causes` on Factor; CausalAssessment (`attributedCause`, `leftOut`) |
+| Rerouting onto M-14 | FactorAssembly, with members and `sufficientFor` |
+| Lost locomotives and fuel | Effect (`MaterialPecuniary`, `SystemicEnvironmental`) |
+| Repeated repairs | Effect `isContinuous`, `temporalTrajectory` |
+| Analysts' disagreement | Divergence (`divergenceType`, `reconcilable`) |
+| Stated operational goal | PerspectiveSpecification `intent` and `appliedEvaluativeStandard` |
+| Who is affected | AffectedEntity (`CollectiveArtificialPerson`, proposed `CollectiveNaturalGroup`) |
+
+**Gaps (each placed by the placement test)**
+
+**Gap 1: Network structure (Factor level).** v3 has `FactorAssembly` (a thin container) but no way to say that a corridor is a node with alternatives or that it has capacity. Missing: `NetworkNode` or `Corridor` with `capacity`, `alternativeRoutes`, and `chokepoint` status. *Placement:* the structure belongs to the Factor (the thing assessed). Redundancy as judged belongs on the Assessment.
+
+**Gap 2: Operational capacity as an object of harm.** `ObjectOfHarm` lists Somatic, Material, Dignitary, Normative, OpportunityCapability and SystemicEnvironmental. None fits "sustainment of a force" or "throughput". `OpportunityCapability` is the nearest, but it is framed around people's capabilities. *Placement:* a new ObjectOfHarm value, and a unit of measure, on the Effect or Assessment.
+
+**Gap 3: Triggering event.** The narrative is organised around discrete kinetic events ("this week's attacks", "its third bridge attack this week"). v3 has no Event class, which is already pending as part of HO-007. *Placement:* Event (procedural / assessment layer); Effects and Factors link to it. This gap is already on the pending list.
+
+**Gap 4: Adaptation and feedback.** Russia's dispersion, air-defence reinforcement and repairs are responses to the strike. v3 models `leadsTo` as open-ended cascades but has no way to say that an effect prompts a counter-act, or that the assessment changes the next strike. *Placement:* a relation between Acts (Factor level), with the feedback judgment on the Assessment.
+
+**Gap 5: Verification status of quantitative claims.** The 100 locomotives and 600 tonnes are stated but not verified. v3's `confidence`, `suppliedBy` and Missingness statuses (Unknown, Disputed, Pending) cover some of this. Evidence and Observation are test-only, though, and the evidence anchor is still open. *Placement:* the Assessment. This gap cannot close until the evidence anchor is decided.
+
+**Gap 6: Legal layer for targets.** Whether a bridge, railway or locomotive is a lawful military target is a legal question. The legal layer is listed as open, and `LegalResponse` is "later". The narrative cannot be assessed for legitimacy without it. *Placement:* a Judgment-profile Assessment, with `authority` and `jurisdiction`.
+
+**Gap 7: Combatant and civilian status of affected entities.** AffectedEntity covers "who is affected" but not "combatant, civilian or dual-use", which the narrative turns on (Putin's "civilian purposes" claim). Affected-entity types are proposed but not decided. *Placement:* AffectedEntity subtype or property. This is also open.
+
+**Gap 8: Remedy and closure for operational judgements.** v3 has `remedyOrdered` and `finality` for judicial profiles, and `verdictStatus` (Provisional / Final). A military assessment's output is a recommendation ("sustain pressure on the corridor"), not a verdict or a legal remedy. *Placement:* Assessment output, a `recommendation` type. This is a minor gap, and the verdict model may cover it.
+
+## Summary
+
+- **Covered well:** Factors, Effects, causal assessment, divergence and the evaluative standard.
+- **Real gaps:** network structure (1), operational capacity as a harm (2), events (3, already pending), adaptation feedback (4), evidence grading (5, blocked on the evidence anchor), and the legal and combatant-status layer (6, 7).
+- **Minor:** operational recommendations as outputs (8).
+
+**Caveats:** This is a design outline checked against an unbuilt model, so these are design gaps, not failures of a tested implementation. The military-strategist searchlight is my own generation and needs your review. I have not written this analysis to the vault. Should I save it as a session note in `01_The Writer's Room/`, and does the skill need the PerspectiveStructure 0.02 check added as a fourth step?
+[Timestamp: 2026/11/22 00:33:19]

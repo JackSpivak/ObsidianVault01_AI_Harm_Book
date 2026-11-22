@@ -1,6 +1,6 @@
 ---
 name: harm-ontology-gap-analyst
-description: Performs focused inquiry into the adequacy of a harm ontology. Generates discipline-based searchlights (questions, competencies, blind spots), translates them into observable harms, operationalizes the judging layer, benchmarks against institutional frameworks (e.g., EIA, CBA, HRIA, AIA), and maps v3 schema gaps (Mandate, Valuation, Triggers, Remedies) using the placement test.
+description: Performs focused inquiry into the adequacy of a harm ontology. Strictly requires explicit user input for 1) a discipline-based perspective, 2) an empirical target narrative/case text, and 3) a target ontology schema note or file. Never assumes or carries over inputs from previous context.
 license: MIT
 metadata:
   copilot-enabled-agents: opencode, codex, general
@@ -17,51 +17,48 @@ The process is iterative. **Success is measured by whether the model can represe
 
 ---
 
-## Required Inputs & Invocation Triggers
+## Strict Input Protocol (No Context Carryover)
 
-To execute this skill successfully, provide:
-1. **Input A: A Discipline-Based Perspective** (e.g., *Classical Council*, or any other discipline perspective). **Trigger Rule:** If you name a known perspective (like the Classical Council) or ask to start from one, Copilot will immediately generate its core competencies and 10–20 structured questions as the first action.
-2. **Input B: An Empirical Target Narrative / Case Text** (e.g., a news story, corporate filing, or risk excerpt like the Anthropic SEC S-1) in which to search for harm.
-3. **Input C: The Target Ontology Schema** (e.g., Harm Ontology v3 draft structure or mini TTL files) against which gap-mapping is evaluated.
+**This skill assumes nothing from prior conversation history or previous sessions.** When invoked, if any of the three required inputs are missing, unstated, or ambiguous, you must explicitly pause and prompt the user for them. Never reuse inputs from an earlier run.
+
+1. **Input A: The Discipline-Based Perspective**
+   - *Requirement:* The user must explicitly name or define the perspective, council, or analytical tradition to be used (e.g., *Classical Council*, *Military Strategist*, etc.). If unnamed, prompt the user.
+2. **Input B: The Empirical Target Narrative / Case Text**
+   - *Requirement:* The user must provide the specific text, filing, news story, or scenario to be analyzed. If missing, prompt the user to paste or attach the text.
+3. **Input C: The Target Ontology Schema**
+   - *Requirement:* The user must specify the exact ontology note, draft structure, or schema file in the vault to be evaluated against the narrative findings (e.g., `Harm Ontology v3 - Draft Structure` or a specific `.ttl` file). Never use a list of gaps or meta-notes as the ontology. If missing, prompt the user to name the ontology document.
 
 ---
 
-## Workflow
+## Workflow Steps
 
-### Step 1: Elicit Perspective & Generate the Searchlight
-- **Action:** Using **Input A**, articulate the perspective's unique intellectual tradition, core competencies, and blind spots. 
-- **Output:** Automatically generate 10–20 core investigative questions partitioned across thematic dimensions.
+### Step 1: Elicit Inputs & Validate Completeness
+- Verify that Input A, Input B, and Input C are explicitly provided in the current prompt or attachments. If any are missing, stop and prompt the user for the missing input(s).
 
-### Step 2: Translate Questions into Observable Harms
-- **Action:** Take the abstract inquiries from Step 1 and apply them to **Input B** (the target narrative/case text).
-- **Output:** Reframing original questions into checkable statements of actual or potential harm observable in empirical reporting.
+### Step 2: Generate the Searchlight from Input A
+- Articulate the perspective's core tradition, competencies, and blind spots.
+- Derive 10–20 structured core investigative questions.
 
-### Step 3: Operationalize the Judging Layer
-- **Action:** Define what an institutional assessment of these harms requires: dimensions, instruments, scoring criteria, and procedural workflows.
+### Step 3: Translate Questions into Observable Harms using Input B
+- Apply the searchlight questions to the empirical text provided in Input B.
+- Reframe the inquiries into concrete, checkable statements of actual or potential harm found within that specific narrative.
 
-### Step 4: Benchmark against Real-World Frameworks
-- **Action:** Cross-reference the inquiry against established institutional assessment practices (Cost-Benefit Analysis, Rights Impact Assessments, Environmental Impact Assessments, Algorithmic Fairness Audits, etc.).
+### Step 4: Operationalize the Judging Layer & Benchmark
+- Define the required assessment dimensions, instruments, and procedural workflows.
+- Cross-reference against real-world institutional frameworks (e.g., EIA, CBA, PRA).
 
-### Step 5: Gap-Mapping against the Target Ontology
-- **Action:** Compare the findings, judging mechanics, and institutional requirements against **Input C** (the ontology schema). Identify missing or insufficiently expressive classes, subclasses, and camelCase attributes across four core gap groups:
-  - **Institutional Mandate & Enforcement Authority**
-  - **Methodological Metric Specification (Valuation & Currency)**
-  - **Procedural Lifecycle & Trigger Rules**
-  - **Remedial Closure & Prescriptive Output**
+### Step 5: Gap-Map Findings against Input C (The Actual Ontology Schema)
+- Compare the required findings, procedural steps, and assessment mechanics directly against the text/structure of **Input C** (the user's specified ontology schema).
+- Identify genuine structural omissions in Input C (missing classes, properties, or attributes needed to represent the assessment).
 
 ### Step 6: Apply the Placement Test
-- **Action:** Test every proposed schema extension to ensure it hangs off the correct root (e.g., procedural layer / `HarmAssessment` rather than static `PerspectiveType`).
+- Test every identified missing element to ensure proper structural placement (e.g., procedural layer vs. perspective tradition).
 
 ---
-
-## Schema Extensions Reference
-
-Refer to [Gap Mapping Benchmarks](references/GAP_MAPPING_BENCHMARKS.md) for the complete list of candidate classes, subclasses, and camelCase attributes, and [Placement Test](references/PLACEMENT_TEST.md) for the structural placement rules.
 
 ## Validation Checklist
 
-- [ ] Naming a perspective immediately triggers question/competency generation.
-- [ ] All three required inputs (Perspective, Target Narrative, Target Ontology) are accounted for.
-- [ ] Perspective-based inquiry yields specific, checkable observable harms from the target narrative.
-- [ ] Institutional frameworks are benchmarked against real-world usage and regulatory oversight.
-- [ ] Schema extensions pass the placement test (tradition vs. assessment vs. factor vs. output).
+- [ ] All three inputs (Perspective, Narrative, Ontology) were explicitly supplied in the current prompt (no context carryover).
+- [ ] Searchlight questions are derived strictly from Input A.
+- [ ] Observable harms are grounded strictly in Input B.
+- [ ] Gaps are identified strictly by comparing against the actual schema in Input C (never against past gap lists).
