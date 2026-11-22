@@ -16,7 +16,7 @@ filed: 2026-11-14
 Index: [[_Harm Ontology Bookmark Index]] · Parent: [[HO-000 Harm as Perspective-Relative Assessment|HO-000]] · Tier HO-II (judging layer)
 
 > [!note] Revision 2026-11-17
-> The class described here is now **PerspectiveSpecification** (altLabels "viewpoint", "perspective snapshot"), one of two disjoint subclasses of an abstract **Perspective** umbrella; the other is **PerspectiveType** ("tradition", [[PerspectiveStructure 0.02]]). A specification `instantiates` a tradition and inherits its defaults. The property `standard` is now `appliedEvaluativeStandard`, inherited from the tradition's `defaultEvaluativeStandard` when absent. See [[Decisions_Log]] 2026-11-17.
+> The class described here is now **PerspectiveSpecification** (altLabels "viewpoint", "perspective snapshot"), one of two disjoint subclasses of an abstract **Perspective** umbrella; the other is **PerspectiveType** ("tradition", [[PerspectiveStructure Proposal Draft 3.1]]). A specification `instantiates` a tradition and inherits its defaults. The property `standard` is now `appliedEvaluativeStandard`, inherited from the tradition's `defaultEvaluativeStandard` when absent. See [[Decisions_Log]] 2026-11-17.
 
 ## Why this is distinct
 - A **Perspective** is a reusable class (`Assessment —takenFrom→ Perspective`), modelled on taking a photograph. It makes visible every setting that can change a verdict on its own.

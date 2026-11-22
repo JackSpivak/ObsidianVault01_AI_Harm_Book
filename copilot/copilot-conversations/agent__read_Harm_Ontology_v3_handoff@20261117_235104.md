@@ -98,7 +98,7 @@ Should I go ahead with the grep?
 
 At line 2028 you asked whether "thin container" meant it adds little value. After my explanation, line 2071 records the decision: "FactorAssembly is a thin container. Membership, sufficiency, innocuousness, unknown members, origin and orchestrator all come from assessments…" That change is applied in the v3 draft and in HO-003.
 
-**2. A Tradition Assessments group in PerspectiveType (done).** Line 163 reads "Move evaluations into an Assessments layer? I recommend yes." Contested judgements about a tradition were moved there, for example `developmentalAltitude` (line 1006). This became group 11 in [[PerspectiveStructure 0.02]].
+**2. A Tradition Assessments group in PerspectiveType (done).** Line 163 reads "Move evaluations into an Assessments layer? I recommend yes." Contested judgements about a tradition were moved there, for example `developmentalAltitude` (line 1006). This became group 11 in [[PerspectiveStructure Proposal Draft 3.1]].
 
 **Not discussed in that session:** I searched for `causalNecessity`, `isForeseeable`, `severity` and `reversibility` and found no matches. So the same treatment for attributes on Factor, CausalRole and Effect was never proposed or decided there. Applying the same logic to them ("causehood only as assessed") would be a new, open item. It's closest to the pending HO-005 items, especially reifying `participatesIn` as a claim.
 

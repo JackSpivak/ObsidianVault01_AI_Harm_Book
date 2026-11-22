@@ -106,7 +106,7 @@ I said that under **3A** (exact procedure and version), `Implicit` and `None` as
 
 **What I propose:** `standardBasis` sits on each **Assessment** and is **derived by script, not entered by hand**, because the draft structure already contains the inputs:
 - **Explicit:** the assessment, or its PerspectiveSpecification, states an `appliedEvaluativeStandard` (draft structure line 98).
-- **Implicit:** none is stated, so it is inherited from the PerspectiveType's `defaultEvaluativeStandard` (line 88; decided 2026-11-17 in [[PerspectiveStructure 0.02]]).
+- **Implicit:** none is stated, so it is inherited from the PerspectiveType's `defaultEvaluativeStandard` (line 88; decided 2026-11-17 in [[PerspectiveStructure Proposal Draft 3.1]]).
 - **None:** no standard is stated and there's no tradition to inherit one from.
 
 Deriving it follows your earlier principle. Its value is an Observation (anyone can check it from the data), not a judgement, so it doesn't add another layer of assessment. It also makes CQ5 testable without anyone hand-labelling 3 values.
@@ -387,7 +387,7 @@ Do you agree with the three-part match and with (b)?
 **user**: do any of the attributes use patient
 [Timestamp: 2026/11/18 01:14:33]
 
-**ai**: Yes, a few. Here's everything in the ontology files, sorted by type (from a grep of `ontology/` and [[PerspectiveStructure 0.02]]):
+**ai**: Yes, a few. Here's everything in the ontology files, sorted by type (from a grep of `ontology/` and [[PerspectiveStructure Proposal Draft 3.1]]):
 
 ## Properties (attributes) that use "patient"
 | Where | Attribute | Proposed new name |
@@ -435,7 +435,7 @@ The draft structure isn't just another note. It's the **v3 design** itself, and 
 
 **Two things to confirm:**
 1. Update the draft structure now?
-2. Your "yes" covered `forPatient`. For `standingOfSubjects {agent · patient · datum}` in [[PerspectiveStructure 0.02]], should I keep "patient", as the standard philosophical pair (a), or change it to "affected" (b)?
+2. Your "yes" covered `forPatient`. For `standingOfSubjects {agent · patient · datum}` in [[PerspectiveStructure Proposal Draft 3.1]], should I keep "patient", as the standard philosophical pair (a), or change it to "affected" (b)?
 <!-- copilot-message {"tools":["Edit (edit): 00_Claude_Admin/Decisions_Log.md","Edit (edit)"]} -->
 [Timestamp: 2026/11/18 01:15:45]
 
@@ -443,7 +443,7 @@ The draft structure isn't just another note. It's the **v3 design** itself, and 
 [Timestamp: 2026/11/18 01:16:55]
 
 **ai**: I've made the change and logged it:
-- **[[PerspectiveStructure 0.02]] line 121:** now reads `standingOfSubjects ★ {agent · affected · datum}`, with a dated note that it replaces "patient".
+- **[[PerspectiveStructure Proposal Draft 3.1]] line 121:** now reads `standingOfSubjects ★ {agent · affected · datum}`, with a dated note that it replaces "patient".
 - **[[Decisions_Log]]:** added to the AffectedEntity entry.
 
 Line 171 of that note still says `moralCircle ↔ Patient`. That's a link target, so it changes together with the draft structure.
@@ -467,7 +467,7 @@ Line 171 of that note still says `moralCircle ↔ Patient`. That's a link target
 - The "assessment everywhere" warning callout now says AffectedEntity and `assessmentBasis` (marked test-only).
 - The open list: "…as affected entities"
 
-**[[PerspectiveStructure 0.02]] line 171:** `moralCircle ↔ AffectedEntity`.
+**[[PerspectiveStructure Proposal Draft 3.1]] line 171:** `moralCircle ↔ AffectedEntity`.
 
 **Something I noticed:** the draft's **Open** list still includes "future generations, AI systems and relationships as affected entities". The 2026-11-18 decision already confirmed them as types. If that item is about something still unresolved, such as their *standing*, it should be reworded. If not, it could move off the Open list. I've left it as it is. Should I reword it, remove it, or leave it?
 

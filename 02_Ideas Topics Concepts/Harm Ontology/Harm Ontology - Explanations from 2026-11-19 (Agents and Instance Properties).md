@@ -37,7 +37,7 @@ created: 2026-11-19
 - **Existing v3 pieces:** `hasAgent → Agent (?)` on Factor, `answerableAgent (?)` on CausalRole, `orchestrator → Agent (?)` on FactorAssembly, `assessor → Agent` on PerspectiveSpecification, and `Agent (?)`: UnitaryIntentionalAgent · CollectiveAgent · AutonomousSystem (?). `hasAgent` is separate from `answerableAgent`, which matches the three axes.
 
 ## 3. Participation in events
-- v3 has only `Factor participatesIn FactorAssembly` ([[HO-003 Causal Assembly - the Perfect Storm]]). There is **no Event class** (Factor kinds include Act and Process; [[PerspectiveStructure 0.02]] has `originatingCircumstance → Event` as a stub) and no participation of an Agent in anything.
+- v3 has only `Factor participatesIn FactorAssembly` ([[HO-003 Causal Assembly - the Perfect Storm]]). There is **no Event class** (Factor kinds include Act and Process; [[PerspectiveStructure Proposal Draft 3.1]] has `originatingCircumstance → Event` as a stub) and no participation of an Agent in anything.
 - **Proposed chain (not decided):** `Agent —participatesIn→ Event —participatesIn→ FactorAssembly`, with roles in the participation (principal, accessory, conspirator, vicarious party; from legal memory, unverified) and joint participation by several agents in one event.
 - **Foundational case:** robbers participating in a robbery that causes an assessed loss of a pecuniary interest.
 - **Participation is not responsibility.** Whether someone is answerable stays with the pending ResponsibilityAssessment ([[HO-005 Assessed Membership and Systematic Omission]]).
@@ -93,7 +93,7 @@ created: 2026-11-19
 - **Attribution:** Author (correcting an earlier "looks great" after opening the first mini example in Protégé)
 - **Source:** same session
 
-- **External references:** [[Harm Ontology v3 - Draft Structure]]; [[HO-003 Causal Assembly - the Perfect Storm]]; [[HO-005 Assessed Membership and Systematic Omission]]; [[PerspectiveStructure 0.02]]; [[Harm Ontology v3 Three-Layer Mini Example Brief]]; [[Decisions_Log]].
+- **External references:** [[Harm Ontology v3 - Draft Structure]]; [[HO-003 Causal Assembly - the Perfect Storm]]; [[HO-005 Assessed Membership and Systematic Omission]]; [[PerspectiveStructure Proposal Draft 3.1]]; [[Harm Ontology v3 Three-Layer Mini Example Brief]]; [[Decisions_Log]].
 
 ## Related
 - [[Handoff - Harm Ontology]]

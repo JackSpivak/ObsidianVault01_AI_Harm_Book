@@ -31,7 +31,7 @@ I can run that search across your vault if you'd like.
 
 **Changes logged in [[Decisions_Log]] since the draft**
 
-- **2026-11-17, Perspective split.** Perspective is now an abstract umbrella with two disjoint subclasses: PerspectiveType (altLabel "lens") and PerspectiveSpecification (altLabels "viewpoint", "perspective snapshot"). "Shot" is retired. The standard properties are now `defaultEvaluativeStandard` on the type and `appliedEvaluativeStandard` on the specification. This supersedes the earlier split. See [[PerspectiveStructure 0.02]].
+- **2026-11-17, Perspective split.** Perspective is now an abstract umbrella with two disjoint subclasses: PerspectiveType (altLabel "lens") and PerspectiveSpecification (altLabels "viewpoint", "perspective snapshot"). "Shot" is retired. The standard properties are now `defaultEvaluativeStandard` on the type and `appliedEvaluativeStandard` on the specification. This supersedes the earlier split. See [[PerspectiveStructure Proposal Draft 3.1]].
 - **2026-11-17, causal structure.** Attribution is merged into CausalAssessment, which is now a kind of Assessment. A new parent class, CausalCandidate, has Factor and FactorAssembly as subclasses. CausalAssembly is renamed FactorAssembly and becomes a thin identifier container. Membership, sufficiency, origin and orchestrator are all supplied by assessments.
 - **2026-11-17, three layers.** OWL (`ho:`) for structure, SHACL (`hosh:`) for requiredness, and SKOS (`hov:`) for vocabulary.
 - **2026-11-18, rename.** "Patient" becomes AffectedEntity. `patientStanding` becomes `affectedStanding`, `forPatient` becomes `forAffectedEntity`, and the standing values become `{agent · affected · datum}`. The rename across other notes and the v1 `.ttl` is deferred to migration.
@@ -594,7 +594,7 @@ My methodology note was not that. It summarised the whole workstream's state, wh
 
 Several items in 0.02 are still open. The handoff lists them: whether to adopt the type/instance split (now logged), RDF-star or named graphs for provenance, a hybrid OWL/SKOS model, an attribute-space model for comparing lenses, recording the ontology as an instance of its own PerspectiveType, new Divergence subtypes, and whether to keep `developmentalAltitude`. I did not check whether the size/altitude separation and the vocabulary table format were logged. They are not in the Decisions_Log lines I read.
 
-**3. Is 0.01 still used in the v3 draft?** No direct reference. The rev 2026-11-20 draft and the original draft point to [[PerspectiveStructure 0.02]] for PerspectiveType, and neither mentions 0.01. The 0.01 handoff status says 0.01 is "frozen". It is still used indirectly: the seven council reviews are named after it, and the HO-II.d.1 link in the 2026-11-17 Decisions_Log entries points to it.
+**3. Is 0.01 still used in the v3 draft?** No direct reference. The rev 2026-11-20 draft and the original draft point to [[PerspectiveStructure Proposal Draft 3.1]] for PerspectiveType, and neither mentions 0.01. The 0.01 handoff status says 0.01 is "frozen". It is still used indirectly: the seven council reviews are named after it, and the HO-II.d.1 link in the 2026-11-17 Decisions_Log entries points to it.
 
 If you want the 0.02 status settled, the next step is a logged decision that either adopts 0.02 as the working structure, or lists what remains open. I would not make that decision without you.
 <!-- copilot-message {"tools":["read (read): 01_The Writer's Room/Handoff - PerspectiveStructure 0.02.md","grep (search): 00_Claude_Admin/Decisions_Log.md","grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure.md"]} -->
@@ -605,7 +605,7 @@ If you want the 0.02 status settled, the next step is a logged decision that eit
 
 **ai**: The current draft corresponds to **0.02** for the PerspectiveType side. I should have checked the draft first, since it answers this directly.
 
-- **PerspectiveType** is described as "groups 0–12 + profiles (LegalInstitutional · LearnedModel)" and links to [[PerspectiveStructure 0.02]]. The 0.02 structure has twelve display groups and two profiles. 0.01 had eight groups.
+- **PerspectiveType** is described as "groups 0–12 + profiles (LegalInstitutional · LearnedModel)" and links to [[PerspectiveStructure Proposal Draft 3.1]]. The 0.02 structure has twelve display groups and two profiles. 0.01 had eight groups.
 - **Group 11** is named as the assessments of the tradition (congruence, omission, developmentalAltitude). That matches 0.02.
 - **The revision note of 2026-11-17** says the draft applies the Perspective umbrella and the default and applied standards from 0.02.
 
@@ -615,7 +615,7 @@ The draft has one part that is not 0.02. **PerspectiveSpecification** lists five
 **user**: ok. is it possible to provide a table that shows  the groups and the properties that they 0.01 and 0.02 contain side by side so that we can resolve naming and inclusiion
 [Timestamp: 2026/11/20 22:20:26]
 
-**ai**: Here is the comparison. I read both notes in full: [[PerspectiveStructure 0.01]] (the eight-group base) and [[PerspectiveStructure 0.02]] (the consolidated version the draft uses). Each row is a topic, and the cells show where its properties sit in each version. "Moved" and "renamed" are my reading of the two notes.
+**ai**: Here is the comparison. I read both notes in full: [[PerspectiveStructure 0.01]] (the eight-group base) and [[PerspectiveStructure Proposal Draft 3.1]] (the consolidated version the draft uses). Each row is a topic, and the cells show where its properties sit in each version. "Moved" and "renamed" are my reading of the two notes.
 
 | Topic | 0.01 (group: properties) | 0.02 (group: properties) | Change |
 |---|---|---|---|

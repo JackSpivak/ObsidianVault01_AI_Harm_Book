@@ -13,7 +13,7 @@ filed: 2026-11-17
 
 # PerspectiveStructure 0.01
 
-Index: [[_Harm Ontology Bookmark Index]] · Parent: [[HO-II.d Perspective - Ten Optional Properties|HO-II.d]] · Reviews: [[v-0.01 ClassicalCouncil Review of - PerspectiveStructure 0.01|HO-II.d.1.a Classical Council]] · Next version: [[PerspectiveStructure 0.02|HO-II.d.3]]
+Index: [[_Harm Ontology Bookmark Index]] · Parent: [[HO-II.d Perspective - Ten Optional Properties|HO-II.d]] · Reviews: [[v-0.01 ClassicalCouncil Review of - PerspectiveStructure 0.01|HO-II.d.1.a Classical Council]] · Next version: [[PerspectiveStructure Proposal Draft 3.1|HO-II.d.3]]
 
 > [!info] Base state
 > The structure as it stood on 2026-11-17, before the council reviews. Each council review (HO-II.d.1.a–g) examines **this** version. Don't edit the structure in place; the next version gets a new note (0.02).

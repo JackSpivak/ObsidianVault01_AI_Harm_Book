@@ -6,8 +6,8 @@ sessionId: "ses_dfb585194ffe7nYryStUFiC3xm"
 model: '{"baseModelId":"google/gemini-3.5-flash-lite","effort":"low"}'
 tags:
   - copilot-conversation
-topic: "Assessment structure exploration"
-usage: '{"usedTokens":37521,"contextWindow":1048576,"updatedAt":1795375041366}'
+topic: "Assessment Structure Proposal Draft 3.1"
+usage: '{"usedTokens":40523,"contextWindow":1048576,"updatedAt":1795375570169}'
 ---
 
 **user**: explore assessment structure
@@ -148,3 +148,12 @@ Perspective (Abstract Umbrella)
 
 In RDF / OWL modeling terms, `enablesAssessment` creates a directional, extensible bridge from the lens (the discipline perspective) to its practical outputs (the individual harm assessments it produces), allowing one perspective to anchor many distinct evaluations without collapsing them into a single static record.
 [Timestamp: 2026/11/22 12:17:09]
+
+**user**: do we have an overall comprehensive plan note yet for incorporating updates and candidate changes to Harm Ontology v3.1
+[Timestamp: 2026/11/22 12:25:57]
+
+**ai**: Let's check the vault using `glob` or `miyo_search` to see if there's a migration plan, v3.1 plan, or roadmap note for Harm Ontology updates.The vault's primary comprehensive plan for incorporating updates, structural revisions, and migrations is [[Harm Ontology Migration Plan]]. 
+
+As outlined in that migration plan (and complemented by the proposed skeleton in [[Harm Ontology v3.1 - Skeleton Schema (proposed)]]), updates like your new proposal—incorporating **`DisciplinePerspective`**, the **`enablesAssessment`** relation, and functional/purpose subclasses of **`HarmAssessment`**—would naturally be integrated during **Phase 1 (v3 skeleton / schema updates)** and **Phase 2 (Crosswalk & Refinement)** before being codified into the single-source-of-truth `.ttl` file.
+<!-- copilot-message {"tools":["glob (search): 02_Ideas Topics Concepts/Harm Ontology","read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology Migration Plan.md"]} -->
+[Timestamp: 2026/11/22 12:25:57]

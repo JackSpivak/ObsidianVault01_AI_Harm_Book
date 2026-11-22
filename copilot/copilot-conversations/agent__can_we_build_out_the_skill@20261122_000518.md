@@ -365,7 +365,7 @@ Please retry in 5.135963311s.
 **Inputs**
 - **A, Perspective:** Military Strategist (logistics, chokepoints, centre of gravity, attrition, network resilience).
 - **B, Narrative:** Reuters, 20 Nov (Crimean Bridge road and rail sections, M-14 corridor, Mius River bridges, Azov strikes on locomotives and fuel).
-- **C, Ontology:** [[Harm Ontology v3 - Draft Structure]]. This is a design outline, not a `.ttl` file. I checked it against the element list in its Structure block, including the 2026-11-17 and 2026-11-18 revisions. I did not check [[PerspectiveStructure 0.02]] (the PerspectiveType groups), so any claim about PerspectiveType is unverified.
+- **C, Ontology:** [[Harm Ontology v3 - Draft Structure]]. This is a design outline, not a `.ttl` file. I checked it against the element list in its Structure block, including the 2026-11-17 and 2026-11-18 revisions. I did not check [[PerspectiveStructure Proposal Draft 3.1]] (the PerspectiveType groups), so any claim about PerspectiveType is unverified.
 
 ## Step 1: Searchlight from the Military Strategist
 
@@ -446,7 +446,7 @@ yes please include the perspectivestructure test and regenerate the output above
 Nothing has been written to the vault. The skill file is unchanged.
 
 **Inputs**
-- **A, Perspective:** Military Strategist (logistics, chokepoints, centre of gravity, attrition, network resilience). Tested against the group structure in [[PerspectiveStructure 0.02]].
+- **A, Perspective:** Military Strategist (logistics, chokepoints, centre of gravity, attrition, network resilience). Tested against the group structure in [[PerspectiveStructure Proposal Draft 3.1]].
 - **B, Narrative:** Reuters, 20 Nov (Crimean Bridge road and rail sections, M-14 corridor, Mius River bridges, Azov strikes on locomotives and fuel).
 - **C, Ontology:** [[Harm Ontology v3 - Draft Structure]]. This is a design outline, not a `.ttl` file.
 

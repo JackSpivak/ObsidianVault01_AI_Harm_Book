@@ -12,10 +12,10 @@ previous_handoff: "[[Handoff - PerspectiveStructure 0.02]]"
 
 # Handoff — Perspective Vocabulary and v3 Follow-ups
 
-*Task-scoped handoff. Attach this note to start a new chat. It picks up after [[PerspectiveStructure 0.02]] was written and filed. The wider ontology work is in [[Handoff - Harm Ontology]].*
+*Task-scoped handoff. Attach this note to start a new chat. It picks up after [[PerspectiveStructure Proposal Draft 3.1]] was written and filed. The wider ontology work is in [[Handoff - Harm Ontology]].*
 
 ## Where things stand (2026-11-17)
-- [[PerspectiveStructure 0.02]] (HO-II.d.3) is written and filed: minimal core, 12 display groups, 2 profiles, placed in v3.
+- [[PerspectiveStructure Proposal Draft 3.1]] (HO-II.d.3) is written and filed: minimal core, 12 display groups, 2 profiles, placed in v3.
 - [[Vocabulary Crosswalk - Concept Hubs and Discipline Schemes]] (HO-II.d.2) holds three worked hubs: `congruence`, `omission` and `developmentalAltitude`.
 - [[Integral Altitude Scale]] (HO-II.d.2.a) holds Wilber's scale as value records, with verification noted per level.
 - [[Harm Ontology v3 - Draft Structure]] is updated with the decisions below (see its revision callout). No v3 `.ttl` exists yet.

@@ -151,7 +151,7 @@ Does this match how you see it? If so, I'll write these as proposed rules in the
 The vault doesn't match your model yet, though. Current notes say:
 
 - **[[Harm Ontology v3 - Draft Structure (rev 2026-11-20)]]**: PerspectiveType has prefLabel "tradition" and altLabel "lens".
-- **[[PerspectiveStructure 0.02]]**: the same labels, and it records your earlier instruction to use "tradition" as the prefLabel and "lens" as the altLabel.
+- **[[PerspectiveStructure Proposal Draft 3.1]]**: the same labels, and it records your earlier instruction to use "tradition" as the prefLabel and "lens" as the altLabel.
 
 So your current instruction would reverse a logged labelling decision. It should be recorded as a new decision in [[Decisions_Log]] before the vault changes.
 

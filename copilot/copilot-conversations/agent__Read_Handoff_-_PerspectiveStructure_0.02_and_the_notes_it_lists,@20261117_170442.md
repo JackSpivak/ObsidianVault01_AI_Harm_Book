@@ -1711,7 +1711,7 @@ Still waiting on you:
   - What's left out:
     - **Turquoise and the third tier (indigo to white) have no Explanations.** The primary texts I read don't describe them, so I left them as placeholders rather than invent content.
     - **Wilber's population percentages** are marked as his own estimates.
-- **[[PerspectiveStructure 0.02]]**
+- **[[PerspectiveStructure Proposal Draft 3.1]]**
   - Contents:
     - the decisions it applies;
     - the consolidation rules;
@@ -1731,7 +1731,7 @@ Still waiting on you:
 I'd number 0.02 as a sibling (HO-II.d.3) rather than a child of 0.01, because 0.01 is frozen and its children are reviews of it.
 
 The plan also includes these follow-ups:
-- **Add a "Next version: [[PerspectiveStructure 0.02]]" line to 0.01's header.** I'd leave 0.01's content untouched.
+- **Add a "Next version: [[PerspectiveStructure Proposal Draft 3.1]]" line to 0.01's header.** I'd leave 0.01's content untouched.
 - **Mark [[Handoff - PerspectiveStructure 0.02]] as `status: archived`.** The handoff itself says to archive it once 0.02 exists.
 - **No links need rewriting.** Both notes are new.
 
@@ -2275,7 +2275,7 @@ Which property names, and shall I log all of it?
    - **Assessment** now uses `takenFrom → PerspectiveSpecification`, and `CausalAssessment` gets `attributedCause` and `leftOut`.
    - **Box D:** new, for the vocabulary layer.
    - **Revision callout** listing all of these changes.
-2. **[[PerspectiveStructure 0.02]]** (still in `_Unfiled Ideas/`): now uses the umbrella, PerspectiveSpecification and `defaultEvaluativeStandard`. Both v3 integration questions are marked decided.
+2. **[[PerspectiveStructure Proposal Draft 3.1]]** (still in `_Unfiled Ideas/`): now uses the umbrella, PerspectiveSpecification and `defaultEvaluativeStandard`. Both v3 integration questions are marked decided.
 3. **`Canon_and_Continuity.md` glossary:** added *Perspective* (umbrella) and *Perspective specification*; updated *Tradition* and *Lens*; removed *Shot*.
 4. **Revision callouts** added at the top of three notes:
    - [[HO-II.d Perspective - Ten Optional Properties]]: the class is now PerspectiveSpecification, and `standard` is now `appliedEvaluativeStandard`;
@@ -2296,7 +2296,7 @@ Which property names, and shall I log all of it?
 
 **ai**: The two notes are filed. I checked afterwards, and each ID resolves to exactly one note.
 
-- **[[PerspectiveStructure 0.02]] is now HO-II.d.3.** It's in `Harm Ontology/`, with an index line that links to its parent (HO-II.d) and to 0.01 as the previous version.
+- **[[PerspectiveStructure Proposal Draft 3.1]] is now HO-II.d.3.** It's in `Harm Ontology/`, with an index line that links to its parent (HO-II.d) and to 0.01 as the previous version.
 - **[[Integral Altitude Scale]] is now HO-II.d.2.a.** It's in `Harm Ontology/`, under the vocabulary crosswalk.
 - **[[_Harm Ontology Bookmark Index]]** has both new entries.
 - **[[PerspectiveStructure 0.01]]'s header** now has a "Next version: HO-II.d.3" link. Its content is unchanged.
