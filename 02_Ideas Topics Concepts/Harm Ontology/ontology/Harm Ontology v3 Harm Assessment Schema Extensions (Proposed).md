@@ -1,9 +1,40 @@
-# Proposed Ontology Schema Additions: Institutional & Applied Assessment Extensions
+# Harm Ontology v3 Harm Assessment Schema Extensions (Proposed)
 *A schema extension mapping the 4 real-world institutional gaps to new classes, subclasses, and camelCase attributes, compatible with Harm Ontology v3's editor-first and three-layer pattern.*
 
 ---
 
-## Category 1: Institutional Mandate & Enforcement Authority
+## Visual Schema Depiction
+
+```text
+PerspectiveType (v3 Core Tradition / Lens)
+│
+├── [Gap 1: Mandate & Authority] ──────────────────────────────────────────
+│   ├── statutoryBasis (xsd:string / URI)
+│   ├── enforcementPower { advisory · binding · veto · civilPenalties · criminalSanctions }
+│   ├── hasEnforcementAuthority → EnforcementAuthority
+│   └── jurisdictionalScope → Domain / Region
+│
+├── [Gap 2: Metric & Valuation] ──────────────────────────────────────────
+│   ├── valuationCurrency { monetary · qaly · ordinalScore · narrative · binaryThreshold }
+│   ├── permitsIncommensurableTradeoffs (xsd:boolean)
+│   └── valuationMethodology → ValuationMethodology
+│
+├── [Gap 3: Procedural Lifecycle] ─────────────────────────────────────────
+│   ├── mandatoryTrigger → AssessmentTrigger
+│   ├── triggerThreshold (xsd:string / numeric value)
+│   ├── assessmentTiming { exAnte · exPost · continuous }
+│   └── deadlineDuration (xsd:duration)
+│
+└── [Gap 4: Remedial Closure] ─────────────────────────────────────────────
+    └── generatesRemedy → RemedialObligation
+        ├── remedyEnforceability { selfRegulating · courtOrdered · statutorilyEnforced }
+        ├── mitigationRequirement (xsd:string)
+        └── closureStatus { Open · UnderReview · Remedied · Closed }
+```
+
+---
+
+## Detailed Schema Breakdown by Category
 *Bridges abstract perspective traditions (`PerspectiveType`) with real-world institutional power, legal standing, and statutory binding force.*
 
 ### New Classes & Subclasses
