@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm ontology skill building"
-usage: '{"usedTokens":120466,"contextWindow":1000000,"updatedAt":1795334704743}'
+usage: '{"usedTokens":123126,"contextWindow":1000000,"updatedAt":1795335349480}'
 ---
 
 **user**: can we build out the skill?
@@ -814,3 +814,46 @@ Should I compare all three runs side by side now, or try a fourth perspective?
 
 Do you want me to make those changes to the skill file? Nothing has been changed yet.
 [Timestamp: 2026/11/22 01:04:50]
+
+**user**: you have labeled searchlight questions.
+are these related to the core questions of a particular discipline/perspective? they seem like they may be core to a perspective but seem quite influenced by the narrative example to be tested also?
+[Timestamp: 2026/11/22 01:11:10]
+
+**ai**: They are a mix, and the mix is a problem.
+
+**What is discipline-level.** Several of the questions use vocabulary that belongs to the tradition: centre of gravity, chokepoint and attrition (military); exposure, outcome, denominator, latency and Bradford Hill-style causal criteria (epidemiology); dependent origination, the three poisons, skilful means and bodhicitta (Vajrayana). A practitioner would recognise these as the tradition's concepts, and they are not specific to Reuters.
+
+**What is narrative-shaped.** Several questions were written after I had read the article, so they reflect it:
+- The military "more traffic means more targets" question repeats the article's quote.
+- The epidemiology "fuel and power exposure" question follows the article's shortage and energy-strike details.
+- The Vajrayana "escalation" and "wrong speech" questions follow Putin's "hit back hard" and "exclusively civilian" statements.
+- The "omission" questions were built from what the article leaves out, which is a judgement about the case rather than a property of the tradition.
+
+**The procedural problem.** The skill's design says Step 1 generates questions from Input A alone, and Step 2 applies them to Input B. In all three runs I wrote the questions after reading B, so they were fitted to the case. That undermines the purpose of the searchlight, which is to test what a perspective asks, not what it can find in a story.
+
+**What I cannot claim.** I have no source showing that these are the core questions of military strategy, epidemiology or Vajrayana Buddhism. They are my reconstruction. The earlier Classical council was built differently: the questions were drawn from the council's own persona and reviews, and they were then checked against the tradition. For the three runs here, the closest grounding would be the council reviews in the vault or a retrieved statement of each discipline's core questions.
+
+**A fix for the skill.** Generate the searchlight from A alone, before B is pasted, and record it. Then apply it to B. Mark any question that refers to details of the narrative as a case-specific addition, and keep it separate from the discipline's questions. If you want, I can add that ordering rule to the skill and re-run one perspective in the correct order to see what changes. Nothing has been changed yet.
+[Timestamp: 2026/11/22 01:11:10]
+
+**user**: thankyou.  before we do.  i don't quite want to loose this. there is a serendipitous discovery here.  by applying a perspective with core questions and having them shaped by a narrative is actually and incredible and amazing emergent skill.  one worth developing and saving on its own.  Asking critical questions about a narrative as only a holder of a particular perspective might is a brilliant skill
+[Timestamp: 2026/11/22 01:15:42]
+
+**ai**: That is a useful distinction, and I think you are right that it is worth keeping as its own skill.
+
+What the three runs showed is that a perspective's questions, applied to a specific narrative, do two things at once:
+
+- They show what the narrative contains that the perspective can see. The epidemiologist found exposure, and the Vajrayana lens found escalation and the speaker's framing.
+- They show what the perspective cannot see. The military lens missed civilian costs. The epidemiologist missed the operational logic behind the exposure. The Vajrayana lens saw minds but not supply chains. These blind spots were the most useful outputs of the runs.
+
+The narrative-shaping is what makes this work, not a flaw. A question such as "does this quote about 'more targets' show escalation" is more useful than a generic question about escalation. So the skill is a reading method: read a text as a particular holder of a perspective would, and report what that reader asks, finds and misses.
+
+It needs a different shape from the gap analysis, which is about the ontology. If the two are merged, each weakens the other. I would separate them:
+
+1. **Perspective reading** (the new skill). Inputs: a perspective and a narrative. Outputs: the discipline's own questions, recorded before the text is read; the questions the text prompts; the observable findings; and the blind spots. This is the one to keep.
+2. **Gap analysis** (the existing skill). Inputs: a perspective, a narrative and an ontology. It takes the findings from the reading and tests them against the ontology.
+
+The one discipline the new skill needs is the ordering rule we discussed. Record the discipline's core questions before reading the narrative, so you can later tell which questions came from the tradition and which came from the text. That separation is what makes the skill checkable.
+
+I have not saved anything. When you are ready, I can draft the reading skill as its own folder under `copilot/skills/`, with the ordering rule and the blind-spot step built in. Tell me if you want the three runs kept as worked examples, and whether to store them in the vault or only in the skill.
+[Timestamp: 2026/11/22 01:15:42]
