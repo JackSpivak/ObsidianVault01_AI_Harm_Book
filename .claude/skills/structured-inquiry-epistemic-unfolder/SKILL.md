@@ -50,11 +50,20 @@ Triggered when the user asks to systematically unfold, investigate, or unpack a 
 - Never dump a multi-section outline all at once.
 - Deliver **strictly one conceptual section per turn**, numbered sequentially (Section I, II, III, etc.).
 
-### Rule 2: Frontmatter & Metacognitive Separation Placement
-Every delivered section must be structured in the following exact order:
-1. **Inputs & Provenance Frontmatter** (placed at the **very beginning** of the output so provenance is reviewed first).
-2. **Core Section Content** (the unfolded section text).
-3. **Metacognitive Assessment Block** (placed at the **end** of the output, answering the 4 closure/diminishing-returns tests so the user can judge saturation before continuing).
+### Rule 2: Absolute Frontmatter-First Enforcement & Advisory Nature
+Every delivered section must strictly obey the following formatting and structural constraints:
+1. **Absolute First Tokens:** The output must **always start immediately** with the `### Inputs & Provenance Frontmatter` block. No conversational preamble, no introductory remarks, and no markdown headings (like `# Section...`) may precede the frontmatter block.
+2. **Core Section Content:** Followed by the unfolded section text.
+- **Metacognitive Assessment Block Template:** Must include:
+  * *Saturation:* `[Low` / `Moderate` / `High` / `Saturated]` — *Degree to which the core conceptual terrain is mapped.*
+  * *Marginal Returns:* `[Low` / `Moderate` / `High]` — *Anticipated yield of new insights from further unfolding.*
+  * *Convergence:* `[Achieved` / `Open` / `Recursive Loop]` — *Whether the inquiry is stabilizing or branching.*
+  * *Utility:* `[High Leverage` / `Marginal` / `Self-Referential]` — *Practical or structural value of the distinctions made.*
+  * *Recommendation & Options:* [Advisory summary and choices]
+
+#### Advisory Nature of Metacognitive Assessments:
+- **Strictly Descriptive & Advisory:** The metacognitive assessment block is **purely an advisory status report** for the user. It never acts as a process control gate or hardcoded brake.
+- **Fractal Continuation:** Reaching `[Saturated]` or `[Achieved]` does not close the conceptual territory. If the user invokes `[Continue Sequentially]` past any advisory flag, the unfolder seamlessly pivots to **Fractal Branching / Deepening** (exploring micro-edge cases, adversarial stress tests, historical genealogies, or cross-paradigm translations).
 
 ### Rule 3: User Control Options
 At the end of every turn, offer the user four explicit choices:
