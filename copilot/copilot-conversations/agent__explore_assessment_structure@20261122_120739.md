@@ -7,7 +7,7 @@ model: '{"baseModelId":"google/gemini-3.5-flash-lite","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Assessment Structure Proposal Draft 3.1"
-usage: '{"usedTokens":45029,"contextWindow":1048576,"updatedAt":1795375869486}'
+usage: '{"usedTokens":43588,"contextWindow":1048576,"updatedAt":1795410887676}'
 ---
 
 **user**: explore assessment structure
@@ -195,3 +195,77 @@ Here is how a focused update path and status framework for features like **`Disc
 * **Next Test / Validation Step:** Test whether these subclasses cleanly accommodate both real-world AI incident reports and philosophical case studies without breaking the three-layer separation (`ho:` ontology, `hosh:` profiles, `hov:` vocabulary).
 <!-- copilot-message {"tools":["read (read): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md"]} -->
 [Timestamp: 2026/11/22 12:31:02]
+
+**user**: I am pretty sure we have not yet settled on a single document that will hold all of our proposed schema additions and updates.   you have already checked that none existed - have you created one yet?  if not please propose name and a structure.  I think we need more than a ledger.  need to track at least status, priority, target version for implementation, rationale and any blockers, issues and problems to be resolved - before implementation.  do you see anything additional needs tracking?
+[Timestamp: 2026/11/22 22:14:41]
+
+**ai**: I have not created such a document yet. You are completely right that we need more than a simple ledger—we need a comprehensive **Schema Evolution & Feature Roadmap** that acts as the single staging ground for all proposed additions, updates, rationale, priorities, implementation targets, and unresolved blockers *before* they touch the formal `.ttl` files.
+
+### Suggested Name for the Note
+**`Harm Ontology Feature Roadmap and Change Ledger.md`** (placed directly inside `02_Ideas Topics Concepts/Harm Ontology/`).
+
+---
+
+### Proposed Structure for the Roadmap & Change Ledger Note
+
+```markdown
+---
+fileClass: Roadmap
+type: roadmap
+status: developing
+tags: [ontology/harm, roadmap]
+aliases: [Harm Ontology Roadmap, Schema Change Ledger]
+created: 2026-11-22
+---
+
+# Harm Ontology — Feature Roadmap and Change Ledger
+
+*The staging ground for proposed schema additions, structural updates, rationale, priority, implementation targets, and unresolved design blockers before formal migration to `.ttl` files.*
+
+## Active Change Proposals (Staging Area)
+
+### CP-01: Discipline-Enabled Assessments and Functional Subclasses
+- **Status:** `Draft Proposal`
+- **Priority:** `High`
+- **Target Version:** `v3.1` (or `v4`)
+- **Core Rationale:** Perspectives must actively enable assessments rather than just tag them. Different assessment types serve distinct institutional/pragmatic functions (regulatory, forensic, diagnostic, normative critique).
+- **Proposed Additions:**
+  - `DisciplinePerspective` (class/individual linkage)
+  - `enablesAssessment` (object property: `DisciplinePerspective` → `HarmAssessment`)
+  - Functional Subclasses of `HarmAssessment`: `RegulatoryAssessment`, `ForensicAssessment`, `DiagnosticAssessment`, `NormativeCritiqueAssessment`.
+- **Blockers / Open Questions / Problems to Resolve:**
+  - Are these subclasses mutually exclusive, or can an assessment be both forensic and regulatory?
+  - How do these subclasses interact with the pending split of Assessment into Causal, Valence, and Responsibility ([[HO-005 Assessed Membership and Systematic Omission]])?
+  - Does Protégé's editor view handle multi-level assessment subclasses cleanly without cluttering the property tree?
+
+---
+
+## Template for Future Proposals
+### CP-XX: [Feature Title]
+- **Status:** `Seed Idea` | `Draft Proposal` | `Under Stress-Test` | `Settled` | `Rejected`
+- **Priority:** `Low` | `Medium` | `High` | `Critical`
+- **Target Version:** `v3.1` | `v4`
+- **Core Rationale:** [Why is this needed? What real-world or theoretical gap does it close?]
+- **Proposed Additions:** [Classes, properties, or individuals involved]
+- **Blockers / Open Questions / Problems to Resolve:** [Unsolved tensions, edge cases, or dependencies]
+- **Related Notes:** [Links to relevant HO notes, decisions, or council reviews]
+
+---
+
+## Completed / Settled Changes
+*(Items moved here once codified into the `.ttl` schema and logged in [[Decisions_Log]].)*
+```
+
+---
+
+### What Else Should Be Tracked? (Additional Tracking Dimensions)
+Beyond status, priority, target version, rationale, and blockers, a robust ontology change ledger benefits from tracking:
+
+1. **Test Case Dependencies:** Which test cases in [[HO-002 Ontology Stress-Test Suite|HO-002]] (or toy case runs) are required to validate this change before it is accepted?
+2. **External Ontology Alignment:** Does this proposed feature overlap with or conflict with external standards like AIRO, DPV-RISK, or LKIF-Core (tracked in [[External AI-Risk Ontologies - Alignment and Additions for Harm Ontology v3]])?
+3. **Three-Layer Impact:** Which layer does this affect most?
+   - **Layer 1 (Schema / OWL):** New classes/properties.
+   - **Layer 2 (Profiles / SHACL):** Requiredness or cardinality rules.
+   - **Layer 3 (Vocabulary / SKOS):** Concept hubs, discipline schemes, and narrative text.
+4. **Author / Stakeholder Origin:** Who raised it, or which council review inspired it (e.g., Legal Council, Classical Council)?
+[Timestamp: 2026/11/22 22:14:41]
