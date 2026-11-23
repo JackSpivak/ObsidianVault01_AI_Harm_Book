@@ -41,7 +41,10 @@ created: 2026-11-22
 ## Template for Future Proposals
 
 ### CP-XX: [Feature Title]
-- **Status:** `Seed Idea` | `Draft Proposal` | `Under Stress-Test` | `Settled` | `Rejected`
+- **Status:** `Seed Idea` | `Draft Proposal` | `Under Stress-Test` | `Settled` | `Complete` | `Rejected`
+- **Date Proposed:** [YYYY-MM-DD]
+- **Date Settled:** [YYYY-MM-DD or N/A]
+- **Date Implemented / Rejected:** [YYYY-MM-DD or N/A]
 - **Priority:** `Low` | `Medium` | `High` | `Critical`
 - **Target Version:** `v3.1` | `v4` | `v5+`
 - **Core Rationale:** [Why is this needed? What real-world or theoretical gap does it close?]
@@ -55,5 +58,14 @@ created: 2026-11-22
 
 ---
 
-## Completed / Settled Changes
-*(Items moved here once codified into the `.ttl` schema and logged in [[Decisions_Log]].)*
+## Settled Change Proposals (Ready for Implementation in v3.1)
+*(Proposals that have passed stress-testing or author review, are fully specified, and are staged for v3.1 schema implementation.)*
+
+---
+
+## Complete and Rejected Changes (Retained for the Record)
+*(Proposals with status `Complete` (codified into the `.ttl` schema and logged in [[Decisions_Log]]) or `Rejected`. Kept at the bottom so accomplishments are easy to see. Never deleted.)*
+
+---
+
+Link to version rollover: *When v3.1 implementation concludes, this document rolls over to `Harm Ontology v3.2 — Feature Roadmap and Change Ledger` (or v4.0), archiving completed items while retaining active proposals.*
