@@ -1,7 +1,7 @@
 # Sequential Epistemic Unfolder (Ontological Archaeology)
 
 ## Purpose & Scope
-This skill systematically investigates a complex conceptual territory or philosophical domain by generating a comprehensive, sequentially expanding top-level outline (one section at a time). It avoids hidden assumptions by requiring explicit user inputs and appending a reflexive **Metacognitive Assessment Block** complete with frontmatter test results, saturation checks, and output type tags.
+This skill systematically investigates a complex conceptual territory or philosophical domain by generating a comprehensive, sequentially expanding top-level outline (one section at a time). It avoids hidden assumptions by requiring explicit user inputs and appending a strictly separated frontmatter block (exposing all 6 inputs and their provenance tags) alongside a metacognitive assessment block dedicated solely to the four closure criteria.
 
 ## Strict Input Protocol (Interactive Prompting)
 **This skill assumes nothing from prior conversation history or previous sessions.** When invoked, if any inputs are unstated or ambiguous, you must explicitly pause, present the prompt definitions below, and require the user to provide **Input A (Core Question)** as mandatory, while Inputs B through F remain optional (with intelligent defaults applied if omitted).
@@ -9,22 +9,22 @@ This skill systematically investigates a complex conceptual territory or philoso
 ### Input Definitions & Examples for Prompting:
 1. **Input A: The Core Guiding Question (MANDATORY)**
    * *Definition:* The central, foundational question driving the investigation.
-   * *Example:* *"How would we know a harm if we saw one?"* or *"What is the structure of artificial consciousness?"*
+   * *Example:* *"How would we know a harm if we saw one?"*
 2. **Input B: The Guiding Perspective / Standpoint (Optional)**
    * *Definition:* The role, posture, or paradigm you are operating from.
-   * *Example:* *"System Architect & Book Author"* or *"Clinical Ethicist"*.
+   * *Example:* *"Universal Epistemologist"*.
 3. **Input C: Conceptual Scope & Deliverable Goal (Optional)**
    * *Definition:* The intended scope and final output target of the inquiry.
-   * *Example:* *"Writing a trade book chapter"* or *"Designing a regulatory audit framework"*.
+   * *Example:* *"Comparative Baseline Investigation (Pure Parametric Weights)"*.
 4. **Input D: Epistemic Rigor & Depth Level (Optional)**
    * *Definition:* The balance between broad interdisciplinary synthesis and microscopic analytical precision.
-   * *Example:* *"High-level conceptual synthesis"* vs. *"Rigorous analytical philosophy mapping"*.
+   * *Example:* *"Analytical Philosophy Synthesis"*.
 5. **Input E: Temporal Horizon Constraint (Optional)**
    * *Definition:* The time scale the investigation should account for.
-   * *Example:* *"Immediate 2-year policy window"* vs. *"Multi-generational civilizational scale"*.
+   * *Example:* *"Civilizational / Universal Scale"*.
 6. **Input F: Output Format & Staging Preference (Optional)**
    * *Definition:* The stylistic register of the generated output.
-   * *Example:* *"Academic prose"* vs. *"Trade book narrative with bulleted architectural blueprints"*.
+   * *Example:* *"Academic Philosophical Critique"*.
 
 ---
 
@@ -34,17 +34,23 @@ This skill systematically investigates a complex conceptual territory or philoso
 - Never dump a multi-section outline all at once.
 - Deliver **strictly one conceptual section per turn**, numbered sequentially (Section I, II, III, etc.).
 
-### Rule 2: The Metacognitive Assessment Block & Frontmatter
-At the beginning of every delivered section, append a structured metadata block containing:
-1. **Completeness & Saturation Frontmatter:**
-   * *Conceptual Saturation:* [Percentage or status: e.g., Low / Moderate / High / Saturated]
-   * *Diminishing Marginal Returns:* [Low / Moderate / High]
-   * *Topological Convergence:* [Achieved / Open / Recursive Loop]
-   * *Pragmatic Utility:* [High leverage for current goal / Marginal / Self-referential]
-2. **Output Metadata:**
-   * *Output Genre/Type:* [e.g., Ontological Architecture / Philosophical Critique / Narrative Scaffold]
-   * *Provenance Tag:* [Explicitly requested by user vs. Inferred from perspective]
-3. **Value vs. Cost Recommendation & User Prompts.**
+### Rule 2: Frontmatter & Metacognitive Separation
+At the beginning of every delivered section, append two distinct blocks in order:
+1. **Inputs & Provenance Frontmatter (Explicitly exposing all 6 inputs and their origin tags using short labels):**
+   * *Input A (Core Guiding Question):* `[Exact Text]` (`[Explicitly Provided]`)
+   * *Input B (Guiding Perspective):* `[Exact Text]` (`[Explicitly Provided]` / `[Inferred/Assumed]`)
+   * *Input C (Conceptual Scope):* `[Exact Text]` (`[Explicitly Provided]` / `[Inferred/Assumed]`)
+   * *Input D (Epistemic Rigor):* `[Exact Text]` (`[Explicitly Provided]` / `[Inferred/Assumed]`)
+   * *Input E (Temporal Horizon):* `[Exact Text]` (`[Explicitly Provided]` / `[Inferred/Assumed]`)
+   * *Input F (Output Format):* `[Exact Text]` (`[Explicitly Provided]` / `[Inferred/Assumed]`)
+   * *Output Genre/Type:* `[Short Label]` (`[Explicitly Provided]` / `[Inferred/Assumed]`)
+
+2. **Metacognitive Assessment Block (Strictly answering the 4 closure/diminishing-returns tests with consistent short labels):**
+   * *Saturation:* `[Low` / `Moderate` / `High` / `Saturated]`
+   * *Marginal Returns:* `[Low` / `Moderate` / `High]`
+   * *Convergence:* `[Achieved` / `Open` / `Recursive Loop]`
+   * *Utility:* `[High Leverage` / `Marginal` / `Self-Referential]`
+   * *Recommendation & Options:* [Brief action summary and user choices]
 
 ### Rule 3: User Control Options
 At the end of every turn, offer the user four explicit choices:
