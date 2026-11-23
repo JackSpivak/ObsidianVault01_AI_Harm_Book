@@ -441,6 +441,15 @@
         }
       },
       "configuredAt": 1795320906032
+    },
+    {
+      "providerId": "f43ab59c-66b7-4d4d-8dfe-1cec701c3abd",
+      "info": {
+        "id": "opencode/qwen4-max-free",
+        "displayName": "opencode/Qwen4 Max Free"
+      },
+      "configuredModelId": "eedee384-91ca-4f60-bdba-d2ed08e14b32",
+      "configuredAt": 1795423954273
     }
   ],
   "backends": {
