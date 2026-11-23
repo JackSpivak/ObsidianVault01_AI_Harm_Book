@@ -15,7 +15,7 @@ This skill systematically investigates a complex conceptual territory or philoso
    * *Example:* *"Universal Epistemologist"*.
 3. **Input C: Conceptual Scope & Deliverable Goal (Optional)**
    * *Definition:* The intended scope and final output target of the inquiry.
-   * *Example:* *"Comparative Baseline Investigation (Pure Parametric Weights)"*.
+   * *Example:* *"Comparative Baseline Investigation"*.
 4. **Input D: Epistemic Rigor & Depth Level (Optional)**
    * *Definition:* The balance between broad interdisciplinary synthesis and microscopic analytical precision.
    * *Example:* *"Analytical Philosophy Synthesis"*.
@@ -58,3 +58,27 @@ At the end of every turn, offer the user four explicit choices:
 2. **[Drill Deeper]** Break the current section into narrower, highly focused sub-levels.
 3. **[Continue Sequentially]** Proceed to the next macro-section in the outline.
 4. **[Halt & Synthesize]** Conclude the exploration and package findings.
+
+---
+
+## Methodological Framing & A/B Testing Protocols
+
+### Purpose & General Methodology
+The *Sequential Epistemic Unfolder* skill is designed to prevent premature closure and infinite conceptual loops during deep philosophical or structural investigations. By pacing output strictly one section at a time, exposing all input provenance in the frontmatter, and continuously evaluating conceptual saturation against four distinct closure criteria, it bridges open-ended exploratory thought with rigorous architectural output.
+
+### Testing Subheading: Comparative Epistemic Isolation Protocols
+To rigorously validate or contrast the insights generated during an inquiry, this skill supports two mutually exclusive grounding protocols:
+
+#### 1. Pure Parametric Isolation Protocol (Excluding Obsidian Vault / Using LLM Weights Only)
+* **Objective:** To establish an uninfluenced academic/philosophical baseline, testing what standard parametric training weights produce without local memory contamination.
+* **Execution Rules for the Model:**
+  * Strictly prohibit reading, searching, grepping, or referencing any local vault notes, markdown files, bookmark indexes, or vault-specific terminology (e.g., v3 harm ontology classes like `FactorAssembly`, `PerspectiveSpecification`, or `Divergence`).
+  * Rely solely on generalized pre-trained parametric knowledge, standard philosophical lineages (utilitarianism, deontology, phenomenology), and universal academic consensus.
+  * Explicitly log `[Parametric Isolation]` in the output provenance frontmatter.
+
+#### 2. Strict Vault-Grounded Protocol (Excluding LLM General Memory / Using Obsidian Vault Only)
+* **Objective:** To confine the investigation strictly to the local vault's proprietary intellectual property, design decisions, and bespoke architectural primitives.
+* **Execution Rules for the Model:**
+  * Strictly restrict all definitions, classes, structural hierarchies, and argumentative moves to the local vault's markdown files (e.g., `Harm Ontology v3 - Draft Structure`, `_Harm Ontology Bookmark Index`, and related `HO-` notes).
+  * Suppress standard textbook philosophical tropes whenever a bespoke vault equivalent exists (e.g., replacing generic subjective welfare disputes with formal `Assessment`, `EvaluativeStandard`, and `Divergence` mechanics).
+  * Explicitly log `[Vault-Strict Grounding]` in the output provenance frontmatter.
