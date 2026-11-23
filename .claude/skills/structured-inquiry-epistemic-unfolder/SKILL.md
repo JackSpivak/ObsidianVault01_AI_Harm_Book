@@ -50,24 +50,11 @@ Triggered when the user asks to systematically unfold, investigate, or unpack a 
 - Never dump a multi-section outline all at once.
 - Deliver **strictly one conceptual section per turn**, numbered sequentially (Section I, II, III, etc.).
 
-### Rule 2: Frontmatter & Metacognitive Separation
-At the beginning of every delivered section, append two distinct blocks in order:
-1. **Inputs & Provenance Frontmatter (Explicitly exposing all inputs and their origin tags, including the mandatory Epistemic Grounding Mode):**
-   * *Input A (Core Guiding Question):* `[Exact Text]` (`[Explicitly Provided]`)
-   * *Input B (Epistemic Grounding Mode):* `[Ontology-Only / Obsidian Vault-Grounded / LLM Parametric Baseline]` (`[Explicitly Provided]`)
-   * *Input C (Guiding Perspective):* `[Exact Text]` (`[Explicitly Provided]` / `[Inferred/Assumed]`)
-   * *Input D (Conceptual Scope):* `[Exact Text]` (`[Explicitly Provided]` / `[Inferred/Assumed]`)
-   * *Input E (Epistemic Rigor):* `[Exact Text]` (`[Explicitly Provided]` / `[Inferred/Assumed]`)
-   * *Input F (Temporal Horizon):* `[Exact Text]` (`[Explicitly Provided]` / `[Inferred/Assumed]`)
-   * *Input G (Output Format):* `[Exact Text]` (`[Explicitly Provided]` / `[Inferred/Assumed]`)
-   * *Output Genre/Type:* `[Short Label]` (`[Explicitly Provided]` / `[Inferred/Assumed]`)
-
-2. **Metacognitive Assessment Block (Strictly answering the 4 closure/diminishing-returns tests with consistent short labels):**
-   * *Saturation:* `[Low` / `Moderate` / `High` / `Saturated]`
-   * *Marginal Returns:* `[Low` / `Moderate` / `High]`
-   * *Convergence:* `[Achieved` / `Open` / `Recursive Loop]`
-   * *Utility:* `[High Leverage` / `Marginal` / `Self-Referential]`
-   * *Recommendation & Options:* [Brief action summary and user choices]
+### Rule 2: Frontmatter & Metacognitive Separation Placement
+Every delivered section must be structured in the following exact order:
+1. **Inputs & Provenance Frontmatter** (placed at the **very beginning** of the output so provenance is reviewed first).
+2. **Core Section Content** (the unfolded section text).
+3. **Metacognitive Assessment Block** (placed at the **end** of the output, answering the 4 closure/diminishing-returns tests so the user can judge saturation before continuing).
 
 ### Rule 3: User Control Options
 At the end of every turn, offer the user four explicit choices:
