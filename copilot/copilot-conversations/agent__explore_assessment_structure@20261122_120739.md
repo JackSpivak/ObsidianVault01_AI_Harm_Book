@@ -7,7 +7,7 @@ model: '{"baseModelId":"google/gemini-3.5-flash-lite","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Assessment Structure Proposal Draft 3.1"
-usage: '{"usedTokens":43588,"contextWindow":1048576,"updatedAt":1795410887676}'
+usage: '{"usedTokens":45143,"contextWindow":1048576,"updatedAt":1795411348626}'
 ---
 
 **user**: explore assessment structure
@@ -269,3 +269,36 @@ Beyond status, priority, target version, rationale, and blockers, a robust ontol
    - **Layer 3 (Vocabulary / SKOS):** Concept hubs, discipline schemes, and narrative text.
 4. **Author / Stakeholder Origin:** Who raised it, or which council review inspired it (e.g., Legal Council, Classical Council)?
 [Timestamp: 2026/11/22 22:14:41]
+
+**user**: i like that.  please add this to the template and show what this will look like.  also, i think that the name should be Harm Ontology v3.1— Feature Roadmap and Change Ledger. i know there is risk but i think associating this tracking device with the actual Harm Ontology is valuable for human understanding and use.  It does not matter and is in fact good if some features or tests are placed at v4 and beyond.  it helps clarify our direction and priorities
+[Timestamp: 2026/11/22 22:20:59]
+
+**ai**: I have created the new tracking note in your vault: **`[[Harm Ontology v3.1 — Feature Roadmap and Change Ledger]]`**. 
+
+It incorporates the full template with all suggested tracking dimensions (status, priority, target version, rationale, proposed additions, three-layer impact, test dependencies, external alignment, origin, and blockers) and populates it with your **CP-01** proposal regarding `DisciplinePerspective`, `enablesAssessment`, and the functional subclasses of `HarmAssessment`.
+<!-- copilot-message {"tools":["write (edit): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md"]} -->
+[Timestamp: 2026/11/22 22:20:59]
+
+**user**: i would also like to understand why change tracking is included here.  is that not better done in a dedicated  change tracking note>
+[Timestamp: 2026/11/22 22:22:25]
+
+**ai**: That is a very sharp architectural question. You are completely right to challenge whether **change tracking** (the history of *what happened when*, who edited it, deprecations, and superseded decisions) belongs in the same note as the **forward-looking roadmap and feature proposals**.
+
+In a rigorous knowledge management and ontology engineering workflow:
+* **Roadmap / Change Ledger** is *prospective* (what we plan to do, why we want to do it, what blocks it, what version it targets).
+* **Decisions Log / Change Tracking** is *retrospective* (what we actually decided, when we decided it, why we changed our minds, and what earlier decision was superseded).
+
+In this vault, retrospective change tracking is already handled primarily by **[[Decisions_Log]]** (for ontological and structural decisions) and **[[Harm Ontology Migration Plan]]** (for content migration lineage). 
+
+### How we should handle this separation:
+1. **Remove retrospective change history** (like "Completed / Settled Changes" or edit logs) from the *Roadmap and Change Ledger*. Keep the Roadmap strictly focused on **unsettled, prospective proposals** (Seed Ideas, Draft Proposals, and Under Stress-Test).
+2. **Rely on [[Decisions_Log]]** as the dedicated chronological change-tracking note when a proposal in the Roadmap officially graduates to "Settled" and gets implemented.
+
+Would you like me to edit [[Harm Ontology v3.1 — Feature Roadmap and Change Ledger]] to strip out the completed section and keep it purely prospective?
+[Timestamp: 2026/11/22 22:22:25]
+
+**user**: i like the idea of keeping settled (proposed features, elements and changes) and completed as seperate statuses.  settled would mean that it has been tested or doesnt require it. also that it is ready for implementation (in this case as v3.1)
+[Timestamp: 2026/11/22 22:28:00]
+
+**ai**: 
+[Timestamp: 2026/11/22 22:28:00]
