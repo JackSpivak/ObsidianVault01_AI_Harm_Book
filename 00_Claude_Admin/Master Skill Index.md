@@ -13,7 +13,7 @@ A living index of specialized skills available to Copilot in this vault. Since O
 ---
 
 ## 1. Structured Inquiry Epistemic Unfolder (`structured-inquiry-epistemic-unfolder`)
-* **Folder Location (System):** `.claude/skills/structured-inquiry-epistemic-unfolder/SKILL.md`
+* **Folder Location (System):** [[View Skill - Structured Inquiry]] *(or view system path: `.claude/skills/structured-inquiry-epistemic-unfolder/SKILL.md`)*
 * **Purpose:** Systematically investigates complex conceptual territories or philosophical domains by generating a comprehensive, sequentially expanding top-level outline (one section at a time) with strict frontmatter provenance and metacognitive saturation checks.
 
 ### Mandatory & Optional Inputs (Input Protocol)
