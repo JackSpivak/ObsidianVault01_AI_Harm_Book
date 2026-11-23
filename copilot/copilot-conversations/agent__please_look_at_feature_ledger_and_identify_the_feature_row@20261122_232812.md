@@ -7,7 +7,7 @@ model: '{"baseModelId":"google/gemini-3.5-flash-lite","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Assessment structure feature blockers"
-usage: '{"usedTokens":53699,"contextWindow":1048576,"updatedAt":1795418140719}'
+usage: '{"usedTokens":54491,"contextWindow":1048576,"updatedAt":1795418537763}'
 ---
 
 **user**: please look at feature ledger and identify the feature row specific to Assessment structure. Gather all otherf features or changes relevant to assessment and list all blockers that need resolution to unblock assessment
@@ -196,3 +196,20 @@ This gives us a very robust three-tier vocabulary:
 
 Does this distinction between evaluative principles and concrete technical standards feel like it finally hits the mark for how S26 and the assessment framework should be structured?
 [Timestamp: 2026/11/23 00:15:37]
+
+**user**: exactly. i think so.  when you say Principles/Standards i think we really need to resolve a semantic collision.  you continue to use Standard here as if it is interchangable with Principles.  they may be closely related but not identical.  i think you might be talking about a common use for example a "standard of behavior" or "moral standard" like do unto others as you would have others do unto you.  this is a more general and different usage than what is importantly understood as a technical standard.
+[Timestamp: 2026/11/23 00:22:14]
+
+**ai**: You are completely right, and I appreciate the correction. That is a classic semantic trap, and I conflated two very different things by grouping them under the word "standard."
+
+*   **Evaluative / Moral Standards** (what v3 calls `EvaluativeStandard`, like a standard of conduct, a utilitarian welfare criterion, or a rights-based threshold) are the conceptual yardsticks used to judge whether something is harmful or beneficial.
+*   **Technical / Regulatory Standards** (ISO, IEEE, ASME, legal statutes, codes) are concrete, codified artifacts, specifications, and rules that dictate methods, safety thresholds, and compliance.
+
+Conflating a moral standard ("do no harm") with an IEEE technical standard creates immense confusion in an ontology. 
+
+To keep it straight:
+*   **`EvaluativeStandard`** lives at the conceptual/philosophical level, defining the lens's criteria for judgment.
+*   **Technical Standards, Laws, and Regulations** are external artifacts that *inform* perspectives and are *invoked by* specific assessments (`usesProcedure`, `mandatedBy`, `triggeredBy`).
+
+This distinction makes the architecture extremely sharp. Should we record this clarification and the resolution of **S26** (attributing gap groups and operational rules to assessment instances/profiles rather than abstract perspective types) in the ledger?
+[Timestamp: 2026/11/23 00:22:14]
