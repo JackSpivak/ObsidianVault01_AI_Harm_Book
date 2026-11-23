@@ -6,8 +6,9 @@ sessionId: "ses_dfdf0c08affew2YioJPNFijtPy"
 model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
-topic: "Harm ontology skill building"
-usage: '{"usedTokens":123126,"contextWindow":1000000,"updatedAt":1795335349480}'
+topic: "Harm ontology Gap and reading skill building"
+usage: '{"usedTokens":132104,"contextWindow":1000000,"updatedAt":1795413359241}'
+lastAccessedAt: 1795413153730
 ---
 
 **user**: can we build out the skill?
@@ -346,12 +347,7 @@ Once you name Input C, we will run the searchlight, translate the observable har
 **user**: Harm Ontology v3
 [Timestamp: 2026/11/22 00:32:49]
 
-**ai**: **Error:** Internal error: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 250000, model: gemini-3.5-flash-lite, description: Generate content input tokens per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.
-Please retry in 5.135963311s.
-more message: Internal error: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 250000, model: gemini-3.5-flash-lite, description: Generate content input tokens per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.
-Please retry in 5.135963311s.
+**ai**: 
 <!-- copilot-message {"tools":["obsidian-copilot_miyo_search (other)","read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/Harm Ontology v3 - Draft Structure.md"]} -->
 [Timestamp: 2026/11/22 00:32:49]
 
@@ -365,7 +361,7 @@ Please retry in 5.135963311s.
 **Inputs**
 - **A, Perspective:** Military Strategist (logistics, chokepoints, centre of gravity, attrition, network resilience).
 - **B, Narrative:** Reuters, 20 Nov (Crimean Bridge road and rail sections, M-14 corridor, Mius River bridges, Azov strikes on locomotives and fuel).
-- **C, Ontology:** [[Harm Ontology v3 - Draft Structure]]. This is a design outline, not a `.ttl` file. I checked it against the element list in its Structure block, including the 2026-11-17 and 2026-11-18 revisions. I did not check [[PerspectiveStructure Proposal Draft 3.1]] (the PerspectiveType groups), so any claim about PerspectiveType is unverified.
+- **C, Ontology:** [[Harm Ontology v3 - Draft Structure]]. This is a design outline, not a `.ttl` file. I checked it against the element list in its Structure block, including the 2026-11-17 and 2026-11-18 revisions. I did not check [[PerspectiveStructure 0.02]] (the PerspectiveType groups), so any claim about PerspectiveType is unverified.
 
 ## Step 1: Searchlight from the Military Strategist
 
@@ -446,7 +442,7 @@ yes please include the perspectivestructure test and regenerate the output above
 Nothing has been written to the vault. The skill file is unchanged.
 
 **Inputs**
-- **A, Perspective:** Military Strategist (logistics, chokepoints, centre of gravity, attrition, network resilience). Tested against the group structure in [[PerspectiveStructure Proposal Draft 3.1]].
+- **A, Perspective:** Military Strategist (logistics, chokepoints, centre of gravity, attrition, network resilience). Tested against the group structure in [[PerspectiveStructure 0.02]].
 - **B, Narrative:** Reuters, 20 Nov (Crimean Bridge road and rail sections, M-14 corridor, Mius River bridges, Azov strikes on locomotives and fuel).
 - **C, Ontology:** [[Harm Ontology v3 - Draft Structure]]. This is a design outline, not a `.ttl` file.
 
@@ -857,3 +853,35 @@ The one discipline the new skill needs is the ordering rule we discussed. Record
 
 I have not saved anything. When you are ready, I can draft the reading skill as its own folder under `copilot/skills/`, with the ordering rule and the blind-spot step built in. Tell me if you want the three runs kept as worked examples, and whether to store them in the vault or only in the skill.
 [Timestamp: 2026/11/22 01:15:42]
+
+**user**: what would you propose this skill be called.  it is reading and asking critical questions from the disciplines perspective.
+[Timestamp: 2026/11/22 22:53:48]
+
+**ai**: I would call it **`perspective-critical-reading`**.
+
+- **"Perspective"** matches the term the vault already uses for the tradition, so it fits the existing ontology language.
+- **"Critical reading"** names the act you described: asking questions of a text. It also signals that the output is questions and findings, not a verdict.
+- **"Discipline"** is left out of the name on purpose. The skill works for any perspective, including ones that are not academic disciplines, such as the Vajrayana run.
+
+Alternatives, if you prefer them:
+- `lens-reading`: short, but "lens" is the vault's alternative label for a tradition, which could confuse.
+- `perspective-questioning`: accurate, but less clear about reading a text.
+- `view-from-the-discipline`: descriptive, but long for a skill ID.
+
+The name for the existing skill, `harm-ontology-gap-analyst`, stays as it is, so the two names show the split: one reads, the other maps to the ontology.
+[Timestamp: 2026/11/22 22:53:48]
+
+**user**: i like it.  go ahead write it, file it. and add that we need to test it in the Harm Ontology feature/change ledger
+[Timestamp: 2026/11/22 22:55:28]
+
+**ai**: I filed the skill and added the test item to the ledger.
+
+**Files changed**
+1. **Created:** `copilot/skills/perspective-critical-reading/SKILL.md`. It has the ordering rule (perspective-only questions first, then the text), provenance tags ([P], [T], [I], [K]), a required blind-spot section, an output template, and a link to the gap-analyst skill. It has no reference files.
+2. **Edited:** `02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md`. I added **CP-20: Test the Perspective Critical Reading Skill** at the top of the Active Ledger, as a Task. It records the three informal runs, the fact that they broke the ordering rule, the proposed re-test, and the open questions.
+
+I did not find a file called "feature/change ledger" under that name. The ledger that matches is the "Harm Ontology v3.1 — Feature Roadmap and Change Ledger", so I used it. If you meant a different file, tell me and I will move the item.
+
+The skill is not yet tested. CP-20 is the test plan.
+<!-- copilot-message {"tools":["grep (search): 00_Claude_Admin","grep (search): 02_Ideas Topics Concepts/Harm Ontology","read (read): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md","grep (search): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md","write (edit): copilot/skills/perspective-critical-reading/SKILL.md","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md"]} -->
+[Timestamp: 2026/11/22 22:55:28]

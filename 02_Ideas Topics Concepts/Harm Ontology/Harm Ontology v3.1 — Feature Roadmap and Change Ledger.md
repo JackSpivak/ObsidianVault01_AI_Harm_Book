@@ -20,6 +20,25 @@ created: 2026-11-22
 
 ## Active Ledger (Newest First)
 
+### CP-20: Test the Perspective Critical Reading Skill
+- **Type:** Task
+- **Status:** `Draft Proposal`
+- **Date Proposed:** 2026-11-22
+- **Date Settled / Rejected:** N/A
+- **Priority:** High
+- **Target Version:** v3.1 (process; no schema change)
+- **Core Rationale:** The skill `perspective-critical-reading` (`copilot/skills/perspective-critical-reading/SKILL.md`) reads a narrative from a named perspective and reports its questions, findings and blind spots. Its value was observed in three informal runs (military strategist, public health epidemiologist, Vajrayana Buddhist) on the Reuters Crimean Bridge report, but those runs broke the skill's own ordering rule: the questions were written after the text was read. The skill has not been tested in the order it now requires.
+- **Proposed Test:**
+  - Re-run one perspective with the ordering rule: core questions recorded from the perspective alone, before the text is pasted.
+  - Compare the perspective-only questions with the narrative-shaped ones. Count how many of the earlier questions survive.
+  - Check each provenance tag ([P], [T], [I], [K]) against the text.
+  - Test whether blind spots are reported as readily as findings.
+- **Blockers / Open Questions:**
+  - Which perspective to test first, and whether its core questions should be grounded in a retrieved source or in the vault's council reviews.
+  - Whether the three earlier runs are kept as worked examples, and where.
+  - Whether the skill's relation to [[HO-002 Ontology Stress-Test Suite|HO-002]] cases should be decided before or after the test.
+- **Origin / Stakeholder:** Session dialogue, 2026-11-22
+
 ### CP-01: Discipline-Enabled Assessments and Functional Subclasses
 - **Type:** Proposal
 - **Status:** `Draft Proposal`
