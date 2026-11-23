@@ -4,9 +4,9 @@ status: developing
 tags: [handoff, ontology/harm]
 aliases: [Harm Ontology Handoff]
 created: 2026-11-15
-updated: 2026-11-20
+updated: 2026-11-22
 workstream: Harm Ontology
-latest_session: "[[2026-11-20 Harm Ontology Sample Review and Methodology]]"
+latest_session: "[[2026-11-22 Harm Ontology Ledger and Assessment Session]]"
 ---
 
 # Handoff — Harm Ontology
@@ -22,6 +22,28 @@ latest_session: "[[2026-11-20 Harm Ontology Sample Review and Methodology]]"
   - **toy case run three times** (run 3: 42 of 42 checks pass; findings 1, 5, 6, 7 addressed in the test)
 - **Migration Phase 0** is partly done: the v1 `.ttl` is repaired and validated, and the tooling is ready.
 - **Nothing is adopted.** Variant B can't be adopted until the non-expert test passes.
+
+## Current focus (2026-11-22): finalising the assessment draft
+**Where things are.** The change ledger is the place to track what is open: [[Harm Ontology v3.1 — Feature Roadmap and Change Ledger]] (about 110 items, each with source, rationale and blockers). Session record: [[2026-11-22 Harm Ontology Ledger and Assessment Session]]. Nothing from 2026-11-22 is logged in [[Decisions_Log]].
+
+**The draft under finalisation.** `HarmAssessment` as the judging class, with:
+- `enablesAssessment` from a DisciplinePerspective (CP-01, draft proposal). Ledger S1.
+- Functional subclasses: Regulatory, Forensic, Diagnostic, NormativeCritique. Same ledger item.
+- Placement is provisional (S26). The gap schema may belong on HarmAssessment, not PerspectiveType.
+
+**What must happen before CP-01 can be settled** (in this order):
+1. **Answer S21:** is a discipline's perspective the same kind as a tradition's? CP-01 depends on it. Working answer: yes.
+2. **Placement test (S28):** agree the test (tradition, act of assessment, thing assessed, output). Apply it to the subclasses and the four gap groups. Blocks S26, S27.
+3. **Decide whether the subclasses are mutually exclusive** (open question in the session note). Subclasses by purpose, or a purpose value on one class?
+4. **Interaction with the Causal / Valence / Responsibility split (K1):** blocks S35 and CQ9.
+5. **Coverage and overlap tests (S24, S25):** run them on the physics and Integral perspectives before any logging. Blocks S8–S20.
+6. **Assessment-everywhere tests (A2, A5):** non-expert test and Horizon test. They decide the main structural choice (A1) and the final Assessment shape, which CP-01 sits inside.
+
+**What is not needed for CP-01** (do not hold it up): narrative placement (S4), property groups (S6), licence (T1), capability approach (T2). Those block the `.ttl` build and content, not the assessment class.
+
+**Author decisions waiting:** bookmark placements HO-II.a.1 (proposed this session), HO-II.d.3, HO-II.d.4, HO-007 (T9); HO-007 shape and the "participation" wording (T10); whether pending and proposed elements enter the build (T11).
+
+**Ledger conventions:** newest first; Complete and Rejected stay at the bottom; a decision is a proposal that needs resolution; "Settled" means tested or not needing testing, and ready for v3.1.
 
 ## Done 2026-11-18 (session "Harm Ontology v3 testing")
 - **Logged in [[Decisions_Log]]:** Patient renamed **AffectedEntity**, with:
