@@ -1,7 +1,18 @@
+---
+name: structured-inquiry-epistemic-unfolder
+metadata:
+  version: "1.0"
+description: Systematically investigates a complex conceptual territory or philosophical domain by generating a comprehensive, sequentially expanding top-level outline (one section at a time) with strict frontmatter provenance (including mandatory Epistemic Grounding Mode: Ontology-Only, Vault-Grounded, or LLM Parametric Baseline) and metacognitive saturation checks. Trigger whenever the user asks to unpack, investigate, or systematically unfold a complex conceptual question, philosophical framework, or architectural design space using structured, step-by-step sequential reasoning. Can be invoked directly via skill call or prompt trigger.
+---
+
 # Sequential Epistemic Unfolder (Ontological Archaeology)
 
 ## Purpose & Scope
 This skill systematically investigates a complex conceptual territory or philosophical domain by generating a comprehensive, sequentially expanding top-level outline (one section at a time). It avoids hidden assumptions by requiring explicit user inputs and appending a strictly separated frontmatter block (exposing all inputs and their provenance tags) alongside a metacognitive assessment block dedicated solely to the four closure criteria.
+
+## Trigger & Invocation
+Triggered when the user asks to systematically unfold, investigate, or unpack a complex conceptual territory. 
+- **Invocation Command / Trigger phrase:** You can invoke this skill explicitly by mentioning its name or typing: `Run structured-inquiry-epistemic-unfolder` or simply asking to systematically unfold a topic.
 
 ## Strict Input Protocol (Interactive Prompting)
 **This skill assumes nothing from prior conversation history or previous sessions.** When invoked, if any inputs are unstated or ambiguous, you must explicitly pause, present the prompt definitions below, and require the user to provide both **Input A (Core Question)** and **Input B (Epistemic Grounding Mode)** as mandatory inputs, while Inputs C through G remain optional.
