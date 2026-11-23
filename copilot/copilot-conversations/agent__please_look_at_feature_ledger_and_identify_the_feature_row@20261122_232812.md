@@ -7,7 +7,7 @@ model: '{"baseModelId":"google/gemini-3.5-flash-lite","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Assessment structure feature blockers"
-usage: '{"usedTokens":27096,"contextWindow":1048576,"updatedAt":1795415307563}'
+usage: '{"usedTokens":39231,"contextWindow":1048576,"updatedAt":1795415469733}'
 ---
 
 **user**: please look at feature ledger and identify the feature row specific to Assessment structure. Gather all otherf features or changes relevant to assessment and list all blockers that need resolution to unblock assessment
@@ -61,3 +61,17 @@ To fully unblock and stabilize the assessment architecture (**S1** and its surro
     *   **S24 & S25 (Coverage & Overlap Tests):** General schema tests (Physics and Integral coverage tests, and Protégé naming tests) that block the logging of underlying schema additions.
 <!-- copilot-message {"tools":["glob (search)","read (read): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md","read (read): 00_Claude_Admin/Tasks/Task - Assessment Structure Initial Thinking.md","read (read): 01_The Writer's Room/2026-11-22 Harm Ontology Ledger and Assessment Session.md"]} -->
 [Timestamp: 2026/11/22 23:28:12]
+
+**user**: s21 answer is yes.  update feature ledger, log decision and also make sure that we use skos:altLabel rather than skos:prefLabel for tradition.  it should not be preferred
+[Timestamp: 2026/11/22 23:30:50]
+
+**ai**: I have successfully updated the vault according to your instructions:
+
+1. **Feature Roadmap and Change Ledger** (`[[Harm Ontology v3.1 — Feature Roadmap and Change Ledger]]`):
+   - **S21** has been marked as **Settled** (Yes, settled on 2026-11-22), incorporating the rule that **tradition** uses `skos:altLabel` rather than `skos:prefLabel` (it should not be preferred).
+   - **S1** (Discipline-enabled assessments / CP-01) has had S21 removed from its blockers (leaving S26 as its remaining blocker).
+
+2. **Decisions Log** (`[[Decisions_Log]]`):
+   - Added a new entry at the top for today (2026-11-22) recording that a discipline's perspective is confirmed as a `PerspectiveType` (`DisciplinePerspective`), enabling assessments via `enablesAssessment`, and establishing the SKOS labelling rule for tradition (`skos:altLabel`, non-preferred).
+<!-- copilot-message {"tools":["glob (search)","read (read): 00_Claude_Admin/Decisions_Log.md","edit (edit): 00_Claude_Admin/Decisions_Log.md","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md"]} -->
+[Timestamp: 2026/11/22 23:30:50]
