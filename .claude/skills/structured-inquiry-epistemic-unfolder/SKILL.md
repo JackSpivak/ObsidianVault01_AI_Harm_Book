@@ -15,18 +15,27 @@ Triggered when the user asks to systematically unfold, investigate, or unpack a 
 - **Invocation Command / Trigger phrase:** You can invoke this skill explicitly by mentioning its name or typing: `Run structured-inquiry-epistemic-unfolder` or simply asking to systematically unfold a topic.
 
 ## Strict Input Protocol (Interactive Prompting)
-**This skill assumes nothing from prior conversation history or previous sessions.** When invoked, if Inputs A or B are unstated or ambiguous, you must explicitly pause and present the prompt definitions below. Inputs C through G remain optional: if the user does not provide them, the skill must explicitly populate them with sensible default values in the frontmatter, clearly tagging each one with its provenance: either `[Explicitly Provided by User]` or `[Assumed by Skill]`.
+**This skill assumes nothing from prior conversation history or previous sessions.** When invoked, if Inputs A or B are unstated or ambiguous, you must explicitly pause and present the prompt definitions below grouped under **Mandatory Inputs** and **Optional Inputs** (without inline tags). Inputs C through G remain optional: if the user does not provide them, the skill must explicitly populate them with sensible default values in the frontmatter, clearly tagging each one with its provenance: either `[Explicitly Provided by User]` or `[Assumed by Skill]`.
 
 ### Input Definitions & Examples for Prompting:
-1. **Input A: The Core Guiding Question (MANDATORY)**
+
+**Mandatory Inputs:**
+1. **Input A: The Core Guiding Question**
    * *Definition:* The central, foundational question driving the investigation.
-2. **Input B: Epistemic Grounding Mode (MANDATORY)**
+2. **Input B: Epistemic Grounding Mode**
    * *Definition:* Option 1 (Ontology-Only), Option 2 (Obsidian Vault-Grounded), or Option 3 (LLM Parametric Baseline).
-3. **Input C: The Guiding Perspective / Standpoint (Optional)**
-4. **Input D: Conceptual Scope & Deliverable Goal (Optional)**
-5. **Input E: Epistemic Rigor & Depth Level (Optional)**
-6. **Input F: Temporal Horizon Constraint (Optional)**
-7. **Input G: Output Format & Staging Preference (Optional)**
+
+**Optional Inputs:**
+3. **Input C: The Guiding Perspective / Standpoint**
+   * *Definition:* The specific academic discipline, philosophical tradition, or analytical lens.
+4. **Input D: Conceptual Scope**
+   * *Definition:* The thematic boundary and scope of the investigation.
+5. **Input E: Epistemic Rigor & Depth Level**
+   * *Definition:* The analytical granularity and formalization level.
+6. **Input F: Temporal Horizon Constraint**
+   * *Definition:* The temporal or historical context framing the inquiry.
+7. **Input G: Deliverable Goal**
+   * *Definition:* The intended outcome or output artifact of the exploration.
 
 ---
 
