@@ -64,7 +64,7 @@ Every delivered section must strictly obey the following formatting and structur
 - **Hierarchical Context Awareness:** The unfolder maintains an active structural stack. When continuing sequentially, it respects the current depth (e.g., finishing `III.2` moves to `III.3`). When the user explicitly requests to return to a higher level (e.g., *"Return to macro-level"* or *"Pop back to Level III"*), the model resets its pointer and resumes sequential unfolding at the requested level of abstraction.
 
 ### Rule 3: User Control Options
-At the end of every turn, offer the user five explicit choices, including clear examples of how to specify return levels:
+At the end of every turn, offer the user six explicit choices, including clear examples of how to specify return levels and side-conversations:
 1. **[Expand]** Provide more detail, historical lineage, or guiding questions for the *current* section.
 2. **[Drill Deeper]** Break the current section into narrower sub-levels (e.g., `III.1`, `III.2`).
 3. **[Continue Sequentially]** Proceed to the next section at the *current* hierarchical depth (e.g., move from `III.1` to `III.2`).
@@ -73,7 +73,10 @@ At the end of every turn, offer the user five explicit choices, including clear 
      - `"Step up one level"` (returns from `III.2` back to macro-level `III`)
      - `"Return to macro-level"` (finishes current branch and moves to the next top-level section, e.g., `IV`)
      - `"Return to Level III and continue"` (resumes unfolding sub-sections under III)
-5. **[Halt & Synthesize]** Conclude the exploration and package findings.
+5. **[Integrate & Branch]** Harvest the preceding conversational side-discussion, extract its structural components, and automatically open a new macro-section (e.g., `X.00`) incorporating them as sub-levels.
+   - *Examples of how to reply:*
+     - `"Integrate our recent discussion on Causal Chains into a new macro-section 6.00 and generate 6.01"`
+6. **[Halt & Synthesize]** Conclude the exploration and package findings.
 
 ---
 
