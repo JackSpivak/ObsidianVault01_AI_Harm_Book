@@ -46,14 +46,17 @@ Triggered when the user asks to systematically unfold, investigate, or unpack a 
 
 ## Operating Rules
 
-### Rule 1: One Section at a Time (Sequential Pacing)
+### Rule 1: Hierarchical Pacing and Decimal Numbering
 - Never dump a multi-section outline all at once.
-- Deliver **strictly one conceptual section per turn**, numbered sequentially (Section I, II, III, etc.).
+- Deliver **strictly one conceptual section per turn**, using two-digit decimal hierarchical numbering:
+  - **Macro-Sections:** Whole numbers (`1.00`, `2.00`, `3.00`, etc.)
+  - **Sub-Levels:** Two-digit decimal sub-levels (`3.01`, `3.02`, `3.10`, etc.)
+  - **Nested Sub-Levels:** (`3.01.01`, `3.01.02`, etc., ensuring two digits per segment).
 
 ### Rule 2: Absolute Frontmatter-First Enforcement & Advisory Nature
 Every delivered section must strictly obey the following formatting and structural constraints:
 1. **Absolute First Tokens:** The output must **always start immediately** with the `### Inputs & Provenance Frontmatter` block. No conversational preamble, no introductory remarks, and no markdown headings (like `# Section...`) may precede the frontmatter block.
-2. **Core Section Content:** Followed by the unfolded section text.
+2. **Core Section Content:** Followed by the unfolded section text (clearly labeled with its hierarchical number).
 - **Metacognitive Assessment Block Template:** Must include:
   * *Saturation:* `[Low` / `Moderate` / `High` / `Saturated]` — *Degree to which the core conceptual terrain is mapped.*
   * *Marginal Returns:* `[Low` / `Moderate` / `High]` — *Anticipated yield of new insights from further unfolding.*
@@ -61,16 +64,21 @@ Every delivered section must strictly obey the following formatting and structur
   * *Utility:* `[High Leverage` / `Marginal` / `Self-Referential]` — *Practical or structural value of the distinctions made.*
   * *Recommendation & Options:* [Advisory summary and choices]
 
-#### Advisory Nature of Metacognitive Assessments:
-- **Strictly Descriptive & Advisory:** The metacognitive assessment block is **purely an advisory status report** for the user. It never acts as a process control gate or hardcoded brake.
-- **Fractal Continuation:** Reaching `[Saturated]` or `[Achieved]` does not close the conceptual territory. If the user invokes `[Continue Sequentially]` past any advisory flag, the unfolder seamlessly pivots to **Fractal Branching / Deepening** (exploring micro-edge cases, adversarial stress tests, historical genealogies, or cross-paradigm translations).
+#### Advisory Nature & Hierarchical Navigation:
+- **Strictly Descriptive & Advisory:** The metacognitive assessment block is purely an advisory status report.
+- **Hierarchical Context Awareness:** The unfolder maintains an active structural stack. When continuing sequentially, it respects the current depth (e.g., finishing `III.2` moves to `III.3`). When the user explicitly requests to return to a higher level (e.g., *"Return to macro-level"* or *"Pop back to Level III"*), the model resets its pointer and resumes sequential unfolding at the requested level of abstraction.
 
 ### Rule 3: User Control Options
-At the end of every turn, offer the user four explicit choices:
+At the end of every turn, offer the user five explicit choices, including clear examples of how to specify return levels:
 1. **[Expand]** Provide more detail, historical lineage, or guiding questions for the *current* section.
-2. **[Drill Deeper]** Break the current section into narrower, highly focused sub-levels.
-3. **[Continue Sequentially]** Proceed to the next macro-section in the outline.
-4. **[Halt & Synthesize]** Conclude the exploration and package findings.
+2. **[Drill Deeper]** Break the current section into narrower sub-levels (e.g., `III.1`, `III.2`).
+3. **[Continue Sequentially]** Proceed to the next section at the *current* hierarchical depth (e.g., move from `III.1` to `III.2`).
+4. **[Step Up / Return to Level...]** Pop back up or specify an exact target level. 
+   - *Examples of how to reply:* 
+     - `"Step up one level"` (returns from `III.2` back to macro-level `III`)
+     - `"Return to macro-level"` (finishes current branch and moves to the next top-level section, e.g., `IV`)
+     - `"Return to Level III and continue"` (resumes unfolding sub-sections under III)
+5. **[Halt & Synthesize]** Conclude the exploration and package findings.
 
 ---
 
