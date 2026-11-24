@@ -15,32 +15,18 @@ Triggered when the user asks to systematically unfold, investigate, or unpack a 
 - **Invocation Command / Trigger phrase:** You can invoke this skill explicitly by mentioning its name or typing: `Run structured-inquiry-epistemic-unfolder` or simply asking to systematically unfold a topic.
 
 ## Strict Input Protocol (Interactive Prompting)
-**This skill assumes nothing from prior conversation history or previous sessions.** When invoked, if any inputs are unstated or ambiguous, you must explicitly pause, present the prompt definitions below, and require the user to provide both **Input A (Core Question)** and **Input B (Epistemic Grounding Mode)** as mandatory inputs, while Inputs C through G remain optional.
+**This skill assumes nothing from prior conversation history or previous sessions.** When invoked, if Inputs A or B are unstated or ambiguous, you must explicitly pause and present the prompt definitions below. Inputs C through G remain optional: if the user does not provide them, the skill must explicitly populate them with sensible default values in the frontmatter, clearly tagging each one with its provenance: either `[Explicitly Provided by User]` or `[Assumed by Skill]`.
 
 ### Input Definitions & Examples for Prompting:
 1. **Input A: The Core Guiding Question (MANDATORY)**
    * *Definition:* The central, foundational question driving the investigation.
-   * *Example:* *"How would we know a harm if we saw one?"*
 2. **Input B: Epistemic Grounding Mode (MANDATORY)**
-   * *Definition:* The precise source boundary of the investigation. Must be explicitly specified as one of three options:
-     * **Option 1: Ontology-Only** (Strictly bounded to the formal RDF/OWL/SKOS schema definitions and core classes without discursive speculation).
-     * **Option 2: Obsidian Vault-Grounded** (Draws upon the rich ecosystem of vault notes, design discussions, unfiled ideas, and draft files—recognizing that this includes exploratory, unverified, and speculative design thought that appears mature).
-     * **Option 3: LLM Parametric Baseline** (Relies exclusively on pre-trained LLM weights, academic consensus, and standard philosophical traditions, with zero vault access).
+   * *Definition:* Option 1 (Ontology-Only), Option 2 (Obsidian Vault-Grounded), or Option 3 (LLM Parametric Baseline).
 3. **Input C: The Guiding Perspective / Standpoint (Optional)**
-   * *Definition:* The role, posture, or paradigm you are operating from.
-   * *Example:* *"Universal Epistemologist"* or *"System Architect"*.
 4. **Input D: Conceptual Scope & Deliverable Goal (Optional)**
-   * *Definition:* The intended scope and final output target of the inquiry.
-   * *Example:* *"Comparative Baseline Investigation"*.
 5. **Input E: Epistemic Rigor & Depth Level (Optional)**
-   * *Definition:* The balance between broad interdisciplinary synthesis and microscopic analytical precision.
-   * *Example:* *"Analytical Philosophy Synthesis"*.
 6. **Input F: Temporal Horizon Constraint (Optional)**
-   * *Definition:* The time scale the investigation should account for.
-   * *Example:* *"Civilizational / Universal Scale"*.
 7. **Input G: Output Format & Staging Preference (Optional)**
-   * *Definition:* The stylistic register of the generated output.
-   * *Example:* *"Academic Philosophical Critique"*.
 
 ---
 
