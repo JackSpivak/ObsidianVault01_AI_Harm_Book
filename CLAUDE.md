@@ -64,3 +64,4 @@ Detailed operating rules live in `.claude/rules/` and load automatically.
 		- external references - documents or other external references that contributed significant context, data, ideas, quotes or foundational principles that are important to the idea
 - Never reconstruct or polish the quotes.
 - If you can't locate the exact wording, say so.
+- Design decision notes (naming rules, class design, governance commitments, open choices between options) use the `DesignDecision` fileClass (`00_Claude_Admin/FileClasses/DesignDecision.md`) and `Templates/Design Decision.md`. They are never filed as ideas. Ideas use `Idea.md`. Decision status is kept in step with the roadmap row and `Decisions_Log.md`.

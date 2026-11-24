@@ -7,7 +7,7 @@ topic: "junktest structured inquiry"
 model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":277358,"contextWindow":1000000,"updatedAt":1795502778416}'
+usage: '{"usedTokens":289746,"contextWindow":1000000,"updatedAt":1795503384138}'
 ---
 
 **user**: structured inquiry
@@ -3663,3 +3663,99 @@ One caution. The skill doesn't know that `Decisions_Log.md` and the v3.1 roadmap
 
 If you want, I can check the master index first to see whether an existing index already fits this category, and then draft the proposal for your approval.
 [Timestamp: 2026/11/23 23:46:13]
+
+**user**: yes please check. but do not do anything.  but i would like to test the skill and see if it triggers a proposal to me for a new index that i can confirm
+[Timestamp: 2026/11/23 23:47:56]
+
+**ai**: I checked the six existing bookmark indices. Nothing was changed.
+
+The Harm Ontology index (`02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md`, prefix `HO-`) already covers "designing the perspective-relative harm ontology." Its header also says its decisions are logged in `Decisions_Log`. The design-decision notes are about that same design, so the skill would most likely propose filing them under HO-, not creating a new index.
+
+The other indices don't fit: Corpus Governance covers the vault and tooling, AI Governance & Safety covers ontology tooling, and the S-1 and GSH indices cover other topics.
+
+So the honest prediction is that the skill will propose HO- entries, not a new index. That means your test would not trigger a new-index proposal, and it would show whether the skill recognizes the existing fit.
+
+If you want to test the new-index path specifically, a clearer test would be a category that really has no home, for example a design-decision record family that is separate from ontology design. Or we could test with the four idea notes, where the skill should propose HO- entries.
+<!-- copilot-message {"tools":["glob (search)","grep (search): 02_Ideas Topics Concepts/Corpus Governance/_Corpus Governance Bookmark Index.md","grep (search): 02_Ideas Topics Concepts/Harm Ontology/_Harm Ontology Bookmark Index.md"]} -->
+[Timestamp: 2026/11/23 23:47:56]
+
+**user**: ok. there is a significant pattern difference here that is explicit.  these are design decision notes.  hopefully we have tagged them differently in the frontmatter. do we have template yet and category for design decision notes
+[Timestamp: 2026/11/23 23:51:16]
+
+**ai**: No. There is no template or category for design decision notes yet.
+
+- **`00_Claude_Admin/Templates/` has no design-decision template.** It has Idea, Session, Handoff, Character, Chapter, Worldbuilding and Research Source.
+- **The only fileClass is `Idea`.** Its `type` dropdown allows one value, `idea`. Its `status` values are stub, seed, developing, stable and archived, with no pending, proposed or settled.
+- **My drafts don't match the Idea fileClass.** The pending note I deleted used `type: design-decision`, which the Idea class rejects. The design-notes file used `type: note`. The four idea notes use `type: idea`, which is valid, but they are idea notes, not decision records.
+
+So the vault has no tag or class that separates a design decision from an idea, and nothing that records a decision's status in the note itself. The decision status currently lives in `Decisions_Log` and the roadmap.
+
+To create the category, I would propose:
+
+1. A `DesignDecision` fileClass in `00_Claude_Admin/FileClasses/`, with `type: design-decision` and a status list of proposed, pending, settled, superseded.
+2. A matching `Templates/Design Decision.md` with fields for decision ID, date, options considered, the decision or its open question, rationale, and links to the roadmap row and the Decisions_Log row.
+3. A rule in `CLAUDE.md` that decision records use this class and never the Idea class, so the bookmark skill can route them by `type`.
+
+Adding a fileClass and template changes the admin structure, so I'd need your approval first. Should I draft these for your review?
+<!-- copilot-message {"tools":["glob (search)","read (read): 00_Claude_Admin/FileClasses/Idea.md"]} -->
+[Timestamp: 2026/11/23 23:51:16]
+
+**user**: yes. exactly can you do this?  can this new fileclass have rules sufficient that you produce the rich structured format that these most recent notes copy?
+[Timestamp: 2026/11/23 23:52:36]
+
+**ai**: Yes, I can create both. Before I do, a limit on what the rules can do: a fileClass enforces frontmatter (dropdowns, valid values). It cannot force body sections. The rich body comes from the template, and the quoting discipline comes from a `CLAUDE.md` rule. I'll set up all three.Done. Three changes:
+
+1. **`00_Claude_Admin/FileClasses/DesignDecision.md`** defines the fileClass. It sets `type: design-decision`, and `status` as proposed, pending, settled or superseded. It also adds `decision_id`, `bookmark`, `roadmap_id`, `log_row` and `supersedes`. Metadata Menu will show these as dropdowns and fields.
+
+2. **`00_Claude_Admin/Templates/Design Decision.md`** gives the body structure: decision or question, options considered, summary, original wording with attribution, rationale, consequences, open questions, and related links. Its Original wording section requires verbatim quotes, with "Exact wording not located" as the fallback.
+
+3. **`CLAUDE.md`** gets one new rule under Note creation rules. Design decision notes use the DesignDecision fileClass and template, are never filed as ideas, and keep their status in step with the roadmap row and Decisions_Log.
+
+What this does and doesn't do:
+
+- **Frontmatter** is enforced by the fileClass. A wrong `type` or `status` value will show up in Metadata Menu.
+- **Body sections** come from the template. A template can't force me to fill them in. The `CLAUDE.md` rule is the instruction that does that, and it only works if I read it, which is the failure we just discussed.
+- **Quote accuracy** depends on copying from the session transcript. The template and rule say to do that, but they can't check it.
+
+The four idea notes and the old design-notes file aren't affected. The old file still has `type: note`, so it fits neither class. Retiring it is still pending your approval.
+<!-- copilot-message {"tools":["write (edit): 00_Claude_Admin/FileClasses/DesignDecision.md","write (edit): 00_Claude_Admin/Templates/Design Decision.md","edit (edit): CLAUDE.md"]} -->
+[Timestamp: 2026/11/23 23:52:36]
+
+**user**: so do you think maybe we can create a generic trigger that fires the skill and proposes a new bookmark index any time a new filetype is created that needs appropriate unique bookmarking and a correct file folder to move the notes to?
+[Timestamp: 2026/11/23 23:54:42]
+
+**ai**: I'd advise against a generic trigger, and I can explain why from what we've already seen.
+
+**Why a broad trigger is risky**
+
+- The bookmark skill's description already says to trigger "proactively when a new branch emerges," and to act on phrases like "this feels like its own thing." That is close to the wording that pulled the structured-inquiry skill into our conversation earlier. A broad trigger will fire too often.
+- "Any new filetype" is also vague. Would a new template count? A new `.base` view? A new session note? Each would prompt a proposal, and most would be noise.
+- The skill can only detect that something was created if it's told when creation happens. The vault has no hook that runs on file creation in this setup, so a "generic trigger" would in practice depend on me remembering to run it. That's the same memory-dependence we're trying to remove.
+
+**What I'd propose instead**
+
+1. **A narrow, explicit trigger:** the bookmark skill is consulted whenever a fileClass or a template is added under `00_Claude_Admin/`. Those two folders are the only places new note types are defined, so the trigger is specific and checkable.
+2. **A required step in `CLAUDE.md`:** when one of those files is created, I must (a) say which existing index fits, or that none does, (b) if none does, propose a prefix, index name, and folder, and (c) wait for your confirmation before creating anything. This reuses the single-confirmation rule the skill already has.
+3. **A check on the existing indices:** the Harm Ontology index already covers the design work, so the trigger should check fit before proposing a new index, as we did today.
+
+That gives you the proposal you want, but only when a new note type actually appears, and it doesn't depend on me remembering a general instruction.
+
+Should I add this as a rule to `CLAUDE.md` for your approval, and leave the skill's own description unchanged for now?
+[Timestamp: 2026/11/23 23:54:42]
+
+**user**: i guess i meant to say trigger new bookmark index when a new filetype is added.
+[Timestamp: 2026/11/23 23:56:20]
+
+**ai**: That's the narrow version I just proposed, so we agree. The trigger would be "a new filetype is added," which in this vault means a new fileClass or template under `00_Claude_Admin/`.
+
+Here's the rule I'd add to `CLAUDE.md`, under Note creation rules:
+
+> When a new filetype is added (a new fileClass in `00_Claude_Admin/FileClasses/` or a new template in `00_Claude_Admin/Templates/`), consult the bookmark-index-maintainer skill before anything else. Check whether an existing index fits. If none does, propose one in a single message: index name, ID prefix, folder, first entry, and the master-index registration. Create nothing until the author confirms.
+
+Two limits to keep in mind:
+
+- The rule depends on me reading `CLAUDE.md` before I create a filetype. That's the failure we've already discussed, so the rule works only as well as my following it.
+- The rule covers only new filetypes. Existing notes that need filing still go through the skill's normal sweep, with a separate confirmation.
+
+Should I add this rule to `CLAUDE.md`?
+[Timestamp: 2026/11/23 23:56:20]
