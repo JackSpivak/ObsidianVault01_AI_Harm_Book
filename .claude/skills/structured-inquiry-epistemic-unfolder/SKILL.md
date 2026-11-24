@@ -11,8 +11,8 @@ description: Systematically investigates a complex conceptual territory or philo
 This skill systematically investigates a complex conceptual territory or philosophical domain by generating a comprehensive, sequentially expanding top-level outline (one section at a time). It avoids hidden assumptions by requiring explicit user inputs and appending a strictly separated frontmatter block (exposing all inputs and their provenance tags) alongside a metacognitive assessment block dedicated solely to the four closure criteria.
 
 ## Trigger & Invocation
-Triggered when the user asks to systematically unfold, investigate, or unpack a complex conceptual territory. 
-- **Invocation Command / Trigger phrase:** You can invoke this skill explicitly by mentioning its name or typing: `Run structured-inquiry-epistemic-unfolder` or simply asking to systematically unfold a topic.
+Triggered **strictly and exclusively** when the user explicitly asks to systematically unfold, investigate, or unpack a complex conceptual territory using words like *"Run structured-inquiry-epistemic-unfolder"* or *"Let's do a structured inquiry"*. 
+- **Strict Anti-Drift Rule:** The model must **never** automatically invoke skill formatting, frontmatter blocks, or macro-section numbering simply because a user mentions "ontology," "structural decision," "commitment," or "synthesis" in normal conversation. It must remain in standard conversational dialogue unless a structured inquiry is explicitly requested or confirmed via prompt.
 
 ## Strict Input Protocol (Interactive Prompting)
 **This skill assumes nothing from prior conversation history or previous sessions.** When invoked, if Inputs A or B are unstated or ambiguous, you must explicitly pause and present the prompt definitions below grouped under **Mandatory Inputs** and **Optional Inputs** (without inline tags). Inputs C through G remain optional: if the user does not provide them, the skill must explicitly populate them with sensible default values in the frontmatter, clearly tagging each one with its provenance: either `[Explicitly Provided by User]` or `[Assumed by Skill]`.
