@@ -7,7 +7,7 @@ topic: "junktest structured inquiry"
 model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":289746,"contextWindow":1000000,"updatedAt":1795503384138}'
+usage: '{"usedTokens":292061,"contextWindow":1000000,"updatedAt":1795503921920}'
 ---
 
 **user**: structured inquiry
@@ -3759,3 +3759,63 @@ Two limits to keep in mind:
 
 Should I add this rule to `CLAUDE.md`?
 [Timestamp: 2026/11/23 23:56:20]
+
+**user**: don't you have to read claude.md before each new conversation? i know you have to read it each time a project is entered initially? no?
+[Timestamp: 2026/11/23 23:58:02]
+
+**ai**: I don't know that, and I shouldn't have assumed it. Here is what I can see:
+
+- `CLAUDE.md` says the Book Brief and Style Guide are "always-loaded context" (`@` imports). It says the Canon, Decisions Log and Templates are "read on demand," and that detailed rules "load automatically" from `.claude/rules/`.
+- That `.claude/rules/` folder doesn't exist, so the automatic loading it describes can't be fully working as written.
+- Nothing in this conversation shows `CLAUDE.md` being read at the start. I only read it when I went looking for the directive after the deviation.
+
+So whether `CLAUDE.md` loads at the start of each session in this Copilot setup is something I can't confirm from here. You may know how it's configured better than I do. If the answer is that it doesn't load reliably, then a rule in `CLAUDE.md` alone won't prevent the drift. The fix would have to sit where the work happens: in the templates and fileClasses themselves, and in the skill's trigger. Those are read at the moment of creation.
+
+Do you know how `CLAUDE.md` gets loaded in Copilot? If you can confirm it loads each session, the rule is worth adding. If not, I'd put the new-filetype check into the template and fileClass instructions instead.
+[Timestamp: 2026/11/23 23:58:02]
+
+**user**: so i thought that claude in its native configuration always reads claude.md when it starts up or enters an existing project to preserve key project memory.  am i wrong
+[Timestamp: 2026/11/24 00:00:11]
+
+**ai**: You're largely right about native Claude Code. It reads `CLAUDE.md` into context at session start and when you enter a project, so the project's standing instructions persist without being asked for. That's the design.
+
+But this vault runs inside Obsidian Copilot, not native Claude Code. I can't confirm from inside this session that Copilot performs that same load. I also can't see `CLAUDE.md` in my current context; I only read it on demand when I went looking for the directive. So I can't tell whether the start-of-session load happens here.
+
+Two points follow from that:
+
+- **Your understanding is right for native Claude**, and it's a reasonable basis for relying on `CLAUDE.md`, as long as the environment is native.
+- **Whether Copilot does the same is a question for your setup.** You could confirm it by asking a fresh chat to quote the first rule in `CLAUDE.md` without reading the file. If it can, the file is loaded.
+
+If the test passes, the new-filetype rule belongs in `CLAUDE.md`. If it fails, the rule should also go into the template and fileClass instructions, so it doesn't depend on loading.
+[Timestamp: 2026/11/24 00:00:11]
+
+**user**: ok. test failed. you are right. this may explain a lot of mistakes in how we handle things i thought we solved, decided and made rules for.
+[Timestamp: 2026/11/24 00:04:28]
+
+**ai**: That's a fair conclusion. If `CLAUDE.md` isn't reliably loaded here, every rule written only there is a rule I may not see when it matters. That covers the quoting and attribution rules, the Decisions_Log procedure, the "ask before deleting or moving" rule, and the new filetype rule. Some of the mistakes we've made this session fit that pattern.
+
+I'd suggest a fix in three layers, so no rule depends on one file being read:
+
+1. **Put each rule where I read at the moment of action.** Quote and attribution rules go into the templates. Routing and index rules go into the bookmark skill's description and steps. Decision-log rules go into the DesignDecision fileClass. A template is read when I create the note from it.
+2. **Keep `CLAUDE.md` as the index, not the only copy.** It lists the rules and points to where each one lives. It's useful when it loads, but it isn't the enforcement point.
+3. **Add a short pre-write checklist to the templates folder.** It names the checks that apply before any note is created: template used, location, quote discipline, attribution, index fit, and confirmation before moving or deleting.
+
+Limits: even with this, I can still skip a template or a checklist. The fix reduces the dependence on memory, but it doesn't remove it.
+
+Before I change anything, I'd audit every rule in `CLAUDE.md` and mark where each one could live in a template, fileClass or skill instead. That gives you a list to approve. Should I start that audit?
+[Timestamp: 2026/11/24 00:04:28]
+
+**user**: dont do that yet.  let me check co-pilot and see if there are any options/settings that say what files to read on startup
+[Timestamp: 2026/11/24 00:05:19]
+
+**ai**: Understood, I won't change anything yet.
+
+When you check, these are the things to look for:
+
+- Any setting for "custom instructions," "system prompt," "project instructions," or "always-included context" in Copilot's settings.
+- Whether `CLAUDE.md`, or specific files like the Book Brief, Style Guide, or Decisions Log, can be added there.
+- Whether Copilot has a "vault context" or "note context" option that is sent with every message, and what it includes.
+- Whether skills are loaded from `.claude/skills/` automatically, or only when you invoke them.
+
+If you find a setting, tell me what it says, and I'll work from that instead of guessing.
+[Timestamp: 2026/11/24 00:05:19]
