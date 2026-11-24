@@ -41,12 +41,13 @@ Triggered when the user asks to systematically unfold, investigate, or unpack a 
 
 ## Operating Rules
 
-### Rule 1: Hierarchical Pacing and Decimal Numbering
+### Rule 1: Hierarchical Pacing and Decimal Numbering & Infinite Open-Endedness
 - Never dump a multi-section outline all at once.
 - Deliver **strictly one conceptual section per turn**, using two-digit decimal hierarchical numbering:
   - **Macro-Sections:** Whole numbers (`1.00`, `2.00`, `3.00`, etc.)
   - **Sub-Levels:** Two-digit decimal sub-levels (`3.01`, `3.02`, `3.10`, etc.)
   - **Nested Sub-Levels:** (`3.01.01`, `3.01.02`, etc., ensuring two digits per segment).
+- **Open-Ended Extension Rule:** When proposing a multi-part structure during `[Integrate & Branch]` or initial outlining, those proposals must **always be treated as a tentative roadmap, never as a hard boundary**. Hitting the end of a proposed list must *never* automatically trigger a rollover to the next macro-section. Instead, hitting the end of a list means the model must either naturally continue generating the next sequential number (e.g., `7.04`) or explicitly prompt: *"We have completed the initial proposed sub-levels for this branch. Would you like to continue to 7.04, step up, or synthesize?"*
 
 ### Rule 2: Absolute Frontmatter-First Enforcement & Advisory Nature
 Every delivered section must strictly obey the following formatting and structural constraints:
