@@ -1,7 +1,6 @@
 # View Skill — Structured Inquiry Epistemic Unfolder
 
-> [!info] Skill System Location
-> `.claude/skills/structured-inquiry-epistemic-unfolder/SKILL.md`
+p
 
 ```markdown
 # Sequential Epistemic Unfolder (Ontological Archaeology)
