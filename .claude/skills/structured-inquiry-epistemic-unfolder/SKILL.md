@@ -73,9 +73,8 @@ At the end of every turn, offer the user six explicit choices, including clear e
      - `"Step up one level"` (returns from `III.2` back to macro-level `III`)
      - `"Return to macro-level"` (finishes current branch and moves to the next top-level section, e.g., `IV`)
      - `"Return to Level III and continue"` (resumes unfolding sub-sections under III)
-5. **[Integrate & Branch]** Harvest the preceding conversational side-discussion, extract its structural components, and automatically open a new macro-section (e.g., `X.00`) incorporating them as sub-levels.
-   - *Examples of how to reply:*
-     - `"Integrate our recent discussion on Causal Chains into a new macro-section 6.00 and generate 6.01"`
+5. **[Integrate & Branch]** Harvest the preceding conversational side-discussion, extract its structural components, and **explicitly pause to ask the user** where to position the new material (e.g., as a brand-new macro-section `X.00`, or as a specific sub-level under an existing section).
+   - *Behavior:* Never make an automatic placement assumption. Stop and prompt: *"You selected [Integrate & Branch]. Where would you like to position this integrated material in the outline?"*
 6. **[Halt & Synthesize]** Conclude the exploration and package findings.
 
 ---
