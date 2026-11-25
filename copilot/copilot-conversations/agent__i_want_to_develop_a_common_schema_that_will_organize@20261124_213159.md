@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Setup for Harm Ontology v0.03.01 design"
-usage: '{"usedTokens":168245,"contextWindow":1000000,"updatedAt":1795589090829}'
+usage: '{"usedTokens":176014,"contextWindow":1000000,"updatedAt":1795589827239}'
 ---
 
 **user**: i want to develop a common schema that will organize and attach and be extended by individual perspective or discipline schema modules carrying perspective worldview, objects and relations
@@ -1273,3 +1273,151 @@ The future is genuinely open. A projected consequence, such as the employer's de
 
 Shall I update the consolidated list and tree with this wording?
 [Timestamp: 2026/11/24 23:44:44]
+
+**user**: is our causal chain "stoppedAt" the same or different from the temporal horizon we had in the model previously?  are we saying:
+CausalChainDetermination stopsAt TemporalHorizon
+[Timestamp: 2026/11/24 23:48:17]
+
+**ai**: No, they are different, and the proposed relation would merge two things we have kept apart.
+
+## What the vault already has
+
+- **Temporal horizon** is a time limit on an assessment: how far forward or back in time the judgement looks. It sits on the PerspectiveSpecification as `exposure (horizon)` and on each Assessment as `assessmentHorizon` (HO-II.b, the Sai Weng trap).
+- **Chain horizon** in HO-006 is a related but separate idea: a finite bound on the causal chain, and the assessor's chosen horizon can differ from a chain's `maxHorizon`.
+
+Both are about time.
+
+## What stoppedAt is
+
+`stoppedAt` is a point on the causal graph: the node or link where tracing ended. It is a cut in the structure, not a time. Tracing can stop for reasons that have nothing to do with the clock:
+
+- **Temporal:** the event falls outside the assessment horizon.
+- **Epistemic:** the link is unknown or undisclosed, as with the adulterant's origin.
+- **Scope:** the perspective does not count that kind of factor as relevant.
+- **Resource:** the assessor could not afford to follow it further.
+
+So a chain can stop at a time-limited point, but it can also stop well inside the horizon, and the reason matters.
+
+## The corrected relations
+
+```text
+CausalChainDetermination
+├── hasBoundary → CausalBoundary          (a set of stop nodes, not a time)
+│     └── stopReason: temporal | epistemic | scope | resource
+└── underHorizon → TemporalHorizon         (inherited from the assessment or specification)
+```
+
+The time horizon bounds what the assessment can consider. The boundary records where the tracing actually stopped, and why. A chain determination is therefore bounded by a horizon and has a boundary; it does not stop at a horizon.
+
+This also fixes R13c in the consolidated list. It should read: each assessment records a causal boundary with its reason, and is also bounded by a temporal horizon.
+
+Shall I update the consolidated list and the tree to use CausalBoundary and underHorizon in place of stoppedAt?
+[Timestamp: 2026/11/24 23:48:17]
+
+**user**: yes
+[Timestamp: 2026/11/24 23:50:17]
+
+**ai**: Here are the updated items. The consolidation exists only in this chat so far, so I've put the changed requirements and the revised chain section below, with the rest unchanged.
+
+## Changed requirements
+
+- **R13a. Past events are fixed.** A chain's events are not reopened by later assessment.
+- **R13b. Upstream knowledge can be incomplete.** Unknown or undisclosed links carry missingness statuses. Later discoveries produce new versioned determinations rather than edits to old ones.
+- **R13c. Causal boundary is an assessed choice.** Each chain determination records a `CausalBoundary`: the set of stop nodes, each with a stop reason (temporal, epistemic, scope or resource).
+- **R13d. Temporal horizon bounds the assessment.** Each chain determination is `underHorizon` a TemporalHorizon, inherited from its assessment or specification. The horizon limits what can be considered; it does not define where tracing stops.
+- **R13e. The future is open.** Downstream nodes are projected and carry their own temporal status.
+
+## Updated chain section of the tree
+
+```text
+CHAIN (thin container)
+├── CausalChain ───────────────── supports loops (R12)
+│   └── members, links (no verdict)
+├── CausalChainPattern ─────────── role kinds, scoped (R3, R4)
+│
+└── (determinations below in JUDGING LAYER)
+
+JUDGING LAYER
+├── Determination
+│   └── ChainDetermination
+│         ├── hasBoundary → CausalBoundary      (set of stop nodes, R13c)
+│         │     └── stopReason: temporal | epistemic | scope | resource
+│         └── underHorizon → TemporalHorizon    (bounds the assessment, R13d)
+│
+├── Temporal status per node (R15, R13a, R13e)
+│   ├── Realised ─────────────── AssessedHarm
+│   └── Projected ────────────── AssessedImaginedHarm
+```
+
+The rest of the consolidated tree and the impact table stand as before. The table row for CausalChain should now read: "Supports loops. Bounded by a temporal horizon, with a causal boundary recorded per determination (R12, R13)." The earlier `stoppedAt` wording is retired.
+
+Shall I write the consolidated requirements and tree into the v0.03.1 folder as a design note, so they can be recorded and cited?
+[Timestamp: 2026/11/24 23:50:17]
+
+**user**: clearly the model becomes quite complex when attempting to capture real circumstances.
+I am envisioning that the model could be used to analyze an incident report (possibly major like the 2008 credit crisis and market collapse).  however in this case who would create the instances of the case and make complex judgements about which fields should contain which values?  would this mapping between the incident report and the model to generate the instances be done by semantic matching to automate?  who would have the capability to glean the details correctly from the described incident?
+[Timestamp: 2026/11/24 23:54:35]
+
+**ai**: The model does get complex, and that is a real constraint. Populating it from a report is itself a set of judgements, so the answer to "who creates the instances" has to be built into the design, not left to the tooling.
+
+## Instance creation is three different tasks
+
+1. **Extraction (what does the report say?).** Finding the actors, events, dates, amounts and claims in the text. This is the most automatable step. Semantic matching or an LLM can do it, with provenance pointing to the passage.
+2. **Mapping (what kind of thing is it in the model?).** Deciding that "the bank's mortgage-backed securities were rated AAA" is a state of a Factor, that a rating agency is an Agent, and that the rating is a determination made by someone. This is semi-automatable but needs a mapping rule set and human review.
+3. **Assessment (what role did it play, and how much harm?).** Assigning sources, receptors, weights, boundaries and harms. This is not extraction. It is the judgement the model exists to record, and it must carry an assessor, a standard and a horizon.
+
+Automation can reasonably do the first, can propose the second, and should not decide the third on its own.
+
+## The report is itself a determination
+
+A report such as the Financial Crisis Inquiry Commission's is an assessment by its authors, from their perspective, under their standards. So the first rule for extraction is: **do not turn the report's conclusions into facts.** Record "the FCIC concluded X" as a determination by the FCIC, with a link to the passage. Record our own role assessments separately. Two reports on the same crisis can then be compared, and each conclusion stays traceable to its author.
+
+This matters because semantic matching will happily treat a fluent, confident summary as a fact. The model's protection against that is the provenance and assessor fields, not the matching algorithm.
+
+## Who has the capability
+
+- **Domain experts** (economists, financial regulators, market historians) for the causal and role judgements. No single expert covers the whole crisis.
+- **Methodologists** for the mapping rules and for checking that the schema is applied consistently.
+- **Extraction tools** (including LLMs such as me) for the first pass. My extraction would be an assessment too, with error rates, so it needs checking, especially on numbers, dates and attributions.
+- **Human review and agreement measures.** Two analysts mapping the same passage should be compared, and disagreements recorded as divergence, not resolved silently.
+
+## A practical workflow
+
+| Step | Who | Output |
+|---|---|---|
+| 1. Extract with provenance | Tool, then reviewer | Candidate instances, each linked to a passage |
+| 2. Map to classes | Tool proposes, methodologist approves | Typed instances; unclear mappings flagged |
+| 3. Record the report's own determinations | Reviewer | Determinations attributed to report authors |
+| 4. Assess roles and harms | Domain experts, per perspective | Assessments and determinations, scoped |
+| 5. Record gaps | Everyone | Missingness statuses, not blanks |
+| 6. Compare | Methodologist | Divergences, coverage, agreement |
+
+## Limits to accept
+
+- Most fields will be missing or contested, and that is normal, not a failure of the model.
+- Full-complexity modelling of a major event is probably not worth doing at first. A minimal core, with analysts adding depth where it matters, is more realistic.
+- The model can show where a report is silent or contradicted by others, which is one of its main uses.
+
+If you want to test this, a good first target would be a short, well-documented episode in the crisis, with two or three reports, so that the attribution and divergence parts are tested alongside the extraction. Shall I sketch that test as a scratch note, without recording anything in the design?
+[Timestamp: 2026/11/24 23:54:35]
+
+**user**: yes.  can we also begin putting idea notes that are specific to v0.03.01 in the right folder and bookmarking them - or do they go in unfiled and let the bookmark skill figure that out?
+[Timestamp: 2026/11/24 23:56:49]
+
+**ai**: I'll write the crisis test sketch as a scratch file first, then answer the filing question.Yes, you can start filing v0.03.01 notes in the folder now. I'd do it that way rather than leave them unfiled, but two things need settling first.
+
+**Where they go.** The right home is `02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/`. That folder already holds the v0.03.01 design guide, the design notes, the change ledger and the causal-chain notes, so new v0.03.01 notes belong there.
+
+**Bookmarking.** There are two bookmark indexes that overlap:
+- `Harm Ontology/_Harm Ontology v0.03.1 Bookmark Index.md`, outside the folder, which lists the design guide and the layers.
+- `Harm Ontology v0.03.1/_Harm Ontology v0.03.1 Master Index.md`, inside the folder, which has a folder structure that doesn't exist. Its subfolders (`01_Design_Guides/` and the rest) were never created, and the notes sit flat.
+
+I don't have a bookmark skill available in this session, so I can't hand filing to one. I can file and bookmark directly. My suggestion is to make the master index inside the folder the single bookmark index, list each new note there under a short heading, and retire the outside index with a pointer to the inside one. Each new note would also get a line in the change ledger.
+
+I haven't moved or edited existing files. Shall I:
+1. Consolidate both indexes into the master index in the folder, and fix its folder section to describe what is actually there?
+2. File the consolidated requirements as a design note in the folder, once you confirm the wording?
+
+**The sketch.** I wrote the 2008 crisis extraction test as a scratch file, `Scratch - 2008 Crisis Extraction Test Sketch.md.bak`, in the v0.03.1 folder. The `.bak` extension keeps it out of the note graph. It covers the three source types, the three extraction steps, six checks and the open questions. The field values are placeholders to be filled from the actual sources, not claims about the crisis.
+<!-- copilot-message {"tools":["write (edit): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Scratch - 2008 Crisis Extraction Test Sketch.md.bak"]} -->
+[Timestamp: 2026/11/24 23:56:49]

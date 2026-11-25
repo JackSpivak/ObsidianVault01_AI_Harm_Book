@@ -1,0 +1,45 @@
+# Scratch: 2008 Crisis Extraction Test Sketch (not a design note, not recorded)
+
+Purpose: test whether the candidate model can take an incident report and produce instances with provenance, without turning the report's conclusions into facts. Illustrative only. Field values below are placeholders to be filled from the actual sources, not factual claims.
+
+## Sources (each is itself a determination by its authors)
+- S1: a government inquiry report on the crisis (authors, date, standard used, stated scope)
+- S2: a bankruptcy examiner's report on one failed institution (authors, scope)
+- S3: a rating-agency statement or methodology document (authors, lens)
+
+## Step 1: Extraction with provenance (automatable, reviewed)
+| Candidate instance | Kind | Source passage | Extracted value | Confidence |
+|---|---|---|---|---|
+| E-01 | Act (e.g. a rating assignment) | S3 p.[x] | [value as stated] | [reviewer check] |
+| E-02 | State (e.g. asset-quality condition of a portfolio) | S1 p.[x] | [value as stated] | [reviewer check] |
+| E-03 | Effect (e.g. a market price fall) | S2 p.[x] | [value as stated] | [reviewer check] |
+| D-01 | Determination: "S1 concludes X" | S1 p.[x] | attributed to S1 | n/a |
+
+Rule: a report's conclusion enters as a determination attributed to its author, never as a bare Factor or Effect.
+
+## Step 2: Mapping to classes (proposed, methodologist approves)
+- Actors (institutions, agencies) → Agent, with type flagged (UnitaryIntentional, Collective, AutonomousSystem)
+- Acts → Factor (Act), granular, one per act
+- States (portfolio condition, funding position) → State, time-indexed
+- Structures (regulatory regime, incentive design) → Factor (Structure), no required agent
+- Report conclusions → Determination, scoped to author and standard
+- Unclear mappings → flagged, not forced
+
+## Step 3: Assessment (human, per perspective; not extraction)
+- RoleAssignment for each candidate source and receptor, scoped to one consequence, one assessor, one standard
+- HarmAssessment and HarmDetermination for each effect, with severity and probability as determinations
+- ChainDetermination with CausalBoundary (stop nodes and reasons) and underHorizon
+- Missingness status for every field the sources do not state
+
+## Checks the test should run
+1. Does every instance trace to a passage? (provenance completeness)
+2. Do two sources give different determinations about the same act? (divergence recorded, not merged)
+3. Does any report conclusion appear as a bare fact? (should be zero)
+4. How many fields remain missing or contested, and is that visible? (coverage)
+5. Do two analysts mapping the same passage agree? (inter-rater check; disagreements logged as divergence)
+6. Can a query for "who was a source for consequence E-03" return only scoped, attributed answers?
+
+## Open
+- Which episode: one institution's failure, or one market segment, to keep scope small
+- Whether the extraction tool's output is checked against the full text, not a summary
+- Whether standards for "harm" in financial loss are taken from a named perspective (e.g. investor, regulator, household)
