@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Setup for Harm Ontology v0.03.01 design"
-usage: '{"usedTokens":98276,"contextWindow":1000000,"updatedAt":1795583683760}'
+usage: '{"usedTokens":109990,"contextWindow":1000000,"updatedAt":1795584174919}'
 ---
 
 **user**: i want to develop a common schema that will organize and attach and be extended by individual perspective or discipline schema modules carrying perspective worldview, objects and relations
@@ -314,3 +314,64 @@ SHARED INSTANCE GRAPH  [Design Notes §9, proposed, awaiting confirmation]
 - `Harm Categories Causal Chain Methodology Part 1` is an older, unlogged list of actor, action, event and situation roles. I've treated it as a source of candidate roles only, not as schema.
 <!-- copilot-message {"tools":["glob (search): .","glob (search): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1","grep (search): .","powershell -Command \"Get-ChildItem -Force '02_Ideas Topics Concepts\\Harm Ontology' | Select-Object Name, Mode, Length | Format-Table -AutoSize | Out-String -Width 300\" (execute)","powershell -Command \"Move-Item -LiteralPath '02_Ideas Topics Concepts\\Harm Ontology\\v0.03.1' -Destination '02_Ideas Topics Concepts\\Harm Ontology\\Harm Ontology v0.03.1\\Harm Ontology v0.03.01 Design Guide - Vision, Principles, Commitments, Rationale.md'; Get-ChildItem -LiteralPath '02_Ideas Topics Concepts\\Harm Ontology\\Harm Ontology v0.03.1' -Name\" (execute)","read (read): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Harm Ontology v0.03.01 Design Guide - Vision, Principles, Commitments, Rationale.md","read (read): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Harm Categories Causal Chain Methodology Part 1.md","read (read): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Harm Ontology v0.03.01 Design Notes - Harmfulness, Imagined Harm and Causal Chains.md"]} -->
 [Timestamp: 2026/11/24 22:13:47]
+
+**user**: how do we capture the structure and intent of Harmfulness vs Harm?  I am imagining that harm  (or assessedharm is distinguished by its presence in the ultimate impacts and outcomes.  Contrast with Harmfulness (or AssessedHarmfulness) would be associated with a source event, situation, entity.
+
+Please reflect constructively on this distinction and how it is represented in our model. Push back as needed
+[Timestamp: 2026/11/24 22:22:29]
+
+**ai**: Your split is sound, and it resolves something the current draft leaves open. I'd push back on three points, though, and the strongest one is about where the "harmfulness" label should sit.
+
+## What holds up
+
+Your intuition matches the existing design notes. In §4 of the 2026-11-23 notes, a storm's capability is a fact about the object, and "harm" is an evaluation of that capability. Splitting the two gives each a clear locus:
+
+- **Harm (AssessedHarm):** realized impact on an affected entity, located at an Effect or Outcome.
+- **Harmfulness (AssessedHarmfulness):** a source's capacity to produce harm, under a mechanism model, located at a Factor, Source or Situation.
+
+It also helps the gun case, because both sides can agree on the capability and dispute the assessment.
+
+## Push-back
+
+**1. "Harmfulness associated with a source" is the premise we are abandoning, unless it is an assessment.** If the source *carries* harmfulness, that is ontic harmfulness again (HO-premise, No Intrinsic Harmfulness). The source should carry only neutral capabilities, such as kinetic energy, toxicity or contamination capacity. Harmfulness is then an assessment of those capabilities, made from a perspective and standard. The association belongs in the assessment, not in the object.
+
+**2. Harm is relational, so location alone does not separate the two.** A storm's harmfulness depends on its energy and mechanism. Whether it harms depends on the receptor's vulnerability as well: a flood harms a settlement but not an empty desert. So harm takes three inputs: source capacity, receptor vulnerability, and mechanism, all judged from a perspective. The current Layer 1 has no receptor-vulnerability element, so this gap needs to be closed before the distinction can be modelled.
+
+**3. "Ultimate impacts" is horizon-dependent.** The point where a chain stops is set by the assessor (the Sai Weng trap, HO-II.b; HO-006). So "ultimate" must mean `stoppedAt` for a given assessment, not an intrinsic endpoint. Otherwise the same event has different "ultimate" outcomes depending on who looked.
+
+**4. Harm should not be limited to terminal outcomes.** The wrongful arrest in the Design Notes is an intermediate event in the testimony chain, and it is a real harm to the person arrested. Restricting harm to final outcomes would hide it. The decision from 2026-11-14 already handles this: an Outcome is a perspective-selected spread of Effects, and harm can attach to any Effect or to an Outcome.
+
+**5. Tension with the temporal split (S38).** The notes restrict AssessedHarm to past and present and move projection to AssessedImaginedHarm. Source-capacity claims are often forward-looking ("this storm will be harmful"). So "harmfulness" may be where projection naturally lives, and the temporal split may belong on a separate axis rather than inside the harm class.
+
+## A representation that accommodates this
+
+```text
+Assessment (base) ─ takenFrom, assessedBy, horizon, evidence
+│
+├── HarmAssessment ............ assesses → Effect | Outcome | AffectedEntity-state
+│     temporalStatus: Realized | Ongoing | Projected   (orthogonal axis)
+│
+├── HarmfulnessAssessment ..... assesses → Factor | Source | Situation
+│     judges: capability (neutral, on the source) under a mechanism model
+│     temporalStatus: usually Projected or Potential
+│
+└── CausalAssessment .......... links a HarmfulnessAssessment to the
+      HarmAssessment it is claimed to explain (via CausalRole / Chain)
+
+Layer 1 (neutral, no verdicts):
+  Factor/Source  ── carries Capability (kinetic energy, toxicity, ...)
+  Receptor       ── carries Vulnerability (neutral; judged, not intrinsic)
+  Effect         ── carries neutral change; Outcome = perspective-selected spread
+```
+
+SHACL constraints enforce the target types: `HarmAssessment.assesses` is restricted to Effect or Outcome, and `HarmfulnessAssessment.assesses` to Factor, Source or Situation. Divergence then appears naturally when one perspective's harmfulness verdict on a source disagrees with another's harm verdict on the outcome it produced.
+
+## Decisions this forces
+
+- **S37 (Harmfulness status):** the distinction favours option B, with AssessedHarmfulness as a target-restricted assessment and no ontic Harmfulness class. The "reified criterion" idea from §5 can survive as a property of the assessment.
+- **S38 (past/present only):** I'd argue against placing temporal status inside the class names. Use `temporalStatus` as an orthogonal attribute, and let target type determine the class. This avoids a class explosion (AssessedHarm × Imagined × Potential × Harmfulness).
+- **Naming:** "harmfulness" is clumsy and reads as a property. Safety engineering already uses "hazard" for the same source-capacity idea. I'd keep AssessedHarmfulness as the core name and record "hazard" as a discipline spoke or altLabel, not a core class.
+
+I haven't changed any notes. If you agree, I can write this up as a design note in the v0.03.1 folder and add an entry to the ledger for S37 and S38, marked as proposed.
+<!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology"]} -->
+[Timestamp: 2026/11/24 22:22:29]
