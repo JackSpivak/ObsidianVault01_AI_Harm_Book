@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Setup for Harm Ontology v0.03.01 design"
-usage: '{"usedTokens":109990,"contextWindow":1000000,"updatedAt":1795584174919}'
+usage: '{"usedTokens":114941,"contextWindow":1000000,"updatedAt":1795584734727}'
 ---
 
 **user**: i want to develop a common schema that will organize and attach and be extended by individual perspective or discipline schema modules carrying perspective worldview, objects and relations
@@ -375,3 +375,109 @@ SHACL constraints enforce the target types: `HarmAssessment.assesses` is restric
 I haven't changed any notes. If you agree, I can write this up as a design note in the v0.03.1 folder and add an entry to the ledger for S37 and S38, marked as proposed.
 <!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology"]} -->
 [Timestamp: 2026/11/24 22:22:29]
+
+**user**: lets examine this naming issue.  I think we agree that we need to be talking about AssessedHarmfulness rather than Harmfulness.
+
+you say it reads as a property.  I think of it as a capability carried on or displayed by mechanism model, located at a Factor, Source or Situation.  does this change or clarify anything
+[Timestamp: 2026/11/24 22:28:48]
+
+**ai**: Yes, this clarifies a lot. Your wording puts the work in the right place, and it shows that "property" was the wrong word for the problem.
+
+## What it clarifies
+
+**1. "Capability" is the neutral term, and "harmfulness" is the assessment of it.** The vault already has the pieces, as the 2026-11-23 notes say ("a firearm discharges projectiles at high velocity"). Capability belongs in Layer 1, where it describes what a source can do. AssessedHarmfulness is the Layer 2 claim that a capability, under a mechanism model and a standard, amounts to harm potential. The "Assessed" prefix does the work that "property" was getting wrong.
+
+**2. The mechanism model is a first-class element.** This is the most useful consequence. AssessedHarmfulness is not simply made about a source. It is made *through* a mechanism model that displays the capability. That gives a precise account of the storm case: a skewed sensor corrupts the mechanism model, which corrupts the display of capability, which corrupts the AssessedHarmfulness. The error is located in a named element, and it can be traced.
+
+**3. "Displayed by" is more accurate than "carried on".** "Carried on" still sounds like the source holds harmfulness. "Displayed by a model" says the source holds the capability, and the model shows it. That keeps the ontology honest about epistemic access.
+
+## One push-back
+
+Calling capability "neutral" is right in the ontology's sense, but it is not neutral in practice. We never observe a capability directly. We observe a *displayed* capability, which is a claim produced by a model with provenance and error bars. So the cleanest representation is:
+
+- `Capability` as a neutral kind on the source, with no verdict.
+- `CapabilityDisplay` (or a `CapabilityClaim`) as what a `MechanismModel` produces: the displayed value, its provenance, its vetting status.
+
+That lets two models display different capabilities for the same source without either being "the" capability. It also stops the storm case from quietly turning a model output into a physical fact. This is also where the grounding idea from S39 applies. The grounding belongs to the model that does the displaying, not only to the projection.
+
+## The resulting structure
+
+```text
+Layer 1 (neutral)
+  Factor / Source / Situation
+    └── hasCapability → Capability            (kinetic energy, toxicity, ...)
+  Receptor
+    └── hasVulnerability → Vulnerability      (neutral; judged, not intrinsic)
+
+Layer 2 (judging)
+  MechanismModel ──displays──► CapabilityDisplay  (value, provenance, vetting)
+                                   │
+  AssessedHarmfulness ──assesses──► Factor | Source | Situation
+     basedOn: MechanismModel, CapabilityDisplay
+     judged against: EvaluativeStandard (from a PerspectiveSpecification)
+     temporalStatus: usually Projected/Potential
+
+  AssessedHarm ──assesses──► Effect | Outcome | AffectedEntity-state
+     basedOn: CausalAssessment linking back to AssessedHarmfulness
+```
+
+## What this changes in the open decisions
+
+- **S37:** Option B (no ontic Harmfulness class) is now clearly preferred. The reified-criterion idea survives only as a property of the assessment.
+- **Naming:** AssessedHarmfulness is the core name, with "hazard" as a discipline altLabel. I'd also rename Layer 1's neutral term to *capability*, and avoid "harmful capability" from the Part 1 list, which would reintroduce the premise.
+- **New element:** MechanismModel needs its own entry in the ledger. It is not yet in the draft structure, and it is where most real disagreement about harmfulness will sit.
+
+Shall I write this up as a design note in the v0.03.1 folder, with ledger entries for the new MechanismModel and CapabilityDisplay, and S37 updated to recommend option B?
+[Timestamp: 2026/11/24 22:28:48]
+
+**user**: I am thinking that display is going to be dependant on what is actually seen which is dependant on perspective.  perhaps capability is actually AssessedCapability and belongs in the thin container?
+[Timestamp: 2026/11/24 22:31:59]
+
+**ai**: Yes. Making capability an assessment is the right move, and it removes the tension I was circling. But I'd push back on putting it in the thin container. Let me explain.
+
+## What I agree with
+
+**Display depends on what is seen, and what is seen depends on perspective.** A sensor, a model, a regulator's test protocol, and a lay observer's experience each show a different capability for the same source. So the display is not a neutral product of the object. It is a product of the observational frame. That frame is part of the PerspectiveSpecification (its instruments, its resolution, its assumptions), not a separate neutral thing.
+
+**The valence line now falls in a clear place.** AssessedCapability carries a basis (a mechanism model and an observational frame) but no evaluative standard, because it does not say whether anything is good or bad. AssessedHarmfulness is the first assessment that brings in a standard. That gives a clean rule: *standards appear only at harmfulness and above.*
+
+## Where I'd push back
+
+**1. A single source's capabilities are not a grouping.** The thin container pattern (FactorAssembly, Chain) exists for things that are *groups* whose membership is contested. A storm's capabilities are attributes of one thing, so putting them inside a thin container muddles two patterns. A better fit is a **CapabilityProfile** thin container: one per source *per perspective*, holding the AssessedCapability assessments that perspective makes of that source. Different perspectives then produce different profiles for the same source, which is exactly the divergence you want to be able to show.
+
+**2. Fully assessed capability leaves nothing to assess.** If every capability is an assessment, then every assessment is about another assessment, and the chain has no ground. The regress is the one already noted in HO-005 (the evidence anchor). The fix is a thin layer of **referents**: the measurable quantities that instruments and models are attempts to track (for example, a mass, a velocity, a concentration, each with a unit). The ontology asserts no values for them. It only says they are what the assessments are about. Referents are not facts in the ontic sense. They are the things perspectives are *about*.
+
+**3. Drop CapabilityDisplay as a separate element.** If AssessedCapability is already perspective-dependent and carries its basis, a separate display class adds a layer with no work to do. Keep the MechanismModel as the basis and AssessedCapability as the output.
+
+## The revised chain
+
+```text
+Layer 1 (referents, no values asserted)
+  Factor / Source / Situation
+    └── hasReferent → MeasurableQuantity     (mass, velocity, concentration; unit-bearing)
+
+Layer 2 (judging)
+  PerspectiveSpecification
+    └── observationalFrame: instruments, resolution, assumptions
+  MechanismModel ─── basis for ──► AssessedCapability
+                                     assesses → Source | Factor
+                                     no evaluative standard (valence-free)
+                                     collected in → CapabilityProfile (thin container,
+                                                    one per source per perspective)
+  AssessedHarmfulness
+     assesses → Factor | Source | Situation
+     basedOn: AssessedCapability + EvaluativeStandard
+     (first point where valence enters)
+  AssessedHarm
+     assesses → Effect | Outcome | AffectedEntity-state
+     linked to AssessedHarmfulness through CausalAssessment
+```
+
+## What this does to the open items
+
+- **S37:** Option B is now the clearer choice, because there is no ontic Harmfulness at any layer.
+- **Sensor-skew cases:** the error now sits in a named place, the MechanismModel or the observational frame, and it propagates in a traceable way to AssessedCapability, then to AssessedHarmfulness.
+- **New question:** are referents truly free of perspective? A mass in kilograms is about as close to neutral as we get, but the choice of quantity and unit is already a framing decision. I'd record that as an open question rather than settle it now.
+
+Shall I record this as a design note in the v0.03.1 folder, with ledger entries for AssessedCapability, CapabilityProfile, MeasurableQuantity, and the open question about referents?
+[Timestamp: 2026/11/24 22:31:59]
