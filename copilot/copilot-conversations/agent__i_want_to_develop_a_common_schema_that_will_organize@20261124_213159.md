@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Setup for Harm Ontology v0.03.01 design"
-usage: '{"usedTokens":334316,"contextWindow":1000000,"updatedAt":1795598903460}'
+usage: '{"usedTokens":344267,"contextWindow":1000000,"updatedAt":1795599076267}'
 ---
 
 **user**: i want to develop a common schema that will organize and attach and be extended by individual perspective or discipline schema modules carrying perspective worldview, objects and relations
@@ -3028,3 +3028,203 @@ For cyber harm, this gives us a clean way to express the classic dimensions (ava
 
 Shall I record this as a proposed decision: functional state is a bearer state type applicable to any bearer kind, with functions assigned by a perspective and impairment as a harm?
 [Timestamp: 2026/11/25 02:28:16]
+
+**user**: lets include functional harm right now.  would that be FunctionalHarmDetermination?  show this in the tree
+[Timestamp: 2026/11/25 02:29:25]
+
+**ai**: Yes. `FunctionalHarmDetermination` is a subclass of `HarmDetermination`, and it is the right name because the state it judges is a function. It needs one more link: the function must be assigned by a description, since functions are perspective-relative.
+
+One design point first. Our earlier rule said subclasses should follow the question answered, not the kind of harm. Functional harm fits that rule, because the question is "which function was impaired?" It also cuts across the substrate subclasses (somatic, psychological, pecuniary), because a person's function and a server's function can both be impaired. So functional harm is a subclass of HarmDetermination alongside those substrate kinds, not a replacement for them. Where a determination is both functional and somatic, it can carry both through its properties.
+
+```text
+DETERMINATION (abstract)
+│
+├── CapabilityDetermination
+├── HarmfulnessDetermination
+├── ChainDetermination
+├── ResponsibilityDetermination
+│
+└── HarmDetermination (about a bearer's state; dul:InformationObject expressing a Description)
+    │   props: hasBearer → Entity · judgesState → State · atHorizon → TemporalHorizon
+    │          assessedBy · perspective · standard · temporalStatus
+    │
+    ├── SubstrateHarmDetermination (question: which substrate was affected?)
+    │   ├── SomaticHarmDetermination
+    │   ├── PsychologicalHarmDetermination
+    │   ├── PecuniaryHarmDetermination
+    │   └── NormativeStatusHarmDetermination
+    │
+    └── FunctionalHarmDetermination (question: which function was impaired?)
+        │   props: impairsFunction → FunctionalState
+        │          assignsFunction → FunctionDescription (dul:Description, by a perspective)
+        │          impairmentKind → Degradation | Loss | Redirection (provisional)
+        │
+        ├── AvailabilityImpairment     (function unavailable when needed)
+        ├── IntegrityImpairment        (function's output or behaviour altered)
+        └── ConfidentialityImpairment  (function's data or access disclosed) (P)
+```
+
+Notes on the tree:
+
+- **Bearer kinds.** `hasBearer` ranges over Entity, as agreed. A functional harm can bear on an Object (a server, a pump, a person's sight), a Situation (a market or chain that no longer satisfies its description), or an Event (a negotiation that no longer reaches its purpose).
+- **Function is assigned, not found.** `assignsFunction` points to a Description held by a perspective. Two perspectives can assign different functions to the same bearer, which produces a functional divergence without any new machinery.
+- **The three cyber dimensions** (availability, integrity, confidentiality) are provisional subclasses of the impairment question. They are a starting point, not a settled list, and they will be tested on the first cyber case.
+
+I have not checked the cyber subclasses against any standard, and the CIA triad is a convention that I have taken from security practice. Shall I record the functional harm branch as a proposed decision, with the three impairment subclasses marked provisional?
+[Timestamp: 2026/11/25 02:29:25]
+
+**user**: show the complete proposed 3.1
+[Timestamp: 2026/11/25 02:30:54]
+
+**ai**: This is the complete proposed tree as it now stands. The saved note `Proposed Class Tree and DUL Alignment.md` is out of date, because it predates the bearer, functional harm, emergent wholes and determination decisions. I'll bring it up to date once you confirm this version.
+
+Status markers: **(P)** provisional, the DUL link or the class needs checking against the file. **(OUR)** no DUL counterpart, by design. **(OPEN)** a decision is still pending.
+
+```text
+ENTITY (dul:Entity)
+│
+├── OBJECT (dul:Object)                                      endurants: persist as wholes
+│   ├── Agent (dul:Agent)                                     agentive Objects
+│   │   ├── PhysicalAgent (dul:PhysicalAgent)                 acts by its own body
+│   │   │   ├── NaturalPerson (dul:NaturalPerson)
+│   │   │   ├── NonHumanOrganism (horse, dog, bee)            (P)
+│   │   │   └── AutonomousSystem (AI, drone, bot)             (P; agency is an assessed claim)
+│   │   └── SocialAgent (dul:SocialAgent)                     acts through PhysicalAgents
+│   │       ├── Corporation                                    (P)  instances: Boeing, Shell ...
+│   │       └── Institution                                    (P)
+│   │           └── RegulatoryInstitution                      (P)  instances: FAA, NRC, OSHA ...
+│   │
+│   ├── AffectedEntity (object side; the kinds that can bear effects)
+│   │   │   affectability is a property, not a subclass
+│   │   ├── NaturalPerson, NonHumanOrganism, Organism (non-sentient, e.g. trees)
+│   │   ├── SocialAgent (Corporation, Institution)           may bear harm to standing, solvency
+│   │   ├── PhysicalArtifact (dul:PhysicalArtifact)           property, buildings, equipment
+│   │   ├── Place (dul:Place) / PhysicalPlace                 e.g. a watershed, a neighbourhood (P)
+│   │   ├── EmergentWhole (OUR, P)                            a flock, formation or herd whose
+│   │   │     capabilities, unity and persistence are its own
+│   │   │     constituted by members via dul:hasConstituent
+│   │   └── NaturalIndividual, e.g. a river (P)
+│   │
+│   └── Source (physical) (dul:Object)                        a physical source of capability
+│
+├── EVENT (dul:Event)                                         perdurants: unfold through time
+│   ├── Act (dul:Action)                                      requires an agent participant and a task
+│   ├── Process (dul:Process)                                 continuous, agentless
+│   ├── Effect (dul:Event)                                    a change, recorded neutrally
+│   └── Omission (OUR)                                        an absence relative to a stated expectation
+│
+├── QUALITY (dul:Quality)                                     attributes of entities
+│   ├── State (OPEN)                                          time-indexed condition; Quality with a
+│   │                                                          TimeInterval, or a Situation
+│   ├── Capability                                            neutral quality, wrapped in an assessment
+│   ├── FunctionalState                                       capacity to perform a function
+│   └── UnityState (OUR)                                      intact | degraded | broken; for wholes
+│
+├── SITUATION (dul:Situation)                                 views satisfying a Description; SocialObject
+│   ├── CausalChain (thin container)
+│   ├── DescriptionDefinedConfiguration (ecosystem, market) (P)
+│   └── ExposureSituation (P)                                 tension: physical exposure as social object
+│
+├── EVENT-OR-SITUATION BEARERS (note)                         an Event or Situation may bear a
+│   harm: its course (Event) or its satisfaction of its      description (Situation); see HarmDetermination
+│
+├── REGION (dul:Region)
+│   ├── TimeInterval (dul:TimeInterval)                       used for horizons and state periods
+│   └── SpaceRegion (dul:SpaceRegion)
+│
+├── ABSTRACT (dul:Abstract)                                   not located in space-time
+│   └── (our classes that are not agents or objects go under SocialObject below)
+│
+├── ROLE (dul:Role; a Concept)                                kinds vs roles: a role is held, not a kind
+│   ├── Regulator                                             any agent in a Situation, scoped by Norm
+│   ├── ControlRole                                           barrier · safeguard · restraint · feedback
+│   ├── ImpactedRole                                          classifies an AffectedEntity, scoped to a
+│   │                                                          consequence (impact is relative to it)
+│   ├── SourceRole                                            scoped to a consequence
+│   ├── TriggerRole                                           scoped to a consequence
+│   └── PredispositionRole                                    scoped to a consequence; weight is assessed
+│
+└── SOCIAL OBJECTS (dul:SocialObject)
+    │
+    ├── Concept (dul:Concept)
+    │
+    ├── Description (dul:Description)
+    │   ├── SituationDescription                              satisfied by a CausalChain
+    │   ├── FunctionDescription                               assigns a function to a bearer, by a perspective
+    │   ├── PerspectiveType                                   frame: standards, scope, defaults
+    │   └── MechanismModel                                    held by an Agent (dul:conceptualizes)
+    │
+    ├── Norm (dul:Norm)                                       (P) mandates, charters, legal personhood
+    │
+    ├── Assessment (dul:Action, with an agent)                the act of judging, from a perspective
+    │
+    └── InformationObject (dul:InformationObject)             expresses a Description
+        ├── Record, report, testimony                         carry determinations forward
+        │
+        └── DETERMINATION (output of an Assessment; versioned)
+            ├── CapabilityDetermination
+            ├── HarmfulnessDetermination
+            ├── ChainDetermination                            props: hasBoundary → CausalBoundary
+            │                                                   underHorizon → TemporalHorizon
+            ├── ResponsibilityDetermination
+            ├── ConditionDetermination                        diagnosis: a state, not a harm (P)
+            ├── InvestigativeDetermination                    what occurred, how events link (P)
+            ├── ExposureDetermination                         hazardous situation (P)
+            ├── RelevanceDetermination                        which states matter, with weight (P)
+            ├── ConsentDetermination                          per recipient (P)
+            ├── RemedyDetermination                           obligation and closure (P)
+            ├── ComplianceDetermination                       separate branch, not harm (P)
+            │
+            └── HarmDetermination                             props: hasBearer → Entity
+                │                                              judgesState → State
+                │                                              atHorizon → TemporalHorizon
+                │                                              assessedBy · perspective · standard
+                │                                              temporalStatus (Realised | Projected)
+                │
+                ├── SubstrateHarmDetermination                 question: which substrate?
+                │   ├── SomaticHarmDetermination
+                │   ├── PsychologicalHarmDetermination
+                │   ├── PecuniaryHarmDetermination
+                │   └── NormativeStatusHarmDetermination
+                │
+                └── FunctionalHarmDetermination               question: which function?
+                    │   props: impairsFunction → FunctionalState
+                    │          assignsFunction → FunctionDescription
+                    ├── AvailabilityImpairment                 (P)
+                    ├── IntegrityImpairment                    (P)
+                    └── ConfidentialityImpairment              (P)
+
+ASSESSMENT PATTERN (not a class branch; applies to every Determination)
+  Assessment ──generates──► Determination
+  Assessments are made by Agents from a PerspectiveSpecification, under a standard,
+  with an assessmentBasis (Stated | Inherited | Unstandardized).
+
+PROPERTIES CARRIED ON ACTORS AND WHOLES
+  unitySource   → procedure | commandAndControl | coupling | norms   (open vocabulary)
+  unityLocus    → the agent or rule holding the unity, or none
+  unityState    → UnityState over time (for EmergentWhole)
+
+NOT IN THE SCHEMA (deliberate)
+  Harm and harmfulness as properties of objects or events.
+  Valence, severity and probability are attributes of determinations only.
+```
+
+## What changed since the saved note
+
+- Affected entities are object kinds, with affectability as a property. Being impacted is the `ImpactedRole`.
+- Emergent wholes (flocks, formations, herds) are bearers with their own capabilities, unity and persistence.
+- Bearers can be Objects, Situations or Events, and `hasBearer` ranges over Entity.
+- Harm is split by substrate and by function. Functional harm is a subclass.
+- Determinations are a full branch, with harm, chain, responsibility and the rest under it.
+
+## Still open
+
+- State: Quality with a TimeInterval, or a Situation.
+- Physical exposure as a social object (ExposureSituation).
+- The provisional (P) classes, checked against the DUL file.
+- The DUL version: the mirror read is 3.22.
+- The cyber impairment subclasses, to be tested on the first cyber case.
+
+Shall I replace the saved note's tree with this version and update its definitions to match?
+<!-- copilot-message {"tools":["read (read): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Proposed Class Tree and DUL Alignment.md"]} -->
+[Timestamp: 2026/11/25 02:30:54]
