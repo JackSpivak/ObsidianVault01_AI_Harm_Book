@@ -1,0 +1,743 @@
+# FLAT VARIANT for the relations test. Same content as NONCE B, with every
+# rdfs:subClassOf and skos:broader link removed. Classes are not linked to parents.
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix harm: <http://example.org/ontology/harm#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+harm:H-002 a owl:Class,
+        skos:Concept ;
+    harm:H-003 harm:H-004 ;
+    harm:H-005 harm:H-006 ;
+    harm:H-007 harm:H-008 ;
+    skos:definition "At the highest level, this domain defines harm strictly through conscious, subjective phenomenology—negative mental or physical states experienced directly by a sentient subject."@en .
+
+harm:H-003 a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:H-001 ;
+    rdfs:range harm:H-099 ;
+    skos:definition "Measures whether harm is evaluated temporally (worse off now than before) or counterfactually (worse off now than if the event had never occurred)."@en .
+
+harm:H-005 a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:H-001 ;
+    rdfs:range harm:H-102 ;
+    skos:definition "Distinguishes between subjective harms requiring conscious awareness (pain, grief, terror) and objective harms occurring outside awareness (covert surveillance, trustee self-dealing)."@en .
+
+harm:H-007 a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:H-001 ;
+    rdfs:range harm:H-121 ;
+    skos:definition "Defines the categories of entities capable of possessing interests or suffering setbacks: Sentient Individuals, Collective/Artificial Persons, and Non-Sentient Systems."@en .
+
+harm:H-009 a owl:Class,
+        skos:Concept ;
+    harm:H-010 harm:H-011 ;
+    harm:H-012 harm:H-013 ;
+    harm:H-014 harm:H-015,
+        harm:H-016 ;
+    harm:H-017 harm:H-018 ;
+    harm:H-019 harm:H-020 ;
+    harm:H-021 harm:H-022 ;
+    skos:definition "An action harms a subject if and only if it causes negative mental states—such as physical pain, emotional distress, anguish, or grief—or deprives the subject of positive states like pleasure and contentment."@en .
+
+harm:H-010 a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:H-001 ;
+    rdfs:range harm:H-122 ;
+    skos:definition "Defines the nature, culpability, and structure of the entity from which the harm originates."@en .
+
+harm:H-012 a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:H-001 ;
+    rdfs:range harm:H-123 ;
+    skos:definition "Maps the concrete relational position of the party suffering the setback, distinguishing direct targets from secondary relational victims and proxy-represented classes."@en .
+
+harm:H-014 a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:H-001 ;
+    rdfs:range harm:H-124 ;
+    skos:definition "Defines the specific physical, psychological, relational, economic, or normative asset, faculty, or state of being that absorbs the setback."@en .
+
+harm:H-017 a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:H-001 ;
+    rdfs:range harm:H-125 ;
+    skos:definition "Defines the entity bearing an affirmative obligation to intervene, rescue, minimize ongoing impact, or restore the victim."@en .
+
+harm:H-019 a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:H-001 ;
+    rdfs:range harm:H-115 ;
+    skos:definition "Distinguishes between damage that has already materialized and the imposition of heightened danger that narrows a victim's safe life options before any physical crash occurs."@en .
+
+harm:H-021 a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:H-001 ;
+    rdfs:range harm:H-105 ;
+    skos:definition "Maps how harm unfolds across time: Acute (instant impact), Latent (decades of dormancy before manifestation), or Slow/Accumulative (generational degradation)."@en .
+
+harm:H-023 a owl:Class,
+        skos:Concept ;
+    harm:H-010 harm:H-011 ;
+    harm:H-012 harm:H-013 ;
+    harm:H-014 harm:H-016,
+        harm:H-024 ;
+    harm:H-017 harm:H-018 ;
+    harm:H-025 harm:H-026 ;
+    skos:definition "Harm to a person's reputation, privacy, personal autonomy, or emotional tranquility."@en .
+
+harm:H-025 a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:H-001 ;
+    rdfs:range harm:H-113 ;
+    skos:definition "Separates factual setbacks caused by nature or fair competition (Damnum Absque Injuria) from wrongful setbacks caused by violating a legal right or moral duty (Injuria)."@en .
+
+harm:H-027 a owl:Class,
+        skos:Concept ;
+    harm:H-010 harm:H-011 ;
+    harm:H-012 harm:H-013,
+        harm:H-028 ;
+    harm:H-014 harm:H-016 ;
+    harm:H-017 harm:H-018 ;
+    harm:H-021 harm:H-022,
+        harm:H-029 ;
+    skos:definition "Severe mental anguish, psychiatric injury, or post-traumatic stress inflicted through extreme and outrageous conduct or severe negligence, recognized as a standalone injury even without physical impact."@en .
+
+harm:H-030 a owl:Class,
+        skos:Concept ;
+    harm:H-010 harm:H-011,
+        harm:H-031 ;
+    harm:H-012 harm:H-013,
+        harm:H-032 ;
+    harm:H-014 harm:H-016,
+        harm:H-033 ;
+    harm:H-017 harm:H-018,
+        harm:H-034 ;
+    harm:H-021 harm:H-029 ;
+    skos:definition "Unreasonable interference with the sensory enjoyment of life or property—such as noxious odors, deafening noise, or grotesque public displays."@en .
+
+harm:H-035 a owl:Class,
+        skos:Concept ;
+    harm:H-010 harm:H-011,
+        harm:H-031 ;
+    harm:H-012 harm:H-013,
+        harm:H-028 ;
+    harm:H-014 harm:H-016 ;
+    harm:H-017 harm:H-034 ;
+    harm:H-021 harm:H-029 ;
+    skos:definition "Profound shame, guilt, and existential pain occurring when a person perpetrates, witnesses, or is forced by an institution to participate in acts that transgress their deeply held moral beliefs."@en .
+
+harm:H-036 a owl:Class,
+        skos:Concept ;
+    harm:H-003 harm:H-037 ;
+    harm:H-005 harm:H-038 ;
+    harm:H-007 harm:H-008,
+        harm:H-039,
+        harm:H-040 ;
+    skos:definition "At the highest level, this domain defines harm objectively rather than subjectively. An entity is harmed whenever an action sets back its vital stakes, resources, or baseline position compared to what would otherwise have occurred—even if the victim never perceives the loss."@en .
+
+harm:H-041 a owl:Class,
+        skos:Concept ;
+    harm:H-003 harm:H-037 ;
+    harm:H-005 harm:H-038 ;
+    skos:definition "Harm occurs when an action sets back a person's vital, ongoing stakes in their well-being (such as health, property, privacy, or liberty), leaving them worse off than they otherwise would have been."@en .
+
+harm:H-042 a owl:Class,
+        skos:Concept ;
+    harm:H-010 harm:H-011 ;
+    harm:H-012 harm:H-013,
+        harm:H-032 ;
+    harm:H-014 harm:H-015,
+        harm:H-043 ;
+    harm:H-017 harm:H-034 ;
+    harm:H-025 harm:H-026 ;
+    skos:definition "Harm that threatens the foundational order, safety, and collective peace of the political community."@en .
+
+harm:H-044 a owl:Class,
+        skos:Concept ;
+    harm:H-010 harm:H-011,
+        harm:H-045 ;
+    harm:H-012 harm:H-013 ;
+    harm:H-014 harm:H-015,
+        harm:H-033 ;
+    harm:H-017 harm:H-018,
+        harm:H-046 ;
+    harm:H-019 harm:H-020 ;
+    harm:H-021 harm:H-022 ;
+    harm:H-025 harm:H-026 ;
+    harm:H-047 harm:H-048 ;
+    harm:H-049 harm:H-050,
+        harm:H-051 ;
+    harm:H-052 harm:H-053,
+        harm:H-054 ;
+    harm:H-055 harm:H-056,
+        harm:H-057 ;
+    skos:definition "Harm inflicted by one private party upon another that entitles the injured party to a civil remedy, typically monetary damages or an injunction."@en .
+
+harm:H-047 a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:H-001 ;
+    rdfs:range harm:H-106 ;
+    skos:definition "Contrasts narrow, concentrated harm to one identifiable victim against diffuse, microscopic losses spread across millions of people that cross a tipping point together."@en .
+
+harm:H-049 a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:H-001 ;
+    rdfs:range harm:H-112 ;
+    skos:definition "Measures the depth or intensity of the setback on its scale of impact, from barely noticeable trivialities (de minimis) to civilization-scale catastrophe."@en .
+
+harm:H-052 a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:H-001 ;
+    rdfs:range harm:H-100 ;
+    skos:definition "Tethers an external state of affairs to an agent's action or omission via factual ('but-for') causation, proximate foreseeability, overdetermination, or structural attribution."@en .
+
+harm:H-055 a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:H-001 ;
+    rdfs:range harm:H-111 ;
+    skos:definition "Measures whether a harmed entity or system can return to its prior baseline once the harmful action stops, or whether damage permanently alters the system's state."@en .
+
+harm:H-058 a owl:Class,
+        skos:Concept ;
+    harm:H-003 harm:H-037 ;
+    harm:H-010 harm:H-011,
+        harm:H-045 ;
+    harm:H-012 harm:H-013 ;
+    harm:H-014 harm:H-033 ;
+    harm:H-017 harm:H-018,
+        harm:H-046 ;
+    harm:H-055 harm:H-056 ;
+    skos:definition "Harm arising not from physical damage, but from broken promises, breached agreements, or unfair commercial interference."@en .
+
+harm:H-059 a owl:Class,
+        skos:Concept ;
+    harm:H-005 harm:H-038 ;
+    harm:H-010 harm:H-011,
+        harm:H-031 ;
+    harm:H-012 harm:H-013,
+        harm:H-032 ;
+    harm:H-014 harm:H-015,
+        harm:H-060 ;
+    harm:H-017 harm:H-018,
+        harm:H-034 ;
+    harm:H-019 harm:H-064 ;
+    harm:H-021 harm:H-065 ;
+    harm:H-047 harm:H-048,
+        harm:H-061 ;
+    harm:H-049 harm:H-051,
+        harm:H-062,
+        harm:H-063 ;
+    harm:H-066 harm:H-067 ;
+    skos:definition "Exposing an individual or population to a heightened probability of future catastrophe (such as carcinogen exposure or reckless endangerment)."@en .
+
+harm:H-066 a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:H-001 ;
+    rdfs:range harm:H-103 ;
+    skos:definition "Measures whether the mechanism causing the harm can be inspected, audited, or understood, or is obscured by deep neural networks, proprietary secrecy, or complex supply chains."@en .
+
+harm:H-068 a owl:Class,
+        skos:Concept ;
+    harm:H-010 harm:H-031 ;
+    harm:H-012 harm:H-032 ;
+    harm:H-014 harm:H-033,
+        harm:H-043 ;
+    harm:H-017 harm:H-018,
+        harm:H-034 ;
+    harm:H-021 harm:H-029 ;
+    harm:H-047 harm:H-061 ;
+    skos:definition "Small, incremental setbacks spread across millions of people or shared ecosystems—such as price-fixing monopolies, air pollution, or data breaches—where no single victim suffers a catastrophic personal loss, yet the aggregate welfare setback is massive."@en .
+
+harm:H-069 a owl:Class,
+        skos:Concept ;
+    harm:H-003 harm:H-037 ;
+    harm:H-010 harm:H-011,
+        harm:H-045 ;
+    harm:H-012 harm:H-013,
+        harm:H-032 ;
+    harm:H-014 harm:H-016,
+        harm:H-033,
+        harm:H-060 ;
+    harm:H-017 harm:H-018,
+        harm:H-034 ;
+    harm:H-070 harm:H-071 ;
+    skos:definition "Harm inflicted not by taking away what someone currently has, but by subtly manipulating their choice environment (via deceptive user interfaces, hidden friction, or behavioral nudges) so they consistently make suboptimal decisions—forfeiting wealth, time, or better alternatives they otherwise would have chosen."@en .
+
+harm:H-070 a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:H-001 ;
+    rdfs:range harm:H-119 ;
+    skos:definition "Measures whether harm overrides a victim's will through overt brute force or subversively bypasses rational defenses by exploiting cognitive biases, addiction pathways, or emotional vulnerabilities."@en .
+
+harm:H-072 a owl:Class,
+        skos:Concept ;
+    harm:H-005 harm:H-038 ;
+    harm:H-019 harm:H-020 ;
+    harm:H-025 harm:H-026 ;
+    skos:definition "At the highest level, this domain locates harm not in pain or lowered material welfare, but in the violation of formal rights, moral status, and rational autonomy. A person is harmed simply by being wronged."@en .
+
+harm:H-073 a owl:Class,
+        skos:Concept ;
+    harm:H-010 harm:H-011 ;
+    harm:H-012 harm:H-013 ;
+    harm:H-014 harm:H-024,
+        harm:H-074 ;
+    harm:H-017 harm:H-018 ;
+    harm:H-025 harm:H-026 ;
+    skos:definition "Treating a rational agent merely as a means to an end through coercion, deception, or manipulation—violating their moral agency even if the act produces pleasure or leaves material welfare intact."@en .
+
+harm:H-075 a owl:Class,
+        skos:Concept ;
+    harm:H-005 harm:H-038 ;
+    harm:H-010 harm:H-011,
+        harm:H-031 ;
+    harm:H-012 harm:H-013 ;
+    harm:H-014 harm:H-074 ;
+    harm:H-017 harm:H-018,
+        harm:H-034 ;
+    harm:H-019 harm:H-020 ;
+    harm:H-021 harm:H-022 ;
+    harm:H-025 harm:H-026 ;
+    harm:H-047 harm:H-048,
+        harm:H-061 ;
+    harm:H-049 harm:H-050,
+        harm:H-062 ;
+    skos:definition "A distinct legal category where a person's formal legal or constitutional right is violated, even though they suffer zero physical pain, financial loss, or emotional distress."@en .
+
+harm:H-076 a owl:Class,
+        skos:Concept ;
+    harm:H-005 harm:H-038 ;
+    harm:H-010 harm:H-011,
+        harm:H-031 ;
+    harm:H-012 harm:H-013,
+        harm:H-032 ;
+    harm:H-014 harm:H-016,
+        harm:H-074 ;
+    harm:H-017 harm:H-018,
+        harm:H-034 ;
+    harm:H-021 harm:H-029 ;
+    harm:H-025 harm:H-026 ;
+    harm:H-047 harm:H-048,
+        harm:H-061 ;
+    harm:H-049 harm:H-050,
+        harm:H-051 ;
+    harm:H-052 harm:H-077 ;
+    skos:definition "Harming someone specifically in their capacity as a knower and rational communicator—either by unfairly deflating their credibility due to prejudice or by depriving them of the shared social concepts needed to articulate their own experiences."@en .
+
+harm:H-078 a owl:Class,
+        skos:Concept ;
+    harm:H-005 harm:H-038 ;
+    harm:H-010 harm:H-011 ;
+    harm:H-012 harm:H-013 ;
+    harm:H-014 harm:H-024,
+        harm:H-033,
+        harm:H-074 ;
+    harm:H-017 harm:H-018 ;
+    harm:H-025 harm:H-026 ;
+    skos:definition "A normative wrong occurring when someone entrusted with loyal care over another's interests (a trustee, doctor, lawyer, or corporate director) engages in self-dealing or disloyalty."@en .
+
+harm:H-079 a owl:Class,
+        skos:Concept ;
+    harm:H-003 harm:H-037 ;
+    harm:H-005 harm:H-038 ;
+    harm:H-021 harm:H-029 ;
+    skos:definition "At the highest level, this domain defines harm structurally and comparatively across time: not by inflicting an active injury, but by blocking an entity from attaining the goods, capabilities, or future existence it ought naturally to possess or enjoy."@en .
+
+harm:H-080 a owl:Class,
+        skos:Concept ;
+    harm:H-005 harm:H-038 ;
+    harm:H-014 harm:H-060 ;
+    skos:definition "Any impediment that prevents an entity from fulfilling its natural function, developing its core capabilities, or achieving human flourishing (eudaimonia), even if the person consents and feels content."@en .
+
+harm:H-081 a owl:Class,
+        skos:Concept ;
+    harm:H-003 harm:H-037 ;
+    harm:H-014 harm:H-015,
+        harm:H-060 ;
+    harm:H-055 harm:H-057 ;
+    skos:definition "Blocking access to a good state a subject would otherwise have enjoyed—most notably death, which harms a person by depriving them of future experiences and projects."@en .
+
+harm:H-082 a owl:Class,
+        skos:Concept ;
+    harm:H-010 harm:H-031 ;
+    harm:H-012 harm:H-032 ;
+    harm:H-014 harm:H-060 ;
+    harm:H-017 harm:H-034 ;
+    harm:H-052 harm:H-077 ;
+    skos:definition "Systemic social, economic, or institutional barriers (such as lack of education, healthcare, or political voice) that prevent individuals from converting basic resources into real human functioning and agency."@en .
+
+harm:H-083 a owl:Class,
+        skos:Concept ;
+    harm:H-010 harm:H-011,
+        harm:H-045 ;
+    harm:H-012 harm:H-028 ;
+    harm:H-014 harm:H-024,
+        harm:H-033,
+        harm:H-060 ;
+    harm:H-017 harm:H-018 ;
+    harm:H-055 harm:H-057 ;
+    skos:definition "The direct legal translation of Deprivationism. Because the dead cannot sue for their own lost future, statutes grant surviving family members the right to recover for the deprivation of future financial support, companionship, guidance, and relational goods that death stole."@en .
+
+harm:H-084 a owl:Class,
+        skos:Concept ;
+    harm:H-012 harm:H-013,
+        harm:H-032 ;
+    harm:H-014 harm:H-060 ;
+    harm:H-017 harm:H-034 ;
+    skos:definition "The legal operationalization of Teleological Harm. The state steps in to protect vulnerable persons (minors, incapacitated adults) or prohibit self-corrupting behaviors (such as compulsory education laws, child labor bans, or substance prohibitions) on the grounds that certain actions stunt human development and flourishing regardless of consent."@en .
+
+harm:H-085 a owl:Class,
+        skos:Concept ;
+    harm:H-010 harm:H-011,
+        harm:H-031 ;
+    harm:H-012 harm:H-013 ;
+    harm:H-014 harm:H-015,
+        harm:H-016,
+        harm:H-060 ;
+    harm:H-017 harm:H-034,
+        harm:H-086 ;
+    harm:H-055 harm:H-057 ;
+    skos:definition "Harm caused during critical neurodevelopmental windows by the absence of safe, responsive caregiving or social stimulation."@en .
+
+harm:H-087 a owl:Class,
+        skos:Concept ;
+    harm:H-088 harm:H-089 ;
+    harm:H-090 harm:H-091 ;
+    skos:definition "At the highest level, this domain defines harm not as a linear act by an agent against a victim, but as a destabilizing shift in a complex system, incentive structure, or information network."@en .
+
+harm:H-088 a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:H-001 ;
+    rdfs:range harm:H-107 ;
+    skos:definition "Measures whether a harm remains static after impact or triggers self-reinforcing cascades where the system's reaction compounds initial damage exponentially."@en .
+
+harm:H-090 a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:H-001 ;
+    rdfs:range harm:H-116 ;
+    skos:definition "Identifies whether harm stems from malicious cruelty, negligence, or structurally aligned incentives and literal proxy goals that inevitably produce collateral damage without ill will."@en .
+
+harm:H-092 a owl:Class,
+        skos:Concept ;
+    harm:H-010 harm:H-031 ;
+    harm:H-012 harm:H-032 ;
+    harm:H-014 harm:H-033,
+        harm:H-043 ;
+    harm:H-017 harm:H-034 ;
+    harm:H-088 harm:H-089 ;
+    harm:H-090 harm:H-091 ;
+    skos:definition "Harm inflicted on uninvolved third parties as an unpriced byproduct of an economic transaction or strategic interaction, or situations where rational individual incentives lock all players into a mutually destructive outcome."@en .
+
+harm:H-093 a owl:Class,
+        skos:Concept ;
+    harm:H-010 harm:H-011,
+        harm:H-031 ;
+    harm:H-012 harm:H-013,
+        harm:H-032 ;
+    harm:H-014 harm:H-033,
+        harm:H-043 ;
+    harm:H-017 harm:H-034 ;
+    harm:H-066 harm:H-067 ;
+    harm:H-090 harm:H-091 ;
+    skos:definition "Harm generated when one party exploits superior information to shift hidden risks onto another party, degrading market trust and causing systemic collapse."@en .
+
+harm:H-094 a owl:Class,
+        skos:Concept ;
+    harm:H-010 harm:H-045,
+        harm:H-095 ;
+    harm:H-012 harm:H-013,
+        harm:H-032 ;
+    harm:H-014 harm:H-033,
+        harm:H-043,
+        harm:H-060 ;
+    harm:H-017 harm:H-018,
+        harm:H-034 ;
+    harm:H-066 harm:H-067 ;
+    harm:H-090 harm:H-091 ;
+    harm:H-096 harm:H-097 ;
+    skos:definition "Harm arising when an autonomous or automated system optimizes a proxy goal too literally, scales subtle historical biases across millions of decisions instantaneously, or fails catastrophically when deployed outside its training distribution—causing harm without human malice or conscious intent."@en .
+
+harm:H-096 a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:H-001 ;
+    rdfs:range harm:H-109 ;
+    skos:definition "Captures the ratio between the effort required to inflict harm and the resulting scale of damage, contrasting high-friction physical effort against zero-marginal-cost replication."@en .
+
+harm:H-098 a owl:Class,
+        skos:Concept ;
+    harm:H-010 harm:H-031,
+        harm:H-095 ;
+    harm:H-012 harm:H-013,
+        harm:H-032 ;
+    harm:H-014 harm:H-016,
+        harm:H-043 ;
+    harm:H-017 harm:H-034 ;
+    harm:H-070 harm:H-071 ;
+    harm:H-088 harm:H-089 ;
+    harm:H-096 harm:H-097 ;
+    skos:definition "The degradation of a society's shared epistemic environment through synthetic media, automated outrage amplification, and variable-reward engagement loops."@en .
+
+harm:H-101 a harm:H-100,
+        skos:Concept .
+
+harm:H-104 a harm:H-103,
+        skos:Concept .
+
+harm:H-108 a harm:H-107,
+        skos:Concept .
+
+harm:H-110 a harm:H-109,
+        skos:Concept .
+
+harm:H-114 a harm:H-113,
+        skos:Concept .
+
+harm:H-117 a harm:H-116,
+        skos:Concept .
+
+harm:H-118 a harm:H-116,
+        skos:Concept .
+
+harm:H-120 a harm:H-119,
+        skos:Concept .
+
+dcterms:bibliographicCitation a owl:AnnotationProperty .
+
+dcterms:creator a owl:AnnotationProperty .
+
+skos:altLabel a owl:AnnotationProperty .
+
+skos:broader a owl:AnnotationProperty .
+
+skos:changeNote a owl:AnnotationProperty .
+
+skos:definition a owl:AnnotationProperty .
+
+skos:example a owl:AnnotationProperty .
+
+skos:historyNote a owl:AnnotationProperty .
+
+skos:note a owl:AnnotationProperty .
+
+skos:prefLabel a owl:AnnotationProperty .
+
+skos:scopeNote a owl:AnnotationProperty .
+
+skos:topConceptOf a owl:AnnotationProperty .
+
+<http://example.org/ontology/harm> a owl:Ontology,
+        skos:ConceptScheme ;
+    dcterms:creator "Philosophers Council, Legal Counsel, Economists & Game Theorists, Technologists & AI Safety, Psychologists & Behavioral Scientists"@en ;
+    owl:versionInfo "1.0.3"@en ;
+    skos:definition "A formal OWL/SKOS/Dublin Core ontology integrating classical philosophical, legal, economic, game-theoretic, psychological, and AI-safety taxonomies and cross-cutting attributes of harm."@en .
+
+harm:H-004 a harm:H-099,
+        skos:Concept .
+
+harm:H-006 a harm:H-102,
+        skos:Concept .
+
+harm:H-039 a harm:H-121,
+        skos:Concept .
+
+harm:H-040 a harm:H-121,
+        skos:Concept .
+
+harm:H-053 a harm:H-100,
+        skos:Concept .
+
+harm:H-054 a harm:H-100,
+        skos:Concept .
+
+harm:H-063 a harm:H-112,
+        skos:Concept .
+
+harm:H-064 a harm:H-115,
+        skos:Concept .
+
+harm:H-065 a harm:H-105,
+        skos:Concept .
+
+harm:H-086 a harm:H-125,
+        skos:Concept .
+
+harm:H-008 a harm:H-121,
+        skos:Concept .
+
+harm:H-046 a harm:H-125,
+        skos:Concept .
+
+harm:H-056 a harm:H-111,
+        skos:Concept .
+
+harm:H-062 a harm:H-112,
+        skos:Concept .
+
+harm:H-071 a harm:H-119,
+        skos:Concept .
+
+harm:H-077 a harm:H-100,
+        skos:Concept .
+
+harm:H-095 a harm:H-122,
+        skos:Concept .
+
+harm:H-097 a harm:H-109,
+        skos:Concept .
+
+harm:H-028 a harm:H-123,
+        skos:Concept .
+
+harm:H-050 a harm:H-112,
+        skos:Concept .
+
+harm:H-051 a harm:H-112,
+        skos:Concept .
+
+harm:H-067 a harm:H-103,
+        skos:Concept .
+
+harm:H-089 a harm:H-107,
+        skos:Concept .
+
+harm:H-099 a owl:Class,
+        skos:ConceptScheme .
+
+harm:H-102 a owl:Class,
+        skos:ConceptScheme .
+
+harm:H-103 a owl:Class,
+        skos:ConceptScheme .
+
+harm:H-106 a owl:Class,
+        skos:ConceptScheme .
+
+harm:H-107 a owl:Class,
+        skos:ConceptScheme .
+
+harm:H-109 a owl:Class,
+        skos:ConceptScheme .
+
+harm:H-111 a owl:Class,
+        skos:ConceptScheme .
+
+harm:H-113 a owl:Class,
+        skos:ConceptScheme .
+
+harm:H-115 a owl:Class,
+        skos:ConceptScheme .
+
+harm:H-119 a owl:Class,
+        skos:ConceptScheme .
+
+harm:H-020 a harm:H-115,
+        skos:Concept .
+
+harm:H-022 a harm:H-105,
+        skos:Concept .
+
+harm:H-024 a harm:H-124,
+        skos:Concept .
+
+harm:H-048 a harm:H-106,
+        skos:Concept .
+
+harm:H-057 a harm:H-111,
+        skos:Concept .
+
+harm:H-061 a harm:H-106,
+        skos:Concept .
+
+harm:H-074 a harm:H-124,
+        skos:Concept .
+
+harm:H-091 a harm:H-116,
+        skos:Concept .
+
+harm:H-105 a owl:Class,
+        skos:ConceptScheme .
+
+harm:H-116 a owl:Class,
+        skos:ConceptScheme .
+
+harm:H-121 a owl:Class,
+        skos:ConceptScheme .
+
+harm:H-123 a owl:Class,
+        skos:ConceptScheme .
+
+harm:H-045 a harm:H-122,
+        skos:Concept .
+
+harm:H-100 a owl:Class,
+        skos:ConceptScheme .
+
+harm:H-112 a owl:Class,
+        skos:ConceptScheme .
+
+harm:H-122 a owl:Class,
+        skos:ConceptScheme .
+
+harm:H-125 a owl:Class,
+        skos:ConceptScheme .
+
+harm:H-015 a harm:H-124,
+        skos:Concept .
+
+harm:H-029 a harm:H-105,
+        skos:Concept .
+
+harm:H-037 a harm:H-099,
+        skos:Concept .
+
+harm:H-043 a harm:H-124,
+        skos:Concept .
+
+harm:H-026 a harm:H-113,
+        skos:Concept .
+
+harm:H-124 a owl:Class,
+        skos:ConceptScheme .
+
+harm:H-016 a harm:H-124,
+        skos:Concept .
+
+harm:H-038 a harm:H-102,
+        skos:Concept .
+
+harm:H-060 a harm:H-124,
+        skos:Concept .
+
+harm:H-033 a harm:H-124,
+        skos:Concept .
+
+harm:H-031 a harm:H-122,
+        skos:Concept .
+
+harm:H-032 a harm:H-123,
+        skos:Concept .
+
+harm:H-018 a harm:H-125,
+        skos:Concept .
+
+harm:H-034 a harm:H-125,
+        skos:Concept .
+
+harm:H-011 a harm:H-122,
+        skos:Concept .
+
+harm:H-001 a owl:Class,
+        skos:Concept ;
+    skos:definition "A relational setback to an entity's conscious experience, vital welfare interests, moral or legal rights, natural flourishing, or systemic equilibrium."@en ;
+    skos:topConceptOf <http://example.org/ontology/harm> .
+
+harm:H-013 a harm:H-123,
+        skos:Concept .
+
+skos:ConceptScheme a owl:Class .
+
+skos:Concept a owl:Class .
+

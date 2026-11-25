@@ -2,7 +2,7 @@
 type: research
 status: developing
 tags: [ontology/harm, test, nonce, epistemics]
-aliases: [Nonce Test v1, Nonce Test Results]
+aliases: [Nonce Test v1, Nonce Test Results, nonce-test-initial, Nonce Test - Interdisciplinary Harm Ontology v1 - Design, Build and Results]
 created: 2026-11-25
 test_date: 2026-11-25
 ontology_tested: "Interdisciplinary Harm Ontology v1.ttl (version 1.0.3)"

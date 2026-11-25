@@ -7,7 +7,7 @@ topic: "v0.03.01 explore harm types"
 model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":411410,"contextWindow":1000000,"updatedAt":1795642631649}'
+usage: '{"usedTokens":416552,"contextWindow":1000000,"updatedAt":1795643249192}'
 ---
 
 **user**: yesterday talked about types of harrm that 7 council perspectives brought to v1 and v2 and interdisciplinary harm ontology and formal harm ontology that we moved away from as we shifted structure to implement our core commitment v3.1 to hold all harms as HarmDeterminations - the result of perspective generated assessments.
@@ -871,6 +871,42 @@ Before I build anything, I need your go-ahead on two points: whether to use NONC
 **user**: maybe same folder but change the name of both notes to read something like nonce-test-initial and nonce-test-relational ?
 [Timestamp: 2026/11/25 14:38:47]
 
-**ai**: I'll rename the existing note now. First I'll check whether any other note links to it, since renaming would break those links.Only the chat transcript mentions the note, and transcripts are never rewritten, so nothing will break. I'll rename the file and keep the old title as an alias so existing references still resolve.
-<!-- copilot-message {"tools":["grep (search): .","Rename-Item -LiteralPath \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\nonce\\Nonce Test - Interdisciplinary Harm Ontology v1 - Design, Build and Results.md\" -NewName \"nonce-test-initial.md\"; Get-ChildItem -LiteralPath \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\nonce\" | Select-Object -ExpandProperty Name (execute)"]} -->
+**ai**: I'll rename the existing note now. First I'll check whether any other note links to it, since renaming would break those links.Only the chat transcript mentions the note, and transcripts are never rewritten, so nothing will break. I'll rename the file and keep the old title as an alias so existing references still resolve.The initial test note is now `nonce-test-initial.md` in the `tests/nonce` folder. I kept its old title as an alias, so links to the old name still resolve. No other note linked to it.
+
+The relational note will be `nonce-test-relational.md`, in the same folder. I haven't created it yet, since the relations test hasn't been built.
+
+Your names don't follow the vault's file-naming convention, which uses human-readable titles with spaces. I used the names you asked for. If you'd rather match the convention, I can rename them to something like `Nonce Test - Initial` and `Nonce Test - Relational`, with the same alias approach.
+<!-- copilot-message {"tools":["grep (search): .","Rename-Item -LiteralPath \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\nonce\\Nonce Test - Interdisciplinary Harm Ontology v1 - Design, Build and Results.md\" -NewName \"nonce-test-initial.md\"; Get-ChildItem -LiteralPath \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\nonce\" | Select-Object -ExpandProperty Name (execute)","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/nonce-test-initial.md"]} -->
 [Timestamp: 2026/11/25 14:38:47]
+
+**user**: yes.  rewrite as file naming convention requires
+[Timestamp: 2026/11/25 14:39:59]
+
+**ai**: The initial test note is now `Nonce Test - Initial.md`, following the vault's naming convention. Its earlier names are kept as aliases (`nonce-test-initial` and the original long title), so existing links still resolve.
+
+The relational note will be `Nonce Test - Relational.md` in the same folder when it's created.
+<!-- copilot-message {"tools":["Rename-Item -LiteralPath \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\nonce\\nonce-test-initial.md\" -NewName \"Nonce Test - Initial.md\"; Get-ChildItem -LiteralPath \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\nonce\" -Filter *.md | Select-Object -ExpandProperty Name (execute)","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Nonce Test - Initial.md"]} -->
+[Timestamp: 2026/11/25 14:39:59]
+
+**user**: i see only the initial
+[Timestamp: 2026/11/25 14:44:12]
+
+**ai**: That's expected. The relational note doesn't exist yet. Nothing has been built for the relations test, so there's no file to rename.
+
+The folder currently holds the initial test note and the ontology files it describes. The relational note will be created when the relations test is built, and it will be named `Nonce Test - Relational.md`.
+
+Do you want me to build the relations test now? That needs your go-ahead on the base file (NONCE B) and your review of the draft texts first.
+[Timestamp: 2026/11/25 14:44:12]
+
+**user**: yes.  can we build a variant of nonce b so we preserve the original
+[Timestamp: 2026/11/25 14:47:10]
+
+**ai**: I'll build the flat variant with a script that reads NONCE B and writes a new file. The original stays untouched. I'll check afterwards that the original is byte-for-byte the same as before.The flat file has 595 triples, with 62 links removed from the 657 in NONCE B. The original is unchanged. I'll confirm no parent links remain in the new file.The flat variant is in place: `Interdisciplinary Harm Ontology v1 - NONCE B FLAT (no subclass links).ttl`. The only matches for the link terms are a comment in the header and the declaration of `skos:broader` as a property, so no parent links remain.
+
+Two files now make up the relations comparison:
+- **NONCE B** (with hierarchy), the original, unchanged.
+- **NONCE B FLAT** (no hierarchy), with the 62 subclass and broader links removed and everything else identical.
+
+Next I'll draft the parent-level test texts and a control text, for you to review before any run.
+<!-- copilot-message {"tools":["write (edit)","& \"C:\\Users\\conta\\anaconda3\\envs\\harm-ontology\\python.exe\" -I \"C:\\Users\\conta\\AppData\\Local\\Temp\\nonce_build\\build_flat.py\" (execute)","grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce"]} -->
+[Timestamp: 2026/11/25 14:47:10]
