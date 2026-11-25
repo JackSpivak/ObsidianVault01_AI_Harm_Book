@@ -53,4 +53,4 @@ It separates the capability debate, which can be settled by physics, from the ha
 ## Related
 - [[Harm Ontology v3.1 — Feature Roadmap and Change Ledger]] (S37)
 - [[Decisions_Log]] (pending row, 2026-11-23)
-- [[Harm Ontology v3 Design Notes - Harmfulness, Imagined Harm and Causal Chains]]
+- [[Harm Ontology v0.03.01 Design Notes - Harmfulness, Imagined Harm and Causal Chains]]

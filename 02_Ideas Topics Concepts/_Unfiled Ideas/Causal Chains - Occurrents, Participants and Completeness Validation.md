@@ -65,4 +65,4 @@ It gives the book a precise way to show that harm can arise without a villain, a
 ## Related
 - [[Harm Ontology v3.1 — Feature Roadmap and Change Ledger]] (S41)
 - [[Modular Schema over a Shared Instance Graph]]
-- [[Harm Ontology v3 Design Notes - Harmfulness, Imagined Harm and Causal Chains]]
+- [[Harm Ontology v0.03.01 Design Notes - Harmfulness, Imagined Harm and Causal Chains]]

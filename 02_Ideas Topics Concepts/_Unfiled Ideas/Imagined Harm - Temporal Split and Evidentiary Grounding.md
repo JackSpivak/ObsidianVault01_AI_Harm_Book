@@ -61,4 +61,4 @@ It gives the book a way to take forecasts seriously without treating them as fac
 
 ## Related
 - [[Harm Ontology v3.1 — Feature Roadmap and Change Ledger]] (S38, S39)
-- [[Harm Ontology v3 Design Notes - Harmfulness, Imagined Harm and Causal Chains]]
+- [[Harm Ontology v0.03.01 Design Notes - Harmfulness, Imagined Harm and Causal Chains]]

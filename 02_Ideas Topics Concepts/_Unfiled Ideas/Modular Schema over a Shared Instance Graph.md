@@ -48,4 +48,4 @@ It shows how the harm ontology can represent one person's harm through several l
 ## Related
 - [[Harm Ontology v3.1 — Feature Roadmap and Change Ledger]] (S40)
 - [[Causal Chains - Occurrents, Participants and Completeness Validation]]
-- [[Harm Ontology v3 Design Notes - Harmfulness, Imagined Harm and Causal Chains]]
+- [[Harm Ontology v0.03.01 Design Notes - Harmfulness, Imagined Harm and Causal Chains]]
