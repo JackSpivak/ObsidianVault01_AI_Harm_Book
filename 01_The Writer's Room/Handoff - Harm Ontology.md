@@ -4,9 +4,9 @@ status: developing
 tags: [handoff, ontology/harm]
 aliases: [Harm Ontology Handoff]
 created: 2026-11-15
-updated: 2026-11-22
+updated: 2026-11-25
 workstream: Harm Ontology
-latest_session: "[[2026-11-22 Harm Ontology Ledger and Assessment Session]]"
+latest_session: "[[2026-11-24 Harm Ontology Common Schema and DUL Alignment Session]]"
 ---
 
 # Handoff — Harm Ontology
@@ -23,7 +23,18 @@ latest_session: "[[2026-11-22 Harm Ontology Ledger and Assessment Session]]"
 - **Migration Phase 0** is partly done: the v1 `.ttl` is repaired and validated, and the tooling is ready.
 - **Nothing is adopted.** Variant B can't be adopted until the non-expert test passes.
 
-## Current focus (2026-11-22): finalising the assessment draft
+## Current focus (2026-11-25): common schema, determinations and DUL alignment
+Session record: [[2026-11-24 Harm Ontology Common Schema and DUL Alignment Session]] (session ran 2026-11-24 to 2026-11-25 02:30).
+
+- **Structure now proposed (not all logged):** every harm is a **HarmDetermination**, an InformationObject expressing a Description, with `hasBearer` (Entity), `judgesState`, `atHorizon`, `assessedBy`, `perspective`, `standard`. Subclasses: SubstrateHarm (somatic, psychological, pecuniary, normative status) and FunctionalHarm (availability, integrity, confidentiality; provisional). Determinations also include Condition, Investigative, Exposure, Relevance, Chain, Responsibility, Consent, Remedy, and a separate Compliance branch.
+- **Logged in [[Decisions_Log]] (2026-11-25):** shallow actor tree with `unitySource` / `unityLocus`; AffectedEntity (object side) and ImpactedRole (role side), Receptor retired; DUL by IRI reference only, for testing (ledger T1 narrowed).
+- **Not yet logged:** harm attaches to a bearer's state; functional harm as a HarmDetermination subclass; emergent wholes as bearers; the determination branch. Log or propose these first.
+- **Open:** State (Quality or Situation); ExposureSituation; natural individuals (river) and systems (ecosystem); Community / Group / Collection against DUL; DUL version (3.22 read, 3.32 and 4.2 reported); licence before any import.
+- **Tests:** competency questions in [[Model Structure Test Note - Competency Questions and Coverage]] (coverage matrix, section 4a). Next: run the matrix against the surgeon-sued case.
+- **Saved tree is out of date.** [[Proposed Class Tree and DUL Alignment]] predates the bearer, functional harm and emergent-whole decisions. Replacing it with the current version is pending author confirmation.
+- **Ledger conventions:** unchanged (newest first; Complete and Rejected stay at the bottom).
+
+## Previous focus (2026-11-22): finalising the assessment draft
 **Where things are.** The change ledger is the place to track what is open: [[Harm Ontology v3.1 — Feature Roadmap and Change Ledger]] (about 110 items, each with source, rationale and blockers). Session record: [[2026-11-22 Harm Ontology Ledger and Assessment Session]]. Nothing from 2026-11-22 is logged in [[Decisions_Log]].
 
 **The draft under finalisation.** `HarmAssessment` as the judging class, with:
