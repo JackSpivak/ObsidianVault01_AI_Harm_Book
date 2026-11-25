@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Setup for Harm Ontology v0.03.01 design"
-usage: '{"usedTokens":161120,"contextWindow":1000000,"updatedAt":1795588567264}'
+usage: '{"usedTokens":168245,"contextWindow":1000000,"updatedAt":1795589090829}'
 ---
 
 **user**: i want to develop a common schema that will organize and attach and be extended by individual perspective or discipline schema modules carrying perspective worldview, objects and relations
@@ -1074,3 +1074,202 @@ I haven't recorded anything. Do you want me to add the buyer as a receptor and a
 
 Together with the earlier cases, this shows that the assessment layer is part of the causal structure, not outside it. That is a significant point for the consolidation. I haven't recorded anything. Shall I consolidate the candidate requirements now, including this one?
 [Timestamp: 2026/11/24 23:35:57]
+
+**user**: wait.  this is an overreach Assessments are both determinations and factors.  wouldnt the downstream side acually involve an assessment being a hypotheticalFactor in an AssessedImaginedHarm?
+[Timestamp: 2026/11/24 23:38:55]
+
+**ai**: Yes, and that is a correction I should have made. I treated the assessment as a causal factor, when the causal factor is an act that relies on an assessment.
+
+## What the chain actually contains
+
+- **The employer's dismissal (or refusal to hire) is an Act**, a Factor with a time, an agent and a consequence. That is what causes the livelihood loss.
+- **The record or judgement the employer relied on is an information object.** It is a determination produced by someone else's assessment, and it persists. The act of assessing and its output are not the same thing, as the act/output rule already says.
+- **The assessment is not a Factor in the chain.** It is an input to a Factor. Treating it as a cause would blur the separation we just made between determinations and acts.
+
+## Your point: the downstream side is imagined
+
+If the employer has not yet acted, E7 is not a record. It is a projection, so it belongs to AssessedImaginedHarm, with the dismissal as a hypothetical Factor. The same goes for E6 and the downstream recipients who have not yet been harmed.
+
+That gives a clean split within one chain:
+
+- **Upstream, realised:** the batch was sold, taken and caused E1. These are AssessedHarm determinations, with actual factors.
+- **Downstream, projected:** the resale, the employer's decision and the loss of livelihood are hypothetical factors inside AssessedImaginedHarm, each with grounding.
+
+A rule follows. An AssessedHarm may not rest on a hypothetical factor, but a projection may rest on realised ones. The chain can cross the realised/projected boundary, and each node should carry its own temporal status.
+
+## What this means for the model
+
+- Hypothetical factors need a status, and must be kept out of realised determinations.
+- An information object can carry another assessment's determination into a chain, but it is not itself a cause. The employer's act is the cause.
+- Grounding for projected downstream harm must cover the likelihood of the employer's act, which is an assessment about an assessor. That is a second-order judgement, and it should be recorded as such.
+
+I withdraw the earlier claim that assessments are factors. I haven't recorded anything. Shall I consolidate the candidate requirements now, with this correction included?
+[Timestamp: 2026/11/24 23:38:55]
+
+**user**: yes.  consolidate the candidate requirements and how they impact the model structure and elements
+also show in a visual tree
+[Timestamp: 2026/11/24 23:41:25]
+
+**ai**: 
+
+# Consolidated candidate requirements
+
+These come from the four tests: the fire door, the dinner party, the dealer case, and the buyer's downstream chain. Each is a candidate, not a decision. Two earlier positions are withdrawn: that assessments are factors (they are inputs to acts), and that "dealer" or "victim" can sit in the causal layer.
+
+## A. Roles and scoping
+
+- **R1. Roles are assessed claims.** A role (source, barrier, trigger, receptor) is a `RoleAssignment` made by an assessor, against a standard, for a named consequence. *Tests: fire door, dealer.*
+- **R2. One individual, many roles.** A person can be source for one consequence and receptor for another, in the same chain or different ones. *Tests: dinner party, dealer, buyer.*
+- **R3. Causal layer stays narrow.** Only causal roles sit there. Social statuses (dealer, perpetrator, victim) are perspectival labels outside it. *Tests: dealer.*
+- **R4. Role kinds are scoped by perspective.** Each standard's kinds live in their own namespace. Cross-standard links are mappings, never equivalences. *Tests: fire door.*
+
+## B. Elements and states
+
+- **R5. States are individuals.** Elements have time-indexed states (door closed or wedged, batch adulterated, person's condition). *Tests: fire door, dinner party, dealer.*
+- **R6. Mechanism models can be held by persons.** A person's model of another person, or of a system, can fail, and that failure is a source-side mechanism. *Tests: dinner party.*
+- **R7. Sub-chains attach to states.** A state can have its own upstream chain, such as an adulterant's origin. *Tests: dealer.*
+- **R8. Information objects persist and carry determinations forward.** Records, rumours and reports can outlast the act that made them and be relied upon later. *Tests: testimony case, dealer, buyer.*
+
+## C. Controls and acts
+
+- **R9. Controls are a kind with their own roles.** Barriers, safeguards and restraint are controls. They can prevent harm and cause it (a restrained person is injured). Feedback and monitoring are included. *Tests: fire door, dinner party.*
+- **R10. Acts are granular.** Each act is a separate Factor with its own consequences and receptors. Determinations attach to assessments, not acts. *Tests: dealer.*
+- **R11. Assessments produce determinations, which are inputs to acts.** An act may rely on a determination, but the determination is not itself a cause. *Tests: buyer (corrected).*
+
+## D. Chain shape
+
+- **R12. Loops are allowed.** Each pass around a loop is a successive event with its own causal order. *Tests: dinner party, dealer.*
+- **R13. Chains extend both ways.** Upstream and downstream are both open. Each assessment records where it stopped (`stoppedAt`). *Tests: dealer, buyer.*
+- **R14. Structural sources need no agent.** A structure can be a source, with answerability empty or distributed. *Tests: dealer.*
+
+## E. Time and attribution
+
+- **R15. Realised and projected are per node.** Each node carries its own temporal status. A realised determination cannot rest on a hypothetical factor. *Tests: buyer.*
+- **R16. Projected harm needs grounding, including grounding about assessors.** Predicting that an employer will act is a second-order judgement, and must be recorded as one. *Tests: buyer.*
+- **R17. Determinations are versioned.** When missingness is resolved, the earlier determination is kept. *Tests: dinner party.*
+- **R18. Answerability is a set.** It can be empty, distributed, or contested. *Tests: dinner party, dealer.*
+- **R19. Trigger and predisposition are weighted.** Relative weight is an assessed claim, and assessors may differ. *Tests: dinner party.*
+
+## F. Receptors, consent and severity
+
+- **R20. The actor can be a receptor.** Self-regarding risk needs its own assessment, with consent as an assessed input. *Tests: buyer.*
+- **R21. Severity and probability are determinations.** They are not properties of the effect. *Tests: buyer.*
+- **R22. Consent is recorded per recipient.** Gift recipients may not have consented. *Tests: buyer.*
+
+## G. Divergence
+
+- **R23. Divergence is first-class over roles, attribution, weight, horizon, and projection.** *Tests: all.*
+
+# Impact on the model
+
+| Element | Status | Change |
+|---|---|---|
+| **Factor** | Changed | Act and Condition kinds are kept. Adds `hasState`. Removes any sense of an assessment being a factor. |
+| **State** (new) | New | Time-indexed; carries its own sub-chain. (R5, R7) |
+| **Effect** | Changed | No neutral severity. Severity and probability move to determinations. (R21) |
+| **Control** (new) | New | Barriers, safeguards, restraint, feedback; can cause harm. (R9) |
+| **CausalRole** | Changed | Becomes `RoleAssignment`, scoped to consequence, assessor and standard. (R1, R4) |
+| **Receptor** | Changed | Replaces the victim idea; may be the actor. (R2, R20) |
+| **Structure** | Kept | Can act as a source with no agent. (R14) |
+| **Assessment** | Kept | Act of judging; produces determinations. |
+| **Determination** | Kept | Output; versioned; persists as an information object. (R8, R11, R17) |
+| **InformationObject** (new) | New | Records and reports that carry determinations forward. (R8) |
+| **MechanismModel** | Changed | Can be held by a person, not only an instrument. (R6) |
+| **CausalChain** (thin) | Changed | Loops allowed; both directions; `stoppedAt` per assessment. (R12, R13) |
+| **Chain determination** | New | Records membership, endpoints and the claimed impact. |
+| **AssessedImaginedHarm** | Kept | Hosts hypothetical factors and second-order grounding. (R15, R16) |
+| **Consent** (new) | New | Per recipient, per assessment. (R22) |
+| **Divergence** | Changed | Covers roles, weight, horizon and projection. (R23) |
+| **Agent / answerability** | Changed | Answerability is a set, possibly empty. (R18) |
+
+# Visual tree
+
+```text
+HARM ONTOLOGY v0.03.1: CANDIDATE CORE (consolidated, not recorded)
+
+PERSPECTIVE (outside the causal layer)
+├── PerspectiveType ─────────── standards, scope, defaults
+├── PerspectiveSpecification ── one analytical view (horizon, frame)
+└── Standard namespaces ─────── nist: iso: bowtie: stpa: (R4)
+
+NEUTRAL LAYER (no verdicts)
+├── Factor
+│   ├── Act ─────────────────── granular; separate per act (R10)
+│   ├── Condition
+│   ├── Structure ───────────── may be a source with no agent (R14)
+│   └── hasState → State ────── time-indexed; sub-chain attachable (R5, R7)
+├── Control (new) ───────────── barrier · safeguard · restraint · feedback (R9)
+├── Effect ──────────────────── no severity here (R21)
+├── Receptor ────────────────── may be the actor (R2, R20)
+├── Agent ───────────────────── answerability is a set (R18)
+├── MechanismModel ──────────── instrument or person-held (R6)
+└── InformationObject (new) ─── records, reports, rumours (R8)
+
+CHAIN (thin container)
+├── CausalChain ───────────────── supports loops (R12); both directions (R13)
+│   └── stoppedAt (per assessment)
+└── CausalChainPattern ─────────── role kinds, scoped (R3, R4)
+
+JUDGING LAYER
+├── Assessment (act of judging)
+│   ├── RoleAssignment ─────────── scoped to consequence, assessor, standard (R1)
+│   ├── CapabilityAssessment
+│   ├── HarmfulnessAssessment ─── valence enters here
+│   ├── HarmAssessment ────────── realised
+│   └── CausalAssessment
+│
+├── Determination (output; versioned; persists) (R11, R17)
+│   ├── RoleDetermination
+│   ├── CapabilityDetermination
+│   ├── HarmfulnessDetermination
+│   ├── HarmDetermination ─────── severity & probability attached (R21)
+│   └── ChainDetermination
+│
+├── Temporal status per node (R15)
+│   ├── Realised ─────────────── AssessedHarm
+│   └── Projected ────────────── AssessedImaginedHarm
+│         hypothetical factors + grounding, incl. about assessors (R16)
+│
+├── Weight ───────────────────── trigger vs predisposition (R19)
+├── Consent (per recipient) ──── (R22)
+└── Divergence ───────────────── roles · weight · horizon · projection (R23)
+
+VALIDATION (SHACL, non-monotonic)
+└── completeness, required slots, no realised determination on hypothetical factor (R15)
+
+OPEN QUESTIONS
+├── Is RoleAssignment the same kind as Determination, or a subtype? 
+├── Are loops best a special class, or repeated events? (R12)
+├── Causal standard for attribution (K2: but-for, NESS, INUS)
+└── Is a mechanism held by a person a Factor, a State, or a MechanismModel?
+```
+
+Nothing is recorded yet. Naming also still needs the act/output rule applied consistently across roles, capabilities and harms. Would you like me to test the consolidated structure against a fresh case, or record the stable requirements in the design guide?
+[Timestamp: 2026/11/24 23:41:25]
+
+**user**: how can upstream chains be open?  the past is settled?
+[Timestamp: 2026/11/24 23:44:44]
+
+**ai**: You're right, and my wording was wrong. The past is settled: the adulterant was made and imported the way it was, whether anyone knows it or not. What is open is different in kind, and the requirement should say so.
+
+## Three things that are often run together
+
+1. **The events themselves (ontic).** Settled. Whatever happened upstream happened, and no assessment changes it.
+2. **Our knowledge of them (epistemic).** Open. The origin of the adulterant may be unknown, undisclosed or contested. That is a missingness status, not a gap in the world. A later investigation can settle it, and the determination must be versioned when it does.
+3. **How far we trace (selection).** Open by choice. An assessor decides where to stop following the chain, and that choice is what `stoppedAt` records. Two assessors can trace the same settled past to different depths and reach different answers about who is a source.
+
+So an upstream chain is not open in the sense that its past is undecided. It is open because we don't have all of it, and because each assessment selects how much of it to include.
+
+## Downstream is different
+
+The future is genuinely open. A projected consequence, such as the employer's decision, has no settled answer yet. That is why it belongs in AssessedImaginedHarm, as we already said. The asymmetry from HO-004 is the right frame: settled past, open future, and selection and knowledge open in both directions.
+
+## Revised requirement R13
+
+- **R13a. Past events are fixed.** A chain's events are not reopened by later assessment.
+- **R13b. Upstream knowledge can be incomplete.** Unknown or undisclosed links carry missingness statuses, and later discoveries lead to new versioned determinations, not edits to old ones.
+- **R13c. Tracing depth is an assessed choice.** Each assessment records `stoppedAt`, in both upstream and downstream directions.
+- **R13d. The future is open.** Downstream nodes are projected, and carry realised or projected status accordingly.
+
+Shall I update the consolidated list and tree with this wording?
+[Timestamp: 2026/11/24 23:44:44]
