@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Setup for Harm Ontology v0.03.01 design"
-usage: '{"usedTokens":232636,"contextWindow":1000000,"updatedAt":1795593643804}'
+usage: '{"usedTokens":243800,"contextWindow":1000000,"updatedAt":1795594620120}'
 ---
 
 **user**: i want to develop a common schema that will organize and attach and be extended by individual perspective or discipline schema modules carrying perspective worldview, objects and relations
@@ -2017,3 +2017,118 @@ The next step is building the coverage matrix. Shall I start it with CQ1 to CQ18
 Shall I run the matrix against the surgeon-sued case next, to check whether the Answered rows hold up when a real case is applied?
 <!-- copilot-message {"tools":["edit (edit): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Model Structure Test Note - Competency Questions and Coverage.md"]} -->
 [Timestamp: 2026/11/25 01:00:16]
+
+**user**: now. wondering how our toplevel objects in the core schema map to dolce ultralight.   We have things like acts, and source/actor agent in our conversations. havent seen them in the full ontology yet.
+we have done deep dives on
+perspective
+assessment
+causal chain
+causal chain schema
+[Timestamp: 2026/11/25 01:10:24]
+
+**ai**: This mapping can be drafted, but there is a blocker first. Ledger item T1 says the DUL licence is unclear, and that blocks any subclass mapping. A hosting page for DUL states CC BY-SA 3.0. Share-alike would matter if we copied or imported the ontology, so the table below is a reference only. It should not be turned into `rdfs:subClassOf` axioms until the licence question is settled. The DUL class names come from public documentation and my memory, so they also need checking against the published file (ledger S41).
+
+## Mapping the core schema to DUL (reference draft)
+
+| Our core element | Likely DUL home | Fit | Note |
+|---|---|---|---|
+| Act (Factor kind) | `dul:Action` (agentive) or `dul:Event` | Good | Action when an agent is involved; Event for natural processes |
+| Process (Factor kind) | `dul:Process` (under Event) | Good | |
+| Omission (Factor kind) | `dul:Event` with no agent, or a Situation | Weak | An absence is not naturally an event; needs a rule |
+| Condition / State | `dul:Quality` or a Situation | Weak | Whether a state is a quality or a situation is contested in DUL |
+| Structure (Factor kind) | `dul:Situation` or `dul:Collection` | Weak | Structures without agents have no clean home |
+| Effect | `dul:Event` (a change) | Good | |
+| Agent (individual or collective) | `dul:Agent` / `dul:SocialPerson` / `dul:Organization` (under Object) | Good | This is where acts and agents live in DUL |
+| Receptor / AffectedEntity | `dul:Object` or `dul:Agent` | Good | Can be the actor (self-regarding harm) |
+| Control | `dul:Role` played in a Situation | Good | Matches "a barrier is a role played by an object" |
+| InformationObject | `dul:InformationObject` | Good | Matches the testimony and dispatcher cases |
+| MechanismModel | `dul:Description` held by an Agent | Good | Person-held models fit naturally |
+| PerspectiveType / Specification | `dul:Description` / `dul:Concept` | Good | Perspectives as abstract descriptions |
+| Assessment (act) | `dul:Action` or `dul:Process` with an Agent | Good | The assessing act is an event with participants |
+| Determination (output) | `dul:InformationObject` that `dul:expresses` a proposition | Good | Matches act/output |
+| Thin container (CausalChain, FactorAssembly) | `dul:Situation` (a selected configuration of entities) | Strong | See below |
+| Chain determination | `dul:Description` that the Situation satisfies | Strong | Uses DUL's Descriptions and Situations pattern |
+| Role assignment | `dul:Role` classifying a participant, or a reified Situation | Good | |
+| Divergence | no DUL primitive | Gap | Our own relation between two determinations |
+| Causal boundary, temporal horizon | `dul:Region` (time interval) plus our own boundary class | Partly | Boundary reasons are ours |
+| Omission type, missingness status | no DUL primitive | Gap | Our own |
+| Valence / harmfulness | no DUL primitive, deliberately | Gap | Valence belongs in determinations; DUL is neutral, which matches our premise |
+
+## What this answers
+
+**Acts and agents are in DUL, not in our model yet.** Our core has the concepts in conversation (Act, Agent, Receptor) but has not declared them as classes with DUL parents. That is what the table starts to do.
+
+**The thin container matches DUL's Situation.** A DUL Situation is a configuration of entities that a description can satisfy. Our thin container (a causal chain or factor assembly) is exactly that: membership and boundary come from a description, here the chain determination. This gives the judging layer a principled home. An assessed chain is a Description that a Situation satisfies, which is the strongest structural result so far.
+
+**Where DUL stops, our layers start.** DUL is deliberately neutral, so it has no valence, divergence, omission, or missingness. Those stay in our namespace, which is consistent with the premise that harm is not an ontic class.
+
+## Caveats
+
+- Several rows are "weak" for a reason: DUL is itself disputed on whether a state is a quality or a situation, and on how absences are treated. Those are decisions for us, not defaults to inherit.
+- The table is from memory and public documentation. Every class name needs checking against the published file before use.
+- Licence: confirm with the ODP maintainers (T1). If the licence is CC BY-SA, a derived mapping would need to be shared under the same terms; a reference table that only names classes may be safer. Either way, the decision needs the author.
+
+## Suggested next step
+
+Record this as a Proposed mapping in the v0.03.1 folder, with the DUL licence blocker stated at the top and the Situation and Description match marked as the one result to test first. Shall I write that note?
+<!-- copilot-message {"tools":["websearch (other)"]} -->
+[Timestamp: 2026/11/25 01:10:24]
+
+**user**: if the thin container matches situation and a situation is a collection of circumstances meeting the condition of some description do we not need a thing called a situationdescription that can look like situation hasDescription SituationDescription
+[Timestamp: 2026/11/25 01:13:05]
+
+**ai**: Yes, the concept is needed, but I'd make two refinements before naming it.
+
+## What DnS already gives us
+
+In DUL's Descriptions and Situations pattern, the relation runs the other way round from `hasDescription`. A Situation *satisfies* a Description, and a Description is what a Situation is said to satisfy. The Situation does not own its description; the description is a separate thing that can be satisfied by many situations, or by none. So the pattern is:
+
+```text
+Determination (InformationObject) ──expresses──► SituationDescription
+                                                    ▲
+Thin container (Situation) ──────satisfies──────────┘
+```
+
+That has two practical consequences.
+
+1. **Many-to-many, not `hasDescription`.** A single situation can satisfy several descriptions at once, one per perspective, and one description can be satisfied by several candidate situations. Modelling it as `situation hasDescription SituationDescription` would make the description look like a property of the situation. It would then be functional or belong to one owner, which is exactly the assumption we have been removing. That is why the satisfaction direction matters.
+
+2. **The description carries the condition.** A SituationDescription is the membership condition: which circumstances, entities and relations must be present for a situation to count. DnS represents this with parameters and roles. For a causal chain, that means the roles (source, factor, receptor, boundary), the boundary reasons and the horizon live in the description, not in the thin container. The container stays thin, and the assessed content sits where it belongs.
+
+## A caution on "collection"
+
+You wrote "a collection of circumstances". In DUL, a Collection is a membership grouping, which is a different thing from a Situation. A Situation is a configuration that satisfies a description; it is not defined by enumerating members. So I would avoid "collection" in the definition. The thin container is a Situation because it has no fixed membership, only the condition its description sets.
+
+## What this gives the judging layer
+
+- **Assessment** is the act (a DUL Action or Process with agents).
+- **Determination** is the information object that expresses the output.
+- **SituationDescription** is the content, the condition the situation is said to satisfy.
+- **Situation** (the thin container) is the thing the description may or may not fit.
+
+That separates act, output, content and subject cleanly, and it fits the rule we already have: the act is not the output, and the output is not the world.
+
+I'd suggest the Proposed mapping note adopt `SituationDescription ⊑ dul:Description`, with `ChainDetermination` as the information object that expresses one. The remaining question is whether HarmDetermination follows the same pattern (a description satisfied by an affected state), which would unify the chain and harm branches. Shall I add that to the mapping note as a proposal?
+[Timestamp: 2026/11/25 01:13:05]
+
+**user**: if dul is publically served then we do not need license to create rdfs:subClassOf links do we?  wouldnt that just be if we wanted to download dul and use it locally?
+[Timestamp: 2026/11/25 01:16:54]
+
+**ai**: Mostly yes, with one caveat. Public serving doesn't by itself grant a licence, but the licence question turns on what you copy, not on whether the ontology is online.
+
+**What a link does.** An `rdfs:subClassOf` axiom that points to the DUL IRI (for example `dul:Situation`) only refers to a class by name. Your file doesn't contain DUL's content. That is much like citing a standard by its identifier, and it is generally treated as a reference rather than a copy.
+
+**What triggers the licence.** The concern arises when you:
+- download DUL and load it locally or use `owl:imports` (the whole ontology enters your work);
+- copy its labels, definitions or comments into your own files;
+- redistribute a modified version of DUL itself.
+
+Those are reproduction or adaptation, which is where a licence such as CC BY-SA would apply, including its share-alike terms if you distribute an adaptation.
+
+**Where that leaves us.** The ledger item T1 was written as "no copy or import" until the licence is confirmed, and that rule is still the safer one. Two practical points follow:
+
+- Use bare IRIs in `rdfs:subClassOf` and avoid `owl:imports` and pasted definitions. Put the definitions in our own `skos:definition` or `rdfs:comment` text, written by us.
+- Keep the written confirmation from the ODP maintainers on file, as T1 requires, before any publication of the ontology.
+
+I'm not a lawyer, so if the book or a public release depends on this, ask the maintainers or a rights adviser to confirm the reference-only reading.
+[Timestamp: 2026/11/25 01:16:54]
