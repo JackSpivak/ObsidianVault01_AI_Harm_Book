@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Setup for Harm Ontology v0.03.01 design"
-usage: '{"usedTokens":142833,"contextWindow":1000000,"updatedAt":1795586549597}'
+usage: '{"usedTokens":150401,"contextWindow":1000000,"updatedAt":1795587257873}'
 ---
 
 **user**: i want to develop a common schema that will organize and attach and be extended by individual perspective or discipline schema modules carrying perspective worldview, objects and relations
@@ -693,3 +693,158 @@ I checked NIST, ISO 14971 and STPA against secondary sources. The bowtie and ISO
 
 If you agree with this split, the next step is to turn the gaps into a short list of candidate roles (controls, feedback, turning point, intent) and test each against a real case, without recording anything yet.
 [Timestamp: 2026/11/24 23:02:09]
+
+**user**: seems like the role distinctions that are contributed by the standards seem to suffer from the factual vs assessment problem as well
+[Timestamp: 2026/11/24 23:08:04]
+
+**ai**: Yes, and it goes further than the factual-versus-assessment problem for harm itself. Most of the role labels the standards use are assessments, so they can't be the neutral backbone of a chain pattern.
+
+## Why the role labels are assessments
+
+Each standard defines its roles in relation to a judgment:
+
+- **Hazard (ISO 14971)** is a "potential source of harm." Whether something counts as a hazard depends on whether it could harm, which is the assessment we're trying to keep out of the core.
+- **Vulnerability (NIST)** is a weakness judged relative to a threat and an impact. Whether a property is a weakness depends on what the assessor is protecting.
+- **Control or barrier (bowtie, STPA)** only counts as a barrier if it is judged to work against a particular consequence. A fire door is a barrier for occupants and a route for smoke for someone else.
+- **Unsafe control action (STPA)** is unsafe by definition, because it leads to a hazard as judged under worst-case conditions.
+- **Top event (bowtie)** is the point the assessor judges control to be lost. Another assessor could place it earlier or later.
+- **Threat source with capability and intent (NIST)** requires characterising capability and intent, which are judged from evidence.
+
+So a role is rarely a fact about the element. It is a claim that an assessor makes about the element, against a stated role definition.
+
+## Where this leaves our model
+
+Our `CausalRole` currently reads like a fact: `borneBy`, `contributesTo`, `roleType`. That is the same problem we already fixed for FactorAssembly and capability. Roles should be determinations, not properties.
+
+The clean separation looks like this:
+
+- **The pattern (role kinds)** is a vocabulary: source, barrier, turning point, receptor, and so on. Each kind is defined by a standard or a perspective. So the definitions belong at the PerspectiveType or standard layer, not in the neutral core.
+- **Role assignment** is an assessment: "this element is a barrier, against this consequence, under this standard, judged by this assessor."
+- **Determinations** record the result, and divergence appears when two assessors assign different roles to the same element.
+
+This also explains a finding from earlier. The standards disagree not only on vocabulary but on whether a role can be assigned at all. STPA says a controller can be unsafe only once the loss is defined, so the role is always tied to an outcome. Bowtie lets a barrier stand before any outcome is named.
+
+## A caution about my own crosswalk
+
+The table in the last reply, which aligned NIST, ISO, bowtie and STPA roles, was itself an assessment: my judgment that these roles are comparable. It should be marked that way if it is ever recorded. A crosswalk is a perspectival mapping, not a neutral translation.
+
+## Possible next step, not yet recorded
+
+Test one case, such as a fire in a building with a sprinkler system and a fire door, and assign the roles under two standards. If the same element takes different roles, that is the evidence we need for role assignment as an assessment. The result would show whether roles belong in the pattern or only in the determinations.
+[Timestamp: 2026/11/24 23:08:04]
+
+**user**: if we make rolekinds a vocabulary issue it has a benefit that we can integrate language/vocabulary from these different standards.
+however, if we want to be able to use the ontology to reason about roles dont they have to be classes that can participate in relationships?
+[Timestamp: 2026/11/24 23:10:26]
+
+**ai**: Yes. If we want the ontology to reason about roles, role kinds have to be classes that participate in relations. But the vocabulary option isn't wrong. It just doesn't do the same job, and the two can be combined.
+
+## Why roles must be reasoned over
+
+Reasoning needs several things that a flat vocabulary can't provide:
+
+- **Subsumption.** A Barrier is a kind of Control, and a Control can prevent a Hazard. A query for "controls" should return barriers without listing them by hand.
+- **Disjointness and consistency.** If an element is asserted to be both a source and a barrier against the same consequence, the reasoner should be able to flag that.
+- **Relations between roles.** Roles can be defined against each other: a turning point is where a control fails; a vulnerability is what a threat source exploits.
+
+Those are classes with relations, not labels. Our earlier rule also applies: an element that takes part in a relation is an individual of a class.
+
+## The catch: class membership is a fact
+
+In OWL, asserting `fireDoor rdf:type Barrier` says the fire door *is* a barrier. That is exactly the claim we've just found to be an assessment. So the role kinds can be classes, but membership cannot be asserted directly on the element.
+
+The way out is to reify the assignment:
+
+```text
+Element ──hasRoleAssignment──► RoleAssignment
+                                  ├── roleKind → RoleKind (OWL class, e.g. Barrier)
+                                  ├── againstConsequence → AdverseImpact
+                                  ├── definedBy → StandardOrPerspective
+                                  └── generatedBy → RoleAssessment
+```
+
+Now the reasoner can use the class hierarchy and disjointness on the kinds, and each assignment stays attributed to its assessor and standard. Two assessors can assign different kinds to the same element without contradiction.
+
+## Keep the kinds scoped
+
+Scoping is the important part. If `Barrier` is one global class, then one standard's definition of barrier, or its disjointness from hazard, becomes a global fact. If two standards disagree, the ontology becomes inconsistent.
+
+So role kinds should be namespaced by their defining perspective:
+
+- `nist:ThreatSource`, `iso:Hazard`, `bowtie:Barrier`, `stpa:UnsafeControlAction`
+- Each lives inside its own scheme, with its own hierarchy and disjointness.
+- Cross-standard relations are mappings, not equivalences: `skos:closeMatch` or an assessed `alignsWith`, never `owl:equivalentClass`.
+
+This is the same hub-and-spoke pattern already in the vault. It lets vocabulary be integrated, since labels from all four standards can sit in one scheme, without collapsing their meanings into one class.
+
+## Result
+
+Vocabulary is still the integration layer, but role kinds carry the reasoning in namespaced classes, and role membership lives in assessed assignments. The two options aren't competitors. The vocabulary gives you labels and mappings; the classes give you reasoning within each perspective; and the assignments keep the factual-versus-assessment line intact.
+
+This is a design argument, not a decision, so I'd keep it unrecorded until we've tested it on the fire-door case.
+[Timestamp: 2026/11/24 23:10:26]
+
+**user**: lets test on the firedoor case now
+[Timestamp: 2026/11/24 23:13:57]
+
+**ai**: Here is the test on paper. I haven't run a reasoner, so this checks whether the structure we've designed can express the case and what it forces us to add.
+
+## The case
+
+A fire starts in a storage room on the ground floor, from a faulty extension lead. The storage room opens onto a corridor through a self-closing, fire-rated door (D1). A sprinkler (S1) covers both rooms. On the first floor, a worker (P1) with reduced mobility is in an office off the same corridor. Smoke reaches the corridor and the worker is delayed in evacuating.
+
+Two variants matter:
+
+- **Variant A:** D1 is closed when the fire starts.
+- **Variant B:** D1 has been wedged open with a rubber wedge for deliveries.
+
+The test is whether one element can carry different roles under different lenses, and whether the role changes with its state.
+
+## Three lenses
+
+- **Bowtie (risk-barrier lens):** threat, barriers, top event, consequence.
+- **STPA (control lens):** controllers, control actions, feedback, unsafe control actions, losses.
+- **NIST-style (risk-factor lens):** threat source, threat event, vulnerability, predisposing condition, adverse impact.
+
+## Role assignments
+
+| Element | Bowtie | STPA | NIST-style |
+|---|---|---|---|
+| Extension lead / ignition | threat (initiating cause) | hazard source | threat event (non-adversarial) |
+| D1, Variant A (closed) | barrier against smoke spread | controlled element; closure behaviour is the control action | no slot (control applied outside the chain) |
+| D1, Variant B (wedged) | failed barrier (judged) | hazard source: wedge is an unsafe control action by facility staff | vulnerability exploited |
+| S1 | barrier against fire growth | controller/actuator in the loop | no slot |
+| Facility manager | (none) | controller of door-closing practice | predisposing condition (inspection regime) |
+| Corridor smoke | top event region / consequence precursor | system hazard state | adverse impact precursor |
+| P1 harmed | consequence | loss | adverse impact |
+
+## What the test shows
+
+**1. Multiple roles for one element works, with one condition.** D1 is a barrier in one lens and a hazard source in another, and the reified `RoleAssignment` design handles this without contradiction. But it only works if every assignment is scoped to a consequence. "D1 is a barrier" has no meaning until we say against what, and that field is essential.
+
+**2. The role follows the element's state, so state must be modelled.** D1 is a barrier when closed and a hazard source when wedged. Our current model has `Condition` as a kind of Factor, but no way to say "this element, at this time, in this state". Without that, the reasoner cannot tell the two variants apart. This is a structural gap in our model.
+
+**3. Kinds that exist in one lens may not apply in another.** The unsafe control action only makes sense for a control action. In the NIST lens, the wedge is a vulnerability, not an unsafe control action. Scoped namespaces prevent a false inconsistency here, but they also mean a query across lenses will return nothing for the wedge. That is expected, but users should know it.
+
+**4. The NIST lens has no place for controls.** The sprinkler and the door are controls, and the NIST model applies them to likelihood and impact rather than to the chain. Our model has no control kind either. This confirms the gap identified earlier, and it now has a concrete case.
+
+**5. Whether a barrier works is itself an assessment.** Whether S1 is a working barrier depends on maintenance records. If no records exist, the assessment must be conditional, which needs our missingness statuses (`unknown`, `undisclosed`). This reinforces that role assignment should carry a basis and a status.
+
+**6. Answerability diverges across lenses.** STPA points at the facility manager as controller. The bowtie has no answerable party. Our `answerableAgent` on CausalRole would need to be an assessed claim, and different lenses will produce different answers. This is a legitimate divergence, not an error.
+
+## Reasoning checks
+
+- **Subsumption:** `bowtie:Barrier ⊑ Control`. A query for controls in the bowtie scope returns D1 and S1. A query in the NIST scope returns nothing, because it has no control kind. The result is correct, but the gap shows.
+- **Disjointness:** `bowtie:Barrier` and `bowtie:Threat` being disjoint would catch an element asserted as both against the same consequence. Scoping prevents spurious clashes across lenses.
+- **Divergence:** the bowtie and STPA assignments for D1 in Variant B disagree on role. That should be recorded as a first-class divergence, which is what we want.
+
+## Verdict
+
+The structure passes on the core claim: roles are assessed, scoped and reasoned over within namespaces, and the same element can carry different roles without contradiction. It fails in three places that need fixing before it is usable:
+
+1. **Element state.** Roles depend on states, so states must be individuals with time.
+2. **Control kinds.** Controls are missing from our model and from the NIST lens, and need their own kind, outside the chain or as a role.
+3. **Consequence scope.** Every role assignment must name the consequence it is against.
+
+These are candidates, not decisions. I haven't recorded anything. If you'd like, I can write this test up as a scratch note with the Turtle sketch for the fire-door case, so it can be checked in Protégé next.
+[Timestamp: 2026/11/24 23:13:57]
