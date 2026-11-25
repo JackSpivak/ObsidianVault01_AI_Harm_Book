@@ -7,7 +7,7 @@ topic: "v0.03.01 explore harm types"
 model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":383706,"contextWindow":1000000,"updatedAt":1795642115072}'
+usage: '{"usedTokens":411410,"contextWindow":1000000,"updatedAt":1795642631649}'
 ---
 
 **user**: yesterday talked about types of harrm that 7 council perspectives brought to v1 and v2 and interdisciplinary harm ontology and formal harm ontology that we moved away from as we shifted structure to implement our core commitment v3.1 to hold all harms as HarmDeterminations - the result of perspective generated assessments.
@@ -700,3 +700,177 @@ The protocol doesn't yet test the relations question, meaning whether the model 
 
 Do you want to run the four chats yourself and paste back the outputs, or should I run them through subagents? Subagents have vault access, so they could read the key, and I'd need to tell them not to.
 [Timestamp: 2026/11/25 14:28:27]
+
+**user**: if you can run this yourself and the agents don't have access to the rich vault context that would contaminate the result then please do so
+[Timestamp: 2026/11/25 14:29:49]
+
+**ai**: I'll run the four conditions as isolated subagents. Each gets one ontology file and the poem, and is told not to read or search anything else. The limit is that subagents share the vault's tool access, so the instruction is the only thing stopping them from opening the key or other notes. I'll tell you if any run shows signs of that.## Mapping of "Whitey On The Moon" to the ontology (NONCE B)
+
+I read the ontology file in full and used only its classes, properties and definitions. Codes are cited as given. The file has no class for physical injury as such, so I matched the bodily harms through the closest definitions and marked confidence accordingly.
+
+### Harm table
+
+| # | Text evidence | Class code matched | Evidence in file (definition quoted) | Confidence note |
+|---|---|---|---|---|
+| 1 | Rat bites Nell; "her face and arms began to swell" | **H-041** | "Harm occurs when an action sets back a person's vital, ongoing stakes in their well-being (such as health, property, privacy, or liberty), leaving them worse off…" | Good fit for a health setback. Sits under H-036, so it is an objective harm. |
+| 2 | Same bite; face and arm swelling, pain implied | **H-009** | "An action harms a subject if and only if it causes negative mental states—such as physical pain, emotional distress…" | Moderate. Fits the subjective pain of the injury. The text does not say Nell's pain is felt, only the swelling. |
+| 3 | Rat bite and "no toilets, no hot water, no lights" as ongoing exposure | **H-059** | "Exposing an individual or population to a heightened probability of future catastrophe (such as carcinogen exposure or reckless endangerment)." | Moderate. Rat bite and unsanitary housing raise the risk of future harm. The text does not name a specific catastrophe. |
+| 4 | "I can't pay no doctor bills"; "ten years from now I'll be payin' still" | **H-041** | "…property… leaving them worse off than they otherwise would have been." | Moderate. Economic setback from medical debt, matched through the "property" stake. No separate economic-debt class exists in the file. |
+| 5## Mapping of "Whitey On The Moon" to the Harm Ontology (CONTROL C)
+
+I read the full file (805 lines) and used only its classes and definitions. The text is a poem, so the harms are narrated. I mapped each one to the closest class, and where the fit is weak I say so.
+
+### Harms found in the text
+
+| # | Harm in the text | Class matched | Evidence in the file | Confidence |
+|---|---|---|---|---|
+| 1 | Sister Nell is bitten by a rat; her face and arms swell | `harm:HedonicHarm` | "An action harms a subject if and only if it causes negative mental states—such as physical pain, emotional distress, anguish, or grief…" | Moderate on the harm, low on the perpetrator. The defin | Landlord "upped my rent last night"; rent of fifty a week already paid | **H-044** | "Harm inflicted by one private party upon another that entitles the injured party to a civil remedy,ition covers physical pain, but the file's typical perpetrator for this class typically monetary damages or an injunction." | Moderate to good. A private landlord-tenant relationship is a is `UnitaryIntentionalAgent`, which does not fit a rat. | private-party harm. The text does not mention a remedy,
+| 2 | Unpaid doctor bills and a debt that will last so the "entitles… civil remedy" element is inferred. |
+| 6 | "No hot water, ten years ("I can't pay no doctor bills… Ten years from now I'll be payin' no toilets, no lights" | **H-030** | "Unreasonable interference with the sensory enjoyment of life or still") | `harm:InterestSetbackHarm` | "Harm occurs when an action sets back a person's vital, ong property—such as noxious odors, deafening noise…" | Low. Missing toilets could produoing stakes in their well-being (such as health, property, privacy, or liberty), leaving them worse off than they otherwise wouldce noxious conditions, but the text does not describe odours or noise. |
+| 7 have been." | Moderate. The setback to health and property f | "Taxes taking my whole damn check"; "the price of food is going up"; "all that money I made lastits well. The file has no class for medical debt spec year" | **H-068** | "Small, incremental setbacks spread across millions of people or shared ecosystifically. |
+| 3 | Rent raised, with no hot water, toilets or lights (the landems… where no single victim suffers a catastrophic personal loss, yet the aggregate welfare setback is massive."lord "upped my rent"; "No hot water, no toilets, no lights") | `harm: | Low. Price rises and taxes can be read as diffuse economic setbacExpectationRelianceHarm` for the rent rise; `harm:Deks, but the text describes them as affecting one speaker, not millions. |
+| 8 | "Junkies makingprivationHarm` for the loss of utilities | ExpectationRelianceHarm: "Harm arising… me a nervous wreck" | **H-009** | Same as row 2: "… from… unfair commercial interference." DeprivationHarm: "Blocking access to a good state a subject wouldemotional distress…" | Low to moderate. Emotional distress is stated. The source is a neighbourhood otherwise have enjoyed…" | Low to moderate. The rent rise is condition, not a specific act, so no agent is identified. |
+
+### Har a commercial act, but the poem does not show it was a breach of agreement.m present in the text but not mapped to any class
+
+1. **Rac The loss of utilities fits DeprivationHarm, but the poem does not say whial or group-directed harm.** The poem's refrainether the landlord caused it. |
+| 4 | ("whitey on the moon") attributes the speaker's hardship to a racial group. This Lost income ("all that money I made last year" is gone; "How come I ain't got no money here is a group-directed dignitary or stigmatising harm. The file's dignity-?") | `harm:InterestSetbackHarm` | As for row 2:related class, H-023, is defined for "a person's reputation, privacy, personal autonomy, or emotional tran setback to "property" and well-being, "worse off than they otherwisequility," and H-076 covers harm to a person "as a knower and rational commun would have been." | Moderate. |
+| 5 | Taxes, "junkies making meicator." Neither describes harm to a whole group through a sc a nervous wreck," and rising food prices | `harm:HedonicHarm` for the distress ("nervousapegoating narrative. **No class in the file maps this. I list it as unmapped.** wreck"); no clear class for taxes or prices | HedonicHarm: "…emotional distress…" |
+
+2. **Misattributed causation.** The speaker attributes the rent r Low. The distress maps. The taxes and food prices do not map to any class I could supportise, the bills and the lost money to "whitey on the moon," which the text from the definitions. |
+| 6 | Pers itself does not connect to any causal chain. The file's H-052 defines causal tethering istent distress and anger throughout the poem ("Y("factual 'but-for' causation… structural attribution"), but it is a property, not a harm'know I just 'bout had my fill") | `harm:HedonicHarm` | As, and the text does not supply the causal link it asserts. **This is an analytical observation, not a harm in the text, so I did not map it to a class.** for row 5. | Low to moderate. The poem describes distress, but it does not describe a clinical injury, so `PsychologicalEmotionalTrauma` does not fit. |
+
+### Harms in the text that I could NOT map to any class in the file
+
+The following are present in the text but have no class in the file that fits them. I have not invented one.
+
+1. **The causal blame placed on "whitey on the moon."** The poem attributes the bite, the rent rise, the taxes and the lost money to one racial group. The file has `DiffuseCollectivePerpetrator` for diffuse groups, but nothing for a harm caused by a false or unsupported group-level attribution. `EpistemicPollutionHarm` ("degradation of a society's shared epistemic environment") is the nearest, but it is defined around synthetic media and engagement loops, so it does not fit this poem well. I did not map it.
+2. **The rat bite as a harm with a non-agent source.** The bite is clearly harmful to Nell, but the only non-agent perpetrator class in the file is `NonAgenticAutonomousSource`, which is defined for autonomous or automated systems, not animals. I used `HedonicHarm` for the injury and did not assign a perpetrator.
+3. **Taxes and rising food prices as harms.** These could be read as a diffuse setback, but `CollectiveEnvironmentalHarm` is defined around pollution and price-fixing, and `ExternalityCoordinationHarm` around unpriced byproducts of transactions. Neither fits a tax burden or general inflation, so I did not map them.# Mapping of "Whitey On The Moon" to the Interdisciplinary Harm Ontology v1
+
+I read the full ontology file (`Interdisciplinary Harm Ontology v1.ttl`, lines 1–965) and used nothing else. The file has no class for "the moon" or any racialised or group-directed harm, so the table covers only the concrete harms the text describes. Where the text attributes a cause to "whitey on the moon," I could not establish that cause from the text, so I have not mapped it to an agent.
+
+## Harm table
+
+| # | Harm in the text | Matched class (file name) | Evidence in the file | Confidence |
+|---|---|---|---|---|
+| 1 | Sister Nell bitten by a rat; face and arms swell | `InterestSetbackHarm` (prefLabel "Interest-Based Harm (The Counterfactual Comparative Account)") | **Definition:** "Harm occurs when an action sets back a person's vital, ongoing stakes in their well-being (such as health, property, privacy, or liberty)…" **Example:** "Covert theft, secret defamation…" is not a match. The health setback is supported by the definition only. Also `WelfareInterestHarm` **scopeNote** distinguishes "non-normative harm (a setback caused by nature)," which fits a rat bite. Attribute: `harm:NonNormativeSetback` (Attribute 11) and `harm:NonAgenticAutonomousSource` (Attribute 16, "Nature / AI System"). | High for the health setback. Medium for the class choice, because the file's "setback to interests" is the closest match, not a bodily-injury class. |
+| 1a | Sister's physical pain and swelling (the experiential side of row 1) | `HedonicHarm` (prefLabel "Experiential Harm (Hedonic / Phenomenological Harm)") | **Definition:** "…causes negative mental states—such as physical pain…" **Example:** "Inflicting physical pain, emotional anguish…" | Medium. The text reports swelling, not pain or distress, so the experiential reading is inferred. |
+| 2 | Unpaid doctor bills; "ten years from now I'll be payin' still" | `InterestSetbackHarm` | **Definition** (as in row 1), plus `harm:MaterialPecuniarySubstrate` (Attribute 18, "Property, Wealth, Contract Expectancy"). The long repayment period matches `harm:SlowAccumulativeTrajectory` (Attribute 5, "Slow / Accumulative Trajectory"). The file's `harm:LatentTrajectory` describes "decades of dormancy," which does not fit ten years. | Medium. The trajectory is a## Mapping of "Whitey On The Moon" onto the nonce ontology (Version A)
+
+I read the full file (lines 1–1011) and used only its codes, definitions, scope notes, history notes and examples. Where a row relies on an inference, I say so.
+
+### Table of harms found in the text
+
+| # | Harm in text | Class code | Evidence in file (quoted; which field) | Confidence |
+|---|---|---|---|---|
+| 1 | Sister Nell bitten by a rat; face and arm swell (bodily pain and injury) | **H-009** | Definition: "An action harms a subject if and only if it causes negative mental states... or deprives the subject of positive states." Example: "Inflicting physical pain, emotional anguish, grief..." (sk loose fit. |
+| 3 | Rent raised; no hot water, toilets or lights | `InterestSos:definition and skos:example) | High for pain as a haretbackHarm` (alternative: `CapabilityStructuralHarm`) | **InterestSetbackHarm** matm. The pain is in Nell's body, and H-009 is the subjectiveches the setback to "well-being" (health, property). **CapabilityStructuralHarm** defin-experience class. |
+| 2 | Same injition: "Systemic social, economic, or institutional barriers (such as lack of education, healthcare…)ury, classed as bodily injury | **H-044** | that prevent individuals from converting basic resources into real human functioning." That fits the lack of basic services, but the text names one Example: "Physical bodily injury, property damage, and economic loss (such as a car crash)." Definition: "... landlord, and the file's scope note says this classentitles the injured party to a civil remedy." (skos:example, "occurring diffusely without requiring an individual malicious assailant." `ExpectationRelian skos:definition) | Low. H-044 requires a legal duty breached by aceHarm` is not supported: its definition needs "broken promises, private party. The text names a rat, which is not a party with a duty, so breached agreements, or unfair commercial interference," and the text reports no breached the civil-wrong element is not established. lease. | Low to medium. The file does not settle between the two classes. |
+| Listed for completeness. |
+| 3 | Inability to pay for doctor 4 | Taxes take the whole cheque; food prices rise | `Inter; "Ten years from now I'll be payin' still" (medical debt) | **H-041estSetbackHarm` | **Definition** (as in row 1), with `harm:Material** | Definition: harm occurs when an action "sets back a person's vital, ongoing stakes in their well-being (such asPecuniarySubstrate`. | Medium. |
+| 5 | "Junkies making me a nervous health, property...)" leaving them "worse off than they otherwise would have been." Example: "sabot wreck"; "just 'bout had my fill" | `HedonicHarm` (distress), with `PsychologicalEage of an individual's financial or personal security." (skos:definition, skos:example) | Medium. The file's ownmotionalTrauma` rejected | **HedonicHarm definition:** "…em example is about financial security, and the set-back is objective and ongoing. |
+| 4 | Lack of accessotional distress, anguish, or grief." `PsychologicalEmotionalTrauma` scope to healthcare for Nell | **H-082** | Definition: "Systemic social, economic, or institutional note: "Requires severe mental distress beyond trivial upset," and the text gives no clinical or barriers (such as lack of education, healthcare...) that prevent individuals from converting basic resources into real severe picture. `NuisanceSensoryOffense` is a human functioning." Example: "Systemic exclusion from... basic healthcare." Scope note: "institutionalized deprivation weak alternative: its scope note covers "sustained, unreasonable sensory or environmental interference... without requiring an individual malicious assailant." (skos:definition, skos:example, skos:scope," and the text gives no sensory detail. | Medium for `HedonicHarm`. Low for theNote) | Medium. The text describes unaffordable care, which fits the file nuisance alternative. |
+| 6 | Income drained: "Was all that money I made's structural-barrier example. It does not name a specific institution. |
+| 5  last year… How come I ain't got no money here?" | `InterestSetbackHarm` (`MaterialPecu| Rent raised "cause whitey's on the moon"; no hot water,niarySubstrate`) | Same basis as row 2. The toilets or lights | **H-082** (primary); text reports a loss of earnings but no wrongful act, so `PrivateTort **H-030** (rejected) | H-082 as in row 4,iousHarm` and `ExpectationRelianceHarm` do not apply. The file's `har and the scope note "without requiring an individual malicious assailant." H-030 is rejected: its definition covers "nom:NonNormativeSetback` (Attribute 11) fits as a factual setback, notxious odors, deafening noise", i.e., a wrong. | Medium. |
+
+## Harms in sensory interference with enjoyment of property. Loss of water, toilets and light the text that I could not map to any class
+
+1. **The causal attribution to "whitey on the moon."** The text repeatedly says the rent rise, the bills, the taxes and the lost money are "c is a loss of basic services, not sensory nuisance. | Low–medium. The file has no class for housing-service deprivation or landause whitey's on the moon." The file has no class for a causal claim that cannot be traced to an agent. `hlord duty. H-082 is the nearest fit, and the masCausationMechanism` (Attribute 2) needs a factual, proximate or structural link. The text gives none, so the attapping is an inference. |
+| 6 | Taxes taking "my whole damribution cannot be mapped and I have not assigned a perpetrator. **n check"; rising food prices | **H-041** (individExplicitly: not mapped.**
+2. **Group-directed blame and prual); **H-068** (aggregate, low) | H-041 as in rowejudice.** The text places blame on a racial category 3. H-068: "Small, incremental setbacks spread across millions... such as price-fixing... where ("whitey"), which is a harm to the group as a target of prejudice. no single victim suffers a catastrophic personal loss, yet the aggregate welfare setback is massive." ( No class in the file covers this. `EpistemicTestimonialHarm` is the nearest, but its definition is about "unfairly deflating… credibility due to prejudskos:definition) | H-041: medium. H-068: low. The text describice," which is a different harm: it concerns a speaker's credibility, not aes one speaker's loss, not a sh group being targeted with blame. **Explicitly: not mapped.**
+3. **Narratorared aggregate harm, so H-068 is only a possible reading of the wider economic patt's distress about the sister.** The narrator's own distern. |
+| 7 | Earnings not kept: "How come I ain't got no moneyress is implied, not described, and the file's secondary-vict here?" | **H-041** | Same as row 3: an objective set-back to property andim classes (`PsychologicalEmotionalTrauma`, `VicariousMoralInjury`) need a financial stakes, "worse off than they otherwise would have been." | Medium. |
+| 8 described severe distress or a moral transgression. I did not map | Distress: "Junkies making me a nervous wreck"; "I just 'bout had my fill" | **H-009** it. **Explicitly: not mapped.**
+
+## Overall confidence
+
+Most rows r | Example: "emotional anguish". Definition: "negative mental states—such as physical pain, emest on `InterestSetbackHarm`, the class the file uses for setbacks to health, property andotional distress, anguish..." (skos:definition, skos:example) | Medium–high for well-being. The file gives no separate class for a non-normative, nat emotional distress. Note that H-027 (severe mental anguish fromural or bodily setback like the rat bite, or for housing de extreme conduct) is rejected because the text gives no extreme or outrageous conduct. |
+| 9privation by a single landlord. So the class choices are defensible but not clean, and the file's own sc | Speaker's distress about Nell's injury (repeated "A rat doneope notes point in more than one direction for rows 1, 3 and 5. bit my sister Nell") | **H-027** | Example: "bystander emotional trauma from witnessing a close relative's injury." Also H-012 definition: "distinguishing direct targets from secondary relational victims." | Medium-low. The sister's injury is a relational harm to the speaker. The text shows distress but does not describe witnessing the bite, and H-027 is set for severe, clinically cognizable distress. |
+| 10 | Blame and causal attribution to "whitey on the moon" | **None** (see the unmapped section) | H-052 is a property that "tethers an external state of affairs to an agent's action" and is the nearest structure. But its range is H-100, which is a concept scheme, not a harm class. | Not mapped as a harm. This is a causal claim the text makes, not a harm class. |
+
+### Harms I could NOT map to any class in the file
+
+These are explicitly unmapped. I have not invented classes or codes for them.
+
+1. **Racial or identity-based unequal treatment**, which the chorus attributes to "whitey." The file has no class for discrimination as such. H-076 (epistemic injustice) concerns credibility and shared concepts, not material treatment. H-082 is structural but not identity-specific.
+2. **Breach of tenant-landlord duty: habitability failure and retaliatory rent rise.** The file has no class for a housing duty or for retaliation. H-044 needs a breach of legal duty and gives only physical, property and economic examples. H-073 (instrumentalisation) was considered and rejected because the text does not show coercion or deception.
+3. **The rat's bite as an injury by a non-party.** H-044 requires a private party with a duty. The file has no class for harm by an animal or pest.
+4. **The attributed cause itself.** "Whitey on the moon" is named as the cause of every harm but is not an identifiable agent. The file has no class for harm by an unidentified or figurative agent. H-090 (harm from structural incentives without ill will) is the closest property, but the text describes blame, not incentive structures.All four runs came back. Before scoring, I'll check the claims against the key and the source file, because the nonce runs cite codes that have to decode to the right classes.The nonce test ran on all four conditions, and the outputs are consistent enough to answer the question, with caveats. Here is what each run did and how they compare.
+
+**Isolation caveat.** Each subagent was told to use only its one file and to read nothing else. But subagents share the vault's tools, so the instruction was the only barrier. The outputs give no sign of key or note access: none cites a note, a decision, or a code outside its file. I can't prove it from the outputs alone, though.
+
+**Where the four runs agree**
+
+| Harm in text | Baseline (real names, full narrative) | NONCE A (codes, full narrative) | NONCE B (codes, definitions) | CONTROL C (names, definitions) |
+|---|---|---|---|---|
+| Rat bite, pain and swelling | InterestSetback, with Hedonic as alternative | H-009 (HedonicHarm) | H-041 (InterestSetback), with H-009 | HedonicHarm |
+| Medical debt, lost earnings | InterestSetback | H-041 | H-041 | InterestSetback |
+| Emotional distress | HedonicHarm | H-009 | H-009 | HedonicHarm |
+| Group blame ("whitey on the moon") | unmapped | unmapped | unmapped | unmapped |
+| Causal attribution to the moon | unmapped | unmapped (H-052 noted, rejected) | unmapped | unmapped |
+
+I decoded the codes against the key. H-009 is HedonicHarm, H-041 is InterestSetbackHarm, and H-044 is PrivateTortiousHarm, so the codes line up with the class names.
+
+**Where they diverge**
+
+Housing and utilities are the unstable region. Baseline gives InterestSetback or CapabilityStructural. NONCE A gives H-082 (CapabilityStructuralHarm), with H-030 explicitly rejected. NONCE B gives H-059 (ProbabilisticRiskHarm) and H-044. CONTROL C gives ExpectationRelianceHarm and DeprivationHarm. Each run resolves this ambiguity differently. Those four classes are not interchangeable, so this is where the matching is least stable.
+
+**What this suggests about your hypothesis**
+
+- **Names weren't needed for the core matches.** NONCE A reproduces the baseline's core classes with codes only.
+- **Definitions carry most of the matching.** NONCE B, with definitions alone, still finds the same core harms. The history and scope notes mainly contributed the rejections, like NONCE A's reason for dropping H-030.
+- **No training-sourced names appeared.** None of the outputs names a theorist, a harm class or a concept that isn't in its file. The group-blame harm was left unmapped in all four rather than forced into a class. That is the behaviour you'd want from a reader of the file.
+- **The reduction step happened inside the run.** The outputs reject candidates and say why, which is the reduction you described in goal 3. But the rejections are the model's judgments, not computed results.
+
+**Caveats**
+
+- One text and one run per condition. The housing divergence could be run-to-run variance, not a condition effect. Repeating each run two or three times would show that.
+- The relations question is still untested. No run needed a parent class to be the answer, so nothing here shows the model follows `subClassOf` links.
+- Some line counts in the outputs don't match each other, because the files differ in length. Those figures are self-reported by the subagents and not verified.
+- A few details in NONCE A's notes are unverified. For example, it describes H-100 as a concept scheme, but the key shows H-100 is CausationMechanismValue.
+
+**Next steps, if you want them.** Repeat the four conditions twice more to measure variance, then add the relations test: a text whose only supporting evidence sits at a parent class. I can record these results in a test note, but I'd wait for your go-ahead on where the note should go.
+<!-- copilot-message {"tools":["subagent (think)","Nonce test: baseline: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/Interdisciplinary Harm Ontology v1.ttl","Nonce test: NONCE A: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE A (names coded, narrative kept).ttl","Nonce test: NONCE B: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE B (names coded, definitions only).ttl","Nonce test: CONTROL C: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - CONTROL C (names kept, definitions only).ttl","read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/KEY - do not load for the test.csv","grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/Interdisciplinary Harm Ontology v1.ttl"]} -->
+[Timestamp: 2026/11/25 14:29:49]
+
+**user**: I would like you to create a test note documenting all of this including summary of the discussion prior to the actual test design that led to the rationale and approach. then what you did to produce the alternative test files. finally the results.  it looks like you have already created a "nonce" folder in the test directory where you put the previous files.  please put the test note there as well
+[Timestamp: 2026/11/25 14:35:50]
+
+**ai**: I'll create the test note in the `tests/nonce` folder, next to the files it describes.The test note is in the `tests/nonce` folder, next to the ontology files it describes: `Nonce Test - Interdisciplinary Harm Ontology v1 - Design, Build and Results.md`.
+
+It has six parts:
+1. **Discussion** leading to the design: the naive run, the three open questions, the epistemic concern, and the change from three conditions to the 2×2.
+2. **How the files were made:** the source, the build script (kept outside the vault), the code assignment, what each file removed, the leak scan, and the residuals.
+3. **Protocol:** the prompt, the isolation rules and their limits, the poem, and the four subagent session IDs for tracing.
+4. **Results:** the mapping table across the four conditions, what held, where runs diverged, and what the results suggest.
+5. **Limitations:** single runs, unproven isolation, untested relations, the unverified H-100 claim, and the shallow leak scan.
+6. **Next steps:** repeats, the relations test, the full text set, and whether to copy the build script into `ontology/scripts/`.
+
+It's marked `status: developing` because the repeats and relations test aren't done. I haven't logged any of this in `Decisions_Log` or the ledger.
+<!-- copilot-message {"tools":["write (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Nonce Test - Interdisciplinary Harm Ontology v1 - Design, Build and Results.md"]} -->
+[Timestamp: 2026/11/25 14:35:50]
+
+**user**: will you continue with the relations test you proposed?  will that have a second test note?
+[Timestamp: 2026/11/25 14:37:01]
+
+**ai**: Yes, I'll continue with the relations test, and it will get its own test note.
+
+The design I'd propose:
+
+- **Two files, same content.** Both are built from NONCE B (coded names, definitions only). One keeps the hierarchy (`rdfs:subClassOf` and `skos:broader`). The other removes those links and keeps everything else, so the classes are flat. If the model only reads definitions, the two files should give the same results. If it follows the hierarchy, they should differ.
+- **Test texts that fit the parent but no child.** Each text would describe a harm at the level of a parent class, with no detail that matches any child's definition. For example, a systemic harm with no identifiable mechanism. A control text would describe a harm that fits one child precisely, so we can confirm the model can use a child class at all.
+- **Predictions.** With the hierarchy, the model should return the parent for parent-level texts. Flat, it should either return the parent from its definition alone or guess a sibling or child that the text doesn't support. The difference between the two shows whether the hierarchy matters.
+- **A caveat to plan for.** A parent's definition can match a text just as well as a child's does. The texts must be written so the parent is the only defensible answer, or the test can't tell the conditions apart.
+
+The second test note would sit in `tests/nonce` beside the first, or in a new `tests/relations` folder if you'd rather keep the two tests apart.
+
+Before I build anything, I need your go-ahead on two points: whether to use NONCE B as the base, and whether you want to review the texts first. I'll draft three parent-level texts and one control for you to check.
+[Timestamp: 2026/11/25 14:37:01]
+
+**user**: maybe same folder but change the name of both notes to read something like nonce-test-initial and nonce-test-relational ?
+[Timestamp: 2026/11/25 14:38:47]
+
+**ai**: I'll rename the existing note now. First I'll check whether any other note links to it, since renaming would break those links.Only the chat transcript mentions the note, and transcripts are never rewritten, so nothing will break. I'll rename the file and keep the old title as an alias so existing references still resolve.
+<!-- copilot-message {"tools":["grep (search): .","Rename-Item -LiteralPath \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\nonce\\Nonce Test - Interdisciplinary Harm Ontology v1 - Design, Build and Results.md\" -NewName \"nonce-test-initial.md\"; Get-ChildItem -LiteralPath \"02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\nonce\" | Select-Object -ExpandProperty Name (execute)"]} -->
+[Timestamp: 2026/11/25 14:38:47]
