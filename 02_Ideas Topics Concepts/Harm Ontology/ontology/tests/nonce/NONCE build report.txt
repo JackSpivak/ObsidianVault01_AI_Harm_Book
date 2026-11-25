@@ -1,0 +1,5 @@
+Version A: 1 original names still found as whole words: Harm
+Version A triples: 861; removed: 225
+Version B: 1 original names still found as whole words: Harm
+Version B triples: 657; removed: 429
+Source triples: 1086. Codes assigned: 125.

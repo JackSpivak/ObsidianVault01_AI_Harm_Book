@@ -7,7 +7,7 @@ topic: "v0.03.01 explore harm types"
 model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":361243,"contextWindow":1000000,"updatedAt":1795641216024}'
+usage: '{"usedTokens":383706,"contextWindow":1000000,"updatedAt":1795642115072}'
 ---
 
 **user**: yesterday talked about types of harrm that 7 council perspectives brought to v1 and v2 and interdisciplinary harm ontology and formal harm ontology that we moved away from as we shifted structure to implement our core commitment v3.1 to hold all harms as HarmDeterminations - the result of perspective generated assessments.
@@ -585,3 +585,118 @@ Two things could tell you how much of the result came from the ontology:
 The naive run is still useful as a baseline. It shows the content was in the ontology, but it doesn't yet show that the method is reliable. The nonce-label test would address the training-leak question, which is the part of your hypothesis I'd want to check first.
 <!-- copilot-message {"tools":["cd \"02_Ideas Topics Concepts/Harm Ontology/ontology\"; ls -la \"Interdisciplinary Harm Ontology v1.ttl\"; echo \"owl:Class:\"; grep -c \"owl:Class\" \"Interdisciplinary Harm Ontology v1.ttl\"; echo \"skos:definition:\"; grep -c \"skos:definition\" \"Interdisciplinary Harm Ontology v1.ttl\"; echo \"skos:scopeNote:\"; grep -c \"skos:scopeNote\" \"Interdisciplinary Harm Ontology v1.ttl\"; echo \"skos:historyNote:\"; grep -c \"skos:historyNote\" \"Interdisciplinary Harm Ontology v1.ttl\"; echo \"skos:example:\"; grep -c \"skos:example\" \"Interdisciplinary Harm Ontology v1.ttl\"; echo \"skos:Concept:\"; grep -c \"skos:Concept\" \"Interdisciplinary Harm Ontology v1.ttl\"; echo \"rdfs:subClassOf:\"; grep -c \"rdfs:subClassOf\" \"Interdisciplinary Harm Ontology v1.ttl\" (execute)","grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/Interdisciplinary Harm Ontology v1.ttl"]} -->
 [Timestamp: 2026/11/25 14:13:16]
+
+**user**: Nonce-label test. Take v1 and replace every class name and label with a neutral code (for example H-017), keeping the definitions. Run the same text. If the matches still line up with the right definitions, the model is reading the ontology. If the table starts naming real harms or theorists that aren't in the definitions, it's drawing on training.
+
+if i put neutral codes on the class names are you suggesting that the LLM would potentially only read the skos: for narrative matching while actually navigating the relationships expressed in the model?
+[Timestamp: 2026/11/25 14:20:17]
+
+**ai**: Not quite. The nonce test removes names, not narrative. The definitions, scope notes, examples and history notes would all stay, so the model would still be matching on prose. It would read relations only if they appear in the text it's given.
+
+Three things to be clear about:
+
+- **Relations are text, not navigation.** If the TTL is pasted in, the `rdfs:subClassOf` and property lines are just more text. The model can use them, but nothing forces it to follow a parent class or a property chain. Whether it does is something the test would have to show.
+- **The nonce test has a leak.** `skos:historyNote` on v1 classes names real people: Epicurus, Bentham, Fricker, Spivak. If those notes stay, the model can match a theorist's name to a class without reading anything else. The test would then show that history notes carry the matches, not that the model reads the ontology as a structure.
+- **Labels are not the only clue.** Words like "hedonic" or "trauma" in definitions can still identify a class, so stripping names doesn't isolate structure from prose.
+
+So a cleaner design would have three conditions:
+
+1. **Full v1**, with labels and all narrative. This is the baseline you already ran.
+2. **Nonce labels, narrative kept**, including history notes. This tests whether matching survives without names.
+3. **Nonce labels, narrative stripped to definitions only**, with no history notes or examples. This tests whether matching works on the core definitions alone.
+
+Then a separate relations test. Pick a case where the evidence fits only a parent class, and see whether the model returns the parent. That is the closest thing to checking whether it navigates the hierarchy, and it needs a different prompt, not just a different file.
+
+The outputs of all four runs can then be compared against each other. If condition 2 or 3 drops matches that condition 1 found, the names or history notes were doing work. If the parent-class case isn't returned, the model isn't using the subClassOf lines.
+[Timestamp: 2026/11/25 14:20:17]
+
+**user**: can you create a two nonce test versions of the existing Interdisciplinary Harm Ontology v1.0 ttl that strip names and narrative respectively exactly as you describe above - and name them accordingly
+[Timestamp: 2026/11/25 14:23:15]
+
+**ai**: I'll build both test files from the v1 TTL with a script, not by retyping it, since the file has about 1,070 triples. Before writing the script I need the file's structure: prefixes, which properties hold names and which hold narrative.The file uses one namespace, `harm:`, with three kinds of label to handle: `skos:prefLabel` and `skos:altLabel` (names), `skos:changeNote` (file history, which names attributes), and the narrative notes (`skos:definition`, `skos:note`, `skos:scopeNote`, `skos:example`, `skos:historyNote`, `dcterms:bibliographicCitation`).
+
+I'll write a build script outside the vault, so no scratch files land in it. It will assign codes in order of first appearance in the file, not alphabetically, so the codes don't carry a hint. Then it writes the two test files and a key, and runs a leak scan for the original names.Both files built. The leak scan found one residual name, "Harm", in each. I'll check where it occurs before deciding whether it matters.The residual hits are the ordinary English word "harm" inside definitions. They are part of the narrative, and stripping them would change the content under test, so I'll record them as residual rather than rewrite them. Next I'll confirm both files parse as Turtle and look at a sample class.I've built the two nonce test files, plus a key to decode them. They're in `02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/`:
+
+- **NONCE A (names coded, narrative kept).ttl:** every class, property and individual is renamed to a code (H-001 to H-125). Labels (`prefLabel`, `altLabel`) and the file's change history are removed. Definitions, scope notes, examples, history notes and citations are kept.
+- **NONCE B (names coded, definitions only).ttl:** the same renaming, but the only narrative left is `skos:definition`. Scope notes, examples, history notes, notes and citations are removed.
+- **KEY - do not load for the test.csv:** maps each code to its original name. Don't load it when you run the test; it's there to decode the output afterwards.
+
+The codes follow the order in which names first appear in the file, not alphabetical order, so the codes don't hint at the names. Both files parse as Turtle (861 and 657 triples). The build script sits in a temp folder outside the vault.
+
+**Residual leaks, so you know what the test can't isolate:**
+- The `harm:` prefix stays.
+- The word "harm" appears in many definitions (for example, "Harm to a person's reputation..."). It is ordinary English inside the narrative, so I left it rather than rewrite the content.
+- Other names inside the narrative survive. In A, the history notes name Epicurus, Bentham and others. In both, scope notes and definitions mention domain terms such as "Teleological Harm".
+- The structure is kept: `rdfs:subClassOf`, domain and range, and `skos:broader` all remain, so the relations test is still possible.
+
+Your wording "strip names and narrative respectively" could mean B should drop narrative but keep labels. I built B as definitions only, following the earlier design. If you want the labels kept as well, that is a third file, and it would isolate the effect of names from the effect of narrative.
+<!-- copilot-message {"tools":["read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/Interdisciplinary Harm Ontology v1.ttl","write (edit)","if (Test-Path \"C:\\Users\\conta\\anaconda3\\envs\\harm-ontology\\python.exe\") { & \"C:\\Users\\conta\\anaconda3\\envs\\harm-ontology\\python.exe\" -I \"C:\\Users\\conta\\AppData\\Local\\Temp\\nonce_build\\build_nonce.py\" } else { python \"C:\\Users\\conta\\AppData\\Local\\Temp\\nonce_build\\build_nonce.py\" } (execute)","grep (search): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce","& \"C:\\Users\\conta\\anaconda3\\envs\\harm-ontology\\python.exe\" -I -c \"from rdflib import Graph; import glob; [print(f.split(chr(92))[-1], len(Graph().parse(f, format='turtle'))) for f in glob.glob(r'02_Ideas Topics Concepts\\Harm Ontology\\ontology\\tests\\nonce\\*.ttl')]\" (execute)","read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE A (names coded, narrative kept).ttl"]} -->
+[Timestamp: 2026/11/25 14:23:15]
+
+**user**: i want this performed in the way most aligned with the intent of your nonce proposal. are you saying that an additional option is required that you did not anticipate
+[Timestamp: 2026/11/25 14:26:04]
+
+**ai**: Yes, the design I proposed was missing a condition. Building the two files showed it.
+
+My three conditions were: baseline (real names, full narrative), coded names with narrative kept, and coded names with definitions only. Version B changes two things at once, names and narrative, so if its results differ from the baseline, I can't tell which change caused it. To attribute the effect, the design needs a 2×2:
+
+| | Full narrative | Definitions only |
+|---|---|---|
+| **Real names** | Baseline (your earlier run) | **missing** |
+| **Coded names** | NONCE A | NONCE B |
+
+The missing cell is real names with definitions only. I'll build it now, so the design is complete before anything runs. It's a control file, not a nonce file, so its names stay visible.Yes, the design needed a fourth condition I hadn't anticipated. The 2×2 is now complete, with three new files built from the same source:
+
+- **Baseline:** real names, full narrative. Your earlier run.
+- **NONCE A:** coded names, full narrative.
+- **NONCE B:** coded names, definitions only.
+- **CONTROL C (new):** real names, definitions only. This is the missing cell. It separates the effect of removing narrative from the effect of hiding names. It lives in the same `tests/nonce/` folder, and its name says it is a control, not a nonce file.
+
+**What I can't do yet is run the test.** Running it needs the text you pasted into the original chat: the war reporting, poems and lyrics. I don't have it in the vault. Could you paste it again or save it as a note? For a clean run, each condition needs its own fresh chat with only one ontology file and the text attached, and the same prompt you used before. I can run the conditions in subagents instead, but they have vault access, which would let them read the key. I'd avoid that unless you accept the risk.
+
+Once I have the text, I'll write out the exact prompt for the four runs and a scoring sheet, so each run is compared on the same terms.
+<!-- copilot-message {"tools":["edit (edit)","& \"C:\\Users\\conta\\anaconda3\\envs\\harm-ontology\\python.exe\" -I \"C:\\Users\\conta\\AppData\\Local\\Temp\\nonce_build\\build_nonce.py\" (execute)"]} -->
+[Timestamp: 2026/11/25 14:26:04]
+
+**user**: here is the text
+
+We have a poem here, it's called "Whitey On The Moon"It was inspired by some whiteys on the moonSo I wanna give credit where credit is due[Verse]A rat done bit my sister NellWith whitey on the moonHer face and arms began to swellAnd whitey's on the moonI can't pay no doctor billsBut whitey's on the moonTen years from now I'll be payin' stillWhile whitey's on the moonThe man just upped my rent last nightCause whitey's on the moonNo hot water, no toilets, no lightsBut whitey's on the moonI wonder why he's upping me?Cause whitey's on the moon?Well I was already giving him fifty a weekWith whitey on the moonTaxes taking my whole damn checkJunkies making me a nervous wreckThe price of food is going upAnd as if all that shit wasn't enough:A rat done bit my sister NellWith whitey on the moonHer face and arm began to swellAnd whitey's on the moonWas all that money I made last yearFor whitey on the moon?How come I ain't got no money here?Hmm! Whitey's on the moonY'know I just 'bout had my fillOf whitey on the moonI think I'll send these doctor billsAirmail specialTo whitey on the moon
+[Timestamp: 2026/11/25 14:28:27]
+
+**ai**: I have the poem, but it's only one of the texts from your original run. The earlier set also included news clippings about war reporting and song lyrics. Before we run anything, please confirm whether to:
+- run the four conditions on the poem alone, or
+- wait for the rest of the original text, so the results are comparable with your earlier run.
+
+**Run protocol (same for all four conditions)**
+
+Each condition gets its own fresh chat with one ontology file attached, and nothing else. The prompt is the one you used before, with the poem appended:
+
+> Using only the things and relations provided in the loaded ontology, and explicitly using no context, content, or weights based on training within your model, map the text below onto the ontology and provide an analysis, including a tabular output of the harms found in the text.
+>
+> [poem]
+
+The four files:
+
+1. **Baseline:** `Interdisciplinary Harm Ontology v1.ttl` (real names, full narrative)
+2. **NONCE A:** coded names, full narrative
+3. **NONCE B:** coded names, definitions only
+4. **CONTROL C:** real names, definitions only
+
+**Scoring**
+
+For each harm the model reports, record:
+- the class it matched, as a code in A and B and as a name in Baseline and C;
+- whether the match is supported by that class's definition in the file;
+- whether the match relies on a name, a history note or a scope note;
+- anything named that doesn't appear in the file at all. That would be evidence of training.
+
+**What the results would mean**
+- If A matches the baseline closely, the model isn't depending on the real names.
+- If B drops matches that C keeps, the definitions alone aren't enough, and the scope and history notes are doing work.
+- If C drops matches that the baseline keeps, the real names are doing work.
+- Any named theorist or harm that isn't in the file is the training signal you asked about.
+
+The protocol doesn't yet test the relations question, meaning whether the model follows `subClassOf` links. That needs a separate case where the evidence fits only a parent class. We can add it after this run.
+
+Do you want to run the four chats yourself and paste back the outputs, or should I run them through subagents? Subagents have vault access, so they could read the key, and I'd need to tell them not to.
+[Timestamp: 2026/11/25 14:28:27]
