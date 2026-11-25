@@ -18,7 +18,8 @@ ENTITY (dul:Entity)
 │   │       └── Institution (subclass, kind)                     (P)
 │   │           └── RegulatoryInstitution (subclass, kind)       (P)
 │   │               └── instances: FAA, NRC, OSHA, ...
-│   ├── AffectedEntity (dul:Object)
+│   ├── AffectedEntity (object side: an Object with the capacity to bear effects;
+│   │     affectability is a property; kinds are Person, Organism, PhysicalArtifact, Place ...)
 │   │     may also be an Agent (self-regarding harm)
 │   └── Source (physical) (dul:Object)
 │
@@ -46,7 +47,9 @@ ENTITY (dul:Entity)
 ├── ROLE (dul:Role; a Concept)
 │   ├── Regulator (role, not a kind of agent)
 │   ├── Control role: barrier, safeguard, restraint, feedback
-│   └── Source, AffectedEntity, Trigger, Predisposition (causal roles, scoped to a consequence)
+│   ├── ImpactedRole (role: classifies an AffectedEntity, scoped to a consequence;
+│   │     impact is known only relative to a consequence, hence the name)
+│   └── Source, Trigger, Predisposition (causal roles, scoped to a consequence)
 │
 └── SOCIAL OBJECTS (dul:SocialObject)
     ├── Concept (dul:Concept)

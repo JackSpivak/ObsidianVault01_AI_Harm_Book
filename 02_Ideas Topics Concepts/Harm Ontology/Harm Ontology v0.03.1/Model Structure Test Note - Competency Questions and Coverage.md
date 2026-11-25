@@ -59,7 +59,7 @@ Status key: **Answered** = the current candidate structure yields the answer by 
 | CQ5 | Which judgements rest on a standard? | PerspectiveSpecification, assessmentBasis | Answered | assessmentBasis must be kept on every assessment |
 | CQ6 | What did a perspective leave out? | ChainDetermination (CausalBoundary), PerspectiveSpecification | Partly | omission as a determination type beyond causal boundary |
 | CQ7 | Is this an AffectedEntity, of what kind? | AffectedEntity, Agent | Partly | assessed entity type and the **Unclassified** value |
-| CQ8 | When did X occur, who was affected? | Effect (occurrence date, decision 21), AffectedEntity | Answered | none |
+| CQ8 | When did X occur, who was affected? | Effect (occurrence date, decision 21), ImpactedRole | Answered | none |
 | CQ9 | Who is answerable for X? | ResponsibilityDetermination, RoleAssignment | Answered | depends on K1 split being adopted |
 | CQ10 | Which two perspectives differ, why, at horizon H? | Divergence, PerspectiveSpecification, TemporalHorizon, HarmDetermination | Answered | depends on facets being queryable |
 | CQ11 | Realised or projected, and what grounds it? | AssessedImaginedHarm, temporal status, grounding | Partly | grounding inheritance rule (S39) |
@@ -67,7 +67,7 @@ Status key: **Answered** = the current candidate structure yields the answer by 
 | CQ13 | Was the entity in a hazardous situation? | ExposureDetermination, State | Answered (proposed) | ExposureDetermination still to be confirmed (open question) |
 | CQ14 | What condition did it have, by what criteria? | ConditionDetermination, State | Answered (proposed) | ConditionDetermination as a class still to be confirmed |
 | CQ15 | Where did tracing stop, and why? | ChainDetermination, CausalBoundary, TemporalHorizon | Answered | none |
-| CQ16 | Was the risk accepted, by whom? | ConsentDetermination, AffectedEntity | Partly | consent per recipient (R22) not yet a class in the tree |
+| CQ16 | Was the risk accepted, by whom? | ConsentDetermination, ImpactedRole | Partly | consent per recipient (R22) not yet a class in the tree |
 | CQ17 | Does a remedy follow; is it closed? | RemedyDetermination | Partly | closure status and link to the obligation |
 | CQ18 | Which information carried an error forward? | InformationObject, MechanismModel | Partly | **error or provenance** relation on InformationObject |
 | **CQ19** (new) | Which controls or barriers were in place, did they work, per whom? | (none in the tree) | **Gap** | **Control** class has no question that uses it; needs a determination of efficacy |
@@ -82,7 +82,8 @@ Status key: **Answered** = the current candidate structure yields the answer by 
 | State | CQ13, CQ14 | no |
 | **Control** | none | **yes: orphan** (CQ19 added to fix) |
 | Effect | CQ2, CQ8 | no |
-| AffectedEntity | CQ7, CQ8, CQ16 | no |
+| AffectedEntity (object) | CQ7 | no |
+| ImpactedRole | CQ8, CQ16 | no |
 | Agent | CQ7, CQ9 | no |
 | InformationObject | CQ18 | weak (one question only) |
 | MechanismModel | CQ18 | weak; should also support CQ10 (why the perspectives differ) |
