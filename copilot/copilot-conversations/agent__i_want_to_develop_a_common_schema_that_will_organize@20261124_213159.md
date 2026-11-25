@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Setup for Harm Ontology v0.03.01 design"
-usage: '{"usedTokens":290067,"contextWindow":1000000,"updatedAt":1795595226095}'
+usage: '{"usedTokens":302851,"contextWindow":1000000,"updatedAt":1795595930539}'
 ---
 
 **user**: i want to develop a common schema that will organize and attach and be extended by individual perspective or discipline schema modules carrying perspective worldview, objects and relations
@@ -2374,3 +2374,176 @@ NOT IN DUL (our namespace, deliberate)
 
 Shall I save this tree as a Proposed note in the v0.03.1 folder, with the caveats as an open checklist?
 [Timestamp: 2026/11/25 01:26:57]
+
+**user**: would corporations (legal singular entities) be social agents?  how about regulatory bodies (like OSHA or the Nuclear Regulatory Comissiion or the FAA) ?
+[Timestamp: 2026/11/25 01:30:15]
+
+**ai**: Yes to both, and the reasons matter for the model.
+
+## What DUL says
+
+DUL defines a **SocialAgent** as an individual whose existence comes from social communicability and its capacity to act, through at least one PhysicalAgent (`actsThrough`). Its own examples include corporations and institutions. So:
+
+- **A corporation is a SocialAgent.** It exists socially and acts through people.
+- **A regulatory body is a SocialAgent.** OSHA, the NRC and the FAA each exist as institutions and act through inspectors, commissioners, certifying officers and so on.
+
+The "through a PhysicalAgent" condition has a practical consequence. A corporation or agency counts as the acting agent of an Action only if we can name, or at least posit, the physical agents through which it acts. Where no individual can be identified, the agent status is itself a gap, and our agency rule applies.
+
+## Legal personhood is a different question
+
+A corporation's *legal* singularity is a status conferred by a legal system, expressed as a Norm or a Right, not a social fact. It is valid in its jurisdiction and contested across them. DUL's SocialAgent describes social existence and capacity to act. It does not decide legal personhood. So for us:
+
+- "Is this a SocialAgent?" is a social-ontology question, answerable from the case.
+- "Is this a legal person, and for what?" is a determination made under a legal perspective, with a jurisdiction and a norm.
+
+This is the same split we already use for roles and harm: the classification is an assessment with a perspective, not a fact.
+
+## What it looks like for the examples
+
+| Entity | DUL class | Acts through | Notes |
+|---|---|---|---|
+| Corporation | `dul:SocialAgent` | employees, officers (PhysicalAgents) | Legal personhood recorded separately as a determination |
+| OSHA / NRC / FAA | `dul:SocialAgent` | inspectors, commissioners | Mandate is a Norm; enforcement is an Action |
+| A regulator's inspection report | `dul:InformationObject` expressing a Description | none (created by an Action) | Our determination, attributed to the agency |
+| A fine or licence suspension | `dul:Action` by the regulator | inspector or commissioner | The act, not the determination |
+| Corporation whose responsible officers can't be identified | `dul:SocialAgent` with a missingness status on `actsThrough` | unknown | Shows the gap rather than hiding it |
+
+## Implications for the tree
+
+- Add an explicit **SocialAgent** branch under Agent, with an `actsThrough` relation to PhysicalAgent, and make regulatory bodies and corporations instances of it.
+- Keep **legal personhood** out of the class hierarchy. Record it as a determination, with a jurisdiction and norm.
+- Regulatory **mandates** are Norms (verify in DUL). An enforcement act is an Action by the regulator.
+
+I haven't verified the DUL definitions of Organization or Norm against the file yet, so those links stay provisional. Shall I add these to the proposed tree as a SocialAgent branch, marked provisional?
+[Timestamp: 2026/11/25 01:30:15]
+
+**user**: im confused wouldnt regulatory bodies an corporations be subclasses with specific regulatory bodies and specific corporations as instances of those?
+[Timestamp: 2026/11/25 01:32:25]
+
+**ai**: You're right. My last answer mixed two levels. Specific bodies are instances, and the kinds they belong to are classes. OSHA, the NRC, the FAA, Boeing and Shell are individuals. Corporation and regulatory body are classes.
+
+There is one further distinction to make. A corporation is a kind of thing. A regulatory body is closer to a role. The same agency is a regulator only while it holds a mandate, and a state-owned company may be a regulator in one matter and a market participant in another. So the two need different treatment.
+
+**A simple test:** could the entity stop being this kind without ceasing to exist?
+- A corporation can be dissolved, merged, or change its purpose, but while it exists, it is still a corporation. That makes Corporation a subclass.
+- An agency can lose or gain regulatory authority while continuing to exist as an institution. That makes "regulator" a role, which DUL models as `dul:Role` classifying an Object or Agent in a Situation.
+
+In DUL terms, the tree would look like this:
+
+```text
+SocialAgent (dul:SocialAgent)
+├── Corporation                       (subclass: a kind of social agent)
+│   ├── Boeing                        (instance)
+│   └── Shell                         (instance)
+├── GovernmentalInstitution           (subclass: kind of institution)
+│   ├── OSHA                          (instance)
+│   ├── NRC                           (instance)
+│   └── FAA                           (instance)
+└── ...
+
+Role (dul:Role)
+├── Regulator                         (classifies a SocialAgent in a Situation
+│                                      with a mandate defined by a Norm)
+└── ...
+```
+
+So the FAA is an instance of GovernmentalInstitution, and it has the Regulator role in situations defined by its mandate. A Regulator role assignment is time-indexed, scoped to a jurisdiction, and comes from a Norm. Legal personhood remains a separate determination, as before.
+
+I haven't verified the DUL definitions of Organization or Norm against the file, so I'd mark GovernmentalInstitution as provisional, along with the Regulator role. Shall I update the proposed tree with this two-level pattern and the role-versus-kind test?
+[Timestamp: 2026/11/25 01:32:25]
+
+**user**: regulator is a role.  perhaps RegulatoryInstitution is the class
+[Timestamp: 2026/11/25 01:34:07]
+
+**ai**: Agreed on the class name, with one refinement. `RegulatoryInstitution` works as a class only if it means an institution *established to regulate*, meaning its kind is fixed by its founding charter or statute. That is similar to how Corporation is fixed by incorporation.
+
+The role then sits on top:
+
+```text
+SocialAgent (dul:SocialAgent)
+└── Institution (provisional)
+    └── RegulatoryInstitution          (kind: established to regulate, by charter or statute)
+        ├── FAA                        (instance)
+        ├── NRC                        (instance)
+        └── OSHA                       (instance)
+
+Role (dul:Role)
+└── Regulator                          (played by a RegulatoryInstitution, or any agent,
+                                        in a Situation, with scope and authority from a Norm)
+```
+
+Two points follow.
+
+1. **The class is defined by a Norm, so membership is partly jurisdictional.** Whether an entity counts as a regulatory institution depends on the statute that founded it, and that is a determination under a legal perspective. The class is stable, but its membership is recorded with a source and a jurisdiction, as with legal personhood.
+
+2. **Regulating can be done by agents outside the class.** A professional body, a self-regulating industry association, or a court can hold the Regulator role in a situation without being a RegulatoryInstitution. Because "regulator" is a role, it can be held by any agent, and the model doesn't need to decide in advance who may regulate.
+
+I haven't checked the DUL definitions of Organization or Norm yet, so I'd still mark the institution branch provisional. Shall I update the proposed tree with this structure?
+[Timestamp: 2026/11/25 01:34:07]
+
+**user**: yes. these points would be carried in the deffinition and description fields
+[Timestamp: 2026/11/25 01:34:48]
+
+**ai**: I've written the proposed class tree to `Harm Ontology v0.03.1/Proposed Class Tree and DUL Alignment.md` and linked it from the master index under section 4.
+
+The note has four parts:
+
+- **The tree**, with each class's DUL alignment as an IRI reference.
+- **Definitions and descriptions** for each class, with the points we've settled carried in the description fields:
+  - `RegulatoryInstitution` is fixed by its founding charter or statute.
+  - `Regulator` is a role any agent can hold, time-indexed and grounded in a Norm.
+  - Corporate and regulatory legal status is recorded as a determination.
+  - Named bodies such as OSHA and the FAA are instances, not subclasses.
+- **Five rules** to carry with the tree: kinds are classes and roles are roles; named bodies are instances; legal status is a determination; no agent means no act; valence stays out of the schema.
+- **Open items**: State (Quality or Situation), ExposureSituation as a social object, verification of the marked classes against the published file, the DUL version, and the licence.
+
+The classes marked provisional are Corporation, Institution, RegulatoryInstitution, Norm and Organization. I haven't checked those against the DUL file yet.
+<!-- copilot-message {"tools":["write (edit): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Proposed Class Tree and DUL Alignment.md","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/_Harm Ontology v0.03.1 Master Index.md"]} -->
+[Timestamp: 2026/11/25 01:34:48]
+
+**user**: lets have a decision for now to clean up receptor vs AffectedEntity.  use AffectedEntity
+[Timestamp: 2026/11/25 01:37:16]
+
+**ai**: Now I'll log the decision in the Decisions Log.I've logged the decision and applied it to the v0.03.1 notes.
+
+- **Decision logged** in `00_Claude_Admin/Decisions_Log.md`, dated 2026-11-25: AffectedEntity replaces Receptor everywhere in the v0.03.1 design. The role of bearing an effect is written as "affected", scoped to a consequence.
+- **Proposed class tree** now uses AffectedEntity in the tree and in the causal-roles line.
+- **Competency-question test note** now uses AffectedEntity in CQ7, CQ8, CQ16, and the coverage matrix.
+
+I did not change the older v3 notes, such as HO-002.a and the draft structure. They still use the earlier wording, so a reader of those notes will see both terms until they are updated.
+<!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Proposed Class Tree and DUL Alignment.md","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Model Structure Test Note - Competency Questions and Coverage.md","edit (edit): 00_Claude_Admin/Decisions_Log.md"]} -->
+[Timestamp: 2026/11/25 01:37:16]
+
+**user**: does affectedentity have similar subclassing to agent?
+[Timestamp: 2026/11/25 01:38:44]
+
+**ai**: No, not in the same way, and the difference is useful.
+
+**Agent is a kind.** An Agent is an agentive Object, and its subclasses (PhysicalAgent, SocialAgent) describe what the thing is. Being an agent does not depend on any particular event.
+
+**AffectedEntity is a role.** Something is affected only relative to a consequence. A river is affected by one spill and not by another, and a person can be affected by one event and not by the next. So AffectedEntity should be a `dul:Role` that classifies an Object, scoped to a consequence, as we already have for Source and Control. That also follows the rule we set: if an entity can stop being this without ceasing to exist, it is a role.
+
+The subclassing that does belong under Object is the **kinds of thing that can be affected**:
+
+```text
+Object (dul:Object)
+├── PhysicalObject / Organism (dul:Organism)
+│   └── Person (a living human, as an individual kind)
+├── Agent (dul:Agent)
+│   ├── PhysicalAgent
+│   └── SocialAgent (Corporation, Institution, RegulatoryInstitution ...)
+└── Ecosystem / NonSentientSystem (provisional)
+
+Role (dul:Role)
+└── AffectedEntity   (classifies an Object in a consequence-scoped Situation)
+```
+
+So the answer to "what kind of thing is affected?" comes from the Object hierarchy, and the answer to "is it affected by this consequence?" comes from the role.
+
+Two points follow.
+
+1. **Affected-ness is a determination.** Whether a collective, an ecosystem or an unborn person counts as affected is contested, so the role assignment is an assessed claim with a perspective, as CQ7 already requires. That is where the Unclassified value belongs.
+2. **Moral standing is not a kind either.** Whether a non-sentient system has standing is an assessment, not a subclass. The earlier v3 approach, which fixed AffectedEntity types as class membership, is the part of the design the role reading replaces.
+
+I haven't checked Organism, Ecosystem or NonSentientSystem against the DUL file, so those stay provisional. Shall I add the AffectedEntity role and this kind-versus-role split to the proposed class tree?
+[Timestamp: 2026/11/25 01:38:44]

@@ -21,6 +21,7 @@ Status key: **Settled** = logged in the decisions log · **Proposed** = drafted,
 - [[Harm Categories Causal Chain Methodology Part 4 philosophy|Part 4: philosophy]] · Scratch
 
 ## 4. Judging layer (Layer 2)
+- [[Proposed Class Tree and DUL Alignment|Proposed class tree with DUL alignment, definitions and descriptions]] · Proposed (IRI reference only; DUL links marked provisional where unchecked)
 - Not yet filed as separate v0.03.01 notes. The consolidated candidate requirements (R1 to R23) and the candidate tree live in chat and need to be filed here once the wording is confirmed.
 
 ## 5. Discipline modules (Layer 3)
