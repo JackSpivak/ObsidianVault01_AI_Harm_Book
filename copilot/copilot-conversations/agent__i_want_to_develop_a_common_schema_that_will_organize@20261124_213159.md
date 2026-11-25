@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Setup for Harm Ontology v0.03.01 design"
-usage: '{"usedTokens":138551,"contextWindow":1000000,"updatedAt":1795586046841}'
+usage: '{"usedTokens":142833,"contextWindow":1000000,"updatedAt":1795586549597}'
 ---
 
 **user**: i want to develop a common schema that will organize and attach and be extended by individual perspective or discipline schema modules carrying perspective worldview, objects and relations
@@ -628,3 +628,68 @@ So the second thing is not a separate kind of causal chain. It is a determinatio
 
 Does this match your intent? If so, I'd suggest recording the type/token split (pattern, container, determination) as a naming rule alongside the assessment/determination rule, since they are the same kind of decision.
 [Timestamp: 2026/11/24 22:53:55]
+
+**user**: i think so. but lets not record yet.   I really like the notion of a causalchainpattern carrying the different roles that people, organizations, situations, events might play in the notion of causation.  would you say that the part 2 document describes how the different standards enshrine this in language and structure.
+
+How much of part 2 can we simply align with and have a crosswalk for language vs a structural gap where something is missing from our model that is identified in a standard or a standard not identifying what is in our model or language that reveals a mismatch in meaning or definition of a given role might define a causalchainpattern?
+
+am i right in saying that part 2 is largely about what you have called CausalChainPattern?  What counts as an element or role in a CausalChain?
+[Timestamp: 2026/11/24 23:02:09]
+
+**ai**: Yes, you're largely right. Part 2 is mostly about roles, the positions an element can occupy in a chain. But it mixes three things that need separating: role vocabulary, the shape each standard gives its chain, and item-level lists such as threat events. Only the first belongs in a CausalChainPattern.
+
+## What counts as a role
+
+A role is a position in a chain, defined by what the element does to what comes next, not by what kind of thing it is. The same factor can be a source in one chain and a condition in another. That matches our CausalRole design, where a factor bears a role in a specific chain.
+
+## The shapes differ, which is itself a finding
+
+Part 2 treats the standards as if they describe one chain. They don't:
+
+- **ISO 14971** is a linear sequence: hazard → hazardous situation → hazardous event → harm.
+- **IEC 31010 (bowtie)** is two-sided: causes on the left, consequences on the right, with barriers between them.
+- **STPA** is a control loop: controllers, control actions, feedback, unsafe control actions, losses.
+- **NIST SP 800-30** is a risk-factor model: threat source, threat event, vulnerability, predisposing condition, likelihood and impact combine into a risk level. It is not a chain at all.
+
+So the pattern must allow more than one shape. Forcing all four into one linear chain would hide the differences that matter.
+
+## Alignment, gaps and mismatches
+
+**Aligned (language crosswalk).** These roles have comparable meaning across standards:
+
+| Role in our pattern | NIST | ISO 14971 | Bowtie | STPA |
+|---|---|---|---|---|
+| Source with capability | threat source | hazard | threat | hazard source |
+| Initiating action | threat event | hazardous event | initiating cause | unsafe control action |
+| Exposure state | (implicit) | hazardous situation | (between cause and top event) | system state |
+| Outcome | adverse impact | harm | consequence | loss |
+| Escalating factor | predisposing condition | (within situation) | escalation factor | (conditions in context) |
+
+**Gaps in our model (standards identify something we lack):**
+
+1. **Controls and barriers.** Bowtie and STPA put these at the centre. We have no role for a barrier, a control action or a safeguard. This is the largest gap.
+2. **Feedback and monitoring.** STPA's feedback loops have no counterpart.
+3. **Intent and targeting.** NIST treats intent and targeting as properties of an adversarial source. Our Agent class has no such attributes.
+4. **Turning point.** The top event (bowtie) and hazardous event (ISO) mark the point where control is lost. We have no explicit role for it, only generic Effect and trigger roles.
+5. **Predisposing condition versus vulnerability.** NIST separates an organisation-level condition that makes events likelier from a specific weakness. We have Condition and receptor Vulnerability but do not distinguish these.
+
+**Gaps in the standards (we identify something they lack):**
+
+1. **Answerability.** STPA deliberately avoids assigning blame. Our CausalRole has answerableAgent. This is a deliberate difference, not an error on either side.
+2. **Information objects.** The testimony case, where a record carries error forward, appears in no standard we checked.
+3. **Perspective and horizon.** The standards assume one analyst's chain. They don't model whose chain it is or where it was stopped.
+4. **Many-to-many links.** NIST notes these explicitly, but its chain-free model doesn't represent them.
+
+**Meaning mismatches (same word, different role):**
+
+1. **Hazard.** ISO's hazard is a source capacity, STPA's is a system state, and in practice it is used for whole chains. This is the naming problem we have been circling.
+2. **Harm and loss.** ISO's harm is injury to people or property. STPA's loss is organisational or mission-level. Our AdverseImpact needs to say which.
+3. **Danger and victim.** Part 1 used "harmful situation" and "victim". Those words carry valence and should be replaced with exposure and affected entity.
+4. **Severity and likelihood.** In ISO and NIST these are assessed determinations, but our model treats severity as an attribute of Effect (HO-I.b). That makes an assessed quantity look neutral, which is a meaning mismatch to fix.
+
+## Caveats
+
+I checked NIST, ISO 14971 and STPA against secondary sources. The bowtie and ISO 31000 points are from memory, and Part 2 contains errors, as noted earlier. These mappings should be checked against the primary standards before anything is recorded.
+
+If you agree with this split, the next step is to turn the gaps into a short list of candidate roles (controls, feedback, turning point, intent) and test each against a real case, without recording anything yet.
+[Timestamp: 2026/11/24 23:02:09]
