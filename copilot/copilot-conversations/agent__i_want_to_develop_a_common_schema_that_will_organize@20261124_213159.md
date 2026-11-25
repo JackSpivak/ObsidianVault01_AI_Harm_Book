@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Setup for Harm Ontology v0.03.01 design"
-usage: '{"usedTokens":219844,"contextWindow":1000000,"updatedAt":1795593328518}'
+usage: '{"usedTokens":232636,"contextWindow":1000000,"updatedAt":1795593643804}'
 ---
 
 **user**: i want to develop a common schema that will organize and attach and be extended by individual perspective or discipline schema modules carrying perspective worldview, objects and relations
@@ -1973,3 +1973,47 @@ The divergence question you raised earlier, "which two perspectives differ at ho
 
 Shall I pull the existing competency questions from HO-002.a and CQ9, map them against this matrix, and show which layers they leave uncovered?
 [Timestamp: 2026/11/25 00:55:19]
+
+**user**: Maybe we need a note for testing the model structure and pull the competency questions, key insights from this part of the conversation there as well as the work we are about to do on this matrix
+[Timestamp: 2026/11/25 00:59:28]
+
+**ai**: I created the test note at `Harm Ontology v0.03.1/Model Structure Test Note - Competency Questions and Coverage.md` and linked it from the master index under section 6, Test cases. It is marked Proposed and not logged.
+
+The note contains:
+
+1. **Competency questions.** CQ1 to CQ9 are carried over from HO-002.a and the ledger, with their pass criteria referenced rather than copied. CQ10 to CQ18 are new, drawn from this session: divergence at a horizon, realised versus projected, relevance and weight, exposure, condition, causal boundary, consent, remedy, and information carrying error.
+2. **Sufficiency test.** Four checks a question must pass to stay in the set: answerable from the schema, attributable, traceable to a stakeholder, and testable on a case.
+3. **Coverage matrix plan.** Every class must answer at least one question, every question must map to a class, and every question family must run on two or more cases.
+4. **Candidate determination classes.** The question-answered axis, with causal boundary and horizon kept as declared parameters.
+5. **Case table.** Each test case and its main result, with the 2008 crisis sketch linked as scratch.
+6. **Key insights.** Act versus output, harm versus harmfulness, richness split across vocabulary and schema, settled past versus open future, and assessments as inputs to acts rather than factors.
+7. **Open questions and next steps.**
+
+One caveat: the CQ wording in section 2.1 is a short paraphrase. The authoritative wording and pass criteria remain in HO-002.a, so check any CQ against that note before relying on it.
+
+The next step is building the coverage matrix. Shall I start it with CQ1 to CQ18 against the candidate classes?
+<!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology","write (edit): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Model Structure Test Note - Competency Questions and Coverage.md","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/_Harm Ontology v0.03.1 Master Index.md"]} -->
+[Timestamp: 2026/11/25 00:59:28]
+
+**user**: ok.  lets go ahead with the matrix you suggested
+[Timestamp: 2026/11/25 01:00:16]
+
+**ai**: I've built the coverage matrix and added it to the test note as section 4a. It checks both directions: every competency question against the classes that answer it, and every class against the questions that use it.
+
+**Results**
+
+- **Answered by design (on paper):** CQ1, CQ5, CQ8, CQ9, CQ10, CQ15. These depend on a few classes still at proposal stage.
+- **Partly answered:** CQ2, CQ3, CQ4, CQ6, CQ7, CQ11, CQ12, CQ16, CQ17, CQ18. Each is missing a defined class or rule.
+- **Gaps:** CQ19 and CQ20 were added to cover the two orphan classes, Control and CapabilityAssessment, which no question used.
+
+**Three things the matrix changes**
+
+1. **The orphans are a question problem, not a class problem.** Control and CapabilityAssessment came from the fire-door and dealer cases, which were real. The structure lacked questions that would use them. Adding CQ19 and CQ20 gives them a job.
+2. **Missing classes for the partly answered questions:** Procedure and Evidence (for CQ3, agreement), a revision trigger (CQ4), an efficacy determination for controls (CQ19), and an error or provenance relation on InformationObject (CQ18).
+3. **Weak classes:** InformationObject and MechanismModel answer one question each. The dispatcher and dealer cases suggest they should answer more, so I'd keep them and strengthen their links.
+
+**Caveat:** "Answered" means the structure yields the answer on paper. Most of those answers depend on the determination classes that are still proposals, so only a case run can confirm them.
+
+Shall I run the matrix against the surgeon-sued case next, to check whether the Answered rows hold up when a real case is applied?
+<!-- copilot-message {"tools":["edit (edit): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Model Structure Test Note - Competency Questions and Coverage.md"]} -->
+[Timestamp: 2026/11/25 01:00:16]

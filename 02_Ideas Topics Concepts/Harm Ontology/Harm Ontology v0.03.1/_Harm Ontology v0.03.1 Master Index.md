@@ -27,6 +27,7 @@ Status key: **Settled** = logged in the decisions log · **Proposed** = drafted,
 - Not yet started for v0.03.01. Earlier discipline work is in the parent `Harm Ontology` folder and will be linked here when reviewed.
 
 ## 6. Test cases
+- [[Model Structure Test Note - Competency Questions and Coverage|Model structure test note: competency questions, case tests, coverage matrix]] · Proposed
 - Scratch: Fire door case, dinner party case, dealer case, 2008 crisis extraction test (`Scratch - 2008 Crisis Extraction Test Sketch.md.bak`, a non-.md scratch file; not part of the note graph).
 
 ## Naming rules in use (proposed)
