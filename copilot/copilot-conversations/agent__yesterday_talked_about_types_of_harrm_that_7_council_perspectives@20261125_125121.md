@@ -7,7 +7,7 @@ topic: "v0.03.01 explore harm types"
 model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":354453,"contextWindow":1000000,"updatedAt":1795640092574}'
+usage: '{"usedTokens":355787,"contextWindow":1000000,"updatedAt":1795640512379}'
 ---
 
 **user**: yesterday talked about types of harrm that 7 council perspectives brought to v1 and v2 and interdisciplinary harm ontology and formal harm ontology that we moved away from as we shifted structure to implement our core commitment v3.1 to hold all harms as HarmDeterminations - the result of perspective generated assessments.
@@ -523,3 +523,28 @@ Two things are being conflated, and they call for different responses:
 
 The mixed option (C) makes the second more visible, because the facets only show up once a determination has been made. Under option B, the class tree gives a starting point, but the lens-specific classes decide in advance what counts as a finding.
 [Timestamp: 2026/11/25 13:54:47]
+
+**user**: lets test this further.  ultimately - i would like to see this ontology function:
+1. as a source of very logical guidance on what types of possible harms exist (somewhere out in concept space and already identified in thousands of years of discourse across various critical disciplines and professional and scholarly endeavors)
+2. be able to map those various possible types of harm to the situations presenting in the test cases
+3. to produce an output report/analysis that documents a subset of the possible harms to produce the AssessedHarms
+
+I see this as a problem of reducing a solution space to only include relevant harms.
+[Timestamp: 2026/11/25 14:01:44]
+
+**ai**: Your three functions form a pipeline, and the epistemic problem sits at the join between steps 2 and 3.
+
+**Step 1, the candidate space,** is a catalogue of harm types. That can be built from the discipline vocabularies without any case in hand.
+
+**Step 2, mapping types to a case,** is where the circularity you described appears. A query can only test a type against facts that have already been recorded. If the case is only partly recorded, the query returns partial results, and the querier may not notice what's missing.
+
+**Step 3, reducing to the relevant set,** needs a selection rule. Any rule that picks the relevant types must rely on case facts. So the knowledge needed to reduce the space is the knowledge the reduction is meant to produce.
+
+One way out is to put the knowledge in the types rather than in the querier. Each harm type carries preconditions: what must be true for the type to apply (for example, a rights holder, a function, or a recorded exposure). A query can then run over every type and report which preconditions are met, unmet, or unknown. The querier doesn't need to know the facts in advance, because the query enumerates the types and checks each one. The missingness statuses already in the model would show what's unknown.
+
+That turns your concern into something testable, though it has limits. The preconditions are themselves contestable, and they depend on perspective, so they would have to be assessed rather than assumed.
+
+A first test would be one case, such as the fire door or the surgeon. Take the candidate types from the vocabulary, write a precondition for each, and see how many come out met, unmet or unknown. If most come out unknown, the epistemic problem is real and the design needs a different approach. If the unknowns are few and clearly named, the approach holds for that case.
+
+Which case would you like to test first?
+[Timestamp: 2026/11/25 14:01:44]
