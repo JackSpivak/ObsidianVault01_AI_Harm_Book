@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Setup for Harm Ontology v0.03.01 design"
-usage: '{"usedTokens":329308,"contextWindow":1000000,"updatedAt":1795598294584}'
+usage: '{"usedTokens":334316,"contextWindow":1000000,"updatedAt":1795598903460}'
 ---
 
 **user**: i want to develop a common schema that will organize and attach and be extended by individual perspective or discipline schema modules carrying perspective worldview, objects and relations
@@ -2920,3 +2920,111 @@ Divergence between them is still a real finding. A perspective that judges only 
 
 It also raises a question for other cases. A tribe, a herd and a corporation may all have qualities that are not reducible to their members, so "emergent whole" may be a kind of bearer in its own right, not only a flock feature. I'd test that on the next case rather than add a class now. Shall I record the flock as an emergent whole with constituted members, and the three targets, as a proposal?
 [Timestamp: 2026/11/25 02:18:05]
+
+**user**: harm to an emergent whole is essential to be able to capture. wholes have properties, behaviors and capabilities that exceed the "sum of the parts".   it is exactly that emergent whole of defensive and offencive capability that is shattered when a millitary formation breaks ranks and scatters upon being attacked
+[Timestamp: 2026/11/25 02:20:44]
+
+**ai**: Yes, and the formation example shows something the model has not yet captured. Harm can fall on the **unity** of a whole, not only on its parts or its capabilities.
+
+When the formation breaks ranks, most soldiers may be unhurt. What is destroyed is the formation's coordinated fire, its cover and its ability to hold a line. That capability depended on the whole's unity, which here came from command and control and coupling. The attack did not need to wound the members. It needed to break the coupling.
+
+That changes two things in the design.
+
+**1. Unity is a state, not only a property.** I recorded `unitySource` as a fixed property of a collective. But a formation's unity can be intact or broken, and it can change over minutes. So the unity itself needs a time-indexed state: intact, degraded, broken. A HarmDetermination can then target the loss of unity directly. A flock's cohesion, a herd's coherence and a corporation's operating coherence all work the same way.
+
+**2. The harm mechanism can target the unity source.** Cutting a command link, scattering a flock, or splitting a board attacks the source of the whole's unity. This is a distinct kind of causal step, and it sits between the act and the loss of capability. The chain runs: attack, then breakdown of coupling or command, then loss of unity, then loss of capability. Each step is a separate node that can be assessed.
+
+This also brings out a third target I had not included. Harm to a whole can take three forms:
+- **Capability loss:** the whole can no longer defend, navigate or manoeuvre.
+- **Unity loss:** the whole no longer acts as one.
+- **Persistence loss:** the whole ceases to count as the same whole (the formation dissolves into a crowd of individuals).
+
+Persistence needs care. A flock that scatters may re-form, so whether it has "ended" is an assessed question, with a persistence condition stated in the whole's definition.
+
+Members' individual states remain separate targets, and divergence between them is still a real finding. An assessment that counts only casualties will report the formation as intact, while one that counts capability will report it as destroyed.
+
+I'd record this as a proposed decision: emergent wholes are bearers, their harm can target capability, unity, or persistence, and unity is a time-indexed state linked to the unity source. Shall I log it?
+[Timestamp: 2026/11/25 02:20:44]
+
+**user**: i am glad that dul helps clarify this.  its not clear to me what to do with our model.  i think it should be easier to declare the identity of who or what bears the adverseEffect
+[Timestamp: 2026/11/25 02:22:34]
+
+**ai**: Yes, that is the simpler design, and it makes the model easier to use.
+
+Each HarmDetermination should declare three things directly:
+
+1. **The bearer:** `hasBearer`, which points to the entity that bears the harm. Any kind of Entity can be a bearer: a person, a corporation, a flock, a formation, an ecosystem.
+2. **The state judged:** `judgesState`, which points to the time-indexed state that is judged harmed. For a person it might be bodily integrity. For a flock it might be its evasive capability or its unity.
+3. **The horizon:** the temporal horizon the judgement applies to.
+
+The ImpactedRole then does a different job. It records that the bearer is classified as impacted by a particular consequence, in the scope of a situation. So the determination declares who is harmed, and the role records why that bearer is in scope for that consequence.
+
+The bearer's identity is held in its own definition: what kind it is, and what fixes its persistence over time. For a flock, the persistence condition says when it is still the same flock. For a corporation, it is incorporation. This keeps harm declarations simple and puts the hard identity questions where they belong.
+
+A short example, using the formation:
+
+```text
+HarmDetermination_17
+  hasBearer      → Formation_3rdPlatoon       (EmergentWhole)
+  judgesState    → UnityState_3rdPlatoon_t2   (degraded: broken ranks)
+  atHorizon      → H_1hour
+  assessedBy     → AssessorX, perspective P_military
+
+HarmDetermination_18
+  hasBearer      → Soldier_07                 (NaturalPerson)
+  judgesState    → SomaticState_07_t2         (no injury recorded)
+  atHorizon      → H_1hour
+```
+
+Those two determinations, on the same event, carry the divergence between the whole and its members without any extra machinery.
+
+The trade-off is that a declared bearer can be wrong, so the declaration is itself an assessed claim, with a basis. That is the same rule as before, and it is easier to keep than an implicit bearer inferred from roles.
+
+Shall I record this as a proposed decision: each harm determination declares bearer, judged state and horizon, and the ImpactedRole only scopes the bearer to a consequence?
+[Timestamp: 2026/11/25 02:22:34]
+
+**user**: so i am still back to the original problem.  dont' we have an object (in dul sense) or an event or a situation that can be the bearer of an effect
+[Timestamp: 2026/11/25 02:25:29]
+
+**ai**: Yes, and that is the right way to state the problem. The bearer can be any DUL entity that can have a state affected. In practice that means three kinds, and each has its own kind of state.
+
+| Bearer kind (DUL) | Example | What the harm affects |
+|---|---|---|
+| **Object** | a person, a flock, a formation, a corporation, a river | the object's own qualities: health, capability, unity, solvency |
+| **Situation** | an ecosystem defined by a description, a causal chain, a market, a legal proceeding | whether the situation still satisfies its description: the ecosystem stops functioning as one, the market loses its equilibrium |
+| **Event** | a negotiation, a rescue operation, a concert, a process such as a surgery | its course or outcome: it is interrupted, derailed, or ends in a different state |
+
+So the earlier "back to the original problem" is real: the bearer is not always an Object. We were leaning toward Object because most of our examples were objects, but Situations and Events can also bear effects, and they bear them differently.
+
+The practical consequence is that `hasBearer` should range over **Entity**, not Object. The judged state then depends on the bearer's DUL kind:
+- for an Object, the state is one of its Qualities (a capability, a bodily or social condition);
+- for a Situation, the state is its satisfaction of its description (it still holds, or it has failed);
+- for an Event, the state is its progress or outcome (interrupted, derailed, completed with a different result).
+
+This keeps the simple declaration we agreed (bearer, judged state, horizon), and the bearer's DUL kind tells the reader what kind of state to expect. A query can then ask for harms to objects only, or to situations only, without new classes.
+
+One caution: a Situation or Event as bearer is more often a judgement about function than about injury, so it will be contested more often. That is an assessed claim, and the divergence machinery already handles it.
+
+Shall I record this as a proposed decision: `hasBearer` ranges over Entity, and the judged state is determined by the bearer's DUL kind?
+[Timestamp: 2026/11/25 02:25:29]
+
+**user**: wait a minute. isnt an impairment or undesirable modification of function an injury/harm.  i am thinking that this would apply well to cyber harms that damage function
+[Timestamp: 2026/11/25 02:28:16]
+
+**ai**: Yes. Impairment of function is a kind of harm, and in many cases it is the main one. It is also the kind of harm cyber attacks produce most often. A ransomware attack on a hospital may injure no one directly, but it impairs the function of its systems, and that impairment is the harm.
+
+This suggests a broader set of state types for bearers, not just bodily or pecuniary ones. The most general is **functional state**: the bearer's capacity to perform what it is for.
+
+That also solves the Object, Situation and Event problem in one step. Each bearer kind has a function:
+- an **Object** has functions: a pump pumps, a server serves, a person can see and walk;
+- a **Situation** has a function in satisfying its description: a market allocates, a chain of causation traces what it selects;
+- an **Event** has a function in its course: a negotiation reaches agreement, a rescue succeeds in its purpose.
+
+A harm is then an **undesirable modification of function**, judged against the function the bearer is assigned.
+
+There is one important caveat: functions are not facts in the world. A server is for serving the hospital, but for an attacker it may be a launch point, and for a regulator it may be a compliance asset. The function is assigned from a perspective, so "impairment" is always relative to a function someone has assigned. That fits the rest of the design: the function is a Description of what the bearer is for, the impairment is an assessed claim, and divergence appears when two perspectives assign different functions to the same bearer.
+
+For cyber harm, this gives us a clean way to express the classic dimensions (availability, integrity, confidentiality) as aspects of the same function state, rather than as separate harm types. Loss of availability is an impaired function; corruption is an impaired integrity of the function's output; disclosure is an impaired confidentiality of the function's data.
+
+Shall I record this as a proposed decision: functional state is a bearer state type applicable to any bearer kind, with functions assigned by a perspective and impairment as a harm?
+[Timestamp: 2026/11/25 02:28:16]
