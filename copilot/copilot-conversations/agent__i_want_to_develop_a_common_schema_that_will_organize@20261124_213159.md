@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Setup for Harm Ontology v0.03.01 design"
-usage: '{"usedTokens":309948,"contextWindow":1000000,"updatedAt":1795596528223}'
+usage: '{"usedTokens":314442,"contextWindow":1000000,"updatedAt":1795596965743}'
 ---
 
 **user**: i want to develop a common schema that will organize and attach and be extended by individual perspective or discipline schema modules carrying perspective worldview, objects and relations
@@ -2652,3 +2652,78 @@ That keeps the subclass tree small and puts the contested judgement, whether a g
 
 I haven't checked DUL's exact definition of CollectiveAgent, so that needs confirming before we rely on the name. Shall I write this as the working rule in the proposed tree, with the crowd and the one-person company as the test cases?
 [Timestamp: 2026/11/25 01:48:39]
+
+**user**: i am concerned by the crowd there may be no formal organized agency but when someone yells fire the crowd moves with distributed agency but as a collective distribution of force.  people can be trampled and fences/blockades pushed over. at a higher level popular revolts topple governments sometimes without formal organized structures
+[Timestamp: 2026/11/25 01:52:54]
+
+**ai**: You're right, and my rule was too narrow. Requiring a decision procedure treats agency as something only organisations have. A crowd that moves together, pushes over fences and topples a government is doing something, with consequences, even though no one decided it. The question is how the model should represent that.
+
+## Two kinds of collective, not one
+
+- **Organised collective:** an entity with a procedure that makes its acts its own (a corporation, a regulator, a union). Its unity comes from its decision procedure, so it can be the agent of an Action, and its answerability can be assigned to the procedure.
+- **Emergent collective:** a plurality whose members' acts are coupled, so the group produces effects that no single member intended. Its unity comes from the coupling, not from a procedure. A crowd, a stampede or a revolt belongs here.
+
+The crucial design choice is that **the emergent collective is not automatically an agent**. Whether a crowd counts as an agent is a contested claim. A sociologist of collective behaviour may treat it as one. A court may treat each person as the only actor and find no one collectively liable. Both can be right within their perspective. So the claim belongs in an assessment, not in the class hierarchy.
+
+## How the crowd would be modelled
+
+The crowd's movement is best modelled as an **Event** with many participants, which DUL supports directly:
+
+- Each person's push is an **Act** (an agentive action, with the person as participant), where the person is the agent.
+- The stampede as a whole is an **Event** (a process of coupled movement), with those people as participants, linked by `dul:coparticipatesWith`.
+- The fence toppling is an **Effect**, and the people affected are **AffectedEntities**.
+- The person who yelled "fire" is an **Act** that triggered the coupling, and so a causal role (trigger) in the chain.
+- Whether the crowd is itself a `CollectiveAgent` is an **assessed claim**, recorded with its assessor and perspective.
+
+This keeps the individual acts separate and gives answerability a place: it can be assigned to the trigger, to each actor, or to the group, depending on the perspective.
+
+## Test cases
+
+| Case | Organised collective | Emergent collective | Note |
+|---|---|---|---|
+| Corporation's board decision | Yes | No | Procedure gives unity |
+| Stampede after "fire" is yelled | No | Assessed claim | Coupled acts; no procedure |
+| Revolt that topples a government | Sometimes (if organised) | Often | Many revolts have both an organised core and an emergent mass |
+| A herd moving together | No | Assessed claim, probably not | Plurality of physical agents |
+
+## What this means for the rules
+
+- Replace "collective means a decision procedure" with two rules: organised collectives have a procedure, and emergent collectives have coupled acts. Both are assessed, not asserted.
+- Model crowds as Events with many agentive participants before deciding whether to call them agents.
+- Keep answerability distributed: record it per actor, per trigger, and for the group, each as a separate assessed claim.
+
+I haven't checked DUL's definition of CollectiveAgent against the file, and it may not fit the emergent case, so that name stays provisional. Shall I record this as the working rule, with the stampede and the revolt as test cases?
+[Timestamp: 2026/11/25 01:52:54]
+
+**user**: i want to keep pressing because this is also relevant in attack vectors.   a drone swarm, a swarm of bees, a cyberbot swarm, a botnet (which is probably more of an object with definable parts and an organizing capability  also, herds and tribes of people have agency and act as a collective
+[Timestamp: 2026/11/25 01:55:52]
+
+**ai**: Yes, and these cases show that my two-way split was too coarse. A drone swarm, a bee swarm, a botnet and a tribe all count as collectives, but the thing that gives them unity differs in each case. So I'd replace "organised or emergent" with a property that records **what makes the group act as one**.
+
+## Four sources of unity
+
+| Source of unity | How it works | Examples |
+|---|---|---|
+| **Procedure** | A formal decision process makes the group's acts its own | Corporation, state, board |
+| **Command and control** | One controller issues commands to members, who execute them | Drone swarm under an operator, botnet under a botmaster, military unit |
+| **Coupling** | Members respond to each other or their environment by local rules, with no controller | Bee swarm, flock, stampede, crowd |
+| **Norms and roles** | Shared practices, identity and recognised leaders give the group a common course | Tribe, clan, community, herd with a leader |
+
+Each source has a different locus of answerability. A procedure points to the institution, command and control points to the controller, coupling spreads answerability across the members, and norms point to the community's recognised authorities.
+
+## Applying it to the attack cases
+
+- **Botnet:** the devices are the parts of a Collection (DUL `hasMember`). The organizing capability is a Role (command and control) held by an agent, the botmaster. The botnet is therefore not itself an agent. It is a configuration of parts and a mechanism that the botmaster uses. The attack is the botmaster's Act, executed through the botnet.
+- **Drone swarm:** if an operator directs it, the swarm is a Collection under a command-and-control role. If the drones are autonomous, each drone is an AutonomousSystem (provisional, and its agency is a contested claim), and the swarm's unity may come from coupling or from the software that sets the rules. That is an assessed question.
+- **Cyberbot swarm:** the same question as the drone swarm. Where the unity lies (controller, coupling or shared code) is a claim to assess, not a fact to assert.
+- **Bee swarm:** coupling, with no controller. The bees are PhysicalAgents (organisms), and the swarm's behaviour is an Event with many participants, linked by `coparticipatesWith`.
+- **Herds and tribes:** tribes have norms, roles and recognised leaders, so their unity comes from norms. A herd is more like coupling, with a leader in some species. Tribes are closer to `dul:Community` or `dul:Group`, which I still need to check against the file.
+
+## What this changes in the model
+
+- Replace the binary collective flag with a **unity source** property (procedure, command and control, coupling, norms), plus a **unity locus**: the agent or rule that holds the unity, which may be nobody.
+- Treat a configuration of parts under a controller (botnet, drone swarm) as a Collection with a controlling Role, not as a CollectiveAgent in its own right.
+- Keep whether a group counts as an agent as an assessed claim, with an assessor and a perspective, as before.
+
+The unity-source property does the work that the matrix and the procedure rule could not. It also explains why attack vectors are hard: the attacker's leverage is often a control point, not the parts. Shall I record the four sources of unity as the working rule, with the botnet and the bee swarm as the test cases?
+[Timestamp: 2026/11/25 01:55:52]
