@@ -7,7 +7,7 @@ topic: "v0.03.01 explore harm types"
 model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":449402,"contextWindow":1000000,"updatedAt":1795643865012}'
+usage: '{"usedTokens":491729,"contextWindow":1000000,"updatedAt":1795644503364}'
 ---
 
 **user**: yesterday talked about types of harrm that 7 council perspectives brought to v1 and v2 and interdisciplinary harm ontology and formal harm ontology that we moved away from as we shifted structure to implement our core commitment v3.1 to hold all harms as HarmDeterminations - the result of perspective generated assessments.
@@ -1058,3 +1058,714 @@ Two nearby classes were considered and rejected:
 **Next steps:** repeat the runs to measure variance, look for a term that appears in a parent definition but in no child definition, and then write a parent-only text around it.
 <!-- copilot-message {"tools":["read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE B FLAT (no subclass links).ttl","subagent (think)","Relational test: HIER / T1: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE B (names coded, definitions only).ttl","Relational test: HIER / T2: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE B (names coded, definitions only).ttl","Relational test: HIER / T3: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE B (names coded, definitions only).ttl","Relational test: HIER / Control C: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE B (names coded, definitions only).ttl","Relational test: FLAT / T1: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE B FLAT (no subclass links).ttl","Relational test: FLAT / T2: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE B FLAT (no subclass links).ttl","Relational test: FLAT / T3: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE B FLAT (no subclass links).ttl","Relational test: FLAT / Control C: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE B FLAT (no subclass links).ttl","write (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Nonce Test - Relational.md"]} -->
 [Timestamp: 2026/11/25 14:56:28]
+
+**user**: your answers are comprehensive and i have to read all more thoroughly.  can you summarize breifly whether or not the mappings accomplished were or were not really benefitted by the ontology or almost exclusively by the semantics of the narrative content?
+[Timestamp: 2026/11/25 15:00:19]
+
+**ai**: The ontology gave the mappings structure, but the matching itself came almost entirely from the narrative text.
+
+**What the ontology contributed:**
+- Codes and names that could be cited, so each match points to a specific class.
+- A stable set of candidates that every run chose from, so runs could be compared.
+- Parent-child links, which the relations test showed had little effect on the answers.
+
+**What the narrative contributed:**
+- Every decisive match rested on a quoted definition. The subagents' rationales relied on definition wording, and the scope notes and history notes mainly supported rejections.
+- Removing names and history notes did not change the core matches, so the definitions carried the matching.
+- Where the runs disagreed, the disagreement came from how the definitions read against the text.
+
+**The qualification:** the ontology's value is in the vocabulary of classes and definitions, which is the narrative in a different form. The structure (the hierarchy and the property links) did little work in these runs. The test couldn't show whether structure helps in cases where the definitions are ambiguous or the answer depends on navigating several links.
+[Timestamp: 2026/11/25 15:00:19]
+
+**user**: is there a different way to formulate the original vague "map this text to the ontology" request that would require the LLM to use and navigate the structure of the ontology to provide more or better matches?
+[Timestamp: 2026/11/25 15:02:10]
+
+**ai**: Yes. The vague request lets the model match on definitions alone. A more specific request can make it walk the structure, and then the test can tell whether the structure changes the answers. Here are three versions, from least to most constrained.
+
+**1. Traversal prompt.** Make the model walk the hierarchy before it matches:
+> First list the top-level classes. For each top-level class, list its subclasses. Descend only into a branch whose definition or whose child classes are relevant to the text. For each candidate, record the path from the root to the class. Then choose the most specific class on a path that fits.
+
+This makes the parent-child links do work. It also tests the earlier finding directly: a parent can be chosen only when the model has descended into the branch and found no child that fits.
+
+**2. Property-checking prompt.** Make the model test the class's property assertions against the text:
+> For each candidate class, check its properties (for example hasVictim, hasPerpetrator, hasObjectOfHarm, hasTemporalTrajectory) against the facts in the text. Accept a class only if the text supports its properties. Where a property cannot be checked from the text, mark it unknown rather than assuming it.
+
+The v1 file carries these assertions on most classes, and the earlier runs ignored them. Requiring them makes the model use structure the definitions don't contain. It also exposes the missingness question directly: unknown is a different answer from absent.
+
+**3. Structured-output prompt.** Require a fixed output per harm: the path from root to class, the properties checked with values, the definitions quoted, and a list of rejected candidates with the structural reason for each rejection. This makes the reasoning auditable, so you can check whether a cited property was really in the file.
+
+**How to test it.** Run the same texts, on the same file (NONCE B, with and without the hierarchy), under the vague prompt and under the structured prompts. The comparison that matters is whether the structured versions change any match, not whether they look more thorough. A longer answer that picks the same classes shows the structure didn't contribute.
+
+**Limits.** Even structured prompts ask the model to traverse the structure; they don't force it to. A prompt can make the model cite a property, but the model may still choose the match from the definition and then add the property afterwards. The output schema makes that visible, and checking the cited properties against the file would show it. If the prompts can't produce different answers, the next step is a query-based method, where SPARQL does the traversal and the model only reads the results.
+
+I'd start with option 2, since it tests the structure the earlier runs ignored.
+[Timestamp: 2026/11/25 15:02:10]
+
+**user**: can you please provide an explicit structured prompt to use and then go ahead with this test and record both the prompt, the rationale  you described above and methodology and results in a new test note named appropriately
+[Timestamp: 2026/11/25 15:05:10]
+
+**ai**: I'll write the structured prompt first, then run it and the vague prompt on the same five texts under the same file, so the two can be compared directly.**Scope:** I read the single nonce file in full and used only its coded classes, properties, and `skos:definition` text. Codes are given without names. Where a value is only partly determined by the file, I say so.
+
+## Mapping of the text
+
+The text describes a self-reinforcing decline (families leave, the school weakens, more families leave) that ends in closure, with no decision-maker and no single cause.
+
+| Text feature | Ontology element | Basis in file |
+|---|---|---|
+| Cumulative loop where each departure weakens the school further | **H-088** (static vs. self-reinforcing cascade), value **H-089** | H-092 links H-088 to H-089 |
+| No one decided; lock-in of collective outcome | **H-092** (systemic: unpriced byproduct / collective lock-in), under **H-087** | Definition: "rational individual incentives lock all players into a mutually destructive outcome" |
+| No ill will, structural incentives | **H-090**, value **H-091** (structural / no malice) | H-092 links H-090 to H-091 |
+| No single act caused it | **H-052** (causation), value **H-077** (structural attribution) | H-052 definition lists structural attribution; H-077 is used as the structural value in H-076 and H-082 |
+| Diffuse loss across many families crossing a tipping point together | **H-047** (diffuse vs. concentrated), value **H-061** | Definition of H-047 matches the tipping-point pattern |
+| Loss of a systemic capability (education) that prevents functioning | **H-082**## Mapping the text onto the ontology
+
+The text describes an official telling a person that the rules do not apply to her, and her standing as someone owed equal protection being denied. It also states that nothing was taken from her.
+
+**Primary class: H-075** (under H-072, the rights/moral-status domain). Its definition: "a person's formal legal or constitutional right is violated, even though they suffer zero physical pain, financial loss, or emotional distress." This fits the text directly. The denial of equal protection is a rights violation, and the text explicitly says there was no loss of goods.
+
+**Secondary candidate: H-076** (under H-072). Its definition covers harm to a person as a knower and communicator, through cred (systemic barrier), under **H-079** | Definition: "lack of education … thatibility deflation "due to prejudice." The phrase "people like her" suggests a group-based bas prevent individuals from converting basic resources into real human functioning" |
+| Closure of the building, the## Mapping of the "Whitey On The Moon" text to the ontology (NONCE B)
+
+**Scope and limits.** I read only the single ontology file you specified. Classes and properties are coded, and the file gives definitions (`skos:definition`) but no labels. So every mapping below is by code and by definition. Where a definition fits only loosely, I say so. I did not use outside knowledge of the text's source or context.
+
+### Top-level domains in the file
+
+| Domain | Definition (from file) | Relevance to text |
+|---|---|---|
+| H-001 |is for the denial, but the text does not describe a credibility or knowledge-based injury, so this f asset is lost | **H-014** asset, range Relational setback to conscious experience, welfare, rights, flourishing, or systemic equilibit is weak.
+
+**Classes considered and not supported by the text:**
+- H-073 (Kantian inst class **H-124** | H-014 definition covers relational/economic assets |
+| Families (rium | Root for all harms belowrumentalization): requires coercion, deception, or manipulation, none ofdirect) and the wider district (secondary) | **H-012** relational position: |
+| H-002 | Harm strictly through subjective phenomenology | Pain, sw which appear.
+- H-078 (fiduciary disloyalty): no trusted ag direct target (**H-013**) and secondary relational victims (**H-028**) |elling, "nervous wreck" |
+| H-036 | Objective harm: setback to vital stakes orent acting against a beneficiary is described.
+- H-009 H-012 definition |
+| Objective setback, even if unperceived | **H-005 baseline, even if unperceived | Unpaid bills, rent, lost money and H-002 (subjective pain or** (objective), **H-038** | H-036 uses this, infestation |
+| H-072 | Harm as violation of form distress): the text says no distress is stated.
+- H-079 bran pairing |
+| Permanence of the closure | **H-055** (al rights and rational autonomy | Possible tenancy-ch (deprivation of goods or capabilities): the text saysreversibility), range **H-111** | The file does not say whether H-056 or H-057 rights reading |
+| H-079 | Harm as blocked fl nothing was taken, so the deprivation classes do not apply.is the irreversible value, so I do not assign one |
+
+**Top-level domain:** H-087 (systemicourishing, capability, or future existence | No hot water, toilets, or
+
+## Property profile (from the H-075 class assert destabilization of a network or incentive structure), with H-079 (structural, com light; lack of care |
+| H-087 | Harm as systemic destabilization of a complex systemions)
+
+| Property | Value | Basis in the ontology |
+|---|---|---|
+| Subjparative-across-time deprivation) as a secondary f or incentive structure | Taxes, food prices, "whitey on the moon" as a distective/objective (H-005) | H-038 (objective) | H-075 isit.
+
+**Not supported by the text:** H-092 is the main class, but the text doesant structural source |
+
+### Harm mapping
+
+| # | Text segment | Har linked to H-038; no awareness is need not show a deliberate or malicious actor,m class(es) | Property codes (values) | Basis ined for the harm |
+| Relational position (H-012) | H-013 (direct target) | H-075 is lin so no intent-based class (H-116 malicious values) is ass definitions | Confidence |
+|---|---|---|---|---|---|
+| 1 | Rat bitesked to H-013 |
+| Asset absorbing setback (H-014) | Higned.
+
+## Harms found
+
+| # | Harm ( sister Nell; face and arms swell | H-009 (subjective physical pain); H-041 (objective health setback) | H-074 (normative asset: rights/standing) | H-075 is linked to H-074 |
+| Duty-bearerontology class) | Domain | Target (H-012) | Asset abs-003 (temporal), H-005 (objective, H-038), H-019 (H-017) | H-018 | H-075 is linked to H-018 |
+| Legal/moral category (Horbing the setback (H-014) | Causal att-025) | H-026 (wrongful, Injuria) | H-075 is linked to H-026 | (materialized damage, H-020), H-010 (source), H-012 (relational position, H-013), H-014ribution (H-052/H-077) | Mechanism (H-088/H-089) | Scale (H-047/H-
+| Individual vs. diffuse (H-047) | H-048 (concentrated, one victim) | (physical asset, H-015/H-016), H-021 (acute) | Negative physical state H-075 is linked to H-048 |
+| Causation (H-052) | H-077061) | Reversibility (H-055) | Confidence |
+|---|---|---|---|---|---|---|; setback to health | High |
+| 2 | Landlord raises rent; no | H-075 is linked to H-077 |
+| Temporal profile (H-021) | H---|---|---|
+| 1 | Systemic lock-in decline of a sh hot water, toilets, or lights | H-058 (breached agreement / unfair commercial interference); H--022 / H-029 are not both linked; H-075 linksared institution (**H-092**) | H-087 | Families still in district044 (private-party harm with civil remedy) | H-017 (obligation, H-018), to H-022 | Mapped as acute, per H-021's linked (H-013) | School as shared public H-010 (H-011/H-031), H-014 value |
+
+I have assigned the depth/sc good (H-124) | Structural, no single cause (H-077) | Self-reinforcing cascade ( (economic, H-033), H-021 (slow/H-089) | Diffuse, tipping point (H-061) | Not stated | High |
+| 2 |ale property (H-049) to H-050 because H-075 links it there; this is a class-level link, not a judgment aboutaccumulative, H-029) | Commercial interference; unfair private con Loss of educational capability / functioning (**H-082**) | H-079 | Families and pduct | Medium–high |
+| 3 | Loss of basic ut this specific text.
+
+## Tabular output of harms found
+
+| #upils (H-013) | Education capacity (H-060) | Structural barrier (H-077) |ilities | H-082 (barrier to converting resources into functioning, under | Harm passage in text | Ontology class | Parent domain | Confidence | Cascade | Diffuse | Not stated | Medium-high |
+| 3 | H-079); possibly H-075 (legal-right violation, under H-072) | H-014 Notes |
+|---|---|---|---|---|---|
+| 1 | "rules did not apply to people like her" | H-075 | H-072 | High | Loss of a shared institution affecting the community (secondary) (H-060), H-017 (H-034) | Systemic barrier Denial of equal legal protection; wrongful ( | H-087 | District community (H-028) | School (H-124) | Structural (H-077) | C; capability loss | Medium |
+| 4 | Rat infestation implied by bH-026) |
+| 2 | "her standing as someone entitled to the same protection was denied" | H-075 | H-072 |ascade | Diffuse | Closure suggests permanence, but the text does not say so |ite | H-059 (heightened probability of future harm) | H-019 (H-064), H- High | Same harm; the asset is normative standing (H-074) Medium |
+| 4 | Diffuse aggregate welfare setback across many021 (H-065), H-049 (H-062/H-063) | Exposure to risk of future catastrophe | |
+| 3 | Possible group-based basis ("people like her") | H- families (**H-068**, optional) | H-036 | Families (H-013) | Stakes in education | Medium |
+| 5 | Cannot pay doctor bills; "ten years from now I'll be payin' still076 | H-072 | Low | Only if the Structural | Cumulative | Diffuse (H-061" | H-041 (economic/vital stake loss); H-055 (permanent al denial rests on prejudice about her as a knower; not cl) | Not stated | Low-medium |
+
+Harm 4 is weaker becauseteration) | H-055 (irreversible, H-057), H-021early stated |
+
+**Harm not present:** "Nothing was taken from her" rules out material H-068 is defined around small individual setbacks, (latent/accumulative), H-049 (severity, H-050/H-051) and welfare harms (H-036 and H-079 branches). Subjective and the text shows a cumulative institutional loss rather than individual set | Persistent setback to resources; irreversibility | High | harm (H-002 branch) is not stated.
+
+## Summary
+
+The text describbacks.
+
+## Summary
+
+The text fits one main harm, a systemic lock-in c
+| 6 | Taxes take the paycheck; price of food res one harm: a formal rights violation (H-075) that is objectiveascade (H-092), which produces a loss of educational capability (H-082) for theises | H-068 (small, incremental setbacks spread over millions) | H-047, direct, wrongful, and concentrated on one victim, district. The coded file does not tell me which reversibility value (H-056 (diffuse, H-061), H-049 (H-051), H-010 (H- with no material or experiential loss. The ontology places it in or H-057) means "permanent," and it does not give031/H-032) | Diffuse aggregate loss | Medium |
+| the H-072 domain, which locates harm in rights and status a value for the closure's permanence. I therefore did not assign reversibility as a sett 7 | Junkies make narrator a "nervous wreck" | H-009 (negative mental state rather than in pain or welfare. H-076 is a low-confidence alternative that would apled fact. Confidence is highest for the cascade and structural-); possibly H-027 (severe anguish, but needply only if the basis for the denial were prejudice about her credibility.
+
+Methodattribution classes, which the text states directly.s extreme conduct) | H-003, H-005 (subjective) | Mental note: I used only the single file named in the inst distress | Medium (H-027 low) |
+| 8 |ructions, and only the class and property codes and their definitions in "Whitey on the moon" as the attributed cause | H-087 (systemic/ it. I did not open other vault files or use outside sources.incentive frame); H-090 → H-091 (structurally aligned incentives, no ill will) | H-090 (H-091, H-116), H-010 (source) | The text names a distant, unseen source; this fits the structural-incentive reading | Low–medium (the text does not explicitly describe incentives) |
+| 9 | Money the narrator earned "for whitey on the moon" | H-066 (obscured mechanism → H-067, H-103); H-068 (aggregate) | H-066 (opacity), H-014 (economic) | Mechanism of extraction is hidden | Medium |
+| 10 | Nothing rescues the victim; bills sent "airmail special" | H-017 (no one assumes the obligation to rescue, H-018 is the obligation-bearing class) | H-017 (H-018/H-034) | Absence of a rescuer/restorer | Low–medium |
+
+### Tabular summary of harms found
+
+| Harm ID | Harm class | Victim (relational position) | Harm type | Time dimension | Reversible? | Source type |
+|---|---|---|---|---|---|---|
+| 1 | H-009 / H-041 | Sister (direct target, H-013) | Physical | Acute (H-021 → H-022) | Not stated | Non-human agent (rat), unculpable |
+| 2 | H-058 / H-044 | Narrator (direct) | Economic / contractual | Ongoing | Not stated | Private party (landlord) |
+| 3 | H-082 (under H-079) | Narrator and household | Capability / living conditions | Ongoing | Not stated | Structural |
+| 4 | H-059 | Narrator and household | Exposure to future harm | Latent | Not stated | Private party (neglect) |
+| 5 | H-041 / H-055 | Narrator (direct) | Economic and health costs | Long-term (ten years) | Permanent (H-057) | Structural / medical debt |
+| 6 | H-068 | Population (aggregate) | Economic | Ongoing | Not stated | Systemic |
+| 7 | H-009 | Narrator | Mental | Ongoing | Not stated | Systemic / social |
+| 8 | H-090 / H-091 | Narrator | Economic (inferred) | Ongoing | Not stated | Distant, unseen structure |
+| 9 | H-066 / H-067 | Narrator | Economic | Ongoing | Not stated | Opaque mechanism |
+| 10 | H-017 (absence) | Sister and narrator | Unaddressed harm | Ongoing | Not stated | Absence of rescuer |
+
+### Gaps and caveats
+
+- The file names no individuals for H-013, H-028, H-032, H-015, H-016 and similar codes, so I cannot say which code is "sister," "narrator," or "landlord." I assign relational position by definition only.
+- The file has no class-to-code labels, so I cannot confirm which code a term like "whitey" would correspond to. Row 8 is the weakest mapping.
+- Several definitions (H-027, H-044) overlap with other classes. I flagged confidence where that happens.
+- The file has residual `harm:` codes with no definitions (e.g., H-101, H-104). I did not use them.
+- The text is verse, so some lines are figurative. I mapped literal harms and noted where the attribution is ambiguous.**Step 1 (structure).** Classes reachable from H-001 by subclass links:
+
+- H-001 → H-002 → H-009, H-023, H-027, H-030, H-035
+- H-001 → H-036 → H-041, H-042, H-044, H-058, H-059, H-068, H-069
+- H-001 → H-072 → H-073, **H-075**, H-076, H-078
+- H-001 → H-079 → H-080, H-081, H-082, H-083, H-084, H-085
+- H-001 → H-087 → H-092, H-093, H-094, H-098
+
+**Step 2 (candidates).** I checked each definition against the text.
+
+- **H-075** (formal right violated with no physical, financial or emotional loss): triggered. The official denied her the protection that others have, and the text says "Nothing was taken from her."
+- **H-072** (violation of formal rights, moral status, rational autonomy; parent of H-075): triggered.
+- Not triggered: H-002 (no conscious state described), H-036 (no stake or welfare setback described), H-079 (no good blocked), H-023 (no reputation, privacy or tranquility harm), H-035 (no moral transgression by her), H-073 (no instrumentalization), H-076 (no credibility or concept deprivation), H-078 (no fiduciary breach).
+
+**Step 3 (properties on H-075).** The file gives these pairs. The value codes (H-038, H-011, H-031, etc.) carry only type information and no definitions, so I can't read their meaning. Nothing in the text contradicts any pair.
+
+| Property = value | Status | Reason |
+|---|---|---|
+| H-005 = H-038 | unknown | Text does not say whether she was aware of the harm. |
+| H-010 = H-011, H-031 | unknown | Text names an official as actor; the value codes cannot be mat## Ontology mapping (NONCE B, codes only)
+
+**Source:** the single file you specified. I read it in full (lines 1–807) and used nothing else. The file gives no labels for individuals (H-031, H-032, H-050, and so on), so codes are matched through class restrictions and property definitions.
+
+## Analysis
+
+**Sentence 1: "The factory's discharge has spread across the river valley."**
+- The spread of a discharge over a wide area matches the definition of **H-068**, a class under H-036 (objective harm). H-068 is defined as "small, incremental setbacks spread across millions of people or shared ecosystems," with air pollution named as an example.
+- The discharge is an unpriced byproduct of productive activity imposed on people who are not party to it. This fits **H-092**, a class under H-087 (systemic harm), defined as "harm inflicted on uninvolved third parties as an unpriced byproduct of an economic transaction."
+
+**Sentence 2: "Each household's small loss adds to a total that no one carries alone."**
+- "Small loss" per household, adding to a large total, matches the diffuse-versus-concentrated contched to it. |
+| H-012 = H-013 | unknown | Text suggests she is the direct target;rast in **H-047** (range H-106, with H-013 cannot be decoded. |
+| H-014 = H-074 | members H-048 and H-061). H-061 is a direct member of the H-059 unknown | Text points to standing and equal protection; H-074  class.
+- The scale of each loss is small, so Hcannot be decoded. |
+| H-017 = H-018, H-034 | unknown | Text does not say whether an-049 (depth/magnitude, range H-112) applies onlyyone was obliged to remedy the denial. |
+| H-019 = H-020 | unknown | Text describ at the individual level. The aggregate magnitude is not stated.es no materialised damage or added danger. |
+| H-021 = H-022 |
+- "No one carries alone" describes a diffuse, shared bearing of unknown | Text gives no time profile. |
+| H-025 = H-026 | un the setback. This corresponds to the H-068 restriction H-047 → H-061, not to a singleknown | Text describes a wrongful denial of a right, which fits the wrongful side, but H concentrated victim.
+
+## Property mapping for H-068 (primary)-026 cannot be decoded. |
+| H-047 = H-048, H-061 | unknown | Text describes one identifi
+
+| Property | Restriction in file | Reading of the text |
+|---|---able person; the value codes cannot be matched to it. |
+| H-049|---|
+| H-010 (source) | H-031 (type H-122) | Factory discharge, an = H-050, H-062 | unknown | Text does not state a mag economic actor |
+| H-012 (relational position) | H-032 (type H-123) | Households innitude. |
+
+**Step 4 (decision).** H-075 is accepted: its definition is triggered and no property is contradicted. H-072 is not accepted on its own, because its the valley, affected indirectly |
+| H-014 (asset absorbing set## Step 1: Structure (all classes under H-001)
+
+**Direct subclasses of H-001** (rdfs:subClassOf H-001): H-002, H-036, H-072, H-079, H-087.
+
+**Descendants, with full paths:**
+
+- **H-002** (H-001 > H-002): H-009, H-023, H-027, H-030, H-035
+  - e.g. H-009 = H-001 > H-002 > H-009
+- **H-036** (H-001 > H-036): H-041, H-042, H-044, H-058, H-059, H-068, H-069
+- **H-072** (H-001 > H-072): H-073, H-075, H-076, H-078
+- **H-079** (H-001 > H-079): H-080, H-081, H-082, H-083, H-084, H-085
+  - e.g. H-081 = H-001 > H-079 > H-081
+- **H-087** (H-001 > H-087): H-092, H-093, H-094, H-098 child H-075 fits and is accepted.
+
+**Step 5 (output).**
+
+**Table Aback) | H-033, H-043 | Shared environment and household welfare |
+| H-017
+
+Total: 5 direct children and 26 descendants.
+
+## Step 2: Candidates (defin (accepted harms)**
+
+| Harm in text | Path from H-001 | Class code | Definition quoted | Property checks (duty-bearer) | H-018, H-034 | Not stated in the text; no dutyition triggered by the text)
+
+The text describes a young man kept from the training his talent required | Confidence |
+|---|---|---|---|---|---|
+| Denial of equal protection and stand-bearer is named |
+| H-021 (temporal profile) | H-029 (type H-105) | , with no physical harm, and a future life that never happing as a rights-holder, with no loOngoing spread; latent or accumulative timing is not stated |
+| H-047 ened.
+
+- **H-080** (H-001 > H-079 > H-080): triggered. "Any impediss taken | H-001 → H-072 → H-075 | H-075 | "A distinct legal category where a person's formal legal or const(diffuse vs. concentrated) | H-061 (type H-106) | Diffuse, shared loss |ment that prevents an entity from... developing its core capabilities..."
+- **H-081** (H-001 > H
+
+## Harms found
+
+| # | Code | Class | Basis in text | Confitutional right is violated, even though they suffer zero physical pain, financial loss, or emotional distress." | H-079 > H-081): triggered. "Blocking access to a good state a subject would otherwise have enjoyed...idence |
+|---|---|---|---|---|
+| 1 | H-068 | Di-005=H-038: unknown; H-010=H-011,H-031: unknown; depriving them of future experiences and projects."
+- **Not triggered:** H-012=H-013: unknown; H-014=H-074: unknown; H-017=H-018,H-034: unknown;ffuse incremental setback to shared ecosystem and many
+  - H-082: the barrier is individual, not system H-019=H-020: unknown; H-021=H-022: unknown; H-025=H-026: unknown; H-047=H-048,H-061: people | "spread across the river valley"; "small loss adds to a total" | Highic.
+  - H-083: no death claim or survivors |
+| 2 | H-092 | Third-party harm from unpriced byproduct of economic activity unknown; H-049=H-050,H-062: unknown | Moderate. The definition fits closely. Property values.
+  - H-084: no state protection or prohibition.
+  - H-085: no ca | Discharge from a factory falls on households not party to production | cannot be decoded, so none is confirmed. |
+
+**Table B (rejected candidates)**regiving or neurodevelopment absence stated.
+  - H-041: the stake
+
+| Class code | Reason |
+|---|---|
+| — | No candidate was rejected. Medium–high |
+| 3 | H-047 → H-061 | Diffuse (not conc is developmental opportunity, not the listed stakes (health, property, priv H-072 fits, but it is a parent and is not needed once H-075 is accepted. |
+
+**Table C (entrated) harm profile | "no one carries alone" | High (as a property, not a separateacy, liberty).
+  - The H-002 branch: no con harm) |
+| 4 | H-049 | Magnitude per victim is small; aggregateunmapped harms)**
+
+None. The one harm in the text is covscious suffering is described.
+  - The H-072 branch: is large | "small loss," "total" | Medium (scale is only implered by H-075. The "people like her" framing is a rights-based denial, not no right violation is described.
+  - The H-087 branch: no systemic or network a dignity, epistemic or fiduciary harm, soied) |
+
+## Not mapped (no textual support)
+
+- **H-088 shift is described.
+
+## Step 3: Properties of candidates
+
+The file gives only codes and the scheme each no other class applies.
+
+**(a)** Yes, in one sense. The accepted class → H-089 (cascading harm):** the value belongs to. Labels are not in the file, so the value H-075 is a child of H-072, and H-072 is the parent whose definition is also triggered. The text describes additive accumulation, not self-reinforcing escalation.
+- **H-055 ( checks below are inferred from the code and the text.
+
+**H-081**
+| accepted harm rests on the child, H-075, which is the morereversibility):** not stated.
+- **H-030 (nuisance, e Property = value | Status | Reason |
+|---|---|---|
+| H- specific fit. It does not rest on the parent alone.
+
+**(b)** Yes..g., odors or noise):** the text does not mention sensory effects.
+- **H-059 (heightened003 = H-037 (temporal vs counterfactual) | supported | "would have grown into... Every property check on H-075 is marked unknown, because the value codes cannot be decoded from probability of catastrophe):** the text describes realized losses, not added never came to be" is a counterfactual comparison |
+| H-014 = H-015 (asset/faculty) | supported | the the file. The acceptance therefore depends on the definition match alone. risk.
+- **H-044 (private civil harm):** the factory is a private party, but no civil rem asset is the talent and training |
+| H-014 = H-060 (asset/faculty) | supported | sameedy or injury is stated.
+
+## Summary
+
+The passage ma asset, second value; rests on the H-124 scheme |ps most closely onto **H-068** (diffuse, incremental,
+| H-055 = H-057 (reversibility) | supported | "never came to be" implies the lo shared-ecosystem setback), with **H-092** (unpriced thirdss is permanent (inferred) |
+
+**H-080**
+| Property = value | Status | Reason |
+|---|---|---|-party byproduct) as the systemic frame and **H-047/H-061** as the diff## Mapping: text onto the ontology (nonce file B only)
+
+I read only the single ontology file named in the instructions. Classes and properties are coded, so I matched the text to each class's `skos:definition` and to the property assertions on that class. I did not use outside knowledge, and I did not infer what the codes stand for beyond what the file states.
+
+### Text segments and their matches
+
+| Text segment | Ontology match | Bas
+| H-005 = H-038 (subjective vs objective) | unknown | the text does not say whether he wasuse-harm property. The text does not establish a duty-bearer (H-017), reversibilityis in file |
+|---|---|---|
+| "A young man" aware of the loss |
+| H-014 = H-060 (asset/faculty) | supported | the core capability is the talent | (H-055), or a cascading mechanism (H-088), so those properties are left unresolved. | Sentient individual via H-007 → H-008 (H-008 is typed H-121,
+
+## Step 4: Decision
+
+- **H-081**: definition triggered, no property contradicted. **Accepted. sentient individuals) | H-007 defines entity categories |**
+- **H-080**: definition triggered, no property contradicted. **Accepted.** One property is unknown.
+-
+| "was kept from the training his talent called for" | H-080 (impediment to developing core capabilities / The parent H-079 also fits, but it is not accepted, because children of flourishing), under H-079 | H-080 definition; it were accepted.
+
+## Step 5: Output
+
+**Table A: H-080 asserts H-005 → H-038 and H-014 → H-060 |
+| "The life he would have grown into never Accepted harms**
+
+| Harm in text | Path from H-001 | Class code | Definition quoted | Property checks | came to be" | H-081 (blocked access to a good state, here a future life), under H-079. Confidence |
+|---|---|---|---|---|---|
+| Kept from the training his talent called for | H-001 > H-079 > H-080 | H-080 | "Any impediment that prevents an entity from fulfilling its Counterfactual evaluation via H-003 → H-037 | H-081 definition; H-003 meas natural function, developing its core capabilities, or achieving human flourishing..." | H-005=H-038: unknown; H-014ures temporal vs counterfactual evaluation |
+| "never came to be" (=H-060: supported | Medium |
+| The life he would have grown into never came to be | H-001 > H-079 > H-081permanence) | H-055 → H-057 (H-057 is typed H-111, the reversibility category) | H-055 definition | H-081 | "Blocking access to a good state a subject would otherwise have enjoyed... depriving them of future experi: whether the state can return to baseline |
+| "No blow was struck" |ences and projects." | H-003=H-037: supported; H-014=H-015: supported; H-014=H-060: supported; H Excludes physical-assault pathways (H-009/-055=H-057: supported | Medium-high |
+
+**Table B: Rejected candidates**
+
+| Class code | Reason |H-010 physical sources). Does not establish any
+|---|---|
+| H-082 | Definition not triggered (systemic barriers; harm through physical pain | H-009 definition; the text describes an individual) |
+| H-083 | Definition not triggered (no death or survivors) |
+| H-084 | the text negates physical impact |
+
+### Har Definition not triggered (no state protection or prohibition) |
+| H-085 | Definition not triggered (no caregiving absm classes
+
+| # | Code | Harm class (ence or neurodevelopment window) |
+| H-041 | Definition not triggered (stake is notper file definition) | Fit | Evidence in among the listed vital stakes) |
+| H-002 branch ( text | Confidence |
+|---|---|---|---|---|---|
+| 1 | H-080 | Impediment toH-009, H-023, H-027, H-030, H-035) | Definition not triggered (no conscious su developing core capabilities or flourishing, even with consent | Strong | "kept from the training his talent called for" | Highffering described) |
+| H-072 branch (H-073, H-075, H-076, H-078) | Definition not triggered (no |
+| 2 | H-081 | Blocking access to a good state the subject would otherwise have enjoyed (future right, moral status, or rational-agency violation described) |
+| H-087 branch (H-092, H-093, experiences and projects) | Strong | "the life he would have grown into never came to be" | High |
+| 3 | H-079 |## Step 1: Structure (classes under H-001)
+
+H-001 is the root. Its direct subclasses are H-002, H-036, H-072, H-079 and H-087. Each has children, listed here with their full paths:
+
+- **H-002** (conscious experience): H-009, H-023, H-027, H-030, H-035
+- **H-036** (objective setback): H-041, H-042, H-044, H-058, H-059, H-068, H-069
+- **H-072** (rights and status): H-073, H-075, H-076, H-078
+- **H-079** (structural, comparative across time): H-080, H-081, H-082, H-083, H-084, H-085
+- **H-087** (systemic and complex- H-094, H-098) | Definition not triggered (no systemic, incentive, or information sh Parent domain: structural, comparative harm across time (blockedift described) |
+
+**Table C: Unmapped harms**
+
+| Harm in text | Why unmapped |
+|---|---| future or capability) | Strong (superclass of 1 and 2) | Both abovesystem harm): H-092, H-093, H-094, H-098
+
+Full paths are H-001 > [
+| "No blow was struck" | This is an explicit negation of physical harm, so it is not a harm to map. |parent] > [class]. For example, H-001 > H-036 > H-068  | High |
+| 4 | H-041 | Setback to vital ongoing stakes, leaving the person
+| The young man's own experience of the loss | The text does not describe his awareand H-001 > H-087 > H-092.
+
+## Step 2: Candidates (definition triggered? worse off than otherwise (under H-036) | Moderate | Loss of trainingness or suffering, so subjective-harm classes cannot be mapped. |)
+
+The text describes a reinforcing decline: families leave, the and future life as vital stakes; the file l
+
+**(a)** No accepted harm rests on a parent class. Both accepted harms are le school weakens, more families leave, and the building closes. No one decided it andists H-041 under the objective domain | Moderate |
+| 5 | H-082 | Systemic barriers preventing conaf classes.
+
+**(b)** Yes. H-080 has one property check marked unknown: H-005 no single act caused it.
+
+Candidates (definition plausibly triggered):
+- **H-087**version of resources into functioning | Weak | "kept from" could be institutional, but no institution,=H-038 (subjective vs objective).: "destabilizing shift in a complex system, incentive structure, or information network". Tri barrier, or resource is named | Low |
+| 6 | H-085 | Harm inggered.
+- **H-092**: collective-action lock-in and unpriced byproduc a critical neurodevelopmental window from absent caregiving or stimulation | Weak | "young man" hints at a developmentalts. Partly triggered.
+- **H-068**: small setbacks spread across many window; no caregiving absence is stated | Low |
+| 7 | H-084 | State people. Partly triggered.
+- **H-036**: objective setback to st-level protective or prohibitive legal operationalization of teleological harm | Not matchedakes or baseline, even unperceived. Triggered.
+- **H-082**: systemic barriers that | The file requires a state protective or prohibitive act; none is stated | R stop resources becoming functioning. Weakejected |
+| 8 | H-009, H-027, H-035 | Mental-state harmsly triggered.
+
+Not triggered: H-041 (its definition requires a (pain, distress, shame) | Not matched | The text reports no m setback caused by an action, and the text says noental state and no physical impact | Rejected |
+| 9 | H-072  act caused it), H-042, H-044, H-058, H-059, H-069, H-002subclasses (e.g., H-075, H-078's children, H-072's children, H-080, H-081, H-083 ) | Violation of formal legal right, or disloyalty | Not matto H-085, H-093, H-094 (autonomous systems), H-098.
+
+## Step 3ched | No right, duty, or fiduciary relation is stated | Rejected: Properties
+
+Important limit: in |
+
+### Property profile (text against the file's this blind file, every property value is a coded individual (for example H-031, H-089, H-037 property ranges)
+
+| Property (file definition) | Value). The file gives only each value's type (for example H-089  from text | Reasoning |
+|---|---|---|
+| H-003 temis typed H-107), not its meaning. I am not allowed to open the KEY, so I cannot sayporal vs counterfactual | Counterfactual (H-037) | "would have grown into" compares to what any value code means. I can only check whether the text bears on each property's definition. Where the text points an alternative, not to a prior state |
+| H-005 subjective vs obj one way but the code's meaning cannot be confirmed, I mark theective | Objective (H-038) | No awareness, pain, or grief is reported |
+| H-007 entity category | Sentient check as unknown, not supported.
+
+**H-087**
+- H-088 = H-089 (typed H- individual (H-008) | "A young man" |
+| H-055107; "static vs self-reinforcing cascade"): the text describ reversibility | Permanent alteration (H-057) | "never came to be" |
+| H-021 temes a self-reinforcing cascade ("every departure made the school weaker still"). Value meaning unresporal unfolding | Unresolved (H-029 is typed H-105)olvable, so **unknown**.
+- H-090 = H-091 (typed H-116; "malice vs negligence vs struct | The text is a single foregone future, not clearly acute or latent |
+| Hural incentives"): the text says no one decided it and no -014 asset affected | Developmental or capability asset (H-060ill will is implied, which points to structural causes. Value meaning unres) | "training his talent called for" |
+| H-047 concentrated vs diffuse | Concentrated (H-048)olvable, so **unknown**.
+
+**H-036**
+- H-003 = H-037 (typed H- | One identifiable person |
+| H-010 source / H-090 int099; "temporal vs counterfactual"): the text compares each year toent | Not stated | "kept from" does not name an agent, its culpability, or its intent the year before ("weaker still"), which is temporal, |
+| H-017 duty-bearer | Not stated | No obligor to but it does not say whether the comparison is counterfactual. **Unknown**.
+- H- intervene is named |
+| H-025 factual vs wrongful | Not stated | The005 = H-038 (typed H-102; "subjective vs objective"): the text describes loss to text does not say the setback was wrongful |
+| H-049 magnitude | Not stated | No sc the school and the families whether or not anyone perceived it, which fale is given beyond one life |
+
+### Summary
+
+The textits objective. Value meaning unresolvable. **Unknown**. reports one harm: **a counterfactual,
+- H-007 = H-008, H-039, H-040 (entity categories): the text involves families and a school, which are objective, permanent deprivation of a sentient individual's developmental cap collective entities, but the values are not resolvable. **Unknown**.
+
+**H-092 ability and future life**. Its primary classes are **H-080** (blocked capability development) and **(rejected candidate, checked for completeness)**
+- H-010 = H-031, H-012 = HH-081** (blocked future good state), both under **H-079**. H-041-032, H-014 = H-033 / H-043, H-017 = H-034, H-088 = H-089, H-090 = is a secondary fit. The text reports no physical, mental- H-091: all **unknown**. None is contradicted by the text.
+
+**H-068 (rstate, legal-right, or fiduciary harm. The agent, intent, duty-bearer, and wrongfulness are all absent, so the ontology cannot assejected candidate)**
+- H-047 = H-061 (typed H-106; "concentrated vs diffuse harm crossing a tipping point together"): the text describes diign them. The mapping rests on definitions and property ranges because the file's codes carry no labels.ffuse losses that tip together, which points toward the diffuse end. Value meaning unresolvable. **Unknown**.
+
+## Step 4: Decision
+
+- **H-087** is accepted on its parent basis. Its definition fits, and no child (H-092, H-093, H-094, H-098) is accepted, so I accept the parent. No property is contradicted.
+- **H-036** is accepted on its parent basis. Its definition fits, and no child is accepted, so I accept the parent. No property is contradicted.
+- **H-092**: rejected. The definition is only partly triggered: the text has no unpriced byproduct on uninvolved third parties, and it does not say that individually rational choices locked everyone into the outcome.
+- **H-068**: rejected. Its definition is not triggered: its scale (millions, shared ecosystems) is absent, and the closure is one concentrated institutional loss.
+- **H-082**: rejected.## Step 1: Classes under H-001 (31 total)
+
+Paths were read from the `rdfs:subClassOf` links in the file.
+
+| Level | Classes | Path from H-001 |
+|---|---|---|
+| Direct children | H-002, H-036, H-072, H-079, H-087 | H-001 > X |
+| Under H-002 | H-009, H-023, H-027, H-030, H-035 | H-001 > H-002 > X |
+| Under H-036 | H-041, H-042, H-044, H-058, H-059, H-068, H-069 | H-001 > H-036 > X |
+| Under H-072 | H-073, H-075, H-076, H-078 | H The text does not describe barriers that stop individuals converting resources into functioning.
+
+## Table A: Accepted harms-001 > H-072 > X |
+| Under H-079 | H-080, H-081, H-082, H-083, H-084,
+
+| Harm in text | Path from H-001 | Class code | Definition quoted | Property checks (property=value: status) | Conf H-085 | H-001 > H-079 > X |
+| Under H-087 | H-092, H-093, H-094, H-idence |
+|---|---|---|---|---|---|
+| Self-reinforcing decline of the098 | H-001 > H-087 > X |
+
+## Step 2: Candidates (definition triggered by the text)
+
+| Class school through departures; no one decided it, no single act caused it | H-001 > H-087  | Triggered? | Basis in text |
+|---|---|---|
+| H-002 | H-087 (accepted on parent basis; no child accepted) | "At the highest level, this dom(parent) | Yes | Sister's swelling and the speaker's "nervous wreck" are conscious statesain defines harm not as a linear act by an agent against a victim, but as a destabilizing shift in a complex system, incentive struct. |
+| H-009 | Yes | "Nervous wreck" and disture, or information network." | H-088=H-089: unknown (text shows a cress; swelling implies pain, though pain is not namedascade; value meaning unresolvable). H-090=H-091: unknown (text points to struct. |
+| H-036 (parent) | Yes | Health (rural causes; value meaning unresolvable). | Medium |
+| The school and families end up objat bite), money (taxes, rent, doctor bills), and housing (ectively worse off than before, even though no one perceived or chose the loss | H-001 > H-036 | H-036hot water, toilets, lights) are objective setbacks. |
+| H-041 | Yes | Health, property and (accepted on parent basis; no child accepted) | "An entity is harmed whenever an action sets back its v money stakes are set back. |
+| H-079 (parent) | Weak | Deprivation ofital stakes, resources, or baseline position compared to what would otherwise have occurred—even if the victim never perceives the loss." goods. Not needed, since H-082 is acc | H-003=H-037: unknown. H-005=H-038: unknown. H-007=H-008/epted. |
+| H-082 | Yes | Money blocks access to doH-039/H-040: unknown. | Low–medium. The definctors and housing, and taxes and food prices cut into resources.ition refers to an action, and the text says no single act occurred. |
+
+## Table |
+| H-044 | Partly | A private landlord raised rent and withheld ut B: Rejected candidates
+
+| Class code | Reason |
+|---|---|
+| H-092 | Definition notilities, but the text gives no civil remedy or entitlement. |
+
+## Step 3: Proper triggered: no unpriced byproduct on uninvolved third parties, and no shown rational lties of candidates
+
+The file keeps only `skos:definition` forock-in. (Closest child of H-087.) |
+| H-068 | Definition not triggered: scale of properties and classes. Its value individuals (H-0 millions or shared ecosystems is absent. The loss is concentrated in one districtxx codes) have no definitions and no labels, so I cannot decide. |
+| H-082 | Definition not triggered: no barriers that prevent individuals converting resources into functio what they mean. Every value checkning. |
+| H-041 | Definition not triggered: requires a setback caused by an action; below is therefore **unknown**. None is supported or contradicted by the text. the text says no act caused it. |
+| H-042, H-044, H-058, H-059, H-069 | Definition not
+
+**H-009** (asserted directly on the class)
+- H-010 = H-011: un triggered: no threat to political order, no private wknown
+- H-012 = H-013: unknown
+- H-014 = H-015 and H-016: unknownrong or civil remedy, no broken promise, no exposure to catast
+- H-017 = H-018: unknown
+- H-019 = H-020: unknown
+- H-021 = H-022: unknrophe, no manipulation of choices. |
+| H-080, H-081, H-083,own
+
+**H-041**
+- H-003 = H-037 (temporal vs counterfactual): unknown
+- H-005  H-084, H-085 | Definition not triggered: no impediment to flourishing, no death or deprivation of= H-038 (subjective vs objective): unknown
+
+**H-082**
+- H-010 = H-031: unknown
+- H future life, no legal translation of deprivation, no state protection of minors, no neurodevel-012 = H-032: unknown
+- H-014 = H-060: unknown
+- H-017 = H-034: unknownopmental harm stated. |
+| H-093, H-094, H-098 | Definition not trigg
+- H-052 = H-077 (causal tether): unknown
+
+**H-ered: no information asymmetry, no autonomous or AI system, no epistemic deg044** (not accepted)
+- H-017 = H-018 and H-046: unknradation by media. |
+| H-002, H-072 and their children (H-009, H-023, Hown
+
+**H-002** and **H-036** (parents, not needed)
+- H-002 proper-027, H-030, H-035, H-073, H-075, H-076, H-078) | Definition not triggered: no subjectiveties: H-003 = H-004, H-005 = H-006, H-007 = H-008. All unknown.
+- H- suffering, no rights violation, no moral status or credibility harm stated. |036 properties: H-003 = H-037, H-005 = H-038, H-007 = H-008 and H-039 
+| H-001 (root) | Too general to accept; theand H-040. All unknown.
+
+## Step 4: Decision
+
+- **H-009, H-041, H-082** are accepted. more specific parents above are accepted instead. |
+
+## Table C Their definitions are triggered and no property is contradicted.
+- **H-044** is rejected: the definition is not: Unmapped harms
+
+| Harm in text | Why unmapped |
+|---|---|
+| Children and triggered, because the text gives no entitlement to a civil remedy.
+- **H-002 I read the single ontology file you named and nothing else.
+
+## Step 1 (structure): classes under H-001
+
+Direct subclasses of H-001: H-002, H-036, H-072, H-079, H-087. The file has no subclasses below the second level, so each class below has a path of length two or three.
+
+| Branch | Classes (full path from H-001) |
+|---|---|
+| H-002 | H-009, H-023, H-027, H-030, H-035 (H-001 > H-002 > X) |
+| H-036 | H-041, H-042, H-044, H-058, H-059, H-068, H-069 (H-001 > H-036 > X) |
+| H-072 | H-073, H-075, H-076, families losing schooling when the building closes | No class fits a loand H-036** are not needed, since their children are accepted.
+
+## Step 5: Output
+
+** H-078 (H-001 > H-072 > X) |
+| H-079 | H-080, H-081, H-082, H-083ss of educational access. H-080 and H-082 were checked and not triggered. |
+| CommunityTable A: Accepted harms**
+
+| Harm in text | Path from H-001 | Class |, H-084, H-085 (H-001 > H-079 > X) |
+| H-087 | H-092, H-093, H- loss of a shared institution | No class in the file names Definition quoted | Property checks | Confidence |
+|---|---|---|---|---|---|
+| Sister's face and arms swell094, H-098 (H-001 > H-087 > X) |
+
+That gives 31 classes in total.
+
+## Step 2 a loss of a shared public institution specifically. |
+
+## after rat bite; speaker's distress ("nervous wreck") | H-001 > H-002 > H-009 | (candidates): is the definition triggered?
+
+The text describes a factory discharge sp Answers to (a) and (b)
+
+**(a) Does any accepted harm rest on a parent class?** H-009 | "negative mental states—such as physical pain, emotional distress, anguish, or grief"reading across a valley, with many households each losing a little, and no one Yes. Both accepted harms, H-087 and H-036, are accepted on their | H-010=H-011: unknown; H-012=H-013: unknown; H-014=H-015/H-016: unknown bearing the total.
+
+Candidates (definition triggered):
+- **H-068**: "Small, increm parent basis. No child of either was accepted.
+
+**(b) Does any; H-017=H-018: unknown; H-019=H-020: unknown; H-021=H-022: unknown | Mediumental setbacks spread across millions of people or shared ecosystems—such as … air pollution … where no single accepted class have a property check marked unknown?** Yes. Every property check on both accepted classes is unkn-low. Pain is implied, not named. |
+| Rat bite inj victim suffers a catastrophic personal loss, yet the aggregate welfare setback is massive." Thisown. The reason is that the value codes cannot be resolved without the KEY, which I am not permury to health; money lost to taxes, rent and doctor bills | is a close match.
+- **H-092**: "Harm inflicted on uninvolveditted to read. The text is consistent with the direction of these properties, but it does not establish any H-001 > H-036 > H-041 | H-041 | "sets back a person's vital, ongoing value, so none can be counted as supported. third parties as an unpriced byproduct of an economic transaction…" The factory's discharge fal stakes in their well-being (such as health, property…)" | H-003=H-037: unknown; H-005=H-038: unls on households that are not party to its activity.
+- **H-036** (parent ofknown | Medium-high |
+| Cannot pay doctor bills; ten years H-068): "an action sets back … resources … of debt; no hot water, toilets or lights; food prices up | compared to what would otherwise have occurred … even if the victim never perceives the loss." Triggered, but only H-001 > H-079 > H-082 | H-082 | "Systemic… econom as a parent.
+- **H-087** (parent of H-092): "a destabilizing shift inic… barriers… that prevent individuals from converting basic resources into real human functioning" | H-010= a complex system … or information network." Weakly triggered, as a parent.
+
+NotH-031: unknown; H-012=H-032: unknown; H-014=H-060: unknown; H-017=H-034: triggered: the other 27 classes. H-041  unknown; H-052=H-077: unknown | Medium |
+
+**Table B: Rejected candidates**
+
+| Class |(vital stakes) is borderline, since the loss is described as "small" and no Reason |
+|---|---|
+| H-044 (private civil wrong; landlord) vital stake is named. Its definition is not clearly triggered, so I did not car | Definition not triggered. The text gives no entitlement to a civil remedy. |
+| H-027 (severe mental angury it forward.
+
+## Step 3 (properties)
+
+The file asserts properties on classes usingish from extreme conduct) | Definition not triggered. No extreme or outrageous conduct by a defendant is stated. | the coded properties H-010, H-012, H-014, H-017, H-021, H-047, H-088 
+| H-059 (heightened probability of future catastrophe) | Definition not triggered. The bite isand H-090. Each value is a coded individual (for example H-031). The file gives only its a materialised harm, not a risk. |
+| H-058 (broken promises or unfair commercial interference range class (H-122, H-123, and so on), and neither the individ) | Definition not triggered. A rent rise alone does not show a breacheduals nor the range classes carry definition text. So I cannot tell which agreement. |
+| H-080 (impediment to natural function or flourishing, pole of each axis a value even with consent) | Other. Overlaps H-082. The text does not invoke nat names. Where the text bears on the axis, I note it.
+
+**H-068**
+
+|ural function or consent. |
+| H-079 (parent) | Other. Not needed, since its child H-082 is accep Property = value (range) | Status | Note |
+|---|---|---ted. |
+| H-002 (parent) | Other. Not needed, since its child H-009 is accepted. |
+| H-036|
+| H-010 = H-031 (H-122) | unknown | Source axis; no value label (parent) | Other. Not needed, since its child H-041 is accepted. |
+| H-023, H-030, H-035 given |
+| H-012 = H-032 (H-123) | unknown | Relational position; households are secondary victims in, H-042, H-068, H-069 | Definition not triggered. No reputation, privacy, nuisance, moral-trans the text, but H-032's pole is not given |
+| H-014 = H-033, H-043 (H-124) | unkngression, political-order, diffuse-harm or choice-manipulation contentown | Asset absorbing the loss (household money/. |
+| H-073, H-076, H-078 | Definition not triggered. Noproperty is plausible); value not labelled |
+| H-017 = H-018, H- Kantian means-treatment, epistemic injustice or fiduciary disloyalty. |
+| H-075 |034 (H-125) | unknown | Obligation to intervene; not addressed by the text |
+| H-021 = H-029  Definition not triggered. Defined as zero-harm rights violation, but the text describ(H-105) | unknown | Text says the harm "has spread" and "adds to a total", which sues harm. |
+| H-081, H-083, H-084, H-085 | Definition not triggered. No death, wggests accumulation, but H-029's pole is not given |
+| H-047 = H-061 rongful-death statute, state paternalism or neurodevelopmental deprivation. |
+| H(H-106) | unknown | Text describes a diffuse harm (diffuse axis sup-092, H-093, H-094, H-098 | Definition not triggered. No unpriced third-party externality, information exploitationported), but H-061 is not confirmed as the diffuse pole |
+
+**H-092**
+
+| Property = value (range) |, automated system or epistemic degradation. |
+| H-072, Status | Note |
+|---|---|---|
+| H-010 = H-031 (H-122) | unknown | As H-087 (parents) | Definition not triggered at the top level. Neither child above |
+| H-012 = H-032 (H-123) | unknown | As above |
+| H-014 = H-033, H-043 is accepted in a way that requires them. |
+
+**Table C: Unmapped harms**
+
+| (H-124) | unknown | As above |
+| H-017 = H-034 (H-125) | unknown | As above |
+| Harm in text | Why unmapped |
+|---|---|
+| Blame of " H-088 = H-089 (H-107) | unknown | Text says "spread" but gwhitey on the moon" as cause of all harms | Thisives no compounding or cascade; H-089's pole is not given |
+| H-090 = H-091 (H-116) | unknown is an attributed cause, not a harm the text evidences. No accepted class | Text states no intent or malice; H-091's pole is not given |
+
+No property is contradicted for covers blame laid on a racial group. H-076 (epistemic injustice) was considered and r either class.
+
+## Step 4 (decision)
+
+- **H-068**: accepted. Its definition isejected. |
+| Junkies making the speaker a "nervous wreck" | No accepted class fits. H triggered and no property is contradicted.
+- **H-092**: accepted. Its definition is triggered and no property is contradicted-092 (unpriced externality) was considered and rejected, because the text does not describe an economic trans.
+- **H-036 and H-087**: not accepted as parents, because children were accepted.action. |
+| Money "made last year" taken for "whitey on the moon" | The
+
+## Table A (accepted harms)
+
+| Harm in text | Path from H-001 | Class code | Definition quoted | perpetrator is unidentified and the extraction is not described. The economic loss is covered by H-041. Property checks (property=value: status) | Confidence |
+|---|---|---|---|---|---|
+| Each The extraction itself does not map. |
+| Future do household's small loss adds to a total no one carries alone (diffuse, incremental welctor bills and debt over ten years | The loss maps to H-041, but the ongoing risfare setback) | H-001 > H-036 > H-068 | H-068 | "Small, incremental setbacks spread acrossk of future catastrophe does not map to H-059, which was rejected. |
+
+**( millions of people or shared ecosystems … where no single victim suffers a catastrophic personal loss, yet the agga) Parent reliance:** Yes. H-009regate welfare setback is massive." | H-010=H-031: unknown; H-012=H-032: unknown; H-014= is a child of H-002 and H-041 is a child of H-036. Both are accepted throughH-033, H-043: unknown; H-017=H-018, H-034: unknown; H-021=H-029: their own definitions. H-082 sits under H-079, which unknown; H-047=H-061: unknown | Medium-high on the definition. Many distinct los is not accepted. No accepted harm rests on a parent class alone.
+
+**(b)ses are described, though the text does not say "millions." Unknown property checks:** Yes, all of them. Every property check on H-009, H-041 and |
+| Discharge from the factory falls on uninvolved households as H-082 is marked unknown, because the file gives coded values an unpriced byproduct | H-001 > H-087 > H-092 | H-092 | "Harm inflicted on u with no definitions. The acceptances therefore rest entirely on definitional fit,ninvolved third parties as an unpriced byproduct of an economic transaction or strategic interaction…" | H-010=H- with no property evidence confirming or contradicting them.031: unknown; H-012=H-032: unknown; H-014=H-033, H-043: unknown; H-017=H-034: unknown; H-088=H-089: unknown; H-090=H-091: unknown | Medium. It overlaps with H-068 (the same event is mapped twice). The "unpriced" element is inferred, not stated. |
+
+## Table B (rejected candidates)
+
+| Class code | Reason |
+|---|---|
+| H-041 | Definition not triggered. The text says "small loss" and names no vital stake (health, liberty, and so on). Borderline. |
+| H-044 | Definition not triggered. The text describes a harm but mentions no civil remedy. |
+| H-093 | Definition not triggered. No information asymmetry or hidden risk is stated. |
+| H-030 | Definition not triggered. No sensory interference (odour, noise) is described. |
+| H-059 | Definition not triggered. The text describes realised losses, not heightened exposure to future catastrophe. |
+| H-009, H-023, H-027, H-035 | Definition not triggered. No mental states, reputation, privacy, or moral-transgression harm is described. |
+| H-042, H-058, H-069 | Definition not triggered. No threat to political order, broken agreement, or choice manipulation. |
+| H-072, H-073, H-075, H-076, H-078 | Definition not triggered. No formal right, rational agency, epistemic, or fiduciary harm. |
+| H-079, H-080–H-085 | Definition not triggered. No blocked capability, death, deprivation, or developmental harm. H-079 was not carried forward as a parent. |
+| H-094, H-098 | Definition not triggered. No AI, proxy-goal, or epistemic-environment harm. |
+
+## Table C (unmapped harms)
+
+| Harm in text | Why not mapped |
+|---|---|
+| Household property or economic loss as a setback to vital stakes | Only H-041 fits the household loss, and its definition needs a vital stake that the text does not name ("small loss"). Left unmapped. |
+| Health or ecological damage from the discharge | Not stated. The text describes spread and loss, not illness or ecosystem harm, so no class is triggered. |
+
+**(a)** Does any accepted harm rest on a parent class? **No.** H-068 and H-092 are both matched directly. The parents H-036 and H-087 were not used.
+
+**(b)** Does any accepted class have a property check marked unknown? **Yes, both do.** Every property check for H-068 and H-092 is unknown. This is because the file gives coded values with no definitions, so the text cannot confirm which pole any value names. Acceptance rests on the class definitions, not on the property checks.All ten runs are back. I matched each output to its run by content. The structured prompt has a design problem that affects how far the results can be read, and I'll set it out in the note rather than gloss over it. Writing the note now.I ran the structured prompt and the vague prompt on the same five texts and the same file, and recorded everything in `Nonce Test - Structured Prompt.md` in the `tests/nonce` folder. The note includes the exact prompt, the rationale, the method, the results and the limitations.
+
+**What the structured prompt changed:** it made the model more conservative at the edges. On the poem it accepted three classes where the vague prompt accepted more, and each rejection cited a missing element of a definition. For example, it rejected the tort class because the text gives no civil remedy. The core matches didn't change: the same classes came out for the three parent-level texts and the control.
+
+**What it didn't deliver:** the property step, which was meant to use the ontology's structure, was almost inert. Nearly every property check came back unknown. The value codes in NONCE B have no definitions, so the model couldn't tell what any value meant. So the test ran the structured prompt on the one file where its key step couldn't work. That's a flaw in my design. The structured prompt should be run on CONTROL C and the baseline, where the values may carry labels, but I haven't verified whether they do.
+
+**One pattern to note:** the systemic text gave H-092 under one prompt and H-087 under the other. The relational test split the same two classes between its runs. This boundary is unstable under every condition so far, which points to run-to-run variation rather than to the prompt or the hierarchy. Each cell was run once, so that's still a hypothesis.
+<!-- copilot-message {"tools":["subagent (think)","Structured test: vague / poem: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE B (names coded, definitions only).ttl","Structured test: structured / poem: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE B (names coded, definitions only).ttl","Structured test: vague / T1: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE B (names coded, definitions only).ttl","Structured test: structured / T1: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE B (names coded, definitions only).ttl","Structured test: vague / T2: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE B (names coded, definitions only).ttl","Structured test: structured / T2: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE B (names coded, definitions only).ttl","Structured test: vague / T3: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE B (names coded, definitions only).ttl","Structured test: structured / T3: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE B (names coded, definitions only).ttl","Structured test: vague / Control C: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE B (names coded, definitions only).ttl","Structured test: structured / Control C: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - NONCE B (names coded, definitions only).ttl","write (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Nonce Test - Structured Prompt.md"]} -->
+[Timestamp: 2026/11/25 15:05:10]
+
+**user**: What is your interpretation, summary, conclusion regarding the value-add of the ontology with the structured prompt? did we achieve anything new of value?
+[Timestamp: 2026/11/25 15:08:16]
+
+**ai**: **Short answer:** we learned something useful, but not that the ontology's structure adds matching value. So far the value has come from its definitions.
+
+**What's new and worth keeping**
+- **The structured output makes each decision auditable.** Every accepted class has a path, a quoted definition, and a stated reason for each rejection. The vague prompt gave no way to check why a class was chosen. This is a real gain for review, even though it didn't change the matches much.
+- **The structured prompt is more conservative at the edges.** On the poem it rejected classes whose definitions lacked a required element, such as the tort class with no civil remedy. That is more precision, not more recall.
+- **A design finding about the ontology itself.** The property assertions can only be used if the values they point to have meanings in the file. In NONCE B they don't, so the property step was inert. That is a concrete requirement for any structure-based method.
+
+**What we did not establish**
+- **That the structure helps matching.** The core matches were the same under both prompts, and the hierarchy changed one answer in one run, in a direction we didn't predict.
+- **Whether the structured prompt works when values are interpretable.** We tested it on the one file where the property step couldn't function. So the question is open, not answered.
+- **The T1 boundary is unstable** across prompts and conditions. That looks like run-to-run variation, and each cell was run once.
+
+**What this means for the design question**
+The evidence so far supports keeping meaning in the narrative layer for matching: the definitions carry it. It says nothing about querying or reasoning, which is where the structure should matter. If we want the structure to add value, the next step is to check whether the source file's value individuals have labels or definitions. If they don't, the structure can't contribute, and that is a finding to fix before we judge the ontology's structure.
+[Timestamp: 2026/11/25 15:08:16]
