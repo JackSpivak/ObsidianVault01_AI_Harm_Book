@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Setup for Harm Ontology v0.03.01 design"
-usage: '{"usedTokens":243800,"contextWindow":1000000,"updatedAt":1795594620120}'
+usage: '{"usedTokens":290067,"contextWindow":1000000,"updatedAt":1795595226095}'
 ---
 
 **user**: i want to develop a common schema that will organize and attach and be extended by individual perspective or discipline schema modules carrying perspective worldview, objects and relations
@@ -2132,3 +2132,245 @@ Those are reproduction or adaptation, which is where a licence such as CC BY-SA 
 
 I'm not a lawyer, so if the book or a public release depends on this, ask the maintainers or a rights adviser to confirm the reference-only reading.
 [Timestamp: 2026/11/25 01:16:54]
+
+**user**: i'm not understanding something.  isn;t it a semantic web design principle that publicly served ontologies are incorporated by external reference through namespace declarations?  like skos: and dcterms: or rdfs: or rdf:
+[Timestamp: 2026/11/25 01:18:55]
+
+**ai**: You're right, and I overstated the problem. Referencing vocabularies by namespace IRI is the normal way the semantic web works. `rdf:`, `rdfs:`, `skos:` and `dcterms:` are declared as prefixes and used by name, without downloading or copying their files. DUL can be treated the same way: declare `dul:` as a prefix and write `rdfs:subClassOf dul:Situation`. My earlier caution applied to importing or copying DUL's content, not to naming its classes. I should have said that clearly.
+
+The ledger's T1 rule ("no copy or import") was written more strictly than it needs to be, so it should be narrowed to match this reading. That is a change to a decision, so it should be recorded as one, not made silently.
+
+There is one technical point that matters more than the licence. A bare IRI reference gives us **alignment by name, not inheritance of DUL's axioms**. If we don't import DUL, the reasoner knows nothing about what `dul:Situation` requires, so `subClassOf dul:Situation` asserts a relationship, but it does not check it against DUL's constraints. Whether that is enough depends on what we need the reasoner to do. For interoperability and shared vocabulary, references are enough. For DUL's own consistency checks, we would have to import it, and that is where the licence question would apply.
+
+A reasonable next step is to record the narrower rule as a proposed decision: use DUL by IRI reference, do not import or copy its content, and note that importing is a separate decision that needs the licence confirmed. Shall I draft that entry for the ledger?
+[Timestamp: 2026/11/25 01:18:55]
+
+**user**: yes,. for now lets have a decision to use dul by iri reference for the purpose of testing the integrateablity and also whether all the base classes we believe are necessary are in fact subclasses of a well designed upper ontology
+[Timestamp: 2026/11/25 01:21:32]
+
+**ai**: I've logged the decision at the top of `00_Claude_Admin/Decisions_Log.md`, dated 2026-11-25 and marked Settled for the test.
+
+What it records:
+- **DUL is used by IRI reference only.** We declare the `dul:` prefix and write `rdfs:subClassOf dul:...`. We do not use `owl:imports`, download the file, or copy its labels or definitions.
+- **Purpose:** to test integrability with an upper ontology, and to check whether our base classes are real subclasses of it.
+- **Limit stated in the entry:** a reference gives alignment by name, not DUL's axioms. The reasoner won't check our classes against DUL's constraints.
+- **Importing stays open.** It remains a separate decision that waits for the licence confirmation.
+
+I haven't edited ledger item T1 yet. Its wording ("no copy or import") is now broader than the decision. Shall I update T1 to say that IRI reference is permitted and that the licence check applies to importing or copying only?
+<!-- copilot-message {"tools":["read (read): 00_Claude_Admin/Decisions_Log.md","grep (search): 00_Claude_Admin/Decisions_Log.md","edit (edit): 00_Claude_Admin/Decisions_Log.md"]} -->
+[Timestamp: 2026/11/25 01:21:32]
+
+**user**: yes
+[Timestamp: 2026/11/25 01:22:22]
+
+**ai**: I've updated ledger item T1 to match the 2026-11-25 decision.
+
+- **Status:** narrowed. IRI reference is permitted for testing. The licence check still applies to importing, downloading or copying DUL content.
+- **Blocks:** now limited to any import or copy of DUL, and O13. Subclass alignment by IRI can proceed.
+- **Source conflict:** noted, including the CC BY-SA 3.0 statement on a hosting page.
+- **Still needed:** a written reply from the ODP maintainers before any import.
+
+The change is in `Harm Ontology v0.03.1/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md`, and it links back to the decision in the Decisions Log. Shall I start the IRI alignment test, mapping our base classes to DUL and checking each one?
+<!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md"]} -->
+[Timestamp: 2026/11/25 01:22:22]
+
+**user**: ok. can we now see what aligns and what is gapping between our 3.1 proposed model and dul
+[Timestamp: 2026/11/25 01:23:15]
+
+**ai**: **Error:** Internal error: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 250000, model: gemini-3.5-flash-lite, description: Generate content input tokens per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.
+Please retry in 13.623526727s.
+more message: Internal error: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 250000, model: gemini-3.5-flash-lite, description: Generate content input tokens per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.
+Please retry in 13.623526727s.
+<!-- copilot-message {"tools":["webfetch (fetch)"]} -->
+[Timestamp: 2026/11/25 01:23:15]
+
+**user**: resume
+[Timestamp: 2026/11/25 01:23:57]
+
+**ai**: I checked the mapping against the published DUL file (version 3.22 mirror), reading class definitions and constraints by IRI. Nothing was copied into the vault. The table below is names and relations only.
+
+## What aligns
+
+| Our element | DUL class | Check against DUL | Status |
+|---|---|---|---|
+| Act (with an agent) | `dul:Action` | Subclass of Event, requires an Agent as participant and a Task executed | Aligned, with a condition |
+| Process | `dul:Process` | Exists | Aligned |
+| Effect | `dul:Event` | Exists | Aligned |
+| Agent | `dul:Agent` | Union of PhysicalAgent and SocialAgent, under Object | Aligned |
+| Receptor / AffectedEntity | `dul:Object` | Exists | Aligned |
+| Control or barrier (as a role) | `dul:Role` | Subclass of Concept, classifies an Object | Aligned |
+| RoleAssignment | `dul:Role` with `dul:classifies`, time-indexed via `dul:Classification` | Classification is a Situation with a TimeInterval | Aligned |
+| CausalChain (thin container) | `dul:Situation` | "A view, consistent with satisfying a Description, on a set of entities" | Strong alignment |
+| ChainDetermination, HarmDetermination | `dul:Description` expressed by an `dul:InformationObject` | `expresses` has InformationObject as domain and SocialObject as range | Aligned |
+| SituationDescription | `dul:Description` (satisfied by a Situation) | Matches the satisfies relation | Aligned |
+| MechanismModel held by a person | `dul:Description` conceptualised by an Agent | `conceptualizes` has Agent as domain and SocialObject as range | Aligned |
+| InformationObject | `dul:InformationObject` | Exists | Aligned |
+| Causal boundary and horizon | `dul:TimeInterval` (time) and `dul:Region` | Exists | Partial: boundary reasons are ours |
+
+## What gaps
+
+1. **No State class.** DUL has no State. A time-indexed condition (a door closed or wedged, a batch adulterated) is either a `dul:Quality` with a TimeInterval region, or a Situation. We need to choose, and each choice has a cost.
+2. **Omission has no home.** An absence is not an Event or an Object. We need a rule, or a dedicated class.
+3. **An Action requires an agent.** DUL's Action has an agent restriction. A structural or natural act with no agent must be an Event, so the Factor Act class needs splitting: agentive act versus event.
+4. **Situations are social objects in DUL.** Situation is a subclass of SocialObject, and is disjoint from SocialAgent. Our physical situations (the fire room, the flooded corridor) would be social objects under DUL. This is a real modelling tension, not just a naming one.
+5. **Consent and remedy.** DUL has Right, Norm and Contract, but no consent or remedy class. These will be partial matches.
+6. **Our own layers.** Divergence, missingness status, valence and omission type are absent from DUL. The absence of valence is deliberate and matches the no-intrinsic-harm premise. The others are our additions.
+7. **Capability.** DUL has Quality for attributes of objects. A capability is a quality, but it has to be assessed, so the mapping needs an assessment wrapper, as the Capability design already has.
+
+## What to verify before relying on this
+
+- The mirror I read is version 3.22. Other hosts report later versions, such as 3.32 and 4.2. The class names may differ, so the version needs confirming.
+- I verified the constraints for Action, Agent, Role, Situation and Abstract directly. InformationObject, Description, Quality and the Event subclasses still need the same check.
+- The licence blocker still applies to any import. This is an IRI reference test only.
+
+The main structural result is that the thin container, the determinations and the mechanism models all have natural DUL homes. The main tensions are the State class, the agent rule for acts, and physical situations being social objects. Shall I save this as a Proposed alignment note in the v0.03.1 folder and add the three tensions to the test note?
+<!-- copilot-message {"tools":["webfetch (fetch)","powershell -Command \"Select-String -Path 'C:\\Users\\conta\\.local\\share\\opencode\\tool-output\\tool_211cdf51e0014ZiA1B6cpczw7h' -Pattern 'owl:Class rdf:about' | ForEach-Object { $_.Line.Trim() }\" (execute)","grep (search)","read (read)"]} -->
+[Timestamp: 2026/11/25 01:23:57]
+
+**user**: 3 seems like a good idea. what would it look like in practice
+[Timestamp: 2026/11/25 01:25:32]
+
+**ai**: Here is how the rule would work in a case, using the fire-door scenario. The rule has three parts.
+
+## The rule
+
+1. **If an agent performs it, it is an act.** Use `dul:Action`, which requires at least one agent participant and a task. Examples: the facility manager wedging the door, the dispatcher sending the call.
+2. **If no agent performs it, it is an event.** Use `dul:Event` (or `dul:Process` for continuous processes). Examples: the fire spreading, a storm surge, a sprinkler head failing from heat.
+3. **If we don't know whether an agent was involved, it stays an event, with a missingness status.** We never guess an agent to satisfy the class. When the agent is later identified, a new determination is made and the earlier one is kept.
+
+Agency is not always settled. An autonomous system, an automated trading algorithm and a corporation are all contested cases. So the choice between act and event is itself an assessed claim, not a fact we read off the world.
+
+## The fire-door case in practice
+
+| Real-world happening | Class | Why |
+|---|---|---|
+| Facility manager props the door with a wedge | `dul:Action` | Named agent, executes a task (keeping doors closed) |
+| The wedge stays in place for three days | State (a Quality with a TimeInterval, or a Situation) | Persists without an agent acting at each moment |
+| Fire spreads into the corridor | `dul:Process` | Natural, no agent |
+| Smoke enters the corridor | `dul:Event` | Change without an agent |
+| Sprinkler fails to activate | `dul:Event`, with a control role | No agent acted, but the sprinkler plays a control role |
+| No one checked the door for a year | Omission (our class, not DUL) | An absence, so DUL has no home for it |
+
+## A sketch
+
+This is illustrative and has not been validated.
+
+```turtle
+@prefix dul: <http://www.loa-cnr.it/ontologies/DUL.owl#> .
+@prefix ho:  <http://example.org/ho#> .
+
+ho:wedgingByManager a dul:Action ;
+    dul:hasParticipant ho:facilityManager ;
+    dul:executesTask   ho:keepDoorClosedTask .
+
+ho:fireSpreadToCorridor a dul:Process ;
+    dul:hasParticipant ho:fireSource .
+
+ho:smokeEntersCorridor a dul:Event .
+
+ho:wedgeState a dul:Quality ;
+    dul:hasRegion ho:wedgedInterval .
+```
+
+The sketch shows the three classes. It does not yet show the control role or the omission class, which need their own design.
+
+## What changes in practice
+
+- **Queries become more precise.** "Who acted?" returns only `dul:Action` instances with a named agent. "What happened without human intervention?" returns the events and processes.
+- **Causal chains mix classes.** A chain can run from an act (the wedge) to a process (the fire) to an event (the smoke), and each step keeps its own class.
+- **Missing agents are visible.** A chain with an event whose agent is unknown shows the gap, rather than hiding it in a forced act.
+
+## Costs
+
+- More classes to maintain (act, event and process, instead of one Factor kind).
+- Agency needs its own assessment for contested cases, which adds to the judging layer.
+- Some real cases won't fit cleanly, such as a team decision with no single actor.
+
+Shall I save this as a Proposed note in the v0.03.1 folder, alongside the alignment note, with the agency rule stated as an open question?
+[Timestamp: 2026/11/25 01:25:32]
+
+**user**: show the relevant part of class tree now (proposed) with connections to the relevant dul
+[Timestamp: 2026/11/25 01:26:57]
+
+**ai**: 
+
+# Proposed class tree, with DUL connections
+
+Status: **Proposed.** Our classes are shown with the DUL class each one is aligned to by IRI reference (ledger T1 permits this for testing; no import). Each DUL link is still to be checked against the file (see the caveats at the end).
+
+```text
+ENTITY (dul:Entity)
+│
+├── OBJECT (dul:Object)  ─────────────────────────────────────────────
+│   ├── Agent  ─────────────────────────── dul:Agent
+│   │   ├── PhysicalAgent (dul:PhysicalAgent)
+│   │   └── SocialAgent (dul:SocialAgent)
+│   ├── Receptor / AffectedEntity ────── dul:Object  (may be an Agent: self-regarding harm)
+│   ├── Source (physical)  ───────────── dul:Object
+│   └── Control (barrier, safeguard, restraint, feedback)
+│         └── modelled as a dul:Role played by an Object, via RoleAssignment
+│
+├── EVENT (dul:Event)  ───────────────────────────────────────────────
+│   ├── Act (agentive) ────────────────── dul:Action
+│   │     rule: at least one agent participant, executes a task
+│   ├── Process ───────────────────────── dul:Process
+│   ├── Effect (a change) ─────────────── dul:Event
+│   └── Omission (absence) ────────────── OUR CLASS  (no DUL home; gap)
+│
+├── QUALITY (dul:Quality)  ───────────────────────────────────────────
+│   ├── State (time-indexed condition) ─ dul:Quality with a TimeInterval region
+│   │     or a Situation; choice open (gap: no State class in DUL)
+│   └── Capability (as assessed) ───────── dul:Quality, wrapped by an assessment
+│
+├── SITUATION (dul:Situation)  ───────────────────────────────────────
+│   │   rule: satisfies some Description; subclass of SocialObject in DUL
+│   ├── CausalChain (thin container) ─── dul:Situation
+│   └── ExposureSituation (proposed) ─── dul:Situation (tension: physical
+│                                         situations are social objects in DUL)
+│
+├── REGION (dul:Region)  ─────────────────────────────────────────────
+│   ├── TimeInterval ─────────────────── dul:TimeInterval
+│   └── Causal boundary and horizon (our reasoning over the interval)
+│
+├── ABSTRACT (dul:Abstract)  ─────────────────────────────────────────
+│   └── Divergence, Missingness, Valence ── OUR CLASSES (no DUL home, by design)
+│
+└── SOCIAL OBJECTS (dul:SocialObject)
+    ├── Concept (dul:Concept)
+    │   └── Role ─────────────────────── dul:Role  (control, source, receptor roles)
+    ├── Description (dul:Description)
+    │   ├── SituationDescription ──────── dul:Description (satisfied by CausalChain)
+    │   ├── PerspectiveType ──────────── dul:Description (frame, standard)
+    │   └── MechanismModel (held) ────── dul:Description, conceptualised by an Agent
+    ├── InformationObject (dul:InformationObject)  [under InformationEntity]
+    │   ├── InformationObject (determination) ── expresses → SituationDescription
+    │   └── Record / report / testimony ────── dul:InformationObject
+    └── Assessment (act of judging) ───── dul:Action (agent executes a task)
+          └── Determination ───────────── dul:InformationObject (expresses a Description)
+
+LINKS (proposed, by DUL property)
+├── Act hasParticipant Agent                 (dul:hasParticipant)
+├── Event hasParticipant Object              (dul:hasParticipant)
+├── RoleAssignment: Role classifies Object    (dul:classifies, in a Classification)
+├── CausalChain satisfies SituationDescription (dul:satisfies)
+├── Determination expresses SituationDescription (dul:expresses)
+├── Agent conceptualizes Description          (dul:conceptualizes)
+└── Object hasQuality Quality                 (dul:hasQuality)
+
+NOT IN DUL (our namespace, deliberate)
+├── Harm / Harmfulness (valence lives in determinations only)
+├── Divergence, Missingness, Omission type
+└── Causal boundary reasons, temporal status
+```
+
+## Caveats
+
+- **Verified against the published file:** Entity, Abstract, Action (agent restriction), Agent (union of PhysicalAgent and SocialAgent), Role (subclass of Concept), Situation (subclass of SocialObject, satisfies a Description), and the properties `expresses`, `conceptualizes`, `classifies`, `hasParticipant` and `hasQuality`.
+- **Not yet verified:** Quality's exact constraints, Process, Description and InformationObject details, and the placement of Region and TimeInterval. These need checking before the tree is adopted.
+- **Version:** the mirror I read is 3.22, and other hosts report later versions. Confirm the version before any alignment is final.
+- **Open choices:** State (Quality or Situation), and whether ExposureSituation is a physical situation, which would fall under DUL's social-object tension.
+
+Shall I save this tree as a Proposed note in the v0.03.1 folder, with the caveats as an open checklist?
+[Timestamp: 2026/11/25 01:26:57]
