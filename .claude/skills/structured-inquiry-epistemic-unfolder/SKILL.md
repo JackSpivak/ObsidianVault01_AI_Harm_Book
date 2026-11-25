@@ -2,7 +2,8 @@
 name: structured-inquiry-epistemic-unfolder
 metadata:
   version: "1.0"
-description: Systematically investigates a complex conceptual territory or philosophical domain by generating a comprehensive, sequentially expanding top-level outline (one section at a time) with strict frontmatter provenance (including mandatory Epistemic Grounding Mode: Ontology-Only, Vault-Grounded, or LLM Parametric Baseline) and metacognitive saturation checks. Trigger whenever the user asks to unpack, investigate, or systematically unfold a complex conceptual question, philosophical framework, or architectural design space using structured, step-by-step sequential reasoning. Can be invoked directly via skill call or prompt trigger.
+description: >-
+  Systematically investigates a complex conceptual territory or philosophical domain by generating a comprehensive, sequentially expanding top-level outline (one section at a time) with strict frontmatter provenance (including mandatory Epistemic Grounding Mode: Ontology-Only, Vault-Grounded, or LLM Parametric Baseline) and metacognitive saturation checks. Trigger whenever the user asks to unpack, investigate, or systematically unfold a complex conceptual question, philosophical framework, or architectural design space using structured, step-by-step sequential reasoning. Can be invoked directly via skill call or prompt trigger.
 ---
 
 # Sequential Epistemic Unfolder (Ontological Archaeology)

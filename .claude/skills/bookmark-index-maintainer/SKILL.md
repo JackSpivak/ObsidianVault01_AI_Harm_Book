@@ -2,7 +2,8 @@
 name: bookmark-index-maintainer
 metadata:
   version: "1.6"
-description: Maintains and extends a numbered "bookmark" taxonomy index (e.g., 001, 002, lettered a/b sub-framings, tiered I/II/III structures, standalone -premise tags) tracking branches of an ongoing exploration. Use whenever a new tension, question, or subtopic arises that may not fit the existing index, when asked to bookmark, track, extend, reorganize, or revisit part of a conversation, or to check if the taxonomy still holds. Trigger even without "bookmark" — e.g., "this feels like its own thing," "where does this fit," "should we track this separately," or a new line of inquiry within a tracked exploration — and proactively when a new branch emerges. Also use to file notes into an index or move them to a better-fitting one (match by meaning: "file this note", "sweep unfiled notes", "file uncategorized", "process the inbox", "this belongs elsewhere", "move this note", or session-start reminders about _Unfiled Ideas).
+description: >-
+  Maintains and extends a numbered "bookmark" taxonomy index (e.g., 001, 002, lettered a/b sub-framings, tiered I/II/III structures, standalone -premise tags) tracking branches of an ongoing exploration. Use whenever a new tension, question, or subtopic arises that may not fit the existing index, when asked to bookmark, track, extend, reorganize, or revisit part of a conversation, or to check if the taxonomy still holds. Trigger even without "bookmark" — e.g., "this feels like its own thing," "where does this fit," "should we track this separately," or a new line of inquiry within a tracked exploration — and proactively when a new branch emerges. Also use to file notes into an index or move them to a better-fitting one (match by meaning: "file this note", "sweep unfiled notes", "file uncategorized", "process the inbox", "this belongs elsewhere", "move this note", or session-start reminders about _Unfiled Ideas).
 ---
 
 # Bookmark Index Maintainer
