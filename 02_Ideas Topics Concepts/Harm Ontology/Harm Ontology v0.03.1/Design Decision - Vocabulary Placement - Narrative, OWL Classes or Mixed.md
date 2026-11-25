@@ -39,9 +39,46 @@ Where should the richness of harm-type language live: only in the SKOS vocabular
 - **Related settled rule.** An element that takes part in relations is an individual of a class, and a defined, mapped word-sense is a `skos:Concept` ([[Decisions_Log]] 2026-11-21). That rule covers individuals versus concepts, not which richness goes in which layer, so it does not decide this question.
 
 ## Consequences
-- **If A:** remove harm-type classes from the schema. Express the question-answered axis as a property with a SKOS range. Rewrite class-membership competency questions as property queries.
-- **If B:** keep and extend the v1/v2 class tree. Accept that lens-specific terms become classes, and check each addition against the premise.
-- **If C:** keep the determination subclasses (ledger HD2). Add facet properties with SKOS ranges (HD18). Write a placement test that says which layer each term goes in (HD28 depends on it, with ledger S28).
+Pros and cons for Options B and C are those recorded in the 2026-11-24 session, with the trade-off matrix that compared them. Option A was not assessed in that session; its consequences below are derived from the schema change and are marked as such.
+
+### Option A: strictly narrative (derived, not assessed in session)
+- **Schema:** remove harm-type classes; express the question-answered axis as a property with a SKOS range.
+- **Usability:** queries by harm type become property filters. Competency questions that rely on class membership need rewriting (for example CQ1 and CQ5 in the test note).
+- **Availability:** a reasoner cannot infer from a harm type, so inferred results are unavailable unless the query layer supplies them.
+- **Maintainability:** the most robust to new lenses, because adding a term adds a SKOS concept and no class.
+
+### Option B: OWL classes and subclasses (from session)
+- **Pros:** reasoning depth is high (the reasoner handles subtypes automatically). Class-membership queries are simple. The reasoner works on a lean structure only when the classes are few.
+- **Cons:** fragile as lenses are added, because the taxonomy breaks when a new lens does not fit. Lens-specific harm types become ontic classes, so epistemic honesty is low. Subclass friction and open-world contradictions grow with each added class.
+- **Availability:** inference over lens-specific types is available, but only inside a single lens's tree.
+- **Maintainability:** each new lens or sub-lens changes the class tree.
+
+### Option C: mixed (from session)
+- **Pros:**
+  - Computational: the reasoner works on a lean TBox of reasoning axes, avoiding combinatorial explosion.
+  - Epistemic: the narrative is read as interpretation, while the determination type is a formal classification.
+  - Pluralism: disciplines map their terms to the same reasoning categories (`skos:broadMatch`, `skos:related`) without sharing vocabulary.
+- **Cons:**
+  - The reasoner cannot infer across the SKOS narrative. A narrow term does not imply its broader category unless the bridge is asserted.
+  - Bridge maintenance: each new discipline term must be wired to the reasoning backbone. Unwired terms float free of the schema.
+  - Query complexity: queries traverse both the OWL schema and the SKOS scheme, so SPARQL becomes longer.
+- **Usability:** moderate reasoning depth; rich questions need both layers.
+- **Availability:** core axes are inferable; narrative-level inference needs explicit property links.
+- **Maintainability:** robust to new lenses (a new SKOS concept, not a class), but needs ongoing bridge upkeep.
+
+### Trade-off summary (from session matrix)
+
+| Dimension | B: OWL classes | C: mixed |
+|---|---|---|
+| Reasoning depth | High | Moderate |
+| Maintenance | Fragile as lenses are added | Robust; bridges need upkeep |
+| Epistemic honesty | Low | High |
+| Querying | Simple class membership | Schema plus SKOS; longer queries |
+
+### Consequences for the chosen option
+- **If A:** remove harm-type classes from the schema; express the question-answered axis as a property with a SKOS range; write property-based competency questions.
+- **If B:** keep and extend the v1/v2 class tree; accept lens-specific classes and check each against the premise.
+- **If C:** keep the determination subclasses (ledger HD2); add facet properties with SKOS ranges (HD18); write a placement test for each term (ledger S28, HD28); budget for bridge maintenance.
 
 ## Open questions
 - Which option? Option C is the working recommendation, not a decision.
