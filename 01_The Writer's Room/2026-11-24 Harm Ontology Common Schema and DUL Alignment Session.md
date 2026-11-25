@@ -24,6 +24,7 @@ topics: [HarmDetermination, determination-subclasses, DUL, IRI-reference, Affect
 - The shared-tree document was not replaced in the vault. The tree in the chat (02:30) is the current version. The saved note still predates it.
 
 ## Decisions made
+- Update, 2026-11-25: all decisions from this session are now logged in [[Decisions_Log]] (nine new rows, dated 2026-11-25) and in the ledger, section 0 (HD1 to HD27). Items the author did not decide stay Proposed, Open or Deferred there.
 - Shallow actor/object tree: subclass only on physical versus social. Collectiveness is the open `unitySource` property, and `unityLocus` holds who holds unity. Finer distinctions wait for a failing case. → [[Decisions_Log]] (2026-11-25)
 - AffectedEntity replaces Receptor. The object side is AffectedEntity (affectability is a property); the role is ImpactedRole, scoped to a consequence. → [[Decisions_Log]] (2026-11-25, amended the same day)
 - DUL is used by IRI reference only, for testing. Import or copy waits for the licence (T1). → [[Decisions_Log]] (2026-11-25); ledger T1 narrowed.
@@ -126,7 +127,7 @@ Note: the assistant's replies are paraphrased in this note. Quotes are copied fr
 
 ## Follow-ups
 - [ ] Author: confirm whether to replace the saved proposed tree with the 02:30 version (bearer, FunctionalHarm, EmergentWhole, determination branch).
-- [ ] Log or propose as decisions: harm attaches to a bearer's state (`hasBearer` over Entity); functional harm as a HarmDetermination subclass; emergent wholes as bearers; the determination branch. None are in [[Decisions_Log]] yet.
+- [x] Log or propose as decisions: bearer declaration, functional harm, emergent wholes, determination branch (logged 2026-11-25, see Decisions made).
 - [ ] Add to the ledger: the determination branch, bearer/judgesState/atHorizon, FunctionalHarm, EmergentWhole, unityState, and the open questions above.
 - [ ] Run the coverage matrix (section 4a of the test note) against the surgeon-sued case.
 - [ ] Verify the marked (P) classes and the DUL version against the published file (ledger S41).
