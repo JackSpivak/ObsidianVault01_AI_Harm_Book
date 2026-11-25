@@ -7,7 +7,7 @@ topic: "v0.03.01 explore harm types"
 model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":300836,"contextWindow":1000000,"updatedAt":1795637644756}'
+usage: '{"usedTokens":318418,"contextWindow":1000000,"updatedAt":1795638353434}'
 ---
 
 **user**: yesterday talked about types of harrm that 7 council perspectives brought to v1 and v2 and interdisciplinary harm ontology and formal harm ontology that we moved away from as we shifted structure to implement our core commitment v3.1 to hold all harms as HarmDeterminations - the result of perspective generated assessments.
@@ -103,12 +103,7 @@ Both insights are fully preserved and queryable, but the ontology remains episte
 **user**: in this conversation (how shall we refer to it?) we discussed pros and cons of vocabulary as a strictly narrative level, owl classes and subclasses or a mixed approach. you presented pros and cons.  you may have exrtracted this and saved as an insight/idea note. im not sure. did you
 [Timestamp: 2026/11/25 13:00:05]
 
-**ai**: **Error:** Internal error: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 250000, model: gemini-3.5-flash-lite, description: Generate content input tokens per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.
-Please retry in 46.050057727s.
-more message: Internal error: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 250000, model: gemini-3.5-flash-lite, description: Generate content input tokens per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.
-Please retry in 46.050057727s.
+**ai**: 
 <!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology"]} -->
 [Timestamp: 2026/11/25 13:00:05]
 
@@ -189,5 +184,61 @@ Would you like me to write an insight note (for example `Insight - Vocabulary Pl
 **user**: so, can we now extract what i asked for previously a complete note documenting where we discussed pros and cons of vocabulary as a strictly narrative level, owl classes and subclasses or a mixed approach. you presented pros and cons etc?  do you think this should be an idea note or a design note?
 [Timestamp: 2026/11/25 13:18:22]
 
-**ai**: 
+**ai**: The rules say design decisions that involve an open choice between options use the DesignDecision fileClass and are never filed as ideas. I'll confirm the template and fileClass, and check what the existing "Classes and Concepts" note already covers, so I don't duplicate it.The DesignDecision fileClass settles it: this is a design note. It covers an open choice between options (narrative-only, OWL classes, mixed), so it isn't an idea. Before I quote the author, I'll check the exact wording of the key lines in the transcript.I have the exact wording of the key author lines. This is a design note, since it compares three structural options and no choice has been made yet. I'll write it with the DesignDecision template, set `status: pending`, and add a ledger row (HD28) for it.Yes, I've extracted it, and it should be a **design note**, not an idea note. The vault rules send design decisions that involve an open choice between options to the DesignDecision fileClass, and ideas never use it. This one compares three structural options and no choice has been made.
+
+**The note:** `02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Design Decision - Vocabulary Placement - Narrative, OWL Classes or Mixed.md`. It has `status: pending` and no `decision_id`, because the choice hasn't been made.
+- **Options:** A strictly narrative (SKOS only), B OWL classes and subclasses (the v1/v2 approach), C mixed (stable reasoning axes as classes, narrative in SKOS, facets linking them).
+- **Pros and cons** for each, and the reasons the chat's recommendation of C rests on the premise that harm is an assessment.
+- **Open questions**, including the placement test (ledger S28) and whether the surgeon-sued case shows the divergence query working.
+- **Original wording:** four verbatim author quotes, each with its source transcript.
+
+**Ledger:** new row HD28 in section 0, linked to the note and marked pending. It blocks the final form of HD18 and the placement test.
+
+**Two caveats:**
+- The chat compared only Options B and C. **The analysis of Option A (strictly narrative) is new**, not from the conversation. The note labels it that way.
+- Option C is the assistant's recommendation and is untested. The note says so.
+
+I haven't logged anything in `Decisions_Log`, since the choice is still open. Once you choose, it should become a Decisions Log row and the note should move to `settled`.
+<!-- copilot-message {"tools":["read (read): 00_Claude_Admin/FileClasses/DesignDecision.md","read (read): 00_Claude_Admin/Templates/Design Decision.md","read (read): 02_Ideas Topics Concepts/Harm Ontology/Classes and Concepts - How Elements Are Represented.md","grep (search): copilot/copilot-conversations","read (read): copilot/copilot-conversations/agent__i_want_to_develop_a_common_schema_that_will_organize@20261124_213159.md","write (edit): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Design Decision - Vocabulary Placement - Narrative, OWL Classes or Mixed.md","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md"]} -->
 [Timestamp: 2026/11/25 13:18:22]
+
+**user**: the design decision note looks more like a transcript of the conversation rather than the style of a current design note rules.  what happened? am i missing something here?
+[Timestamp: 2026/11/25 13:24:40]
+
+**ai**: You're not missing anything. The note doesn't follow the design-note rules, and the cause was how I wrote it.
+
+**What went wrong**
+- **The Summary is a history of the chat.** It says when the question came up, what the assistant said, and how the author reacted. The template asks for a paraphrase of the reasoning behind the choice. Narrating the conversation is not that.
+- **The Options section describes the discussion.** It mentions the EpistemicPollution and ProtectedSpeech example and the chat's trade-off table, which are things that were said. A design note should state each option as it stands and what it would change.
+- **Rationale is partly chat-recall.** It refers to what the author said and the order the points came up, instead of the reasons that bear on the choice now.
+- **I mixed the note's roles.** It tries to be a design note, a session record and a discussion summary. The session note already holds the history, so the design note should only hold the decision and its reasoning.
+
+The parts that do follow the template are the Original wording quotes with attribution and source, and the status (`pending`, no `decision_id`). The quotes are the one part I'd keep as they are.
+
+**What a corrected version would look like**
+- **Decision or question:** one sentence, with the choice still open.
+- **Options:** each option stated neutrally, with its consequences for the schema and for queries.
+- **Summary:** a short paraphrase of the reasoning, marked as a paraphrase.
+- **Rationale:** the reasons that bear on the choice, with links to the premise and settled decisions.
+- **Consequences** and **Open questions:** brief and concrete.
+- **Original wording:** the same verbatim quotes, shortened to those the rationale depends on.
+
+Shall I rewrite it on that basis? I'd also remove the history from the summary so the note reads as the current design state, and leave the session record to the session note.
+[Timestamp: 2026/11/25 13:24:40]
+
+**user**: yes.
+[Timestamp: 2026/11/25 13:25:38]
+
+**ai**: I've rewritten the design note as a current design state. It no longer narrates the conversation; the discussion history stays in the session note.
+
+**What changed**
+- **Decision or question** is one sentence, marked open.
+- **Options** state each option's effect on the schema and on queries. The chat history is gone.
+- **Summary** is a short paraphrase of the reasoning.
+- **Rationale** gives the reasons for and against each option, tied to the premise and the settled rules, plus what is still untested.
+- **Consequences** are listed per option, so the note works whichever option is chosen.
+- **Original wording** keeps three verbatim author quotes, each with its source. I cut the two that only recorded the chat's history.
+
+The note is still `status: pending`, and its ledger row (HD28) is unchanged.
+<!-- copilot-message {"tools":["write (edit): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Design Decision - Vocabulary Placement - Narrative, OWL Classes or Mixed.md"]} -->
+[Timestamp: 2026/11/25 13:25:38]
