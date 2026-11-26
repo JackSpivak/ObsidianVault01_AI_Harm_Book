@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm ontology handoff"
-usage: '{"usedTokens":112695,"contextWindow":1000000,"updatedAt":1795679629396}'
+usage: '{"usedTokens":115724,"contextWindow":1000000,"updatedAt":1795680188438}'
 ---
 
 **user**: read harm ontology handoff
@@ -604,3 +604,62 @@ Two things are still open and bear on this:
 So the answer to "where does the catalog fit" is: a catalog is a discipline scheme (layer 3), its categories are spokes, and hubs are the shared ideas that spokes map to. Whether each perspective gets its own catalog is the decision that V2 and O10 need to settle.
 <!-- copilot-message {"tools":["grep (search): 02_Ideas Topics Concepts/Harm Ontology"]} -->
 [Timestamp: 2026/11/26 00:53:40]
+
+**user**: you fell back to the word tradition possibly because at one time we had it as a skos:prefLabel?
+is a tradition as you are using it identical with a perspective or does a tradition "have" a perspective
+[Timestamp: 2026/11/26 00:57:25]
+
+**ai**: Partly. The ledger shows the term moved: item S21 records that a discipline's perspective and a tradition are the same kind of thing, and that the tradition label now uses `skos:altLabel` rather than `skos:prefLabel`. That is probably where the word came from, but I didn't check the earlier version, so treat that as likely rather than confirmed.
+
+On the substance:
+
+- **Tradition and perspective are the same kind.** The working answer (2026-11-22) is yes. A tradition, such as Classical or Integral, and a discipline, such as law or ecology, are both `PerspectiveType`. "Tradition" is a name a perspective can go by, not a separate class.
+- **Whether a tradition "has" a perspective is not settled.** The ledger doesn't record it. The relations near it are open: `heldBy` (S15), whether disciplines or communities hold perspectives (S22), and whether one specification can combine several traditions (S23). So I can't say from the record that a tradition has a perspective, or the reverse.
+
+My own usage was loose. I wrote "keyed to a discipline or tradition" as if the two were different kinds, which the working answer says they aren't. The cleaner wording is "keyed to a perspective", with the tradition name as an alternative label.
+
+If you want the "has" relation, it could be stated as a property between perspectives, for example one tradition grouping several disciplinary perspectives, but that is a new proposal and would need to go into the ledger before it is used.
+[Timestamp: 2026/11/26 00:57:25]
+
+**user**: lets try an example
+i think of hinayana, mahayana and vajrayana to be different traditions within Budhist philosophy. I believe (in english) it makes sense to say they hold different perspectives distinguished by languaging and belief
+
+perhaps psychology might hold similar distinctions.  could Freudian, Jungian, Reichian be thought of as different traditions?
+
+what characterizes or distinguishes a tradition? certainly the perspective it "holds" or promotes or investigates or uses in practice by practitioners might be one
+[Timestamp: 2026/11/26 01:02:58]
+
+**ai**: Your examples hold up, and they show where a tradition differs from a perspective.
+
+**What a tradition has that a perspective doesn't.** A perspective is a frame: what it asks, what it can see, what it returns. A tradition adds three things a frame lacks:
+
+- **Lineage:** a line of transmission, with founders, authorised teachers and successors.
+- **Continuity over time:** the tradition persists while its perspectives change.
+- **Community and institutions:** practitioners, training, texts, and the boundaries that get disputed.
+
+**Your examples.**
+
+- **Mahayana, Vajrayana, and Theravada (the usual name for what is called Hinayana in older writing):** each is a family of perspectives sharing a lineage and a body of practice. Vajrayana contains several schools with different views on the same practice. Hinayana is also a contested term, and many scholars avoid it as pejorative.
+- **Freud, Jung and Reich:** each is the origin of a lineage. Freud's psychoanalysis gave rise to ego psychology and object relations, and those are perspectives inside a tradition. Jung's analytical psychology and Reich's character analysis and body-centred work are similar. Here the tradition is the lineage and its institutions, not a single theory.
+
+**What distinguishes a tradition** (working list):
+
+1. Lineage and transmission
+2. Founding texts or claims
+3. Practices and methods used by practitioners
+4. Institutions and boundaries (who is in, who is out, disputes)
+5. Continuity over time, through changes of perspective
+
+Your point about practice is right. Practice is part of what a tradition holds, and it can't be read off a set of claims. The Buddhist case shows that two schools can share texts and differ in practice, and that language and belief can differ while lineage stays the same.
+
+**Does a tradition "have" a perspective?** On this picture, yes, with two qualifications. A tradition holds several perspectives over time, not one. And a perspective can be held by more than one tradition, so the relation isn't one-to-one. That fits the open items S15 and S22: a tradition is a social holder, not a frame. It also means the tradition is a different kind of thing from the perspective, which is what the S21 answer ("same kind") needs to be checked against.
+
+A possible shape, as a proposal only: a tradition is a social object with a lineage relation, and it has perspectives, each time-indexed.
+
+```turtle
+ex:Vajrayana a ex:Tradition, owl:NamedIndividual ;
+    ex:hasPerspective ex:SomeVajrayanaPerspective .
+```
+
+This also suggests that S21 may need restating, since "a discipline's perspective is the same kind as a tradition's" would no longer hold. Before logging anything, the question is whether a tradition is the same kind as a perspective or a container of them, and the examples above suggest the second.
+[Timestamp: 2026/11/26 01:02:58]
