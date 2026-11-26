@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-sonnet-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Execute structured-inquiry-unfolding skill"
-usage: '{"usedTokens":57253,"contextWindow":1000000,"updatedAt":1795725296984}'
+usage: '{"usedTokens":81302,"contextWindow":1000000,"updatedAt":1795728836927}'
 ---
 
 **user**: read structured-inquiry-unfolding skill complete and execute exactly ass speecified
@@ -881,3 +881,628 @@ A large share of real AI harm involves someone acting with purpose: a user who m
 5. **[Integrate & Branch]** Harvest a side discussion and place it in the outline. I will ask where it goes.
 6. **[Halt & Synthesize]** Conclude, collect all assessments, and generate the design note.
 [Timestamp: 2026/11/26 13:34:40]
+
+**user**: return to level 3
+[Timestamp: 2026/11/26 14:28:17]
+
+**ai**: 
+
+### Inputs & Provenance Frontmatter
+- **Input A:** What aspect or level of the proposed harm ontology v0.03.01 is not sufficiently represented to capture real world situations? `[Explicitly Provided by User]`
+- **Input B:** Option 3, LLM Parametric Baseline `[Explicitly Provided by User]`
+- **Input C:** General AI-harm and risk-ontology scholarship `[Assumed by Skill]`
+- **Input D:** Representational adequacy of v0.03.01 against real-world AI harm situations `[Assumed by Skill]`
+- **Input E:** Moderate rigor, narrative level `[Assumed by Skill]`
+- **Input F:** Contemporary AI deployment era `[Assumed by Skill]`
+- **Input G:** On completion, a collected set of gap assessments. Each has a 2–5 sentence summary, numbered bullets of 2–5 sentences each, and one 200–250 word explanation. On Halt & Synthesize, a design note containing all assessments. No design note before then. `[Explicitly Provided by User]`
+
+---
+
+## 3.01 Sub-Gap under 3.00: Vulnerability, Power Asymmetry and Dependency
+
+**Pointer reset:** I returned to Level 3 and am resuming sequential unfolding beneath 3.00. The next sub-level under it is 3.01.
+
+**Caveat:** Option 3 cuts off vault access, so I did not read the v0.03.01 schema. This assessment is a hypothesis from general harm-ontology scholarship, to be checked against the schema.
+
+**Summary:** The same output harms people differently depending on how susceptible, dependent or powerless they are in relation to the system and its operator. Type-based harm classes record the output and not the person's position. If v0.03.01 has no vulnerability or power-asymmetry structure, severity will be understated for those who are most at risk.
+
+**Key points:**
+
+1. **Sources of vulnerability.** Vulnerability can come from age, health, crisis, disability, limited literacy, economic precarity or social marginalization. It can be lasting or momentary, as when someone is in acute distress. The ontology needs a way to describe the bearer's state at the time of exposure.
+2. **Power asymmetry.** Individuals facing institutions that use automated decisions have little ability to question or avoid them. The imbalance in information, resources and alternatives changes the harm's weight. A relation between bearer and operator should record this asymmetry.
+3. **Dependency and lock-in.** People may rely on a system for work, care, income or companionship, with no practical substitute. Harm from a system one cannot leave differs from harm from one that is easy to leave. Dependency and switching cost are relevant attributes.
+4. **Susceptibility to the mechanism.** Some people are more affected by persuasion, emotional design or personalization. A system tuned to engagement may exploit exactly these traits. Recording the mechanism and the susceptibility together shows why the harm landed where it did.
+5. **Vulnerability as dynamic and relational.** A person is not vulnerable in the abstract, but in relation to a particular system and context. Treating it as a fixed label on the person risks stereotyping. The ontology should attach it to the exposure situation.
+
+**Explanation:**
+Two people can receive an identical output and be harmed to very different degrees, because their positions relative to the system differ. A type-based classification records the output and its category, but says nothing about who received it. A fuller account begins with the bearer's state at the time of exposure: age, health, acute crisis, disability, limited literacy, economic precarity or social marginalization, any of which may be lasting or momentary. It then adds the relation between bearer and operator, since individuals facing institutions that use automated decisions often cannot question, avoid or appeal them, and the imbalance in information, resources and alternatives changes how much the outcome weighs. Dependency and lock-in matter too: harm from a system relied on for work, care, income or companionship, with no practical substitute, differs from harm from one that is easy to leave, so dependency and switching cost are relevant attributes. Susceptibility to the specific mechanism is a further factor, because persuasive design, emotional mimicry and personalization affect people unevenly, and systems tuned for engagement may exploit exactly those traits. Importantly, vulnerability is relational and situational, not a fixed label on a person, and modeling it as a property of the exposure situation avoids stereotyping while capturing real differences. Without this structure, severity scores systematically understate harms to those most at risk, and prioritization follows the average case. The practical test for v0.03.01 is whether the same output can be recorded as two incidents of different severity because of the bearer's state and relation to the operator.
+
+---
+
+### Metacognitive Assessment
+- **Saturation:** Moderate within Level 3. The overview and one sub-level are mapped.
+- **Marginal Returns:** Moderate. Sub-levels remain on consent and recourse, cultural and legal context, intersectionality, and observed versus experienced harm.
+- **Convergence:** Open
+- **Utility:** High Leverage
+- **Recommendation & Options:** Continue to 3.02 (consent, recourse and contestability). Alternatively return to macro-level. No design note will be created until you choose Halt & Synthesize.
+
+### Your Options
+1. **[Expand]** Add detail, lineage or guiding questions for 3.01. Example: "Expand 3.01."
+2. **[Drill Deeper]** Break this into narrower sub-levels. Example: "Drill deeper into 3.01."
+3. **[Continue Sequentially]** Move to the next section at this depth. Example: "Continue to 3.02."
+4. **[Step Up / Return to Level…]** Example: "Step up one level", "Return to macro-level", or "Return to Level 4 and continue".
+5. **[Integrate & Branch]** Harvest a side discussion and place it in the outline. I will ask where it goes.
+6. **[Halt & Synthesize]** Conclude, collect all assessments, and generate the design note.
+[Timestamp: 2026/11/26 14:28:17]
+
+**user**: continue sequentially
+[Timestamp: 2026/11/26 14:29:12]
+
+**ai**: 
+
+### Inputs & Provenance Frontmatter
+- **Input A:** What aspect or level of the proposed harm ontology v0.03.01 is not sufficiently represented to capture real world situations? `[Explicitly Provided by User]`
+- **Input B:** Option 3, LLM Parametric Baseline `[Explicitly Provided by User]`
+- **Input C:** General AI-harm and risk-ontology scholarship `[Assumed by Skill]`
+- **Input D:** Representational adequacy of v0.03.01 against real-world AI harm situations `[Assumed by Skill]`
+- **Input E:** Moderate rigor, narrative level `[Assumed by Skill]`
+- **Input F:** Contemporary AI deployment era `[Assumed by Skill]`
+- **Input G:** On completion, a collected set of gap assessments. Each has a 2–5 sentence summary, numbered bullets of 2–5 sentences each, and one 200–250 word explanation. On Halt & Synthesize, a design note containing all assessments. No design note before then. `[Explicitly Provided by User]`
+
+---
+
+## 3.02 Sub-Gap under 3.00: Consent, Recourse and Contestability
+
+**Caveat:** Option 3 cuts off vault access, so I did not read the v0.03.01 schema. This assessment is a hypothesis from general harm-ontology scholarship, to be checked against the schema.
+
+**Summary:** Whether a person agreed to an exposure, and whether they can challenge or reverse its outcome, changes how serious a harm is. A risk freely accepted differs from one imposed without notice. If v0.03.01 does not record consent and recourse, it will treat chosen and imposed harms alike and ignore whether anyone could fix the result.
+
+**Key points:**
+
+1. **Awareness.** Many people do not know an automated system is involved in a decision about them. Harm from an undisclosed system differs from harm from a disclosed one. The ontology should record whether the bearer was told and whether the notice was understandable.
+2. **Quality of consent.** Consent can be informed, uninformed, coerced by lack of alternatives or buried in terms of service. Clicking "accept" is not equivalent to meaningful agreement. A graded consent attribute, with basis and context, would capture this.
+3. **Scope and withdrawal.** Consent to one use does not cover secondary uses such as retraining on personal data. The ability to withdraw also matters. The ontology should link consent to a defined purpose and record whether withdrawal was possible and honored.
+4. **Contestability.** A person may be able to appeal, request human review or demand an explanation, or may face a closed process. The presence, accessibility and effectiveness of such channels determine whether a wrongful outcome persists. Each should be recorded.
+5. **Burden of recourse.** Even where recourse exists, it may demand time, expertise or money that the bearer lacks. A nominal remedy that is practically unusable is not a real one. Recording the burden shows the gap between formal and effective recourse.
+
+**Explanation:**
+The moral and practical weight of a harm depends in part on whether the affected person agreed to the exposure and whether they can challenge its result. Many people never learn that an automated system took part in a decision about them, so a basic attribute is whether the bearer was informed, and whether the notice was comprehensible. Consent itself varies in quality: it may be informed, uninformed, effectively coerced because there is no alternative, or buried in terms of service, and a click on "accept" is not the same as meaningful agreement. A graded consent attribute with its basis and context would capture this. Consent is also bound to a purpose, since agreeing to one use does not cover secondary uses such as retraining on personal data, and the possibility and honoring of withdrawal should be recorded. On the other side, contestability determines whether a wrongful outcome persists. Channels for appeal, human review and explanation may be present or absent, accessible or obscure, effective or merely formal, and each of these should be representable. Finally, the burden of using recourse matters: a remedy that demands time, expertise or money the bearer lacks is nominal and not real, and recording the burden exposes the gap between formal and effective recourse. Without this structure, a risk freely chosen and one imposed in secret are scored identically, and systems with sham appeal processes appear acceptable. The practical test for v0.03.01 is whether an incident can record an undisclosed system, a low-quality consent and an inaccessible appeal process as separate facts.
+
+---
+
+### Metacognitive Assessment
+- **Saturation:** Moderate to High within Level 3. Two sub-levels are mapped.
+- **Marginal Returns:** Moderate. Cultural and legal context, intersectionality, and observed versus experienced harm remain.
+- **Convergence:** Open, but stabilizing.
+- **Utility:** High Leverage
+- **Recommendation & Options:** Continue to 3.03 (cultural, legal and jurisdictional context), or return to macro-level. No design note will be created until you choose Halt & Synthesize.
+
+### Your Options
+1. **[Expand]** Add detail, lineage or guiding questions for 3.02. Example: "Expand 3.02."
+2. **[Drill Deeper]** Break this into narrower sub-levels. Example: "Drill deeper into 3.02."
+3. **[Continue Sequentially]** Move to the next section at this depth. Example: "Continue to 3.03."
+4. **[Step Up / Return to Level…]** Example: "Step up one level", "Return to macro-level", or "Return to Level 4 and continue".
+5. **[Integrate & Branch]** Harvest a side discussion and place it in the outline. I will ask where it goes.
+6. **[Halt & Synthesize]** Conclude, collect all assessments, and generate the design note.
+[Timestamp: 2026/11/26 14:29:12]
+
+**user**: continue sequentially
+[Timestamp: 2026/11/26 14:29:52]
+
+**ai**: 
+
+### Inputs & Provenance Frontmatter
+- **Input A:** What aspect or level of the proposed harm ontology v0.03.01 is not sufficiently represented to capture real world situations? `[Explicitly Provided by User]`
+- **Input B:** Option 3, LLM Parametric Baseline `[Explicitly Provided by User]`
+- **Input C:** General AI-harm and risk-ontology scholarship `[Assumed by Skill]`
+- **Input D:** Representational adequacy of v0.03.01 against real-world AI harm situations `[Assumed by Skill]`
+- **Input E:** Moderate rigor, narrative level `[Assumed by Skill]`
+- **Input F:** Contemporary AI deployment era `[Assumed by Skill]`
+- **Input G:** On completion, a collected set of gap assessments. Each has a 2–5 sentence summary, numbered bullets of 2–5 sentences each, and one 200–250 word explanation. On Halt & Synthesize, a design note containing all assessments. No design note before then. `[Explicitly Provided by User]`
+
+---
+
+## 3.03 Sub-Gap under 3.00: Cultural, Legal and Jurisdictional Context
+
+**Caveat:** Option 3 cuts off vault access, so I did not read the v0.03.01 schema. This assessment is a hypothesis from general harm-ontology scholarship, to be checked against the schema.
+
+**Summary:** Whether something counts as harm, and how serious it is, differs across cultures, legal systems and communities. A single universal definition builds one context's assumptions into the ontology. If v0.03.01 has no way to qualify harm by context, it will misclassify or miss harms outside its default frame.
+
+**Key points:**
+
+1. **Norm variation.** Societies differ on speech, modesty, privacy, family authority, religion and data sharing. An output that is routine in one place may be offensive or dangerous in another. The ontology should let a harm be qualified by the norms of the community concerned.
+2. **Legal variation.** Jurisdictions define protected categories, privacy rights, liability and prohibited content differently. An act can be unlawful in one place and lawful in another. A harm record needs jurisdiction as a qualifier, with the applicable law identified.
+3. **Cross-border incidents.** AI systems operate across borders, so one incident may involve several legal regimes and cultural settings. Bearer, operator and servers may sit in different places. The ontology should accommodate multiple jurisdictions per incident.
+4. **Language and representation.** Systems perform unevenly across languages and dialects, and their errors may be harmful in ways a developer's culture does not notice. Harm may be unrecognizable without local knowledge. Local language and community should be recordable attributes.
+5. **Whose standard.** Choosing the standard of harm is itself a value judgment. The ontology should show which standard was applied and by whom. This avoids presenting one perspective as neutral fact.
+
+**Explanation:**
+Whether an event counts as harm, and how seriously, is not the same everywhere. Societies differ on speech, modesty, privacy, authority, religion and the sharing of data, so a reply that is routine in one setting may be offensive or dangerous in another. Legal regimes also differ: jurisdictions define protected categories, privacy rights, liability rules and prohibited content in their own ways, and the same act can be unlawful in one place and lawful in another. An ontology built on one default frame embeds that frame's assumptions as if they were universal, and then misclassifies or misses harms that arise outside it. A stronger design lets each harm record be qualified by the community norms and the jurisdiction concerned, with the applicable law identified and not assumed. Because AI systems operate across borders, one incident may involve a bearer, an operator and infrastructure in different places, so the model should allow several jurisdictions per incident. Language and representation add a further dimension: systems perform unevenly across languages and dialects, and their errors may be harmful in ways a developer's own culture does not notice, so recording the local language and community helps surface such harms. Underneath all of this is the question of whose standard defines harm. That is a value judgment, and the ontology should show which standard was applied and by whom, instead of presenting one perspective as neutral fact. Without this, harms in under-represented contexts are systematically undercounted. The practical test for v0.03.01 is whether one event can be recorded as harmful under one jurisdiction's standard and not under another's, with both stated.
+
+---
+
+### Metacognitive Assessment
+- **Saturation:** High within Level 3. Three sub-levels are mapped.
+- **Marginal Returns:** Low to Moderate. Intersectionality and observed versus experienced harm remain.
+- **Convergence:** Open, but stabilizing.
+- **Utility:** High Leverage
+- **Recommendation & Options:** Continue to 3.04 (intersectionality), then 3.05 (observed versus experienced harm) to finish this branch. Or return to macro-level. No design note will be created until you choose Halt & Synthesize.
+
+### Your Options
+1. **[Expand]** Add detail, lineage or guiding questions for 3.03. Example: "Expand 3.03."
+2. **[Drill Deeper]** Break this into narrower sub-levels. Example: "Drill deeper into 3.03."
+3. **[Continue Sequentially]** Move to the next section at this depth. Example: "Continue to 3.04."
+4. **[Step Up / Return to Level…]** Example: "Step up one level", "Return to macro-level", or "Return to Level 4 and continue".
+5. **[Integrate & Branch]** Harvest a side discussion and place it in the outline. I will ask where it goes.
+6. **[Halt & Synthesize]** Conclude, collect all assessments, and generate the design note.
+[Timestamp: 2026/11/26 14:29:52]
+
+**user**: continue sequentially
+[Timestamp: 2026/11/26 14:30:26]
+
+**ai**: 
+
+### Inputs & Provenance Frontmatter
+- **Input A:** What aspect or level of the proposed harm ontology v0.03.01 is not sufficiently represented to capture real world situations? `[Explicitly Provided by User]`
+- **Input B:** Option 3, LLM Parametric Baseline `[Explicitly Provided by User]`
+- **Input C:** General AI-harm and risk-ontology scholarship `[Assumed by Skill]`
+- **Input D:** Representational adequacy of v0.03.01 against real-world AI harm situations `[Assumed by Skill]`
+- **Input E:** Moderate rigor, narrative level `[Assumed by Skill]`
+- **Input F:** Contemporary AI deployment era `[Assumed by Skill]`
+- **Input G:** On completion, a collected set of gap assessments. Each has a 2–5 sentence summary, numbered bullets of 2–5 sentences each, and one 200–250 word explanation. On Halt & Synthesize, a design note containing all assessments. No design note before then. `[Explicitly Provided by User]`
+
+---
+
+## 3.04 Sub-Gap under 3.00: Intersectionality and Compounded Harm
+
+**Caveat:** Option 3 cuts off vault access, so I did not read the v0.03.01 schema. This assessment is a hypothesis from general harm-ontology scholarship, to be checked against the schema.
+
+**Summary:** People hold several social positions at once, such as race, gender, disability, age and class. Harm at the intersection of these can differ in kind from the sum of harms to each group taken separately. If v0.03.01 tags affected groups as independent categories, it will miss harms that only appear for combinations.
+
+**Key points:**
+
+1. **Non-additive effects.** A system may perform acceptably for women and for darker-skinned people when each group is measured alone, yet fail badly for darker-skinned women. Single-category analysis hides this. The ontology needs to represent combinations as bearers in their own right.
+2. **Multiple attributes per bearer.** A flat list of independent protected-category tags cannot express interaction. A bearer needs a structured profile of attributes that can be queried jointly. The profile should be recordable at the level of detail the evidence supports.
+3. **Compounding across systems and over time.** Disadvantages in one domain feed into another, such as a credit score affecting housing and then employment screening. Each system's harm looks modest in isolation. Linking harms across domains for the same bearer reveals the compounding.
+4. **Structural context.** Intersectional harm is produced by overlapping social structures, not by individual attributes alone. A system that mirrors existing inequality can deepen it. The ontology should allow reference to the structural pattern, not only to the individual incident.
+5. **Data scarcity and invisibility.** Small intersectional groups are often too sparse in data to be measured, and so are overlooked. Absence of recorded harm is then not evidence of absence. The ontology should allow a record of "not measurable" as distinct from "no harm found".
+
+**Explanation:**
+People occupy several social positions at once, and harm at the intersection of those positions can differ in kind from the sum of harms to each group considered separately. A well-known pattern is a system that appears acceptable for women and for darker-skinned people when each is measured alone, yet performs poorly for darker-skinned women. A schema that tags affected groups with independent categories cannot express this, because it has no way to represent the combination as a bearer in its own right. The remedy is a structured bearer profile with several attributes that can be queried jointly, recorded at whatever level of detail the evidence supports. Compounding also occurs across systems and over time: a disadvantage in credit scoring can feed into housing decisions and then into employment screening, each step looking modest alone. Linking harms across domains for the same bearer exposes this accumulation. Underneath such patterns lie overlapping social structures, and a system that mirrors existing inequality can deepen it, so the ontology should be able to refer to the structural pattern and not only to the single incident. A further difficulty is data scarcity: small intersectional groups are often too sparse for measurement and so are overlooked. The ontology should distinguish "not measurable" from "no harm found", since absence of a record is not evidence of absence. Without these elements, aggregate fairness metrics will pass systems that fail the most disadvantaged combinations. The practical test for v0.03.01 is whether a harm can be recorded for a combination of attributes without being reducible to separate single-attribute records.
+
+---
+
+### Metacognitive Assessment
+- **Saturation:** High within Level 3. Four sub-levels are mapped.
+- **Marginal Returns:** Low to Moderate. One planned sub-level remains, observed versus experienced harm.
+- **Convergence:** Open, but stabilizing.
+- **Utility:** High Leverage
+- **Recommendation & Options:** Continue to 3.05 (observed versus experienced harm) to finish the initial sub-levels for this branch, or return to macro-level and synthesize. No design note will be created until you choose Halt & Synthesize.
+
+### Your Options
+1. **[Expand]** Add detail, lineage or guiding questions for 3.04. Example: "Expand 3.04."
+2. **[Drill Deeper]** Break this into narrower sub-levels. Example: "Drill deeper into 3.04."
+3. **[Continue Sequentially]** Move to the next section at this depth. Example: "Continue to 3.05."
+4. **[Step Up / Return to Level…]** Example: "Step up one level", "Return to macro-level", or "Return to Level 4 and continue".
+5. **[Integrate & Branch]** Harvest a side discussion and place it in the outline. I will ask where it goes.
+6. **[Halt & Synthesize]** Conclude, collect all assessments, and generate the design note.
+[Timestamp: 2026/11/26 14:30:26]
+
+**user**: return to level 4
+[Timestamp: 2026/11/26 14:30:55]
+
+**ai**: 
+
+### Inputs & Provenance Frontmatter
+- **Input A:** What aspect or level of the proposed harm ontology v0.03.01 is not sufficiently represented to capture real world situations? `[Explicitly Provided by User]`
+- **Input B:** Option 3, LLM Parametric Baseline `[Explicitly Provided by User]`
+- **Input C:** General AI-harm and risk-ontology scholarship `[Assumed by Skill]`
+- **Input D:** Representational adequacy of v0.03.01 against real-world AI harm situations `[Assumed by Skill]`
+- **Input E:** Moderate rigor, narrative level `[Assumed by Skill]`
+- **Input F:** Contemporary AI deployment era `[Assumed by Skill]`
+- **Input G:** On completion, a collected set of gap assessments. Each has a 2–5 sentence summary, numbered bullets of 2–5 sentences each, and one 200–250 word explanation. On Halt & Synthesize, a design note containing all assessments. No design note before then. `[Explicitly Provided by User]`
+
+---
+
+## 4.01 Sub-Gap under 4.00: Typology of Bearers and Standing Conditions
+
+**Pointer reset:** I returned to Level 4 and am resuming sequential unfolding beneath 4.00. The next sub-level under it is 4.01. Branch 3.00 remains open at 3.05 (observed versus experienced harm), which we skipped.
+
+**Caveat:** Option 3 cuts off vault access, so I did not read the v0.03.01 schema. This assessment is a hypothesis from general harm-ontology scholarship, to be checked against the schema.
+
+**Summary:** Harm can fall on many kinds of bearer, and each kind has a different basis for counting as harmed. A person, a community, an institution, an ecosystem and a future generation cannot all be handled by one "victim" class. If v0.03.01 has no typology of bearers with distinct standing conditions, non-individual harms will be forced into person-shaped boxes or left out.
+
+**Key points:**
+
+1. **Types of bearer.** Candidate types include individuals, groups and communities, organizations, institutions, publics, ecosystems, non-human animals and future generations. Each type is harmed in different ways. A typology gives each its own vocabulary of loss.
+2. **Standing conditions.** Standing is the basis on which something counts as capable of being harmed, such as interests, welfare, rights or functions. Individuals have interests, institutions have functions and ecosystems have integrity. The ontology should state the standing basis for each bearer type.
+3. **Membership and boundaries.** Groups and communities have fuzzy and contested boundaries. Some are self-identified, others are labeled by outsiders, such as statistical categories created by the system itself. The ontology should record how the group was defined and by whom.
+4. **Representation and voice.** Many bearers cannot speak for themselves, so someone must represent them. The representative's authority and interests affect the record. The ontology should note who speaks for the bearer.
+5. **Nested and overlapping bearers.** An individual belongs to groups, and groups sit within institutions and publics. A harm may hit several levels at once. Relations among bearers should be representable, so the same harm is not counted twice or missed at one level.
+
+**Explanation:**
+A harm ontology needs to say who or what can be harmed, and on what basis. Treating every bearer as a generic victim works for individuals but fails for the others. A workable typology would include individuals, groups and communities, organizations, institutions, publics, ecosystems, non-human animals and future generations, with each type carrying its own vocabulary of loss. The reason is that bearers have different standing conditions. Individuals have interests and welfare, institutions have functions and legitimacy, and ecosystems have integrity and resilience, so the basis on which each counts as harmed should be stated, not assumed. Groups raise their own difficulty: boundaries are fuzzy and contested, and some groups are labeled from outside, such as statistical categories generated by the system itself, so the ontology should record how a group was defined and by whom. Many bearers cannot speak for themselves, which means someone represents them, and the authority and interests of that representative shape the record, so the ontology should note who speaks for the bearer. Finally, bearers are nested and overlapping: a person belongs to a community, which sits within an institution and a public, and a single harm may land at several levels at once. Representing relations among bearers prevents double counting and avoids missing harm that is visible only at the collective level. Without this typology, non-individual harms are forced into person-shaped boxes or dropped. The practical test for v0.03.01 is whether it can record one harm borne by an individual, their community and a shared institution as three linked but distinct bearer entries.
+
+---
+
+### Metacognitive Assessment
+- **Saturation:** Moderate within Level 4. The overview and one sub-level are mapped.
+- **Marginal Returns:** Moderate. Sub-levels remain on commons and structural conditions, aggregation of small harms, non-human and future bearers, and the missing claimant.
+- **Convergence:** Open
+- **Utility:** High Leverage
+- **Recommendation & Options:** Continue to 4.02 (commons, public goods and structural conditions). You can also return to Level 3 to finish 3.05. No design note will be created until you choose Halt & Synthesize.
+
+### Your Options
+1. **[Expand]** Add detail, lineage or guiding questions for 4.01. Example: "Expand 4.01."
+2. **[Drill Deeper]** Break this into narrower sub-levels. Example: "Drill deeper into 4.01."
+3. **[Continue Sequentially]** Move to the next section at this depth. Example: "Continue to 4.02."
+4. **[Step Up / Return to Level…]** Example: "Step up one level", "Return to macro-level", or "Return to Level 3 and continue".
+5. **[Integrate & Branch]** Harvest a side discussion and place it in the outline. I will ask where it goes.
+6. **[Halt & Synthesize]** Conclude, collect all assessments, and generate the design note.
+[Timestamp: 2026/11/26 14:30:55]
+
+**user**: continue sequentially
+[Timestamp: 2026/11/26 14:31:23]
+
+**ai**: 
+
+### Inputs & Provenance Frontmatter
+- **Input A:** What aspect or level of the proposed harm ontology v0.03.01 is not sufficiently represented to capture real world situations? `[Explicitly Provided by User]`
+- **Input B:** Option 3, LLM Parametric Baseline `[Explicitly Provided by User]`
+- **Input C:** General AI-harm and risk-ontology scholarship `[Assumed by Skill]`
+- **Input D:** Representational adequacy of v0.03.01 against real-world AI harm situations `[Assumed by Skill]`
+- **Input E:** Moderate rigor, narrative level `[Assumed by Skill]`
+- **Input F:** Contemporary AI deployment era `[Assumed by Skill]`
+- **Input G:** On completion, a collected set of gap assessments. Each has a 2–5 sentence summary, numbered bullets of 2–5 sentences each, and one 200–250 word explanation. On Halt & Synthesize, a design note containing all assessments. No design note before then. `[Explicitly Provided by User]`
+
+---
+
+## 4.02 Sub-Gap under 4.00: Commons, Public Goods and Structural Conditions
+
+**Caveat:** Option 3 cuts off vault access, so I did not read the v0.03.01 schema. This assessment is a hypothesis from general harm-ontology scholarship, to be checked against the schema.
+
+**Summary:** Some of the most important things AI can damage are shared conditions that nobody owns, such as trust in evidence, the quality of public discourse, democratic processes and the integrity of knowledge sources. Damage to these is diffuse and hard to attribute to any one victim. If v0.03.01 records harm only as loss to identifiable bearers, degradation of these commons will not register.
+
+**Key points:**
+
+1. **What counts as a commons.** The information environment, public trust, electoral integrity, scientific literature, cultural heritage and open knowledge resources are shared and non-excludable. Everyone depends on them, and no one is the owner. The ontology needs a class for shared resources and conditions that can be the object of harm.
+2. **Diffuse, non-rivalrous harm.** Losses are spread thinly across many people and may not deprive any individual of anything measurable. Yet the aggregate loss can be large. The model needs a notion of harm to the resource itself, separate from harm to users of it.
+3. **Pollution and degradation dynamics.** Commons often erode through accumulation, such as synthetic content flooding a search index or training data contaminated by model output. Each addition is small, and the tipping point is hard to see. This links back to cumulative exposure at 1.01.
+4. **Structural conditions.** Market concentration, dependence on a few providers and labor market restructuring are conditions that AI can create or worsen. They are not events and have no single incident. The ontology should be able to record structural harm as a state of affairs with contributors, not as a dated occurrence.
+5. **Collective action problem.** Each actor gains from using the commons and bears only a share of the damage. Responsibility spreads across many contributors. This connects with diffusion of responsibility at 2.03.
+
+**Explanation:**
+Some of the most consequential things AI can damage belong to no one: public trust in evidence, the quality of public discourse, the integrity of democratic processes, scientific and cultural records, and open knowledge resources. These are shared and non-excludable, everyone relies on them, and harm to them is diffuse. An ontology that records harm only as loss to identifiable bearers cannot register such damage, because no single person loses anything measurable even when the aggregate loss is large. It therefore needs a class for shared resources and conditions that can themselves be the object of harm, together with a notion of harm to the resource that is separate from harm to its users. Degradation often occurs by accumulation, for example synthetic content flooding a search index or model output contaminating later training data, so each addition looks trivial and the tipping point is hard to see, which ties this gap to cumulative exposure. Structural conditions such as market concentration, dependence on a few providers and labor market restructuring raise a further problem, because they are states of affairs and not events, with no single incident and no clean date. The ontology should allow structural harm to be recorded as a condition with contributors and a trend, not as a dated occurrence. Finally, commons suffer from a collective action problem: each actor benefits from use and bears only a fraction of the damage, so responsibility spreads thinly across many contributors. Without these constructs, the ontology will favor visible, individual, event-like harms and underweight the slow erosion of shared foundations. The practical test for v0.03.01 is whether it can record harm to a shared resource, with many small contributors, where no individual bearer was measurably harmed.
+
+---
+
+### Metacognitive Assessment
+- **Saturation:** Moderate to High within Level 4. Two sub-levels are mapped.
+- **Marginal Returns:** Moderate. Aggregation of small harms, non-human and future bearers, and the missing claimant remain.
+- **Convergence:** Open, but stabilizing.
+- **Utility:** High Leverage
+- **Recommendation & Options:** Continue to 4.03 (aggregation of small harms and measurement). Alternatively return to Level 3 to finish 3.05, or return to macro-level. No design note will be created until you choose Halt & Synthesize.
+
+### Your Options
+1. **[Expand]** Add detail, lineage or guiding questions for 4.02. Example: "Expand 4.02."
+2. **[Drill Deeper]** Break this into narrower sub-levels. Example: "Drill deeper into 4.02."
+3. **[Continue Sequentially]** Move to the next section at this depth. Example: "Continue to 4.03."
+4. **[Step Up / Return to Level…]** Example: "Step up one level", "Return to macro-level", or "Return to Level 3 and continue".
+5. **[Integrate & Branch]** Harvest a side discussion and place it in the outline. I will ask where it goes.
+6. **[Halt & Synthesize]** Conclude, collect all assessments, and generate the design note.
+[Timestamp: 2026/11/26 14:31:23]
+
+**user**: continue sequentially
+[Timestamp: 2026/11/26 14:31:45]
+
+**ai**: 
+
+### Inputs & Provenance Frontmatter
+- **Input A:** What aspect or level of the proposed harm ontology v0.03.01 is not sufficiently represented to capture real world situations? `[Explicitly Provided by User]`
+- **Input B:** Option 3, LLM Parametric Baseline `[Explicitly Provided by User]`
+- **Input C:** General AI-harm and risk-ontology scholarship `[Assumed by Skill]`
+- **Input D:** Representational adequacy of v0.03.01 against real-world AI harm situations `[Assumed by Skill]`
+- **Input E:** Moderate rigor, narrative level `[Assumed by Skill]`
+- **Input F:** Contemporary AI deployment era `[Assumed by Skill]`
+- **Input G:** On completion, a collected set of gap assessments. Each has a 2–5 sentence summary, numbered bullets of 2–5 sentences each, and one 200–250 word explanation. On Halt & Synthesize, a design note containing all assessments. No design note before then. `[Explicitly Provided by User]`
+
+---
+
+## 4.03 Sub-Gap under 4.00: Aggregation of Small Harms and Measurement
+
+**Caveat:** Option 3 cuts off vault access, so I did not read the v0.03.01 schema. This assessment is a hypothesis from general harm-ontology scholarship, to be checked against the schema.
+
+**Summary:** When a system touches millions of people, a small harm to each can add up to a very large total. Per-person severity scores rank such harms as trivial, and incident-based records never see them. If v0.03.01 has no aggregation rules, it will systematically undercount mass low-level harm.
+
+**Key points:**
+
+1. **Scale effects.** A one-minute delay, a small overcharge or a mild bias repeated across millions of people is a significant harm in total. Ranking by individual severity hides this. The ontology needs a way to express population size alongside per-person magnitude.
+2. **Aggregation rules.** Totals can be computed by sum, by weighted sum, or by emphasizing the worst-off. Each reflects a different ethical view and gives a different ranking. The ontology should record which rule was used, so results can be compared and challenged.
+3. **Distribution of the burden.** The same total can be spread evenly or concentrated on a few. Records that carry only a total lose this. A distribution attribute, or links to subgroup results, preserves it.
+4. **Commensurability.** Different kinds of loss, such as time, money, dignity and safety, are hard to put on one scale. Forcing them into a single number hides value judgments. The ontology should keep dimensions of loss separate and mark any conversion as an assumption.
+5. **Measurement and detectability.** Small harms are often not reported, and sampling or auditing may be the only way to see them. The record should state how the harm was measured and its likely under-detection. A missing report is not a missing harm.
+
+**Explanation:**
+Harm to millions of people at low intensity can be a major harm in total, yet it is the kind most easily missed by an incident-based ontology. A one-minute delay, a small overcharge or a mild bias repeated across a large population is trivial for each person and significant in aggregate. Ranking by per-person severity therefore buries it. To represent such cases the ontology needs population size alongside per-person magnitude, and an explicit aggregation rule. Totals can be summed, weighted, or tilted toward the worst-off, and each choice embodies a different ethical stance and yields a different ranking, so the rule used should be recorded and open to challenge. The distribution of the burden also matters, since the same total can be spread evenly or concentrated on a few people, and a record that holds only the total loses that difference. A distribution attribute, or links to subgroup results, would preserve it. Another difficulty is commensurability: time, money, dignity and safety are different kinds of loss, and forcing them onto one scale hides value judgments, so the ontology should keep dimensions of loss separate and flag any conversion as an assumption. Finally, small harms are rarely reported, and sampling or audit may be the only way to detect them, so the record should state how the harm was measured and how likely it is to be under-detected, making clear that the absence of reports is not the absence of harm. Without these elements, mass low-level harm is systematically undercounted and policy attention flows to dramatic cases. The practical test for v0.03.01 is whether it can record a harm of tiny per-person size across a very large population, with a stated aggregation rule and measurement method.
+
+---
+
+### Metacognitive Assessment
+- **Saturation:** High within Level 4. Three sub-levels are mapped.
+- **Marginal Returns:** Low to Moderate. Non-human and future bearers, and the missing claimant, remain.
+- **Convergence:** Open, but stabilizing.
+- **Utility:** High Leverage
+- **Recommendation & Options:** Continue to 4.04 (non-human and future bearers), then 4.05 (the missing claimant) to finish this branch. You can also return to Level 3 to finish 3.05. No design note will be created until you choose Halt & Synthesize.
+
+### Your Options
+1. **[Expand]** Add detail, lineage or guiding questions for 4.03. Example: "Expand 4.03."
+2. **[Drill Deeper]** Break this into narrower sub-levels. Example: "Drill deeper into 4.03."
+3. **[Continue Sequentially]** Move to the next section at this depth. Example: "Continue to 4.04."
+4. **[Step Up / Return to Level…]** Example: "Step up one level", "Return to macro-level", or "Return to Level 3 and continue".
+5. **[Integrate & Branch]** Harvest a side discussion and place it in the outline. I will ask where it goes.
+6. **[Halt & Synthesize]** Conclude, collect all assessments, and generate the design note.
+[Timestamp: 2026/11/26 14:31:45]
+
+**user**: continue sequentially
+[Timestamp: 2026/11/26 14:32:01]
+
+**ai**: 
+
+### Inputs & Provenance Frontmatter
+- **Input A:** What aspect or level of the proposed harm ontology v0.03.01 is not sufficiently represented to capture real world situations? `[Explicitly Provided by User]`
+- **Input B:** Option 3, LLM Parametric Baseline `[Explicitly Provided by User]`
+- **Input C:** General AI-harm and risk-ontology scholarship `[Assumed by Skill]`
+- **Input D:** Representational adequacy of v0.03.01 against real-world AI harm situations `[Assumed by Skill]`
+- **Input E:** Moderate rigor, narrative level `[Assumed by Skill]`
+- **Input F:** Contemporary AI deployment era `[Assumed by Skill]`
+- **Input G:** On completion, a collected set of gap assessments. Each has a 2–5 sentence summary, numbered bullets of 2–5 sentences each, and one 200–250 word explanation. On Halt & Synthesize, a design note containing all assessments. No design note before then. `[Explicitly Provided by User]`
+
+---
+
+## 4.04 Sub-Gap under 4.00: Non-Human and Future Bearers
+
+**Caveat:** Option 3 cuts off vault access, so I did not read the v0.03.01 schema. This assessment is a hypothesis from general harm-ontology scholarship, to be checked against the schema.
+
+**Summary:** AI affects ecosystems, animals and people who do not yet exist, through energy and water use, resource extraction, habitat effects and long-lived technological lock-in. These bearers cannot report harm or claim redress. If v0.03.01 has no place for them, a whole class of AI harm will be excluded by definition.
+
+**Key points:**
+
+1. **Environmental harm.** Training and operating large systems consume energy, water and materials, and produce emissions, e-waste and mining impacts. These fall on ecosystems and on communities near facilities. The ontology should represent environmental bearers and the pathway from system operation to ecological damage.
+2. **Non-human animals.** Systems used in agriculture, wildlife monitoring, pet products and surveillance can affect animal welfare, positively or negatively. Animals have interests but no voice. They need standing as bearers, with welfare-based loss types.
+3. **Future generations.** Choices made now, such as irreversible capability releases, lock-in of values or depletion of resources, shape options for people not yet born. These bearers do not exist yet and cannot be identified. The ontology should allow a bearer defined by time horizon rather than by individual identity.
+4. **Uncertainty and discounting.** Harms to distant bearers are speculative, and how heavily to weigh them is contested. A common practice of discounting the future embeds a view that should be visible. The record should state the horizon and any weighting assumptions.
+5. **Irreversibility and option loss.** Harm that removes future choices, such as extinction of a language or loss of an ecosystem, is distinct from harm that can be repaired. This links to reversibility at 1.04. A construct for loss of options would capture it.
+
+**Explanation:**
+AI systems affect more than the people who use them. Training and operating large models consume energy, water and materials, and they produce emissions, electronic waste and mining impacts that fall on ecosystems and on communities near facilities. Applications in agriculture, wildlife monitoring and surveillance affect animal welfare. Decisions made now, such as releasing a capability that cannot be recalled, locking in particular values, or depleting resources, shape the options of people who do not yet exist. None of these bearers can report harm or demand redress. An ontology limited to present human persons therefore excludes them by definition, however large the effects. To include them it needs environmental bearers with a described pathway from system operation to ecological damage, non-human animals with standing based on welfare, and bearers defined by time horizon and not by individual identity, since future persons cannot be named. Because harms to distant bearers are speculative and the weight they deserve is contested, the record should state the horizon used and any discounting or weighting assumption, so that a controversial value choice is not hidden inside a number. A final dimension is irreversibility and loss of options: extinction of a language or loss of an ecosystem removes possibilities permanently, which is different in kind from damage that can be repaired. A construct for option loss would capture this and connect to reversibility. Without these constructs, the ontology measures only the harms that are present, human and reportable. The practical test for v0.03.01 is whether it can record harm to an ecosystem and to a future population, each with a stated horizon and an explicit weighting assumption.
+
+---
+
+### Metacognitive Assessment
+- **Saturation:** High within Level 4. Four sub-levels are mapped.
+- **Marginal Returns:** Low. One planned sub-level remains, the missing claimant.
+- **Convergence:** Open, but stabilizing.
+- **Utility:** High Leverage
+- **Recommendation & Options:** Continue to 4.05 (the missing claimant and recording without complaint) to finish the branch. You can also return to Level 3 to finish 3.05, or synthesize. No design note will be created until you choose Halt & Synthesize.
+
+### Your Options
+1. **[Expand]** Add detail, lineage or guiding questions for 4.04. Example: "Expand 4.04."
+2. **[Drill Deeper]** Break this into narrower sub-levels. Example: "Drill deeper into 4.04."
+3. **[Continue Sequentially]** Move to the next section at this depth. Example: "Continue to 4.05."
+4. **[Step Up / Return to Level…]** Example: "Step up one level", "Return to macro-level", or "Return to Level 3 and continue".
+5. **[Integrate & Branch]** Harvest a side discussion and place it in the outline. I will ask where it goes.
+6. **[Halt & Synthesize]** Conclude, collect all assessments, and generate the design note.
+[Timestamp: 2026/11/26 14:32:01]
+
+**user**: return to level 5
+[Timestamp: 2026/11/26 14:32:23]
+
+**ai**: 
+
+### Inputs & Provenance Frontmatter
+- **Input A:** What aspect or level of the proposed harm ontology v0.03.01 is not sufficiently represented to capture real world situations? `[Explicitly Provided by User]`
+- **Input B:** Option 3, LLM Parametric Baseline `[Explicitly Provided by User]`
+- **Input C:** General AI-harm and risk-ontology scholarship `[Assumed by Skill]`
+- **Input D:** Representational adequacy of v0.03.01 against real-world AI harm situations `[Assumed by Skill]`
+- **Input E:** Moderate rigor, narrative level `[Assumed by Skill]`
+- **Input F:** Contemporary AI deployment era `[Assumed by Skill]`
+- **Input G:** On completion, a collected set of gap assessments. Each has a 2–5 sentence summary, numbered bullets of 2–5 sentences each, and one 200–250 word explanation. On Halt & Synthesize, a design note containing all assessments. No design note before then. `[Explicitly Provided by User]`
+
+---
+
+## 5.01 Sub-Gap under 5.00: Probabilistic, Counterfactual and Near-Miss Harm
+
+**Pointer reset:** I returned to Level 5 and am resuming sequential unfolding beneath 5.00. The next sub-level under it is 5.01. Open items elsewhere: 3.05 and 4.05 were skipped.
+
+**Caveat:** Option 3 cuts off vault access, so I did not read the v0.03.01 schema. This assessment is a hypothesis from general harm-ontology scholarship, to be checked against the schema.
+
+**Summary:** Many AI harms are not settled facts. A system may raise the chance of a bad outcome without clearly causing it, or may nearly cause one. If v0.03.01 stores only realized harm, risks, hazards and near misses will be invisible, and so will the information they carry for prevention.
+
+**Key points:**
+
+1. **Hazard, risk and harm.** A hazard is a potential source of harm, a risk is the likelihood and size of harm, and harm is what actually occurred. These are different entities. An ontology that holds only harm cannot represent the first two.
+2. **Probabilistic contribution.** A system may increase the probability of an outcome, as with a medical tool that nudges clinicians toward a wrong diagnosis in some cases. The effect shows up statistically, not in any single case. The ontology needs a way to record contribution to likelihood.
+3. **Counterfactual reasoning.** Judging harm often means asking what would have happened without the system. The baseline chosen changes the answer. The record should state the counterfactual used and its basis.
+4. **Near misses.** Events where harm was narrowly avoided, by chance or by intervention, signal weaknesses. In safety-critical fields they are systematically collected for learning. The ontology should accept near misses as first-class records, with the factor that prevented harm.
+5. **Exposure without outcome.** People may be exposed to a hazard and show no harm, or harm may emerge later. Recording exposure separately keeps these cases findable. This links to cumulative exposure at 1.01.
+
+**Explanation:**
+Realized harm is only part of what matters, yet most ontologies store only that. A hazard is a potential source of harm, a risk combines the likelihood and size of harm, and harm is what actually occurred, and treating these as one thing leaves no place to record the first two. Many AI effects are probabilistic: a clinical decision tool may raise the rate of a wrong diagnosis in a minority of cases, visible in statistics but in no single instance, so the ontology needs a way to record contribution to likelihood, not only to outcomes. Judging harm often depends on a counterfactual, namely what would have happened without the system, and the baseline chosen changes the conclusion, so the record should state the counterfactual used and its basis. Near misses deserve explicit treatment. In aviation, medicine and other safety-critical fields they are systematically collected because they reveal weaknesses before damage occurs, and an AI harm ontology should accept near misses as first-class records, including the factor that prevented harm, whether chance, human intervention or a safeguard. Exposure also needs separate recording, since people may be exposed to a hazard with no visible outcome, or the outcome may emerge later, and keeping exposure distinct keeps these cases findable. Without these constructs, the ontology can learn only from failures that have already hurt someone, and early warning is impossible. The practical test for v0.03.01 is whether it can record a hazard, a near miss and a probabilistic contribution to risk, none of which involved a confirmed harm.
+
+---
+
+### Metacognitive Assessment
+- **Saturation:** Moderate within Level 5. The overview and one sub-level are mapped.
+- **Marginal Returns:** Moderate. Sub-levels remain on claim status, evidence and provenance, competing and versioned accounts, and trade-offs.
+- **Convergence:** Open
+- **Utility:** High Leverage
+- **Recommendation & Options:** Continue to 5.02 (claim status and disputed harm). You can also return to Level 3 or 4 to finish 3.05 and 4.05. No design note will be created until you choose Halt & Synthesize.
+
+### Your Options
+1. **[Expand]** Add detail, lineage or guiding questions for 5.01. Example: "Expand 5.01."
+2. **[Drill Deeper]** Break this into narrower sub-levels. Example: "Drill deeper into 5.01."
+3. **[Continue Sequentially]** Move to the next section at this depth. Example: "Continue to 5.02."
+4. **[Step Up / Return to Level…]** Example: "Step up one level", "Return to macro-level", or "Return to Level 4 and continue".
+5. **[Integrate & Branch]** Harvest a side discussion and place it in the outline. I will ask where it goes.
+6. **[Halt & Synthesize]** Conclude, collect all assessments, and generate the design note.
+[Timestamp: 2026/11/26 14:32:23]
+
+**user**: continue sequentially
+[Timestamp: 2026/11/26 14:32:52]
+
+**ai**: 
+
+### Inputs & Provenance Frontmatter
+- **Input A:** What aspect or level of the proposed harm ontology v0.03.01 is not sufficiently represented to capture real world situations? `[Explicitly Provided by User]`
+- **Input B:** Option 3, LLM Parametric Baseline `[Explicitly Provided by User]`
+- **Input C:** General AI-harm and risk-ontology scholarship `[Assumed by Skill]`
+- **Input D:** Representational adequacy of v0.03.01 against real-world AI harm situations `[Assumed by Skill]`
+- **Input E:** Moderate rigor, narrative level `[Assumed by Skill]`
+- **Input F:** Contemporary AI deployment era `[Assumed by Skill]`
+- **Input G:** On completion, a collected set of gap assessments. Each has a 2–5 sentence summary, numbered bullets of 2–5 sentences each, and one 200–250 word explanation. On Halt & Synthesize, a design note containing all assessments. No design note before then. `[Explicitly Provided by User]`
+
+---
+
+## 5.02 Sub-Gap under 5.00: Claim Status, Evidence and Provenance
+
+**Caveat:** Option 3 cuts off vault access, so I did not read the v0.03.01 schema. This assessment is a hypothesis from general harm-ontology scholarship, to be checked against the schema.
+
+**Summary:** Reports of AI harm range from audited findings to rumor, and they are often contested. A record that does not show how well established it is looks the same whether it is solid or doubtful. If v0.03.01 has no status, evidence or provenance fields, analysis built on it will mix confirmed and unconfirmed harms.
+
+**Key points:**
+
+1. **Claim status.** A harm may be alleged, under investigation, substantiated, disputed, dismissed or retracted. Status changes as events proceed. A controlled vocabulary for status, with dates, lets users filter by reliability.
+2. **Evidence types and quality.** Evidence can be a systematic audit, a court finding, a regulator's report, a journalistic investigation, a user complaint or social media anecdote. They differ greatly in weight. The ontology should link each claim to its evidence and classify the evidence type.
+3. **Confidence.** Beyond status, a graded confidence qualifier shows how strongly the evidence supports the claim. It should be attributed to an assessor, since different assessors may differ. Confidence is a judgment and should not be written as a fact.
+4. **Provenance.** Who reported the harm, who recorded it, from what source and when? A chain of provenance makes it possible to trace errors and spot duplicated reports of one event. Without it, repeated citations of one source look like independent confirmation.
+5. **Reporting bias.** Harms are reported unevenly, with high-profile systems and well-resourced bearers overrepresented. The record should note how it was collected so that bias can be assessed. Counts of reports are not counts of harms.
+
+**Explanation:**
+Reports of AI harm span a wide range, from audited findings and court judgments to anecdotes and rumor, and many are contested by the developers, the regulators or the affected parties themselves. An ontology that stores every record as an equally established fact cannot distinguish these. A controlled vocabulary for claim status, such as alleged, under investigation, substantiated, disputed, dismissed and retracted, with dates, lets users filter by reliability and see how a case evolved. Status should be accompanied by links to evidence, classified by type, because a systematic audit, a court finding, a regulator's report, a journalistic investigation and a social media post carry very different weight. A graded confidence qualifier adds nuance, but it is a judgment and should be attributed to a named assessor and not written as a fact about the event. Provenance is equally important: who reported the harm, who recorded it, from what source and when. A recorded chain makes it possible to trace errors, detect duplicate reports of one event, and avoid mistaking repeated citations of one source for independent confirmation. Finally, reporting is biased. High-profile systems and well-resourced bearers are overrepresented, and many harms are never reported, so the record should note how it was collected, and users should be warned that counts of reports are not counts of harms. Without these elements, aggregate statistics and policy conclusions drawn from the data compound unnoticed bias. The practical test for v0.03.01 is whether a record can show a disputed claim with typed evidence, an attributed confidence level and a documented source chain.
+
+---
+
+### Metacognitive Assessment
+- **Saturation:** Moderate to High within Level 5. Two sub-levels are mapped.
+- **Marginal Returns:** Moderate. Competing and versioned accounts, and trade-offs and co-benefits, remain.
+- **Convergence:** Open, but stabilizing.
+- **Utility:** High Leverage
+- **Recommendation & Options:** Continue to 5.03 (competing accounts and revision history). You can also return to Level 3 or 4 to finish 3.05 and 4.05. No design note will be created until you choose Halt & Synthesize.
+
+### Your Options
+1. **[Expand]** Add detail, lineage or guiding questions for 5.02. Example: "Expand 5.02."
+2. **[Drill Deeper]** Break this into narrower sub-levels. Example: "Drill deeper into 5.02."
+3. **[Continue Sequentially]** Move to the next section at this depth. Example: "Continue to 5.03."
+4. **[Step Up / Return to Level…]** Example: "Step up one level", "Return to macro-level", or "Return to Level 4 and continue".
+5. **[Integrate & Branch]** Harvest a side discussion and place it in the outline. I will ask where it goes.
+6. **[Halt & Synthesize]** Conclude, collect all assessments, and generate the design note.
+[Timestamp: 2026/11/26 14:32:52]
+
+**user**: continue sequentially
+[Timestamp: 2026/11/26 14:33:17]
+
+**ai**: 
+
+### Inputs & Provenance Frontmatter
+- **Input A:** What aspect or level of the proposed harm ontology v0.03.01 is not sufficiently represented to capture real world situations? `[Explicitly Provided by User]`
+- **Input B:** Option 3, LLM Parametric Baseline `[Explicitly Provided by User]`
+- **Input C:** General AI-harm and risk-ontology scholarship `[Assumed by Skill]`
+- **Input D:** Representational adequacy of v0.03.01 against real-world AI harm situations `[Assumed by Skill]`
+- **Input E:** Moderate rigor, narrative level `[Assumed by Skill]`
+- **Input F:** Contemporary AI deployment era `[Assumed by Skill]`
+- **Input G:** On completion, a collected set of gap assessments. Each has a 2–5 sentence summary, numbered bullets of 2–5 sentences each, and one 200–250 word explanation. On Halt & Synthesize, a design note containing all assessments. No design note before then. `[Explicitly Provided by User]`
+
+---
+
+## 5.03 Sub-Gap under 5.00: Competing Accounts and Revision History
+
+**Caveat:** Option 3 cuts off vault access, so I did not read the v0.03.01 schema. This assessment is a hypothesis from general harm-ontology scholarship, to be checked against the schema.
+
+**Summary:** The same event is often described differently by the developer, the regulator, the press and the people affected, and understanding changes as investigations proceed. A record that holds one characterization, and overwrites it when it changes, loses both the disagreement and the history. If v0.03.01 works this way, it cannot show who said what, when, or why a classification changed.
+
+**Key points:**
+
+1. **Multiple characterizations.** Parties may disagree on what happened, how severe it was, what caused it and whether it counts as harm. Each account has its own source and standing. The ontology should hold several attributed assertions about one event, without forcing a single winner.
+2. **Attribution of assertions.** A statement such as "this was a privacy harm" is a claim made by someone at a time. Recording the asserting party keeps interpretation separate from event. This also guards against borrowed authority, where a contested label looks like neutral fact.
+3. **Versioning and revision history.** As evidence arrives, classifications are updated, severities revised and causes reattributed. Overwriting erases what was previously believed and why. Versioned assertions preserve the trail and allow reconstruction of what was known at a given date.
+4. **Reconciliation and canonical views.** Users often need a single working view. The ontology can support this by marking which assertion a given view adopts and on what basis, without deleting the others. Choice of view becomes transparent.
+5. **Identity of events.** Different accounts may refer to the same event or to different ones. Deciding that two reports are the same incident is itself a judgment. The ontology should allow links such as "same as", "part of" or "disputed identity" between records.
+
+**Explanation:**
+The same event is frequently described in different ways by the developer, the regulator, the press and the people affected, and the understanding of it changes as investigations proceed. An ontology that stores one characterization per event, and overwrites it when new information arrives, loses both the disagreement and the history. A sounder design holds several assertions about one event, each attributed to a source and a date, without forcing a single winner. Attribution matters because a statement such as "this was a privacy harm" is a claim made by someone, and recording who made it keeps interpretation separate from the underlying event, and prevents a contested label from passing as neutral fact. Versioning is the companion requirement: classifications are updated, severities revised and causes reattributed as evidence arrives, and overwriting erases what was previously believed and why. Versioned assertions preserve the trail and allow reconstruction of what was known on a given date, which is essential for judging foreseeability and the quality of the response. Users still need a single working view, which can be supported by marking which assertion a view adopts and on what basis, leaving the others intact, so the choice is visible. Finally, whether two reports describe the same event is itself a judgment, so the ontology should allow identity links such as same-as, part-of and disputed-identity between records, which prevents both double counting and false merging. Without these constructs, the ontology presents a tidy but false consensus. The practical test for v0.03.01 is whether one event can carry two conflicting attributed characterizations, with a revision history showing when one replaced the other.
+
+---
+
+### Metacognitive Assessment
+- **Saturation:** High within Level 5. Three sub-levels are mapped.
+- **Marginal Returns:** Low to Moderate. Trade-offs and co-benefits remain.
+- **Convergence:** Open, but stabilizing.
+- **Utility:** High Leverage
+- **Recommendation & Options:** Continue to 5.04 (trade-offs and co-benefits) to finish the branch. You can also return to Level 3, 4 or 6 to finish 3.05, 4.05 or add 6.01, or synthesize. No design note will be created until you choose Halt & Synthesize.
+
+### Your Options
+1. **[Expand]** Add detail, lineage or guiding questions for 5.03. Example: "Expand 5.03."
+2. **[Drill Deeper]** Break this into narrower sub-levels. Example: "Drill deeper into 5.03."
+3. **[Continue Sequentially]** Move to the next section at this depth. Example: "Continue to 5.04."
+4. **[Step Up / Return to Level…]** Example: "Step up one level", "Return to macro-level", or "Return to Level 6 and continue".
+5. **[Integrate & Branch]** Harvest a side discussion and place it in the outline. I will ask where it goes.
+6. **[Halt & Synthesize]** Conclude, collect all assessments, and generate the design note.
+[Timestamp: 2026/11/26 14:33:17]
+
+**user**: continue sequentially
+[Timestamp: 2026/11/26 14:33:41]
+
+**ai**: 
+
+### Inputs & Provenance Frontmatter
+- **Input A:** What aspect or level of the proposed harm ontology v0.03.01 is not sufficiently represented to capture real world situations? `[Explicitly Provided by User]`
+- **Input B:** Option 3, LLM Parametric Baseline `[Explicitly Provided by User]`
+- **Input C:** General AI-harm and risk-ontology scholarship `[Assumed by Skill]`
+- **Input D:** Representational adequacy of v0.03.01 against real-world AI harm situations `[Assumed by Skill]`
+- **Input E:** Moderate rigor, narrative level `[Assumed by Skill]`
+- **Input F:** Contemporary AI deployment era `[Assumed by Skill]`
+- **Input G:** On completion, a collected set of gap assessments. Each has a 2–5 sentence summary, numbered bullets of 2–5 sentences each, and one 200–250 word explanation. On Halt & Synthesize, a design note containing all assessments. No design note before then. `[Explicitly Provided by User]`
+
+---
+
+## 5.04 Sub-Gap under 5.00: Trade-offs, Co-Benefits and Secondary Harm
+
+**Caveat:** Option 3 cuts off vault access, so I did not read the v0.03.01 schema. This assessment is a hypothesis from general harm-ontology scholarship, to be checked against the schema.
+
+**Summary:** AI systems that cause harm often also deliver real benefits, sometimes to the same people. Efforts to reduce one harm can create another. A schema that records only harm cannot show these tensions. If v0.03.01 is purely harm-centered, it will misrepresent situations where the question is a trade-off and not a simple wrong.
+
+**Key points:**
+
+1. **Co-benefits.** A system may harm a person in one respect and help them in another, such as a navigation tool that saves time but routes traffic through a quiet neighborhood. Recording only the harm presents half the situation. The ontology should allow linked benefit records for the same system, bearer or event.
+2. **Distribution of benefit and harm.** Benefits may go to one group and harms to another, as when a service is cheaper for many and costly for a few. Who gains and who loses is central to fairness. Bearer links on both sides make the distribution visible.
+3. **Mitigation side-effects.** Safeguards, filters and restrictions can create new harms, such as content moderation that suppresses legitimate speech from minority communities. Interventions need to be modeled as events that can themselves cause harm. This links to responses within a harm process at 1.03.
+4. **Competing harms and values.** Reducing privacy harm may increase safety harm, and the reverse. Such conflicts reflect competing values and cannot be settled by the ontology. It should represent the conflict and the judgment made, with who made it.
+5. **Counterfactual benefit.** Whether a harm is acceptable can depend on what the alternative would have been. A flawed tool may still outperform existing practice. The baseline should be recorded, linking to counterfactual reasoning at 5.01.
+
+**Explanation:**
+Systems that cause harm usually also provide real benefits, sometimes to the same people, and efforts to reduce one harm can produce another. A purely harm-centered schema cannot register this. It records half of the situation and so invites misleading conclusions, either that a system is simply bad or that its benefits excuse its costs. A more adequate ontology would allow linked benefit records attached to the same system, bearer or event, together with bearer links on both sides so that the distribution of gains and losses is visible, since fairness often turns on who benefits and who pays. Mitigation deserves special attention: safeguards, filters and restrictions can themselves cause harm, such as moderation that suppresses legitimate speech from minority communities, so interventions should be modeled as events capable of producing secondary harm. Some situations involve competing harms and competing values, for example privacy against safety, and the ontology cannot resolve these, but it should represent the conflict, the judgment that was made, and who made it, so that the choice is open to examination. Evaluating acceptability also depends on a baseline, because a flawed tool may still outperform existing practice, and recording the chosen baseline ties this to counterfactual reasoning. Care is needed, however, so that the benefit side is not used to launder serious harm, which suggests keeping benefit and harm as separate, non-netted records. Without these elements, the ontology cannot represent dilemmas, and discussion collapses into blame or defense. The practical test for v0.03.01 is whether it can record a mitigation measure that reduced one harm and created another, alongside the benefit that the system provided.
+
+---
+
+### Metacognitive Assessment
+- **Saturation:** High within Level 5. All four planned sub-levels beneath epistemic status are mapped.
+- **Marginal Returns:** Low. Further sub-levels would likely repeat earlier material.
+- **Convergence:** Achieved for this branch.
+- **Utility:** High Leverage
+- **Recommendation & Options:** We have completed the initial proposed sub-levels for this branch. Would you like to continue to 5.05, step up, or synthesize? Open items remain at 3.05, 4.05 and Level 6 sub-levels. I recommend finishing those briefly or choosing Halt & Synthesize. No design note will be created until you choose Halt & Synthesize.
+
+### Your Options
+1. **[Expand]** Add detail, lineage or guiding questions for 5.04. Example: "Expand 5.04."
+2. **[Drill Deeper]** Break this into narrower sub-levels. Example: "Drill deeper into 5.04."
+3. **[Continue Sequentially]** Move to the next section at this depth. Example: "Continue to 5.05."
+4. **[Step Up / Return to Level…]** Example: "Step up one level", "Return to macro-level", or "Return to Level 6 and continue".
+5. **[Integrate & Branch]** Harvest a side discussion and place it in the outline. I will ask where it goes.
+6. **[Halt & Synthesize]** Conclude, collect all assessments, and generate the design note.
+[Timestamp: 2026/11/26 14:33:41]
+
+**user**: halt and synthesize
+[Timestamp: 2026/11/26 14:34:15]
+
+**ai**: 
+<!-- copilot-message {"tools":["write (edit): 08_Resources/design-note-harm-ontology-v0.03.01-structured-inquiry-synthesis.md","edit (edit): 08_Resources/design-note-harm-ontology-v0.03.01-structured-inquiry-synthesis.md"]} -->
+[Timestamp: 2026/11/26 14:34:15]
