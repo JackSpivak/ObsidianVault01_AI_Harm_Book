@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm ontology handoff"
-usage: '{"usedTokens":89477,"contextWindow":1000000,"updatedAt":1795677378261}'
+usage: '{"usedTokens":92280,"contextWindow":1000000,"updatedAt":1795677943368}'
 ---
 
 **user**: read harm ontology handoff
@@ -278,3 +278,72 @@ Some points on how this fits the commitments:
 
 Here "defines" is my suggested name. The word and the scope (whether a perspective may define a type that another perspective also uses) should be checked against the ledger before it's logged.
 [Timestamp: 2026/11/26 00:16:12]
+
+**user**: this sounds great as far as i can tell.  i am still a little concerned about the language. even though in OWL there is no problem logically are we falling into a language and understanding version (but not a logical version) of the v1 trap in which we represent Harm as intrinsic?  it seems confusing to me as if we are making a tacit 'nod" to intrinsic nature.  a verbal sleight of hand
+[Timestamp: 2026/11/26 00:21:15]
+
+**ai**: Yes, I think you're right, and the concern is about language, not logic. The names I used carry a tacit claim that harm is a natural kind. Three of them do that:
+
+- **`ex:DeprivationType`** reads as a kind that exists in the world. A perspective "has" one the way a rock has a density.
+- **`classifiesAs`** on a bare triple reads as a fact about the case. It drops the perspective, the standard and the horizon that the design says every harm claim must carry. The determination pattern was meant to make the classification a claim by an assessor.
+- **`definesHarmType`** is better, but it still treats the category as something the perspective defines for the world rather than something it uses to judge.
+
+A fix that stays closer to the commitments:
+
+- **Name the category as a concept held by a lens:** `ex:DeprivationCategory`, a `skos:Concept` (or `dul:Description`) that the perspective uses, not a type of harm.
+- **Make the classification a claim, not a triple:** `ex:det17 a ex:HarmDetermination ; ex:hasCategoryClaim ex:claim17 .` and `ex:claim17 a ex:CategoryDetermination ; ex:category ex:DeprivationCategory ; ex:perspective ex:DisciplineA_Perspective ; ex:assessedBy ... ; ex:atHorizon ...`. The claim carries its perspective and horizon, so the language states whose judgment it is.
+- **Use verbs of use, not of definition:** `ex:usesCategory` for the perspective-to-category link, and `ex:assignsCategory` for the claim.
+
+This moves the word "harm" out of the category name and puts the judgment in a determination. The category is then plainly a concept held by a discipline, and the reasoner still gets the link it needs.
+
+It also means I should retract the earlier suggestion of a bare `classifiesAs` triple. Once the claim is reified, the language is accurate, and the cost is more triples per determination.
+[Timestamp: 2026/11/26 00:21:15]
+
+**user**: so is something like ex:hasClaimedClassification more aligned with what you propose (i prefer expressive names rather than shorter ones)
+[Timestamp: 2026/11/26 00:23:53]
+
+**ai**: Yes, it's more aligned, because "claimed" puts the judgment on the record. But I'd split the work between two properties rather than one.
+
+`ex:hasClaimedClassification` as a single property from the determination straight to the category still skips the claim, so the perspective and horizon are not carried with it. A cleaner pattern is:
+
+```turtle
+ex:det17 a ex:HarmDetermination, owl:NamedIndividual ;
+    ex:hasClassificationClaim ex:claim17 .
+
+ex:claim17 a ex:ClassificationClaim, owl:NamedIndividual ;
+    ex:claimsCategory ex:DeprivationCategory ;
+    ex:madeFromPerspective ex:DisciplineA_Perspective ;
+    ex:atHorizon ex:Horizon2030 ;
+    ex:assessedBy ex:SomeAssessor .
+```
+
+On your naming preference:
+
+- **`hasClassificationClaim`**: expressive, and it says a claim exists rather than a fact.
+- **`claimsCategory`**: the claim asserts a category. Better than "classified as" because it is the claim, not the case, that carries the category.
+- **`madeFromPerspective`**: says which lens the judgment comes from, which the design requires on every claim.
+
+One caution on "Classification": it still reads like a taxonomy. "CategoryClaim" and "claimsCategory" avoid that and fit the "category held by a lens" language from the last answer. Pick one pair and use it throughout; I'd suggest `hasCategoryClaim` / `claimsCategory`.
+[Timestamp: 2026/11/26 00:23:53]
+
+**user**: i believe it is the perspective that makes this claim, yes? it could be substantiated in citations
+[Timestamp: 2026/11/26 00:25:39]
+
+**ai**: Close, but one correction matters for the design. A perspective doesn't make claims. In the DUL note, a `PerspectiveType` is a Description, and "Perspectives are held and used by agents." So the claim is made by an assessor who uses a perspective, and the perspective is the frame the assessor works within.
+
+Citations are the right way to substantiate it, and they attach to the claim, not to the perspective:
+
+```turtle
+ex:claim17 ex:assessedBy ex:SomeAssessor ;
+    ex:usedPerspective ex:DisciplineA_Perspective ;
+    ex:citesBasis ex:Source_SmithEtAl2019 .
+```
+
+Three properties, each with a different job:
+
+- **`assessedBy`**: the agent who made the claim.
+- **`usedPerspective`**: the frame the claim was judged from. This replaces `madeFromPerspective`, since "made from" still suggests the perspective does the making.
+- **`citesBasis`**: the sources that support the claim. The design already has `assessmentBasis` and evidence pointers, so this should match those names when the ledger is updated.
+
+The citation supports the claim's category use under that perspective. It doesn't prove the harm is real, and it shouldn't be read that way.
+[Timestamp: 2026/11/26 00:25:39]
