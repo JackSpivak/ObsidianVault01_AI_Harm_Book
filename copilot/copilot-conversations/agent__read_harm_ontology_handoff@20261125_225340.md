@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm ontology handoff"
-usage: '{"usedTokens":87477,"contextWindow":1000000,"updatedAt":1795676734314}'
+usage: '{"usedTokens":89477,"contextWindow":1000000,"updatedAt":1795677378261}'
 ---
 
 **user**: read harm ontology handoff
@@ -229,3 +229,52 @@ Turtle's shorthand is the comma: `ex:MyExcellentInstance a ex:DeprivationHarm, o
 
 My earlier error was about which class got the declaration, not about the syntax. The two-line form is the one to use while you're learning Turtle.
 [Timestamp: 2026/11/26 00:05:31]
+
+**user**: ok.  to put a finer point on it, would this be more aligned with v0.03.1 commitments
+ex:MyExcellentInstance a ex:DeprivationHarmDetermination .
+ex:MyExcellentInstance a owl:NamedIndividual .
+[Timestamp: 2026/11/26 00:09:21]
+
+**ai**: Only partly. The second line is right: a specific determination is a named individual. The first line conflicts with the v0.03.1 commitments.
+
+**Where it fits.** The design says every harm is a `HarmDetermination`, an information object that expresses a description. A particular determination is therefore an individual, and `owl:NamedIndividual` is the right declaration. The DUL note also says determinations are outputs of assessments and are never intrinsic.
+
+**Where it doesn't fit.** `DeprivationHarmDetermination` as a class turns a lens-specific harm type into a class of determinations. That is the move the Design Guide rejects, because the same case could then be classed as deprivation under one lens and not under another. The v0.03.1 subclasses are split by the question answered (substrate, functional, exposure, responsibility), not by harm type. A harm type should be a value that the determination points at, not the class the determination belongs to.
+
+A version closer to the commitments:
+
+```turtle
+ex:MyExcellentInstance a ex:HarmDetermination, owl:NamedIndividual .
+ex:MyExcellentInstance ex:classifiesAs ex:DeprivationType .
+ex:MyExcellentInstance ex:perspective ex:SomePerspective .
+ex:MyExcellentInstance ex:atHorizon ex:SomeHorizon .
+```
+
+Here `classifiesAs` is the object property from the earlier option, and `ex:DeprivationType` is the named individual for the harm type. The class stays fixed as `HarmDetermination`. Adding the type as a value means two lenses can each classify the same determination differently, without the reasoner having to pick one.
+
+This also depends on the open question in the ledger: whether the harm types are individuals of a `HarmType` class, as proposed, or stay as SKOS concepts. The determination pattern above works either way.
+[Timestamp: 2026/11/26 00:09:21]
+
+**user**: does a Perspective "have" multiple individuals that are also named individuals of the class HarmType'
+[Timestamp: 2026/11/26 00:16:12]
+
+**ai**: Yes, the perspective should point to its harm types through a property. The harm types are not members of the perspective, and the perspective isn't a class of them. So "has" means a relation, not a class or a containment.
+
+```turtle
+ex:DisciplineA_Perspective a ex:PerspectiveType, owl:NamedIndividual .
+ex:DeprivationType a ex:HarmType, owl:NamedIndividual .
+ex:HedonicType a ex:HarmType, owl:NamedIndividual .
+
+ex:DisciplineA_Perspective ex:definesHarmType ex:DeprivationType .
+ex:DisciplineA_Perspective ex:definesHarmType ex:HedonicType .
+```
+
+Some points on how this fits the commitments:
+
+- **Many types per perspective.** `definesHarmType` can be repeated, which gives the set you asked about. Nothing in the reasoner needs to know the count.
+- **Types can sit under several perspectives.** Two disciplines can each point at `ex:DeprivationType`, and neither owns it. That matches the aim that a harm type is a concept a lens holds, not an intrinsic fact.
+- **Frame vs snapshot.** The DUL note makes the perspective type a frame of standards and defaults, and a `PerspectiveSpecification` is the snapshot used for one assessment. The types belong on the frame, so a specification would use a subset of them. That subset relation is not decided yet.
+- **"Held by" is open.** Who holds a perspective (a discipline or a community of practitioners) is open in the ledger (S15, S22). So the relation to the discipline is not settled, though the link from perspective to harm type can be used now.
+
+Here "defines" is my suggested name. The word and the scope (whether a perspective may define a type that another perspective also uses) should be checked against the ledger before it's logged.
+[Timestamp: 2026/11/26 00:16:12]
