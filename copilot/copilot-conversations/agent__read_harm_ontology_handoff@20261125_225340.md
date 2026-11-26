@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm ontology handoff"
-usage: '{"usedTokens":115724,"contextWindow":1000000,"updatedAt":1795680188438}'
+usage: '{"usedTokens":117853,"contextWindow":1000000,"updatedAt":1795680807595}'
 ---
 
 **user**: read harm ontology handoff
@@ -663,3 +663,38 @@ ex:Vajrayana a ex:Tradition, owl:NamedIndividual ;
 
 This also suggests that S21 may need restating, since "a discipline's perspective is the same kind as a tradition's" would no longer hold. Before logging anything, the question is whether a tradition is the same kind as a perspective or a container of them, and the examples above suggest the second.
 [Timestamp: 2026/11/26 01:02:58]
+
+**user**: ok. lets say for the sake of this discussion that a tradition is a holder or container of perspective/s.
+how can we distinguish or characterize a discipline? i think of it as a collection of practices associated with a tradition (more or less) a discipline (say medicine for example) may involve a variety of practitioners involved in various practices - doctors involved in treating patients, ethicists involved in establishing moral standards of medical care, researchers specifically looking at many things perrtainant to the practice of medicine on patients (for example: devices and instruments, pharmaceuticals, the body itself and its metabolism, physiology or immunology) .  Further a discipline might have associated research artifacts and findings that form the basis for core beliefs that this discipline holds and maybe builds standards for (standard building would be another practice held by another set of practitioners in this discipline)
+
+does this make sense? does it hold? can you think of counterexamples
+[Timestamp: 2026/11/26 01:13:16]
+
+**ai**: The idea makes sense, and it holds up better as a description than as a definition. Several counterexamples show where it needs qualifying.
+
+**What holds:** Your four elements (practitioners in roles, practices, research artifacts, and standard-setting as a separate practice) describe medicine well. The same clinical situation draws on a treating doctor, an ethicist, a device researcher, and a standards body, and each works from different artifacts. The discipline is the coordinated set, not any one role.
+
+**Counterexamples and where they bite:**
+
+1. **A discipline can span traditions.** Psychology contains Freudian, Jungian, behavioural, and cognitive perspectives, and these come from different traditions. Medicine in one country can contain biomedical practice alongside traditional practices that are recognised, regulated, or contested. So a discipline is not a subset of one tradition. The two cross-cut. This is the main correction to "a collection of practices associated with a tradition."
+
+2. **Practice can be shared across disciplines.** Mindfulness is practised in clinical psychology, in medicine, and in religious settings. The practice belongs to more than one discipline, so practices can't be the identity condition on their own.
+
+3. **Artifacts don't always yield "findings."** In mathematics the basis is proofs, not empirical findings, and the standard of rigour is set inside the practice. The "findings form the basis for beliefs" model fits empirical disciplines better than formal ones.
+
+4. **Standard-setting can sit outside the discipline.** A standards body such as a regulator or a safety organisation may set the rules for a discipline's practice without being a practitioner of it. Whether that body belongs to the discipline is a boundary dispute, not a fact.
+
+5. **Core beliefs can be wrong or abandoned.** Chemistry held phlogiston as a core belief. The discipline's beliefs change while the discipline continues, so the artifacts-to-beliefs link is a claim the discipline makes about itself, not a guarantee.
+
+6. **Membership is contested.** Who counts as a practitioner (a licensed doctor, a nurse, a herbalist, a patient advocate?) is decided by institutions and boundaries, and those boundaries move.
+
+**A revised characterisation.** A discipline is a social object identified by:
+
+- an **object domain** (what it studies or treats),
+- **practitioner roles** (clinician, ethicist, researcher, standard-setter), held by agents,
+- **practices** (acts performed in those roles),
+- **artifacts** (findings, proofs, standards) that the discipline cites as its basis,
+- **institutions and boundaries** that say who counts, which can be disputed.
+
+It doesn't have to sit inside a single tradition. It is held by agents, and its perspectives are the frames its practitioners use, which is where it connects to the design. The main open question is whether the boundary (who counts as a practitioner) is part of the discipline's identity or a claim the discipline makes about itself. I'd treat it as the latter.
+[Timestamp: 2026/11/26 01:13:16]
