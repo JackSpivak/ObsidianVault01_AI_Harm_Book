@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm ontology handoff"
-usage: '{"usedTokens":81954,"contextWindow":1000000,"updatedAt":1795675286356}'
+usage: '{"usedTokens":86503,"contextWindow":1000000,"updatedAt":1795676192946}'
 ---
 
 **user**: read harm ontology handoff
@@ -100,3 +100,99 @@ On "instances": you don't need `HarmType` to be an instance of `HarmTypeDetermin
 I haven't changed any notes. If you want, I can add a "Harm types" section to the Proposed Class Tree with `HarmType`, `HarmTypeDetermination`, and the link from the perspective, and mark it proposed. I can also log the open choice (concepts in SKOS versus OWL individuals) as a ledger item. Which would you like?
 <!-- copilot-message {"tools":["grep (search): 01_The Writer's Room","glob (search)","read (read): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Proposed Class Tree and DUL Alignment.md","grep (search): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1"]} -->
 [Timestamp: 2026/11/25 23:41:09]
+
+**user**: so if we identify HarmTypes as a kind of concept it becomes a narrative/vocabulary "decoration" rather than something that can be reasoned over.  i believe that an analysis/assessment would like to be able to say that a particular type of harm was involved and declare that as a determination.  how would this be possible with HarmType as a skos:narrative
+[Timestamp: 2026/11/25 23:47:58]
+
+**ai**: You're right that a SKOS-only type is weak for reasoning. But a determination can still point at a type, and the type doesn't have to be only narrative. There are three ways to build it, and they differ in what the reasoner can do.
+
+**1. The determination points at a skos:Concept (SKOS only).**
+A determination uses an object property, for example `classifiesAs`, whose range is `skos:Concept`:
+
+`ex:det17 a HarmTypeDetermination ; classifiesAs ex:DeprivationType ; perspective ex:Ph1 ; atHorizon ex:H2030 .`
+
+What you get: you can declare a type was involved, and you can query for it. What you lose: the reasoner doesn't know anything about the concept. `skos:broader` is not transitive in OWL, and a DL reasoner won't classify determinations by type. Every inference (a deprivation is a kind of harm) has to live in a SPARQL property path such as `skos:broaderTransitive`. That is what you're worried about, and it's correct.
+
+**2. The type is an OWL individual that is also a skos:Concept (recommended).**
+Declare `ex:DeprivationType a owl:NamedIndividual, skos:Concept ; skos:definition "…" ; skos:broader ex:ExperientialType .` The type is then an individual in the OWL file: it can be the filler of object properties, it can have OWL properties of its own (for example `hasDimension ex:Somatic`), and it carries its narrative in SKOS annotations. Narrative stays in SKOS; the type takes part in reasoning as an individual.
+
+With this, a reasoner can do real work. You can define a determination class by restriction:
+
+`DeprivationDetermination ≡ HarmTypeDetermination and classifiesAs value DeprivationType`
+
+Any determination that classifies as that individual is then inferred into the class, and the reasoner does the classification. The cost is that the individual is typed as both a native OWL individual and a `skos:Concept`. That is legal in OWL DL, since `skos:Concept` is just an external class, but the ontology has to declare it.
+
+**3. The type is an OWL class (the v1 way).**
+This gives full reasoning, but it returns to the problem the Design Guide warns about. Lens-specific types become fixed classes, so the same case can't be classed under two lenses without taking a side.
+
+**Where I'd land.**
+Option 2 gives the reasoner what you need (a determination can say a type was involved, and the reasoner can classify on it), without making the type a lens-independent fact. Two things stay in the query layer whichever option you pick: cross-lens comparison ("which two perspectives classify this determination differently") and the transitive subsumption of narrower types. Those are real, but they are queries over determinations, not facts the reasoner asserts.
+
+One more check. Option 2 is the same kind of object as the "facet" idea in Option C of the design note, but the facets there are not tested yet. The surgeon case (HD19) is still the test that would decide it.
+
+Should I write option 2 into the Proposed Class Tree as a proposal, with the `classifiesAs` property and one worked determination? It would stay marked as not logged.
+[Timestamp: 2026/11/25 23:47:58]
+
+**user**: i am unfamiliar with owl:Individual  distinguish this from owl:Class and owl:Instance
+[Timestamp: 2026/11/25 23:51:09]
+
+**ai**: The three terms are different kinds of thing, and I used "instance" loosely earlier. Here is the distinction.
+
+**owl:Class** is a set of things. `Harm` is a class: a collection of all the harm-things in the ontology. A class has subclasses (`DeprivationHarm` is a subclass of `Harm`), and reasoning works on membership, for example "if X is a DeprivationHarm, X is a Harm."
+
+**owl:NamedIndividual** (the usual OWL term, which I should have used instead of "owl:Individual") is a single named thing: one particular item that belongs to one or more classes. The harm in the poem is an individual, and so is the Ministry of Health. An individual has a type (it is an instance of a class) and can be linked to other individuals through properties.
+
+**"Instance"** is not an OWL keyword. It is the everyday word for an individual that is a member of a class. "This determination is an instance of HarmTypeDetermination" means the determination is a named individual whose type is that class.
+
+**owl:Individual** is the top-level class that contains all individuals. You rarely need it in practice. Use `owl:NamedIndividual` when you declare a specific named thing.
+
+Applied to our case:
+
+- `HarmType` is a class. It collects all the harm categories.
+- `DeprivationType` is an individual, a single named category that is a member of `HarmType`. In the option I proposed it is also a `skos:Concept`, so it carries its definition.
+- `det17` is an individual, a particular determination, of class `HarmTypeDetermination`. Its `classifiesAs` property points at `DeprivationType`.
+
+So the question is whether the harm category is a class (set of things) or an individual (one named category). Under option 2, each harm category is an individual that also belongs to the `HarmType` class, and a determination links to it. That lets the reasoner see the link without turning the category into a fixed set.
+[Timestamp: 2026/11/25 23:51:09]
+
+**user**: is there any difference between what is commonly called an instance in ontology modeling and owl:Individual? I think of an instance as something that represents the "one of" notion
+[Timestamp: 2026/11/25 23:53:23]
+
+**ai**: Mostly no difference. "Instance" is the informal modeling word for a member of a class, and "individual" is the formal OWL word for the same idea. Your "one of" reading is the right one.
+
+Two points to keep straight:
+
+1. **owl:Individual** is the OWL class that contains all individuals. Saying "x is an owl:Individual" means x is one of the things the ontology talks about. In practice you declare specific things with **owl:NamedIndividual**, which is what I should have written before.
+
+2. **Individuals are not necessarily single physical things.** "One of" means one member of a class, and the member can be an abstract item. A harm type, a determination, or a perspective can each be a named individual, even though it isn't a physical object.
+
+Two places where the "one of" intuition breaks down in OWL:
+
+- **Membership is not exclusive.** One individual can belong to several classes at once. The same determination can be an instance of `HarmTypeDetermination` and of `FunctionalHarmDetermination`. That is not a contradiction unless you declare the classes disjoint.
+- **The same name can act as a class and an individual.** OWL 2 allows this (called punning). `DeprivationType` could be used as a class in one axiom and as an individual in another. Under the option I proposed, it is an individual in the file, which is the simpler choice and avoids surprises.
+
+So the short answer: an instance is one of a class, an individual is OWL's name for it, and the one place they differ in practice is that OWL's individual is a general category you rarely use directly.
+[Timestamp: 2026/11/25 23:53:23]
+
+**user**: when i typically specify an instance (instantiating a class with a particular example of it) is this instance modeled as
+ex:MyExcellentInstance a owl:Individual in the actual turtle or does some other method/statement/fact accomplish this
+[Timestamp: 2026/11/25 23:56:29]
+
+**ai**: The instantiation itself is a single triple, using the type relation `rdf:type`, which Turtle writes as `a`:
+
+```turtle
+ex:MyExcellentInstance a ex:DeprivationHarm .
+```
+
+That one statement says the individual is a member of the class. No `owl:Individual` is needed.
+
+Tools such as Protégé usually add a second statement that declares the thing is a named individual:
+
+```turtle
+ex:MyExcellentInstance a ex:DeprivationHarm, owl:NamedIndividual .
+```
+
+The declaration is optional in OWL. Its use is to tell the reasoner and the editor that the IRI names a specific thing rather than a class. Protégé writes it by default, so you'll see it often.
+
+Writing `ex:MyExcellentInstance a owl:Individual` would be wrong for your purpose. It says the thing belongs to the class of all individuals, and it drops the class you meant (`DeprivationHarm`). The class goes in the `a` triple, and `owl:NamedIndividual` is only the declaration.
+[Timestamp: 2026/11/25 23:56:29]
