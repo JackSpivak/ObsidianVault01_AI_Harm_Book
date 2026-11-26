@@ -7,7 +7,7 @@ topic: "v0.03.01 explore harm types"
 model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":594779,"contextWindow":1000000,"updatedAt":1795670094581}'
+usage: '{"usedTokens":601659,"contextWindow":1000000,"updatedAt":1795670528341}'
 lastAccessedAt: 1795667271284
 ---
 
@@ -2560,3 +2560,80 @@ The control doesn't test rdflib either. It separates labels from narrative, and 
 
 To test your claim properly, the rdflib condition has to be real. A fixed query would take a matched class, pull every narrative property on that same node, and hand those results to the model. Then we'd compare it against model-only reading on the same texts, scored against expert judgments of the right class. That's the test that would show whether traversal adds matches, correct parents, or fewer errors. I can set that up if you want it, but I'd need the expert judgments first, since without them we'd be measuring agreement with the model again.
 [Timestamp: 2026/11/25 22:14:46]
+
+**user**: i am sorry.  i have lost the thread.  i thought the latest tests were to actually use graph traversal to see if we could generate additional value if the ontological relations were actually queried
+[Timestamp: 2026/11/25 22:16:20]
+
+**ai**: You haven't lost the thread. The thread was right, and the tests I ran didn't test it. I should have said so when I ran them.
+
+**What you asked for:** whether querying the ontology's relations through the graph adds value over matching on the text.
+
+**What we actually ran:** the structured prompt, which asked the model to walk the hierarchy and check properties by reading the file as text. The model had no query tool, so it simulated the traversal. rdflib appeared only in my side checks, which counted classes and labels. The runs that compared results never used it.
+
+So the comparison we have is between two kinds of reading, not between a query and a reading. Nothing in our results tests graph traversal.
+
+**The test you're describing would need:**
+1. **Fixed queries**, written in advance, run by rdflib against the TTL. For example: all classes under a parent, and for each matched node, all its narrative properties.
+2. **A model-only condition** on the same texts, with the same file, reading it as text.
+3. **Expert judgments** for each text: the classes a domain expert would say apply, and which parent is correct. Without these we can only measure agreement between the two conditions, not whether either one is right.
+4. **A scoring rule** that counts matches found, correct parents, and incorrect matches, applied the same way to both conditions.
+
+Only the first step is ready to run, since it's just queries. The expert judgments are the part that needs you, because I shouldn't supply the ground truth myself.
+
+Do you want me to write the fixed queries now, so you can review them before anything runs?
+[Timestamp: 2026/11/25 22:16:20]
+
+**user**: yes
+[Timestamp: 2026/11/25 22:17:28]
+
+**ai**: I'll write the fixed queries into a review note, then run them once to confirm they execute. I won't interpret the output yet.I wrote the four fixed queries into `Nonce Test - Graph Queries (for review).md` in the `tests/nonce` folder. For review, the note gives the design, the parameter for each run, and the queries in full.
+
+I ran each query once against the baseline to check that it executes. The counts are: Q1 returns 31 classes under the root; Q2 returns 19 triples on HedonicHarm; Q3 returns 3 ancestors of HedonicHarm; Q4 returns no shared definitions. I haven't interpreted these results.
+
+**The design, as the note describes it:**
+- The model proposes candidate classes from definitions, the same step as in the model-only condition.
+- A fixed query then returns each candidate's structure, all its narrative on the same node, and its ancestors.
+- The model decides from those returned rows.
+- The model-only condition uses the same candidates but reads the file as text. The difference isolates what the query adds.
+
+**Three things to settle before running:**
+1. **Expert judgments.** We need them to score correctness. Without them we can only measure agreement between the two conditions.
+2. **Candidate source.** I suggest a fixed candidate list per text, so the two conditions start from the same set. If the model proposes candidates in each run, the difference could come from candidate selection rather than from the query.
+3. **Which file.** The baseline has full narrative. C2 separates narrative from labels, which is the cleaner comparison for your question.
+
+Please review the queries and tell me if you want changes. Then send me the expert judgments, or tell me to proceed with a placeholder scoring rule.
+<!-- copilot-message {"tools":["write (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Nonce Test - Graph Queries (for review).md","& \"C:\\Users\\conta\\anaconda3\\envs\\harm-ontology\\python.exe\" -I -c \"from rdflib import Graph; PFX='PREFIX harm: <http://example.org/ontology/harm#\u003e PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#\u003e PREFIX skos: <http://www.w3.org/2004/02/skos/core#\u003e PREFIX dcterms: <http://purl.org/dc/terms/\u003e PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#\u003e '; base=r'02_Ideas Topics Concepts\\Harm Ontology\\ontology\\Interdisciplinary Harm Ontology v1.ttl'; g=Graph(); g.parse(base, format='turtle'); print('Q1 rows:', len(list(g.query(PFX+'SELECT ?class WHERE { VALUES ?parent { harm:Harm } ?class rdfs:subClassOf+ ?parent . }')))); print('Q2 rows for HedonicHarm:', len(list(g.query(PFX+'SELECT ?pred ?value ?valueLabel ?valueDef WHERE { VALUES ?code { harm:HedonicHarm } ?code ?pred ?value . FILTER(?pred != rdf:type) OPTIONAL { ?value skos:prefLabel ?valueLabel . } OPTIONAL { ?value skos:definition ?valueDef . } }')))); print('Q3 rows for HedonicHarm:', len(list(g.query(PFX+'SELECT ?ancestor WHERE { VALUES ?code { harm:HedonicHarm } ?code rdfs:subClassOf* ?ancestor . }')))); print('Q4 rows:', len(list(g.query(PFX+'SELECT ?def (COUNT(DISTINCT ?node) AS ?owners) WHERE { ?node skos:definition ?def . } GROUP BY ?def HAVING (COUNT(DISTINCT ?node) \u003e 1)'))))\" (execute)"]} -->
+[Timestamp: 2026/11/25 22:17:28]
+
+**user**: before expert judgements is it possible to at least verify and tally whether the narrative found actually comes from the parent or other entity? if not then by definition it would be wrong. no?
+[Timestamp: 2026/11/25 22:20:10]
+
+**ai**: Yes, that part can be verified without expert judgment, and it's a useful check. But the conclusion needs one correction: a narrative that comes from a different node isn't wrong by definition. It's wrong relative to the node the model says it's about. Whether that node is the right class is a separate question that still needs judgment.
+
+**What can be checked mechanically**
+- **Provenance of each returned row.** Q2 fixes the subject to the candidate node, so every returned narrative belongs to that node by construction. The check is trivially satisfied for the query itself.
+- **Provenance of each quoted definition in a model's answer.** This is the check that matters. A model's answer quotes a definition and attaches it to a class. A script can test whether that exact text sits on that class in the file. If it sits on a different node, or on none, the quote is misattributed. This can be tallied across all runs with no expert input.
+- **Shared definitions.** Q4 showed no definition is shared across nodes in these files, so a definition text names exactly one owner. That removes one source of ambiguity.
+
+**What the check can't tell us**
+- Whether the candidate class is the right one for the text. A correctly quoted definition on the wrong class is a misattribution in the sense above, but a correct quote on a class that doesn't fit is still a bad match. That needs judgment.
+
+**A structural point the check would reveal.** RDF doesn't pass narrative from a parent to its children. If the model answers with a child class, Q2 returns only the child's narrative, not the parent's. So a child-level answer can't draw on the parent's history or scope notes unless the query also walks the ancestors (Q3). The tally would show how often this happens.
+
+I can write the provenance check as a script: it reads each model answer's quoted definitions, finds where each one sits in the file, and reports whether it belongs to the class the model named, its parent, or no node. Send me the outputs you want checked, or tell me to run it on the structured runs already in the notes.
+[Timestamp: 2026/11/25 22:20:10]
+
+**user**: this seems to contribute substantial value and understanding whether the model is being correctly and usefully traversed.  would you agree?
+[Timestamp: 2026/11/25 22:22:03]
+
+**ai**: I'd agree in part, not fully.
+
+**What the provenance check does establish:** whether a model's quoted evidence really sits on the class it names. That is a real validity check. It catches misattribution, and it applies to any run, with no expert input. If a model cites text from the wrong node, the audit shows it.
+
+**What it doesn't establish:**
+- **Usefulness.** A correctly attributed quote can still support the wrong class. Provenance measures whether the citation is accurate, not whether the match is right.
+- **Whether traversal helped.** In the traversal condition, the query supplies the narrative, so its provenance is correct by construction. The check tells us nothing about whether the traversed result was better than the model-only one.
+- **Coverage.** It only checks the quotes a model chooses to give. A model that cites nothing isn't audited.
+
+So the check tells us the model is traversing accurately, which is necessary. It doesn't tell us the traversal is useful. For that we still need the comparison: the same candidates, with and without query results, scored against expert judgments of which classes apply. The provenance check makes that comparison more trustworthy, because we'd know the traversed condition's evidence is real, but it doesn't replace it.
+[Timestamp: 2026/11/25 22:22:03]
