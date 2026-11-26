@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm ontology handoff"
-usage: '{"usedTokens":127124,"contextWindow":1000000,"updatedAt":1795682233083}'
+usage: '{"usedTokens":144566,"contextWindow":1000000,"updatedAt":1795682641876}'
 ---
 
 **user**: read harm ontology handoff
@@ -884,3 +884,68 @@ can you summarize - informatively, not concisely what we have settled, what the 
 
 These decisions let the v1 content come across as data, with its citations and narrative. They keep harm a judgement made from a perspective, with the perspective and its basis visible on each claim. They let the catalog grow council by council, with declared scope and mapped overlaps. And they give the nonce and traversal tests a clear target: the catalog of categories, against which model outputs can be scored once expert judgements exist.
 [Timestamp: 2026/11/26 01:36:55]
+
+**user**: this is good.  where should this summary live?
+certainly in the session note?  is this also at the level of hte Harm Ontology v0.03.01 design guide?
+[Timestamp: 2026/11/26 01:41:51]
+
+**ai**: I'd put it in three places, each for a different job. The summary as written is too long for the design guide, and the guide is the wrong place for anything not yet logged.
+
+**1. The session note (the record).** This is where the full summary belongs, with the reasoning and the open items. It records how we got here, including the corrections (the "review councils" mistake, the `owl:Individual` confusion, and the earlier `HarmType` naming), so a later reader can see why the decisions were made. Link it from the handoff's current-focus block so the next session starts from it.
+
+**2. The Decisions Log (the settled points, once you confirm them).** Each settled point becomes a short entry with its date, decision, rationale and link back to the session note. Based on this discussion, that is:
+
+- harm categories are perspective-held concepts, not classes or determinations
+- membership in the category class is a curation fact; applying a category to a case is a claim
+- a perspective is a first-class object, and holders are optional relations
+- the catalog is a concept scheme per source perspective, with `skos:broader` recorded and not reasoned over
+- councils are version-defining sets, declare their kind and scope, and are mapped, not merged
+
+Log these only after you confirm them. Several are provisional (the property names especially), and the ledger rule is that a decision needs resolution before logging.
+
+**3. The change ledger (the open items).** The open list belongs here: V2 and O10 (scheme keying), S21 (restating it), S15 and S22 (holders), the provisional property names, the placeholder source perspectives, and the review-versus-holder council question. Each needs an ID, a blocker and a status.
+
+**The design guide.** Only after the above are logged, and only as a short addition to the commitments section, not as the full reasoning. The guide should state the principles a reader needs to build on: harm is a perspective-relative judgement, categories are held by perspectives, and partiality is declared. The rationale and the history of how we reached them stay in the session note and the Decisions Log, with links from the guide. Otherwise the guide becomes a changelog, which it isn't meant to be.
+
+So: session note now, Decisions Log and ledger once you've confirmed the wording, and a short guide addition after that. I can draft any of these, starting with the session note, if you want. I haven't written anything yet.
+[Timestamp: 2026/11/26 01:41:51]
+
+**user**: ok.  what are we able to log as decisions and close open items
+[Timestamp: 2026/11/26 01:43:46]
+
+**ai**: Some of what we've worked out can be logged now, some should stay proposed, and one earlier entry conflicts with the tradition picture and needs a deliberate supersession. Nothing should be logged until you confirm the wording, since the Decisions Log says to re-open only deliberately.
+
+## Ready to log as Settled (you have endorsed these)
+
+1. **Harm categories are perspective-held concepts, not harm classes or determinations.** The v1 classes become individuals of a perspective-category class (`PerspectiveHarmCategory`), with SKOS narrative and provenance. Membership is a curation fact. Applying a category to a case is a separate claim. Rationale: avoids the intrinsic-harm trap and keeps disagreement between lenses visible. Naming is provisional.
+2. **A perspective is a first-class object; holders are optional, repeatable, time-indexed relations** (`originatedBy`, `heldBy`, `transmittedBy`, `usedBy`). Rationale: lets the holder question wait without losing anything. Related to the 2026-11-17 PerspectiveType / Perspective split, so the entry should cite it.
+3. **Discipline vs tradition is deferred.** No current competency question needs the split. Ties to S15 and S22, which stay open.
+
+## Proposed, not yet logged (we discussed them but you haven't confirmed)
+
+- The catalog as a `skos:ConceptScheme` per source perspective, with categories as spokes and `skos:broader` recorded but not reasoned over (no subclassing).
+- Councils as version-defining sets of founders or key thinkers, extensible, each declaring its kind and scope, with overlaps mapped rather than merged.
+- The claim pattern (`assessedBy`, `usedPerspective`, `citesBasis`, `hasClassificationClaim`, `claimsCategory`). Property names are provisional.
+- The metaperspective as declared partiality (its own status is S32).
+
+These belong in the ledger as Draft Proposal items, not the log.
+
+## Conflicts to resolve before logging
+
+- **2026-11-17 PerspectiveType entry.** It says each concrete tradition is an individual of PerspectiveType, with "tradition" as its preferred label. Our working picture makes a tradition a container of perspectives. Those can't both stand. Logging the tradition-as-container view needs an explicit superseding entry.
+- **2026-11-22 entry (S21).** It records that a discipline's perspective is the same kind as a tradition's. The container view changes that. S21 should be reopened, not closed. I'd mark it "restate pending" rather than leave it as settled.
+
+## Open items that stay open
+
+- V2 and O10 (whether schemes are keyed to a discipline or a perspective). The catalog proposal depends on it.
+- S15 and S22 (who holds perspectives). Deferred, not closed.
+- Naming of the claim properties and the placeholder source perspectives for the three v1 exemplars.
+- The review-council question (are any councils review bodies as well?).
+
+## Nothing can be closed yet
+
+No ledger item is closed by this conversation. Closing S21 would be wrong; reopening it is the right move. The honest status is: three decisions ready to log once you confirm, a superseding entry needed for the tradition picture, and the rest still proposed.
+
+If you confirm, I can draft the three Settled entries, the superseding note for 2026-11-17 and 2026-11-22, and the ledger rows for the proposals.
+<!-- copilot-message {"tools":["glob (search)","grep (search): 02_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md","read (read): 00_Claude_Admin/Decisions_Log.md"]} -->
+[Timestamp: 2026/11/26 01:43:46]
