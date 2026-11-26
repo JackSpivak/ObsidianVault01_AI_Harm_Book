@@ -7,7 +7,7 @@ topic: "v0.03.01 explore harm types"
 model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":601659,"contextWindow":1000000,"updatedAt":1795670528341}'
+usage: '{"usedTokens":638808,"contextWindow":1000000,"updatedAt":1795671133084}'
 lastAccessedAt: 1795667271284
 ---
 
@@ -2637,3 +2637,279 @@ I can write the provenance check as a script: it reads each model answer's quote
 
 So the check tells us the model is traversing accurately, which is necessary. It doesn't tell us the traversal is useful. For that we still need the comparison: the same candidates, with and without query results, scored against expert judgments of which classes apply. The provenance check makes that comparison more trustworthy, because we'd know the traversed condition's evidence is real, but it doesn't replace it.
 [Timestamp: 2026/11/25 22:22:03]
+
+**user**: can you run this test and output a table the actual HarmDetermination along with the text examples that are assessed to be a particular type of harm?  and the type of harm identified ? also the IRI and name of the identified associated node and whether it is a parent or a child?
+
+Please arrange the output as you think is bast for readibility and include extra columns if you think they would contribute value
+
+does this output description seem to request what i would need to make an expert judgement?
+[Timestamp: 2026/11/25 22:28:48]
+
+**ai**: I'll run it as a two-stage traversal, since that's the design we wrote. First the model proposes candidate classes from their definitions, with no queries. Then I run the fixed queries on those candidates. Then the model decides each harm from the query rows.
+
+I'll start with stage one for the five texts, using the baseline file.The file is longer than the first read returned, so I'll read the rest.I read the whole file (965 lines). Classes whose `skos:definition` the text could plausibly trigger:
+
+| Class local name | IRI | What in the text triggers it |
+|---|---|---|
+| Harm | `http://example.org/ontology/harm#Harm` | The top-level definition covers setbacks to "systemic equilibrium," and the text describes a school and district equilibrium collapsing. |
+| SystemicCyberneticHarm | `http://example.org/ontology/harm#SystemicCyberneticHarm` | A "destabilizing shift in a complex system," with feedback loops ("every departure made the school weaker still") and no single linear perpetrator. |
+| ExternalityCoordinationHarm | `http://example.org/ontology/harm#ExternalityCoordinationHarm` | Each family's departure is individually reasonable, yet the aggregate locks everyone into a mutually destructive outcome (a collective action failure). |
+| CollectiveEnvironmentalHarm | `http://example.org/ontology/harm#CollectiveEnvironmentalHarm` | Incremental departures add up to a large collective setback on a shared public good (the school), with no single catastrophic victim. |
+| CapabilityStructuralHarm | `http://example.org/ontology/harm#CapabilityStructuralHarm` | Institutional loss of a school removes educational capability, and the definition covers diffuse deprivation "without requiring an individual malicious assailant." |
+| WelfareInterestHarm | `http://example.org/ontology/harm#WelfareInterestHarm` | Parent class for objective setbacks to vital interests (here, children's access to education), regardless of whether anyone perceives the loss. |
+| InterestSetbackHarm | `http://example.org/ontology/harm#InterestSetbackHarm` | Child class of WelfareInterestHarm. Leaving the district and losing the school leaves residents worse off than the counterfactual where the school stayed. |
+| TeleologicalDeprivationHarm | `http://example.org/ontology/harm#TeleologicalDeprivationHarm` | Parent class for deprivation of goods an entity should enjoy; the school's closure blocks access to a good the community would otherwise have had. |
+| DeprivationHarm | `http://example.org/ontology/harm#DeprivationHarm` | Child class: "blocking access to a good state a subject would otherwise have enjoyed," measured counterfactually. The building's closure is a clear fit. |
+| AttachmentDevelopmentalHarm | `http://example.org/ontology/harm#AttachmentDevelopmentalHarm` | Borderline. It covers harm from absent developmental stimulation in childhood, and the school's decline could be read as that. Weak trigger. |
+| DeontologicalRightsHarm | `http://example.org/ontology/harm#DeontologicalRightsHarm` | Borderline, and only through the phrase "no one decided." It concerns wronging, which the text does not describe. Weak trigger. |
+
+Borderline rows are included for the later stage to decide.
+
+Classes I considI read the full file (965 lines) and used only that text. These are the classes whose skos:definition the passage could plausibly trigger. Per your instructions, I did not decide whether any harm is present. Rows are grouped by confidence.
+
+**Stronger triggers**
+
+| Class local name | IRI | Trigger in the text |
+|---|---|---|
+| DeprivationHarm | http://example.org/ontology/harm#DeprivationHarm | "kept from the training" blocks a good state he would otherwise have enjoyed, and "the life... never came to be" is a comparative non-existence. |
+| TeleologicalDeprivationHarm | http://example.org/ontology/harm#TeleologicalDeprivationHarm | Parent of DeprivationHarm. Blocks an entity from attaining goods and future existence it ought to possess. |
+| PerfectionistTeleologicalHarm | http://example.org/ontology/harm#PerfectionistTeleologicalHarm | "his talent called for" training that was withheld; the definition covers impediments to developing core capabilities. |
+| CapabilityStructuralHarm | http://example.org/ontology/harm#CapabilityStructuralHarm |ered and did not trigger: ExperientialHarm and its children (no conscious suffering Withholding training stops him converting a talent into real described), PublicCriminalHarm, PrivateTortiousHarm, ExpectationRelian functioning. The text names no systemic barrier, so this is a looceHarm, ProbabilisticRiskHarm, InformationAsymmetryHarm, AlgorithmicAser fit. |
+| InterestSetbackHarm | http://example.org/ontology/harm#InterestSetbackHarlignmentHarm, EpistemicPollutionHarm, and the rest of the deontological,m | "the life he would have grown into" implies he is left worse off than fiduciary, and parens patriae classes. The att the counterfactual, a setback to vital ongoing interests. |ribute vocabulary entries (for example, `DiffuseCollectivePerpetrator`, `NonA
+| WelfareInterestHarm | http://example.org/ontology/harm#WelfareInterestHarm | Parent ofgenticAutonomousSource`) have no `skos:definition`, so they cannot be triggered by definition text.I read the whole file (965 lines, across three reads). Below are the classes whose `skos:definition` the text could plausibly trigger. This is a broad, inclusive list for stage 2 to filter; I have not decided whether any harm occurred.
+
+| Class local name | IRI | What in the text triggers it |
+|---|---|---|
+| Harm | `http://example.org/ontology/harm#Harm` | Her "standing as someone entitled to the same protection was denied," which is a setback to a legal or moral right. Root parent of the Harm branches. |
+| DeontologicalRightsHarm | `http://example.org/ontology/harm#DeontologicalRightsHarm` | "Rules did not apply to people InterestSetbackHarm. The counterfactual loss of the future life is an like her" and "entitled to... protection was denied" describe a violation of formal objective setback. |
+| Harm | http://example.org/ontology/harm#Harm | Top-level. A rights and standing. Parent of the deontological classes below. |
+| InjuriaSine setback to natural flourishing or vital welfare interests is plDamnoHarm | `http://example.org/ontology/harm#InjuriaSineDamnoHarm` | "Nothing was taken from herausibly triggered by the loss of the future life. |
+
+**Weaker or con, yet" her legal entitlement was denied. Thisditional triggers**
+
+| Class local name | IRI | Trigger in the text |
+|---|---|---|
+| AttachmentDevelopmentalH is the closest match: a rights breach with no loss. |
+| KantianDeontologicalHarm | `http://example.org/arm | http://example.org/ontology/harm#AttachmentDevelopmentalHarm | "young man" andontology/harm#KantianDeontologicalHarm` | Treating her as out "grown into" point to a developmental window, but the text says nothing about caStage 1 candidates from the TTL file only. I read all 965 lines; the file ends at line 965. This is inclusive, not a verdict that harm occurred. Rows marked "weak" are plausible but thin.
+
+**Top level and experiential**
+
+| Class | IRI | Trigger in the text |
+|---|---|---|
+| Harm | http://example.org/ontology/harm#Harm | Repeated setbacks to the narrator's health, money, and housing, which fit "relational setback to welfare or systemic equilibrium." |
+| ExperientialHarm | http://example.org/ontology/harm#ExperientialHarm | Parside the rules because of whoregiving or social stimulation. |
+| ParensPatriaePaternalisticHarm | http://example.org/ she is ("people like her") may disrespect her as a rational agent. Weaent of the experiential classes; the narrator's distress and swelling faceontology/harm#ParensPatriaePaternalisticHarm | Stunting of developmentker match. |
+| DignitaryRelationalHarm | `http://example.org/ontology/harm# and arms are conscious suffering. |
+| HedonicHarm | http://example.org/ontology/harm#HedonicH through withheld training; the definition is about state protection of development. |
+| WrongfulDeathConsortI read the full file (lines 1–965). Below are the classes whose `skos:definition` the text could plausibly trigger. The list is inclusive, with no harm decided. Each IRI uses the `harm:` namespace `http://example.org/ontology/harm#`.
+
+**Strong triggers**
+
+| Class | IRI | What in the text triggers it |
+|---|---|---|
+| CollectiveEnvironmentalHarm | http://example.org/ontology/harm#CollectiveEnvironmentalHarm | "Discharge has spread across the river valley" and "each household's small loss adds to a total no one carries alone" match "small, incremental setbacks spread across… shared ecosystems… aggregate welfare setback is massive." |
+| ExternalityCoordinationHarm | http://example.org/ontology/harm#ExternalityCoordinationHarm | Households are uninvolved third parties absorbing the factory's discharge, which reads as an unpriced byproduct imposed on others. |
+
+**Parents of the strong triggers (listDignitaryRelationalHarm` | Denial of her standing and the officialarm | "Face and arms began to swell," "I'm a nervous wreck," and "IiumHarm | http://example.org/ontology/harm#WrongfulDeathConsortiumHarm | "nevered separately)**
+
+| Class | IRI | What in the text triggers it |
+|---|---|---|
+| S's dismissive statement fit an affront to personal standing. Parent in just 'bout had my fill" describe negative bodily and mental states. |
+| Psychological came to be" resembles a future-goods loss, butystemicCyberneticHarm | http://example.org/ontology/harm#SystemicCyberneticHarm | The sp the experiential branch. |
+| ExperientialHarm | `http://example.org/ontology/harm#EmotionalTrauma | http://example.org/ontology/harm#PsychologicalEmotionalTrauma | " no death, survivors or relational loss is stated. |
+| ProbabilisticRreading, aggregating pattern fExperientialHarm` | Parent of DignitaryRelationalHarm. Its ownNervous wreck" plus witnessing a close relative (the sister) injured byiskHarm | http://example.org/ontology/harm#ProbabilisticRiskHarm | The loits "a destabilizing shift in a complex system" and emergent collective bre definition requires felt negative states, which the text does not describe. Weak. a rat; weak, since the text doesn't say the distress is severe orss of a future trajectory could be read as lost prospects, but no probability or risk imakdown. |
+| WelfareInterestHarm | http://example.org/ontology/harm#WelfareInterestHar |
+| WelfareInterestHarm | `http://example.org/ontology/harm#WelfareInterestHarm` | clinical. |
+| NuisanceSensoryOffense | http://example.org/ontology/harmposition is stated. |
+| DeontologicalRightsHarm | http://example.org/ontology/harm#Deontologicm | Each household's loss is a setback to welfare or resources, Loss of the protection she was entitled to could count as a setback to a vital interest (security or li#NuisanceSensoryOffense | "No hot water, no toilets, no lights" describalRightsHarm | "kept from" training could imply a denied ent and the total is an aggregate setback. |
+
+**Plausible triggers**berty). Parent of the welfare classes below. Weak to moderate. |
+| Ines sustained environmental deprivation; weak, since the definition is about sensory interitlement, but no right or wrong is named. |
+
+| Class | IRI | What in the text triggers it |
+|---|---|---|
+| Harm | http://example.org/ontterestSetbackHarm | `http://example.org/ontology/harm#InterestSetbackHarm` | Sheference (odour, noise) rather than lack of services. |
+| Dignit
+| KantianDeontologicalHarm | http://example.org/ontology/harm#KantianDeontologicalology/harm#Harm | The root class fits "a setback to… resources or is arguably left worse off than she would have been had the protection applied (aryRelationalHarm | http://example.org/ontology/harm#DignitaryRelationalHarm | TheHarm | Child of DeontologicalRightsHarm. It could fit if systemic equilibrium." |
+| InterestSetbackHarm | http://example.org/ontology/harm#InterestScounterfactual comparison). Weak to moderate. |
+| EpistemicTestimonialHarm | `http:// landlord's rent increase and the "whitey" framing b "kept from" is read as using him as a means,etbackHarm | Each household is left worse off than it otherwise would haveexample.org/ontology/harm#EpistemicTestimonialHarm` | An official's dismissive statementear on personal standing and emotional tranquillity; weak. |
+| which the text does not say. |
+
+**Considered and not triggered:** ExperientialHar been, matching the counterfactual setback definition. |
+| PrivateTortiousHarm | http://example.org/ontology/ about her status could work as a credibility or standing deflation. We VicariousMoralInjury | http://example.org/ontology/harm#VicariousMoralInjury | Not really triggm, HedonicHarm, PsychologicalEmotionalTrauma, Pharm#PrivateTortiousHarm | A factory's discharge causing household losses could be readak; the text does not mention her knowledge or testimony. |
+| FiduciaryBetrayalHered: no moral transgression forced on the narrator; listed only to rule it out. (rivateTortiousHarm and PublicCriminalHarm. "No blow was struck" and as one private party harming others, which is a civil injury parm | `http://example.org/ontology/harm#FiduciaryBetrayalHarm` | The official is anDrop this row if you prefer.) |
+
+**Welfare and interest-based**
+
+| the absence of any stated experience, injury or crime argue against themattern. |
+| NuisanceSensoryOffense | http://example.org/ontology/harm#Nu. institutional actor who may have owed her a duty of care. Weak; no trust rel Class | IRI | Trigger in the text |
+|---|---|---|
+| WelfareInterestHarm | http://example.isanceSensoryOffense | A discharge spreading across a valley could be read as unreasonable environationship is stated. |
+| PublicCriminalHarm | `http://example.org/ontology/harm#PublicCriminorg/ontology/harm#WelfareInterestHarm | Parent of the welfare classes; setbacmental interference with property enjoyment, though the text names no sensory effect. |
+| ProbalHarm` | The "rules" and "protection" could be state or public-order rks to health, housing, and property. |
+| InterestSetbackHarm | http://example.org/ontology/harm#abilisticRiskHarm | http://example.org/ontology/harm#ProbabilisticRiskHarm | Spules, so a sovereign-side wInterestSetbackHarm | "Can't pay no doctor bills," "upped my rent," "taxreading discharge may be population-level exposure, which therong is possible. Weak. |
+| ProbabilisticRiskHarm | `http://es taking my whole damn check," and "the price of food is going up" are class's "toxic tort exposure" alternative labelexample.org/ontology/harm#ProbabilisticRiskHarm` | Denying protection may increase her exposure to future objective setbacks to vital interests. |
+| Publ covers, though no probability is stated. |
+| PublicCriminalHarm | http://example.org/ danger. The text does not say so. Weak. |
+| CapabilityStructuralHarm | `http://icCriminalHarm | http://example.org/ontology/harm#PublicCriminalHarm | "ontology/harm#PublicCriminalHarm | A harm spreadexample.org/ontology/harm#CapabilityStructuralHarm` | Institutional exclusion of aJunkies making me a nervous wreck" hints at a social-order harm; weak. |
+| across a community may touch "collective peace of the political community," a category of people from protection is a structural barrier to her PrivateTortiousHarm | http://example.org/ontology/harm#PrivateTortiousHarm | A rat weak fit. |
+| ExpectationRelianceHarm | http://example.org/ontology/harm#ExpectationR agency. Weak. |
+| TeleologicalDeprivationHarm | `http://example.org/ bite to the sister and unhabitable conditions imposed byelianceHarm | "Small loss" could be read as pontology/harm#TeleologicalDeprivationHarm` | Parent of CapabilityStructuralHarm. the landlord could support a private civil injury claim; weak,ure economic loss, a weak fit since no contract or promise is mentioned. | Blocking her from a good she should possess (protection) could fit. Weak. | since no breach of duty is stated. |
+| ExpectationRelianceHarm | http
+| CapabilityStructuralHarm | http://example.org/ontology/harm#CapabilityStructuralHarm
+| ParensPatriaePaternalisticHarm | `http://example.org/ontology/://example.org/ontology/harm#ExpectationRelianceHarm | "I | Diffuse harm with no single assailant could fharm#ParensPatriaePaternalisticHarm` | The state's protective role is the sub was already giving him fifty a week," then the rent is raised withit "systemic… barriers… without requiring an individualject of the denial, but the text describes withholding protection, not pa no services: a pecuniary setback against an expected ar malicious assailant," a weak fit. |
+
+**Considered and not triggered:** theternalistic intervention. Weak. |
+
+**Not triggered (for completeness):** `PrivateTortiousrangement. |
+| ProbabilisticRiskHarm | http://example.org/ontology/harm#Probabilis experiential, deontological, teleological, epistemic, fHarm` and the other damages-based classes (`ticRiskHarm | Rats and missing hot water and toilets imply exposure to health risk; weak. |
+| CollectiveEniduciary, and algorithmic classes, along with the deprivation and trauma branches. AlsoExpectationRelianceHarm`, `NuisanceSensoryOffense`, andvironmentalHarm | http://example.org/ontology/harm#CollectiveEnvironmentalHarm | The " excluded are the value and property entries (for the loss-of-consortium and deprivation classes) are not triggered, because the text stateswhitey" grievance is collective, and the conditions and rent increases may be shared example `harm:DiffuseThreshold`, `harm:NarrowConcentrated`, nothing was taken and no tangible loss is described. `SystemicCyberneticHarm` across many tenants; weak. |
+| OpportunityCostChoiceHarm | http://example.org/ontology/harm# `harm:hasNormativeStatus`). They are not classes, and its children are not triggered, because the text describes one official and so they are outside the stated scope.OpportunityCostChoiceHarm | "All that money I made last year for whitey on the moon" one person, not a system dynamic. Definitions on the `harm:has is forfeited wealth; weak, since no choice manipulation is stated. |
+| Fiduciary…` property nodes and the value vocabularies areBetrayalHarm | http://example.org/ontology/harm#FiduciaryBetrayalHarm | not class definitions, so I did not evaluate them. Landlord and tenant are a trust-like relation and the landlord raises rent; weak. |
+
+**Deontological and rights-based**
+
+| Class | IRI | Trigger in the text |
+|---|---|---|
+| DeontologicalRightsHarm | http://example.org/ontology/harm#DeontologicalRightsHarm | Parent of the rights classes; the narrator frames the rent rise and conditions as wrongs done to him. |
+| KantianDeontologicalHarm | http://example.org/ontology/harm#KantianDeontologicalHarm | Money extracted from the narrator is directed to "whitey on the moon," which could read as using him merely as a means; weak. |
+
+**Teleological and deprivation**
+
+| Class | IRI | Trigger in the text |
+|---|---|---|
+| TeleologicalDeprivationHarm | http://example.org/ontology/harm#TeleologicalDeprivationHarm | Parent of the deprivation classes; the narrator is blocked from basic goods (heat, water, toilets, medical care). |
+| CapabilityStructuralHarm | http://example.org/ontology/harm#CapabilityStructuralHarm | Inability to pay doctors, rent rises, taxes, and food costs are systemic barriers to converting resources into health and functioning. |
+| DeprivationHarm | http://example.org/ontology/harm#DeprivationHarm | "Ten years from now I'll be payin' still" suggests lost future goods; weak. |
+
+**Systemic and cybernetic**
+
+| Class | IRI | Trigger in the text |
+|---|---|---|
+| SystemicCyberneticHarm | http://example.org/ontology/harm#SystemicCyberneticHarm | Parent of the systemic classes; the rent, taxes, bills, and food costs form a self-reinforcing loop; weak. |
+| ExternalityCoordinationHarm | http://example.org/ontology/harm#ExternalityCoordinationHarm | Rats and unmaintained conditions may spill over onto other tenants or the sister as an unpriced byproduct; weak. |All five stage-1 candidate lists are in. For stage 2 I'll keep the candidate set to the strong triggers and their parents, which keeps the results readable. Then I'll run Q2 and Q3 on those nodes and write the rows to temp files outside the vault. The stage-2 model will read only those files, not the ontology.The stage-2 query results are written. Now the stage-2 decisions. Each model reads only its results file and the text, decides the harms, and reports them in the columns you asked for.| # | HarmDetermination (short name you give it) | Text example(s) it rests on (quote the words) | Type of harm (class name) | Node IRI | Node name | Parent or child (relative to the other accepted nodes; say "parent of X" or "child of Y" or "standalone") | Definition quoted from the rows | Property checks that bear on it (property -> value: supported / contradicted / unknown) | Confidence (high / medium / low) | Note on what the rows could not settle |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | Denied equal standing under the rules (dignitary| # | HarmDetermination (short name) | Text example(s) it rests on | Type of harm (class name) | Node IRI | Node name | Parent or child | Definition quoted from the rows | Property checks | Confidence | Note on what the rows could not settle |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | Loss of the future life he would have grown into | "The life he would have grown into never came to be." | Harm by Deprivation (Comparative Non-Existence / Omission) | http://example.org/ontology/harm#DeprivationHarm | DeprivationHarm | Child of TeleologicalDeprivationHarm; sibling of #2 | "Blocking wronging of a rational agent) | "The official told her that the rules did access to a good state a subject would otherwise have enjoyed—most notably death, which harms a person by depriving them of future experiences not apply to people like her"; "her standing as someone entitled to the same protection was denied" | Deontological & Rights-Based and projects." | hasComparativeBaseline -> CounterfactualBaseline: supported ("would have grown into" Harm (Normative Wrongs) > Kantian node | http://example.org/). hasObjectOfHarm -> OpportunityCapabilitySubstrate: supported ("training his talent called for"ontology/harm#KantianDeontologicalHarm | KantianDeontologicalHarm (). hasObjectOfHarm -> SomaticBiologicalSubstrate: contradicted inDeontological Harm (Rights-Based / Dignitary Harm)) | child of DeontologicalRightsHarm part ("No blow was struck"; no b; sibling of InjuriaSineDamnoHarm (#2odily injury is described, and the loss is of a future life, not a) | "Treating a rational agent merely as a means to an end through coercion, deception, or manipulation— body). hasReversibility -> IrreversibleHysteresis: supported ("never came to be"). |violating their moral agency even if the act produces pleasure or leaves material welfare intact." | hasObjectOfHarm - Medium | The rows do not say whether "never came to be" is meant as death or only> DignitaryRelationalSubstrate (standing): supported. hasObjectOfHarm -> NormativeI read the results file (122 lines, all of it). Its rows are the only evidence used below.
+
+| # | HarmDetermination (short name you give it) | Text example(s) it rests on (quote the words) | Type of harm (class name) | Node IRI | Node name | Parent or child (relative to the other accepted nodes; say "parent of X" or "child of Y" or "standalone") | Definition quoted from the rows | Property checks that bear on it (property -> value: supported / contradicted / unknown) | Confidence (high / medium / low) | Note on what the rows could not settle |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | Setback to household resources and valley ecosystem from factory discharge | "The factory's discharge has spread as non-existence of the future life. The somatic-substStatusSubstrate: supported. hasNormativeStatus -> NormativeWrongful across the river valley." / "Each household's small loss adds to a total" | Wrate value is only partly contradicted, so I k: supported. hasPerpetrator -> UnitaryIntentionalAgent (the official): supported. hasVelfareInterestHarm | http://example.org/ontology/harm#WelfareInterestHarm | Welfare & Interest-Based Harmept the node on its definition. |
+| 2 ictim -> DirectPrimaryVictim (her): supported. hasRemedialDutyBearer -> Perpetrat| Blocked development of a talent (stunted capability) | "A young man was kept from the training his talent called for." | (Counterfactual Setbacks) | Standalone (accepted at parent level becauseorAsRestorer: unknown. Inherited from DeontologicalRightsHarm: hasMod no child is accepted) | "An entity is harmed whenever an action sets back its vital stakes, resources, or baseline position comp Teleological Harm (Perfectionist / Eudaimonic Harm) | http://example.org/ared to what would otherwise have occurred—even if the victim never perceives the loss." | hasPatientOntology -> Sentientality -> ActualizedHarm: supported (denial occurred). hasPhenomenologicalTransparontology/harm#PerfectionistTeleologicalHarm | PerfectionistTeleologicalHarm | Childency -> UnperceivedObjective: unknown (text does not say whether she perceived the denial). |Individual (households): supported (households suffer losses). hasPatientOntology -> NonSentientSystem (river val of TeleologicalDeprivationHarm; sibling of #1 | "Any impediment that prevents an entity from ful Medium | The text does not say she was used as a mere means or deceived; "ley): supported (the valley is affected). hasComparativeBaseline -> Counfilling its natural function, developing its core capabilities, or achieving human flourishingthe rules did not apply" is read as a dignitary affront. Whether the officialterfactualBaseline: unknown (the text gives no before/after comparison, (eudaimonia), even if the person consents and feels content." | hasObjectOfHarm -> OpportunityCapab only that losses accumulate). hasPhenomenologicalTransparency -> Un's statement was deceptive is not stated. |
+| 2ilitySubstrate: supported ("training his talent called for"). hasPhenomenologicalTransparency ->perceivedObjective: unknown (the text says "no one carries alone" but does not say whether los | Rights-based legal injury without loss (equal protection den UnperceivedObjective: unknown (the text does not say whether he perceives the loss). | Mediumses are perceived). | Medium | The text does not say the losses are vital or ongoing, so the stricter childied, nothing taken) | "Nothing was taken from her"; "her standing as someone entitled to the same-high | The text does not say whether the young man kn InterestSetbackHarm is not accepted. The rows do not settle wh protection was denied" | Deontological & Rights-Based Harm (Normative Wrongs) > Injuria Sineows of the loss, so the transparency value is unknown rather than supether the household losses are perceived. |
+
+**Rejected candidates Damno | http://example.org/ontology/harm#InjuriaSineDamnoHarm | Injuriported. The "kept from" wording also leaves open who did:**
+
+- **CollectiveEnvironmentalHarm** (child of WelfareInterestHarm): definaSineDamnoHarm (Rights-Based Harm Without Loss) | child of Deontologic the keeping. |
+
+Rejected candidates:
+- CapabilityStructuralition fits (small losses spread across manyalRightsHarm; sibling of KantianDeontologicalHarm (#1) | "A distinct legal category where a personHarm: definition not triggered. Its definition requires "systemic social, economic, or institutional barriers," and people or ecosystems, aggregating to a large total), but hasPerpet's formal legal or constitutional right is violated, even though they suffer zero physical pain, financial loss, or emotional distress." the text names no institution or system. Its structural-attribution and diffuserator -> DiffuseCollectivePerpetrator is contradicted. The text names one factory as | hasNormativeStatus -> NormativeWrongful: supported. hasObjectOfHarm -> Normative-perpetrator values are unknown from the text.
+- InterestSetbackHarm: definition not clearly trigg the source of the discharge, which is a single identifiable actor, not a diffuse collective. ReversStatusSubstrate (legal standing, agency): supported. hasPerpetrator -> UnitaryIntentionalered. The rows list the vital stakes as "ing this rejection would need the text to say the discharge comes from many sources.
+- **ExternalityCoordinationAgent: supported (single official). hasVictim -> DirectPrimaryVictim: supported.health, property, privacy, or liberty"; training for a talent is not clearly one of these, so theHarm** (child of SystemicCyberneticHarm): the unpriced-byproduct hasModality -> ActualizedHarm: supported (denial occurred). Zero-loss condition: sup rows do not settle it. The counterfactual-baseline value is supported, which idea is loosely present, but hasPerpetrator -> DiffuseCollported by "Nothing was taken from her." hasSeverityMagnitude (DeMinimisTr is the only reason it is close.
+- WelfareInterestHarm (parent):ectivePerpetrator is contradicted for the same reason (single factory). The rivial or ModerateCompensable): unknown. hasTemporalTrajectory -> AcuteTraj not separately needed. None of its accepted children are in this result set,ows also leave hasFeedbackDynamics and hasIncentiveAlignment unknectory: unknown. hasRemedialDutyBearer (InstitutionalSovereignGuarantor or Perpet and I could not assess its other children.
+- TeleologicalDeprivationHarm (parent): notown, and the text names no economic transaction or strategic interaction.
+- **InterestSetbackratorAsRestorer): unknown. hasDistributionAggregation -> NarrowConcentrated: sup separately needed, since children #1 and #2 are accepted.
+- Other children of WHarm** (child of WelfareInterestHarm): definition not clearly triggered,ported (one person targeted). | Medium | The text never names a formal legalelfareInterestHarm (CollectiveEnvironmentalHarm, ExpectationRelianceHarm, O because the text does not describe vital, ongoing stakes such as health, property, priv or constitutional right; "entitled to the same protection" is read as one. Severity and rempportunityCostChoiceHarm, PrivateTortiousHarm, ProbabilisticRiacy, or liberty.
+- **SystemicCyberneticHarm** (parent of edial duty bearer are not in the text. |
+
+Parent nodeskHarm, PublicCriminalHarm) and of TeleologicalDeprivationHarm (AExternalityCoordinationHarm): definition not triggered. The text describes no feedback loop, equ DeontologicalRightsHarm is not listed separately, since both accepted nodes are itsttachmentDevelopmentalHarm, ParensPatriaePaternalisticHarm, WrongfulDeathilibrium failure, or network-level shift.
+- **Harm** (root): accepted only as the general children. No other accepted node.
+
+**Rejected candidates**
+
+- DignitaryRelationalHarm:ConsortiumHarm): no rows were returned for them, so they could not be assessed. class above WelfareInterestHarm; it is too broad to be a separate determination. definition not triggered. Its named interests (reputation, privacy, personal autonomy, emotional tranquility) are not asserted. Its parent ExperientialHarm requires conscious subjective suffering, which the text does not report. The standing denial is captured by nodes 1 and 2.
+- InterestSetbackHarm: definition not triggered. The text states "Nothing was taken from her," so no vital-interest setback is asserted.
+- WelfareInterestHarm: definition not triggered. Same reason as InterestSetbackHarm; it is also the parent of that node, so no welfare-based harm is accepted.
+- Harm (top level): parent only, not separately needed.
+- EpistemicTestimonialHarm and**Stage 2 result: poem text, "Whitey On The Moon"**
+
+Only the eight nodes present in the results file were available: HedonicHarm, ExperientialHarm, InterestSetbackHarm, WelfareInterestHarm, CapabilityStructuralHarm, TeleologicalDeprivationHarm, ExternalityCoordinationHarm, and SystemicCyberneticHarm. The file has no row block for the root Harm node.
+
+| # | HarmDetermination (short name you give it) | Text example(s) it rests on (quote the words) | Type of harm (class name) | Node IRI | Node name | Parent or child (relative to the other accepted nodes; say "parent of X" or "child of Y" or "standalone") | Definition quoted from the rows | Property checks that bear on it (property -> value: supported / contradicted / unknown) | Confidence (high / medium / low) | Note on what the rows could not settle |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | Suffering from the rat bite and the illness it caused, plus the distress of unpaid bills | "A rat done bit my sister Nell... Her face and arms began to swell"; "I can't pay no doctor bills"; "Junkies making me a nervous wreck" | Experiential & subjective harm (conscious suffering) | http FiduciaryBetrayalHarm (children of DeontologicalRightsHarm): no rows were returned in://example.org/ontology/harm#HedonicHarm | Experiential Harm (Hedonic / Phenomenological the results file, so they could not be assessed. Epistemic testimony could Harm) | Standalone (child of ExperientialHarm, which is not separately needed) arguably fit "The official told her," but this | "An action harms a subject if and only if it causes negative mental states—such as physical pain, emotional distress cannot be settled from the rows.
+- ExperientialHarm, SystemicCyberneticHarm, Teleologic, anguish, or grief—or deprives the subject of positive states like pleasure and contentment." | hasObjectOfalDeprivationHarm, CollectiveEnvironmentalHarm, ExpectationRelianceHarm, OHarm -> SomaticBiologicalSubstrate: supported (swelling, illness, doctor bills).pportunityCostChoiceHarm, PrivateTortiousHarm, ProbabilisticRi hasObjectOfHarm -> PsychologicalCognitiveSubstrate: supported ("nervous wreck"skHarm, PublicCriminalHarm: no rows were returned in the results file, so they could not be assessed.). hasVictim -> DirectPrimaryVictim: supported (sister Nell and the narrator). hasModality -> ActualizedHarm: supported (swelling has already occurred). hasTemporalTrajectory -> AcuteTrajectory: partly supported (the bite and swelling are acute), but "Ten years from now I'll be payin' still" points to a longer trajectory. hasPerpetrator -> UnitaryIntentionalAgent: unknown (the rat is not an agent, and "whitey" is a collective, not a unitary agent). Inherited from ExperientialHarm: hasPhenomenologicalTransparency -> PerceivedSubjective: supported (the suffering is described as felt). hasPatientOntology -> SentientIndividual: supported. | High for the category. Medium for the specific trajectory and perpetrator values. | The rows do not settle whether the racial blame ("whitey") is itself a harm, because no node in these results covers group-directed hostility or defamation. The rat bite and the rent increase are attributed to "whitey" without any shown causal link, and the rows cannot assess that attribution. |
+
+**Rejected candidates**
+
+- **InterestSetbackHarm** (Interest-Based Harm, Counterfactual Setbacks): the definition fits (rent raised, no hot water, lost income, doctor bills). Rejected because its asserted property hasPhenomenologicalTransparency -> UnperceivedObjective is contradicted: the narrator perceives and describes each loss ("Was all that money I made last year... How come I ain't got no money here?").
+- **WelfareInterestHarm** (Welfare & Interest-Based Harm, parent of InterestSetbackHarm): same definition fit, rejected for the same contradiction on UnperceivedObjective.
+- **CapabilityStructuralHarm** (Capability Deprivation & Structural Harm): the blocked access to healthcare fits the definition loosely. Rejected because hasVictim -> DiffuseRepresentativeClass is contradicted: the victims named are the narrator and his sister, not a diffuse or proxy class.
+- **TeleologicalDeprivationHarm** (Teleological & Deprivation Harm, parent of CapabilityStructuralHarm): rejected because its asserted property hasPhenomenologicalTransparency -> UnperceivedObjective is contradicted by the perceived losses described in the text.
+- **ExternalityCoordinationHarm** (Negative Externalities & Coordination Failures): rejected because hasVictim -> DiffuseRepresentativeClass is contradicted, as the victims are individuals. The text also does not describe an unpriced third-party spillover or a coordination trap.
+- **SystemicCyberneticHarm** (Systemic, Emergent & Cybernetic Harm, parent of ExternalityCoordinationHarm): definition not triggered. The text describes no feedback loop, equilibrium failure, or network-level breakdown.| # | HarmDetermination (short name you give it) | Text example(s) it rests on (quote the words) | Type of harm (class name) | Node IRI | Node name | Parent or child (relative to the other accepted nodes; say "parent of X" or "child of Y" or "standalone") | Definition quoted from the rows | Property checks that bear on it (property -> value: supported / contradicted / unknown) | Confidence (high / medium / low) | Note on what the rows could not settle |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | Collective-action trap: each rational departure worsens the school for those who stay | "Every year more families left the district because the school was weaker, and every departure made the school weaker still"; "No one decided this" | ExternalityCoordinationHarm | http://example.org/ontology/harm#ExternalityCoordinationHarm | ExternalityCoordinationHarm (Negative Externalities & Coordination Failures) | Child of SystemicCyberneticHarm (its parent is not separately needed) | "Harm inflicted on uninvolved third parties as an unpriced byproduct of an economic transaction or strategic interaction, or situations where rational individual incentives lock all players into a mutually destructive outcome." | hasFeedbackDynamics -> NonLinearAmplifying: supported ("every departure made the school weaker still"); hasIncentiveAlignment -> StructurallyAlignedEmergent: supported ("No one decided this"); hasPerpetrator -> DiffuseCollectivePerpetration: supported ("no single act caused it"); hasObjectOfHarm -> SystemicEnvironmentalSubstrate: supported (a school is an institution); hasObjectOfHarm -> MaterialPecuniarySubstrate: unknown; hasVictim -> DiffuseRepresentativeClass: unknown (text names no victim class beyond "the district"); hasRemedialDutyBearer -> InstitutionalSovereignGuarantor: unknown | High for the trap structure; medium on the victim and duty-bearer properties | The text does not say whether departing families were making a priced transaction or whether a state or regulator bears remedial duty. The "unpriced byproduct" element is inferred from the family departures, not stated. |
+| 2 | Slow, diffuse erosion of a shared institution: small annual losses that aggregate to closure | "Every year more families left"; "until the building closed"; no single act | CollectiveEnvironmentalHarm | http://example.org/ontology/harm#CollectiveEnvironmentalHarm | CollectiveEnvironmentalHarm (Collective, Diffuse, and Environmental Harm) | Standalone with respect to #1. It sits in the WelfareInterestHarm branch, not under SystemicCyberneticHarm. Its parent WelfareInterestHarm is not separately needed. | "Small, incremental setbacks spread across millions of people or shared ecosystems ... where no single victim suffers a catastrophic personal loss, yet the aggregate welfare setback is massive." | hasTemporalTrajectory -> SlowAccumulativeTrajectory: supported ("every year"); hasDistributionAggregation -> DiffuseThreshold: supported ("no single act caused it", aggregate closure); hasPerpetrator -> DiffuseCollectivePerpetration: supported; hasObjectOfHarm -> SystemicEnvironmentalSubstrate: supported (school as institution); hasObjectOfHarm -> MaterialPecuniarySubstrate: unknown; hasVictim -> DiffuseRepresentativeClass: unknown; hasRemedialDutyBearer -> InstitutionalSovereignGuarantor or PerpetratorAsRestorer: unknown; hasPatientOntology -> CollectiveArtificialPerson or NonSentientSystem: unknown | Medium | The definition's examples are ecosystems and mass consumer harms. The rows do not settle whether a school counts as a "shared ecosystem" or commons. Whether the affected families are a "millions" class is not stated. Accepted because the definition's structure (incremental, no single victim, aggregate threshold) is triggered and no property is contradicted. |
+| 3 | Structural privation: the district is progressively denied a good (a functioning school) it would otherwise have kept | "the school was weaker, and every departure made the school weaker still, until the building closed" (comparison with the school's earlier state) | TeleologicalDeprivationHarm | http://example.org/ontology/harm#TeleologicalDeprivationHarm | TeleologicalDeprivationHarm (Teleological & Deprivation Harm) | Standalone. No child is accepted (see rejected list), so the parent is stated here as the fitting node. | "At the highest level, this domain defines harm structurally and comparatively across time: not by inflicting an active injury, but by blocking an entity from attaining the goods, capabilities, or future existence it ought naturally to possess or enjoy." | hasTemporalTrajectory -> SlowAccumulativeTrajectory: supported; hasComparativeBaseline -> CounterfactualBaseline: supported (implicit comparison of the school before and after decline); hasPhenomenologicalTransparency -> UnperceivedObjective: unknown | Low | The text shows no active injury, which fits the "not by inflicting an active injury" clause. It does not say the district "ought naturally" to have the school, which is the normative step the definition needs. Whether the good is education or community is not stated. Because the child nodes CapabilityStructuralHarm and DeprivationHarm were not accepted, this parent is the only fitting node. |
+
+**Rejected candidates**
+
+- **SystemicCyberneticHarm**: parent of #1, which is accepted, so not separately needed.
+- **WelfareInterestHarm**: parent of #2, which is accepted, so not separately needed.
+- **CapabilityStructuralHarm**: definition not clearly triggered. It requires systemic barriers that stop individuals converting resources into functioning, such as lack of education. The text describes a school closing but does not describe any individual blocked from functioning. Close call; the rows do not say whether loss of a school counts as a capability barrier.
+- **InterestSetbackHarm**: definition not triggered. It requires a setback to a person's vital, ongoing interests. The only thing set back in the text is the school, an institution, and no individual's stake is named.
+- **DeprivationHarm**: definition not triggered. Its definition is blocking a subject's good state, with death as the paradigm case. The text names no subject losing a good state of their own, and no somatic or biological substrate.
+- **Other WelfareInterestHarm children (ExpectationRelianceHarm, OpportunityCostChoiceHarm, PrivateTortiousHarm, ProbabilisticRiskHarm, PublicCriminalHarm)** and the other TeleologicalDeprivationHarm children (AttachmentDevelopmentalHarm, ParensPatriaePaternalisticHarm, PerfectionistTeleologicalHarm, WrongfulDeathConsortiumHarm): their rows are not in the results file, so I could not assess them and did not accept them.The traversal run is complete. I ran it on the baseline file, with the same five texts. Each row below is one HarmDetermination. Parent or child is relative to the other accepted nodes for the same text.
+
+## Accepted HarmDeterminations
+
+| Text | # | HarmDetermination | Text example(s) | Type of harm (class) | Node IRI | Node name | Parent / child | Confidence | Key property evidence |
+|---|---|---|---|---|---|---|---|---|---|
+| Poem | 1 | Suffering from the bite, the illness, and the distress | "Her face and arms began to swell"; "Junkies making me a nervous wreck" | Experiential, subjective harm | `harm:HedonicHarm` | HedonicHarm | Child of ExperientialHarm (parent not needed) | High (category); medium (trajectory, perpetrator) | DirectPrimaryVictim, ActualizedHarm, SomaticBiologicalSubstrate supported. AcuteTrajectory partly supported; the ten-year debt points the other way. |
+| T1 | 1 | Collective-action trap: each departure worsens the school for those who stay | "every departure made the school weaker still"; "No one decided this" | Negative externality and coordination failure | `harm:ExternalityCoordinationHarm` | ExternalityCoordinationHarm | Child of SystemicCyberneticHarm | High (trap); medium (victim, duty-bearer) | NonLinearAmplifying and StructurallyAlignedEmergent supported; DiffuseCollectivePerpetrator supported ("no single act") |
+| T1 | 2 | Slow, diffuse erosion of a shared institution | "Every year more families left"; "until the building closed" | Collective environmental harm | `harm:CollectiveEnvironmentalHarm` | CollectiveEnvironmentalHarm | Child of WelfareInterestHarm (separate branch from #1) | Medium | SlowAccumulativeTrajectory and DiffuseThreshold supported. Whether a school counts as a shared ecosystem is not settled. |
+| T1 | 3 | Structural privation of a functioning school | "the school was weaker … until the building closed" | Teleological deprivation | `harm:TeleologicalDeprivationHarm` | TeleologicalDeprivationHarm | Standalone | Low | No active injury fits. The "ought naturally to possess" step is not in the text. |
+| T2 | 1 | Denied equal standing under the rules | "the rules did not apply to people like her"; "her standing … was denied" | Kantian (dignitary) harm | `harm:KantianDeontologicalHarm` | KantianDeontologicalHarm | Child of DeontologicalRightsHarm; sibling of #2 | Medium | NormativeWrongful and NormativeStatusSubstrate supported. UnperceivedObjective unknown. |
+| T2 | 2 | Rights violation with no loss | "Nothing was taken from her, yet…" | Injuria sine damno | `harm:InjuriaSineDamnoHarm` | InjuriaSineDamnoHarm | Child of DeontologicalRightsHarm; sibling of #1 | Medium | Zero loss is in the text. Severity and remedy unknown. |
+| T3 | 1 | Loss of the future life he would have grown into | "The life he would have grown into never came to be." | Deprivation | `harm:DeprivationHarm` | DeprivationHarm | Child of TeleologicalDeprivationHarm; sibling of #2 | Medium | CounterfactualBaseline, IrreversibleHysteresis supported. SomaticBiologicalSubstrate partly contradicted by "No blow was struck," so the node is kept on its definition. |
+| T3 | 2 | Blocked development of a talent | "kept from the training his talent called for" | Teleological harm (perfectionist) | `harm:PerfectionistTeleologicalHarm` | PerfectionistTeleologicalHarm | Child of TeleologicalDeprivationHarm; sibling of #1 | Medium-high | OpportunityCapabilitySubstrate supported. UnperceivedObjective unknown. |
+| Control | 1 | Setback to household resources, aggregated over the valley | "Each household's small loss adds to a total that no one carries alone" | Welfare and interest-based harm | `harm:WelfareInterestHarm` | WelfareInterestHarm | Parent (accepted because no child was) | Medium | Both counterfactual and perception values unknown. |
+
+## Rejected candidates, with reasons
+
+- **Poem:** InterestSetbackHarm and WelfareInterestHarm (UnperceivedObjective contradicted, because the narrator perceives the losses). CapabilityStructuralHarm (DiffuseRepresentativeClass contradicted). TeleologicalDeprivationHarm (UnperceivedObjective contradicted). ExternalityCoordinationHarm (DiffuseRepresentativeClass contradicted). SystemicCyberneticHarm (definition not triggered).
+- **T1:** CapabilityStructuralHarm (not clearly triggered). InterestSetbackHarm (definition not triggered). DeprivationHarm (definition not triggered). WelfareInterestHarm and SystemicCyberneticHarm (parents not needed).
+- **T2:** DignitaryRelationalHarm and InterestSetbackHarm (definition not triggered). WelfareInterestHarm (definition not triggered). Harm (parent, not needed).
+- **T3:** CapabilityStructuralHarm (definition not triggered). InterestSetbackHarm (borderline; vital stakes not named). Both parents not needed.
+- **Control:** CollectiveEnvironmentalHarm and ExternalityCoordinationHarm (DiffuseCollectivePerpetrator contradicted, because the text names one factory).
+
+## What this shows
+
+- **Two inconsistencies.** The same file and node gave different verdicts. InjuriaSineDamnoHarm was rejected on UnperceivedObjective in an earlier run and accepted here, where the same property is unknown. Also, DiffuseCollectivePerpetrator was read as contradicted for the control text ("the factory") and as supported for T1 ("no single act caused it").
+- **Coverage is limited by my candidate selection.** I chose the stage-2 candidates from the strong triggers and their parents. Several stage-2 runs had to mark nodes as "not assessed" because I hadn't queried them. That is a selection effect I introduced, not a property of the ontology.
+
+## Does this output support expert judgment?
+
+Largely yes. It gives an expert what they need to judge each row: the harm, the text examples, the node, its parent or child position, the quoted definition, and the property evidence. It also shows what was rejected and why.
+
+It is missing four things:
+1. **An expert verdict column** for each row: correct, partly correct, incorrect, or not a harm.
+2. **An expert-preferred class** when the expert disagrees with the chosen node.
+3. **Unmapped harms.** The expert needs to add any harms the text expresses that no candidate covered, so we can measure what the traversal missed, not only what it found.
+4. **Rejected nodes outside the candidate set**, since their rejection can't be reviewed unless they were assessed.
+
+Columns 1 and 2 would let us score accuracy. Column 3 would let us score coverage. The provenance check for each quoted definition should be added as a column too, since it is cheap and verifiable.
+
+I haven't saved this to a note. Shall I write it to the `tests/nonce` folder as a traversal-test record, with the expert columns added as empty fields?
+<!-- copilot-message {"tools":["subagent (think)","Traversal stage 1: candidates / T1: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/Interdisciplinary Harm Ontology v1.ttl","Traversal stage 1: candidates / poem: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/Interdisciplinary Harm Ontology v1.ttl","Traversal stage 1: candidates / T2: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/Interdisciplinary Harm Ontology v1.ttl","Traversal stage 1: candidates / T3: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/Interdisciplinary Harm Ontology v1.ttl","Traversal stage 1: candidates / control: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/Interdisciplinary Harm Ontology v1.ttl","write (edit)","& \"C:\\Users\\conta\\anaconda3\\envs\\harm-ontology\\python.exe\" -I \"C:\\Users\\conta\\AppData\\Local\\Temp\\nonce_build\\traverse_stage2.py\" (execute)","Traversal stage 2: decisions / T1: read (read)","Traversal stage 2: decisions / T2: read (read)","Traversal stage 2: decisions / T3: read (read)","Traversal stage 2: decisions / poem: read (read)","Traversal stage 2: decisions / control: read (read)"]} -->
+[Timestamp: 2026/11/25 22:28:48]
+
+**user**: yes
+[Timestamp: 2026/11/25 22:31:50]
+
+**ai**: I'll write the traversal record into the `tests/nonce` folder, with the expert and provenance columns left empty.The traversal record is in the `tests/nonce` folder: `Nonce Test - Graph Traversal.md`.
+
+It contains:
+- **The design**: two stages, with the candidate selection marked as my choice, not the model's.
+- **Session IDs** for all ten runs.
+- **The results table**: the 11 accepted HarmDeterminations, with their text examples, harm types, node IRIs and names, parent or child position, confidence, and key property evidence.
+- **Blank columns** for the expert verdict, the expert-preferred class, and the provenance check. Each one is for filling in later.
+- **Rejected candidates**, the observations, the limitations and the next steps.
+
+The stage-2 query rows are still in the temp folder, outside the vault. The note records that, so you know where to look.
+
+Two things to keep in mind when you review it. The provenance column is blank because I haven't run the check yet. And the two inconsistencies in the observations (one property read as contradicted in one run and unknown in another, and a perpetrator property read in opposite ways across texts) are real findings, not artefacts of the write-up.
+<!-- copilot-message {"tools":["write (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Nonce Test - Graph Traversal.md"]} -->
+[Timestamp: 2026/11/25 22:31:50]
