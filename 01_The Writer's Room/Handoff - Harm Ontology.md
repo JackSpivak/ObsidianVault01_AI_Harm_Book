@@ -6,7 +6,7 @@ aliases: [Harm Ontology Handoff]
 created: 2026-11-15
 updated: 2026-11-25
 workstream: Harm Ontology
-latest_session: "[[2026-11-24 Harm Ontology Common Schema and DUL Alignment Session]]"
+latest_session: "[[2026-11-25 Nonce Test Session]]"
 ---
 
 # Handoff — Harm Ontology
@@ -34,6 +34,16 @@ Session record: [[2026-11-24 Harm Ontology Common Schema and DUL Alignment Sessi
 - **Tests:** competency questions in [[Model Structure Test Note - Competency Questions and Coverage]] (coverage matrix, section 4a). Next: run the matrix against the surgeon-sued case.
 - **Saved tree is out of date.** [[Proposed Class Tree and DUL Alignment]] predates the bearer, functional harm and emergent-whole decisions. Replacing it with the current version is pending author confirmation.
 - **Ledger conventions:** unchanged (newest first; Complete and Rejected stay at the bottom).
+
+## Current focus (2026-11-25, later): nonce tests and graph traversal
+Session record: [[2026-11-25 Nonce Test Session]]. Test records are in `02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/`.
+
+- **Question being tested:** does querying the ontology's relations (rdflib, fixed SPARQL) change what a model finds, compared with reading the file as text?
+- **Findings so far:** matches come mostly from definitions (initial test); the hierarchy changed one answer in one run (relational); structured prompt is more conservative but leaves core matches unchanged; property checks need value labels (NONCE B has 6 of 72 labelled, the baseline 72 of 72); narrative changes structured decisions (baseline against CONTROL C2).
+- **Traversal stage:** five texts run in two stages (candidates from definitions, then fixed queries and decisions). Two inconsistencies: the same node and property read differently across runs, and the same perpetrator property read in opposite ways across texts. Candidate selection was mine, so some nodes were never assessed.
+- **Not yet done:** expert judgments (needed before any accuracy claim); provenance check on quoted definitions; model-only condition on the same candidates.
+- **Next:** author supplies expert judgments for the five texts; decide how `UnperceivedObjective` is read and record that as a design decision.
+- **Nothing from this session is logged in [[Decisions_Log]].**
 
 ## Previous focus (2026-11-22): finalising the assessment draft
 **Where things are.** The change ledger is the place to track what is open: [[Harm Ontology v3.1 — Feature Roadmap and Change Ledger]] (about 110 items, each with source, rationale and blockers). Session record: [[2026-11-22 Harm Ontology Ledger and Assessment Session]]. Nothing from 2026-11-22 is logged in [[Decisions_Log]].
