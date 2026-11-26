@@ -7,7 +7,7 @@ topic: "v0.03.01 explore harm types"
 model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":560766,"contextWindow":1000000,"updatedAt":1795669413393}'
+usage: '{"usedTokens":594779,"contextWindow":1000000,"updatedAt":1795670094581}'
 lastAccessedAt: 1795667271284
 ---
 
@@ -2516,6 +2516,47 @@ Triggered by the text: PrivateTortiousHarm (landlord), ExperientialHarm and its 
 
 **(a)** Yes. The ExperientialHarm accepted for the sister's pain and the speaker's distress rests on a parent class. No child of ExperientialHarm was accepted, and its definition fits, so the parent was accepted as the rule allows.
 
-**(b)** Yes. PrivateTortiousHarm has many property checks marked unknown: both causation values, the normative status, the somatic substrate, the vicarious liability, both remedial duty-bearers, both reversibility values, and both severity values. ExperientialHarm has no unknown checks.All five CONTROL C2 runs are back. I matched each to its run by content: the poem, T1, T2 and T3 texts, and the control. I'll record the results in the same note, with a three-way comparison of the baseline, C, and C2 accepted classes.
+**(b)** Yes. PrivateTortiousHarm has many property checks marked unknown: both causation values, the normative status, the somatic substrate, the vicarious liability, both remedial duty-bearers, both reversibility values, and both severity values. ExperientialHarm has no unknown checks.All five CONTROL C2 runs are back. I matched each to its run by content: the poem, T1, T2 and T3 texts, and the control. I'll record the results in the same note, with a three-way comparison of the baseline, C, and C2 accepted classes.I ran the structured prompt on CONTROL C2 for the five texts and added the results to `Nonce Test - Structured Prompt - Baseline and Control.md`.
+
+**The main finding:** the narrative changes the structured decisions, not only the labels. C2 and the baseline differ only in narrative, and their accepted classes agree on just one text out of five (T3). On the poem, T1 and the control they diverge. This reverses the NONCE B conclusion, where I'd read the results as showing that definitions carry most of the matching. Those runs had no labels, so they couldn't test this.
+
+**Other points**
+- Labels resolve most property checks. The unknowns that dominated the NONCE B and CONTROL C runs mostly disappear.
+- The T2 fallback is still inconsistent: the baseline accepts the root class, while C and C2 accept nothing.
+- Property rejections still depend on how values are read. C2 rejects one class on `UnperceivedObjective` and accepts another that the same reading would also affect.
+
+**Limits.** Each cell was run once, and baseline and C2 differ in narrative, so the design can't separate narrative from variance. There's still no expert ground truth, so I can't say which set of classes is better.
 <!-- copilot-message {"tools":["subagent (think)","C2 structured: poem: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - CONTROL C2 (names and labels kept, definitions only).ttl","C2 structured: T1: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - CONTROL C2 (names and labels kept, definitions only).ttl","C2 structured: T2: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - CONTROL C2 (names and labels kept, definitions only).ttl","C2 structured: T3: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - CONTROL C2 (names and labels kept, definitions only).ttl","C2 structured: control text: read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Interdisciplinary Harm Ontology v1 - CONTROL C2 (names and labels kept, definitions only).ttl","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Nonce Test - Structured Prompt - Baseline and Control.md"]} -->
 [Timestamp: 2026/11/25 22:04:05]
+
+**user**: in the summary of results please rewrite each identified result (a, b, etc or other) to include the actual question the is answered before providing the answer.
+[Timestamp: 2026/11/25 22:08:36]
+
+**ai**: I'll read the note's results sections first, so I can rewrite the findings with their questions in place.I'll rewrite the findings in Part 8 (interpretation) and Part 11 (what C2 shows) so each one opens with the question it answers. The Part 7 property-check bullets are the other summary of results, so I'll rewrite those too.I've rewritten the results summaries in `Nonce Test - Structured Prompt - Baseline and Control.md`. Each finding now opens with the question it answers, followed by the answer. I changed the property-check findings in Part 7, the interpretation in Part 8, and the CONTROL C2 findings in Part 11.
+
+I also changed one wording in the Part 11 findings. The old version said the narrative changes decisions "not only labels," which only implies a contrast. The new version says the narrative changes decisions, and notes that the NONCE B runs couldn't test this because labels were absent.
+<!-- copilot-message {"tools":["read (read): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Nonce Test - Structured Prompt - Baseline and Control.md","edit (edit): 02_Ideas Topics Concepts/Harm Ontology/ontology/tests/nonce/Nonce Test - Structured Prompt - Baseline and Control.md"]} -->
+[Timestamp: 2026/11/25 22:08:36]
+
+**user**: ok.  this is complicated, naturally. my reading of the results is that traversing the model with rdflib made more results available than the semantic match alone. i think this is why we have a control but i don't claim to understand this yet.
+
+bottom line...
+did using rdflib capabilities actually improve anything about the outcome?  did we find more matches, did we find narrative that was more correctly associated with a known parent?  did we have fewer incorrect ?
+[Timestamp: 2026/11/25 22:14:46]
+
+**ai**: Short answer: no, we haven't shown that. Our test didn't use rdflib traversal, so the results can't support that conclusion.
+
+Here is what actually happened:
+- **The subagents never queried the graph.** Each one read the Turtle file as text and reasoned over it. Their path listings and property checks were the model's reading of the file, not the output of a query.
+- **rdflib was used only to check the files.** I used it to count the 31 classes, to count which value codes have labels, and to check that no definition is shared. Those checks confirmed what the subagents reported, but they didn't change any match.
+- **So the structured-prompt differences are not traversal effects.** The differences came from the prompt, and from which narrative and labels the file contained.
+
+Your three questions:
+- **Did we find more matches?** No. The structured prompt accepted fewer classes on the poem, not more, and it rejected several that the vague prompt had accepted.
+- **Did narrative become more correctly tied to a known parent?** Not tested. We have no ground truth for which parent is correct, and no run measured narrative-to-parent association.
+- **Did we have fewer incorrect matches?** Unknown. Without expert judgments for these texts, we can't score errors. The structured runs are more traceable, which lets a reviewer catch errors, but traceability isn't accuracy.
+
+The control doesn't test rdflib either. It separates labels from narrative, and it's the reason C2 exists.
+
+To test your claim properly, the rdflib condition has to be real. A fixed query would take a matched class, pull every narrative property on that same node, and hand those results to the model. Then we'd compare it against model-only reading on the same texts, scored against expert judgments of the right class. That's the test that would show whether traversal adds matches, correct parents, or fewer errors. I can set that up if you want it, but I'd need the expert judgments first, since without them we'd be measuring agreement with the model again.
+[Timestamp: 2026/11/25 22:14:46]

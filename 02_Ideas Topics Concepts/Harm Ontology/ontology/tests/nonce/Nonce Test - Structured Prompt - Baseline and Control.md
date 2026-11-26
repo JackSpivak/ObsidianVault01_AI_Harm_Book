@@ -58,17 +58,17 @@ Poem ("Whitey On The Moon"), T1 (systemic decline), T2 (rights denial), T3 (depr
 | Control | ExternalityCoordinationHarm is not accepted; CollectiveEnvironmentalHarm rejected on perpetrator; harm:Harm (root, fallback) | InterestSetbackHarm |
 
 **Property checks**
-- With values readable, the unknown counts fell sharply compared with NONCE B. Most checks were now supported, contradicted or clearly unknown, rather than uniformly unknown.
-- Several classes were rejected on a contradicted property, not on the definition. Examples: HedonicHarm rejected because its trajectory (acute) conflicts with a ten-year debt; InterestSetbackHarm rejected because the speaker perceives the losses; CollectiveEnvironmentalHarm rejected because the text names one source.
-- The baseline T2 run and the CONTROL C T2 run both rejected the rights classes on the transparency property. The baseline accepted the root as a fallback; the CONTROL C run did not. The same rule was applied differently across the two files.
+- **Question: do the unknown counts fall once values are readable?** Answer: yes. Compared with NONCE B, most checks were now supported, contradicted or clearly unknown, rather than uniformly unknown.
+- **Question: are some classes rejected on a property rather than on their definition?** Answer: yes. HedonicHarm was rejected because its acute trajectory conflicts with a ten-year debt; InterestSetbackHarm because the speaker perceives the losses; CollectiveEnvironmentalHarm because the text names one source.
+- **Question: is the transparency property applied the same way across files?** Answer: no. On T2, the baseline and CONTROL C both rejected the rights classes on the transparency property, but the baseline accepted the root as a fallback and CONTROL C did not.
 
 ## Part 8. Interpretation
-- **The property step now does work.** Readable values turn most checks into decisions. That confirms the NONCE B result: the structure is only usable when its values carry meaning.
-- **Contradictions are interpretations, not facts.** Rejecting a class because the speaker perceives a loss depends on reading `UnperceivedObjective` as "the victim is not aware of the harm." The property's own definition says "objective harms occurring outside awareness." Whether a perceived loss can still be objective is a modelling choice the ontology has not settled, and the runs made it differently.
-- **The poem's core matches are stable.** Across the baseline and CONTROL C, the poem's bodily and financial harms map to the same families (experiential or interest-setback in one, capability or deprivation in the other). The structure changes which class in a family is chosen, not which family is found.
-- **The fallback rule is inconsistent.** The root class was accepted in one T2 run and not in the other. The rule for accepting a parent when no child fits was applied differently across runs.
-- **CONTROL C is confounded.** Its names remain in the IRIs, so the model can read meaning from the names alone. Its results therefore cannot be read as "labels absent, names present" without caution. The control is not clean, and its value labels were lost in the build.
-- **No ground truth.** We have no expert judgment of which classes are correct for these texts. So we can say the structure changes decisions and makes them traceable. We cannot yet say the changes are improvements.
+- **Question: does the property step do any work once values are readable?** Answer: yes. Readable values turn most checks into decisions, which confirms the NONCE B result: the structure is only usable when its values carry meaning.
+- **Question: are the contradictions facts about the text?** Answer: no, they are interpretations. Rejecting a class because the speaker perceives a loss depends on reading `UnperceivedObjective` as "the victim is not aware of the harm," while the property's own definition says "objective harms occurring outside awareness." Whether a perceived loss can still be objective is a modelling choice the ontology has not settled, and the runs made it differently.
+- **Question: does the structured prompt change which families of harm are found in the poem?** Answer: no. Across the baseline and CONTROL C, the poem's bodily and financial harms fall in the same families (experiential or interest-setback in one, capability or deprivation in the other). The structure changes which class within a family is chosen, not which family is found.
+- **Question: is the rule for accepting a parent when no child fits applied consistently?** Answer: no. The root class was accepted in one T2 run and not in the other, so the fallback rule was applied differently across runs.
+- **Question: can CONTROL C tell us whether labels matter separately from names?** Answer: not cleanly. Its names remain in the IRIs, so the model can read meaning from the names alone, and its value labels were lost in the build. Its results need caution. (CONTROL C2 was built to address this; see Part 11.)
+- **Question: do the mappings improve on a vague request?** Answer: we cannot say yet. We have no expert judgment of which classes are correct for these texts, so the structure changes decisions and makes them traceable, but we cannot say the changes are improvements.
 
 ## Part 9. Limitations
 - One run per cell. The T2 fallback difference and any single class choice could be variance.
@@ -82,6 +82,39 @@ Poem ("Whitey On The Moon"), T1 (systemic decline), T2 (rights denial), T3 (depr
 2. Write a small set of expert ground-truth judgments for the five texts, so the classes can be scored against something other than the model's agreement with itself.
 3. Settle how `UnperceivedObjective` should be read, and record that as a design decision, since the runs disagreed on it.
 4. Repeat each cell two or three times to measure variance.
+
+## Part 11. CONTROL C2 (names and labels kept, definitions only)
+
+CONTROL C2 was rebuilt to fix the label flaw in CONTROL C: all 72 value individuals carry a label or definition, real names are kept, and only `skos:definition` remains as narrative. Structure is intact (879 triples). The file is `Interdisciplinary Harm Ontology v1 - CONTROL C2 (names and labels kept, definitions only).ttl`. The original CONTROL C is kept unchanged.
+
+**Session IDs (C2, mapped by content)**
+
+| Text | Session |
+|---|---|
+| Poem | `ses_de9c2a208ffeVAgBNV6k51z48L` |
+| T1 | `ses_de9c29853ffevS9dvpgVlgSvuM` |
+| T2 | `ses_de9c28ec5fferCRSoRLv5doYT3` |
+| T3 | `ses_de9c28535ffeptnYzgP1d8J5pQ` |
+| Control | `ses_de9c27bc7ffeWoQ4JDbQwUIxbz` |
+
+**Accepted classes across the three files**
+
+| Text | Baseline (full narrative) | CONTROL C (labels stripped) | CONTROL C2 (labels kept, definitions only) |
+|---|---|---|---|
+| Poem | InterestSetbackHarm; ExperientialHarm (parent) | CapabilityStructuralHarm; DeprivationHarm | PrivateTortiousHarm; ExperientialHarm (parent). InterestSetbackHarm rejected on UnperceivedObjective |
+| T1 | SystemicCyberneticHarm (parent) with ExternalityCoordinationHarm; CapabilityStructuralHarm | ExternalityCoordinationHarm; CollectiveEnvironmentalHarm | ExternalityCoordinationHarm; SystemicCyberneticHarm |
+| T2 | harm:Harm (root, by fallback) | none | none. Root not accepted; flagged as a judgment call |
+| T3 | PerfectionistTeleologicalHarm; DeprivationHarm | PerfectionistTeleologicalHarm; InterestSetbackHarm | PerfectionistTeleologicalHarm; DeprivationHarm |
+| Control | harm:Harm (root, by fallback) | InterestSetbackHarm | CollectiveEnvironmentalHarm |
+
+**What C2 shows**
+- **Question: do labels restore decidability?** Answer: yes. As in the baseline, most property checks now resolve, and the unknowns that dominated the NONCE B and CONTROL C runs largely fall away.
+- **Question: does the narrative change the structured decisions, or only the labels?** Answer: the narrative changes them. C2 and the baseline differ only in narrative (scope notes, examples, history notes, notes and citations). Their accepted sets agree on one text out of five (T3). On the poem, T1 and the control they diverge. This is the opposite of the NONCE B conclusion, which could not test it because labels were absent.
+- **Question: is the control's result the same as the baseline's?** Answer: no. On the control, C2 accepts CollectiveEnvironmentalHarm, which the baseline rejected on its perpetrator property. The same property is read differently when the narrative differs, which suggests the narrative shapes how the value is understood.
+- **Question: is the parent fallback stable across files?** Answer: no. The baseline accepts the root for T2; C and C2 do not. The same rule produced different results across files.
+- **Question: are the property rejections determined by the text alone?** Answer: no. C2 rejects InterestSetbackHarm because the speaker perceives the losses, and it accepts PrivateTortiousHarm on the same text. The decision depends on how `UnperceivedObjective` and related values are read, not on the text alone.
+
+**Limits.** One run per cell. Baseline and C2 differ in narrative, so any difference is the narrative plus variance; the design cannot separate them. No expert ground truth, so we still cannot say which set is better.
 
 ## Related
 - [[Nonce Test - Structured Prompt]]: the NONCE B structured runs, and the design of the prompt.
