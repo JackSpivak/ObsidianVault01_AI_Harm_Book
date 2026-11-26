@@ -7,7 +7,7 @@ topic: "v0.03.01 explore harm types"
 model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
-usage: '{"usedTokens":492958,"contextWindow":1000000,"updatedAt":1795667695920}'
+usage: '{"usedTokens":496174,"contextWindow":1000000,"updatedAt":1795668857332}'
 lastAccessedAt: 1795667271284
 ---
 
@@ -930,3 +930,52 @@ So the honest reading of our results is that they show definitions are sufficien
 
 Would you want to design that next: a small set of cases with a known right answer, chosen so that the definition alone points to the wrong class?
 [Timestamp: 2026/11/25 21:34:46]
+
+**user**: i also want to put forward that i anticipate and hope that more accurate and complete narrative information could be "meaningfully" retrieved if an LLM could (somehow) after matching semantically on a definition could navigate:
+
+1. skos:definition  in reverse via rdfs:domain to the class (or instance?) that  carry it.  or maybe more informatively to other classes or instances if there might be more than one.
+2. arriving at the "owner" of these properties i anticipate that we could then ask what other skos: narrative (explanation, history note, citation, note, description, etc) also lives on this specific object.  in this way the curated authoritative values of the actual element could show up in an assement of a particular piece of text.
+
+this is kind of the whole point of having a complex but structurally consistent hub and spoke architecture you proposed
+I don't understand now what mechanism would reliably pull the skos: narrative richness associated with the specific ontic entity (AssessedHarm) that it discovers rather than some other entity (assessedHarm or even some other thing entirely) that was a good semantic match to the text
+[Timestamp: 2026/11/25 21:47:25]
+
+**ai**: The reliable part is not the semantic match. It's the step after it, and that step has to be an identity lookup, not a similarity lookup.
+
+**A correction first.** `rdfs:domain` applies to properties: it says what kind of thing a property can be asserted on. It doesn't link a literal to its owner. The reverse lookup goes through the triple itself. Find the subject `?x` where `?x skos:definition "<matched text>"`. That gives you the node that carries the definition. Since a literal can be shared by more than one node, the lookup can return several owners, and each has to be handled.
+
+**The mechanism, in steps:**
+
+1. **Semantic match** finds candidate literals: a definition, a scope note, an example. This step is approximate and can return near-duplicates.
+2. **Owner lookup** finds the node or nodes that carry each matched literal. This step is exact. It returns IRIs, not similar-looking names.
+3. **Identity check** confirms the owner. The IRI is the entity, so `AssessedHarm` and `assessedHarm` are different nodes even if their labels look alike. Use the IRI to decide, never the label.
+4. **Expansion** pulls every narrative property on the confirmed owner: notes, history notes, citations, examples. Once the node is fixed, this step is deterministic.
+5. **Hub-and-spoke links** are the last step, and they need explicit rules. If a spoke's narrative lives on a hub through `skos:exactMatch` or `skos:closeMatch`, the traversal follows only the mapping properties you declare, with the grade of each mapping recorded. This is where your context-dependence shows up: the mapping and its grade carry the claim that this spoke's meaning is a version of that hub's.
+
+**Where it can fail:**
+- If two nodes share a definition, step 2 returns both, and the choice between them has to be justified by context, not by the match score.
+- If a definition is wrong for the case, the traversal delivers the wrong owner's full narrative with confidence. Owner lookup is only as good as the match that feeds it.
+- An LLM can't do steps 2 to 4 reliably by reading the file. Our tests show that: the model read the text and matched by appearance, without following IRIs. Steps 2 to 4 need a query, with the model reading the results.
+
+**What this implies for our tests:** the structured prompt asked the model to traverse, but it had no way to follow an IRI from a matched literal to its owner. That is why its property checks came back unknown. The mechanism you describe needs a query layer, which we haven't built.
+
+**What I'd check first:** how often a definition in the file is shared by two or more nodes. That tells us how much the owner lookup will have to disambiguate. It's a quick query over the source file, and it would show whether your mechanism is reliable in practice or only in principle.
+[Timestamp: 2026/11/25 21:47:25]
+
+**user**: i assume that a query layer would somehow build a sparql query from an english narrative prompt when an actual structured search was requested.  is that correct?  if yes wasn't that essentially what you did or attempted to do by providing a structured query for this nonce test?
+
+Is there something that a query layer would do that is different than what you attempted?  or just do it better?
+[Timestamp: 2026/11/25 21:54:07]
+
+**ai**: Yes, that's the usual design, but I didn't do that, and the difference matters.
+
+**What a query layer does.** It takes a request, either a fixed query from a catalogue or SPARQL generated from English, and runs it against the graph with a real engine. The engine follows the actual IRIs and returns exact bindings. Those results can be counted, reproduced, and checked against the file. The language model's role is to write or choose the query and to read the rows that come back.
+
+**What I did in the structured test.** I asked the model to walk the structure, but no query ran. The model read the whole Turtle file as text and reconstructed the hierarchy and the property values from memory of that text. Its path listings were its own reading, nothing verified them, and it reported the value codes as unreadable without ever checking whether they had labels in the file. The structure was simulated by the model, not traversed.
+
+So the difference is not that a query layer does the same thing better. It does a different kind of thing. It executes the traversal, while I asked the model to imitate one. That also explains the results: the property checks came back unknown because the simulated traversal had nothing to check against.
+
+**One caution.** Generating SPARQL from English moves the judgment into the query. What the request asks for, which properties count, and which owners are relevant are all decided when the query is written. That is your epistemic point again. A query layer makes that decision explicit and reviewable, which is better than the hidden decision in the vague prompt, but it doesn't remove it.
+
+**A quick test I could run.** Run a few fixed queries against the NONCE B file: list every subclass path from H-001, and for each value individual, whether it has a label or definition. That would show directly whether the structured prompt's "unknown" results were a property of the file or of the model's reading.
+[Timestamp: 2026/11/25 21:54:07]
