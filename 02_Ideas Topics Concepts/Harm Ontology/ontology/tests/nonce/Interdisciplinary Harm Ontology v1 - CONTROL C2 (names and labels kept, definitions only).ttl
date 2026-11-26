@@ -1,0 +1,1028 @@
+# CONTROL C2. Real names kept in IRIs, skos:prefLabel and skos:altLabel kept on every node
+# (including value individuals), skos:definition kept. Scope notes, examples, history notes,
+# notes and citations removed. Structure (subClassOf, broader, domain, range, assertions) kept.
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix harm: <http://example.org/ontology/harm#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+harm:AlgorithmicAlignmentHarm a owl:Class,
+        skos:Concept ;
+    harm:hasIncentiveAlignment harm:StructurallyAlignedEmergent ;
+    harm:hasObjectOfHarm harm:MaterialPecuniarySubstrate,
+        harm:OpportunityCapabilitySubstrate,
+        harm:SystemicEnvironmentalSubstrate ;
+    harm:hasPerpetrator harm:NonAgenticAutonomousSource,
+        harm:VicariouslyLiablePrincipal ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor,
+        harm:PerpetratorAsRestorer ;
+    harm:hasScalabilityAsymmetry harm:ZeroMarginalCostReplication ;
+    harm:hasSystemOpacity harm:BlackBoxOpaque ;
+    harm:hasVictim harm:DiffuseRepresentativeClass,
+        harm:DirectPrimaryVictim ;
+    rdfs:subClassOf harm:SystemicCyberneticHarm ;
+    skos:altLabel "Distributional Shift"@en,
+        "Reward Hacking"@en,
+        "Specification Gaming"@en,
+        "Systemic Algorithmic Bias"@en ;
+    skos:broader harm:SystemicCyberneticHarm ;
+    skos:definition "Harm arising when an autonomous or automated system optimizes a proxy goal too literally, scales subtle historical biases across millions of decisions instantaneously, or fails catastrophically when deployed outside its training distribution—causing harm without human malice or conscious intent."@en ;
+    skos:prefLabel "Algorithmic, Alignment & Emergent Scale Harm"@en .
+
+harm:AttachmentDevelopmentalHarm a owl:Class,
+        skos:Concept ;
+    harm:hasObjectOfHarm harm:OpportunityCapabilitySubstrate,
+        harm:PsychologicalCognitiveSubstrate,
+        harm:SomaticBiologicalSubstrate ;
+    harm:hasPerpetrator harm:DiffuseCollectivePerpetrator,
+        harm:UnitaryIntentionalAgent ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor,
+        harm:SpecialRelationshipRescuer ;
+    harm:hasReversibility harm:IrreversibleHysteresis ;
+    harm:hasVictim harm:DirectPrimaryVictim ;
+    rdfs:subClassOf harm:TeleologicalDeprivationHarm ;
+    skos:altLabel "Adverse Childhood Experiences (ACEs)"@en,
+        "Attachment Trauma"@en,
+        "Developmental Neglect"@en ;
+    skos:broader harm:TeleologicalDeprivationHarm ;
+    skos:definition "Harm caused during critical neurodevelopmental windows by the absence of safe, responsive caregiving or social stimulation."@en ;
+    skos:prefLabel "Attachment, Developmental & Relational Deprivation"@en .
+
+harm:CapabilityStructuralHarm a owl:Class,
+        skos:Concept ;
+    harm:hasCausationMechanism harm:StructuralAttribution ;
+    harm:hasObjectOfHarm harm:OpportunityCapabilitySubstrate ;
+    harm:hasPerpetrator harm:DiffuseCollectivePerpetrator ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor ;
+    harm:hasVictim harm:DiffuseRepresentativeClass ;
+    rdfs:subClassOf harm:TeleologicalDeprivationHarm ;
+    skos:altLabel "Capability Deprivation"@en,
+        "Structural Violence"@en ;
+    skos:broader harm:TeleologicalDeprivationHarm ;
+    skos:definition "Systemic social, economic, or institutional barriers (such as lack of education, healthcare, or political voice) that prevent individuals from converting basic resources into real human functioning and agency."@en ;
+    skos:prefLabel "Capability Deprivation & Structural Harm"@en .
+
+harm:CollectiveEnvironmentalHarm a owl:Class,
+        skos:Concept ;
+    harm:hasDistributionAggregation harm:DiffuseThreshold ;
+    harm:hasObjectOfHarm harm:MaterialPecuniarySubstrate,
+        harm:SystemicEnvironmentalSubstrate ;
+    harm:hasPerpetrator harm:DiffuseCollectivePerpetrator ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor,
+        harm:PerpetratorAsRestorer ;
+    harm:hasTemporalTrajectory harm:SlowAccumulativeTrajectory ;
+    harm:hasVictim harm:DiffuseRepresentativeClass ;
+    rdfs:subClassOf harm:WelfareInterestHarm ;
+    skos:altLabel "Antitrust Injury"@en,
+        "Public Trust Harm"@en,
+        "Tragedy of the Commons"@en ;
+    skos:broader harm:WelfareInterestHarm ;
+    skos:definition "Small, incremental setbacks spread across millions of people or shared ecosystems—such as price-fixing monopolies, air pollution, or data breaches—where no single victim suffers a catastrophic personal loss, yet the aggregate welfare setback is massive."@en ;
+    skos:prefLabel "Collective, Diffuse, and Environmental Harm"@en .
+
+harm:DeprivationHarm a owl:Class,
+        skos:Concept ;
+    harm:hasComparativeBaseline harm:CounterfactualBaseline ;
+    harm:hasObjectOfHarm harm:OpportunityCapabilitySubstrate,
+        harm:SomaticBiologicalSubstrate ;
+    harm:hasReversibility harm:IrreversibleHysteresis ;
+    rdfs:subClassOf harm:TeleologicalDeprivationHarm ;
+    skos:altLabel "Deprivationism"@en,
+        "Harm by Omission"@en ;
+    skos:broader harm:TeleologicalDeprivationHarm ;
+    skos:definition "Blocking access to a good state a subject would otherwise have enjoyed—most notably death, which harms a person by depriving them of future experiences and projects."@en ;
+    skos:prefLabel "Harm by Deprivation (Comparative Non-Existence / Omission)"@en .
+
+harm:DignitaryRelationalHarm a owl:Class,
+        skos:Concept ;
+    harm:hasNormativeStatus harm:NormativeWrongful ;
+    harm:hasObjectOfHarm harm:DignitaryRelationalSubstrate,
+        harm:PsychologicalCognitiveSubstrate ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent ;
+    harm:hasRemedialDutyBearer harm:PerpetratorAsRestorer ;
+    harm:hasVictim harm:DirectPrimaryVictim ;
+    rdfs:subClassOf harm:ExperientialHarm ;
+    skos:altLabel "Dignitary Tort"@en,
+        "Emotional Distress"@en,
+        "Moral Damage"@en,
+        "Reputational Harm"@en ;
+    skos:broader harm:ExperientialHarm ;
+    skos:definition "Harm to a person's reputation, privacy, personal autonomy, or emotional tranquility."@en ;
+    skos:prefLabel "Dignitary and Relational Harm"@en .
+
+harm:EpistemicPollutionHarm a owl:Class,
+        skos:Concept ;
+    harm:hasCognitiveExploitability harm:SubversiveExploitation ;
+    harm:hasFeedbackDynamics harm:NonLinearAmplifying ;
+    harm:hasObjectOfHarm harm:PsychologicalCognitiveSubstrate,
+        harm:SystemicEnvironmentalSubstrate ;
+    harm:hasPerpetrator harm:DiffuseCollectivePerpetrator,
+        harm:NonAgenticAutonomousSource ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor ;
+    harm:hasScalabilityAsymmetry harm:ZeroMarginalCostReplication ;
+    harm:hasVictim harm:DiffuseRepresentativeClass,
+        harm:DirectPrimaryVictim ;
+    rdfs:subClassOf harm:SystemicCyberneticHarm ;
+    skos:altLabel "Algorithmic Radicalization"@en,
+        "Attention Extraction"@en,
+        "Information Cascade"@en ;
+    skos:broader harm:SystemicCyberneticHarm ;
+    skos:definition "The degradation of a society's shared epistemic environment through synthetic media, automated outrage amplification, and variable-reward engagement loops."@en ;
+    skos:prefLabel "Epistemic Pollution & Attention Hijacking"@en .
+
+harm:EpistemicTestimonialHarm a owl:Class,
+        skos:Concept ;
+    harm:hasCausationMechanism harm:StructuralAttribution ;
+    harm:hasDistributionAggregation harm:DiffuseThreshold,
+        harm:NarrowConcentrated ;
+    harm:hasNormativeStatus harm:NormativeWrongful ;
+    harm:hasObjectOfHarm harm:NormativeStatusSubstrate,
+        harm:PsychologicalCognitiveSubstrate ;
+    harm:hasPerpetrator harm:DiffuseCollectivePerpetrator,
+        harm:UnitaryIntentionalAgent ;
+    harm:hasPhenomenologicalTransparency harm:UnperceivedObjective ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor,
+        harm:PerpetratorAsRestorer ;
+    harm:hasSeverityMagnitude harm:ModerateCompensable,
+        harm:SevereRuinous ;
+    harm:hasTemporalTrajectory harm:SlowAccumulativeTrajectory ;
+    harm:hasVictim harm:DiffuseRepresentativeClass,
+        harm:DirectPrimaryVictim ;
+    rdfs:subClassOf harm:DeontologicalRightsHarm ;
+    skos:altLabel "Epistemic Injustice"@en,
+        "Epistemic Violence"@en,
+        "Hermeneutical Injustice"@en,
+        "Testimonial Injustice"@en ;
+    skos:broader harm:DeontologicalRightsHarm ;
+    skos:definition "Harming someone specifically in their capacity as a knower and rational communicator—either by unfairly deflating their credibility due to prejudice or by depriving them of the shared social concepts needed to articulate their own experiences."@en ;
+    skos:prefLabel "Epistemic and Testimonial Harm"@en .
+
+harm:ExpectationRelianceHarm a owl:Class,
+        skos:Concept ;
+    harm:hasComparativeBaseline harm:CounterfactualBaseline ;
+    harm:hasObjectOfHarm harm:MaterialPecuniarySubstrate ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent,
+        harm:VicariouslyLiablePrincipal ;
+    harm:hasRemedialDutyBearer harm:PerpetratorAsRestorer,
+        harm:VictimDutyToMitigate ;
+    harm:hasReversibility harm:RestorableElastic ;
+    harm:hasVictim harm:DirectPrimaryVictim ;
+    rdfs:subClassOf harm:WelfareInterestHarm ;
+    skos:altLabel "Expectation Loss"@en,
+        "Pecuniary Harm"@en,
+        "Pure Economic Loss"@en,
+        "Reliance Loss"@en ;
+    skos:broader harm:WelfareInterestHarm ;
+    skos:definition "Harm arising not from physical damage, but from broken promises, breached agreements, or unfair commercial interference."@en ;
+    skos:prefLabel "Expectation and Reliance Harm (Contractual / Economic Harm)"@en .
+
+harm:ExternalityCoordinationHarm a owl:Class,
+        skos:Concept ;
+    harm:hasFeedbackDynamics harm:NonLinearAmplifying ;
+    harm:hasIncentiveAlignment harm:StructurallyAlignedEmergent ;
+    harm:hasObjectOfHarm harm:MaterialPecuniarySubstrate,
+        harm:SystemicEnvironmentalSubstrate ;
+    harm:hasPerpetrator harm:DiffuseCollectivePerpetrator ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor ;
+    harm:hasVictim harm:DiffuseRepresentativeClass ;
+    rdfs:subClassOf harm:SystemicCyberneticHarm ;
+    skos:altLabel "Collective Action Failure"@en,
+        "Nash Equilibrium Trap"@en,
+        "Negative Externality"@en ;
+    skos:broader harm:SystemicCyberneticHarm ;
+    skos:definition "Harm inflicted on uninvolved third parties as an unpriced byproduct of an economic transaction or strategic interaction, or situations where rational individual incentives lock all players into a mutually destructive outcome."@en ;
+    skos:prefLabel "Negative Externalities & Coordination Failures"@en .
+
+harm:FiduciaryBetrayalHarm a owl:Class,
+        skos:Concept ;
+    harm:hasNormativeStatus harm:NormativeWrongful ;
+    harm:hasObjectOfHarm harm:DignitaryRelationalSubstrate,
+        harm:MaterialPecuniarySubstrate,
+        harm:NormativeStatusSubstrate ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent ;
+    harm:hasPhenomenologicalTransparency harm:UnperceivedObjective ;
+    harm:hasRemedialDutyBearer harm:PerpetratorAsRestorer ;
+    harm:hasVictim harm:DirectPrimaryVictim ;
+    rdfs:subClassOf harm:DeontologicalRightsHarm ;
+    skos:altLabel "Abuse of Trust"@en,
+        "Breach of Fiduciary Duty"@en,
+        "Constructive Fraud"@en ;
+    skos:broader harm:DeontologicalRightsHarm ;
+    skos:definition "A normative wrong occurring when someone entrusted with loyal care over another's interests (a trustee, doctor, lawyer, or corporate director) engages in self-dealing or disloyalty."@en ;
+    skos:prefLabel "Fiduciary and Betrayal Harm"@en .
+
+harm:HedonicHarm a owl:Class,
+        skos:Concept ;
+    harm:hasModality harm:ActualizedHarm ;
+    harm:hasObjectOfHarm harm:PsychologicalCognitiveSubstrate,
+        harm:SomaticBiologicalSubstrate ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent ;
+    harm:hasRemedialDutyBearer harm:PerpetratorAsRestorer ;
+    harm:hasTemporalTrajectory harm:AcuteTrajectory ;
+    harm:hasVictim harm:DirectPrimaryVictim ;
+    rdfs:subClassOf harm:ExperientialHarm ;
+    skos:altLabel "Experiential Harm"@en,
+        "Hedonic Harm"@en,
+        "Suffering-Based Harm"@en ;
+    skos:broader harm:ExperientialHarm ;
+    skos:definition "An action harms a subject if and only if it causes negative mental states—such as physical pain, emotional distress, anguish, or grief—or deprives the subject of positive states like pleasure and contentment."@en ;
+    skos:prefLabel "Experiential Harm (Hedonic / Phenomenological Harm)"@en .
+
+harm:HighFrictionProportional a harm:ScalabilityAsymmetryValue,
+        skos:Concept ;
+    skos:prefLabel "High-Friction / Proportional Effort"@en .
+
+harm:InformationAsymmetryHarm a owl:Class,
+        skos:Concept ;
+    harm:hasIncentiveAlignment harm:StructurallyAlignedEmergent ;
+    harm:hasObjectOfHarm harm:MaterialPecuniarySubstrate,
+        harm:SystemicEnvironmentalSubstrate ;
+    harm:hasPerpetrator harm:DiffuseCollectivePerpetrator,
+        harm:UnitaryIntentionalAgent ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor ;
+    harm:hasSystemOpacity harm:BlackBoxOpaque ;
+    harm:hasVictim harm:DiffuseRepresentativeClass,
+        harm:DirectPrimaryVictim ;
+    rdfs:subClassOf harm:SystemicCyberneticHarm ;
+    skos:altLabel "Adverse Selection"@en,
+        "Moral Hazard"@en,
+        "Predatory Signalling"@en ;
+    skos:broader harm:SystemicCyberneticHarm ;
+    skos:definition "Harm generated when one party exploits superior information to shift hidden risks onto another party, degrading market trust and causing systemic collapse."@en ;
+    skos:prefLabel "Information Asymmetry & Adverse Selection Harm"@en .
+
+harm:InjuriaSineDamnoHarm a owl:Class,
+        skos:Concept ;
+    harm:hasDistributionAggregation harm:DiffuseThreshold,
+        harm:NarrowConcentrated ;
+    harm:hasModality harm:ActualizedHarm ;
+    harm:hasNormativeStatus harm:NormativeWrongful ;
+    harm:hasObjectOfHarm harm:NormativeStatusSubstrate ;
+    harm:hasPerpetrator harm:DiffuseCollectivePerpetrator,
+        harm:UnitaryIntentionalAgent ;
+    harm:hasPhenomenologicalTransparency harm:UnperceivedObjective ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor,
+        harm:PerpetratorAsRestorer ;
+    harm:hasSeverityMagnitude harm:DeMinimisTrivial,
+        harm:ModerateCompensable ;
+    harm:hasTemporalTrajectory harm:AcuteTrajectory ;
+    harm:hasVictim harm:DirectPrimaryVictim ;
+    rdfs:subClassOf harm:DeontologicalRightsHarm ;
+    skos:altLabel "Constitutional Violation"@en,
+        "Injuria Sine Damno (legal injury without actual damage)"@en,
+        "Technical Trespass"@en ;
+    skos:broader harm:DeontologicalRightsHarm ;
+    skos:definition "A distinct legal category where a person's formal legal or constitutional right is violated, even though they suffer zero physical pain, financial loss, or emotional distress."@en ;
+    skos:prefLabel "Rights-Based Harm Without Loss (Injuria Sine Damno)"@en .
+
+harm:InterestSetbackHarm a owl:Class,
+        skos:Concept ;
+    harm:hasComparativeBaseline harm:CounterfactualBaseline ;
+    harm:hasPhenomenologicalTransparency harm:UnperceivedObjective ;
+    rdfs:subClassOf harm:WelfareInterestHarm ;
+    skos:altLabel "Counterfactual Comparative Harm (CCH)"@en,
+        "Setback to Interests"@en,
+        "Welfare Harm"@en ;
+    skos:broader harm:WelfareInterestHarm ;
+    skos:definition "Harm occurs when an action sets back a person's vital, ongoing stakes in their well-being (such as health, property, privacy, or liberty), leaving them worse off than they otherwise would have been."@en ;
+    skos:prefLabel "Interest-Based Harm (The Counterfactual Comparative Account)"@en .
+
+harm:KantianDeontologicalHarm a owl:Class,
+        skos:Concept ;
+    harm:hasNormativeStatus harm:NormativeWrongful ;
+    harm:hasObjectOfHarm harm:DignitaryRelationalSubstrate,
+        harm:NormativeStatusSubstrate ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent ;
+    harm:hasRemedialDutyBearer harm:PerpetratorAsRestorer ;
+    harm:hasVictim harm:DirectPrimaryVictim ;
+    rdfs:subClassOf harm:DeontologicalRightsHarm ;
+    skos:altLabel "Dignitary Harm"@en,
+        "Kantian Wronging"@en,
+        "Rights-Violation Harm"@en ;
+    skos:broader harm:DeontologicalRightsHarm ;
+    skos:definition "Treating a rational agent merely as a means to an end through coercion, deception, or manipulation—violating their moral agency even if the act produces pleasure or leaves material welfare intact."@en ;
+    skos:prefLabel "Deontological Harm (Rights-Based / Dignitary Harm)"@en .
+
+harm:LinearStatic a harm:FeedbackDynamicsValue,
+        skos:Concept ;
+    skos:prefLabel "Linear / Static Impact"@en .
+
+harm:MaliciousIntentional a harm:IncentiveAlignmentValue,
+        skos:Concept ;
+    skos:prefLabel "Malicious / Deliberate Intent"@en .
+
+harm:NegligentCareless a harm:IncentiveAlignmentValue,
+        skos:Concept ;
+    skos:prefLabel "Negligent / Careless Disregard"@en .
+
+harm:NonNormativeSetback a harm:NormativeStatusValue,
+        skos:Concept ;
+    skos:prefLabel "Non-Normative Setback (Damnum Absque Injuria)"@en .
+
+harm:NuisanceSensoryOffense a owl:Class,
+        skos:Concept ;
+    harm:hasObjectOfHarm harm:MaterialPecuniarySubstrate,
+        harm:PsychologicalCognitiveSubstrate ;
+    harm:hasPerpetrator harm:DiffuseCollectivePerpetrator,
+        harm:UnitaryIntentionalAgent ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor,
+        harm:PerpetratorAsRestorer ;
+    harm:hasTemporalTrajectory harm:SlowAccumulativeTrajectory ;
+    harm:hasVictim harm:DiffuseRepresentativeClass,
+        harm:DirectPrimaryVictim ;
+    rdfs:subClassOf harm:ExperientialHarm ;
+    skos:altLabel "Private Nuisance"@en,
+        "Profound Offense"@en,
+        "Public Nuisance"@en ;
+    skos:broader harm:ExperientialHarm ;
+    skos:definition "Unreasonable interference with the sensory enjoyment of life or property—such as noxious odors, deafening noise, or grotesque public displays."@en ;
+    skos:prefLabel "Nuisance and Sensory Offense"@en .
+
+harm:OpportunityCostChoiceHarm a owl:Class,
+        skos:Concept ;
+    harm:hasCognitiveExploitability harm:SubversiveExploitation ;
+    harm:hasComparativeBaseline harm:CounterfactualBaseline ;
+    harm:hasObjectOfHarm harm:MaterialPecuniarySubstrate,
+        harm:OpportunityCapabilitySubstrate,
+        harm:PsychologicalCognitiveSubstrate ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent,
+        harm:VicariouslyLiablePrincipal ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor,
+        harm:PerpetratorAsRestorer ;
+    harm:hasVictim harm:DiffuseRepresentativeClass,
+        harm:DirectPrimaryVictim ;
+    rdfs:subClassOf harm:WelfareInterestHarm ;
+    skos:altLabel "Dark Patterns"@en,
+        "Opportunity Cost"@en,
+        "Sludge"@en ;
+    skos:broader harm:WelfareInterestHarm ;
+    skos:definition "Harm inflicted not by taking away what someone currently has, but by subtly manipulating their choice environment (via deceptive user interfaces, hidden friction, or behavioral nudges) so they consistently make suboptimal decisions—forfeiting wealth, time, or better alternatives they otherwise would have chosen."@en ;
+    skos:prefLabel "Opportunity Cost & Choice Architecture Harm"@en .
+
+harm:OverdeterminedCausation a harm:CausationMechanismValue,
+        skos:Concept ;
+    skos:prefLabel "Overdetermined Causation"@en .
+
+harm:OvertCoercion a harm:CognitiveExploitabilityValue,
+        skos:Concept ;
+    skos:prefLabel "Overt Coercion / Force"@en .
+
+harm:ParensPatriaePaternalisticHarm a owl:Class,
+        skos:Concept ;
+    harm:hasObjectOfHarm harm:OpportunityCapabilitySubstrate ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor ;
+    harm:hasVictim harm:DiffuseRepresentativeClass,
+        harm:DirectPrimaryVictim ;
+    rdfs:subClassOf harm:TeleologicalDeprivationHarm ;
+    skos:altLabel "Legal Moralism"@en,
+        "Parens Patriae"@en,
+        "Soft Paternalism"@en ;
+    skos:broader harm:TeleologicalDeprivationHarm ;
+    skos:definition "The legal operationalization of Teleological Harm. The state steps in to protect vulnerable persons (minors, incapacitated adults) or prohibit self-corrupting behaviors (such as compulsory education laws, child labor bans, or substance prohibitions) on the grounds that certain actions stunt human development and flourishing regardless of consent."@en ;
+    skos:prefLabel "Parens Patriae & Paternalistic Harm Prevention"@en .
+
+harm:PerfectionistTeleologicalHarm a owl:Class,
+        skos:Concept ;
+    harm:hasObjectOfHarm harm:OpportunityCapabilitySubstrate ;
+    harm:hasPhenomenologicalTransparency harm:UnperceivedObjective ;
+    rdfs:subClassOf harm:TeleologicalDeprivationHarm ;
+    skos:altLabel "Aretaic Harm"@en,
+        "Perfectionist Harm"@en,
+        "Privation of Flourishing"@en ;
+    skos:broader harm:TeleologicalDeprivationHarm ;
+    skos:definition "Any impediment that prevents an entity from fulfilling its natural function, developing its core capabilities, or achieving human flourishing (eudaimonia), even if the person consents and feels content."@en ;
+    skos:prefLabel "Teleological Harm (Perfectionist / Eudaimonic Harm)"@en .
+
+harm:PrivateTortiousHarm a owl:Class,
+        skos:Concept ;
+    harm:hasCausationMechanism harm:FactualButForCausation,
+        harm:ProximateCausation ;
+    harm:hasDistributionAggregation harm:NarrowConcentrated ;
+    harm:hasModality harm:ActualizedHarm ;
+    harm:hasNormativeStatus harm:NormativeWrongful ;
+    harm:hasObjectOfHarm harm:MaterialPecuniarySubstrate,
+        harm:SomaticBiologicalSubstrate ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent,
+        harm:VicariouslyLiablePrincipal ;
+    harm:hasRemedialDutyBearer harm:PerpetratorAsRestorer,
+        harm:VictimDutyToMitigate ;
+    harm:hasReversibility harm:IrreversibleHysteresis,
+        harm:RestorableElastic ;
+    harm:hasSeverityMagnitude harm:ModerateCompensable,
+        harm:SevereRuinous ;
+    harm:hasTemporalTrajectory harm:AcuteTrajectory ;
+    harm:hasVictim harm:DirectPrimaryVictim ;
+    rdfs:subClassOf harm:WelfareInterestHarm ;
+    skos:altLabel "Damnum Iniuria Datum (loss wrongfully caused)"@en,
+        "Invasion of Legally Protected Interests"@en,
+        "Tortious Injury"@en ;
+    skos:broader harm:WelfareInterestHarm ;
+    skos:definition "Harm inflicted by one private party upon another that entitles the injured party to a civil remedy, typically monetary damages or an injunction."@en ;
+    skos:prefLabel "Private Harm (Tortious / Civil Injury)"@en .
+
+harm:ProbabilisticRiskHarm a owl:Class,
+        skos:Concept ;
+    harm:hasDistributionAggregation harm:DiffuseThreshold,
+        harm:NarrowConcentrated ;
+    harm:hasModality harm:ProbabilisticRisk ;
+    harm:hasObjectOfHarm harm:OpportunityCapabilitySubstrate,
+        harm:SomaticBiologicalSubstrate ;
+    harm:hasPerpetrator harm:DiffuseCollectivePerpetrator,
+        harm:UnitaryIntentionalAgent ;
+    harm:hasPhenomenologicalTransparency harm:UnperceivedObjective ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor,
+        harm:PerpetratorAsRestorer ;
+    harm:hasSeverityMagnitude harm:CatastrophicExistential,
+        harm:DeMinimisTrivial,
+        harm:SevereRuinous ;
+    harm:hasSystemOpacity harm:BlackBoxOpaque ;
+    harm:hasTemporalTrajectory harm:LatentTrajectory ;
+    harm:hasVictim harm:DiffuseRepresentativeClass,
+        harm:DirectPrimaryVictim ;
+    rdfs:subClassOf harm:WelfareInterestHarm ;
+    skos:altLabel "Loss of Chance Doctrine"@en,
+        "Risk Imposition"@en,
+        "Toxic Tort Exposure"@en ;
+    skos:broader harm:WelfareInterestHarm ;
+    skos:definition "Exposing an individual or population to a heightened probability of future catastrophe (such as carcinogen exposure or reckless endangerment)."@en ;
+    skos:prefLabel "Probabilistic and Risk-Based Harm"@en .
+
+harm:PsychologicalEmotionalTrauma a owl:Class,
+        skos:Concept ;
+    harm:hasObjectOfHarm harm:PsychologicalCognitiveSubstrate ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent ;
+    harm:hasRemedialDutyBearer harm:PerpetratorAsRestorer ;
+    harm:hasTemporalTrajectory harm:AcuteTrajectory,
+        harm:SlowAccumulativeTrajectory ;
+    harm:hasVictim harm:DirectPrimaryVictim,
+        harm:SecondaryRelationalVictim ;
+    rdfs:subClassOf harm:ExperientialHarm ;
+    skos:altLabel "Intentional Infliction of Emotional Distress (IIED)"@en,
+        "Negligent Infliction of Emotional Distress (NIED)"@en,
+        "Pain and Suffering Damages"@en ;
+    skos:broader harm:ExperientialHarm ;
+    skos:definition "Severe mental anguish, psychiatric injury, or post-traumatic stress inflicted through extreme and outrageous conduct or severe negligence, recognized as a standalone injury even without physical impact."@en ;
+    skos:prefLabel "Psychological & Emotional Trauma"@en .
+
+harm:PublicCriminalHarm a owl:Class,
+        skos:Concept ;
+    harm:hasNormativeStatus harm:NormativeWrongful ;
+    harm:hasObjectOfHarm harm:SomaticBiologicalSubstrate,
+        harm:SystemicEnvironmentalSubstrate ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor ;
+    harm:hasVictim harm:DiffuseRepresentativeClass,
+        harm:DirectPrimaryVictim ;
+    rdfs:subClassOf harm:WelfareInterestHarm ;
+    skos:altLabel "Malum Prohibitum"@en,
+        "Malum in Se"@en,
+        "Public Wrong"@en,
+        "Social Harm"@en ;
+    skos:broader harm:WelfareInterestHarm ;
+    skos:definition "Harm that threatens the foundational order, safety, and collective peace of the political community."@en ;
+    skos:prefLabel "Public Harm (Criminal / Societal Harm)"@en .
+
+harm:TransparentLegible a harm:SystemOpacityValue,
+        skos:Concept ;
+    skos:prefLabel "Transparent / Inspectable Mechanism"@en .
+
+harm:VicariousMoralInjury a owl:Class,
+        skos:Concept ;
+    harm:hasObjectOfHarm harm:PsychologicalCognitiveSubstrate ;
+    harm:hasPerpetrator harm:DiffuseCollectivePerpetrator,
+        harm:UnitaryIntentionalAgent ;
+    harm:hasRemedialDutyBearer harm:InstitutionalSovereignGuarantor ;
+    harm:hasTemporalTrajectory harm:SlowAccumulativeTrajectory ;
+    harm:hasVictim harm:DirectPrimaryVictim,
+        harm:SecondaryRelationalVictim ;
+    rdfs:subClassOf harm:ExperientialHarm ;
+    skos:altLabel "Moral Injury"@en,
+        "Secondary Traumatic Stress"@en,
+        "Vicarious Trauma"@en ;
+    skos:broader harm:ExperientialHarm ;
+    skos:definition "Profound shame, guilt, and existential pain occurring when a person perpetrates, witnesses, or is forced by an institution to participate in acts that transgress their deeply held moral beliefs."@en ;
+    skos:prefLabel "Vicarious, Secondary & Moral Injury"@en .
+
+harm:WrongfulDeathConsortiumHarm a owl:Class,
+        skos:Concept ;
+    harm:hasObjectOfHarm harm:DignitaryRelationalSubstrate,
+        harm:MaterialPecuniarySubstrate,
+        harm:OpportunityCapabilitySubstrate ;
+    harm:hasPerpetrator harm:UnitaryIntentionalAgent,
+        harm:VicariouslyLiablePrincipal ;
+    harm:hasRemedialDutyBearer harm:PerpetratorAsRestorer ;
+    harm:hasReversibility harm:IrreversibleHysteresis ;
+    harm:hasVictim harm:SecondaryRelationalVictim ;
+    rdfs:subClassOf harm:TeleologicalDeprivationHarm ;
+    skos:altLabel "Loss of Consortium"@en,
+        "Survival Actions"@en,
+        "Wrongful Death"@en ;
+    skos:broader harm:TeleologicalDeprivationHarm ;
+    skos:definition "The direct legal translation of Deprivationism. Because the dead cannot sue for their own lost future, statutes grant surviving family members the right to recover for the deprivation of future financial support, companionship, guidance, and relational goods that death stole."@en ;
+    skos:prefLabel "Wrongful Death & Loss of Consortium"@en .
+
+harm:hasCausationMechanism a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:CausationMechanismValue ;
+    skos:definition "Tethers an external state of affairs to an agent's action or omission via factual ('but-for') causation, proximate foreseeability, overdetermination, or structural attribution."@en ;
+    skos:prefLabel "Causation, Proximity, and Attribution (Attribute 2)"@en .
+
+harm:hasCognitiveExploitability a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:CognitiveExploitabilityValue ;
+    skos:definition "Measures whether harm overrides a victim's will through overt brute force or subversively bypasses rational defenses by exploiting cognitive biases, addiction pathways, or emotional vulnerabilities."@en ;
+    skos:prefLabel "Cognitive & Volitional Exploitability (Attribute 14)"@en .
+
+harm:hasComparativeBaseline a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:ComparativeBaselineValue ;
+    skos:definition "Measures whether harm is evaluated temporally (worse off now than before) or counterfactually (worse off now than if the event had never occurred)."@en ;
+    skos:prefLabel "Comparative Baseline (Attribute 1)"@en .
+
+harm:hasDistributionAggregation a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:DistributionAggregationValue ;
+    skos:definition "Contrasts narrow, concentrated harm to one identifiable victim against diffuse, microscopic losses spread across millions of people that cross a tipping point together."@en ;
+    skos:prefLabel "Distribution & Aggregation (Attribute 6)"@en .
+
+harm:hasFeedbackDynamics a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:FeedbackDynamicsValue ;
+    skos:definition "Measures whether a harm remains static after impact or triggers self-reinforcing cascades where the system's reaction compounds initial damage exponentially."@en ;
+    skos:prefLabel "Feedback & Amplification Dynamics (Attribute 7)"@en .
+
+harm:hasIncentiveAlignment a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:IncentiveAlignmentValue ;
+    skos:definition "Identifies whether harm stems from malicious cruelty, negligence, or structurally aligned incentives and literal proxy goals that inevitably produce collateral damage without ill will."@en ;
+    skos:prefLabel "Incentive & Strategic Alignment (Attribute 13)"@en .
+
+harm:hasModality a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:ModalityValue ;
+    skos:definition "Distinguishes between damage that has already materialized and the imposition of heightened danger that narrows a victim's safe life options before any physical crash occurs."@en ;
+    skos:prefLabel "Modality: Actualized vs. Probabilistic Risk (Attribute 12)"@en .
+
+harm:hasNormativeStatus a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:NormativeStatusValue ;
+    skos:definition "Separates factual setbacks caused by nature or fair competition (Damnum Absque Injuria) from wrongful setbacks caused by violating a legal right or moral duty (Injuria)."@en ;
+    skos:prefLabel "Normativity vs. Non-Normativity (Attribute 11)"@en .
+
+harm:hasObjectOfHarm a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:ObjectOfHarmValue ;
+    skos:definition "Defines the specific physical, psychological, relational, economic, or normative asset, faculty, or state of being that absorbs the setback."@en ;
+    skos:prefLabel "Object of Harm / Locus of Injury / Protected Substrate (Attribute 18)"@en .
+
+harm:hasPatientOntology a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:PatientOntologyValue ;
+    skos:definition "Defines the categories of entities capable of possessing interests or suffering setbacks: Sentient Individuals, Collective/Artificial Persons, and Non-Sentient Systems."@en ;
+    skos:prefLabel "Patient Ontology (Attribute 15)"@en .
+
+harm:hasPerpetrator a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:PerpetratorRoleValue ;
+    skos:definition "Defines the nature, culpability, and structure of the entity from which the harm originates."@en ;
+    skos:prefLabel "Moral & Legal Agency / Perpetrator (Attribute 16)"@en .
+
+harm:hasPhenomenologicalTransparency a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:PhenomenologicalTransparencyValue ;
+    skos:definition "Distinguishes between subjective harms requiring conscious awareness (pain, grief, terror) and objective harms occurring outside awareness (covert surveillance, trustee self-dealing)."@en ;
+    skos:prefLabel "Phenomenological Transparency (Attribute 3)"@en .
+
+harm:hasRemedialDutyBearer a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:RemedialDutyBearerValue ;
+    skos:definition "Defines the entity bearing an affirmative obligation to intervene, rescue, minimize ongoing impact, or restore the victim."@en ;
+    skos:prefLabel "Remedial & Protective Duty-Bearing / Mitigator / Restorer (Attribute 19)"@en .
+
+harm:hasReversibility a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:ReversibilityValue ;
+    skos:definition "Measures whether a harmed entity or system can return to its prior baseline once the harmful action stops, or whether damage permanently alters the system's state."@en ;
+    skos:prefLabel "Reversibility & Hysteresis (Attribute 9)"@en .
+
+harm:hasScalabilityAsymmetry a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:ScalabilityAsymmetryValue ;
+    skos:definition "Captures the ratio between the effort required to inflict harm and the resulting scale of damage, contrasting high-friction physical effort against zero-marginal-cost replication."@en ;
+    skos:prefLabel "Marginal Cost & Scalability Asymmetry (Attribute 8)"@en .
+
+harm:hasSeverityMagnitude a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:SeverityMagnitudeValue ;
+    skos:definition "Measures the depth or intensity of the setback on its scale of impact, from barely noticeable trivialities (de minimis) to civilization-scale catastrophe."@en ;
+    skos:prefLabel "Severity & Magnitude (Attribute 10)"@en .
+
+harm:hasSystemOpacity a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:SystemOpacityValue ;
+    skos:definition "Measures whether the mechanism causing the harm can be inspected, audited, or understood, or is obscured by deep neural networks, proprietary secrecy, or complex supply chains."@en ;
+    skos:prefLabel "System Opacity & Legibility (Attribute 4)"@en .
+
+harm:hasTemporalTrajectory a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:TemporalTrajectoryValue ;
+    skos:definition "Maps how harm unfolds across time: Acute (instant impact), Latent (decades of dormancy before manifestation), or Slow/Accumulative (generational degradation)."@en ;
+    skos:prefLabel "Temporal Trajectory (Attribute 5)"@en .
+
+harm:hasVictim a owl:ObjectProperty,
+        skos:Concept ;
+    rdfs:domain harm:Harm ;
+    rdfs:range harm:VictimRoleValue ;
+    skos:definition "Maps the concrete relational position of the party suffering the setback, distinguishing direct targets from secondary relational victims and proxy-represented classes."@en ;
+    skos:prefLabel "Victimhood & Standing / Recipient (Attribute 17)"@en .
+
+dcterms:bibliographicCitation a owl:AnnotationProperty .
+
+dcterms:creator a owl:AnnotationProperty .
+
+skos:altLabel a owl:AnnotationProperty .
+
+skos:broader a owl:AnnotationProperty .
+
+skos:changeNote a owl:AnnotationProperty .
+
+skos:definition a owl:AnnotationProperty .
+
+skos:example a owl:AnnotationProperty .
+
+skos:historyNote a owl:AnnotationProperty .
+
+skos:note a owl:AnnotationProperty .
+
+skos:prefLabel a owl:AnnotationProperty .
+
+skos:scopeNote a owl:AnnotationProperty .
+
+skos:topConceptOf a owl:AnnotationProperty .
+
+<http://example.org/ontology/harm> a owl:Ontology,
+        skos:ConceptScheme ;
+    dcterms:creator "Philosophers Council, Legal Counsel, Economists & Game Theorists, Technologists & AI Safety, Psychologists & Behavioral Scientists"@en ;
+    owl:versionInfo "1.0.3"@en ;
+    skos:definition "A formal OWL/SKOS/Dublin Core ontology integrating classical philosophical, legal, economic, game-theoretic, psychological, and AI-safety taxonomies and cross-cutting attributes of harm."@en ;
+    skos:prefLabel "Interdisciplinary Harm Ontology"@en .
+
+harm:CatastrophicExistential a harm:SeverityMagnitudeValue,
+        skos:Concept ;
+    skos:prefLabel "Catastrophic / Existential"@en .
+
+harm:CollectiveArtificialPerson a harm:PatientOntologyValue,
+        skos:Concept ;
+    skos:prefLabel "Collective / Artificial Person (Corporation / State / Group)"@en .
+
+harm:FactualButForCausation a harm:CausationMechanismValue,
+        skos:Concept ;
+    skos:prefLabel "Factual Causation ('But-For')"@en .
+
+harm:LatentTrajectory a harm:TemporalTrajectoryValue,
+        skos:Concept ;
+    skos:prefLabel "Latent Trajectory (Delayed Manifestation)"@en .
+
+harm:NonSentientSystem a harm:PatientOntologyValue,
+        skos:Concept ;
+    skos:prefLabel "Non-Sentient System (Ecosystem / Future Generations)"@en .
+
+harm:PerceivedSubjective a harm:PhenomenologicalTransparencyValue,
+        skos:Concept ;
+    skos:prefLabel "Perceived / Subjective Conscious Awareness"@en .
+
+harm:ProbabilisticRisk a harm:ModalityValue,
+        skos:Concept ;
+    skos:prefLabel "Probabilistic Risk Imposition"@en .
+
+harm:ProximateCausation a harm:CausationMechanismValue,
+        skos:Concept ;
+    skos:prefLabel "Proximate / Foreseeable Legal Causation"@en .
+
+harm:SpecialRelationshipRescuer a harm:RemedialDutyBearerValue,
+        skos:Concept ;
+    skos:prefLabel "Special-Relationship Rescuer (Fiduciary / Parent / Carrier / Peril-Creator)"@en .
+
+harm:TemporalBaseline a harm:ComparativeBaselineValue,
+        skos:Concept ;
+    skos:prefLabel "Temporal Comparison (Before vs. After)"@en .
+
+harm:DeMinimisTrivial a harm:SeverityMagnitudeValue,
+        skos:Concept ;
+    skos:prefLabel "De Minimis / Trivial"@en .
+
+harm:NonAgenticAutonomousSource a harm:PerpetratorRoleValue,
+        skos:Concept ;
+    skos:prefLabel "Non-Agentic / Autonomous Causal Source (Nature / AI System)"@en .
+
+harm:RestorableElastic a harm:ReversibilityValue,
+        skos:Concept ;
+    skos:prefLabel "Restorable / Elastic Baseline"@en .
+
+harm:SentientIndividual a harm:PatientOntologyValue,
+        skos:Concept ;
+    skos:prefLabel "Sentient Individual (Human / Animal)"@en .
+
+harm:StructuralAttribution a harm:CausationMechanismValue,
+        skos:Concept ;
+    skos:prefLabel "Institutional / Structural Attribution"@en .
+
+harm:SubversiveExploitation a harm:CognitiveExploitabilityValue,
+        skos:Concept ;
+    skos:prefLabel "Subversive Bias / Addiction Exploitation"@en .
+
+harm:VictimDutyToMitigate a harm:RemedialDutyBearerValue,
+        skos:Concept ;
+    skos:prefLabel "The Victim's Own Duty to Mitigate (Avoidable Consequences)"@en .
+
+harm:ZeroMarginalCostReplication a harm:ScalabilityAsymmetryValue,
+        skos:Concept ;
+    skos:prefLabel "Zero-Marginal-Cost Replication"@en .
+
+harm:BlackBoxOpaque a harm:SystemOpacityValue,
+        skos:Concept ;
+    skos:prefLabel "Black-Box / Opaque System"@en .
+
+harm:CognitiveExploitabilityValue a owl:Class,
+        skos:ConceptScheme ;
+    skos:prefLabel "Cognitive Exploitability Vocabulary"@en .
+
+harm:ComparativeBaselineValue a owl:Class,
+        skos:ConceptScheme ;
+    skos:prefLabel "Comparative Baseline Vocabulary"@en .
+
+harm:DistributionAggregationValue a owl:Class,
+        skos:ConceptScheme ;
+    skos:prefLabel "Distribution & Aggregation Vocabulary"@en .
+
+harm:FeedbackDynamicsValue a owl:Class,
+        skos:ConceptScheme ;
+    skos:prefLabel "Feedback Dynamics Vocabulary"@en .
+
+harm:ModalityValue a owl:Class,
+        skos:ConceptScheme ;
+    skos:prefLabel "Modality Vocabulary"@en .
+
+harm:ModerateCompensable a harm:SeverityMagnitudeValue,
+        skos:Concept ;
+    skos:prefLabel "Moderate / Compensable"@en .
+
+harm:NonLinearAmplifying a harm:FeedbackDynamicsValue,
+        skos:Concept ;
+    skos:prefLabel "Non-Linear / Self-Reinforcing Amplification"@en .
+
+harm:NormativeStatusValue a owl:Class,
+        skos:ConceptScheme ;
+    skos:prefLabel "Normative Status Vocabulary"@en .
+
+harm:PhenomenologicalTransparencyValue a owl:Class,
+        skos:ConceptScheme ;
+    skos:prefLabel "Phenomenological Transparency Vocabulary"@en .
+
+harm:ReversibilityValue a owl:Class,
+        skos:ConceptScheme ;
+    skos:prefLabel "Reversibility Vocabulary"@en .
+
+harm:ScalabilityAsymmetryValue a owl:Class,
+        skos:ConceptScheme ;
+    skos:prefLabel "Scalability Asymmetry Vocabulary"@en .
+
+harm:SecondaryRelationalVictim a harm:VictimRoleValue,
+        skos:Concept ;
+    skos:prefLabel "Secondary / Relational Victim (Bystander / Dependent)"@en .
+
+harm:SevereRuinous a harm:SeverityMagnitudeValue,
+        skos:Concept ;
+    skos:prefLabel "Severe / Ruinous"@en .
+
+harm:SystemOpacityValue a owl:Class,
+        skos:ConceptScheme ;
+    skos:prefLabel "System Opacity Vocabulary"@en .
+
+harm:ActualizedHarm a harm:ModalityValue,
+        skos:Concept ;
+    skos:prefLabel "Actualized Harm (Materialized Outcome)"@en .
+
+harm:AcuteTrajectory a harm:TemporalTrajectoryValue,
+        skos:Concept ;
+    skos:prefLabel "Acute Trajectory (Immediate Impact)"@en .
+
+harm:DiffuseThreshold a harm:DistributionAggregationValue,
+        skos:Concept ;
+    skos:prefLabel "Diffuse / Threshold Aggregation"@en .
+
+harm:DignitaryRelationalSubstrate a harm:ObjectOfHarmValue,
+        skos:Concept ;
+    skos:prefLabel "Dignitary, Reputational & Relational Substrate (Standing, Privacy, Trust)"@en .
+
+harm:IncentiveAlignmentValue a owl:Class,
+        skos:ConceptScheme ;
+    skos:prefLabel "Incentive Alignment Vocabulary"@en .
+
+harm:IrreversibleHysteresis a harm:ReversibilityValue,
+        skos:Concept ;
+    skos:prefLabel "Irreversible / Hysteresis State Shift"@en .
+
+harm:NarrowConcentrated a harm:DistributionAggregationValue,
+        skos:Concept ;
+    skos:prefLabel "Narrow / Concentrated (Single Target)"@en .
+
+harm:NormativeStatusSubstrate a harm:ObjectOfHarmValue,
+        skos:Concept ;
+    skos:prefLabel "Normative & Status Substrate (Constitutional Rights, Legal Standing, Agency)"@en .
+
+harm:PatientOntologyValue a owl:Class,
+        skos:ConceptScheme ;
+    skos:prefLabel "Patient Ontology Vocabulary"@en .
+
+harm:StructurallyAlignedEmergent a harm:IncentiveAlignmentValue,
+        skos:Concept ;
+    skos:prefLabel "Structurally Aligned / Emergent Equilibrium"@en .
+
+harm:TemporalTrajectoryValue a owl:Class,
+        skos:ConceptScheme ;
+    skos:prefLabel "Temporal Trajectory Vocabulary"@en .
+
+harm:VictimRoleValue a owl:Class,
+        skos:ConceptScheme ;
+    skos:prefLabel "Victim Role Vocabulary"@en .
+
+harm:CausationMechanismValue a owl:Class,
+        skos:ConceptScheme ;
+    skos:prefLabel "Causation Mechanism Vocabulary"@en .
+
+harm:PerpetratorRoleValue a owl:Class,
+        skos:ConceptScheme ;
+    skos:prefLabel "Perpetrator Role Vocabulary"@en .
+
+harm:RemedialDutyBearerValue a owl:Class,
+        skos:ConceptScheme ;
+    skos:prefLabel "Remedial Duty-Bearer Vocabulary"@en .
+
+harm:SeverityMagnitudeValue a owl:Class,
+        skos:ConceptScheme ;
+    skos:prefLabel "Severity & Magnitude Vocabulary"@en .
+
+harm:VicariouslyLiablePrincipal a harm:PerpetratorRoleValue,
+        skos:Concept ;
+    skos:prefLabel "Vicariously Liable Principal (Institutional / Respondeat Superior)"@en .
+
+harm:CounterfactualBaseline a harm:ComparativeBaselineValue,
+        skos:Concept ;
+    skos:prefLabel "Counterfactual Comparison (Actual vs. What Would Have Been)"@en .
+
+harm:SlowAccumulativeTrajectory a harm:TemporalTrajectoryValue,
+        skos:Concept ;
+    skos:prefLabel "Slow / Accumulative Trajectory (Generational)"@en .
+
+harm:SomaticBiologicalSubstrate a harm:ObjectOfHarmValue,
+        skos:Concept ;
+    skos:prefLabel "Somatic & Biological Substrate (Body, Health, Life)"@en .
+
+harm:SystemicEnvironmentalSubstrate a harm:ObjectOfHarmValue,
+        skos:Concept ;
+    skos:prefLabel "Systemic & Environmental Substrate (Ecosystems, Institutions, Epistemic Commons)"@en .
+
+harm:DeontologicalRightsHarm a owl:Class,
+        skos:Concept ;
+    harm:hasModality harm:ActualizedHarm ;
+    harm:hasNormativeStatus harm:NormativeWrongful ;
+    harm:hasPhenomenologicalTransparency harm:UnperceivedObjective ;
+    rdfs:subClassOf harm:Harm ;
+    skos:altLabel "Dignitary Harm"@en,
+        "Kantian Wronging"@en,
+        "Rights-Violation Harm"@en ;
+    skos:broader harm:Harm ;
+    skos:definition "At the highest level, this domain locates harm not in pain or lowered material welfare, but in the violation of formal rights, moral status, and rational autonomy. A person is harmed simply by being wronged."@en ;
+    skos:prefLabel "Deontological & Rights-Based Harm (Normative Wrongs)"@en .
+
+harm:NormativeWrongful a harm:NormativeStatusValue,
+        skos:Concept ;
+    skos:prefLabel "Normative Harm (Wrongful Breach of Right/Duty)"@en .
+
+harm:ObjectOfHarmValue a owl:Class,
+        skos:ConceptScheme ;
+    skos:prefLabel "Object of Harm (Protected Substrate) Vocabulary"@en .
+
+harm:SystemicCyberneticHarm a owl:Class,
+        skos:Concept ;
+    harm:hasFeedbackDynamics harm:NonLinearAmplifying ;
+    harm:hasIncentiveAlignment harm:StructurallyAlignedEmergent ;
+    rdfs:subClassOf harm:Harm ;
+    skos:altLabel "Cybernetic Harm"@en,
+        "Emergent Harm"@en,
+        "Equilibrium Failure"@en ;
+    skos:broader harm:Harm ;
+    skos:definition "At the highest level, this domain defines harm not as a linear act by an agent against a victim, but as a destabilizing shift in a complex system, incentive structure, or information network."@en ;
+    skos:prefLabel "Systemic, Emergent & Cybernetic Harm (Network & Equilibrium Failures)"@en .
+
+harm:OpportunityCapabilitySubstrate a harm:ObjectOfHarmValue,
+        skos:Concept ;
+    skos:prefLabel "Opportunity, Capability & Future Substrate (Development, Survival Odds)"@en .
+
+harm:PsychologicalCognitiveSubstrate a harm:ObjectOfHarmValue,
+        skos:Concept ;
+    skos:prefLabel "Psychological & Cognitive Substrate (Mental Peace, Attention, Rationality)"@en .
+
+harm:UnperceivedObjective a harm:PhenomenologicalTransparencyValue,
+        skos:Concept ;
+    skos:prefLabel "Unperceived / Objective External Setback"@en .
+
+harm:ExperientialHarm a owl:Class,
+        skos:Concept ;
+    harm:hasComparativeBaseline harm:TemporalBaseline ;
+    harm:hasPatientOntology harm:SentientIndividual ;
+    harm:hasPhenomenologicalTransparency harm:PerceivedSubjective ;
+    rdfs:subClassOf harm:Harm ;
+    skos:altLabel "Hedonic Harm"@en,
+        "Phenomenological Harm"@en,
+        "Suffering-Based Harm"@en ;
+    skos:broader harm:Harm ;
+    skos:definition "At the highest level, this domain defines harm strictly through conscious, subjective phenomenology—negative mental or physical states experienced directly by a sentient subject."@en ;
+    skos:prefLabel "Experiential & Subjective Harm (Conscious Suffering)"@en .
+
+harm:MaterialPecuniarySubstrate a harm:ObjectOfHarmValue,
+        skos:Concept ;
+    skos:prefLabel "Material & Pecuniary Substrate (Property, Wealth, Contract Expectancy)"@en .
+
+harm:DiffuseCollectivePerpetrator a harm:PerpetratorRoleValue,
+        skos:Concept ;
+    skos:prefLabel "Diffuse / Collective Perpetration"@en .
+
+harm:DiffuseRepresentativeClass a harm:VictimRoleValue,
+        skos:Concept ;
+    skos:prefLabel "Diffuse / Proxy-Represented Class (Public / Future Generations / Ecosystem)"@en .
+
+harm:TeleologicalDeprivationHarm a owl:Class,
+        skos:Concept ;
+    harm:hasComparativeBaseline harm:CounterfactualBaseline ;
+    harm:hasPhenomenologicalTransparency harm:UnperceivedObjective ;
+    harm:hasTemporalTrajectory harm:SlowAccumulativeTrajectory ;
+    rdfs:subClassOf harm:Harm ;
+    skos:altLabel "Deprivationism"@en,
+        "Perfectionist Harm"@en,
+        "Privation of Flourishing"@en ;
+    skos:broader harm:Harm ;
+    skos:definition "At the highest level, this domain defines harm structurally and comparatively across time: not by inflicting an active injury, but by blocking an entity from attaining the goods, capabilities, or future existence it ought naturally to possess or enjoy."@en ;
+    skos:prefLabel "Teleological & Deprivation Harm (Privation of Good & Flourishing)"@en .
+
+harm:WelfareInterestHarm a owl:Class,
+        skos:Concept ;
+    harm:hasComparativeBaseline harm:CounterfactualBaseline ;
+    harm:hasPatientOntology harm:CollectiveArtificialPerson,
+        harm:NonSentientSystem,
+        harm:SentientIndividual ;
+    harm:hasPhenomenologicalTransparency harm:UnperceivedObjective ;
+    rdfs:subClassOf harm:Harm ;
+    skos:altLabel "Counterfactual Comparative Harm (CCH)"@en,
+        "Setback to Interests"@en,
+        "Welfare Harm"@en ;
+    skos:broader harm:Harm ;
+    skos:definition "At the highest level, this domain defines harm objectively rather than subjectively. An entity is harmed whenever an action sets back its vital stakes, resources, or baseline position compared to what would otherwise have occurred—even if the victim never perceives the loss."@en ;
+    skos:prefLabel "Welfare & Interest-Based Harm (Counterfactual Setbacks)"@en .
+
+harm:InstitutionalSovereignGuarantor a harm:RemedialDutyBearerValue,
+        skos:Concept ;
+    skos:prefLabel "Institutional & Sovereign Guarantor (State / Regulator / Public Fund)"@en .
+
+harm:PerpetratorAsRestorer a harm:RemedialDutyBearerValue,
+        skos:Concept ;
+    skos:prefLabel "The Perpetrator as Restorer (Corrective Justice)"@en .
+
+harm:UnitaryIntentionalAgent a harm:PerpetratorRoleValue,
+        skos:Concept ;
+    skos:prefLabel "Unitary Intentional or Negligent Agent"@en .
+
+harm:DirectPrimaryVictim a harm:VictimRoleValue,
+        skos:Concept ;
+    skos:prefLabel "Direct / Primary Victim"@en .
+
+skos:ConceptScheme a owl:Class .
+
+harm:Harm a owl:Class,
+        skos:Concept ;
+    skos:definition "A relational setback to an entity's conscious experience, vital welfare interests, moral or legal rights, natural flourishing, or systemic equilibrium."@en ;
+    skos:prefLabel "Harm"@en ;
+    skos:topConceptOf <http://example.org/ontology/harm> .
+
+skos:Concept a owl:Class .
+
