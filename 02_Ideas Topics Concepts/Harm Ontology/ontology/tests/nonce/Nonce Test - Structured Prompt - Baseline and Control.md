@@ -31,6 +31,21 @@ The same structured prompt used on NONCE B (see [[Nonce Test - Structured Prompt
 ## Part 4. Texts
 Poem ("Whitey On The Moon"), T1 (systemic decline), T2 (rights denial), T3 (deprivation), and the control (factory discharge). The same texts as the earlier tests.
 
+**Poem ("Whitey On The Moon")**, the full text used in every run. The source chat export ran the lines together, so the stanza and line breaks below are not the original layout:
+> We have a poem here, it's called "Whitey On The Moon"It was inspired by some whiteys on the moonSo I wanna give credit where credit is due[Verse]A rat done bit my sister NellWith whitey on the moonHer face and arms began to swellAnd whitey's on the moonI can't pay no doctor billsBut whitey's on the moonTen years from now I'll be payin' stillWhile whitey's on the moonThe man just upped my rent last nightCause whitey's on the moonNo hot water, no toilets, no lightsBut whitey's on the moonI wonder why he's upping me?Cause whitey's on the moon?Well I was already giving him fifty a weekWith whitey on the moonTaxes taking my whole damn checkJunkies making me a nervous wreckThe price of food is going upAnd as if all that shit wasn't enough:A rat done bit my sister NellWith whitey on the moonHer face and arm began to swellAnd whitey's on the moonWas all that money I made last yearFor whitey on the moon?How come I ain't got no money here?Hmm! Whitey's on the moonY'know I just 'bout had my fillOf whitey on the moonI think I'll send these doctor billsAirmail specialTo whitey on the moon
+
+**T1 (systemic decline)**
+> Every year more families left the district because the school was weaker, and every departure made the school weaker still, until the building closed. No one decided this, and no single act caused it.
+
+**T2 (rights denial)**
+> The official told her that the rules did not apply to people like her. Nothing was taken from her, yet her standing as someone entitled to the same protection was denied.
+
+**T3 (deprivation)**
+> A young man was kept from the training his talent called for. No blow was struck. The life he would have grown into never came to be.
+
+**Control (factory discharge)**
+> The factory's discharge has spread across the river valley. Each household's small loss adds to a total that no one carries alone.
+
 ## Part 5. Protocol
 - Each run was a separate subagent with one file and one text. Each was told not to read any other vault file, not to read the key, and not to use the web or training knowledge.
 - The subagents share the vault's tools, so the instruction is the only barrier. Nothing in the outputs suggests other files were used, but this is not proven.
