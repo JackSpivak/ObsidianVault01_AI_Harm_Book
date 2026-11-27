@@ -52,6 +52,7 @@ Detailed operating rules live in `.claude/rules/` and load automatically.
 - When a decision is made in discussion, offer to record it in `Decisions_Log.md`.
 - When a new fact is established (name, date, rule of the world), offer to add it to
   `Canon_and_Continuity.md`.
+- **Additive Rigor & Preservation (Treating Frameworks as Versioned Artifacts):** When updating existing frameworks, design notes, or multi-point lists, always read the current file first and preserve all previously established points/constraints. *(Rationale: Combat the natural AI bias toward recency over structural integrity—avoiding "synthesis amnesia" where recent conversational novelty silently drops older, hard-won consensus.)*
 
 ## Note creation rules
 - New idea notes use `00_Claude_Admin/Templates/Idea.md` (stubs too: `status: stub`), go in `02_Ideas Topics Concepts/_Unfiled Ideas/` with `bookmark: draft`, and are filed via the bookmark-index-maintainer skill. See `Decisions_Log.md` 2026-11-13.
