@@ -32,4 +32,8 @@ An interdisciplinary harm ontology must do more than catalogue static categories
 
 ---
 ## Linked Notes & References
-- 
+- Part of the originating thought process: 
+  - [[Framing - Webs of Harm and the Expanding Circle of Care]]
+  - [[Inquiry - Ontology Competency for Care and the Character of Builders]]
+  - [[Consideration - Defining Enough Care and Legal Precedent]]
+
