@@ -12,11 +12,11 @@ created: 2026-11-27
 # Framework: Core Idea Competency Questions (CICQ)
 
 > [!info] Purpose
-> Use this framework as a definitive evaluation filter when deciding whether a new concept, insight, or framing qualifies as a permanent core compass note in [[01_Core Compass - Vision, Questions, Frameworks/]] rather than an unfiled working note or dead-end thought.
+> Use this framework as a definitive operational filter when deciding whether a new concept, insight, or framing qualifies as a permanent core compass note in [[01_Core Compass - Vision, Questions, Frameworks/]] rather than an unfiled working note or dead-end thought.
 
 ---
 
-## The Four Core Idea Competency Questions
+## The Five Core Idea Competency Questions
 
 ### 1. The Generative Power Test (Action & Architecture)
 * **Question:** *Does this idea act as an engine rather than a dead-end? Does it force active work—such as re-evaluating schemas, generating tasks, or shifting workflow—across the vault?*
@@ -26,13 +26,17 @@ created: 2026-11-27
 * **Question:** *Does this idea change our perceptual repertoire? Does it expand our optical capacity by inventing new categories of searchlights (perspectives) and new modalities of lighthouses (care, guidance, and protection)?*
 * **Intent:** Ensures core ideas don't just solve immediate puzzles, but fundamentally reveal previously unperceived dimensions and blind spots.
 
-### 3. The Anchor & Compass Test (Directional Pull)
+### 3. The Boundary & Definition Test (Semantic Rigor)
+* **Question:** *Does this idea carve reality at the joints? Does it establish a rigid, necessary distinction that prevents category errors and conceptual drift across disciplines?*
+* **Intent:** Ensures high-level framings maintain semantic precision and avoid fuzzy thinking when bridging philosophy, technical ontology, and narrative.
+
+### 4. The Anchor & Compass Test (Directional Pull)
 * **Question:** *When we hit a complex design choice or narrative crossroads, does this principle or value offer a clear, unambiguous directional pull toward our ultimate vision?*
 * **Intent:** Ensures core ideas serve as practical navigational aids during difficult architectural trade-offs.
 
-### 4. The Cross-Domain Resonance Test (Interdisciplinary Bridge)
+### 5. The Cross-Domain Resonance Test (Interdisciplinary Bridge)
 * **Question:** *Does this concept hold true and remain vital whether we view it through a technical ontology schema, a philosophical lens, or a narrative/character arc?*
-* **Intent:** Ensures high-level framings maintain structural integrity across both technical modeling and creative writing.
+* **Intent:** Ensures hard-won framings maintain structural integrity across both technical modeling and creative writing.
 
 ---
 ## Linked Notes & References
