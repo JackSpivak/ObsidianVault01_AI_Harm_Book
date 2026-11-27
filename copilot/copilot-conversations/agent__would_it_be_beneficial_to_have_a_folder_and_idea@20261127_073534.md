@@ -7,7 +7,7 @@ model: '{"baseModelId":"google/gemini-3.5-flash-lite","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Vault idea tags and folders"
-usage: '{"usedTokens":23208,"contextWindow":1048576,"updatedAt":1795790610916}'
+usage: '{"usedTokens":23504,"contextWindow":1048576,"updatedAt":1795791304350}'
 ---
 
 **user**: would it be beneficial to have a folder and idea tags that help organize and identify key thoughts,  high level framings, inquiries, core quyestions, principles, commitments, values, vision.  where should we put this in the vault
@@ -117,3 +117,12 @@ An initial `_README.md` anchor note has been placed inside `01_Core Compass - Vi
 Would you like to draft your first core vision or foundational principle note in this new folder right now?
 <!-- copilot-message {"tools":["glob (search): *","glob (search)","powershell -Command \" Rename-Item -LiteralPath '03_Core - Vision, Questions, Frameworks' -NewName '01_Core Compass - Vision, Questions, Frameworks' -ErrorAction SilentlyContinue Rename-Item -LiteralPath '00_Claude_Admin' -NewName '02_Claude_Admin' -ErrorAction SilentlyContinue Rename-Item -LiteralPath '01_The Writer''s Room' -NewName '03_The Writer''s Room' -ErrorAction SilentlyContinue Rename-Item -LiteralPath '02_Ideas Topics Concepts' -NewName '04_Ideas Topics Concepts' -ErrorAction SilentlyContinue Rename-Item -LiteralPath '04_Characters' -NewName '05_Characters' -ErrorAction SilentlyContinue Rename-Item -LiteralPath '08_Resources' -NewName '06_Resources' -ErrorAction SilentlyContinue \" (execute)","edit (edit): 01_Core Compass - Vision, Questions, Frameworks/_README.md","powershell -Command \"Get-ChildItem -Directory ObsidianVault01_AI_Harm_Book\" (execute)"]} -->
 [Timestamp: 2026/11/27 07:42:37]
+
+**user**: yes. i have a complex note that realy neads to be broken before recording
+[Timestamp: 2026/11/27 07:54:58]
+
+**ai**: Please share the complex note or text you have in mind! 
+
+Paste it here, and we can break it down, extract its high-level framings, core questions, principles, and vision elements, and properly format them as notes inside your new **`01_Core Compass - Vision, Questions, Frameworks/`** folder with the right frontmatter and tags.
+<!-- copilot-message {"tools":["glob (search): 01_Core Compass - Vision, Questions, Frameworks/**/*","glob (search)"]} -->
+[Timestamp: 2026/11/27 07:54:58]
