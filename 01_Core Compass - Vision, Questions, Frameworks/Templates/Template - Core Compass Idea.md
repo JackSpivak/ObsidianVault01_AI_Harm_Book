@@ -32,26 +32,35 @@ created: {{date}}
 ## 2. Core Statement / Thesis
 *State the central idea, principle, or framing concisely.*
 
-## 3. Elaborations & Webs of Thought
-*Explore the nuances, supporting arguments, and interconnected concepts. How does this connect to harm, care, or ontology design?*
+## 3. Why this is distinct
+-
 
-## 4. Metaphors, Lenses & Imagery
+## 4. Anticipated direction
+-
+
+## 5. Conceptual territory
+-
+
+## 6. Elaborations & Webs of Thought
+*in 150 to 300 words, explore the nuances, supporting arguments, and interconnected concepts. How does this connect to harm, care, or ontology design?*
+
+## 7. Metaphors, Lenses & Imagery
 *Note any key metaphors (e.g., searchlights, lighthouses, ripples) or perspectives that illuminate this idea.*
 
-## 5. Core Idea Competency Questions (CICQ) Evaluation
+## 8. Core Idea Competency Questions (CICQ) Evaluation
 *Evaluate this idea against the 5 CICQ criteria to justify its inclusion as a permanent core compass note.*
 
-| CICQ Criterion | Determination (Pass/Fail) | Concise Rationale |
-|---|---|---|
-| **1. Generative Power** (Action & Architecture) | Pass / Fail | |
-| **2. Generative Illumination** (Vision & Optics) | Pass / Fail | |
-| **3. Boundary & Definition** (Semantic Rigor) | Pass / Fail | |
-| **4. Anchor & Compass** (Directional Pull) | Pass / Fail | |
-| **5. Cross-Domain Resonance** (Interdisciplinary Bridge) | Pass / Fail | |
-| **Verdict:** | **Include / Reject** | |
+| CICQ Criterion                                           | Determination (Pass/Fail) | Concise Rationale |
+| -------------------------------------------------------- | ------------------------- | ----------------- |
+| **1. Generative Power** (Action & Architecture)          | Pass / Fail               |                   |
+| **2. Generative Illumination** (Vision & Optics)         | Pass / Fail               |                   |
+| **3. Boundary & Definition** (Semantic Rigor)            | Pass / Fail               |                   |
+| **4. Anchor & Compass** (Directional Pull)               | Pass / Fail               |                   |
+| **5. Cross-Domain Resonance** (Interdisciplinary Bridge) | Pass / Fail               |                   |
+| **Verdict:**                                             | **Include / Reject**      |                   |
 
 ## 6. Open Inquiries & Next Questions
-*What questions remain unanswered? What competency questions or tests does this invite?*
+*What new questions does this idea elicit or suggest? What key existing questions remain unanswered? What competency questions or tests does this invite?*
 
 ---
 ## Linked Notes & References
