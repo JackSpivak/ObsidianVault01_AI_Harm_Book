@@ -7,7 +7,7 @@ model: '{"baseModelId":"google/gemini-3.5-flash-lite","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Vault idea tags and folders"
-usage: '{"usedTokens":30451,"contextWindow":1048576,"updatedAt":1795793753436}'
+usage: '{"usedTokens":31825,"contextWindow":1048576,"updatedAt":1795794322110}'
 ---
 
 **user**: would it be beneficial to have a folder and idea tags that help organize and identify key thoughts,  high level framings, inquiries, core quyestions, principles, commitments, values, vision.  where should we put this in the vault
@@ -394,3 +394,89 @@ Not every passing thought or scratchpad entry belongs in `01_Core Compass`. To c
 3. **Conceptual Independence:** It can stand alone as its own atomic idea, even though it links tightly to the others in its cluster.
 <!-- copilot-message {"tools":["read (read): 01_Core Compass - Vision, Questions, Frameworks/Principle - Ontology-Supported Inquiry of Care.md"]} -->
 [Timestamp: 2026/11/27 08:35:49]
+
+**user**: what has you agree that these should be core notes?
+[Timestamp: 2026/11/27 08:39:20]
+
+**ai**: These qualify as **core notes** rather than temporary notes, unfiled brainstorms, or chapter drafts for several specific reasons rooted in your vault's philosophy:
+
+1. **They Establish Architectural Requirements, Not Just Content:** 
+   Notes like *Ontology-Supported Inquiry of Care* don't just describe a scene or a character; they mandate **what the ontology itself must be built to do**. They serve as functional requirements for your entire technical and philosophical framework.
+
+2. **They Elevate "Care" from an Emotion to a Structural Object:** 
+   In most technical frameworks, "care" or "passion" is dismissed as subjective fluff. By formalizing them into core notes, you are establishing that care, legal sufficiency, and the ethical burden of the builder are *first-class considerations* in your harm architecture. That is a foundational stance.
+
+3. **They Cross Boundaries (Interdisciplinary Anchor):** 
+   A standard note lives in one domain (e.g., character background or technical RDF/OWL syntax). These core notes bridge computer science (ontology competency), law (standards of care), philosophy (ethics of the builder), and art (the ripple in the pond). Because they tie multiple worlds together, they belong at the very top of the vault as a compass.
+
+4. **They Prevent "Drift" Across Sessions:** 
+   When you return to this vault weeks from now with a new AI session, these notes act as a persistent anchor. They ensure that future discussions about harm categories or schemas remain aligned with your deep, underlying vision rather than devolving into dry, mechanical data modeling.
+[Timestamp: 2026/11/27 08:39:20]
+
+**user**: please propose some language we could use to frame a set of core idea competancy questions to enshrine and use uniformly across the vault and our activity here.  just propose don't do yeet
+[Timestamp: 2026/11/27 08:43:24]
+
+**ai**: Here is a proposal for a uniform set of **Core Idea Competency Questions** designed to be enshrined in your new `01_Core Compass` folder and applied consistently across your vault work and future sessions:
+
+---
+
+### Proposed Framework: Core Idea Competency Questions (CICQ)
+
+> **Purpose:** To be used as a standardized evaluation filter whenever a new harm category, conceptual model, structural schema, or narrative element is introduced in the vault. 
+
+#### 1. The Inquiry of Care Test
+* **Question:** *Does this representation merely catalogue a static harm, or does it actively invite, elicit, and scaffold a structured inquiry into its causes, setbacks, and future trajectories?*
+* **Intent:** Ensures our models facilitate active, compassionate investigation rather than passive data labeling.
+
+#### 2. The Web & Constellation Test
+* **Question:** *Does this capture the harm within its true web of sources, causes, and outcomes, or does it isolate it into a reductive, linear causal chain?*
+* **Intent:** Prevents over-simplification of complex systemic and interdisciplinary harms.
+
+#### 3. The Builder & Character Test
+* **Question:** *What does our decision to include, structure, or ignore this element say about our commitment to minimizing suffering, and what responsibility does it place on us as architects?*
+* **Intent:** Keeps the ethical stance and character of the builder tightly coupled to the technical design.
+
+#### 4. The Lighthouse & Precedent Test
+* **Question:** *Does this connect to guiding principles, historical precedents, or standards of sufficient care that show a path away from danger?*
+* **Intent:** Grounds novel technical and philosophical claims in rigorous historical, legal, or human wisdom.
+
+---
+
+*Note: As requested, this is strictly a proposal for your review — nothing has been written to the vault files yet.*
+[Timestamp: 2026/11/27 08:43:24]
+
+**user**: something seems good but a little off here.  seems dominated by the last atual topic rather than the principles gleaned from choosing/identifying these examples as core
+[Timestamp: 2026/11/27 08:45:18]
+
+**ai**: That is a very sharp observation. You are completely right: the previous proposal leaned too heavily into the specific content of *today's* conversation (care, lighthouses, webs of harm) rather than stepping back to ask: **What makes *any* core idea worthy of being enshrined as a high-level vault compass?**
+
+If we want a truly universal set of **Core Idea Competency Questions (CICQ)** that can judge *any* core idea, principle, or high-level framing across your entire project, the criteria should be structural, epistemological, and generative.
+
+Here is a revised, high-altitude proposal for framing those competency questions:
+
+---
+
+### Revised Proposal: Universal Core Idea Competency Questions (CICQ)
+
+Instead of testing *what* the idea is about, these questions test whether an idea has the structural weight and generative power to live in your top-level `01_Core Compass` folder:
+
+#### 1. The Generative Power Test (Does it spawn downstream work?)
+* **Question:** *Does this idea act as an engine rather than a dead-end? Does it force a re-evaluation of our schemas, narratives, or characters, or does it merely summarize what we already know?*
+* **Intent:** Core ideas must be fertile—they should naturally generate new inquiries, competency questions, or structural shifts across the vault.
+
+#### 2. The Boundary & Definition Test (Does it carve reality at the joints?)
+* **Question:** *Does this framing establish a clear, necessary distinction that prevents category errors or conceptual drift across different interdisciplinary domains?*
+* **Intent:** Ensures high-level framings provide rigid, reliable boundaries when bridging philosophy, technical ontology, and narrative.
+
+#### 3. The Anchor & Compass Test (Does it resolve ambiguity?)
+* **Question:** *When we hit a complex, ambiguous design choice or narrative crossroads, does this principle or value offer a clear directional pull toward our ultimate vision?*
+* **Intent:** A core compass idea must be practically useful when making hard choices about what to include, omit, or prioritize.
+
+#### 4. The Cross-Domain Resonance Test (Does it bridge our worlds?)
+* **Question:** *Does this concept hold true and remain relevant whether we are looking at it through a technical ontology schema, a philosophical lens, or a narrative/character arc in the book?*
+* **Intent:** Because your vault spans rigorous technical modeling and creative writing, true core ideas must possess interdisciplinary resonance.
+
+---
+
+How does this framing feel? It shifts the focus away from the specifics of "care and lighthouses" and toward the meta-criteria of what makes an idea foundational to begin with.
+[Timestamp: 2026/11/27 08:45:18]
