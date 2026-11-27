@@ -37,9 +37,9 @@ When we apply that blueprint to suffering, our tools cease to be passive spreads
 ## III. Building the Architecture of Care
 How does abstract care take concrete shape in a digital system? This is where we must build an **Architecture of Care**. 
 
-The architecture is the conceptual and structural edifice—the organizational home of the components, relationships, and functionalities that make all of this possible. Within this edifice, an ontology-supported inquiry of care takes root. **An architecture of care enables an ontology-supported inquiry of care to produce actionable determinations.** 
+Think of this architecture as the structural home—the wiring, plumbing, and framing—that makes compassion operational. Within this edifice, an ontology-supported inquiry of care takes root. **The architecture doesn’t just log a tragedy; it forces the system to deliver a verdict with teeth: clear, hard truths about who got hurt, why it happened, and what must be fixed right now.** 
 
-It is not the inquiry itself that transforms our tools, but the precise, actionable determinations those inquiries produce. Instead of a system halting at a vague warning or silent logging, the architecture houses investigation trackers, causal assemblies, and remediation loops that force the machine to trace root causes, map localized setbacks, evaluate responsibility, and output binding paths to remediation. It bridges the gap between mechanical data modeling and profound ethical accountability, ensuring that every discovered harm triggers structured insight rather than a shrug.
+It is not the inquiry itself that transforms our tools, but those sharp, undeniable verdicts. Instead of a system halting at a vague error code or a polite corporate shrug, the architecture houses investigation trackers and remediation loops that compel the machine to trace root causes, map cascading failures, and output mandatory fixes. It bridges the gap between cold data modeling and moral accountability, ensuring that every discovered harm triggers a rescue mission rather than an administrative dead end.
 
 ---
 
