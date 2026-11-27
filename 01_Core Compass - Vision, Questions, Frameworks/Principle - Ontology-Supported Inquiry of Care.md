@@ -12,29 +12,30 @@ created: 2026-11-27
 
 # Principle: Ontology-Supported Inquiry of Care
 
-## 1. Core Statement / Thesis
+## 2. Core Statement / Thesis
 An interdisciplinary harm ontology must do more than catalogue static categories of harm; it must provide the structural scaffolding necessary to elicit and support a **rigorous, structured inquiry of care** around every discovered harm.
 
-## 2. Why this is distinct
-It moves beyond static, administrative harm-categorization by establishing that an ontology's true test is whether it actively facilitates ethical concern, relational web-tracking, and structural accountability.
+## 3. Why this is distinct
+It shifts the focus from administrative harm-labeling to active ethical engagement, requiring that an ontology actively facilitate relational web-tracking and structural accountability rather than acting as a passive database.
 
-## 3. Anticipated direction
+## 4. Anticipated direction
 The ontology schema must incorporate classes and properties that represent investigations, webs of causes and outcomes, and remediation tracking, ensuring that every identified harm triggers structured inquiry rather than silent logging.
 
-## 4. Conceptual territory
+## 5. Conceptual territory
 Relational ethics; ontologies of care; structural accountability; webs of harm versus linear causal chains; the ethical stance of the knowledge builder.
 
-## 5. Elaborations & Webs of Thought
-- **Webs, Not Chains:** Harms and their sources/outcomes exist in complex webs rather than linear causal chains. Our representation must capture these constellations in which we and those we love become entangled.
-- **The Measure of Care:** Our willingness to wonder about all associated aspects of a harm—causes, setbacks, consequences, and future trajectories—is the ultimate measure of our care and commitment to minimize suffering.
-- **Ontology vs. LLM:** We must test whether a formal ontology can support this depth of inquiry of care in ways that a raw large language model cannot.
+## 6. Elaborations & Webs of Thought
+Harms and their sources and outcomes exist in complex webs rather than isolated linear causal chains. Our formal representation must capture these dense constellations in which we and those we love become entangled, moving beyond simplistic event modeling. The willingness to wonder about all associated aspects of a harm—its root causes, localized setbacks, cascading consequences, and future trajectories—serves as the ultimate measure of our care and commitment to minimize suffering.
 
-## 6. Metaphors, Lenses & Imagery
+Furthermore, we must rigorously test whether a formal ontology can support this depth of inquiry and care in ways that a raw large language model cannot. By moving from static categorization to active structural inquiry, the framework bridges the gap between mechanical data modeling and profound ethical responsibility.
+
+## 7. Metaphors, Lenses & Imagery
 - **Searchlights vs. Lighthouses:** Perspectives act as *searchlights* revealing specific angles of a situation, while *care* acts as a lighthouse warning of dangerous shoals. Wondering is the first step of enlightenment.
 - **Art as Care:** All art is an expression of what the artist cares about, extending an implicit invitation to the recipient to care as well (the pebble and the ripple in the pond).
 - **Passion and Motivation:** Care shares an original basis with passion, serving as the key motivational force to gather followers and drive remediation, mitigation, and prevention.
 
-## 7. Core Idea Competency Questions (CICQ) Evaluation
+## 8. Core Idea Competency Questions (CICQ) Evaluation
+*Evaluate this idea against the 5 CICQ criteria to justify its inclusion as a permanent core compass note.*
 
 | CICQ Criterion | Determination (Pass/Fail) | Concise Rationale |
 |---|---|---|
@@ -45,7 +46,7 @@ Relational ethics; ontologies of care; structural accountability; webs of harm v
 | **5. Cross-Domain Resonance** (Interdisciplinary Bridge) | Pass | Connects technical ontology design with legal standards of care, philosophical ethics, and artistic motivation. |
 | **Verdict:** | **Include** | Fully qualifies as a permanent core compass principle. |
 
-## 8. Open Inquiries & Next Questions
+## 6. Open Inquiries & Next Questions
 1. What specific competency questions must the ontology pass to prove it supports an inquiry of care?
 2. What does our competence to care—or our failure to build and seek it—say about our collective responsibility?
 3. How can we translate this into a core persuasive statement that helps prevent harm before it occurs?

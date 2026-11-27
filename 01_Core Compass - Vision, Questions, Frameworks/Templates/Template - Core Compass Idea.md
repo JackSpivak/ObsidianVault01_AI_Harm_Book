@@ -42,6 +42,8 @@ created: {{date}}
 -
 
 ## 6. Elaborations & Webs of Thought
+## Summary
+<instruction>Write 2 paragraphs of 4–5 sentences each (strictly 150 to 250 words). explore the nuances, supporting arguments, and interconnected concepts. How does this connect to harm, care, or ontology design? Replace this tag with the summary.</instruction>
 *in 150 to 300 words, explore the nuances, supporting arguments, and interconnected concepts. How does this connect to harm, care, or ontology design?*
 
 ## 7. Metaphors, Lenses & Imagery
