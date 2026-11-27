@@ -11,7 +11,7 @@ created: 2026-11-27
 # Template: Core Compass Idea
 
 > [!info] Purpose
-> Use this template for notes in [[01_Core Compass - Vision, Questions, Frameworks/]] that capture high-level framings, core inquiries, principles, commitments, values, or vision.
+> Use this template for notes in [[01_Core Compass - Vision, Questions, Frameworks/]] that capture high-level framings, core inquiries, principles, commitments, values, or vision. Every note here must be evaluated against the Core Idea Competency Questions (CICQ).
 
 ---
 
@@ -38,7 +38,19 @@ created: {{date}}
 ## 4. Metaphors, Lenses & Imagery
 *Note any key metaphors (e.g., searchlights, lighthouses, ripples) or perspectives that illuminate this idea.*
 
-## 5. Open Inquiries & Next Questions
+## 5. Core Idea Competency Questions (CICQ) Evaluation
+*Evaluate this idea against the 5 CICQ criteria to justify its inclusion as a permanent core compass note.*
+
+| CICQ Criterion | Determination (Pass/Fail) | Concise Rationale |
+|---|---|---|
+| **1. Generative Power** (Action & Architecture) | Pass / Fail | |
+| **2. Generative Illumination** (Vision & Optics) | Pass / Fail | |
+| **3. Boundary & Definition** (Semantic Rigor) | Pass / Fail | |
+| **4. Anchor & Compass** (Directional Pull) | Pass / Fail | |
+| **5. Cross-Domain Resonance** (Interdisciplinary Bridge) | Pass / Fail | |
+| **Verdict:** | **Include / Reject** | |
+
+## 6. Open Inquiries & Next Questions
 *What questions remain unanswered? What competency questions or tests does this invite?*
 
 ---
