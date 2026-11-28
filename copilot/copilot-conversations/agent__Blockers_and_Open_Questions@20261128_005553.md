@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Blockers and open questions"
-usage: '{"usedTokens":234548,"contextWindow":1000000,"updatedAt":1795858198937}'
+usage: '{"usedTokens":241767,"contextWindow":1000000,"updatedAt":1795858816037}'
 ---
 
 **user**: Blockers and Open Questions
@@ -1415,3 +1415,136 @@ Decisions needed: keep `issuedBy` and `hasEnforcementAuthority` as required, wit
 
 Do you approve the rule, and how should `confidenceLevel` and `atHorizon` be handled?
 [Timestamp: 2026/11/28 02:29:54]
+
+**user**: what object is in the domain of confidenceLevel
+[Timestamp: 2026/11/28 02:32:17]
+
+**ai**: The domain of `confidenceLevel` is `HarmAssessment`.
+
+It is a judgment-level attribute, so it moved with Group 5 when we decided that provenance and epistemic status belong on the assessment (2026-11-28). The earlier tree still shows it under `AssessmentProcedure`, which is now superseded. I should also have flagged that when we logged the decision.
+[Timestamp: 2026/11/28 02:32:17]
+
+**user**: so it is on HarmAssessment now?
+[Timestamp: 2026/11/28 02:32:49]
+
+**ai**: Yes. `confidenceLevel` is on `HarmAssessment`. The decision logged on 2026-11-28 moved Group 5 there, and `confidenceLevel` is part of Group 5.
+
+The earlier tree still shows it under `AssessmentProcedure`. That diagram is out of date, so the tree should be redrawn before it is used again.
+[Timestamp: 2026/11/28 02:32:49]
+
+**user**: i think it will need a rich narrative rather than just a numeric scale
+[Timestamp: 2026/11/28 02:33:40]
+
+**ai**: If it needs rich narrative, it follows the enumeration decision (item 4): `confidenceLevel` becomes an object property on `HarmAssessment`, with a range of `ConfidenceLevel` individuals. Each value is a `skos:Concept` that is also an `owl:NamedIndividual`, with its own definition, scope note and mappings. A numeric score could still be recorded in a separate data property if the author wants one.
+
+Before we log it, check one overlap. `epistemicStatus` (Alleged, Substantiated, Disputed, Retracted, Confirmed) and `confidenceLevel` could both express how well supported an assessment is. Proposed distinction:
+
+- `epistemicStatus`: the **standing of the claim** in the record (has it been alleged, disputed, retracted?)
+- `confidenceLevel`: the **strength of support** the assessor gives to the judgment, on the evidence they cite
+
+Does the author agree that these measure different things? If so, I'll draft the item 5 decision with `confidenceLevel` as an object property to `ConfidenceLevel` individuals, and the `atHorizon` case alongside it.
+[Timestamp: 2026/11/28 02:33:40]
+
+**user**: yes
+[Timestamp: 2026/11/28 02:34:38]
+
+**ai**: I've logged item 5 as settled, with one assumption to check.
+
+- **Decisions_Log:** a new 2026-11-28 row. It records the object-or-data rule, `confidenceLevel` as an object property to `ConfidenceLevel` individuals on `HarmAssessment`, and the distinction from `epistemicStatus`. Your "yes" settled the distinction. I also recorded the general rule as settled, because it was proposed in the same message, but you did not confirm it separately. Please say if that is wrong and I'll revise the row.
+- **Change ledger, S26:** item 5 is marked settled, except for `atHorizon`, which is still open. Item 6, the overlap between `enablesAssessment` and `takenFrom`, remains open.
+
+Do you want to decide `atHorizon` next, or go straight to item 6?
+<!-- copilot-message {"tools":["edit (edit): 02_Claude_Admin/Decisions_Log.md","edit (edit): 04_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md"]} -->
+[Timestamp: 2026/11/28 02:34:38]
+
+**user**: athorizon
+[Timestamp: 2026/11/28 02:35:07]
+
+**ai**: `atHorizon` should be an object property, not a plain date. A horizon is more than a date: it has a cut-off point, a reference point the cut is measured from, and a kind. Those are the same features that made the enumerations rich enough for objects.
+
+**Proposed structure:**
+
+```text
+HarmAssessment
+└── atHorizon → Horizon (individual)
+     ├── horizonKind → HorizonKind (enumeration individual: exposure, predictability, discount, limitation)
+     ├── horizonReference → Factor | Effect | assessedAt (time of the assessment)
+     ├── horizonEnd (data property, xsd:date or xsd:duration)
+     └── horizonStart (data property, optional)
+```
+
+**Why this and not a plain date:**
+
+- The earlier open question (H2) asked whether the horizon is measured from the factor, the effect or the assessment. Those are objects, so the reference has to be a link, not text.
+- `HorizonKind` needs narrative: "exposure horizon" and "predictability horizon" mean different things to different disciplines, the same reason as the other enumerations.
+- The horizon is part of the claim key (H3), so it has to be a referenceable individual.
+
+**One check:** the time-interval part could reuse OWL-Time (`time:Interval`) rather than define our own. That was noted as a candidate in HO-III.b and is still unverified, so I'd leave it as a proposal to test, not a decision.
+
+Do you approve `atHorizon` as an object property to a `Horizon` individual, with the structure above?
+[Timestamp: 2026/11/28 02:35:07]
+
+**user**: yes
+[Timestamp: 2026/11/28 02:35:49]
+
+**ai**: I've logged `atHorizon` as settled.
+
+- **Decisions_Log:** a new 2026-11-28 row. `atHorizon` is an object property to a `Horizon` individual, with `horizonKind`, `horizonReference`, `horizonEnd` and an optional `horizonStart`. Reusing OWL-Time is still a candidate to test.
+- **Change ledger, S26:** item 5 is now fully settled. Item 6 remains: the overlap between `enablesAssessment` and `takenFrom`.
+
+Item 6 is the last open part of S26. Do you want to take it now?
+<!-- copilot-message {"tools":["edit (edit): 02_Claude_Admin/Decisions_Log.md","edit (edit): 04_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md"]} -->
+[Timestamp: 2026/11/28 02:35:49]
+
+**user**: yes
+[Timestamp: 2026/11/28 02:36:05]
+
+**ai**: Item 6 is whether `enablesAssessment` and `takenFrom` both link a lens to an assessment, and if so, what each one means.
+
+**What each relation says now:**
+
+- `takenFrom` (`HarmAssessment` → `PerspectiveSpecification`) records the **actual judgment**. This judgment was made from this specification.
+- `PerspectiveSpecification` `instantiates` a `PerspectiveType`, so an actual judgment already leads back to its lens.
+- `enablesAssessment` (`PerspectiveType` → `HarmAssessment`) would state that the lens **licenses** this kind of assessment, which need not be tied to any real judgment.
+
+**Option A: keep both.** `enablesAssessment` records licence, which exists before any judgment. `takenFrom` records the judgment.
+
+**Option B: drop `enablesAssessment`.** Every judgment already points to its lens through `takenFrom` and `instantiates`. "Which lens licenses this kind of assessment" can be answered by a query over existing judgments, not by a stored link.
+
+**My recommendation is Option B.** The licence claim is not used by any competency question we have, and it duplicates the real chain. It also creates two sources of truth that could disagree: a lens could be recorded as licensing an assessment it never produced, or the record could disagree with the licence. If a real case later needs a licence that exists without any judgment, we can add it then, following the rule we already use for other additions.
+
+Which do you choose: keep both (A), or drop `enablesAssessment` (B)?
+[Timestamp: 2026/11/28 02:36:05]
+
+**user**: somehow i thought we were saying PerspectiveType is the domain of enablesAssessment.  are you saying that is not true? That PerspectiveSpecification is in the domain? or Both?
+[Timestamp: 2026/11/28 02:38:55]
+
+**ai**: The domain is `PerspectiveType`. That is what we logged and what the tree shows. `PerspectiveSpecification` is not in the domain.
+
+I should have stated that more clearly. The 2026-11-28 decision places `enablesAssessment` in Group 9 of `PerspectiveType`, and I have described it as running from `PerspectiveType` to `HarmAssessment` throughout. Option A keeps that. Option B would remove the relation, so the domain question only matters if we keep it.
+
+If we keep it, the reason for `PerspectiveType` as the domain is that a licence belongs to the lens, not to any one setting of it. A specification adds settings such as position, time and purpose, and those settings do not change whether a lens is recognised as a basis for an assessment.
+
+One caveat to check: a lens might license an assessment only under some settings. If that case appears, the licence would need a condition, and `PerspectiveSpecification` would then matter. That is an argument for Option B, since the condition could be captured by the judgment itself.
+[Timestamp: 2026/11/28 02:38:55]
+
+**user**: if we don't keep enablesAssessment for a perspectivetype, what then does actually enable an assessment?
+[Timestamp: 2026/11/28 02:40:09]
+
+**ai**: If we drop `enablesAssessment`, nothing in the stored graph carries the word "enables". An assessment is made possible by its inputs, and each one is already recorded:
+
+- **A specification** it was taken from (`takenFrom`), which instantiates a lens. The lens supplies defaults, such as the default evaluative standard, but it does not grant permission.
+- **A procedure** that governs it (`governedByProcedure`). The procedure is what gives a judgment its mandate, through its issuing body and its enforcement authority.
+- **An assessor** (`assessedBy`), an organization or agent with the standing to judge.
+
+Pushback on my earlier framing: the thing that licenses an assessment is more likely the **procedure and its mandate** than the **lens**. A court's authority to judge comes from the statute and the court's jurisdiction, not from the legal tradition as such. So if we keep an explicit enabler, it probably belongs on `AssessmentProcedure`, not `PerspectiveType`.
+
+That also touches S1 and S21. The original idea, that a discipline's perspective enables assessments, was made when we thought disciplines were perspectives. That question is deferred, so S1 is still open.
+
+Two options:
+
+1. **No explicit enabler.** An assessment counts as licensed when it has a procedure, an assessor, and a specification that instantiates a lens. This can be checked with SHACL.
+2. **Procedure enables.** Add `enablesAssessment` from `AssessmentProcedure` to `HarmAssessment`. This matches the mandate model, but it is a second route to the same fact, so it could duplicate `governedByProcedure`.
+
+I'd lean to option 1, because the procedure link already carries the mandate and a second link adds a way for the two to disagree. Which do you prefer?
+[Timestamp: 2026/11/28 02:40:09]
