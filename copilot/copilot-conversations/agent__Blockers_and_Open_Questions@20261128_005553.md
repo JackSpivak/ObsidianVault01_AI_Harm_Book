@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Blockers and open questions"
-usage: '{"usedTokens":209183,"contextWindow":1000000,"updatedAt":1795856383694}'
+usage: '{"usedTokens":218968,"contextWindow":1000000,"updatedAt":1795857001478}'
 ---
 
 **user**: Blockers and Open Questions
@@ -1025,3 +1025,126 @@ Two consequences follow:
 
 So the decision is effectively already forced by your design. Dual typing (`owl:NamedIndividual, skos:Concept`) is the way to get SKOS vocabulary and OWL relations on the same IRI. The earlier wording should have said that it is required for `causalModel`, not "can also be."
 [Timestamp: 2026/11/28 01:59:37]
+
+**user**: ok. is that an actual essential refinement we can articulate clearly and add to one of our core design commitments around the use of a skos: sructured hub and spoke vocabulary layer? it seems that this may also create SHACL constraints that could check internally against skos:Concepts that were not also owl:NamedIndividals. correct?
+[Timestamp: 2026/11/28 02:03:04]
+
+**ai**: Yes on both counts. The refinement is clear enough to state as a commitment, and SHACL can check it.
+
+**Draft commitment (for your approval, not yet written):**
+
+> **Hub and spoke concepts used as values of schema properties are dual-typed.** Any `skos:Concept` in the vocabulary layer that is the object of a schema property (for example `ho:causalModel`) must also be declared `owl:NamedIndividual`. OWL object property assertions relate individuals, so a concept typed only as `skos:Concept` cannot be referenced by the schema. Concepts that are never referenced by a schema property may remain `skos:Concept` only.
+
+**SHACL check.** Yes, a shape can enforce this. It targets every `skos:Concept` and requires that it also carries `owl:NamedIndividual` as a type:
+
+```turtle
+hosh:ConceptIsIndividualShape a sh:NodeShape ;
+    sh:targetClass skos:Concept ;
+    sh:property [
+        sh:path rdf:type ;
+        sh:hasValue owl:NamedIndividual ;
+        sh:message "skos:Concept must also be declared owl:NamedIndividual so schema properties can reference it."
+    ] .
+```
+
+A stricter version targets only the values of `ho:causalModel`, which catches the problem where it matters. It does not require every concept to be an individual:
+
+```turtle
+hosh:CausalModelValueShape a sh:NodeShape ;
+    sh:targetSubjectsOf ho:causalModel ;
+    sh:property [
+        sh:path ho:causalModel ;
+        sh:node hosh:ConceptIsIndividualShape
+    ] .
+```
+
+**Two limits to note:**
+
+1. SHACL checks the data graph at validation time. An OWL reasoner will not report a missing declaration, and the file may still load in Protégé. The check therefore has to be run, for example with pyshacl, which is already set up in the vault's `harm-ontology` environment.
+2. The shape enforces the declaration, not the meaning. Whether a concept is the right causal model is still a placement and assessment question.
+
+**Where to record it.** The governing principles in [[Harm Ontology v3.1 - Skeleton Schema (proposed)]] already hold the classes-and-concepts rule. This refinement belongs next to it. A Decisions_Log row would make it binding, so I'd add it there only after you confirm. Should I draft the Decisions_Log row and the skeleton-schema wording for your review?
+[Timestamp: 2026/11/28 02:03:04]
+
+**user**: do we record two commitments? the namedindividual and also the shacl checking>
+[Timestamp: 2026/11/28 02:04:38]
+
+**ai**: I'd record one commitment with two parts, and keep the SHACL check as a consequence rather than a separate decision.
+
+**Why one commitment:** the SHACL shape exists only to enforce the rule. If the rule is dropped, the shape goes with it. Splitting them would give two decisions that can drift apart.
+
+**Why still name the check:** a commitment without an enforcement step is easy to forget. So the Decisions_Log row states the rule, and the enforcement is recorded as a required step in the profiles layer (`hosh:`), with the shape named.
+
+Draft row for your approval:
+
+> **Dual typing of vocabulary concepts used by the schema.** A `skos:Concept` that is the value of a schema property (for example `ho:causalModel`) must also be declared `owl:NamedIndividual`, because OWL object property assertions relate individuals. Concepts not referenced by any schema property may remain `skos:Concept` only. Enforced by SHACL in the profiles layer (`hosh:ConceptIsIndividualShape`, run with pyshacl). The check does not judge whether a concept is the right one.
+
+Two things would still be separate: the placement question (which elements are classes, individuals or concepts), which stays in the skeleton-schema open questions, and the concrete shape file, which is an implementation task.
+
+Shall I add this row to the Decisions_Log, and the matching task to the ledger?
+[Timestamp: 2026/11/28 02:04:38]
+
+**user**: fine.  lets do it as you propose.
+[Timestamp: 2026/11/28 02:05:16]
+
+**ai**: I've recorded the commitment in two places.
+
+- **Decisions_Log** (`02_Claude_Admin/Decisions_Log.md`): a new row dated 2026-11-28, above the 2026-11-25 entries, marked Settled. It states the dual-typing rule and the SHACL enforcement, and links to the skeleton schema and the ledger.
+- **Change ledger** (`Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md`): new task **HD29** in section 0, for writing the shapes `hosh:ConceptIsIndividualShape` and `hosh:CausalModelValueShape` and running them with pyshacl. It is Open and blocked by the profiles-layer build.
+
+I did not change the skeleton schema's governing-principles section. The new row links to it, so I can add a matching line there if you want the rule visible where the classes-and-concepts rule already sits.
+<!-- copilot-message {"tools":["read (read): 02_Claude_Admin/Decisions_Log.md","grep (search): 04_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md","read (read): 04_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md","edit (edit): 02_Claude_Admin/Decisions_Log.md","edit (edit): 04_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md"]} -->
+[Timestamp: 2026/11/28 02:05:16]
+
+**user**: have we resolved S26 and S28 fully?
+[Timestamp: 2026/11/28 02:05:45]
+
+**ai**: No. Neither is fully resolved.
+
+**S28 (placement test)** is defined as a method. The skill reference `PLACEMENT_TEST.md` gives four questions: does the element describe a tradition, an act of assessment, the thing assessed, or an output? But the test has not been formally applied to the gap groups or the new Group 9 placement, and I have not confirmed its status in the ledger this session. Treat it as defined but not settled.
+
+**S26 (gap schema attachment)** is still Provisional. The two candidate homes are `HarmAssessment` and a procedural layer, `AssessmentProcedure`. The procedural layer is the more likely answer, and the trees we drew assume it, but no decision is logged. The author has not chosen between the two. Two other points are also unresolved:
+
+- Some gap-group attributes may still fit better on the thing assessed or on an output. For example, `closureStatus` and `identifiesObligatoryRemedy` could be outputs rather than procedure properties. The placement test is meant to settle exactly this, and it has not been run on each attribute.
+- `enablesAssessment` was moved into Group 9 in our discussion, but that placement is not logged. The Decisions_Log row I drafted earlier was never written, so the move is still just a working decision.
+
+To close S26 and S28 properly, the next steps are:
+
+1. Run the placement test on each of the four gap groups and on `enablesAssessment`, and record the result for each element.
+2. Get the author's decision on `AssessmentProcedure` as a class, versus a property bundle on `HarmAssessment`.
+3. Log both as Decisions_Log rows and update the ledger status of S26 and S28.
+
+I can draft the placement-test table for step 1 if you want it.
+[Timestamp: 2026/11/28 02:05:45]
+
+**user**: didn't we just decide the entire placement on the harm assessment tree? or are you saying we just decided provisionally until testing?
+[Timestamp: 2026/11/28 02:07:07]
+
+**ai**: We did not decide the placement. We drew a working tree, and I presented it in a way that sounded more settled than it was.
+
+- **What exists:** the tree in this chat, with the gap groups under `AssessmentProcedure`, `AssessmentProcedure` linked from `HarmAssessment` by `governedByProcedure`, and `enablesAssessment` under `PerspectiveType` Group 9. It is a proposal for the author to review.
+- **What is logged:** only the dual-typing rule (2026-11-28). Nothing about the procedure layer, the four gap groups, or `enablesAssessment`'s placement is in the Decisions_Log.
+- **What is provisional:** the ledger still lists S26 as Provisional, and the author has not chosen between a separate `AssessmentProcedure` class and a property bundle on `HarmAssessment`.
+
+So the tree is provisional until the author accepts it and it is logged, and the placement test has not been run to justify each branch. Once the author confirms the tree, I can log it as a Proposed decision with the placement test as the stated basis, and set S26 accordingly. Should I draft that row for review?
+[Timestamp: 2026/11/28 02:07:07]
+
+**user**: ok.  i have assessed it, critiqued and questioned, asked for your pushback and reassessed.  we reached a conclusion that seemed informed and meeting a variety of design preferences and requirements without undue friction, overhead or consequences. i believe that what we have looks good.  do you have any remaining pushback or concerns about the currently proposed and reviewed placement?
+[Timestamp: 2026/11/28 02:09:50]
+
+**ai**: Yes, I have several concerns. The most important is a placement error that the placement test itself would catch.
+
+**1. Provenance and epistemic status are on the wrong node (most important).** Group 5 (`epistemicStatus`, `evidenceAnchor`, `confidenceLevel`, `temporalValidity`) describes a particular finding: what it rests on, how confident we are, and whether it has been disputed. The procedure is the set of rules for making findings. Two procedures can produce findings with very different evidence and status, and the same finding can be disputed under one procedure and settled under another. Those properties belong on `HarmAssessment`, or on the output it produces. The test's own category 4 (outputs and resolutions) points the same way.
+
+**2. Closure and remedy are also instance-level.** `closureStatus` changes for each case: a specific remedy is Open, then Remedied, then Closed. The procedure can say which kinds of remedy are obligatory, which is a rule. Whether this particular remedy was carried out is a fact about one assessment. So `identifiesObligatoryRemedy` may fit the procedure, but `closureStatus` and the remedy instance belong with the output.
+
+**3. Who owns the procedure is unresolved.** The tree puts `AssessmentProcedure` under `HarmAssessment`, but Group 1 says an enforcement authority attaches to it. A procedure is usually set by an institution, not by a lens. That may be a reason to link it to an institution rather than to `PerspectiveType`, or to keep it as a shared individual with its own owner.
+
+**4. Enumerations need the same rule we just logged.** Values such as `enforcementPower`, `valuationCurrency`, `assessmentTiming` and `epistemicStatus` are written as "Enumeration" data properties. They are controlled values that the schema and the procedure both refer to. So they should be named individuals, which is the dual-typing rule. The tree should not leave them as strings.
+
+**5. Object or data is unclear for many attributes.** Several lines say "Data/Object Property". For Protégé each attribute needs one kind, and the choice affects what can be queried.
+
+**6. Two relations link a perspective to an assessment.** `enablesAssessment` (type to assessment) and the existing `takenFrom` (specification to assessment) could overlap. We should say which one answers "which lens produced this" and which answers "which lens licensed this kind of assessment", or they will drift.
+
+Items 1 and 2 would change the tree. Items 3 to 6 are open design questions. I can run the placement test on each flagged attribute and show the result, so the author can see the reasoning before anything is logged.
+[Timestamp: 2026/11/28 02:09:50]
