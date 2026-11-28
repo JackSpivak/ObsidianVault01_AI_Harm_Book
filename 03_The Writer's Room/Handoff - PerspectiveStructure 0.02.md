@@ -76,6 +76,7 @@ parent_handoff: "[[Handoff - Harm Ontology]]"
 - Record the ontology as an instance of its own PerspectiveType (Socrates, Hofstadter)?
 - Add new Divergence subtypes to HO-III.a: verdict convergence with rationale divergence (Edelman), and perspectival vs factual by transformation test (Einstein)?
 - Keep `developmentalAltitude`, given that it's contested?
+- Is the wisdom-pyramid ordering (knowledge, intelligence/understanding, wisdom) a fourth axis? Does each level have its own perspective, its own questions, and an altitude limit on what it can ask or see? Raised by the author (2026-11-27). See [[BK-015 Wisdom Pyramid - Levels and Their Competency Questions]]. Not dependent on `developmentalAltitude`.
 
 ## Decisions to offer for logging
 None of these is in [[Decisions_Log]] yet. Offer to log each one once confirmed:

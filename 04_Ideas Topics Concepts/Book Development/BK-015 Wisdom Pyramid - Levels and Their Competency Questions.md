@@ -48,10 +48,13 @@ created: 2026-11-27
 
 ## Connection to altitude representation
 - **Likely relation:** the pyramid's higher levels ask from a wider frame, first practical goals, then moral and ethical framing. That resembles developmental altitude, which the Harm Ontology uses for how widely a value structure extends concern ([[Integral Altitude Scale]], [[Vocabulary Crosswalk - Concept Hubs and Discipline Schemes]]).
+- **Independence:** the pyramid does not depend on altitude. It stands on its own competency questions, and it should be representable without any altitude value. Altitude is contested (S34 in [[Harm Ontology v3.1 — Feature Roadmap and Change Ledger]]), and its citations are not yet verified (V7), so nothing in the pyramid should wait on it.
+- **Where it could be represented:** if the pyramid becomes a vocabulary, it would be a concept scheme with each level as a hub, sitting beside the perspective fields ([[PerspectiveStructure 0.01]]), not inside the altitude hub.
+
+**Cautionary reflections**
 - **Not the same axis:** the pyramid orders what a level is competent to decide. Altitude orders how inclusive a value structure is. The ontology already keeps three scope axes apart: social size (`socialScope`), developmental altitude, and moral circle ([[Handoff - PerspectiveStructure 0.02]], [[PerspectiveStructure Proposal Draft 3.1]]). A pyramid level would be a fourth axis unless it can be shown to match one of these. This is open.
+- **The author's insight (2026-11-27):** it may be a fourth axis. Each of the metaphorical faculties (knowledge, intelligence or understanding, wisdom) may have its own perspective, its own questions, and an altitude limit on what it can ask or see. The pyramid would then describe where a perspective's reach stops, not only how high it sits. Recorded as an open decision in [[Handoff - PerspectiveStructure 0.02]].
 - **Whose ranking:** altitude scales encode their authors' views. The Kohlberg–Gilligan dispute and the Confucius and Laozi split show this. So any pyramid ranking needs the same `assessedBy` record that the Classical review proposed for altitude ([[HO-II.d.3 Hub and Spoke Pattern]]).
-- **Status:** `developmentalAltitude` is still contested (S34 in [[Harm Ontology v3.1 — Feature Roadmap and Change Ledger]]). It is blocked until its citations are verified (V7). The pyramid should not depend on altitude until that is settled.
-- **Where it could be represented:** if the pyramid becomes a vocabulary, it would be a concept scheme with each level as a hub, like the existing altitude hub ([[PerspectiveStructure 0.01]] for the perspective fields it would sit beside).
 
 ## Original wording
 > "there is a notion in knowledge work that there is a hierarchy of knowledge. i prefer to think of it as a pyramid of wisdom or enlightenment because knowledge is somewhere near the bottom ... from bottom up: data, information, knowledge, intellegence/understanding, wisdom, enlightenment ... each hierarchical level represents a distinct value-add above the predecessor"
