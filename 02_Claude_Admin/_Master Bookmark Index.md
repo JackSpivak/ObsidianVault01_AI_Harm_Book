@@ -32,6 +32,10 @@ created: 2026-11-10
 	- `canonical_id: harm-ontology-bookmark-index` · prefix `HO-`
 	- Scope: design of the perspective-relative harm ontology: its layers (Factor, CausalRole, Effect), the judging layer (Assessment, Perspective, horizon), divergence, and vocabulary reuse.
 	- Pages live in `02_Ideas Topics Concepts/Harm Ontology/`. Created from [[2026-11-14 Harm Ontology Redesign]].
+- [[_Book Development Bookmark Index|Book Development]]: **live** (registered 2026-11-27)
+	- `canonical_id: book-development-index` · prefix `BK-`
+	- Scope: developing the book itself: narrative devices and structure, voice and audience, framing, editorial councils and method. Ontology and AI-safety ideas stay in their own indices.
+	- Pages live in `04_Ideas Topics Concepts/Book Development/`. Root page: `BK-000 Book Development Root`.
 
 ## Summary
 The master index was created so the routing check in bookmark-index-maintainer v1.3 has one place to find all indices.

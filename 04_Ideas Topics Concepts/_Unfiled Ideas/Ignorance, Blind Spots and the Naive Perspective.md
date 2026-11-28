@@ -25,7 +25,7 @@ created: 2026-11-27
 - Add a naive-perspective council voice (childlike or wise-fool) whose job is to ask the question nobody in the room thinks to ask.
 
 ## Conceptual territory
-- Relates to [[Council of Children and Innocence]] and the council roster in [[Council Roster Expansion]].
+- Relates to the council of children and innocence in [[Council Roster Expansion]].
 - Pairs with [[Assessor Situation and Standpoint]], since blind spots depend on position.
 
 ## Summary

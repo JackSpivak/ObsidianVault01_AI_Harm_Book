@@ -25,7 +25,7 @@ created: 2026-11-27
 
 ## Conceptual territory
 - Feeds [[Diagnostic Model of Harm Assessment]] as differential-diagnosis cases.
-- Relates to intention and attitude in [[HO-002 Ontology Stress-Test Suite]] and to [[Psychological harms]] as a category question. Territory is new as a test set.
+- Relates to intention and attitude in [[HO-002 Ontology Stress-Test Suite]]. Territory is new as a test set.
 
 ## Summary
 - Can dreams create harm? If a dream changes how someone acts or feels, the harm may be real but its carrier is internal. The question is whether the ontology has a place for harm that runs through experience alone.
