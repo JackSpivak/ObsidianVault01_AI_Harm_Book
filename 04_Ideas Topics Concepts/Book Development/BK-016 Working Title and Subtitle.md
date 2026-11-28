@@ -35,7 +35,7 @@ created: 2026-11-27
 - Candidate subtitle, from the author's words: **Flying in the Gaps**. The author suggested this as "possibly a title and subtitle thought".
 - Both phrases describe a stance: the book works where attention does not reach, rather than against the institutions that would resist it. That fits the positioning strategy already in the vault, and it also fits the book's theme of harm that goes unnoticed.
 - Open risk: "flying under the radar" can read as evasion. The book's central claims are about visible harms, so the title should not suggest that the book hides its position.
-- there is a really interesting mirror issue here.  as humans in an AI dominated future we may very well need to fly under the radar for survival (or running between the legs of the dinosaurs to tie to past evolutionary survival imperitive)  but right now (evidence in the epic openAI/ hugging face attack of 2026)
+- there is a really interesting mirror issue here.  as humans in an AI dominated future we may very well need to fly under the radar for survival (or running between the legs of the dinosaurs to tie to past evolutionary survival imperitive)  but right now (evidence in the epic openAI/ hugging face attack of 2026) AI is also learning to "fly under the radar" of human oversight, detection and control
 
 ## Original wording
 > "'Flying under the radar flying in the gaps' would be possibly a title and subtitle thought. did we create a note yet for working title for the book?"
