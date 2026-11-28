@@ -3,11 +3,11 @@ epoch: 1795852553754
 mode: agent
 backendId: opencode
 sessionId: "ses_dded98ad0ffe5fgyt2SeFStO7k"
-model: '{"baseModelId":"google/gemini-3.5-flash-lite","effort":"low"}'
+model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Blockers and open questions"
-usage: '{"usedTokens":106641,"contextWindow":1048576,"updatedAt":1795855737396}'
+usage: '{"usedTokens":209183,"contextWindow":1000000,"updatedAt":1795856383694}'
 ---
 
 **user**: Blockers and Open Questions
@@ -929,3 +929,99 @@ HarmAssessment (Class / Instance of Judging Action)
 ```
 <!-- copilot-message {"tools":["obsidian-copilot_miyo_search (other)"]} -->
 [Timestamp: 2026/11/28 01:48:50]
+
+**user**: what is the causalModel in group 6
+[Timestamp: 2026/11/28 01:51:47]
+
+**ai**: In the context of **Group 6 (Methodological Core & Truth Criteria)** of a `PerspectiveType`, **`causalModel`** is the structural attribute that records *how a given tradition or lens conceives of cause and effect*. 
+
+Different perspectives operate with entirely different causal architectures. For example:
+* **Epidemiology / Public Health:** Relies on probabilistic, multivariable, and population-level causal models (e.g., Bradford Hill criteria, regression models).
+* **Law (Tort / Criminal):** Relies on deterministic, counterfactual, and agent-accountable causal models (e.g., *but-for*, proximate cause, *mens rea*).
+* **Systems Engineering / Safety:** Relies on interactive, sociotechnical, or feedback-loop causal models (e.g., STAMP, Swiss Cheese model, complex adaptive systems).
+* **Deep Ecology / Economics:** Relies on distributed, long-horizon equilibrium or feedback-loop models.
+
+In the ontology, `causalModel` specifies which causal framework or paradigm that particular tradition uses when it evaluates how a `Factor` leads to an `Effect`.
+<!-- copilot-message {"tools":["obsidian-copilot_miyo_search (other)"]} -->
+[Timestamp: 2026/11/28 01:51:47]
+
+**user**: would causalModel point to a perspective specific instance of a CausalModel?  or to a NamedIndividual within a catalog?
+[Timestamp: 2026/11/28 01:53:58]
+
+**ai**: `causalModel` points to a **`skos:Concept` from a controlled concept scheme or vocabulary layer** (or an instance representing a recognized modeling paradigm), rather than a perspective-specific instance built from scratch every time. 
+
+Because multiple traditions might share or cross-reference the same causal framework (e.g., *probabilistic risk analysis*, *deterministic tort attribution*, or *system dynamics feedback*), storing them as shared concepts in the vocabulary layer allows different `PerspectiveType` definitions to point to the exact same standardized IRI.
+<!-- copilot-message {"tools":["obsidian-copilot_miyo_search (other)"]} -->
+[Timestamp: 2026/11/28 01:53:58]
+
+**user**: so there would be a hub skos:ConceptScheme (possibly named CausalModelScheme that included spokes of individual causal models for each perspective?
+[Timestamp: 2026/11/28 01:55:42]
+
+**ai**: **Yes, exactly.** 
+
+Under the vault's **Three-Layer Model** (Schema, Profiles, Vocabulary) and the **Hub-and-Spoke Pattern**, here is how it is structured:
+
+1. **The Scheme (`skos:ConceptScheme`):** A controlled concept scheme (for example, `hov:causalModelScheme` or integrated into the vocabulary layer) acts as the container for the master concept.
+2. **The Hub (`skos:Concept`):** The neutral, cross-disciplinary idea of a causal model is minted once as a hub concept (e.g., `hov:causalModel`).
+3. **The Spokes (Discipline/Tradition specific):** Individual frameworks or paradigms used by different traditions (e.g., `law:butForCausation`, `epidemiology:bradfordHillCriteria`, `systems:feedbackLoopModel`) act as `skos:Concept` spokes that map back to the hub using SKOS mapping relations (`skos:exactMatch`, `skos:closeMatch`, etc.).
+
+When a `PerspectiveType` specifies its `causalModel` property in Group 6, it points directly to that concept IRI in the vocabulary layer.
+<!-- copilot-message {"tools":["obsidian-copilot_miyo_search (other)"]} -->
+[Timestamp: 2026/11/28 01:55:42]
+
+**user**: would it be correct then to call this concept scheme a catalog of skos:Concepts that are also owl:NamedIndividuals
+[Timestamp: 2026/11/28 01:57:09]
+
+**ai**: **Error:** Internal error: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 250000, model: gemini-3.5-flash-lite, description: Generate content input tokens per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.
+Please retry in 47.70983228s.
+more message: Internal error: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 250000, model: gemini-3.5-flash-lite, description: Generate content input tokens per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.
+Please retry in 47.70983228s.
+<!-- copilot-message {"tools":["obsidian-copilot_miyo_search (other)"]} -->
+[Timestamp: 2026/11/28 01:57:09]
+
+**user**: resume
+[Timestamp: 2026/11/28 01:57:29]
+
+**ai**: **Mostly yes, with one correction to the wording.** A `skos:ConceptScheme` is not a catalog of `owl:NamedIndividual`s. It is a SKOS container that groups concepts through `skos:inScheme`. The concepts inside it can also be declared as `owl:NamedIndividual`, so that OWL relations such as `causalModel` can point to them.
+
+The pattern would look like this:
+
+```turtle
+hov:CausalModelScheme a owl:NamedIndividual, skos:ConceptScheme ;
+    skos:prefLabel "Causal models" .
+
+hov:causalModel a owl:NamedIndividual, skos:Concept ;   # hub
+    skos:inScheme hov:CausalModelScheme ;
+    skos:prefLabel "causal model" .
+
+law:butForCausation a owl:NamedIndividual, skos:Concept ;   # spoke
+    skos:inScheme hov:CausalModelScheme ;
+    skos:broadMatch hov:causalModel ;
+    skos:prefLabel "but-for causation" .
+```
+
+`PerspectiveType` would then point at the spoke with `causalModel`, for example `ho:TortLaw ho:causalModel law:butForCausation`.
+
+Three points to settle before this is adopted:
+
+1. **Key the spokes by causal model, not by perspective.** Several traditions can share one model, so a spoke such as `systems:feedbackLoopModel` should exist once and be reused. A perspective-specific instance would duplicate it.
+2. **Dual typing is legal but needs declaring.** `skos:Concept` is an external class, so an individual can be both a `skos:Concept` and an OWL individual in OWL DL. The vault's handoff recommends this, but it is a proposal, not a logged decision.
+3. **Check it against the 2026-11-21 rule.** That rule makes an element that takes part in a relation an individual of an OWL class. A causal model takes part in `causalModel`, so it fits the rule. Confirm this when the placement test (S28) runs.
+[Timestamp: 2026/11/28 01:57:29]
+
+**user**: when you say they "can also be declared as owl:NamedIndividuals"  isn't that actually necessary for our structure which actually does have ex:causalModel pointing to them to work.  seems like i requirement
+[Timestamp: 2026/11/28 01:59:37]
+
+**ai**: Yes, you're right. I presented it as optional, and it isn't.
+
+In OWL, an object property assertion such as `ho:TortLaw ho:causalModel law:butForCausation` relates two individuals. If `law:butForCausation` is only a `skos:Concept` (a class-level type), it cannot be the object of that assertion under OWL DL semantics. Declaring it as `owl:NamedIndividual` is therefore required whenever `causalModel` points to it.
+
+Two consequences follow:
+
+1. **The rule is a constraint on the structure, not just a style choice.** Any hub or spoke that a schema property points to must be declared as an individual, and the declaration should be in the schema or vocabulary file that the tool loads.
+2. **The alternative is weaker.** You could store the link as an annotation property, or as a SKOS-only mapping outside the OWL graph. That avoids the typing requirement, but `causalModel` would then not take part in reasoning, querying by class, or domain and range checks. That loses the reason for making it a property in the first place.
+
+So the decision is effectively already forced by your design. Dual typing (`owl:NamedIndividual, skos:Concept`) is the way to get SKOS vocabulary and OWL relations on the same IRI. The earlier wording should have said that it is required for `causalModel`, not "can also be."
+[Timestamp: 2026/11/28 01:59:37]
