@@ -30,6 +30,7 @@ Click the arrow beside an item to open or close its branch.
 		- [[BK-007 Parables as Teaching Form - Farmers and Native American Stories|BK-007 — Parables as teaching form]]: how much and what kind of parable the book carries.
 		- [[BK-008 What Does Love Intend - Council of Love|BK-008 — What does love intend]]: intention as a test of harm, with a Council of Love.
 		- [[BK-009 Urgency, Priorities and Who Cares|BK-009 — Urgency, priorities and who cares]]: how competing interests set the agenda.
+		- [[BK-016 Working Title and Subtitle|BK-016 — Working title and subtitle]]: candidate title "Flying Under the Radar" and subtitle "Flying in the Gaps"; not yet entered in the Book Brief.
 	- **BK-III — Councils and method** (tier): who checks the book and how.
 		- [[BK-010 Council Roster Expansion|BK-010 — Council roster expansion]]: the full set of specialist councils, grouped by domain.
 		- [[BK-011 Council Dialogue Mechanics - Question-Led Councils|BK-011 — Council dialogue mechanics]]: questions over verdicts, non-linear engagement, iterative editing.

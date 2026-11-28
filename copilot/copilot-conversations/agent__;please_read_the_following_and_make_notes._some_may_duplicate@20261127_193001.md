@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm ontology book notes"
-usage: '{"usedTokens":191438,"contextWindow":1000000,"updatedAt":1795844271754}'
+usage: '{"usedTokens":200525,"contextWindow":1000000,"updatedAt":1795844611979}'
 ---
 
 **user**: ;please read the following and make notes. some may duplicate existing idea notes plwase check
@@ -342,5 +342,32 @@ I haven't changed anything. I can do a complete line-by-line pass: for each sent
 **user**: thank you. yes. also the several gap should be put into a note mayby called random uncatagorizable brain dump notes or something like that.  i don't want to loose them
 [Timestamp: 2026/11/27 22:40:01]
 
-**ai**: 
+**ai**: I'll create the holding note in the Writer's Room as a dated session note, since that's the folder for session and brainstorm material. It will hold the fragments I've confirmed are missing from the cards, quoted verbatim.I created the holding note at `01_The Writer's Room/2026-11-27 Uncategorized Brain Dump Fragments.md`. It quotes each fragment verbatim, notes where it sits in your dump, and suggests a possible home.
+
+It holds six fragments:
+1. Categorizing harmfulness, learnable and teachable
+2. "Only has the context that we provide"
+3. Satsang and the samsara, time and suffering question
+4. "Flying under the radar flying in the gaps"
+5. The optimist/pessimist tension sentence, verbatim
+6. "Psychological harms" as a heading, with an open question on whether it's a category
+
+The full line-by-line audit is not finished. These six fragments are the gaps I found by searching. Other lines may be paraphrased or missing, and I haven't checked every sentence against a card. I can run the full pass next, in chunks, and add anything missing to this note or to the right card's Original wording.
+<!-- copilot-message {"tools":["write (edit): 01_The Writer's Room/2026-11-27 Uncategorized Brain Dump Fragments.md"]} -->
 [Timestamp: 2026/11/27 22:40:01]
+
+**user**: "Flying under the radar flying in the gaps" would be possibly a title and subtitle thought.  did we create a note yet for working title for the book?
+[Timestamp: 2026/11/27 22:43:10]
+
+**ai**: No working-title note exists. `02_Claude_Admin/Book_Brief.md` has an empty "Working title" field, and that brief is read at the start of every session. The "Flying Under the Radar" idea also already appears in `structured-inquiry-book-notes`, as a positioning strategy. I'll create a dedicated title note, linked to the brief and to those existing notes, and leave the brief itself for you to fill in.No, there wasn't one. I created it now as `BK-016 Working Title and Subtitle` in the Book Development folder and added it to the index under the voice and framing branch.
+
+- **Candidate title:** "Flying Under the Radar".
+- **Candidate subtitle:** "Flying in the Gaps", as you suggested.
+- **Risk noted in the card:** "flying under the radar" can read as evasion. The book's claims are about visible harms, so the title should not suggest the book hides its position.
+- **Already in the vault:** "Flying Under the Radar" appears in `structured-inquiry-book-notes` as a positioning strategy, and BK-012 uses the phrase as a gap-audit test. The card links both.
+
+I haven't entered the title in `02_Claude_Admin/Book_Brief.md`, because that brief is the one Claude reads at the start of every session and it's your decision. Confirm the title and I'll fill in the brief's "Working title" field.
+
+As with BK-015, I created the card directly with its ID instead of routing it through `_Unfiled Ideas` as a draft.
+<!-- copilot-message {"tools":["grep (search): .","read (read): 02_Claude_Admin/Book_Brief.md","read (read): 06_Resources/structured-inquiry-book-notes.md","write (edit): 04_Ideas Topics Concepts/Book Development/BK-016 Working Title and Subtitle.md","edit (edit): 04_Ideas Topics Concepts/Book Development/_Book Development Bookmark Index.md"]} -->
+[Timestamp: 2026/11/27 22:43:10]
