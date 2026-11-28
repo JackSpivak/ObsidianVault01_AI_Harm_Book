@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Blockers and open questions"
-usage: '{"usedTokens":224779,"contextWindow":1000000,"updatedAt":1795857561124}'
+usage: '{"usedTokens":234548,"contextWindow":1000000,"updatedAt":1795858198937}'
 ---
 
 **user**: Blockers and Open Questions
@@ -1242,3 +1242,176 @@ This needs three answers before it can be logged:
 
 If you agree with the split, I'll log it as proposed with those three questions open. Do you want to decide the three questions now or leave them open?
 [Timestamp: 2026/11/28 02:19:13]
+
+**user**: first is yes.  second is yes .  third is yes
+[Timestamp: 2026/11/28 02:21:42]
+
+**ai**: Item 2 is logged as settled.
+
+- **Decisions_Log:** a new 2026-11-28 row above the provenance entry. It covers the split: rules on `AssessmentProcedure`, and cases on `AssessmentOutput` and `RemedialObligation`. `closureStatus` sits on each remedy, and the enumerations are named individuals.
+- **Change ledger, S26:** the note now says item 2 is settled. S26 stays Provisional for three open items: procedure ownership, object or data kind for each attribute, and the overlap between `enablesAssessment` and `takenFrom`.
+<!-- copilot-message {"tools":["edit (edit): 02_Claude_Admin/Decisions_Log.md","edit (edit): 04_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md"]} -->
+[Timestamp: 2026/11/28 02:21:42]
+
+**user**: left on 26?
+[Timestamp: 2026/11/28 02:22:10]
+
+**ai**: Four items from the S26 list are still open, not three:
+
+- **Item 3, procedure ownership.** Who issues a procedure: the institution that holds the enforcement authority, or the lens. The tree currently doesn't say.
+- **Item 4, enumerations as individuals.** The dual-typing rule and the output decision cover `closureStatus` and `RemedyType`. The other enumerations, such as `enforcementPower`, `valuationCurrency`, `assessmentTiming` and `epistemicStatus`, still need the same treatment.
+- **Item 5, object or data kind.** Each attribute in the tree still needs one kind, so Protégé and queries behave predictably.
+- **Item 6, relation overlap.** Whether `enablesAssessment` and `takenFrom` both link a perspective to an assessment, and which one answers which question.
+
+My last ledger note said "Items 4, 5, 6 still open" and listed three topics. That numbering is wrong: it should say items 3 to 6. I can correct that wording in the ledger and the log. S28 (the placement test) also still needs its status updated.
+[Timestamp: 2026/11/28 02:22:10]
+
+**user**: are there other options for enumerations?  why would we treat these as skos: concepts with owl:namedindividuals
+[Timestamp: 2026/11/28 02:23:37]
+
+**ai**: There are several options, and the choice should follow what each value needs.
+
+1. **Plain literals with a SHACL `sh:in` list.** The value is a string such as `"binding"`, and SHACL restricts it to a list. This is simple, but the value has no IRI, so it can't carry a definition, be mapped to another discipline's term, or be used as a query target.
+2. **`owl:oneOf` enumerated class.** The values are named individuals of a closed class, with no SKOS layer. The reasoner and Protégé both handle this well, and it suits values that are structural and have no narrative.
+3. **One OWL subclass per value.** This is the weakest option. It conflicts with our rule that subclasses are for kinds, not values, and it gives each value a class-level identity it doesn't need.
+4. **SKOS concepts that are also named individuals (dual typing).** This is what we chose for `closureStatus` and `RemedyType`. The values carry definitions, labels and cross-discipline mappings, and the schema can still refer to them.
+
+Why use option 4 for these? Because the values carry meaning that varies by discipline. "Binding" enforcement means something different to a court than to an ethics board, so the value needs its own definition and mappings, which is the job of the vocabulary layer. The schema still needs the value as an individual, so it can be referenced and reasoned over. That combination is the reason for dual typing.
+
+The rule I'd propose for the author to confirm is:
+
+- **If a value has narrative, mappings across disciplines, or is shared by several perspectives**, use option 4.
+- **If a value is closed, structural, and has no narrative**, use option 2.
+- **Option 1 is only for values that never need to be referenced.**
+
+Applied to the current enumerations: `enforcementPower`, `valuationCurrency`, `remedyEnforceability` and `epistemicStatus` look like option 4, because each has discipline-specific meaning. `assessmentTiming` (ex-ante, ex-post, continuous) may be option 2, since it is closed and structural. This needs a check value by value, not a blanket decision.
+[Timestamp: 2026/11/28 02:23:37]
+
+**user**: is 4 the only option if we want each of these enumerations to carry rich skos narrative?
+[Timestamp: 2026/11/28 02:25:28]
+
+**ai**: Yes, for rich SKOS narrative, option 4 is the only one that works as designed.
+
+Here is why. SKOS annotations such as `skos:definition`, `skos:scopeNote`, `skos:altLabel` and the mapping properties attach to a `skos:Concept`. A plain literal (option 1) has no IRI to attach them to. An `owl:oneOf` individual (option 2) can carry rdfs:comment or other annotations, but not the SKOS vocabulary and mapping structure the crosswalk uses, so the narrative would be ad hoc. A subclass (option 3) can carry annotations, but it is the wrong kind of thing for a value.
+
+There is one caveat. Option 4 is the only option that gives the full SKOS structure, but it does not require every value to be a concept in the same scheme. Values could also be concepts in a discipline scheme and mapped to a hub, as the other hubs already are.
+
+So the choice reduces to one question: does this enumeration need rich narrative? If yes, option 4. If the values are closed and structural, option 2 is simpler and avoids the overhead of a full SKOS entry.
+[Timestamp: 2026/11/28 02:25:28]
+
+**user**: lets do 4 then. decided
+[Timestamp: 2026/11/28 02:25:42]
+
+**ai**: I've logged it as settled.
+
+- **Decisions_Log:** a new 2026-11-28 row. Enumerations such as `enforcementPower`, `valuationCurrency`, `assessmentTiming` and `epistemicStatus` are SKOS concepts that are also named individuals. The row records the rejected options and the reason for rejecting each.
+- **Change ledger, S26:** item 4 is now marked settled. Items 3, 5 and 6 remain open.
+
+One consequence to check: `assessmentTiming` (ex-ante, ex-post, continuous) is closed and structural, so the lighter `owl:oneOf` option might have suited it. The log says that option was discussed and not adopted, and it can be reopened if the SKOS overhead proves too high.
+<!-- copilot-message {"tools":["edit (edit): 02_Claude_Admin/Decisions_Log.md","edit (edit): 04_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md"]} -->
+[Timestamp: 2026/11/28 02:25:42]
+
+**user**: continue to resolve s26
+[Timestamp: 2026/11/28 02:26:11]
+
+**ai**: Three items remain. Each needs a decision from you, so I'll give a recommendation for each.
+
+**Item 3: who owns the procedure**
+
+Recommendation: the procedure does not hang off `PerspectiveType`. It is linked to the body that issues it:
+
+```text
+AssessmentProcedure
+└── issuedBy → Organization (or Agent)
+```
+
+`EnforcementAuthority` in Group 1 then refers to that organization. An organization can issue several procedures, and a procedure can be adopted by more than one organization, so `adoptedBy` can be added later if needed.
+
+Why not on the lens: a tradition like utilitarianism does not issue statutes. Tying procedures to lenses would again mix description with institutional authority.
+
+**Item 5: object or data kind**
+
+Recommendation: a simple rule.
+
+- If the value is an individual with its own identity, provenance or narrative (an enumeration per item 4, a document, an organization), use an **object property**.
+- If the value is a plain literal (text, a date, a number, a boolean, a duration), use a **data property**.
+
+Applied to the current tree:
+- `statutoryBasis` → object property to a `LegalSource` individual, because provenance needs to point to the document.
+- `enforcementPower`, `valuationCurrency`, `remedyEnforceability`, `assessmentTiming`, `epistemicStatus`, `closureStatus` → object properties to enumeration individuals (item 4).
+- `deadlineDuration`, `triggerThreshold`, `validFrom`, `validTo`, `permitsIncommensurableTradeoffs`, `confidenceLevel` (if numeric) → data properties.
+
+**Item 6: `enablesAssessment` versus `takenFrom`**
+
+Recommendation: keep them distinct and say what each means.
+
+- `enablesAssessment` (`PerspectiveType` → `HarmAssessment`) is a claim about **licence**: this lens is recognised as a basis for this kind of assessment.
+- `takenFrom` (`HarmAssessment` → `PerspectiveSpecification`) is the **record**: this judgment was actually made from this specification, which instantiates the lens.
+
+Pushback: `enablesAssessment` may be partly redundant. If each judgment already records its specification and each specification instantiates a lens, then "which lens produced this judgment" can be queried through the chain. So `enablesAssessment` should exist only to express licence that does not come from an actual judgment. If we cannot name a case where it is needed, we should drop it.
+
+Decisions needed:
+1. Item 3: procedure linked to an issuing organization, as proposed?
+2. Item 5: the object/data rule, and its application above?
+3. Item 6: keep both with the meanings above, or drop `enablesAssessment`?
+[Timestamp: 2026/11/28 02:26:11]
+
+**user**: so do we have an issuiing, an adopting and also an enforcing uthority
+[Timestamp: 2026/11/28 02:27:32]
+
+**ai**: Not necessarily. The three roles are different, and they are often held by different bodies, so the model should name them separately, but not all three need to be required.
+
+- **Issuing:** who writes and publishes the procedure. Example: an ISO committee publishes a safety standard.
+- **Adopting:** who chooses to use it and when. Example: a company or regulator adopts that standard, possibly by reference, with an effective date.
+- **Enforcing:** who has the power to act on a judgment made under it. Example: a regulator can fine, or a court can order a remedy.
+
+These can coincide. A regulator can issue, adopt and enforce its own rules. They often split: a standards body issues, a regulator adopts it into law, and a court enforces.
+
+Proposed structure:
+
+```text
+AssessmentProcedure
+├── issuedBy → Organization            (required: who wrote it)
+├── hasEnforcementAuthority → Organization   (required: who can act on the result)
+└── adoptedBy → Organization           (optional, many: who has taken it up)
+```
+
+Two points to decide:
+
+1. **Are two required links enough?** Issuing and enforcement are the ones the tree needs for provenance and for remedies (`remedyEnforceability` depends on who enforces). Adoption can be optional.
+2. **Adoption date.** If the history of adoption matters (for example, "the regulator adopted this standard in 2019 and repealed it in 2024"), adoption should be an individual with its own dates, not a bare link. I'd make it an individual only if the author needs that history.
+
+Decisions needed: keep `issuedBy` and `hasEnforcementAuthority` as required, with `adoptedBy` optional, and do we need dated adoption records?
+[Timestamp: 2026/11/28 02:27:32]
+
+**user**: keep adoption optional and no adoption records for now. decided
+[Timestamp: 2026/11/28 02:29:33]
+
+**ai**: Item 3 is logged as settled.
+
+- **Decisions_Log:** a new 2026-11-28 row. `AssessmentProcedure` has two required links, `issuedBy` and `hasEnforcementAuthority`, both to an Organization. `adoptedBy` is optional. There are no dated adoption records, and the procedure is not linked to `PerspectiveType`.
+- **Change ledger, S26:** item 3 is marked settled. Items 5 (object or data kind) and 6 (`enablesAssessment` versus `takenFrom`) remain open.
+<!-- copilot-message {"tools":["edit (edit): 02_Claude_Admin/Decisions_Log.md","edit (edit): 04_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md"]} -->
+[Timestamp: 2026/11/28 02:29:33]
+
+**user**: continue to ressolve s26
+[Timestamp: 2026/11/28 02:29:54]
+
+**ai**: Item 5 is next: whether each attribute is an object property or a data property. I proposed a rule last time, so this is a yes or no on it, plus a few specific cases.
+
+**Proposed rule:** if the value is an individual with its own identity, provenance or narrative, use an **object property**. If it is a plain literal, such as text, a date, a number, a boolean or a duration, use a **data property**.
+
+**Applied to the current tree:**
+
+- **Object properties** (value is an individual):
+  - `statutoryBasis` → a `LegalSource` individual, so provenance can point to the document
+  - `enforcementPower`, `valuationCurrency`, `remedyEnforceability`, `assessmentTiming`, `epistemicStatus`, `closureStatus` → enumeration individuals (item 4)
+  - `issuedBy`, `hasEnforcementAuthority`, `adoptedBy` → Organization (item 3)
+- **Data properties** (value is a literal):
+  - `deadlineDuration`, `triggerThreshold`, `validFrom`, `validTo`, `permitsIncommensurableTradeoffs`
+- **Needs a decision:**
+  - `confidenceLevel`: if it is a graded scale with narrative, it is an enumeration (object property). If it is a plain number, it is a data property.
+  - `atHorizon`: a time interval. If intervals are individuals with dates, object. If it is a single date, data.
+
+Do you approve the rule, and how should `confidenceLevel` and `atHorizon` be handled?
+[Timestamp: 2026/11/28 02:29:54]
