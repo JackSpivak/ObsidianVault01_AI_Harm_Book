@@ -21,7 +21,23 @@ But real harm does not live in clean boxes. Harms are sprawling, living, breathi
 
 We have built a digital civilization that is brilliant at calculating outcomes, but utterly illiterate in the language of care. **That blindness is the defining crisis of our technological age.**
 
----
+A skill and a plain note differ mainly in how reliably the instructions get applied, not in what they contain.
+
+**What a skill adds**
+- **Automatic loading.** A skill has a short description that I see in every conversation. When your request matches it, I load the full instructions without you asking. A note only helps if I happen to search for it or you tell me to open it.
+- **Consistent behaviour.** Skill instructions are followed as operating rules for that task. A note is treated as reference material, so its rules can be missed, merged with other context, or overridden by a later instruction.
+- **Structure for the details.** A skill can keep the trigger table in `SKILL.md` and the full rosters in `references/`, so each council's detail loads only when needed.
+- **Fixed inputs.** The `harm-ontology-gap-analyst` skill already uses this to require a perspective before it starts and to avoid carrying over context. Councils could follow the same pattern: name the council, then load its roster.
+
+**What a note does better**
+- **Easy to edit.** You can change a persona by opening the note. A skill works the same way but sits in a folder that is easy to overlook.
+- **Visible to you.** The note sits in your normal vault and is easy to read and link to. A skill lives under `copilot/skills/`.
+- **No setup.** A note works now. Making a skill depends on Copilot picking up the new folder.
+
+**For this case, the difference is:**
+If you say "Classical Council, discuss X" and the personas are only in a note, I may or may not find and follow the rules, and I may drift from the rosters in long conversations. As a skill, the trigger would load the rosters and apply the rules each time, so the same council members, voices, and output format appear across sessions. The cost is that the roster would then exist in two places, the note and the skill, unless the skill points to the note as its single source.
+
+My recommendation is a skill whose `references/` files are the rosters and whose `SKILL.md` lists the trigger phrases, with `Claude_philosophers.md` kept as the human-readable reference. Shall I build that?
 
 ## II. The Searchlight, the Lighthouse, and the Blueprint
 To overcome this, we must radically rethink the instruments we use to navigate reality. 
