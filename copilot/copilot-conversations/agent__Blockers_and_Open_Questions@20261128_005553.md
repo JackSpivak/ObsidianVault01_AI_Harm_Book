@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Blockers and open questions"
-usage: '{"usedTokens":218968,"contextWindow":1000000,"updatedAt":1795857001478}'
+usage: '{"usedTokens":224779,"contextWindow":1000000,"updatedAt":1795857561124}'
 ---
 
 **user**: Blockers and Open Questions
@@ -1148,3 +1148,97 @@ So the tree is provisional until the author accepts it and it is logged, and the
 
 Items 1 and 2 would change the tree. Items 3 to 6 are open design questions. I can run the placement test on each flagged attribute and show the result, so the author can see the reasoning before anything is logged.
 [Timestamp: 2026/11/28 02:09:50]
+
+**user**: ok. consider 1 i believe you are correct in saying group 5 belong on HarmAssessment.  i don't understand what you are recommending for test's category 4
+[Timestamp: 2026/11/28 02:13:49]
+
+**ai**: I cited the wrong category. Category 4 covers things an assessment produces, such as remedies and closure status. It does not cover provenance.
+
+The test's four categories are:
+
+1. **Tradition or lens:** describes the `PerspectiveType`.
+2. **Act of assessment:** describes the judging itself, such as its procedure, trigger, timing, evidence and confidence.
+3. **Thing assessed:** describes the `Factor`, `Effect` or `AffectedEntity`.
+4. **Output or resolution:** describes what the assessment yields, such as an injunction, a mitigation requirement or a closure status.
+
+Group 5 (`epistemicStatus`, `evidenceAnchor`, `confidenceLevel`, `temporalValidity`) describes how a judgment is supported and how sure we are of it. That makes it category 2, the act of assessment, so `HarmAssessment` is the right home, as you said. Category 4 is not the reason.
+
+Category 4 applies to item 2 only. `closureStatus` and the individual remedy that a case produces describe a resolution, so they belong on the output, not on the procedure. The test does not say whether the output is a separate node or a set of properties on `HarmAssessment`. That is a separate design choice.
+[Timestamp: 2026/11/28 02:13:49]
+
+**user**: pause on category 4 for a minute.  if we move group 5 to harm assessment have we resolved item 1
+[Timestamp: 2026/11/28 02:15:11]
+
+**ai**: Mostly, yes. Moving Group 5 to `HarmAssessment` resolves the core of item 1, because each attribute describes a particular judgment: what it rests on, how confident it is, and when it holds.
+
+Two points remain open:
+
+1. **Procedure-level provenance.** Who wrote a rulebook, which version it is, and where it was published describe the procedure itself, not any single judgment. If we want that, it needs its own small set of attributes on `AssessmentProcedure`. Group 5 as written does not cover it.
+2. **Status is per assessment.** Two assessments of the same effect, from different perspectives, can reach different `epistemicStatus` values. That is consistent with the earlier rule that status is recalculated from assessments rather than stored on the thing assessed. The procedure can require evidence types, but each `HarmAssessment` records its own `evidenceAnchor` and status.
+
+So I'd say item 1 is resolved for the judgment-level attributes. The procedure-level provenance question is a small follow-up, not a reason to reopen the placement.
+[Timestamp: 2026/11/28 02:15:11]
+
+**user**: i think i see. if we move group 5 to HarmAssessment we still need a new provenance set for the AssessmentProcedure? is that it
+[Timestamp: 2026/11/28 02:17:51]
+
+**ai**: Yes, that's it. Moving Group 5 to `HarmAssessment` leaves the procedure with no provenance of its own, so a small separate set is needed on `AssessmentProcedure`. It would cover things like the source document that defines the procedure, its version, who issued it, and when it took effect. Those describe the rulebook, not any single judgment.
+
+It is a short list, and the procedure-level terms can reuse the same W3C PROV-O relations as the judgment-level ones. Whether it is needed at all depends on whether the author wants to trace which version of a rulebook each assessment followed. If yes, we add it. If not, the procedure can point to its source document and skip the extra set.
+[Timestamp: 2026/11/28 02:17:51]
+
+**user**: yes. lets do both then. approved.  does this settle item 1
+[Timestamp: 2026/11/28 02:18:22]
+
+**ai**: Yes, item 1 is settled as a design question. The judgment-level provenance sits on `HarmAssessment`, and the procedure-level provenance sits on `AssessmentProcedure`. Nothing is left overlapping.
+
+Two caveats:
+
+- **Not logged yet.** The approval so far exists only in this chat, and the Decisions_Log does not reflect it. I'd log it as a Settled decision with a reference to this conversation. Should I draft the row?
+- **Item 1 is not all of S26.** Items 2 to 6 are still open, especially closure and remedy (item 2) and who owns the procedure (item 3). S26 should stay Provisional until those are decided, even though the provenance part is closed.
+[Timestamp: 2026/11/28 02:18:22]
+
+**user**: lets log this to make it official
+[Timestamp: 2026/11/28 02:18:48]
+
+**ai**: I've logged it in two places.
+
+- **Decisions_Log** (`02_Claude_Admin/Decisions_Log.md`): a new row dated 2026-11-28, above the dual-typing row. It covers four points: judgment-level provenance on `HarmAssessment`, a separate provenance set on `AssessmentProcedure`, `enablesAssessment` in Group 9, and closure and remedy left undecided. The row is marked "Settled (items 1 and 3)".
+- **Change ledger**, S26: the status is still Provisional, with a note that item 1 is settled. The note lists the open items: closure and remedy, procedure ownership, enumerations as individuals, object or data kind, and the overlap with `takenFrom`.
+
+S26 is not closed yet. The item-3 wording in the log refers to `enablesAssessment` placement, which the author has accepted. Procedure ownership (item 3 in my earlier list) is still open, so I have only partly logged that point.
+<!-- copilot-message {"tools":["edit (edit): 02_Claude_Admin/Decisions_Log.md","edit (edit): 04_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md"]} -->
+[Timestamp: 2026/11/28 02:18:48]
+
+**user**: lets continue to see if we can resolve item 2
+[Timestamp: 2026/11/28 02:19:13]
+
+**ai**: Item 2 has two parts, and they belong in different places.
+
+**1. Rules about remedies belong on the procedure.** The procedure can say which remedy types a given kind of outcome requires or allows, and how those remedies are enforced. Examples: "a confirmed safety defect requires a corrective action" (obligatory), or "a self-regulated audit may recommend training" (optional). `remedyEnforceability` also fits here, because it describes how the rule is enforced, not what happened in one case.
+
+**2. Remedies that a case produces belong on the output, and closure belongs on each remedy.** A `HarmAssessment` yields an output, and the output can produce several remedies. Each remedy can close on its own date: one may be remedied in a month while another stays open for years. So `closureStatus` belongs on the individual remedy instance, not on the assessment or the procedure.
+
+Proposed structure:
+
+```text
+AssessmentProcedure
+├── identifiesObligatoryRemedy → RemedyType (rule: which types are required)
+├── identifiesOptionalRemedy   → RemedyType (rule: which types are allowed)
+└── remedyEnforceability       (how the rule is enforced)
+
+HarmAssessment
+└── hasOutput → AssessmentOutput
+     └── producesRemedy → RemedialObligation (instance for this case)
+          ├── closureStatus { Open · UnderReview · Remedied · Closed }
+          └── remedyType → RemedyType
+```
+
+This needs three answers before it can be logged:
+
+- **Is `AssessmentOutput` its own class, or just a set of properties on `HarmAssessment`?** A separate class is needed if one assessment can have several outputs, such as a verdict and an audit report.
+- **Does `RemedyType` (rule) differ from `RemedialObligation` (instance)?** I think yes: the type is a category the rule names, and the obligation is a particular case of it. That matches the dual-typing rule, since `RemedyType` values are referenced by the procedure.
+- **`closureStatus` enumeration:** Open, UnderReview, Remedied, Closed. Should these be named individuals under the dual-typing rule?
+
+If you agree with the split, I'll log it as proposed with those three questions open. Do you want to decide the three questions now or leave them open?
+[Timestamp: 2026/11/28 02:19:13]
