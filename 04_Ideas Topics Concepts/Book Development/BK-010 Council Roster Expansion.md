@@ -94,9 +94,6 @@ The list below is in the author's original wording, one council per bullet, in t
 **Nature**
 - Council of nature who speaks for the trees
 
-**Unclear, to confirm with the author**
-- "The wood" (written as "The wood should could and other comparable perspective questions"); not clear whether this is a council or a question set.
-
 **From the Embodied Experience note (earlier writers' councils)**
 - Women, Feminist
 - Elders, Grandmothers
@@ -120,7 +117,6 @@ The list below is in the author's original wording, one council per bullet, in t
 - How many councils can run before the process becomes unmanageable?
 - Which councils must be human, which may be AI, and which should be both?
 - How are religious councils kept accurate and respectful?
-- What does "The wood" refer to?
 
 ## Related
 - [[BK-011 Council Dialogue Mechanics - Question-Led Councils]]

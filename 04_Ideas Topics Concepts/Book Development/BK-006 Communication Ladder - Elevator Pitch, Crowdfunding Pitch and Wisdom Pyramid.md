@@ -31,7 +31,7 @@ created: 2026-11-27
 ## Summary
 - Elevator pitch: one sentence on what the book asks and why it matters now.
 - Kickstarter pitch: who the book is for, what supporters get, and why this inquiry needs them.
-- Wisdom pyramid: at each level, the characteristic question. Data asks "what is it?", information asks "who, when, where?", knowledge asks "how?", and wisdom asks "should we, and what for?" (Standard form of the DIKW pyramid, to be checked.)
+- Wisdom pyramid: the level questions are now in [[BK-015 Wisdom Pyramid - Levels and Their Competency Questions]], which holds the author's questions for knowledge, understanding and wisdom. The data and information questions drafted earlier in this card were placeholders and are not the author's.
 - The book should be able to say which level it works at.
 
 ## Original wording

@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm ontology book notes"
-usage: '{"usedTokens":149469,"contextWindow":1000000,"updatedAt":1795842264129}'
+usage: '{"usedTokens":174861,"contextWindow":1000000,"updatedAt":1795843620867}'
 ---
 
 **user**: ;please read the following and make notes. some may duplicate existing idea notes plwase check
@@ -216,3 +216,78 @@ Two items need your confirmation:
 I didn't include "Sarah medicine satsang" or the Sarah's-friend rap item, since those are test sources, not councils. They're already in the test-corpus card.
 <!-- copilot-message {"tools":["read (read): 04_Ideas Topics Concepts/Book Development/BK-010 Council Roster Expansion.md","write (edit): 04_Ideas Topics Concepts/Book Development/BK-010 Council Roster Expansion.md"]} -->
 [Timestamp: 2026/11/27 22:03:55]
+
+**user**: the "The wood" (written as "The wood should could and other comparable perspective questions"); not clear whether this is a council or a question set. is not a council
+
+this refers to quuestions that might be assessedd as one climbs the wisdom pyramid.  there is a notion in knowledge work that there is a hierarchy of knowledge.  i prefer to think of it as a pyramid of wisdom or enlightenment because knowledge is somewhere near the bottom
+
+from bottom up:
+
+data
+information
+knowledge
+intellegence/understanding
+wisdom
+enlightenment
+
+each hierarchical level represents a distinct value-add above the predecessor
+
+the excerpt
+"The wood" (written as "The wood should could and other comparable perspective questions"); not clear whether this is a council or a question set.
+
+refers to a notion that distinguishes layers might be in the questions that could be answered from each levels perspectives.  this might (or might not) relate to competency questions ... in particular what a level of perspective in this hierarchy is competent to decide.
+
+for example
+
+Knowledge Level might ask "Could I do this?  or How could i do this?
+Intellegence/Understanding might ask "Would I do this from a practical perspective? Is it the right thing to satisfy goals and objectives of the requirement, situation, conditions and time?
+Wisdom might ask "Should I do this? Is it the right thing to do from the moral or ethical perspective? Is the requirement itself morally proper, fit and just? Is the requirement well enough framed to even judge its potential outcomes from a moral or ethical perspective? Is it improperly situated within situations, conditions and time?
+
+if we already have a wisdom pyramid or knowledge pyramid or knowledge hierarchy note ad these questions and clarification from this prompt there. if not create one
+[Timestamp: 2026/11/27 22:21:50]
+
+**ai**: The vault already has a Wisdom Pyramid section in `structured-inquiry-book-notes`, plus a pyramid mention in BK-006. I'll read both before deciding where the questions go.The vault has a short Wisdom Pyramid section in a resource note, but no dedicated note for the levels and their questions. Your message gives the six levels and the competency questions for three of them, so I'll create a dedicated card. I'll also remove "The wood" from BK-010, since you've confirmed it isn't a council, and correct the pyramid line in BK-006.I created a dedicated wisdom pyramid note, BK-015, and removed "The wood" from the council roster.
+
+**"The wood":** removed from BK-010, both the unclear-items section and the open question. It was never a council.
+
+**BK-015 Wisdom Pyramid - Levels and Their Competency Questions:**
+- **Levels, bottom up:** data, information, knowledge, intelligence/understanding, wisdom, enlightenment. Each level adds value over the one below it.
+- **Competency questions:** the questions you gave for knowledge, understanding and wisdom, in your wording. The note frames them as a competency test: a level answers what it is competent to decide and passes up anything beyond that.
+- **Gaps:** no questions were given for data, information or enlightenment, so those are marked open.
+- **Placement:** I put it in BK-III (councils and method) and added it to the index. It revisits the short Wisdom Pyramid section in `structured-inquiry-book-notes`, which I left unchanged.
+- **Source:** it links to the Harm Ontology v3 test summary, since that file already uses competency questions.
+
+**Correction to BK-006:** the data and information questions I drafted earlier ("what is it?", "who, when, where?") were my placeholders, not yours. BK-006 now points to BK-015 and says so.
+
+I created BK-015 directly with its ID, rather than routing it through `_Unfiled Ideas` as a draft. Tell me if you want it moved through that pipeline instead.
+<!-- copilot-message {"tools":["grep (search): .","read (read): 06_Resources/structured-inquiry-book-notes.md","write (edit): 04_Ideas Topics Concepts/Book Development/BK-015 Wisdom Pyramid - Levels and Their Competency Questions.md","edit (edit): 04_Ideas Topics Concepts/Book Development/BK-010 Council Roster Expansion.md","edit (edit): 04_Ideas Topics Concepts/Book Development/BK-006 Communication Ladder - Elevator Pitch, Crowdfunding Pitch and Wisdom Pyramid.md","edit (edit): 04_Ideas Topics Concepts/Book Development/_Book Development Bookmark Index.md"]} -->
+[Timestamp: 2026/11/27 22:21:50]
+
+**user**: these levels also relate strongly to notions of "moral altitude" and "developmental altitude" that we have discussed as we looked for various things and relationships we need to represent in the Harm Ontology.  Can you find and link this note to those representation notes or discussions?
+[Timestamp: 2026/11/27 22:26:32]
+
+**ai**: The strongest matches are the Integral Altitude Scale note, the Vocabulary Crosswalk and Hub-and-Spoke notes on `developmentalAltitude`, and the PerspectiveStructure handoffs with the three-axis proposal. I'll confirm their exact filenames before linking.I'll add a section to BK-015 that places the pyramid against the altitude representation, and link the notes that discuss it.I linked BK-015 to the altitude representation notes and added a section explaining how the two relate.
+
+**Links added to BK-015's Related section:**
+- [[Integral Altitude Scale]]: Wilber's altitude scale as value records.
+- [[Vocabulary Crosswalk - Concept Hubs and Discipline Schemes]]: `developmentalAltitude` as a concept hub.
+- [[HO-II.d.3 Hub and Spoke Pattern]]: the three elements that share the name `developmentalAltitude`.
+- [[PerspectiveStructure 0.01]] and [[PerspectiveStructure Proposal Draft 3.1]]: where the perspective fields sit.
+- [[Handoff - PerspectiveStructure 0.02]]: the three scope axes proposal.
+- [[Harm Ontology v3.1 — Feature Roadmap and Change Ledger]]: the open items S34 and V7.
+
+**New section, "Connection to altitude representation":**
+- **Likely relation:** the higher pyramid levels ask from a wider frame, which resembles developmental altitude.
+- **Not the same axis:** the pyramid orders what a level can decide, while altitude orders how inclusive a value structure is. The ontology already keeps size, altitude and moral circle as separate axes. A pyramid level would be a fourth axis unless it matches one of those. This is open.
+- **Whose ranking:** the Kohlberg–Gilligan dispute shows that altitude scales encode their authors' views. Any pyramid ranking should carry the same `assessedBy` record.
+- **Status:** altitude is still contested (S34), and it is blocked until its citations are verified (V7). The pyramid shouldn't depend on it until then.
+
+I only changed BK-015. The altitude notes don't link back to it yet. Adding that would mean editing the Harm Ontology notes, so I'll do it only if you want it.
+<!-- copilot-message {"tools":["grep (search): .","glob (search)","edit (edit): 04_Ideas Topics Concepts/Book Development/BK-015 Wisdom Pyramid - Levels and Their Competency Questions.md"]} -->
+[Timestamp: 2026/11/27 22:26:32]
+
+**user**: '
+[Timestamp: 2026/11/27 22:26:58]
+
+**ai**: Your message only contains a single quotation mark, so I'm not sure what you need. Did you want me to add the reverse links from the altitude notes back to BK-015, or is something else missing from your message?
+[Timestamp: 2026/11/27 22:26:58]

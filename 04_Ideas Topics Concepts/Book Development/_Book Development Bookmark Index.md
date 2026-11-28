@@ -36,6 +36,7 @@ Click the arrow beside an item to open or close its branch.
 		- [[BK-012 Questions Over Answers and the Book as Prompt|BK-012 — Questions over answers]]: the synopsis as prompt, and a closing gap audit.
 		- [[BK-013 Cross-Model Questioning - AI Asks AI the Important Questions|BK-013 — Cross-model questioning]]: AI models questioning one another, as a prototype.
 		- [[BK-014 Human-AI Complementary Strengths|BK-014 — Human-AI complementary strengths]] (revisits [[structured-inquiry-book-notes]]): how human and AI strengths set goals together.
+		- [[BK-015 Wisdom Pyramid - Levels and Their Competency Questions|BK-015 — Wisdom pyramid: levels and their competency questions]] (revisits [[structured-inquiry-book-notes]]): data to enlightenment, with the questions each level is competent to answer.
 
 ## Summary
 The index was created on 2026-11-27 because the book-specific ideas (narrative devices, epilogues, voice, councils and framing) had no home. The ontology and AI-governance ideas stayed in their own indices.
