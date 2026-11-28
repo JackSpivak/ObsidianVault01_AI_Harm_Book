@@ -25,7 +25,7 @@ created: 2026-11-27
 - Track which entity levels are still present in each chapter, so the reader can see the disappearance before the characters do.
 
 ## Conceptual territory
-- Built on the scale shift in [[Scale Shift Twist - Institutions Versus a Coordinated AI Whole]] and on the chapter-level markers in [[Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]].
+- Built on the scale shift in [[Scale Shift Twist - Institutions Versus a Coordinated AI Whole]] and on the chapter-level markers in [[BK-017 Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]].
 - The endings it leads to are [[BK-002.a Epilogue - Harm Ends When Only an Omnipotent AI Holds Value]] and [[BK-002.b Epilogue - Cosmic Dispersal and Merger into the Whole]].
 
 ## Summary
@@ -52,5 +52,5 @@ created: 2026-11-27
 ## Related
 - [[Blinking Out - Ancestors Erased and the Simulation as Reality]]
 - [[Scale Shift Twist - Institutions Versus a Coordinated AI Whole]]
-- [[Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]]
+- [[BK-017 Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]]
 - [[Actor Typology - Who Can Be Harmed and Who Can Harm]]

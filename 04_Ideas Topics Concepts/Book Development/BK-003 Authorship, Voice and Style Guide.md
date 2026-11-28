@@ -57,5 +57,5 @@ created: 2026-11-27
 ## Related
 - [[structured-inquiry-book-notes]]
 - [[BK-011 Council Dialogue Mechanics - Question-Led Councils]]
-- [[Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]]
+- [[BK-017 Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]]
 - [[Embodied Experience Councils for Uncanny Detection]]

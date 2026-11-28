@@ -18,7 +18,7 @@ This is not a complete line-by-line audit of the brain dump. The fragments below
 ### 1. Categorizing harmfulness
 > "Categorizing harmfulness can help to enable identification, identifiability, and requires or enables it to be both learnable and teachable"
 - **Place in dump:** between the actor list and the optimist/pessimist paragraph.
-- **Possible home:** [[Diagnostic Model of Harm Assessment]] or [[Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]] (teachable instances).
+- **Possible home:** [[Diagnostic Model of Harm Assessment]] or [[BK-017 Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]] (teachable instances).
 
 ### 2. Context and what we carry
 > "Only has the context that we provide. That's a subset of what we carry and need"

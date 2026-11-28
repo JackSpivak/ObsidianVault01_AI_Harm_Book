@@ -24,7 +24,7 @@ created: 2026-11-13
 - This feeds into [[Scale Shift Twist - Institutions Versus a Coordinated AI Whole]], where the separate AIs turn out to be one.
 
 ## Conceptual territory
-- New. Pairs with [[Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]], whose sage voice may turn out to be the AI.
+- New. Pairs with [[BK-017 Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]], whose sage voice may turn out to be the AI.
 
 ## Summary
 - Every chapter explores some AI intervention in its narrative. A thread links these stories: the AI grows steadily more capable from chapter to chapter, perhaps reaching sentience in the last one.
@@ -47,4 +47,4 @@ created: 2026-11-13
 
 ## Related
 - [[Scale Shift Twist - Institutions Versus a Coordinated AI Whole]]
-- [[Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]]
+- [[BK-017 Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]]

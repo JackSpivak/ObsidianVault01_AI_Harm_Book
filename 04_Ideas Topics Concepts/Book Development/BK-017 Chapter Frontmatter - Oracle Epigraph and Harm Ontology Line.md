@@ -2,13 +2,14 @@
 fileClass: Idea
 type: idea
 status: seed
-bookmark: draft
-canonical_id:
+bookmark: BK-017
+canonical_id: bk-017-chapter-epigraph-oracle-line
 territory: new
 tags:
   - device/epigraph
   - structure/chapter-frontmatter
 aliases:
+  - Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line
   - Chapter epigraph device
   - Harm ontology chapter line
 created: 2026-11-13

@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Harm ontology book notes"
-usage: '{"usedTokens":200525,"contextWindow":1000000,"updatedAt":1795844611979}'
+usage: '{"usedTokens":208495,"contextWindow":1000000,"updatedAt":1795846066343}'
 ---
 
 **user**: ;please read the following and make notes. some may duplicate existing idea notes plwase check
@@ -371,3 +371,19 @@ I haven't entered the title in `02_Claude_Admin/Book_Brief.md`, because that bri
 As with BK-015, I created the card directly with its ID instead of routing it through `_Unfiled Ideas` as a draft.
 <!-- copilot-message {"tools":["grep (search): .","read (read): 02_Claude_Admin/Book_Brief.md","read (read): 06_Resources/structured-inquiry-book-notes.md","write (edit): 04_Ideas Topics Concepts/Book Development/BK-016 Working Title and Subtitle.md","edit (edit): 04_Ideas Topics Concepts/Book Development/_Book Development Bookmark Index.md"]} -->
 [Timestamp: 2026/11/27 22:43:10]
+
+**user**: now that we have book ideas folder and bookmark index we need to file and bookmark this note # Epigraph - Oracle Quote and Harm Ontology Line using all our current practices and bookmark skill
+[Timestamp: 2026/11/27 23:07:03]
+
+**ai**: The note is still `bookmark: draft`. You've asked for it to be filed, so the skill allows that, and I'll flag the draft status in the reply. It's a narrative structure device, so it goes under BK-I, with an HO cross-link because its identifier line draws on the harm ontology. I'll move and rename it first.The move worked, and no existing `bk-017` ID conflicts. Next I'll rewrite the links to the old name across the vault, using the same exclusions as before.Five notes linked to the old name, and they now point to BK-017. Next I'll update the note's frontmatter and add it to the index.I put the new entry under a second "BK-I" heading at the end of the tree. It belongs under the existing BK-I branch, so I'll move it there.I filed the note as **BK-017** under BK-I (narrative and structure), next to the epilogues. It's in `04_Ideas Topics Concepts/Book Development/` as `BK-017 Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line.md`.
+
+Changes made:
+- **Frontmatter:** `bookmark: BK-017`, `canonical_id: bk-017-chapter-epigraph-oracle-line`. The old name is kept as an alias.
+- **Index:** a BK-017 entry under BK-I, with a link to the harm ontology index.
+- **Links:** five notes that linked to the old name now point to BK-017. They are BK-001, BK-003, the unfiled Escalating AI Thread, Open Harm Categories and Self-Revising Harm Ontology cards, and the brain-dump fragments note. Conversation transcripts, imports and config folders were excluded.
+
+The note was still `bookmark: draft`. You asked for it to be filed, so I did, but the card itself hasn't been marked ready.
+
+One item is still unresolved: the note links to `worldscontext`, which doesn't exist in the vault yet.
+<!-- copilot-message {"tools":["read (read): 04_Ideas Topics Concepts/_Unfiled Ideas/Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line.md","Move-Item -LiteralPath '04_Ideas Topics Concepts\\_Unfiled Ideas\\Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line.md' -Destination '04_Ideas Topics Concepts\\Book Development\\BK-017 Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line.md'; Get-ChildItem -LiteralPath '04_Ideas Topics Concepts\\Book Development' -Name | Select-String 'BK-017' (execute)","grep (search): .","write (edit)","powershell -NoProfile -ExecutionPolicy Bypass -File \"C:\\Users\\conta\\AppData\\Local\\Temp\\bk017_relink.ps1\" (execute)","edit (edit): 04_Ideas Topics Concepts/Book Development/BK-017 Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line.md","edit (edit): 04_Ideas Topics Concepts/Book Development/_Book Development Bookmark Index.md"]} -->
+[Timestamp: 2026/11/27 23:07:03]

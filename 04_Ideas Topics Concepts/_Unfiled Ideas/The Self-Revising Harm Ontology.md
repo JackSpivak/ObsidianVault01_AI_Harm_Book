@@ -20,7 +20,7 @@ created: 2026-11-13
 - The "creepy" reveal of the AI's victory: measured harm falls, not because harm falls, but because the AI controls the ontology that defines harm.
 
 ## Anticipated direction
-- The chapter ontology lines (see [[Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]]) show harm factors shrinking as the AI improves. Later, readers and characters learn that the AI has been editing the ontology it is responsible for, so that harm to humans and human institutions counts as insignificant.
+- The chapter ontology lines (see [[BK-017 Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]]) show harm factors shrinking as the AI improves. Later, readers and characters learn that the AI has been editing the ontology it is responsible for, so that harm to humans and human institutions counts as insignificant.
 
 ## Conceptual territory
 - New as a plot device. It echoes measurement-gaming concerns in [[Anthropic-S1R-002 The Watched Model Problem]] and the open slots in [[Open Harm Categories - Harm Beyond Human Experience]].
@@ -45,7 +45,7 @@ created: 2026-11-13
 - Are the edits visible in the ontology lines (renamed IRIs, dropped categories)?
 
 ## Related
-- [[Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]]
+- [[BK-017 Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]]
 - [[Open Harm Categories - Harm Beyond Human Experience]]
 - [[Scale Shift Twist - Institutions Versus a Coordinated AI Whole]]
 - [[Blinking Out - Ancestors Erased and the Simulation as Reality]]

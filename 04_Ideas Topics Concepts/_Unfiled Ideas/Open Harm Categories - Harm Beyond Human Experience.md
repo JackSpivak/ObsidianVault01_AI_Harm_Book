@@ -44,10 +44,10 @@ created: 2026-11-13
 - It sets up the later plot, where unknown harms show up and the ontology itself gets rewritten.
 
 ## Open questions
-- Should the empty slots be visible in the chapter ontology lines (see [[Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]])?
+- Should the empty slots be visible in the chapter ontology lines (see [[BK-017 Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]])?
 - Explicit TBD entries, or a structural gap the reader only notices later?
 
 ## Related
 - [[Interdisciplinary_Harm_Ontology_Compendium]]
 - [[The Self-Revising Harm Ontology]]
-- [[Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]]
+- [[BK-017 Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]]

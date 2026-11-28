@@ -22,6 +22,7 @@ Click the arrow beside an item to open or close its branch.
 		- **BK-002 — Endings** (peers in tension, so lettered):
 			- [[BK-002.a Epilogue - Harm Ends When Only an Omnipotent AI Holds Value|BK-002.a — Epilogue: omnipotent AI, no harm possible]]: harm ends because only the AI holds value and cannot be hurt.
 			- [[BK-002.b Epilogue - Cosmic Dispersal and Merger into the Whole|BK-002.b — Epilogue: cosmic dispersal and merger]]: the AI spreads through the cosmos, then merges into an older whole.
+		- [[BK-017 Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line|BK-017 — Chapter epigraph: oracle quote and harm ontology line]]: each chapter opens with an invented sage's "seeing" and a machine-readable line of harm identifiers, before and after the story. Cross-referenced to the harm ontology in [[_Harm Ontology Bookmark Index|HO]].
 	- **BK-II — Voice, audience and framing** (tier): who speaks, to whom, and where the inquiry sits.
 		- [[BK-003 Authorship, Voice and Style Guide|BK-003 — Authorship, voice and style guide]]: narrator, audience, and a style guide built from bestsellers and persuasive voices.
 		- [[BK-004 Stakes of the Inquiry|BK-004 — Stakes of the inquiry]]: the future of everything that is, plus everything not yet born.
