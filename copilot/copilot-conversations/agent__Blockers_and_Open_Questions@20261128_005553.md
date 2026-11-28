@@ -7,7 +7,7 @@ model: '{"baseModelId":"anthropic/claude-haiku-5-5","effort":"low"}'
 tags:
   - copilot-conversation
 topic: "Blockers and open questions"
-usage: '{"usedTokens":241767,"contextWindow":1000000,"updatedAt":1795858816037}'
+usage: '{"usedTokens":248519,"contextWindow":1000000,"updatedAt":1795859481714}'
 ---
 
 **user**: Blockers and Open Questions
@@ -1548,3 +1548,79 @@ Two options:
 
 I'd lean to option 1, because the procedure link already carries the mandate and a second link adds a way for the two to disagree. Which do you prefer?
 [Timestamp: 2026/11/28 02:40:09]
+
+**user**: it seems absolutely essential to our core values that we know from which perspective an assessment arrises.  that would be true for any assessment, not just a harm assessment.  for example, having individual competency assessed from a psychological perspective would likely lead to a recommendation similar assessment from a legal perspective would likely lead to a judgement with consequences.  how do we retain this awareness and distinction
+[Timestamp: 2026/11/28 02:45:15]
+
+**ai**: You already have this, and the place to keep it is the base `Assessment` class, not `HarmAssessment`.
+
+The chain is:
+
+- Every assessment `takenFrom` a `PerspectiveSpecification`.
+- Each specification `instantiates` a `PerspectiveType` (the lens).
+- The assessment `governedByProcedure` a procedure, and that procedure has an issuing body and an enforcing body.
+
+So the question "from which perspective did this arise?" is answered by a path already in the model. The v3 draft's base `Assessment` class already carries `takenFrom`, so this design does not need to be changed.
+
+Two things make the awareness hold up:
+
+1. **Put `takenFrom` on the base class, not only on `HarmAssessment`.** A competency assessment, a psychological assessment, or a legal assessment would then all carry their perspective in the same way. Harm is one kind of assessment, not the only one.
+2. **Make it required.** A SHACL shape can require every `Assessment` to have exactly one `takenFrom`, and the specification must `instantiate` a lens. An assessment with no perspective would then be flagged, not silently accepted. This is the same pattern as the dual-typing check.
+
+This also answers your example. A psychological competency assessment and a legal assessment of the same person can produce different outputs (a recommendation versus a judgment with consequences). The difference shows up in the output type and in the procedure that governs each one, and the perspective is recorded for both.
+
+So for item 6, my recommendation changes slightly:
+
+- **Drop `enablesAssessment`**, as before. It was the only link that did not come from an actual assessment.
+- **Keep `takenFrom` as the perspective link**, moved to the base `Assessment` class and made required by SHACL.
+
+Do you approve that, and should it be logged as the resolution of item 6?
+[Timestamp: 2026/11/28 02:45:15]
+
+**user**: almost.  more a semantic refinement than a structural question.  is an assessment really "takenFrom" a PerspectiveSpecification" or rather enabledBy a PerspectiveSpecification?
+[Timestamp: 2026/11/28 02:48:59]
+
+**ai**: I'd keep the relation as a record of viewpoint, not change it to "enabled by," and I'd also rename it.
+
+**Why not `enabledBy`:** that wording implies the specification grants permission or makes the assessment possible. That is the licence idea we just dropped. A specification does not license a judgment. It sets the viewpoint the judgment was made from, and the same specification can sit under an assessment that is valid or invalid for other reasons (procedure, mandate, assessor).
+
+**Why `takenFrom` is also imperfect:** it borrows the photo metaphor from the early design notes, and in ordinary use "taken from" suggests copying or citing a source. An assessment is not extracted from a specification. It is made from one.
+
+**Proposed name: `assessedFrom`** (`Assessment` → `PerspectiveSpecification`). It says what happened: the assessment was made from this viewpoint. It is neutral about permission and avoids the citation reading.
+
+So the resolution for item 6 becomes:
+
+- Drop `enablesAssessment`.
+- Use `assessedFrom` (renamed from `takenFrom`) on the base `Assessment` class, required by SHACL.
+- Each specification `instantiates` a `PerspectiveType`, as before.
+
+Do you agree with `assessedFrom`, and should I log item 6 on that basis?
+[Timestamp: 2026/11/28 02:48:59]
+
+**user**: almost.  I would say assessedFromPerspective to make it uniquely meaningful and expressive
+[Timestamp: 2026/11/28 02:50:28]
+
+**ai**: Item 6 is logged, and with it all six S26 items are settled.
+
+- **Decisions_Log:** a new 2026-11-28 row. `enablesAssessment` is removed. The perspective link is `assessedFromPerspective`, on the base `Assessment` class, required by SHACL, and it reaches the lens through `PerspectiveSpecification` → `PerspectiveType`.
+- **Change ledger, S26:** the status now reads "Settled in substance", with a note that the S28 placement test still needs logging before S26 is formally closed.
+
+S28 is the remaining item. I can draft its logging entry, stating the four-category placement test and how it was applied to the S26 decisions, for your review.
+<!-- copilot-message {"tools":["edit (edit): 02_Claude_Admin/Decisions_Log.md","edit (edit): 04_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md"]} -->
+[Timestamp: 2026/11/28 02:50:28]
+
+**user**: great.. what have we unblocked
+[Timestamp: 2026/11/28 02:51:13]
+
+**ai**: Not much is formally unblocked yet, because S28 is still open and both S26 and S27 list it as a blocker.
+
+**What the S26 decisions unblock, once S28 is logged:**
+
+- **S27 (the four gap attribute groups).** Its blockers are S26 and S28. S26 is now settled in substance, so S27 can proceed when S28 is logged. The groups now have a home: mandate, valuation and trigger attributes go on `AssessmentProcedure`, provenance and status go on `Assessment`, and outputs and closure go on `AssessmentOutput` and `RemedialObligation`.
+- **S1 (discipline-enabled assessments and functional subclasses).** Its blocker is S26, which is now settled in substance. The "enables" part of S1 is now affected by the decision to drop `enablesAssessment`, so S1 needs rewording before it can move on. The functional subclasses (regulatory, forensic, diagnostic, normative) can still be considered, since they describe purpose, not licence.
+
+**What is not unblocked:** the open structural items that depend on S21 (deferred) and K1 (causal, valence and responsibility split) are unaffected by these decisions.
+
+The next step is to log S28, which should unblock S27 formally. Should I draft that?
+<!-- copilot-message {"tools":["grep (search): 04_Ideas Topics Concepts/Harm Ontology/Harm Ontology v0.03.1/Harm Ontology v3.1 — Feature Roadmap and Change Ledger.md"]} -->
+[Timestamp: 2026/11/28 02:51:13]
