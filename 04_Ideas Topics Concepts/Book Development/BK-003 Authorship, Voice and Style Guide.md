@@ -2,13 +2,14 @@
 fileClass: Idea
 type: idea
 status: stub
-bookmark: draft
-canonical_id:
+bookmark: BK-003
+canonical_id: bk-003-authorship-voice-style
 territory: new
 tags:
   - book/voice
   - book/style
 aliases:
+  - Authorship, Voice and Style Guide
   - Who writes this book
   - Style guide from bestsellers
   - Council of writers and editors
@@ -27,7 +28,7 @@ created: 2026-11-27
 - Set up an AI council of writers and editors, and a council of trial advocates and framers, as sources of voice tests.
 
 ## Conceptual territory
-- Extends the "Council of Writers and Editors" item in [[structured-inquiry-book-notes]] and the editorial mechanics in [[Council Dialogue Mechanics - Question-Led Councils]].
+- Extends the "Council of Writers and Editors" item in [[structured-inquiry-book-notes]] and the editorial mechanics in [[BK-011 Council Dialogue Mechanics - Question-Led Councils]].
 
 ## Summary
 - Who writes this book, and from which perspective? Is the narrator the author, the AI, a sage, or a chorus?
@@ -55,6 +56,6 @@ created: 2026-11-27
 
 ## Related
 - [[structured-inquiry-book-notes]]
-- [[Council Dialogue Mechanics - Question-Led Councils]]
+- [[BK-011 Council Dialogue Mechanics - Question-Led Councils]]
 - [[Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]]
 - [[Embodied Experience Councils for Uncanny Detection]]

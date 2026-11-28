@@ -2,13 +2,14 @@
 fileClass: Idea
 type: idea
 status: stub
-bookmark: draft
-canonical_id:
+bookmark: BK-008
+canonical_id: bk-008-love-intention-council
 territory: new
 tags:
   - councils/love
   - perspective/intention
 aliases:
+  - What Does Love Intend - Council of Love
   - What love intends
   - Rumi and intention
 created: 2026-11-27
@@ -24,7 +25,7 @@ created: 2026-11-27
 - Let the Council of Love and the Council of Happiness test this question against the cases.
 
 ## Conceptual territory
-- Connects to intention in [[Dreams and Mischief - Boundary Tests of Harm]] and to the Council of Happiness in [[Council Roster Expansion]].
+- Connects to intention in [[Dreams and Mischief - Boundary Tests of Harm]] and to the Council of Happiness in [[BK-010 Council Roster Expansion]].
 
 ## Summary
 - Love is a perspective with its own values and intentions. An act that causes pain can still be an act of love, and an act that causes no visible harm can still betray.
@@ -49,5 +50,5 @@ created: 2026-11-27
 
 ## Related
 - [[Dreams and Mischief - Boundary Tests of Harm]]
-- [[Council Roster Expansion]]
-- [[Urgency, Priorities and Who Cares]]
+- [[BK-010 Council Roster Expansion]]
+- [[BK-009 Urgency, Priorities and Who Cares]]

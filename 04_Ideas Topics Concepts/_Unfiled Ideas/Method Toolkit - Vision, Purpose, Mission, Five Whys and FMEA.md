@@ -26,7 +26,7 @@ created: 2026-11-27
 - Use FMEA to list failure modes of the harm ontology and of the AI systems it describes, with severity, occurrence and detection scores.
 
 ## Conceptual territory
-- FMEA is the basis of the "Council of FMEA failure mode and effect analysts" in [[Council Roster Expansion]].
+- FMEA is the basis of the "Council of FMEA failure mode and effect analysts" in [[BK-010 Council Roster Expansion]].
 - Five-whys links to [[Causal Chains - Occurrents, Participants and Completeness Validation]].
 
 ## Summary
@@ -57,5 +57,5 @@ created: 2026-11-27
 ## Related
 - [[Regulatory Exemplars - Nuclear and Aviation]]
 - [[Causal Chains - Occurrents, Participants and Completeness Validation]]
-- [[Council Roster Expansion]]
+- [[BK-010 Council Roster Expansion]]
 - [[Diagnostic Model of Harm Assessment]]

@@ -2,13 +2,14 @@
 fileClass: Idea
 type: idea
 status: stub
-bookmark: draft
-canonical_id:
+bookmark: BK-013
+canonical_id: bk-013-cross-model-questioning
 territory: new
 tags:
   - method/ai-to-ai
   - governance/reasoning
 aliases:
+  - Cross-Model Questioning - AI Asks AI the Important Questions
   - AI asks AI
   - Reasoning out of harm with a tool that cannot reason
 created: 2026-11-27
@@ -24,7 +25,7 @@ created: 2026-11-27
 - Compare what different models ask, and whether they ask questions the other would not.
 
 ## Conceptual territory
-- Builds on the "AI-to-AI inquiry" and "paradox of reasoning tools" items in [[structured-inquiry-book-notes]] (the "Governance & Safety" section). Connects to [[Questions Over Answers and the Book as Prompt]].
+- Builds on the "AI-to-AI inquiry" and "paradox of reasoning tools" items in [[structured-inquiry-book-notes]] (the "Governance & Safety" section). Connects to [[BK-012 Questions Over Answers and the Book as Prompt]].
 
 ## Summary
 - Can AI models ask one another the questions that matter, so that inquiry continues past one model's blind spots?
@@ -50,6 +51,6 @@ created: 2026-11-27
 - What would count as the prototype having reasoned, rather than having produced text that reads like reasoning?
 
 ## Related
-- [[Questions Over Answers and the Book as Prompt]]
-- [[Human-AI Complementary Strengths]]
+- [[BK-012 Questions Over Answers and the Book as Prompt]]
+- [[BK-014 Human-AI Complementary Strengths]]
 - [[Anthropic-S1R-002 The Watched Model Problem]]

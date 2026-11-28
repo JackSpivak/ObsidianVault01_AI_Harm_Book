@@ -2,13 +2,14 @@
 fileClass: Idea
 type: idea
 status: stub
-bookmark: draft
-canonical_id:
+bookmark: BK-006
+canonical_id: bk-006-communication-ladder
 territory: new
 tags:
   - book/pitch
   - method/wisdom
 aliases:
+  - Communication Ladder - Elevator Pitch, Crowdfunding Pitch and Wisdom Pyramid
   - Elevator pitch for the book
   - Kickstarter book
   - Wisdom pyramid questions
@@ -25,7 +26,7 @@ created: 2026-11-27
 - Map the pyramid levels (data, information, knowledge, wisdom) to the questions each level asks, and check which level the book reaches.
 
 ## Conceptual territory
-- Relates to [[Questions Over Answers and the Book as Prompt]] (the synopsis as prompt) and to [[Stakes of the Inquiry]] (what the pitch must make clear).
+- Relates to [[BK-012 Questions Over Answers and the Book as Prompt]] (the synopsis as prompt) and to [[BK-004 Stakes of the Inquiry]] (what the pitch must make clear).
 
 ## Summary
 - Elevator pitch: one sentence on what the book asks and why it matters now.
@@ -52,6 +53,6 @@ created: 2026-11-27
 - Which pyramid level is the book's intended destination?
 
 ## Related
-- [[Questions Over Answers and the Book as Prompt]]
-- [[Stakes of the Inquiry]]
-- [[Situating the Conversation - Where This Inquiry Lives]]
+- [[BK-012 Questions Over Answers and the Book as Prompt]]
+- [[BK-004 Stakes of the Inquiry]]
+- [[BK-005 Situating the Conversation - Where This Inquiry Lives]]

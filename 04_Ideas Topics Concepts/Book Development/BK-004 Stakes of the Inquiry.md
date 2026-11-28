@@ -2,13 +2,14 @@
 fileClass: Idea
 type: idea
 status: stub
-bookmark: draft
-canonical_id:
+bookmark: BK-004
+canonical_id: bk-004-stakes-of-the-inquiry
 territory: new
 tags:
   - book/stakes
   - book/framing
 aliases:
+  - Stakes of the Inquiry
   - Future at stake
   - What is at risk for the book
 created: 2026-11-27
@@ -24,7 +25,7 @@ created: 2026-11-27
 - Test each claim: whose future, and what is "everything wonderful that has not yet come to be" in concrete terms?
 
 ## Conceptual territory
-- Sets the frame for [[Urgency, Priorities and Who Cares]] and [[Communication Ladder - Elevator Pitch, Crowdfunding Pitch and Wisdom Pyramid]].
+- Sets the frame for [[BK-009 Urgency, Priorities and Who Cares]] and [[BK-006 Communication Ladder - Elevator Pitch, Crowdfunding Pitch and Wisdom Pyramid]].
 
 ## Summary
 - The stakes "literally couldn't be larger": the future of everything that is, plus everything wonderful not yet born.
@@ -48,6 +49,6 @@ created: 2026-11-27
 - Does the scale of the stakes change which harms count as worth mitigating?
 
 ## Related
-- [[Urgency, Priorities and Who Cares]]
-- [[Communication Ladder - Elevator Pitch, Crowdfunding Pitch and Wisdom Pyramid]]
-- [[Situating the Conversation - Where This Inquiry Lives]]
+- [[BK-009 Urgency, Priorities and Who Cares]]
+- [[BK-006 Communication Ladder - Elevator Pitch, Crowdfunding Pitch and Wisdom Pyramid]]
+- [[BK-005 Situating the Conversation - Where This Inquiry Lives]]

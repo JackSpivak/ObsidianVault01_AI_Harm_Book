@@ -2,13 +2,14 @@
 fileClass: Idea
 type: idea
 status: seed
-bookmark: draft
-canonical_id:
+bookmark: BK-012
+canonical_id: bk-012-questions-over-answers
 territory: new
 tags:
   - method/questions
   - book/prompt
 aliases:
+  - Questions Over Answers and the Book as Prompt
   - Questions guide inquiry
   - Synopsis as prompt
   - Gap audit
@@ -26,7 +27,7 @@ created: 2026-11-27
 - Run a closing gap audit that lists omissions and missed openings.
 
 ## Conceptual territory
-- Connects to [[Cross-Model Questioning - AI Asks AI the Important Questions]] and to the meta-prompt idea in [[structured-inquiry-book-notes]].
+- Connects to [[BK-013 Cross-Model Questioning - AI Asks AI the Important Questions]] and to the meta-prompt idea in [[structured-inquiry-book-notes]].
 
 ## Summary
 - Questions guide the direction of inquiry. Answers close it.
@@ -53,7 +54,7 @@ created: 2026-11-27
 - Where do the questions live in the final book: front matter, chapter ends, or a separate volume?
 
 ## Related
-- [[Council Dialogue Mechanics - Question-Led Councils]]
-- [[Cross-Model Questioning - AI Asks AI the Important Questions]]
-- [[Communication Ladder - Elevator Pitch, Crowdfunding Pitch and Wisdom Pyramid]]
+- [[BK-011 Council Dialogue Mechanics - Question-Led Councils]]
+- [[BK-013 Cross-Model Questioning - AI Asks AI the Important Questions]]
+- [[BK-006 Communication Ladder - Elevator Pitch, Crowdfunding Pitch and Wisdom Pyramid]]
 - [[structured-inquiry-book-notes]]

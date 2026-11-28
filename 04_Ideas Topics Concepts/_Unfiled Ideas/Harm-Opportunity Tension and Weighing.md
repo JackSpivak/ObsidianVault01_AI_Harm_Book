@@ -56,4 +56,4 @@ created: 2026-11-27
 - [[Harm as Setback to What Is Valued - Perspective Value Articulation]]
 - [[Assessor Situation and Standpoint]]
 - [[Advantages of a Harm Ontology vs Strict LLM Training]]
-- [[Urgency, Priorities and Who Cares]]
+- [[BK-009 Urgency, Priorities and Who Cares]]

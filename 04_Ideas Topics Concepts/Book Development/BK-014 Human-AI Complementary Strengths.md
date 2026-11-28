@@ -2,14 +2,15 @@
 fileClass: Idea
 type: idea
 status: stub
-bookmark: draft
-canonical_id:
+bookmark: BK-014
+canonical_id: bk-014-human-ai-complementary-strengths
 territory: revisited
 revisits: "[[structured-inquiry-book-notes]]"
 tags:
   - councils/human-ai
   - method/strengths
 aliases:
+  - Human-AI Complementary Strengths
   - What humans bring and what AI brings
   - Productive relationship between human and AI strengths
 created: 2026-11-27
@@ -25,7 +26,7 @@ created: 2026-11-27
 - Design a joint process where each side's strengths set the agenda for the other.
 
 ## Conceptual territory
-- Revisits [[structured-inquiry-book-notes]]. It links to [[Council Dialogue Mechanics - Question-Led Councils]] (how the councils work) and to [[Cross-Model Questioning - AI Asks AI the Important Questions]].
+- Revisits [[structured-inquiry-book-notes]]. It links to [[BK-011 Council Dialogue Mechanics - Question-Led Councils]] (how the councils work) and to [[BK-013 Cross-Model Questioning - AI Asks AI the Important Questions]].
 
 ## Summary
 - Humans bring stakes, care, moral agency and lived experience. AI brings scale, breadth and tireless iteration.
@@ -52,5 +53,5 @@ created: 2026-11-27
 
 ## Related
 - [[structured-inquiry-book-notes]]
-- [[Council Dialogue Mechanics - Question-Led Councils]]
-- [[Cross-Model Questioning - AI Asks AI the Important Questions]]
+- [[BK-011 Council Dialogue Mechanics - Question-Led Councils]]
+- [[BK-013 Cross-Model Questioning - AI Asks AI the Important Questions]]

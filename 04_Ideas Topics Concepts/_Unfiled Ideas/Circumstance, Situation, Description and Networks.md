@@ -25,7 +25,7 @@ created: 2026-11-27
 
 ## Conceptual territory
 - Feeds the situation and horizon work in [[Participation Threshold and Distance from Harm]] and the originating circumstance placeholder in the Harm Ontology's Event class.
-- Related to [[Situating the Conversation - Where This Inquiry Lives]].
+- Related to [[BK-005 Situating the Conversation - Where This Inquiry Lives]].
 
 ## Summary
 - A circumstance is a collection of events.
@@ -51,6 +51,6 @@ created: 2026-11-27
 - How much of the network must be shown for a description to be meaningful?
 
 ## Related
-- [[Situating the Conversation - Where This Inquiry Lives]]
+- [[BK-005 Situating the Conversation - Where This Inquiry Lives]]
 - [[Participation Threshold and Distance from Harm]]
 - [[Modular Schema over a Shared Instance Graph]]

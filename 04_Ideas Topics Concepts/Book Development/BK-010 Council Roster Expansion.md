@@ -2,13 +2,14 @@
 fileClass: Idea
 type: idea
 status: seed
-bookmark: draft
-canonical_id:
+bookmark: BK-010
+canonical_id: bk-010-council-roster-expansion
 territory: new
 tags:
   - councils/roster
   - councils/editorial
 aliases:
+  - Council Roster Expansion
   - Council list
   - Specialist councils
 created: 2026-11-27
@@ -17,7 +18,7 @@ created: 2026-11-27
 # Council Roster Expansion
 
 ## Why this is distinct
-- It is a roster: the full set of additional councils the author listed, grouped by domain. The mechanics of how councils work are on a separate card, [[Council Dialogue Mechanics - Question-Led Councils]].
+- It is a roster: the full set of additional councils the author listed, grouped by domain. The mechanics of how councils work are on a separate card, [[BK-011 Council Dialogue Mechanics - Question-Led Councils]].
 
 ## Anticipated direction
 - Group the councils into families (editorial and arts, human experience, religious and wisdom traditions, institutions and governance, science and systems, nature and ecology, storytelling and history).
@@ -53,7 +54,7 @@ created: 2026-11-27
 - How are religious councils kept accurate and respectful?
 
 ## Related
-- [[Council Dialogue Mechanics - Question-Led Councils]]
+- [[BK-011 Council Dialogue Mechanics - Question-Led Councils]]
 - [[Embodied Experience Councils for Uncanny Detection]]
 - [[Ecospiritualism]]
 - [[structured-inquiry-book-notes]]

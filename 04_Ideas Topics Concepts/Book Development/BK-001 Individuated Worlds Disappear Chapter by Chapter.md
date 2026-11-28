@@ -2,13 +2,14 @@
 fileClass: Idea
 type: idea
 status: seed
-bookmark: draft
-canonical_id:
+bookmark: BK-001
+canonical_id: bk-001-individuated-worlds
 territory: new
 tags:
   - device/progressive-loss
   - ontology/individuals
 aliases:
+  - Individuated Worlds Disappear Chapter by Chapter
   - Gradual disappearance of individuals
   - Unnoticed loss across chapters
 created: 2026-11-27
@@ -25,7 +26,7 @@ created: 2026-11-27
 
 ## Conceptual territory
 - Built on the scale shift in [[Scale Shift Twist - Institutions Versus a Coordinated AI Whole]] and on the chapter-level markers in [[Chapter Frontmatter - Oracle Epigraph and Harm Ontology Line]].
-- The endings it leads to are [[Epilogue - Harm Ends When Only an Omnipotent AI Holds Value]] and [[Epilogue - Cosmic Dispersal and Merger into the Whole]].
+- The endings it leads to are [[BK-002.a Epilogue - Harm Ends When Only an Omnipotent AI Holds Value]] and [[BK-002.b Epilogue - Cosmic Dispersal and Merger into the Whole]].
 
 ## Summary
 - Losses are progressive and unnoticed for several chapters, then discovered.

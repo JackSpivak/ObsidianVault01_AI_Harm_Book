@@ -2,13 +2,14 @@
 fileClass: Idea
 type: idea
 status: stub
-bookmark: draft
-canonical_id:
+bookmark: BK-009
+canonical_id: bk-009-urgency-priorities-who-cares
 territory: new
 tags:
   - method/agenda
   - ethics/care
 aliases:
+  - Urgency, Priorities and Who Cares
   - Who cares and why
   - How competing interests set the agenda
 created: 2026-11-27
@@ -25,7 +26,7 @@ created: 2026-11-27
 - Test whether the book's urgency matches the stakeholders' urgency.
 
 ## Conceptual territory
-- Relates to [[Assessor Situation and Standpoint]] (what position each party holds), [[Harm-Opportunity Tension and Weighing]] (how interests are weighed) and [[Stakes of the Inquiry]].
+- Relates to [[Assessor Situation and Standpoint]] (what position each party holds), [[Harm-Opportunity Tension and Weighing]] (how interests are weighed) and [[BK-004 Stakes of the Inquiry]].
 
 ## Summary
 - Urgency and priority are set by whose interests are most pressing, which depends on standpoint.
@@ -53,5 +54,5 @@ created: 2026-11-27
 ## Related
 - [[Harm-Opportunity Tension and Weighing]]
 - [[Assessor Situation and Standpoint]]
-- [[Stakes of the Inquiry]]
+- [[BK-004 Stakes of the Inquiry]]
 - [[Ecospiritualism]]

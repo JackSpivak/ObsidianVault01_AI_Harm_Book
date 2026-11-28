@@ -2,13 +2,14 @@
 fileClass: Idea
 type: idea
 status: seed
-bookmark: draft
-canonical_id:
+bookmark: BK-011
+canonical_id: bk-011-council-dialogue-mechanics
 territory: new
 tags:
   - councils/mechanics
   - method/editing
 aliases:
+  - Council Dialogue Mechanics - Question-Led Councils
   - Questions not answers in councils
   - Iterative editing by councils
 created: 2026-11-27
@@ -25,7 +26,7 @@ created: 2026-11-27
 
 ## Conceptual territory
 - Extends the "Council Engagement & Harm Assessment Rules" and "Iterative Editing Dynamics" sections of [[structured-inquiry-book-notes]].
-- Depends on [[Council Roster Expansion]] for who sits on each council.
+- Depends on [[BK-010 Council Roster Expansion]] for who sits on each council.
 
 ## Summary
 - Harm inquiry: each council asks questions about each type of harm from its own domain. The questions, not the answers, guide the inquiry.
@@ -52,7 +53,7 @@ created: 2026-11-27
 - Can an AI member ask a question that a human member could not?
 
 ## Related
-- [[Council Roster Expansion]]
+- [[BK-010 Council Roster Expansion]]
 - [[structured-inquiry-book-notes]]
 - [[Ignorance, Blind Spots and the Naive Perspective]]
-- [[Questions Over Answers and the Book as Prompt]]
+- [[BK-012 Questions Over Answers and the Book as Prompt]]

@@ -25,7 +25,7 @@ created: 2026-11-27
 - Ask questions a forest or reef would answer, and treat ecological systems as assessors with their own values.
 
 ## Conceptual territory
-- Relates to [[Ecospiritualism]] and to the "Council of Ecology" and "Council that speaks for the trees" in [[Council Roster Expansion]].
+- Relates to [[Ecospiritualism]] and to the "Council of Ecology" and "Council that speaks for the trees" in [[BK-010 Council Roster Expansion]].
 - Links to the benefit side of the ontology in [[Harm-Opportunity Tension and Weighing]].
 
 ## Summary
@@ -54,6 +54,6 @@ created: 2026-11-27
 
 ## Related
 - [[Ecospiritualism]]
-- [[Council Roster Expansion]]
+- [[BK-010 Council Roster Expansion]]
 - [[Harm-Opportunity Tension and Weighing]]
 - [[Actor Typology - Who Can Be Harmed and Who Can Harm]]

@@ -2,13 +2,14 @@
 fileClass: Idea
 type: idea
 status: stub
-bookmark: draft
-canonical_id:
+bookmark: BK-005
+canonical_id: bk-005-situating-the-conversation
 territory: new
 tags:
   - method/framing
   - book/situation
 aliases:
+  - Situating the Conversation - Where This Inquiry Lives
   - Where the conversation lives
   - Framing the inquiry
 created: 2026-11-27
@@ -52,5 +53,5 @@ created: 2026-11-27
 ## Related
 - [[Circumstance, Situation, Description and Networks]]
 - [[Ignorance, Blind Spots and the Naive Perspective]]
-- [[Communication Ladder - Elevator Pitch, Crowdfunding Pitch and Wisdom Pyramid]]
-- [[Stakes of the Inquiry]]
+- [[BK-006 Communication Ladder - Elevator Pitch, Crowdfunding Pitch and Wisdom Pyramid]]
+- [[BK-004 Stakes of the Inquiry]]

@@ -2,13 +2,14 @@
 fileClass: Idea
 type: idea
 status: stub
-bookmark: draft
-canonical_id:
+bookmark: BK-007
+canonical_id: bk-007-parables-teaching-form
 territory: new
 tags:
   - book/form
   - book/parable
 aliases:
+  - Parables as Teaching Form - Farmers and Native American Stories
   - Chinese farmer parable
   - Native American stories as method
 created: 2026-11-27
@@ -28,8 +29,8 @@ created: 2026-11-27
 
 ## Summary
 - Parables teach through situations rather than rules. They leave the moral open for the listener.
-- The book should ask whether parables fit the questions-over-answers method ([[Questions Over Answers and the Book as Prompt]]).
-- Native American and other oral traditions need consulting councils, not just quotation (see [[Council Roster Expansion]]).
+- The book should ask whether parables fit the questions-over-answers method ([[BK-012 Questions Over Answers and the Book as Prompt]]).
+- Native American and other oral traditions need consulting councils, not just quotation (see [[BK-010 Council Roster Expansion]]).
 
 ## Original wording
 > "Style and pervasiveness of parables the Chinese farmer native American stories?"
@@ -49,6 +50,6 @@ created: 2026-11-27
 
 ## Related
 - [[HO-002 Ontology Stress-Test Suite]]
-- [[Questions Over Answers and the Book as Prompt]]
+- [[BK-012 Questions Over Answers and the Book as Prompt]]
 - [[Test Case Corpus for Harm Detection]]
-- [[Authorship, Voice and Style Guide]]
+- [[BK-003 Authorship, Voice and Style Guide]]
